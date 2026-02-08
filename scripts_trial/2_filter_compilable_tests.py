@@ -137,6 +137,8 @@ import csv
 import re
 from pathlib import Path
 from tree_sitter import Language, Parser
+import shutil
+
 
 JAVA = Language("build/my-languages.so", "java")
 parser = Parser()

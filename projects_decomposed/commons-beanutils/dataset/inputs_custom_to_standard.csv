@@ -1,0 +1,118 @@
+id,test_prefix,test_name
+bean_45_1_1,"    public void testGetAccessibleMethod_1_oe_1_oe() {
+        // easy bit first - find a public method
+        final Method method = MethodUtils.getAccessibleMethod
+                (TestBean.class, ""setStringProperty"", String.class);
+
+                final Method method0 = method;
+        final String methodName0 = ""setStringProperty"";
+        assertNotNull(method0);
+    }
+",MethodUtilsTestCase::testGetAccessibleMethod_1_oe_1_oe
+bean_45_1_2,"    public void testGetAccessibleMethod_1_oe_2_oe() {
+        // easy bit first - find a public method
+        final Method method = MethodUtils.getAccessibleMethod
+                (TestBean.class, ""setStringProperty"", String.class);
+
+                final Method method0 = method;
+        final String methodName0 = ""setStringProperty"";
+        // removed other assertion
+                assertEquals(""Method is not named correctly"",methodName0,method0.getName());
+    }
+",MethodUtilsTestCase::testGetAccessibleMethod_1_oe_2_oe
+bean_45_1_3,"    public void testGetAccessibleMethod_1_oe_3_oe() {
+        // easy bit first - find a public method
+        final Method method = MethodUtils.getAccessibleMethod
+                (TestBean.class, ""setStringProperty"", String.class);
+
+                final Method method0 = method;
+        final String methodName0 = ""setStringProperty"";
+        // removed other assertion
+                // removed other assertion
+                assertTrue(""Method is not public"",Modifier.isPublic(method0.getModifiers()));
+    }
+",MethodUtilsTestCase::testGetAccessibleMethod_1_oe_3_oe
+bean_46_1_1,"    public void testGetAccessibleMethodFromInterface_1_oe_1_oe() {
+        Method method;
+        // trickier this one - find a method in a direct interface
+        method = MethodUtils.getAccessibleMethod
+                (PrivateBeanFactory.create().getClass(),
+                        ""methodBar"",
+                        String.class);
+
+                final Method method0 = method;
+        final String methodName0 = ""methodBar"";
+        assertNotNull(method0);
+    }
+",MethodUtilsTestCase::testGetAccessibleMethodFromInterface_1_oe_1_oe
+bean_46_1_2,"    public void testGetAccessibleMethodFromInterface_1_oe_2_oe() {
+        Method method;
+        // trickier this one - find a method in a direct interface
+        method = MethodUtils.getAccessibleMethod
+                (PrivateBeanFactory.create().getClass(),
+                        ""methodBar"",
+                        String.class);
+
+                final Method method0 = method;
+        final String methodName0 = ""methodBar"";
+        // removed other assertion
+                assertEquals(""Method is not named correctly"",methodName0,method0.getName());
+    }
+",MethodUtilsTestCase::testGetAccessibleMethodFromInterface_1_oe_2_oe
+bean_46_1_3,"    public void testGetAccessibleMethodFromInterface_1_oe_3_oe() {
+        Method method;
+        // trickier this one - find a method in a direct interface
+        method = MethodUtils.getAccessibleMethod
+                (PrivateBeanFactory.create().getClass(),
+                        ""methodBar"",
+                        String.class);
+
+                final Method method0 = method;
+        final String methodName0 = ""methodBar"";
+        // removed other assertion
+                // removed other assertion
+                assertTrue(""Method is not public"",Modifier.isPublic(method0.getModifiers()));
+    }
+",MethodUtilsTestCase::testGetAccessibleMethodFromInterface_1_oe_3_oe
+bean_47_1_1,"    public void testGetAccessibleMethodIndirectInterface_1_oe_1_oe() {
+        Method method;
+        // trickier this one - find a method in a indirect interface
+        method = MethodUtils.getAccessibleMethod
+                (PrivateBeanFactory.createSubclass().getClass(),
+                        ""methodBaz"",
+                        String.class);
+
+                final Method method0 = method;
+        final String methodName0 = ""methodBaz"";
+        assertNotNull(method0);
+    }
+",MethodUtilsTestCase::testGetAccessibleMethodIndirectInterface_1_oe_1_oe
+bean_47_1_2,"    public void testGetAccessibleMethodIndirectInterface_1_oe_2_oe() {
+        Method method;
+        // trickier this one - find a method in a indirect interface
+        method = MethodUtils.getAccessibleMethod
+                (PrivateBeanFactory.createSubclass().getClass(),
+                        ""methodBaz"",
+                        String.class);
+
+                final Method method0 = method;
+        final String methodName0 = ""methodBaz"";
+        // removed other assertion
+                assertEquals(""Method is not named correctly"",methodName0,method0.getName());
+    }
+",MethodUtilsTestCase::testGetAccessibleMethodIndirectInterface_1_oe_2_oe
+bean_47_1_3,"    public void testGetAccessibleMethodIndirectInterface_1_oe_3_oe() {
+        Method method;
+        // trickier this one - find a method in a indirect interface
+        method = MethodUtils.getAccessibleMethod
+                (PrivateBeanFactory.createSubclass().getClass(),
+                        ""methodBaz"",
+                        String.class);
+
+                final Method method0 = method;
+        final String methodName0 = ""methodBaz"";
+        // removed other assertion
+                // removed other assertion
+                assertTrue(""Method is not public"",Modifier.isPublic(method0.getModifiers()));
+    }
+",MethodUtilsTestCase::testGetAccessibleMethodIndirectInterface_1_oe_3_oe

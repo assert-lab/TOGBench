@@ -27,14 +27,14 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.json.junit.JSONMLTest_OE25Dev
-[ERROR] Tests run: 19, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.134 s <<< FAILURE! - in org.json.junit.JSONMLTest_OE25Dev
-[ERROR] emptyTagException_2_oe(org.json.junit.JSONMLTest_OE25Dev)  Time elapsed: 0.007 s  <<< FAILURE!
+[ERROR] Tests run: 19, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.101 s <<< FAILURE! - in org.json.junit.JSONMLTest_OE25Dev
+[ERROR] emptyTagException_2_oe(org.json.junit.JSONMLTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
 org.junit.ComparisonFailure: Expecting an exception message expected:<...y[0] is not a String[](class org.json.JSON...> but was:<...y[0] is not a String[ ](class org.json.JSON...>
 	at org.json.junit.JSONMLTest_OE25Dev.emptyTagException_2_oe(JSONMLTest_OE25Dev.java:496)
 
 [INFO] Running org.json.junit.JSONArrayTest_OE25Dev
-[ERROR] Tests run: 204, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.33 s <<< FAILURE! - in org.json.junit.JSONArrayTest_OE25Dev
-[ERROR] failedGetArrayValues_2_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] Tests run: 204, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.219 s <<< FAILURE! - in org.json.junit.JSONArrayTest_OE25Dev
+[ERROR] failedGetArrayValues_2_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 org.junit.ComparisonFailure: Expected an exception message expected:<...[4] is not a boolean[](class java.lang.Str...> but was:<...[4] is not a boolean[ ](class java.lang.Str...>
 	at org.json.junit.JSONArrayTest_OE25Dev.failedGetArrayValues_2_oe(JSONArrayTest_OE25Dev.java:1098)
 
@@ -63,32 +63,32 @@ org.junit.ComparisonFailure: Expected an exception message expected:<...y[5] is 
 	at org.json.junit.JSONArrayTest_OE25Dev.failedGetArrayValues_16_oe(JSONArrayTest_OE25Dev.java:1343)
 
 [INFO] Running org.json.junit.CookieListTest_OE25Dev
-[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.json.junit.CookieListTest_OE25Dev
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.json.junit.CookieListTest_OE25Dev
 [INFO] Running org.json.junit.XMLTest_OE25Dev
-[INFO] Tests run: 97, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.141 s - in org.json.junit.XMLTest_OE25Dev
+[INFO] Tests run: 97, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.112 s - in org.json.junit.XMLTest_OE25Dev
 [INFO] Running org.json.junit.HTTPTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.HTTPTest_OE25Dev
 [INFO] Running org.json.junit.EnumTest_OE25Dev
-[INFO] Tests run: 82, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in org.json.junit.EnumTest_OE25Dev
+[INFO] Tests run: 82, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s - in org.json.junit.EnumTest_OE25Dev
 [INFO] Running org.json.junit.JSONObjectLocaleTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.json.junit.JSONObjectLocaleTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.JSONObjectLocaleTest_OE25Dev
 [INFO] Running org.json.junit.PropertyTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.json.junit.PropertyTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.PropertyTest_OE25Dev
 [INFO] Running org.json.junit.JSONStringTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.json.junit.JSONStringTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.JSONStringTest_OE25Dev
 [INFO] Running org.json.junit.JSONPointerTest_OE25Dev
-[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.json.junit.JSONPointerTest_OE25Dev
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.json.junit.JSONPointerTest_OE25Dev
 [INFO] Running org.json.junit.XMLConfigurationTest_OE25Dev
-[INFO] Tests run: 84, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s - in org.json.junit.XMLConfigurationTest_OE25Dev
+[INFO] Tests run: 84, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s - in org.json.junit.XMLConfigurationTest_OE25Dev
 [INFO] Running org.json.junit.JSONStringerTest_OE25Dev
-[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in org.json.junit.JSONStringerTest_OE25Dev
+[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.json.junit.JSONStringerTest_OE25Dev
 [INFO] Running org.json.junit.CookieTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.CookieTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.json.junit.CookieTest_OE25Dev
 [INFO] Running org.json.junit.JSONTokenerTest_OE25Dev
 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.JSONTokenerTest_OE25Dev
 [INFO] Running org.json.junit.CDLTest_OE25Dev
-[ERROR] Tests run: 23, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in org.json.junit.CDLTest_OE25Dev
-[ERROR] nullInName_2_oe(org.json.junit.CDLTest_OE25Dev)  Time elapsed: 0.006 s  <<< FAILURE!
+[ERROR] Tests run: 23, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.json.junit.CDLTest_OE25Dev
+[ERROR] nullInName_2_oe(org.json.junit.CDLTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 org.junit.ComparisonFailure: Expecting an exception message expected:<Bad character 'o'[](111). at 2 [charact...> but was:<Bad character 'o'[ ](111). at 2 [charact...>
 	at org.json.junit.CDLTest_OE25Dev.nullInName_2_oe(CDLTest_OE25Dev.java:193)
 
@@ -97,12 +97,12 @@ org.junit.ComparisonFailure: Expecting an exception message expected:<Bad charac
 	at org.json.junit.CDLTest_OE25Dev.badEscapedQuote_2_oe(CDLTest_OE25Dev.java:301)
 
 [INFO] Running org.json.junit.JSONObjectTest_OE25Dev
-[ERROR] Tests run: 505, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 0.244 s <<< FAILURE! - in org.json.junit.JSONObjectTest_OE25Dev
+[ERROR] Tests run: 505, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 0.265 s <<< FAILURE! - in org.json.junit.JSONObjectTest_OE25Dev
 [ERROR] jsonObjectNonAndWrongValues_4_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 org.junit.ComparisonFailure: Expecting an exception message expected:<...y"] is not a Boolean[](class java.lang.Str...> but was:<...y"] is not a Boolean[ ](class java.lang.Str...>
 	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectNonAndWrongValues_4_oe(JSONObjectTest_OE25Dev.java:5891)
 
-[ERROR] jsonObjectNonAndWrongValues_8_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] jsonObjectNonAndWrongValues_8_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.013 s  <<< FAILURE!
 org.junit.ComparisonFailure: Expecting an exception message expected:<...ey"] is not a string[](class java.lang.Boo...> but was:<...ey"] is not a string[ ](class java.lang.Boo...>
 	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectNonAndWrongValues_8_oe(JSONObjectTest_OE25Dev.java:5975)
 
@@ -118,7 +118,7 @@ org.junit.ComparisonFailure: Expecting an exception message expected:<...Key"] i
 org.junit.ComparisonFailure: Expecting an exception message expected:<...ngKey"] is not a int[](class java.lang.Str...> but was:<...ngKey"] is not a int[ ](class java.lang.Str...>
 	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectNonAndWrongValues_20_oe(JSONObjectTest_OE25Dev.java:6371)
 
-[ERROR] jsonObjectNonAndWrongValues_24_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] jsonObjectNonAndWrongValues_24_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 org.junit.ComparisonFailure: Expecting an exception message expected:<...gKey"] is not a long[](class java.lang.Str...> but was:<...gKey"] is not a long[ ](class java.lang.Str...>
 	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectNonAndWrongValues_24_oe(JSONObjectTest_OE25Dev.java:6551)
 
@@ -126,7 +126,7 @@ org.junit.ComparisonFailure: Expecting an exception message expected:<...gKey"] 
 org.junit.ComparisonFailure: Expecting an exception message expected:<...] is not a JSONArray[](class java.lang.Str...> but was:<...] is not a JSONArray[ ](class java.lang.Str...>
 	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectNonAndWrongValues_28_oe(JSONObjectTest_OE25Dev.java:6755)
 
-[ERROR] jsonObjectNonAndWrongValues_32_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] jsonObjectNonAndWrongValues_32_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.008 s  <<< FAILURE!
 org.junit.ComparisonFailure: Expecting an exception message expected:<... is not a JSONObject[](class java.lang.Str...> but was:<... is not a JSONObject[ ](class java.lang.Str...>
 	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectNonAndWrongValues_32_oe(JSONObjectTest_OE25Dev.java:6983)
 
@@ -158,8 +158,8 @@ org.junit.ComparisonFailure: Expecting an exception message expected:<... is not
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.104 s
-[INFO] Finished at: 2026-02-06T14:01:16-06:00
+[INFO] Total time:  10.865 s
+[INFO] Finished at: 2026-02-06T14:37:40-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project json: There are test failures.
 [ERROR] 

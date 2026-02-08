@@ -31,7 +31,7 @@
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-jcache ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache
-[INFO] Storing buildNumber: f446ed1303a240821309b125a7f330fb69105734 at timestamp: 1770408013405
+[INFO] Storing buildNumber: 42f91159e2f430b696e30a5d48814bb569209ba4 at timestamp: 1770410198749
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -74,22 +74,22 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.jcs3.jcache.cdi.CDIJCacheHelperTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.706 s - in org.apache.commons.jcs3.jcache.cdi.CDIJCacheHelperTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.669 s - in org.apache.commons.jcs3.jcache.cdi.CDIJCacheHelperTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.jcache.CachingProviderTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.jcache.CachingProviderTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.jcache.ImmediateExpiryTest_OE25Dev
-[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.055 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.ImmediateExpiryTest_OE25Dev
-[ERROR] immediate_2_oe(org.apache.commons.jcs3.jcache.ImmediateExpiryTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.049 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.ImmediateExpiryTest_OE25Dev
+[ERROR] immediate_2_oe(org.apache.commons.jcs3.jcache.ImmediateExpiryTest_OE25Dev)  Time elapsed: 0.016 s  <<< ERROR!
 javax.cache.CacheException: cache default already exists
 	at org.apache.commons.jcs3.jcache.ImmediateExpiryTest_OE25Dev.immediate_2_oe(ImmediateExpiryTest_OE25Dev.java:57)
 
 [INFO] Running org.apache.commons.jcs3.jcache.ExpiryListenerTest_OE25Dev
-[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.ExpiryListenerTest_OE25Dev
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.026 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.ExpiryListenerTest_OE25Dev
 [ERROR] listener_1_oe(org.apache.commons.jcs3.jcache.ExpiryListenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 javax.cache.CacheException: cache default already exists
 	at org.apache.commons.jcs3.jcache.ExpiryListenerTest_OE25Dev.listener_1_oe(ExpiryListenerTest_OE25Dev.java:70)
 
-[ERROR] listener_2_oe(org.apache.commons.jcs3.jcache.ExpiryListenerTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
+[ERROR] listener_2_oe(org.apache.commons.jcs3.jcache.ExpiryListenerTest_OE25Dev)  Time elapsed: 0.026 s  <<< ERROR!
 javax.cache.CacheException: cache default already exists
 	at org.apache.commons.jcs3.jcache.ExpiryListenerTest_OE25Dev.listener_2_oe(ExpiryListenerTest_OE25Dev.java:86)
 
@@ -98,8 +98,8 @@ javax.cache.CacheException: cache default already exists
 	at org.apache.commons.jcs3.jcache.ExpiryListenerTest_OE25Dev.listener_3_oe(ExpiryListenerTest_OE25Dev.java:105)
 
 [INFO] Running org.apache.commons.jcs3.jcache.CacheTest_OE25Dev
-[ERROR] Tests run: 11, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.CacheTest_OE25Dev
-[ERROR] getPut_1_oe(org.apache.commons.jcs3.jcache.CacheTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
+[ERROR] Tests run: 11, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 0.057 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.CacheTest_OE25Dev
+[ERROR] getPut_1_oe(org.apache.commons.jcs3.jcache.CacheTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 javax.cache.CacheException: cache default already exists
 	at org.apache.commons.jcs3.jcache.CacheTest_OE25Dev.getPut_1_oe(CacheTest_OE25Dev.java:94)
 
@@ -107,7 +107,7 @@ javax.cache.CacheException: cache default already exists
 javax.cache.CacheException: cache default already exists
 	at org.apache.commons.jcs3.jcache.CacheTest_OE25Dev.getPut_2_oe(CacheTest_OE25Dev.java:103)
 
-[ERROR] getPut_3_oe(org.apache.commons.jcs3.jcache.CacheTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] getPut_3_oe(org.apache.commons.jcs3.jcache.CacheTest_OE25Dev)  Time elapsed: 0.018 s  <<< ERROR!
 javax.cache.CacheException: cache default already exists
 	at org.apache.commons.jcs3.jcache.CacheTest_OE25Dev.getPut_3_oe(CacheTest_OE25Dev.java:114)
 
@@ -115,7 +115,7 @@ javax.cache.CacheException: cache default already exists
 javax.cache.CacheException: cache default already exists
 	at org.apache.commons.jcs3.jcache.CacheTest_OE25Dev.getPut_4_oe(CacheTest_OE25Dev.java:126)
 
-[ERROR] loader_1_oe(org.apache.commons.jcs3.jcache.CacheTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] loader_1_oe(org.apache.commons.jcs3.jcache.CacheTest_OE25Dev)  Time elapsed: 0.028 s  <<< ERROR!
 javax.cache.CacheException: cache default already exists
 	at org.apache.commons.jcs3.jcache.CacheTest_OE25Dev.loader_1_oe(CacheTest_OE25Dev.java:803)
 
@@ -144,16 +144,16 @@ javax.cache.CacheException: cache default already exists
 	at org.apache.commons.jcs3.jcache.CacheTest_OE25Dev.listeners_6_oe(CacheTest_OE25Dev.java:688)
 
 [INFO] Running org.apache.commons.jcs3.jcache.NotSerializableTest_OE25Dev
-[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.033 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.NotSerializableTest_OE25Dev
-[ERROR] run_1_oe(org.apache.commons.jcs3.jcache.NotSerializableTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.NotSerializableTest_OE25Dev
+[ERROR] run_1_oe(org.apache.commons.jcs3.jcache.NotSerializableTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 javax.cache.CacheException: cache default already exists
 	at org.apache.commons.jcs3.jcache.NotSerializableTest_OE25Dev.run_1_oe(NotSerializableTest_OE25Dev.java:50)
 
-[ERROR] run_2_oe(org.apache.commons.jcs3.jcache.NotSerializableTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] run_2_oe(org.apache.commons.jcs3.jcache.NotSerializableTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 javax.cache.CacheException: cache default already exists
 	at org.apache.commons.jcs3.jcache.NotSerializableTest_OE25Dev.run_2_oe(NotSerializableTest_OE25Dev.java:60)
 
-[ERROR] run_3_oe(org.apache.commons.jcs3.jcache.NotSerializableTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] run_3_oe(org.apache.commons.jcs3.jcache.NotSerializableTest_OE25Dev)  Time elapsed: 0.022 s  <<< ERROR!
 javax.cache.CacheException: cache default already exists
 	at org.apache.commons.jcs3.jcache.NotSerializableTest_OE25Dev.run_3_oe(NotSerializableTest_OE25Dev.java:72)
 
@@ -190,8 +190,8 @@ javax.cache.CacheException: cache default already exists
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  17.523 s
-[INFO] Finished at: 2026-02-06T14:00:26-06:00
+[INFO] Total time:  18.704 s
+[INFO] Finished at: 2026-02-06T14:36:53-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project commons-jcs3-jcache: There are test failures.
 [ERROR] 

@@ -1,0 +1,199 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.beanutils.converters;
+
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+
+import org.apache.commons.beanutils.ConversionException;
+import org.apache.commons.beanutils.Converter;
+
+/**
+ * Test Case for the ClassConverter class.
+ *
+ * @version $Id$
+ */
+public class ClassConverterTestCase_OE25Dev extends TestCase {
+
+    /**
+     * Construct a new Class Converter test case.
+     * @param name Test Name
+     */
+    public ClassConverterTestCase_OE25Dev(final String name) {
+        super(name);
+    }
+
+    // ------------------------------------------------------------------------
+
+    /**
+     * Create Test Suite
+     * @return test suite
+     */
+    public static TestSuite suite() {
+        return new TestSuite(ClassConverterTestCase_OE25Dev.class);
+    }
+
+    /** Set Up */
+    @Override
+    public void setUp() throws Exception {
+    }
+
+    /** Tear Down */
+    @Override
+    public void tearDown() throws Exception {
+    }
+
+
+    // ------------------------------------------------------------------------
+
+    /**
+     * Test Conversion to String
+     */
+
+    /**
+     * Test Conversion to Class
+     */
+
+    /**
+     * Test Invalid Conversion with default
+     */
+
+    /**
+     * Test Invalid Conversion with default "null"
+     */
+
+    /**
+     * Test Array Conversion
+     */
+
+    /**
+     * Test Invalid
+     */
+    public void testInvalid() {
+        final Converter converter = new ClassConverter();
+
+        // Test invalid class name
+        try {
+            converter.convert(Class.class, "foo.bar");
+            fail("Invalid class name, expected ConversionException");
+        } catch (final ConversionException e) {
+            // expected result
+        }
+    }
+
+    /**
+     * Tries a conversion to an unsupported target type.
+     */
+    public void testUnsupportedTargetType() {
+        final Converter converter = new ClassConverter();
+        try {
+            converter.convert(Integer.class, getClass().getName());
+            fail("Invalid target class not detected!");
+        } catch (final ConversionException cex) {
+            // expected result
+        }
+    }
+
+    public void testConvertToString_1_oe() {
+        final Converter converter = new ClassConverter();
+
+        assertEquals("Class Test", "java.lang.Integer", converter.convert(String.class, Integer.class));
+    }
+
+    public void testConvertToString_2_oe() {
+        final Converter converter = new ClassConverter();
+
+        // removed other assertion
+        assertEquals("Value Test", "foo", converter.convert(String.class, "foo"));
+    }
+
+    public void testConvertToString_3_oe() {
+        final Converter converter = new ClassConverter();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Value Test", "bar", converter.convert(String.class, new StringBuilder("bar")));
+    }
+
+    public void testConvertToString_4_oe() {
+        final Converter converter = new ClassConverter();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Null Test",   null, converter.convert(String.class, null));
+    }
+
+    public void testConvertToClass_1_oe() {
+        final Converter converter = new ClassConverter();
+
+        assertEquals("Class Test",        Integer.class, converter.convert(Class.class, Integer.class));
+    }
+
+    public void testConvertToClass_2_oe() {
+        final Converter converter = new ClassConverter();
+
+        // removed other assertion
+        assertEquals("String Test",       Integer.class, converter.convert(Class.class, "java.lang.Integer"));
+    }
+
+    public void testConvertToClass_3_oe() {
+        final Converter converter = new ClassConverter();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("StringBuilder Test", Integer.class, converter.convert(Class.class, new StringBuilder("java.lang.Integer")));
+    }
+
+    public void testConvertToClassDefault_1_oe() {
+
+        final Converter converter = new ClassConverter(Object.class);
+
+        assertEquals("Invalid Test", Object.class, converter.convert(Class.class, new Integer(6)));
+    }
+
+    public void testConvertToClassDefault_2_oe() {
+
+        final Converter converter = new ClassConverter(Object.class);
+
+        // removed other assertion
+        assertEquals("Null Test",    Object.class, converter.convert(Class.class, null));
+    }
+
+    public void testConvertToClassDefaultNull_1_oe() {
+
+        final Converter converter = new ClassConverter(null);
+
+        assertEquals("Invalid Test", null, converter.convert(Class.class, new Integer(6)));
+    }
+
+    public void testConvertToClassDefaultNull_2_oe() {
+
+        final Converter converter = new ClassConverter(null);
+
+        // removed other assertion
+        assertEquals("Null Test",    null, converter.convert(Class.class, null));
+    }
+
+    public void testArray_1_oe() {
+        final Converter converter = new ClassConverter();
+
+        // Test Array Class to String
+        assertEquals("Array to String", "[Ljava.lang.Boolean;", converter.convert(String.class, Boolean[].class));
+    }
+
+}

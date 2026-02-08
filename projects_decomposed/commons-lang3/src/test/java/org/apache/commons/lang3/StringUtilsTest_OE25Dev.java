@@ -26457,4 +26457,4171 @@ public class StringUtilsTest_OE25Dev {
     }
     }
 
+    @Test
+    public void testAbbreviate_StringIntInt_8_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = -1;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_8_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = -1;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_8_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = -1;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_9_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = 0;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_9_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = 0;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_9_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = 0;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_10_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = 1;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_10_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = 1;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_10_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = 1;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_11_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = 2;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_11_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = 2;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_11_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = 2;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_12_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = 3;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_12_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = 3;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_12_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = 3;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_13_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = 4;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_13_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = 4;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_13_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefg...";
+        final int offset0 = 4;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_14_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...fghi...";
+        final int offset0 = 5;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_14_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...fghi...";
+        final int offset0 = 5;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_14_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...fghi...";
+        final int offset0 = 5;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_15_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ghij...";
+        final int offset0 = 6;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_15_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ghij...";
+        final int offset0 = 6;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_15_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ghij...";
+        final int offset0 = 6;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_16_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...hijk...";
+        final int offset0 = 7;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_16_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...hijk...";
+        final int offset0 = 7;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_16_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...hijk...";
+        final int offset0 = 7;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_17_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 8;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_17_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 8;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_17_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 8;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_18_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 9;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_18_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 9;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_18_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 9;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_19_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 10;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_19_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 10;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_19_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 10;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_20_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 10;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_20_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 10;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_20_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 10;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_21_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 11;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_21_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 11;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_21_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 11;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_22_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 12;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_22_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 12;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_22_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 12;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_23_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 13;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_23_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 13;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_23_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 13;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_24_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 14;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_24_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 14;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_24_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 14;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_25_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 15;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_25_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 15;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_25_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 15;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_26_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 16;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_26_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 16;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_26_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = 16;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_27_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = Integer.MAX_VALUE;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_27_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = Integer.MAX_VALUE;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringIntInt_27_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final int offset0 = Integer.MAX_VALUE;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_9_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+                final String expected0 = "abcdefgh;;";
+        final String abbrevMarker0 = ";;";
+        final int offset0 = -1;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_9_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+                final String expected0 = "abcdefgh;;";
+        final String abbrevMarker0 = ";;";
+        final int offset0 = -1;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_9_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+                final String expected0 = "abcdefgh;;";
+        final String abbrevMarker0 = ";;";
+        final int offset0 = -1;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_10_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefghi.";
+        final String abbrevMarker0 = ".";
+        final int offset0 = 0;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_10_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefghi.";
+        final String abbrevMarker0 = ".";
+        final int offset0 = 0;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_10_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefghi.";
+        final String abbrevMarker0 = ".";
+        final int offset0 = 0;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_11_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefgh++";
+        final String abbrevMarker0 = "++";
+        final int offset0 = 1;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_11_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefgh++";
+        final String abbrevMarker0 = "++";
+        final int offset0 = 1;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_11_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefgh++";
+        final String abbrevMarker0 = "++";
+        final int offset0 = 1;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_12_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefghi*";
+        final String abbrevMarker0 = "*";
+        final int offset0 = 2;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_12_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefghi*";
+        final String abbrevMarker0 = "*";
+        final int offset0 = 2;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_12_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdefghi*";
+        final String abbrevMarker0 = "*";
+        final int offset0 = 2;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_14_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdef____";
+        final String abbrevMarker0 = "____";
+        final int offset0 = 5;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_14_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdef____";
+        final String abbrevMarker0 = "____";
+        final int offset0 = 5;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_14_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "abcdef____";
+        final String abbrevMarker0 = "____";
+        final int offset0 = 5;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_15_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "==fghijk==";
+        final String abbrevMarker0 = "==";
+        final int offset0 = 5;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_15_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "==fghijk==";
+        final String abbrevMarker0 = "==";
+        final int offset0 = 5;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_15_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "==fghijk==";
+        final String abbrevMarker0 = "==";
+        final int offset0 = 5;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_16_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "___ghij___";
+        final String abbrevMarker0 = "___";
+        final int offset0 = 6;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_16_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "___ghij___";
+        final String abbrevMarker0 = "___";
+        final int offset0 = 6;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_16_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "___ghij___";
+        final String abbrevMarker0 = "___";
+        final int offset0 = 6;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_17_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "/ghijklmno";
+        final String abbrevMarker0 = "/";
+        final int offset0 = 7;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_17_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "/ghijklmno";
+        final String abbrevMarker0 = "/";
+        final int offset0 = 7;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_17_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "/ghijklmno";
+        final String abbrevMarker0 = "/";
+        final int offset0 = 7;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_18_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "/ghijklmno";
+        final String abbrevMarker0 = "/";
+        final int offset0 = 8;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_18_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "/ghijklmno";
+        final String abbrevMarker0 = "/";
+        final int offset0 = 8;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_18_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "/ghijklmno";
+        final String abbrevMarker0 = "/";
+        final int offset0 = 8;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_19_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "/ghijklmno";
+        final String abbrevMarker0 = "/";
+        final int offset0 = 9;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_19_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "/ghijklmno";
+        final String abbrevMarker0 = "/";
+        final int offset0 = 9;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_19_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "/ghijklmno";
+        final String abbrevMarker0 = "/";
+        final int offset0 = 9;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_20_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "///ijklmno";
+        final String abbrevMarker0 = "///";
+        final int offset0 = 10;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_20_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "///ijklmno";
+        final String abbrevMarker0 = "///";
+        final int offset0 = 10;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_20_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "///ijklmno";
+        final String abbrevMarker0 = "///";
+        final int offset0 = 10;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_21_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "//hijklmno";
+        final String abbrevMarker0 = "//";
+        final int offset0 = 10;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_21_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "//hijklmno";
+        final String abbrevMarker0 = "//";
+        final int offset0 = 10;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_21_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "//hijklmno";
+        final String abbrevMarker0 = "//";
+        final int offset0 = 10;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_22_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "//hijklmno";
+        final String abbrevMarker0 = "//";
+        final int offset0 = 11;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_22_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "//hijklmno";
+        final String abbrevMarker0 = "//";
+        final int offset0 = 11;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_22_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "//hijklmno";
+        final String abbrevMarker0 = "//";
+        final int offset0 = 11;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_23_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final String abbrevMarker0 = "...";
+        final int offset0 = 12;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_23_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final String abbrevMarker0 = "...";
+        final int offset0 = 12;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_23_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "...ijklmno";
+        final String abbrevMarker0 = "...";
+        final int offset0 = 12;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_24_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "/ghijklmno";
+        final String abbrevMarker0 = "/";
+        final int offset0 = 13;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_24_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "/ghijklmno";
+        final String abbrevMarker0 = "/";
+        final int offset0 = 13;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_24_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "/ghijklmno";
+        final String abbrevMarker0 = "/";
+        final int offset0 = 13;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_25_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "/ghijklmno";
+        final String abbrevMarker0 = "/";
+        final int offset0 = 14;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_25_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "/ghijklmno";
+        final String abbrevMarker0 = "/";
+        final int offset0 = 14;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_25_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "/ghijklmno";
+        final String abbrevMarker0 = "/";
+        final int offset0 = 14;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_26_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "999ijklmno";
+        final String abbrevMarker0 = "999";
+        final int offset0 = 15;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_26_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "999ijklmno";
+        final String abbrevMarker0 = "999";
+        final int offset0 = 15;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_26_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "999ijklmno";
+        final String abbrevMarker0 = "999";
+        final int offset0 = 15;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_27_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "_ghijklmno";
+        final String abbrevMarker0 = "_";
+        final int offset0 = 16;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_27_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "_ghijklmno";
+        final String abbrevMarker0 = "_";
+        final int offset0 = 16;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_27_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "_ghijklmno";
+        final String abbrevMarker0 = "_";
+        final int offset0 = 16;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_28_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "+ghijklmno";
+        final String abbrevMarker0 = "+";
+        final int offset0 = Integer.MAX_VALUE;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    assertTrue(actual0.indexOf((char)('a' + offset0))!= -1,message0 + " -- should contain offset0 character");
+    }
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_28_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "+ghijklmno";
+        final String abbrevMarker0 = "+";
+        final int offset0 = Integer.MAX_VALUE;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                assertTrue(actual0.length()<= maxWidth0,message0 + " -- should not be greater than maxWidth0");
+    }
+
+    @Test
+    public void testAbbreviate_StringStringIntInt_28_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = "raspberry peach";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String expected0 = "+ghijklmno";
+        final String abbrevMarker0 = "+";
+        final int offset0 = Integer.MAX_VALUE;
+        final int maxWidth0 = 10;
+        final String abcdefghijklmno0 = "abcdefghijklmno0";
+                final String message0 = "abbreviate(String,String,int,int) failed";
+                final String actual0 = StringUtils.abbreviate(abcdefghijklmno0, abbrevMarker0, offset0, maxWidth0);
+                if (offset0 >= 0 && offset0 < abcdefghijklmno0.length()) {
+                    // removed other assertion
+                }
+                // removed other assertion
+                assertEquals(expected0, actual0, message0);
+    }
+
 }

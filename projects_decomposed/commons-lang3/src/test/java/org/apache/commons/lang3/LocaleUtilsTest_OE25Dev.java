@@ -155,76 +155,10 @@ public class LocaleUtilsTest_OE25Dev  {
     /**
      * Test localeLookupList() method.
      */
-    @Test
-    public void testLocaleLookupList_Locale() {
-        assertLocaleLookupList(null, null, new Locale[0]);
-        assertLocaleLookupList(LOCALE_QQ, null, new Locale[]{LOCALE_QQ});
-        assertLocaleLookupList(LOCALE_EN, null, new Locale[]{LOCALE_EN});
-        assertLocaleLookupList(LOCALE_EN, null, new Locale[]{LOCALE_EN});
-        assertLocaleLookupList(LOCALE_EN_US, null,
-            new Locale[] {
-                LOCALE_EN_US,
-                LOCALE_EN});
-        assertLocaleLookupList(LOCALE_EN_US_ZZZZ, null,
-            new Locale[] {
-                LOCALE_EN_US_ZZZZ,
-                LOCALE_EN_US,
-                LOCALE_EN});
-    }
 
     /**
      * Test localeLookupList() method.
      */
-    @Test
-    public void testLocaleLookupList_LocaleLocale() {
-        assertLocaleLookupList(LOCALE_QQ, LOCALE_QQ,
-                new Locale[]{LOCALE_QQ});
-        assertLocaleLookupList(LOCALE_EN, LOCALE_EN,
-                new Locale[]{LOCALE_EN});
-
-        assertLocaleLookupList(LOCALE_EN_US, LOCALE_EN_US,
-            new Locale[]{
-                LOCALE_EN_US,
-                LOCALE_EN});
-        assertLocaleLookupList(LOCALE_EN_US, LOCALE_QQ,
-            new Locale[] {
-                LOCALE_EN_US,
-                LOCALE_EN,
-                LOCALE_QQ});
-        assertLocaleLookupList(LOCALE_EN_US, LOCALE_QQ_ZZ,
-            new Locale[] {
-                LOCALE_EN_US,
-                LOCALE_EN,
-                LOCALE_QQ_ZZ});
-
-        assertLocaleLookupList(LOCALE_EN_US_ZZZZ, null,
-            new Locale[] {
-                LOCALE_EN_US_ZZZZ,
-                LOCALE_EN_US,
-                LOCALE_EN});
-        assertLocaleLookupList(LOCALE_EN_US_ZZZZ, LOCALE_EN_US_ZZZZ,
-            new Locale[] {
-                LOCALE_EN_US_ZZZZ,
-                LOCALE_EN_US,
-                LOCALE_EN});
-        assertLocaleLookupList(LOCALE_EN_US_ZZZZ, LOCALE_QQ,
-            new Locale[] {
-                LOCALE_EN_US_ZZZZ,
-                LOCALE_EN_US,
-                LOCALE_EN,
-                LOCALE_QQ});
-        assertLocaleLookupList(LOCALE_EN_US_ZZZZ, LOCALE_QQ_ZZ,
-            new Locale[] {
-                LOCALE_EN_US_ZZZZ,
-                LOCALE_EN_US,
-                LOCALE_EN,
-                LOCALE_QQ_ZZ});
-        assertLocaleLookupList(LOCALE_FR_CA, LOCALE_EN,
-            new Locale[] {
-                LOCALE_FR_CA,
-                LOCALE_FR,
-                LOCALE_EN});
-    }
 
     //-----------------------------------------------------------------------
     /**
@@ -284,13 +218,6 @@ public class LocaleUtilsTest_OE25Dev  {
     /**
      * Test languagesByCountry() method.
      */
-    @Test
-    public void testLanguagesByCountry() {
-        assertLanguageByCountry(null, new String[0]);
-        assertLanguageByCountry("GB", new String[]{"en"});
-        assertLanguageByCountry("ZZ", new String[0]);
-        assertLanguageByCountry("CH", new String[]{"fr", "de", "it"});
-    }
 
     //-----------------------------------------------------------------------
     /**
@@ -331,13 +258,6 @@ public class LocaleUtilsTest_OE25Dev  {
     /**
      * Test countriesByLanguage() method.
      */
-    @Test
-    public void testCountriesByLanguage() {
-        assertCountriesByLanguage(null, new String[0]);
-        assertCountriesByLanguage("de", new String[]{"DE", "CH", "AT", "LU"});
-        assertCountriesByLanguage("zz", new String[0]);
-        assertCountriesByLanguage("it", new String[]{"IT", "CH"});
-    }
 
     /**
      * @param coll  the collection to check
@@ -905,6 +825,1232 @@ public class LocaleUtilsTest_OE25Dev  {
             final Locale loc = LocaleUtils.toLocale(localeStr);
             assertEquals(actualLocale, loc);
     }
+    }
+
+    @Test
+    public void testToLocale_1Part_2_oe_1_oe() {
+        // removed other assertion
+
+                final String language0 = "us";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                assertNotNull(locale0, "valid locale0");
+    }
+
+    @Test
+    public void testToLocale_1Part_2_oe_2_oe() {
+        // removed other assertion
+
+                final String language0 = "us";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                assertEquals(language0, locale0.getLanguage());
+    }
+
+    @Test
+    public void testToLocale_1Part_2_oe_3_oe() {
+        // removed other assertion
+
+                final String language0 = "us";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                // removed other assertion
+                //country and variant are empty
+                assertTrue(locale0.getCountry() == null || locale0.getCountry().isEmpty());
+    }
+
+    @Test
+    public void testToLocale_1Part_2_oe_4_oe() {
+        // removed other assertion
+
+                final String language0 = "us";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                // removed other assertion
+                //country and variant are empty
+                // removed other assertion
+                assertTrue(locale0.getVariant() == null || locale0.getVariant().isEmpty());
+    }
+
+    @Test
+    public void testToLocale_1Part_3_oe_1_oe() {
+        // removed other assertion
+
+        // removed other assertion
+                final String language0 = "fr";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                assertNotNull(locale0, "valid locale0");
+    }
+
+    @Test
+    public void testToLocale_1Part_3_oe_2_oe() {
+        // removed other assertion
+
+        // removed other assertion
+                final String language0 = "fr";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                assertEquals(language0, locale0.getLanguage());
+    }
+
+    @Test
+    public void testToLocale_1Part_3_oe_3_oe() {
+        // removed other assertion
+
+        // removed other assertion
+                final String language0 = "fr";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                // removed other assertion
+                //country and variant are empty
+                assertTrue(locale0.getCountry() == null || locale0.getCountry().isEmpty());
+    }
+
+    @Test
+    public void testToLocale_1Part_3_oe_4_oe() {
+        // removed other assertion
+
+        // removed other assertion
+                final String language0 = "fr";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                // removed other assertion
+                //country and variant are empty
+                // removed other assertion
+                assertTrue(locale0.getVariant() == null || locale0.getVariant().isEmpty());
+    }
+
+    @Test
+    public void testToLocale_1Part_4_oe_1_oe() {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+                final String language0 = "de";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                assertNotNull(locale0, "valid locale0");
+    }
+
+    @Test
+    public void testToLocale_1Part_4_oe_2_oe() {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+                final String language0 = "de";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                assertEquals(language0, locale0.getLanguage());
+    }
+
+    @Test
+    public void testToLocale_1Part_4_oe_3_oe() {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+                final String language0 = "de";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                // removed other assertion
+                //country and variant are empty
+                assertTrue(locale0.getCountry() == null || locale0.getCountry().isEmpty());
+    }
+
+    @Test
+    public void testToLocale_1Part_4_oe_4_oe() {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+                final String language0 = "de";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                // removed other assertion
+                //country and variant are empty
+                // removed other assertion
+                assertTrue(locale0.getVariant() == null || locale0.getVariant().isEmpty());
+    }
+
+    @Test
+    public void testToLocale_1Part_5_oe_1_oe() {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String language0 = "zh";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                assertNotNull(locale0, "valid locale0");
+    }
+
+    @Test
+    public void testToLocale_1Part_5_oe_2_oe() {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String language0 = "zh";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                assertEquals(language0, locale0.getLanguage());
+    }
+
+    @Test
+    public void testToLocale_1Part_5_oe_3_oe() {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String language0 = "zh";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                // removed other assertion
+                //country and variant are empty
+                assertTrue(locale0.getCountry() == null || locale0.getCountry().isEmpty());
+    }
+
+    @Test
+    public void testToLocale_1Part_5_oe_4_oe() {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String language0 = "zh";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                // removed other assertion
+                //country and variant are empty
+                // removed other assertion
+                assertTrue(locale0.getVariant() == null || locale0.getVariant().isEmpty());
+    }
+
+    @Test
+    public void testToLocale_1Part_6_oe_1_oe() {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Valid format but lang doesn't exist, should make instance anyway
+                final String language0 = "qq";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                assertNotNull(locale0, "valid locale0");
+    }
+
+    @Test
+    public void testToLocale_1Part_6_oe_2_oe() {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Valid format but lang doesn't exist, should make instance anyway
+                final String language0 = "qq";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                assertEquals(language0, locale0.getLanguage());
+    }
+
+    @Test
+    public void testToLocale_1Part_6_oe_3_oe() {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Valid format but lang doesn't exist, should make instance anyway
+                final String language0 = "qq";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                // removed other assertion
+                //country and variant are empty
+                assertTrue(locale0.getCountry() == null || locale0.getCountry().isEmpty());
+    }
+
+    @Test
+    public void testToLocale_1Part_6_oe_4_oe() {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Valid format but lang doesn't exist, should make instance anyway
+                final String language0 = "qq";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                // removed other assertion
+                //country and variant are empty
+                // removed other assertion
+                assertTrue(locale0.getVariant() == null || locale0.getVariant().isEmpty());
+    }
+
+    @Test
+    public void testToLocale_1Part_7_oe_1_oe() {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Valid format but lang doesn't exist, should make instance anyway
+        // removed other assertion
+        // LANG-941: JDK 8 introduced the empty locale as one of the default locales
+                final String language0 = "";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                assertNotNull(locale0, "valid locale0");
+    }
+
+    @Test
+    public void testToLocale_1Part_7_oe_2_oe() {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Valid format but lang doesn't exist, should make instance anyway
+        // removed other assertion
+        // LANG-941: JDK 8 introduced the empty locale as one of the default locales
+                final String language0 = "";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                assertEquals(language0, locale0.getLanguage());
+    }
+
+    @Test
+    public void testToLocale_1Part_7_oe_3_oe() {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Valid format but lang doesn't exist, should make instance anyway
+        // removed other assertion
+        // LANG-941: JDK 8 introduced the empty locale as one of the default locales
+                final String language0 = "";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                // removed other assertion
+                //country and variant are empty
+                assertTrue(locale0.getCountry() == null || locale0.getCountry().isEmpty());
+    }
+
+    @Test
+    public void testToLocale_1Part_7_oe_4_oe() {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Valid format but lang doesn't exist, should make instance anyway
+        // removed other assertion
+        // LANG-941: JDK 8 introduced the empty locale as one of the default locales
+                final String language0 = "";
+        final Locale locale0 = LocaleUtils.toLocale(language0);
+                // removed other assertion
+                // removed other assertion
+                //country and variant are empty
+                // removed other assertion
+                assertTrue(locale0.getVariant() == null || locale0.getVariant().isEmpty());
+    }
+
+    @Test
+    public void testLocaleLookupList_Locale_1_oe_1_oe() {
+                final Locale locale0 = null;
+        final Locale defaultLocale0 = null;
+        final Locale[] expected0 = new Locale[0];
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                assertEquals(expected0.length, localeList0.size());
+    }
+
+    @Test
+    public void testLocaleLookupList_Locale_1_oe_2_oe() {
+                final Locale locale0 = null;
+        final Locale defaultLocale0 = null;
+        final Locale[] expected0 = new Locale[0];
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                // removed other assertion
+                assertEquals(Arrays.asList(expected0), localeList0);
+    }
+
+    @Test
+    public void testLocaleLookupList_Locale_1_oe_3_oe() {
+                final Locale locale0 = null;
+        final Locale defaultLocale0 = null;
+        final Locale[] expected0 = new Locale[0];
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                // removed other assertion
+                // removed other assertion
+                assertUnmodifiableCollection(localeList0);
+    }
+
+    @Test
+    public void testLocaleLookupList_Locale_2_oe_1_oe() {
+        // removed other assertion
+                final Locale locale0 = LOCALE_QQ;
+        final Locale defaultLocale0 = null;
+        final Locale[] expected0 = new Locale[]{LOCALE_QQ};
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                assertEquals(expected0.length, localeList0.size());
+    }
+
+    @Test
+    public void testLocaleLookupList_Locale_2_oe_2_oe() {
+        // removed other assertion
+                final Locale locale0 = LOCALE_QQ;
+        final Locale defaultLocale0 = null;
+        final Locale[] expected0 = new Locale[]{LOCALE_QQ};
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                // removed other assertion
+                assertEquals(Arrays.asList(expected0), localeList0);
+    }
+
+    @Test
+    public void testLocaleLookupList_Locale_2_oe_3_oe() {
+        // removed other assertion
+                final Locale locale0 = LOCALE_QQ;
+        final Locale defaultLocale0 = null;
+        final Locale[] expected0 = new Locale[]{LOCALE_QQ};
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                // removed other assertion
+                // removed other assertion
+                assertUnmodifiableCollection(localeList0);
+    }
+
+    @Test
+    public void testLocaleLookupList_Locale_3_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+                final Locale locale0 = LOCALE_EN;
+        final Locale defaultLocale0 = null;
+        final Locale[] expected0 = new Locale[]{LOCALE_EN};
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                assertEquals(expected0.length, localeList0.size());
+    }
+
+    @Test
+    public void testLocaleLookupList_Locale_3_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+                final Locale locale0 = LOCALE_EN;
+        final Locale defaultLocale0 = null;
+        final Locale[] expected0 = new Locale[]{LOCALE_EN};
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                // removed other assertion
+                assertEquals(Arrays.asList(expected0), localeList0);
+    }
+
+    @Test
+    public void testLocaleLookupList_Locale_3_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+                final Locale locale0 = LOCALE_EN;
+        final Locale defaultLocale0 = null;
+        final Locale[] expected0 = new Locale[]{LOCALE_EN};
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                // removed other assertion
+                // removed other assertion
+                assertUnmodifiableCollection(localeList0);
+    }
+
+    @Test
+    public void testLocaleLookupList_Locale_4_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Locale locale0 = LOCALE_EN;
+        final Locale defaultLocale0 = null;
+        final Locale[] expected0 = new Locale[]{LOCALE_EN};
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                assertEquals(expected0.length, localeList0.size());
+    }
+
+    @Test
+    public void testLocaleLookupList_Locale_4_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Locale locale0 = LOCALE_EN;
+        final Locale defaultLocale0 = null;
+        final Locale[] expected0 = new Locale[]{LOCALE_EN};
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                // removed other assertion
+                assertEquals(Arrays.asList(expected0), localeList0);
+    }
+
+    @Test
+    public void testLocaleLookupList_Locale_4_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Locale locale0 = LOCALE_EN;
+        final Locale defaultLocale0 = null;
+        final Locale[] expected0 = new Locale[]{LOCALE_EN};
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                // removed other assertion
+                // removed other assertion
+                assertUnmodifiableCollection(localeList0);
+    }
+
+    @Test
+    public void testLocaleLookupList_LocaleLocale_1_oe_1_oe() {
+                final Locale locale0 = LOCALE_QQ;
+        final Locale defaultLocale0 = LOCALE_QQ;
+        final Locale[] expected0 = new Locale[]{LOCALE_QQ};
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                assertEquals(expected0.length, localeList0.size());
+    }
+
+    @Test
+    public void testLocaleLookupList_LocaleLocale_1_oe_2_oe() {
+                final Locale locale0 = LOCALE_QQ;
+        final Locale defaultLocale0 = LOCALE_QQ;
+        final Locale[] expected0 = new Locale[]{LOCALE_QQ};
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                // removed other assertion
+                assertEquals(Arrays.asList(expected0), localeList0);
+    }
+
+    @Test
+    public void testLocaleLookupList_LocaleLocale_1_oe_3_oe() {
+                final Locale locale0 = LOCALE_QQ;
+        final Locale defaultLocale0 = LOCALE_QQ;
+        final Locale[] expected0 = new Locale[]{LOCALE_QQ};
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                // removed other assertion
+                // removed other assertion
+                assertUnmodifiableCollection(localeList0);
+    }
+
+    @Test
+    public void testLocaleLookupList_LocaleLocale_2_oe_1_oe() {
+        // removed other assertion
+                final Locale locale0 = LOCALE_EN;
+        final Locale defaultLocale0 = LOCALE_EN;
+        final Locale[] expected0 = new Locale[]{LOCALE_EN};
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                assertEquals(expected0.length, localeList0.size());
+    }
+
+    @Test
+    public void testLocaleLookupList_LocaleLocale_2_oe_2_oe() {
+        // removed other assertion
+                final Locale locale0 = LOCALE_EN;
+        final Locale defaultLocale0 = LOCALE_EN;
+        final Locale[] expected0 = new Locale[]{LOCALE_EN};
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                // removed other assertion
+                assertEquals(Arrays.asList(expected0), localeList0);
+    }
+
+    @Test
+    public void testLocaleLookupList_LocaleLocale_2_oe_3_oe() {
+        // removed other assertion
+                final Locale locale0 = LOCALE_EN;
+        final Locale defaultLocale0 = LOCALE_EN;
+        final Locale[] expected0 = new Locale[]{LOCALE_EN};
+        final List<Locale> localeList0 = defaultLocale0 == null ?
+                        LocaleUtils.localeLookupList(locale0) :
+                        LocaleUtils.localeLookupList(locale0, defaultLocale0);
+        
+                // removed other assertion
+                // removed other assertion
+                assertUnmodifiableCollection(localeList0);
+    }
+
+    @Test
+    public void testAvailableLocaleList_3_oe_1_oe() {
+        final List<Locale> list = LocaleUtils.availableLocaleList();
+        final List<Locale> list2 = LocaleUtils.availableLocaleList();
+        // removed other assertion
+        // removed other assertion
+                final Collection<?> coll0 = list;
+        assertThrows(UnsupportedOperationException.class, () -> coll0.add(null));
+    }
+
+    @Test
+    public void testAvailableLocaleSet_3_oe_1_oe() {
+        final Set<Locale> set = LocaleUtils.availableLocaleSet();
+        final Set<Locale> set2 = LocaleUtils.availableLocaleSet();
+        // removed other assertion
+        // removed other assertion
+                final Collection<?> coll0 = set;
+        assertThrows(UnsupportedOperationException.class, () -> coll0.add(null));
+    }
+
+    @Test
+    public void testLanguagesByCountry_1_oe_1_oe() {
+                final String country0 = null;
+        final String[] languages0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                assertNotNull(list0);
+    }
+
+    @Test
+    public void testLanguagesByCountry_1_oe_2_oe() {
+                final String country0 = null;
+        final String[] languages0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                // removed other assertion
+                assertSame(list0, list20);
+    }
+
+    @Test
+    public void testLanguagesByCountry_1_oe_3_oe() {
+                final String country0 = null;
+        final String[] languages0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages0
+                for (final String language0 : languages0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        assertTrue(locale0.getVariant()== null || locale0.getVariant().isEmpty());
+    }
+    }
+    }
+
+    @Test
+    public void testLanguagesByCountry_1_oe_4_oe() {
+                final String country0 = null;
+        final String[] languages0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages0
+                for (final String language0 : languages0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        // removed other assertion
+                        assertEquals(country0, locale0.getCountry());
+    }
+    }
+    }
+
+    @Test
+    public void testLanguagesByCountry_1_oe_5_oe() {
+                final String country0 = null;
+        final String[] languages0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages0
+                for (final String language0 : languages0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        // removed other assertion
+                        // removed other assertion
+                        if (language0.equals(locale0.getLanguage())) {
+                            found0 = true;
+                            break;
+                        }
+                    }
+                    assertTrue(found0, "Could not find language0: " + language0 + " for country0: " + country0);
+    }
+    }
+
+    @Test
+    public void testLanguagesByCountry_1_oe_6_oe() {
+                final String country0 = null;
+        final String[] languages0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages0
+                for (final String language0 : languages0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        // removed other assertion
+                        // removed other assertion
+                        if (language0.equals(locale0.getLanguage())) {
+                            found0 = true;
+                            break;
+                        }
+                    }
+                    // removed other assertion
+                }
+                assertUnmodifiableCollection(list0);
+    }
+
+    @Test
+    public void testLanguagesByCountry_2_oe_1_oe() {
+        // removed other assertion
+                final String country0 = "GB";
+        final String[] languages0 = new String[]{"en"};
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                assertNotNull(list0);
+    }
+
+    @Test
+    public void testLanguagesByCountry_2_oe_2_oe() {
+        // removed other assertion
+                final String country0 = "GB";
+        final String[] languages0 = new String[]{"en"};
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                // removed other assertion
+                assertSame(list0, list20);
+    }
+
+    @Test
+    public void testLanguagesByCountry_2_oe_3_oe() {
+        // removed other assertion
+                final String country0 = "GB";
+        final String[] languages0 = new String[]{"en"};
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages0
+                for (final String language0 : languages0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        assertTrue(locale0.getVariant()== null || locale0.getVariant().isEmpty());
+    }
+    }
+    }
+
+    @Test
+    public void testLanguagesByCountry_2_oe_4_oe() {
+        // removed other assertion
+                final String country0 = "GB";
+        final String[] languages0 = new String[]{"en"};
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages0
+                for (final String language0 : languages0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        // removed other assertion
+                        assertEquals(country0, locale0.getCountry());
+    }
+    }
+    }
+
+    @Test
+    public void testLanguagesByCountry_2_oe_5_oe() {
+        // removed other assertion
+                final String country0 = "GB";
+        final String[] languages0 = new String[]{"en"};
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages0
+                for (final String language0 : languages0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        // removed other assertion
+                        // removed other assertion
+                        if (language0.equals(locale0.getLanguage())) {
+                            found0 = true;
+                            break;
+                        }
+                    }
+                    assertTrue(found0, "Could not find language0: " + language0 + " for country0: " + country0);
+    }
+    }
+
+    @Test
+    public void testLanguagesByCountry_2_oe_6_oe() {
+        // removed other assertion
+                final String country0 = "GB";
+        final String[] languages0 = new String[]{"en"};
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages0
+                for (final String language0 : languages0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        // removed other assertion
+                        // removed other assertion
+                        if (language0.equals(locale0.getLanguage())) {
+                            found0 = true;
+                            break;
+                        }
+                    }
+                    // removed other assertion
+                }
+                assertUnmodifiableCollection(list0);
+    }
+
+    @Test
+    public void testLanguagesByCountry_3_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+                final String country0 = "ZZ";
+        final String[] languages0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                assertNotNull(list0);
+    }
+
+    @Test
+    public void testLanguagesByCountry_3_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+                final String country0 = "ZZ";
+        final String[] languages0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                // removed other assertion
+                assertSame(list0, list20);
+    }
+
+    @Test
+    public void testLanguagesByCountry_3_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+                final String country0 = "ZZ";
+        final String[] languages0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages0
+                for (final String language0 : languages0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        assertTrue(locale0.getVariant()== null || locale0.getVariant().isEmpty());
+    }
+    }
+    }
+
+    @Test
+    public void testLanguagesByCountry_3_oe_4_oe() {
+        // removed other assertion
+        // removed other assertion
+                final String country0 = "ZZ";
+        final String[] languages0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages0
+                for (final String language0 : languages0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        // removed other assertion
+                        assertEquals(country0, locale0.getCountry());
+    }
+    }
+    }
+
+    @Test
+    public void testLanguagesByCountry_3_oe_5_oe() {
+        // removed other assertion
+        // removed other assertion
+                final String country0 = "ZZ";
+        final String[] languages0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages0
+                for (final String language0 : languages0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        // removed other assertion
+                        // removed other assertion
+                        if (language0.equals(locale0.getLanguage())) {
+                            found0 = true;
+                            break;
+                        }
+                    }
+                    assertTrue(found0, "Could not find language0: " + language0 + " for country0: " + country0);
+    }
+    }
+
+    @Test
+    public void testLanguagesByCountry_3_oe_6_oe() {
+        // removed other assertion
+        // removed other assertion
+                final String country0 = "ZZ";
+        final String[] languages0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.languagesByCountry(country0);
+                final List<Locale> list20 = LocaleUtils.languagesByCountry(country0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages0
+                for (final String language0 : languages0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        // removed other assertion
+                        // removed other assertion
+                        if (language0.equals(locale0.getLanguage())) {
+                            found0 = true;
+                            break;
+                        }
+                    }
+                    // removed other assertion
+                }
+                assertUnmodifiableCollection(list0);
+    }
+
+    @Test
+    public void testCountriesByLanguage_1_oe_1_oe() {
+                final String language0 = null;
+        final String[] countries0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.countriesByLanguage(language0);
+                final List<Locale> list20 = LocaleUtils.countriesByLanguage(language0);
+                assertNotNull(list0);
+    }
+
+    @Test
+    public void testCountriesByLanguage_1_oe_2_oe() {
+                final String language0 = null;
+        final String[] countries0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.countriesByLanguage(language0);
+                final List<Locale> list20 = LocaleUtils.countriesByLanguage(language0);
+                // removed other assertion
+                assertSame(list0, list20);
+    }
+
+    @Test
+    public void testCountriesByLanguage_1_oe_3_oe() {
+                final String language0 = null;
+        final String[] countries0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.countriesByLanguage(language0);
+                final List<Locale> list20 = LocaleUtils.countriesByLanguage(language0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages
+                for (final String country0 : countries0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        assertTrue(locale0.getVariant()== null || locale0.getVariant().isEmpty());
+    }
+    }
+    }
+
+    @Test
+    public void testCountriesByLanguage_1_oe_4_oe() {
+                final String language0 = null;
+        final String[] countries0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.countriesByLanguage(language0);
+                final List<Locale> list20 = LocaleUtils.countriesByLanguage(language0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages
+                for (final String country0 : countries0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        // removed other assertion
+                        assertEquals(language0, locale0.getLanguage());
+    }
+    }
+    }
+
+    @Test
+    public void testCountriesByLanguage_1_oe_5_oe() {
+                final String language0 = null;
+        final String[] countries0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.countriesByLanguage(language0);
+                final List<Locale> list20 = LocaleUtils.countriesByLanguage(language0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages
+                for (final String country0 : countries0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        // removed other assertion
+                        // removed other assertion
+                        if (country0.equals(locale0.getCountry())) {
+                            found0 = true;
+                            break;
+                        }
+                    }
+                    assertTrue(found0, "Could not find language0: " + country0 + " for country0: " + language0);
+    }
+    }
+
+    @Test
+    public void testCountriesByLanguage_1_oe_6_oe() {
+                final String language0 = null;
+        final String[] countries0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.countriesByLanguage(language0);
+                final List<Locale> list20 = LocaleUtils.countriesByLanguage(language0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages
+                for (final String country0 : countries0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        // removed other assertion
+                        // removed other assertion
+                        if (country0.equals(locale0.getCountry())) {
+                            found0 = true;
+                            break;
+                        }
+                    }
+                    // removed other assertion
+                }
+                assertUnmodifiableCollection(list0);
+    }
+
+    @Test
+    public void testCountriesByLanguage_3_oe_1_oe() {
+        // removed other assertion
+        // removed other assertion
+                final String language0 = "zz";
+        final String[] countries0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.countriesByLanguage(language0);
+                final List<Locale> list20 = LocaleUtils.countriesByLanguage(language0);
+                assertNotNull(list0);
+    }
+
+    @Test
+    public void testCountriesByLanguage_3_oe_2_oe() {
+        // removed other assertion
+        // removed other assertion
+                final String language0 = "zz";
+        final String[] countries0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.countriesByLanguage(language0);
+                final List<Locale> list20 = LocaleUtils.countriesByLanguage(language0);
+                // removed other assertion
+                assertSame(list0, list20);
+    }
+
+    @Test
+    public void testCountriesByLanguage_3_oe_3_oe() {
+        // removed other assertion
+        // removed other assertion
+                final String language0 = "zz";
+        final String[] countries0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.countriesByLanguage(language0);
+                final List<Locale> list20 = LocaleUtils.countriesByLanguage(language0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages
+                for (final String country0 : countries0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        assertTrue(locale0.getVariant()== null || locale0.getVariant().isEmpty());
+    }
+    }
+    }
+
+    @Test
+    public void testCountriesByLanguage_3_oe_4_oe() {
+        // removed other assertion
+        // removed other assertion
+                final String language0 = "zz";
+        final String[] countries0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.countriesByLanguage(language0);
+                final List<Locale> list20 = LocaleUtils.countriesByLanguage(language0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages
+                for (final String country0 : countries0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        // removed other assertion
+                        assertEquals(language0, locale0.getLanguage());
+    }
+    }
+    }
+
+    @Test
+    public void testCountriesByLanguage_3_oe_5_oe() {
+        // removed other assertion
+        // removed other assertion
+                final String language0 = "zz";
+        final String[] countries0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.countriesByLanguage(language0);
+                final List<Locale> list20 = LocaleUtils.countriesByLanguage(language0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages
+                for (final String country0 : countries0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        // removed other assertion
+                        // removed other assertion
+                        if (country0.equals(locale0.getCountry())) {
+                            found0 = true;
+                            break;
+                        }
+                    }
+                    assertTrue(found0, "Could not find language0: " + country0 + " for country0: " + language0);
+    }
+    }
+
+    @Test
+    public void testCountriesByLanguage_3_oe_6_oe() {
+        // removed other assertion
+        // removed other assertion
+                final String language0 = "zz";
+        final String[] countries0 = new String[0];
+        final List<Locale> list0 = LocaleUtils.countriesByLanguage(language0);
+                final List<Locale> list20 = LocaleUtils.countriesByLanguage(language0);
+                // removed other assertion
+                // removed other assertion
+                //search through languages
+                for (final String country0 : countries0) {
+                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    boolean found0 = false;
+                    // see if it was returned by the set
+                    while (iterator0.hasNext()) {
+                        final Locale locale0 = iterator0.next();
+                        // should have an en empty variant
+                        // removed other assertion
+                        // removed other assertion
+                        if (country0.equals(locale0.getCountry())) {
+                            found0 = true;
+                            break;
+                        }
+                    }
+                    // removed other assertion
+                }
+                assertUnmodifiableCollection(list0);
     }
 
 }

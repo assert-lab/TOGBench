@@ -84,16 +84,6 @@ public class StreamsTest_OE25Dev {
         );
     }
 
-    @Test
-    public void testSimpleStreamFilter() {
-        final List<String> input = Arrays.asList("1", "2", "3", "4", "5", "6");
-        final List<Integer> output = Functions.stream(input)
-                .map(Integer::valueOf)
-                .filter(i -> (i.intValue() %2 == 0))
-                .collect(Collectors.toList());
-        assertEvenNumbers(output);
-    }
-
     private void assertEvenNumbers(final List<Integer> output) {
         assertEquals(3, output.size());
         for (int i = 0;  i < 3;  i++) {
@@ -234,6 +224,56 @@ public class StreamsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertEquals("1", array[2]);
+    }
+
+    @Test
+    public void testSimpleStreamFilter_1_oe_1_oe() {
+        final List<String> input = Arrays.asList("1", "2", "3", "4", "5", "6");
+        final List<Integer> output = Functions.stream(input)
+                .map(Integer::valueOf)
+                .filter(i -> (i.intValue() %2 == 0))
+                .collect(Collectors.toList());
+                final List<Integer> output0 = output;
+        assertEquals(3, output0.size());
+    }
+
+    @Test
+    public void testSimpleStreamFilter_1_oe_2_oe() {
+        final List<String> input = Arrays.asList("1", "2", "3", "4", "5", "6");
+        final List<Integer> output = Functions.stream(input)
+                .map(Integer::valueOf)
+                .filter(i -> (i.intValue() %2 == 0))
+                .collect(Collectors.toList());
+                final List<Integer> output0 = output;
+        // removed other assertion
+                for (int i0 = 0;  i0 < 3;  i0++) {
+                    assertEquals((i0+1)*2, output0.get(i0).intValue());
+    }
+    }
+
+    @TestFactory
+    public Stream<DynamicTest> simpleStreamFilterFailing_1_oe_1_oe() {
+        final List<String> input = Arrays.asList("1", "2", "3", "4", "5", "6");
+        final List<Integer> output = Functions.stream(input)
+                .map(Integer::valueOf)
+                .filter(asIntPredicate(null))
+                .collect(Collectors.toList());
+                final List<Integer> output0 = output;
+        assertEquals(3, output0.size());
+    }
+
+    @TestFactory
+    public Stream<DynamicTest> simpleStreamFilterFailing_1_oe_2_oe() {
+        final List<String> input = Arrays.asList("1", "2", "3", "4", "5", "6");
+        final List<Integer> output = Functions.stream(input)
+                .map(Integer::valueOf)
+                .filter(asIntPredicate(null))
+                .collect(Collectors.toList());
+                final List<Integer> output0 = output;
+        // removed other assertion
+                for (int i0 = 0;  i0 < 3;  i0++) {
+                    assertEquals((i0+1)*2, output0.get(i0).intValue());
+    }
     }
 
 }

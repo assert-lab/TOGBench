@@ -25,7 +25,8 @@ public class AnonymousClassTestCase extends AbstractTestCase
     public void testRegularClassIsNotAnonymous() throws ClassNotFoundException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AnonymousClassTest");
-        assertFalse("regular outer classes are not anonymous",clazz .isAnonymous());
+        assertFalse("regular outer classes are not anonymous", clazz
+                .isAnonymous());
         assertFalse("regular outer classes are not nested", clazz.isNested());
     }
 
@@ -33,7 +34,8 @@ public class AnonymousClassTestCase extends AbstractTestCase
             throws ClassNotFoundException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AnonymousClassTest$X");
-        assertFalse("regular inner classes are not anonymous",clazz .isAnonymous());
+        assertFalse("regular inner classes are not anonymous", clazz
+                .isAnonymous());
         assertTrue("regular inner classes are nested", clazz.isNested());
     }
 
@@ -41,7 +43,8 @@ public class AnonymousClassTestCase extends AbstractTestCase
             throws ClassNotFoundException
     {
         final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AnonymousClassTest$Y");
-        assertFalse("regular static inner classes are not anonymous",clazz .isAnonymous());
+        assertFalse("regular static inner classes are not anonymous", clazz
+                .isAnonymous());
         assertTrue("regular static inner classes are nested", clazz.isNested());
     }
 

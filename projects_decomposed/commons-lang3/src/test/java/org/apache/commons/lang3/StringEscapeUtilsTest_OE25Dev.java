@@ -1289,4 +1289,241 @@ public class StringEscapeUtilsTest_OE25Dev {
         assertEquals(expected, StringEscapeUtils.unescapeJson(input));
     }
 
+    @Test
+    public void testEscapeJava_5_oe_1_oe() throws IOException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+                final String escaped0 = FOO;
+        final String original0 = FOO;
+        assertEscapeJava(null, escaped0, original0);
+    }
+
+    @Test
+    public void testEscapeJava_9_oe_1_oe() throws IOException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String escaped0 = "\\\\\\b\\t\\r";
+        final String original0 = "\\\b\t\r";
+        assertEscapeJava(null, escaped0, original0);
+    }
+
+    @Test
+    public void testEscapeJava_10_oe_1_oe() throws IOException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String escaped0 = "\\u1234";
+        final String original0 = "\u1234";
+        assertEscapeJava(null, escaped0, original0);
+    }
+
+    @Test
+    public void testEscapeJava_11_oe_1_oe() throws IOException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String escaped0 = "\\u0234";
+        final String original0 = "\u0234";
+        assertEscapeJava(null, escaped0, original0);
+    }
+
+    @Test
+    public void testEscapeJava_12_oe_1_oe() throws IOException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String escaped0 = "\\u00EF";
+        final String original0 = "\u00ef";
+        assertEscapeJava(null, escaped0, original0);
+    }
+
+    @Test
+    public void testEscapeJava_13_oe_1_oe() throws IOException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String escaped0 = "\\u0001";
+        final String original0 = "\u0001";
+        assertEscapeJava(null, escaped0, original0);
+    }
+
+    @Test
+    public void testEscapeJava_15_oe_1_oe() throws IOException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+                final String escaped0 = "He didn't say, \\\"stop!\\\"";
+        final String original0 = "He didn't say, \"stop!\"";
+        assertEscapeJava(null, escaped0, original0);
+    }
+
+    @Test
+    public void testEscapeJava_17_oe_1_oe() throws IOException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+                final String escaped0 = "\\uABCD\\u1234\\u012C";
+        final String original0 = "\uABCD\u1234\u012C";
+        assertEscapeJava(null, escaped0, original0);
+    }
+
+    @Test
+    public void testUnescapeJava_5_oe_1_oe() throws IOException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+                final String unescaped0 = "";
+        final String original0 = "";
+        assertUnescapeJava(null, unescaped0, original0);
+    }
+
+    @Test
+    public void testUnescapeJava_6_oe_1_oe() throws IOException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+                final String unescaped0 = "test";
+        final String original0 = "test";
+        assertUnescapeJava(null, unescaped0, original0);
+    }
+
+    @Test
+    public void testUnescapeJava_7_oe_1_oe() throws IOException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+                final String unescaped0 = "\ntest\b";
+        final String original0 = "\\ntest\\b";
+        assertUnescapeJava(null, unescaped0, original0);
+    }
+
+    @Test
+    public void testUnescapeJava_8_oe_1_oe() throws IOException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String unescaped0 = "\u123425foo\ntest\b";
+        final String original0 = "\\u123425foo\\ntest\\b";
+        assertUnescapeJava(null, unescaped0, original0);
+    }
+
+    @Test
+    public void testUnescapeJava_9_oe_1_oe() throws IOException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String unescaped0 = "'\foo\teste\r";
+        final String original0 = "\\'\\foo\\teste\\r";
+        assertUnescapeJava(null, unescaped0, original0);
+    }
+
+    @Test
+    public void testUnescapeJava_10_oe_1_oe() throws IOException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String unescaped0 = "";
+        final String original0 = "\\";
+        assertUnescapeJava(null, unescaped0, original0);
+    }
+
 }

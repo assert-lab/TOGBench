@@ -1,0 +1,275 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.net.telnet;
+
+import junit.framework.TestCase;
+
+/**
+ * The TelnetOptionHandlerTest is the abstract class for
+ * testing TelnetOptionHandler. It can be used to derive
+ * the actual test classes for TelnetOptionHadler derived
+ * classes, by adding creation of three new option handlers
+ * and testing of the specific subnegotiation behavior.
+ */
+public abstract class TelnetOptionHandlerTestAbstract_OE25Dev extends TestCase
+{
+    TelnetOptionHandler opthand1;
+    TelnetOptionHandler opthand2;
+    TelnetOptionHandler opthand3;
+
+    /**
+     * setUp for the test. The derived test class must implement
+     * this method by creating opthand1, opthand2, opthand3
+     * like in the following:
+     *     opthand1 = new EchoOptionHandler();
+     *     opthand2 = new EchoOptionHandler(true, true, true, true);
+     *     opthand3 = new EchoOptionHandler(false, false, false, false);
+     */
+    @Override
+    protected abstract void setUp();
+
+    /**
+     * test of the constructors. The derived class may add
+     * test of the option code.
+     */
+
+    /**
+     * test of setWill/getWill
+     */
+
+    /**
+     * test of setDo/getDo
+     */
+
+    /**
+     * test of client-driven subnegotiation. Abstract test:
+     * the derived class should implement it.
+     */
+    public abstract void testStartSubnegotiation();
+
+    /**
+     * test of server-driven subnegotiation. Abstract test:
+     * the derived class should implement it.
+     */
+    public abstract void testAnswerSubnegotiation();
+        // test subnegotiation
+
+    public void testConstructors_1_oe()
+    {
+        // add test of the option code
+        assertTrue(!opthand1.getInitLocal());
+    }
+
+    public void testConstructors_2_oe()
+    {
+        // add test of the option code
+        // removed other assertion
+        assertTrue(!opthand1.getInitRemote());
+    }
+
+    public void testConstructors_3_oe()
+    {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        assertTrue(!opthand1.getAcceptLocal());
+    }
+
+    public void testConstructors_4_oe()
+    {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(!opthand1.getAcceptRemote());
+    }
+
+    public void testConstructors_5_oe()
+    {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertTrue(opthand2.getInitLocal());
+    }
+
+    public void testConstructors_6_oe()
+    {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertTrue(opthand2.getInitRemote());
+    }
+
+    public void testConstructors_7_oe()
+    {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertTrue(opthand2.getAcceptLocal());
+    }
+
+    public void testConstructors_8_oe()
+    {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(opthand2.getAcceptRemote());
+    }
+
+    public void testConstructors_9_oe()
+    {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertTrue(!opthand3.getInitLocal());
+    }
+
+    public void testConstructors_10_oe()
+    {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertTrue(!opthand3.getInitRemote());
+    }
+
+    public void testConstructors_11_oe()
+    {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertTrue(!opthand3.getAcceptLocal());
+    }
+
+    public void testConstructors_12_oe()
+    {
+        // add test of the option code
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(!opthand3.getAcceptRemote());
+    }
+
+    public void testWill_1_oe()
+    {
+        opthand2.setWill(true);
+        opthand3.setWill(false);
+
+        assertTrue(!opthand1.getWill());
+    }
+
+    public void testWill_2_oe()
+    {
+        opthand2.setWill(true);
+        opthand3.setWill(false);
+
+        // removed other assertion
+        assertTrue(opthand2.getWill());
+    }
+
+    public void testWill_3_oe()
+    {
+        opthand2.setWill(true);
+        opthand3.setWill(false);
+
+        // removed other assertion
+        // removed other assertion
+        assertTrue(!opthand3.getWill());
+    }
+
+    public void testDo_1_oe()
+    {
+        opthand2.setDo(true);
+        opthand3.setDo(false);
+
+        assertTrue(!opthand1.getDo());
+    }
+
+    public void testDo_2_oe()
+    {
+        opthand2.setDo(true);
+        opthand3.setDo(false);
+
+        // removed other assertion
+        assertTrue(opthand2.getDo());
+    }
+
+    public void testDo_3_oe()
+    {
+        opthand2.setDo(true);
+        opthand3.setDo(false);
+
+        // removed other assertion
+        // removed other assertion
+        assertTrue(!opthand3.getDo());
+    }
+
+}

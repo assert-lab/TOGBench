@@ -102,45 +102,6 @@ public class CompareToBuilderTest_OE25Dev {
         testReflectionHierarchyCompare(false, null);
     }
 
-    @Test
-    public void testReflectionHierarchyCompareExcludeFields() {
-        final String[] excludeFields = new String[] { "b" };
-        testReflectionHierarchyCompare(true, excludeFields);
-
-        TestSubObject x;
-        TestSubObject y;
-        TestSubObject z;
-
-        x = new TestSubObject(1, 1);
-        y = new TestSubObject(2, 1);
-        z = new TestSubObject(3, 1);
-        assertXYZCompareOrder(x, y, z, true, excludeFields);
-
-        x = new TestSubObject(1, 3);
-        y = new TestSubObject(2, 2);
-        z = new TestSubObject(3, 1);
-        assertXYZCompareOrder(x, y, z, true, excludeFields);
-    }
-
-    @Test
-    public void testReflectionHierarchyCompareTransients() {
-        testReflectionHierarchyCompare(true, null);
-
-        TestTransientSubObject x;
-        TestTransientSubObject y;
-        TestTransientSubObject z;
-
-        x = new TestTransientSubObject(1, 1);
-        y = new TestTransientSubObject(2, 2);
-        z = new TestTransientSubObject(3, 3);
-        assertXYZCompareOrder(x, y, z, true, null);
-
-        x = new TestTransientSubObject(1, 1);
-        y = new TestTransientSubObject(1, 2);
-        z = new TestTransientSubObject(1, 3);
-        assertXYZCompareOrder(x, y, z, true, null);
-    }
-
     private void assertXYZCompareOrder(final Object x, final Object y, final Object z, final boolean testTransients, final String[] excludeFields) {
         assertEquals(0, CompareToBuilder.reflectionCompare(x, x, testTransients, null, excludeFields));
         assertEquals(0, CompareToBuilder.reflectionCompare(y, y, testTransients, null, excludeFields));
@@ -5681,6 +5642,978 @@ public class CompareToBuilderTest_OE25Dev {
         array1[1] = true;
         // removed other assertion
         assertTrue(new CompareToBuilder().append(obj2, obj1).toComparison() < 0);
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_1_oe_1_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        assertEquals(0, CompareToBuilder.reflectionCompare(x0, x0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_1_oe_2_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        // removed other assertion
+                assertEquals(0, CompareToBuilder.reflectionCompare(y0, y0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_1_oe_3_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        // removed other assertion
+                // removed other assertion
+                assertEquals(0, CompareToBuilder.reflectionCompare(z0, z0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_1_oe_4_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                assertTrue(0 > CompareToBuilder.reflectionCompare(x0, y0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_1_oe_5_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                assertTrue(0 > CompareToBuilder.reflectionCompare(x0, z0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_1_oe_6_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                assertTrue(0 > CompareToBuilder.reflectionCompare(y0, z0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_1_oe_7_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                assertTrue(0 < CompareToBuilder.reflectionCompare(y0, x0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_1_oe_8_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                assertTrue(0 < CompareToBuilder.reflectionCompare(z0, x0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_1_oe_9_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                assertTrue(0 < CompareToBuilder.reflectionCompare(z0, y0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_2_oe_1_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+        // removed other assertion
+
+        x = new TestSubObject(1, 3);
+        y = new TestSubObject(2, 2);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        assertEquals(0, CompareToBuilder.reflectionCompare(x0, x0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_2_oe_2_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+        // removed other assertion
+
+        x = new TestSubObject(1, 3);
+        y = new TestSubObject(2, 2);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        // removed other assertion
+                assertEquals(0, CompareToBuilder.reflectionCompare(y0, y0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_2_oe_3_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+        // removed other assertion
+
+        x = new TestSubObject(1, 3);
+        y = new TestSubObject(2, 2);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        // removed other assertion
+                // removed other assertion
+                assertEquals(0, CompareToBuilder.reflectionCompare(z0, z0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_2_oe_4_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+        // removed other assertion
+
+        x = new TestSubObject(1, 3);
+        y = new TestSubObject(2, 2);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                assertTrue(0 > CompareToBuilder.reflectionCompare(x0, y0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_2_oe_5_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+        // removed other assertion
+
+        x = new TestSubObject(1, 3);
+        y = new TestSubObject(2, 2);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                assertTrue(0 > CompareToBuilder.reflectionCompare(x0, z0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_2_oe_6_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+        // removed other assertion
+
+        x = new TestSubObject(1, 3);
+        y = new TestSubObject(2, 2);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                assertTrue(0 > CompareToBuilder.reflectionCompare(y0, z0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_2_oe_7_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+        // removed other assertion
+
+        x = new TestSubObject(1, 3);
+        y = new TestSubObject(2, 2);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                assertTrue(0 < CompareToBuilder.reflectionCompare(y0, x0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_2_oe_8_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+        // removed other assertion
+
+        x = new TestSubObject(1, 3);
+        y = new TestSubObject(2, 2);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                assertTrue(0 < CompareToBuilder.reflectionCompare(z0, x0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareExcludeFields_2_oe_9_oe() {
+        final String[] excludeFields = new String[] { "b" };
+        testReflectionHierarchyCompare(true, excludeFields);
+
+        TestSubObject x;
+        TestSubObject y;
+        TestSubObject z;
+
+        x = new TestSubObject(1, 1);
+        y = new TestSubObject(2, 1);
+        z = new TestSubObject(3, 1);
+        // removed other assertion
+
+        x = new TestSubObject(1, 3);
+        y = new TestSubObject(2, 2);
+        z = new TestSubObject(3, 1);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = excludeFields;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                assertTrue(0 < CompareToBuilder.reflectionCompare(z0, y0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_1_oe_1_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        assertEquals(0, CompareToBuilder.reflectionCompare(x0, x0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_1_oe_2_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        // removed other assertion
+                assertEquals(0, CompareToBuilder.reflectionCompare(y0, y0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_1_oe_3_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        // removed other assertion
+                // removed other assertion
+                assertEquals(0, CompareToBuilder.reflectionCompare(z0, z0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_1_oe_4_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                assertTrue(0 > CompareToBuilder.reflectionCompare(x0, y0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_1_oe_5_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                assertTrue(0 > CompareToBuilder.reflectionCompare(x0, z0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_1_oe_6_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                assertTrue(0 > CompareToBuilder.reflectionCompare(y0, z0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_1_oe_7_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                assertTrue(0 < CompareToBuilder.reflectionCompare(y0, x0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_1_oe_8_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                assertTrue(0 < CompareToBuilder.reflectionCompare(z0, x0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_1_oe_9_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                assertTrue(0 < CompareToBuilder.reflectionCompare(z0, y0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_2_oe_1_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+        // removed other assertion
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(1, 2);
+        z = new TestTransientSubObject(1, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        assertEquals(0, CompareToBuilder.reflectionCompare(x0, x0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_2_oe_2_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+        // removed other assertion
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(1, 2);
+        z = new TestTransientSubObject(1, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        // removed other assertion
+                assertEquals(0, CompareToBuilder.reflectionCompare(y0, y0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_2_oe_3_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+        // removed other assertion
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(1, 2);
+        z = new TestTransientSubObject(1, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        // removed other assertion
+                // removed other assertion
+                assertEquals(0, CompareToBuilder.reflectionCompare(z0, z0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_2_oe_4_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+        // removed other assertion
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(1, 2);
+        z = new TestTransientSubObject(1, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                assertTrue(0 > CompareToBuilder.reflectionCompare(x0, y0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_2_oe_5_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+        // removed other assertion
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(1, 2);
+        z = new TestTransientSubObject(1, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                assertTrue(0 > CompareToBuilder.reflectionCompare(x0, z0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_2_oe_6_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+        // removed other assertion
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(1, 2);
+        z = new TestTransientSubObject(1, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                assertTrue(0 > CompareToBuilder.reflectionCompare(y0, z0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_2_oe_7_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+        // removed other assertion
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(1, 2);
+        z = new TestTransientSubObject(1, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                assertTrue(0 < CompareToBuilder.reflectionCompare(y0, x0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_2_oe_8_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+        // removed other assertion
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(1, 2);
+        z = new TestTransientSubObject(1, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                assertTrue(0 < CompareToBuilder.reflectionCompare(z0, x0, testTransients0, null, excludeFields0));
+    }
+
+    @Test
+    public void testReflectionHierarchyCompareTransients_2_oe_9_oe() {
+        testReflectionHierarchyCompare(true, null);
+
+        TestTransientSubObject x;
+        TestTransientSubObject y;
+        TestTransientSubObject z;
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(2, 2);
+        z = new TestTransientSubObject(3, 3);
+        // removed other assertion
+
+        x = new TestTransientSubObject(1, 1);
+        y = new TestTransientSubObject(1, 2);
+        z = new TestTransientSubObject(1, 3);
+                final Object x0 = x;
+        final Object y0 = y;
+        final Object z0 = z;
+        final boolean testTransients0 = true;
+        final String[] excludeFields0 = null;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+        
+                // removed other assertion
+                // removed other assertion
+                assertTrue(0 < CompareToBuilder.reflectionCompare(z0, y0, testTransients0, null, excludeFields0));
     }
 
  }

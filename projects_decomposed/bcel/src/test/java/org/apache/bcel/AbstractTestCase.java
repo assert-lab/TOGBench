@@ -141,7 +141,8 @@ public abstract class AbstractTestCase extends TestCase
                 chosenAttrsList.add(element);
             }
         }
-        assertTrue("Should be one match: " + chosenAttrsList.size(),chosenAttrsList.size()== 1);
+        assertTrue("Should be one match: " + chosenAttrsList.size(),
+                chosenAttrsList.size() == 1);
         return chosenAttrsList.get(0);
     }
 

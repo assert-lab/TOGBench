@@ -55,7 +55,9 @@ public class AnnotationGenTestCase extends AbstractTestCase
         final ElementValuePairGen nvGen = new ElementValuePairGen("id", evg,
                 cp);
         // Check it looks right
-        assertTrue("Should include string 'id=4' but says: " + nvGen.toString(),nvGen.toString().contains("id=4"));
+        assertTrue(
+                "Should include string 'id=4' but says: " + nvGen.toString(),
+                nvGen.toString().contains("id=4"));
         final ObjectType t = new ObjectType("SimpleAnnotation");
         final List<ElementValuePairGen> elements = new ArrayList<>();
         elements.add(nvGen);
@@ -78,7 +80,9 @@ public class AnnotationGenTestCase extends AbstractTestCase
         final ElementValuePairGen nvGen = new ElementValuePairGen("id", evg,
                 cp);
         // Check it looks right
-        assertTrue("Should include string 'id=4' but says: " + nvGen.toString(),nvGen.toString().contains("id=4"));
+        assertTrue(
+                "Should include string 'id=4' but says: " + nvGen.toString(),
+                nvGen.toString().contains("id=4"));
         final ObjectType t = new ObjectType("SimpleAnnotation");
         final List<ElementValuePairGen> elements = new ArrayList<>();
         elements.add(nvGen);
@@ -133,11 +137,14 @@ public class AnnotationGenTestCase extends AbstractTestCase
             final String afterName = annAfter.getTypeName();
             if (!beforeName.equals(afterName))
             {
-                fail("Deserialization failed: before type='" + beforeName + "' after type='" + afterName + "'");
+                fail("Deserialization failed: before type='" + beforeName
+                        + "' after type='" + afterName + "'");
             }
             if (a.getValues().size() != annAfter.getValues().size())
             {
-                fail("Different numbers of element name value pairs?? " + a.getValues().size()+ "!=" + annAfter.getValues().size());
+                fail("Different numbers of element name value pairs?? "
+                        + a.getValues().size() + "!="
+                        + annAfter.getValues().size());
             }
             for (int i = 0; i < a.getValues().size(); i++)
             {
@@ -146,7 +153,8 @@ public class AnnotationGenTestCase extends AbstractTestCase
                 if (!beforeElement.getNameString().equals(
                         afterElement.getNameString()))
                 {
-                    fail("Different names?? " + beforeElement.getNameString()+ "!=" + afterElement.getNameString());
+                    fail("Different names?? " + beforeElement.getNameString()
+                            + "!=" + afterElement.getNameString());
                 }
             }
         }

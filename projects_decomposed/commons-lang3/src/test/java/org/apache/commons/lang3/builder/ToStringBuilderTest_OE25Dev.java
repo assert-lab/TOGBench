@@ -2828,4 +2828,1130 @@ public class ToStringBuilderTest_OE25Dev {
         assertEquals(-1, testBuilder.toString().indexOf("testInt=31337"));
     }
 
+    @Test
+    public void testReflectionObjectArray_2_oe_1_oe() {
+        Object[] array = new Object[] { null, base, new int[] { 3, 6 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionObjectArray_2_oe_2_oe() {
+        Object[] array = new Object[] { null, base, new int[] { 3, 6 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionObjectArray_2_oe_3_oe() {
+        Object[] array = new Object[] { null, base, new int[] { 3, 6 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionObjectArray_2_oe_4_oe() {
+        Object[] array = new Object[] { null, base, new int[] { 3, 6 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
+    @Test
+    public void testReflectionLongArray_2_oe_1_oe() {
+        long[] array = new long[] { 1, 2, -3, 4 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionLongArray_2_oe_2_oe() {
+        long[] array = new long[] { 1, 2, -3, 4 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionLongArray_2_oe_3_oe() {
+        long[] array = new long[] { 1, 2, -3, 4 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionLongArray_2_oe_4_oe() {
+        long[] array = new long[] { 1, 2, -3, 4 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
+    @Test
+    public void testReflectionIntArray_2_oe_1_oe() {
+        int[] array = new int[] { 1, 2, -3, 4 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionIntArray_2_oe_2_oe() {
+        int[] array = new int[] { 1, 2, -3, 4 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionIntArray_2_oe_3_oe() {
+        int[] array = new int[] { 1, 2, -3, 4 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionIntArray_2_oe_4_oe() {
+        int[] array = new int[] { 1, 2, -3, 4 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
+    @Test
+    public void testReflectionShortArray_2_oe_1_oe() {
+        short[] array = new short[] { 1, 2, -3, 4 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionShortArray_2_oe_2_oe() {
+        short[] array = new short[] { 1, 2, -3, 4 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionShortArray_2_oe_3_oe() {
+        short[] array = new short[] { 1, 2, -3, 4 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionShortArray_2_oe_4_oe() {
+        short[] array = new short[] { 1, 2, -3, 4 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
+    @Test
+    public void testReflectionyteArray_2_oe_1_oe() {
+        byte[] array = new byte[] { 1, 2, -3, 4 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionyteArray_2_oe_2_oe() {
+        byte[] array = new byte[] { 1, 2, -3, 4 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionyteArray_2_oe_3_oe() {
+        byte[] array = new byte[] { 1, 2, -3, 4 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionyteArray_2_oe_4_oe() {
+        byte[] array = new byte[] { 1, 2, -3, 4 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
+    @Test
+    public void testReflectionCharArray_2_oe_1_oe() {
+        char[] array = new char[] { 'A', '2', '_', 'D' };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionCharArray_2_oe_2_oe() {
+        char[] array = new char[] { 'A', '2', '_', 'D' };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionCharArray_2_oe_3_oe() {
+        char[] array = new char[] { 'A', '2', '_', 'D' };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionCharArray_2_oe_4_oe() {
+        char[] array = new char[] { 'A', '2', '_', 'D' };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
+    @Test
+    public void testReflectionDoubleArray_2_oe_1_oe() {
+        double[] array = new double[] { 1.0, 2.9876, -3.00001, 4.3 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionDoubleArray_2_oe_2_oe() {
+        double[] array = new double[] { 1.0, 2.9876, -3.00001, 4.3 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionDoubleArray_2_oe_3_oe() {
+        double[] array = new double[] { 1.0, 2.9876, -3.00001, 4.3 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionDoubleArray_2_oe_4_oe() {
+        double[] array = new double[] { 1.0, 2.9876, -3.00001, 4.3 };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
+    @Test
+    public void testReflectionFloatArray_2_oe_1_oe() {
+        float[] array = new float[] { 1.0f, 2.9876f, -3.00001f, 4.3f };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionFloatArray_2_oe_2_oe() {
+        float[] array = new float[] { 1.0f, 2.9876f, -3.00001f, 4.3f };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionFloatArray_2_oe_3_oe() {
+        float[] array = new float[] { 1.0f, 2.9876f, -3.00001f, 4.3f };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionFloatArray_2_oe_4_oe() {
+        float[] array = new float[] { 1.0f, 2.9876f, -3.00001f, 4.3f };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
+    @Test
+    public void testReflectionBooleanArray_2_oe_1_oe() {
+        boolean[] array = new boolean[] { true, false, false };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionBooleanArray_2_oe_2_oe() {
+        boolean[] array = new boolean[] { true, false, false };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionBooleanArray_2_oe_3_oe() {
+        boolean[] array = new boolean[] { true, false, false };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionBooleanArray_2_oe_4_oe() {
+        boolean[] array = new boolean[] { true, false, false };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
+    @Test
+    public void testReflectionFloatArrayArray_2_oe_1_oe() {
+        float[][] array = new float[][] { { 1.0f, 2.29686f }, null, { Float.NaN } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionFloatArrayArray_2_oe_2_oe() {
+        float[][] array = new float[][] { { 1.0f, 2.29686f }, null, { Float.NaN } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionFloatArrayArray_2_oe_3_oe() {
+        float[][] array = new float[][] { { 1.0f, 2.29686f }, null, { Float.NaN } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionFloatArrayArray_2_oe_4_oe() {
+        float[][] array = new float[][] { { 1.0f, 2.29686f }, null, { Float.NaN } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
+    @Test
+    public void testReflectionLongArrayArray_2_oe_1_oe() {
+        long[][] array = new long[][] { { 1, 2 }, null, { 5 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionLongArrayArray_2_oe_2_oe() {
+        long[][] array = new long[][] { { 1, 2 }, null, { 5 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionLongArrayArray_2_oe_3_oe() {
+        long[][] array = new long[][] { { 1, 2 }, null, { 5 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionLongArrayArray_2_oe_4_oe() {
+        long[][] array = new long[][] { { 1, 2 }, null, { 5 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
+    @Test
+    public void testReflectionIntArrayArray_2_oe_1_oe() {
+        int[][] array = new int[][] { { 1, 2 }, null, { 5 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionIntArrayArray_2_oe_2_oe() {
+        int[][] array = new int[][] { { 1, 2 }, null, { 5 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionIntArrayArray_2_oe_3_oe() {
+        int[][] array = new int[][] { { 1, 2 }, null, { 5 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionIntArrayArray_2_oe_4_oe() {
+        int[][] array = new int[][] { { 1, 2 }, null, { 5 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
+    @Test
+    public void testReflectionhortArrayArray_2_oe_1_oe() {
+        short[][] array = new short[][] { { 1, 2 }, null, { 5 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionhortArrayArray_2_oe_2_oe() {
+        short[][] array = new short[][] { { 1, 2 }, null, { 5 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionhortArrayArray_2_oe_3_oe() {
+        short[][] array = new short[][] { { 1, 2 }, null, { 5 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionhortArrayArray_2_oe_4_oe() {
+        short[][] array = new short[][] { { 1, 2 }, null, { 5 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
+    @Test
+    public void testReflectionByteArrayArray_2_oe_1_oe() {
+        byte[][] array = new byte[][] { { 1, 2 }, null, { 5 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionByteArrayArray_2_oe_2_oe() {
+        byte[][] array = new byte[][] { { 1, 2 }, null, { 5 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionByteArrayArray_2_oe_3_oe() {
+        byte[][] array = new byte[][] { { 1, 2 }, null, { 5 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionByteArrayArray_2_oe_4_oe() {
+        byte[][] array = new byte[][] { { 1, 2 }, null, { 5 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
+    @Test
+    public void testReflectionCharArrayArray_2_oe_1_oe() {
+        char[][] array = new char[][] { { 'A', 'B' }, null, { 'p' } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionCharArrayArray_2_oe_2_oe() {
+        char[][] array = new char[][] { { 'A', 'B' }, null, { 'p' } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionCharArrayArray_2_oe_3_oe() {
+        char[][] array = new char[][] { { 'A', 'B' }, null, { 'p' } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionCharArrayArray_2_oe_4_oe() {
+        char[][] array = new char[][] { { 'A', 'B' }, null, { 'p' } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
+    @Test
+    public void testReflectionDoubleArrayArray_2_oe_1_oe() {
+        double[][] array = new double[][] { { 1.0, 2.29686 }, null, { Double.NaN } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionDoubleArrayArray_2_oe_2_oe() {
+        double[][] array = new double[][] { { 1.0, 2.29686 }, null, { Double.NaN } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionDoubleArrayArray_2_oe_3_oe() {
+        double[][] array = new double[][] { { 1.0, 2.29686 }, null, { Double.NaN } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionDoubleArrayArray_2_oe_4_oe() {
+        double[][] array = new double[][] { { 1.0, 2.29686 }, null, { Double.NaN } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
+    @Test
+    public void testReflectionBooleanArrayArray_3_oe_1_oe() {
+        boolean[][] array = new boolean[][] { { true, false }, null, { false } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0));
+    }
+
+    @Test
+    public void testReflectionBooleanArrayArray_3_oe_2_oe() {
+        boolean[][] array = new boolean[][] { { true, false }, null, { false } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null));
+    }
+
+    @Test
+    public void testReflectionBooleanArrayArray_3_oe_3_oe() {
+        boolean[][] array = new boolean[][] { { true, false }, null, { false } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, true));
+    }
+
+    @Test
+    public void testReflectionBooleanArrayArray_3_oe_4_oe() {
+        boolean[][] array = new boolean[][] { { true, false }, null, { false } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        // removed other assertion
+        array = null;
+                final String expected0 = "<null>";
+        final Object actual0 = array;
+        if (actual0 == null) {
+                    // Until ToStringBuilder supports null objects.
+                    return0;
+                }
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected0, ToStringBuilder.reflectionToString(actual0, null, false));
+    }
+
 }

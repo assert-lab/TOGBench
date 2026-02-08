@@ -1,0 +1,31 @@
+id,test_prefix,test_name
+bean_45_1,"    public void testGetAccessibleMethod_1_oe() {
+        // easy bit first - find a public method
+        final Method method = MethodUtils.getAccessibleMethod
+                (TestBean.class, ""setStringProperty"", String.class);
+
+        assertMethod(method, ""setStringProperty"");
+    }
+",MethodUtilsTestCase::testGetAccessibleMethod_1_oe
+bean_46_1,"    public void testGetAccessibleMethodFromInterface_1_oe() {
+        Method method;
+        // trickier this one - find a method in a direct interface
+        method = MethodUtils.getAccessibleMethod
+                (PrivateBeanFactory.create().getClass(),
+                        ""methodBar"",
+                        String.class);
+
+        assertMethod(method, ""methodBar"");
+    }
+",MethodUtilsTestCase::testGetAccessibleMethodFromInterface_1_oe
+bean_47_1,"    public void testGetAccessibleMethodIndirectInterface_1_oe() {
+        Method method;
+        // trickier this one - find a method in a indirect interface
+        method = MethodUtils.getAccessibleMethod
+                (PrivateBeanFactory.createSubclass().getClass(),
+                        ""methodBaz"",
+                        String.class);
+
+        assertMethod(method, ""methodBaz"");
+    }
+",MethodUtilsTestCase::testGetAccessibleMethodIndirectInterface_1_oe

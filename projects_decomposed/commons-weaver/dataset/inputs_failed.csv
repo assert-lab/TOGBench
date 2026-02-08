@@ -1,0 +1,50 @@
+id,test_prefix,test_name
+weav_26_1,"    @Test
+    public void testThrowingCheckedException1_1_oe() {
+        try {
+            StaticNoArgs.throwingCheckedException1();
+            fail();
+    }
+    }
+",StaticNoArgsTest::testThrowingCheckedException1_1_oe
+weav_36_1,"    @Test
+    public void testThrowingCheckedException1_1_oe() {
+        try {
+            noArgs.throwingCheckedException1();
+            fail();
+    }
+    }
+",NoArgsTest::testThrowingCheckedException1_1_oe
+weav_10_1_1,"    @Test
+    public void testParseTypes_1_oe_1_oe() {
+                final Iterable<E> iterable0 = Utils.parseTypes("" java.lang.Number "", getClass().getClassLoader());
+        final E... expectedElements0 = Number.class;
+        final Iterator<E> iterator0 = iterable0.iterator0();
+                for (E e0 : expectedElements0) {
+                    assertTrue(iterator0.hasNext());
+    }
+    }
+",UtilsTest::testParseTypes_1_oe_1_oe
+weav_10_1_2,"    @Test
+    public void testParseTypes_1_oe_2_oe() {
+                final Iterable<E> iterable0 = Utils.parseTypes("" java.lang.Number "", getClass().getClassLoader());
+        final E... expectedElements0 = Number.class;
+        final Iterator<E> iterator0 = iterable0.iterator0();
+                for (E e0 : expectedElements0) {
+                    // removed other assertion
+                    assertEquals(e0, iterator0.next());
+    }
+    }
+",UtilsTest::testParseTypes_1_oe_2_oe
+weav_10_1_3,"    @Test
+    public void testParseTypes_1_oe_3_oe() {
+                final Iterable<E> iterable0 = Utils.parseTypes("" java.lang.Number "", getClass().getClassLoader());
+        final E... expectedElements0 = Number.class;
+        final Iterator<E> iterator0 = iterable0.iterator0();
+                for (E e0 : expectedElements0) {
+                    // removed other assertion
+                    // removed other assertion
+                }
+                assertFalse(iterator0.hasNext());
+    }
+",UtilsTest::testParseTypes_1_oe_3_oe

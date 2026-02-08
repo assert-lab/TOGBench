@@ -32,7 +32,7 @@
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-validator ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator
-[INFO] Storing buildNumber: f446ed1303a240821309b125a7f330fb69105734 at timestamp: 1770408045226
+[INFO] Storing buildNumber: 42f91159e2f430b696e30a5d48814bb569209ba4 at timestamp: 1770410229237
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -71,42 +71,42 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.validator.FieldTest_OE25Dev
-[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in org.apache.commons.validator.FieldTest_OE25Dev
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 s - in org.apache.commons.validator.FieldTest_OE25Dev
 [INFO] Running org.apache.commons.validator.ExtensionTest_OE25Dev
-[ERROR] Tests run: 54, Failures: 0, Errors: 54, Skipped: 0, Time elapsed: 0.751 s <<< FAILURE! - in org.apache.commons.validator.ExtensionTest_OE25Dev
-[ERROR] testRequired_1_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.138 s  <<< ERROR!
+[ERROR] Tests run: 54, Failures: 0, Errors: 54, Skipped: 0, Time elapsed: 0.698 s <<< FAILURE! - in org.apache.commons.validator.ExtensionTest_OE25Dev
+[ERROR] testRequired_1_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.165 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequired_2_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.012 s  <<< ERROR!
+[ERROR] testRequired_2_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.018 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequired_3_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] testRequired_3_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.021 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequired_4_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
+[ERROR] testRequired_4_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.022 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequired_5_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
+[ERROR] testRequired_5_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.015 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequired_6_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.017 s  <<< ERROR!
+[ERROR] testRequired_6_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.021 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequired_7_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.02 s  <<< ERROR!
+[ERROR] testRequired_7_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredLastNameBlank_1_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_1_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.021 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredLastNameBlank_2_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.019 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_2_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
@@ -114,39 +114,39 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredLastNameBlank_4_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_4_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.012 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredLastNameBlank_5_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.019 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_5_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredLastNameBlank_6_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.02 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_6_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredLastNameBlank_7_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.02 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_7_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredLastName_1_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.017 s  <<< ERROR!
+[ERROR] testRequiredLastName_1_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredLastName_2_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRequiredLastName_2_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.025 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredLastName_3_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.015 s  <<< ERROR!
+[ERROR] testRequiredLastName_3_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredLastName_4_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
+[ERROR] testRequiredLastName_4_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredLastName_5_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.011 s  <<< ERROR!
+[ERROR] testRequiredLastName_5_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.014 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
@@ -154,11 +154,11 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredLastName_7_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.021 s  <<< ERROR!
+[ERROR] testRequiredLastName_7_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.01 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testOrder_1_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testOrder_1_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
@@ -166,27 +166,27 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testOrder_3_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.016 s  <<< ERROR!
+[ERROR] testOrder_3_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testOrder_4_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testOrder_4_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testOrder_5_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.011 s  <<< ERROR!
+[ERROR] testOrder_5_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testOrder_6_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testOrder_6_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testOrder_7_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] testOrder_7_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testOrder_8_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.017 s  <<< ERROR!
+[ERROR] testOrder_8_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
@@ -194,79 +194,79 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredFirstName_2_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.01 s  <<< ERROR!
+[ERROR] testRequiredFirstName_2_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredFirstName_3_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRequiredFirstName_3_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredFirstName_4_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.018 s  <<< ERROR!
+[ERROR] testRequiredFirstName_4_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredFirstName_5_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.01 s  <<< ERROR!
+[ERROR] testRequiredFirstName_5_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredFirstName_6_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] testRequiredFirstName_6_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredFirstName_7_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
+[ERROR] testRequiredFirstName_7_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredFirstNameBlank_1_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.01 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_1_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredFirstNameBlank_2_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_2_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.018 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredFirstNameBlank_3_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_3_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredFirstNameBlank_4_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.011 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_4_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredFirstNameBlank_5_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_5_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.012 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredFirstNameBlank_6_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.018 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_6_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredFirstNameBlank_7_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_7_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testOverrideRule_1_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testOverrideRule_1_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testOverrideRule_2_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.014 s  <<< ERROR!
+[ERROR] testOverrideRule_2_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testOverrideRule_3_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.017 s  <<< ERROR!
+[ERROR] testOverrideRule_3_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testOverrideRule_4_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testOverrideRule_4_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredName_1_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] testRequiredName_1_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.01 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredName_2_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.01 s  <<< ERROR!
+[ERROR] testRequiredName_2_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
@@ -278,21 +278,21 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredName_5_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRequiredName_5_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredName_6_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.012 s  <<< ERROR!
+[ERROR] testRequiredName_6_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
-[ERROR] testRequiredName_7_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
+[ERROR] testRequiredName_7_oe(org.apache.commons.validator.ExtensionTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExtensionTest_OE25Dev.setUp(ExtensionTest_OE25Dev.java:80)
 
 [INFO] Running org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev
-[ERROR] Tests run: 10, Failures: 0, Errors: 10, Skipped: 0, Time elapsed: 0.065 s <<< FAILURE! - in org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev
-[ERROR] testFRLocale_1_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
+[ERROR] Tests run: 10, Failures: 0, Errors: 10, Skipped: 0, Time elapsed: 0.057 s <<< FAILURE! - in org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev
+[ERROR] testFRLocale_1_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev.setUp(GenericTypeValidatorTest_OE25Dev.java:56)
 
@@ -300,58 +300,58 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev.setUp(GenericTypeValidatorTest_OE25Dev.java:56)
 
-[ERROR] testType_1_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
+[ERROR] testType_1_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev.setUp(GenericTypeValidatorTest_OE25Dev.java:56)
 
-[ERROR] testType_2_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] testType_2_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev.setUp(GenericTypeValidatorTest_OE25Dev.java:56)
 
-[ERROR] testType_3_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0.01 s  <<< ERROR!
+[ERROR] testType_3_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev.setUp(GenericTypeValidatorTest_OE25Dev.java:56)
 
-[ERROR] testType_4_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
+[ERROR] testType_4_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev.setUp(GenericTypeValidatorTest_OE25Dev.java:56)
 
-[ERROR] testType_5_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testType_5_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0.021 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev.setUp(GenericTypeValidatorTest_OE25Dev.java:56)
 
-[ERROR] testType_6_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
+[ERROR] testType_6_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev.setUp(GenericTypeValidatorTest_OE25Dev.java:56)
 
-[ERROR] testType_7_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testType_7_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev.setUp(GenericTypeValidatorTest_OE25Dev.java:56)
 
-[ERROR] testType_8_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testType_8_oe(org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev)  Time elapsed: 0.017 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.GenericTypeValidatorTest_OE25Dev.setUp(GenericTypeValidatorTest_OE25Dev.java:56)
 
 [INFO] Running org.apache.commons.validator.routines.CurrencyValidatorTest_OE25Dev
-[INFO] Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in org.apache.commons.validator.routines.CurrencyValidatorTest_OE25Dev
+[INFO] Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.123 s - in org.apache.commons.validator.routines.CurrencyValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.checkdigit.ModulusTenCUSIPCheckDigitTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.validator.routines.checkdigit.ModulusTenCUSIPCheckDigitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.validator.routines.checkdigit.ModulusTenCUSIPCheckDigitTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigitTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigitTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.checkdigit.ISBNCheckDigitTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.validator.routines.checkdigit.ISBNCheckDigitTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.validator.routines.checkdigit.ISBNCheckDigitTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.checkdigit.ModulusTenSedolCheckDigitTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.validator.routines.checkdigit.ModulusTenSedolCheckDigitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.validator.routines.checkdigit.ModulusTenSedolCheckDigitTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.PercentValidatorTest_OE25Dev
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.validator.routines.PercentValidatorTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.validator.routines.PercentValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.UrlValidatorTest_OE25Dev
-[INFO] Tests run: 141, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.203 s - in org.apache.commons.validator.routines.UrlValidatorTest_OE25Dev
+[INFO] Tests run: 141, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.285 s - in org.apache.commons.validator.routines.UrlValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.FloatValidatorTest_OE25Dev
-[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.validator.routines.FloatValidatorTest_OE25Dev
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.validator.routines.FloatValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.DomainValidatorTest_OE25Dev
 >>DomainValidatorTest.testIsIDNtoASCIIBroken()
 IDN.toASCII is OK
@@ -368,25 +368,25 @@ java.specification.vendor=Oracle Corporation
 java.specification.name=Java Platform API Specification
 java.class.version=61.0
 <<DomainValidatorTest.testIsIDNtoASCIIBroken()
-[INFO] Tests run: 92, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.validator.routines.DomainValidatorTest_OE25Dev
+[INFO] Tests run: 92, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in org.apache.commons.validator.routines.DomainValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.InetAddressValidatorTest_OE25Dev
-[INFO] Tests run: 474, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s - in org.apache.commons.validator.routines.InetAddressValidatorTest_OE25Dev
+[INFO] Tests run: 474, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.091 s - in org.apache.commons.validator.routines.InetAddressValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.BigDecimalValidatorTest_OE25Dev
-[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.validator.routines.BigDecimalValidatorTest_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.validator.routines.BigDecimalValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.CreditCardValidatorTest_OE25Dev
-[INFO] Tests run: 320, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.174 s - in org.apache.commons.validator.routines.CreditCardValidatorTest_OE25Dev
+[INFO] Tests run: 320, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in org.apache.commons.validator.routines.CreditCardValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.BigIntegerValidatorTest_OE25Dev
-[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.validator.routines.BigIntegerValidatorTest_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.validator.routines.BigIntegerValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.DateValidatorTest_OE25Dev
 [INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in org.apache.commons.validator.routines.DateValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.CalendarValidatorTest_OE25Dev
-[INFO] Tests run: 88, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s - in org.apache.commons.validator.routines.CalendarValidatorTest_OE25Dev
+[INFO] Tests run: 88, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 s - in org.apache.commons.validator.routines.CalendarValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.ISINValidatorTest_OE25Dev
 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.validator.routines.ISINValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.RegexValidatorTest_OE25Dev
-[INFO] Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.validator.routines.RegexValidatorTest_OE25Dev
+[INFO] Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.validator.routines.RegexValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.CodeValidatorTest_OE25Dev
-[INFO] Tests run: 99, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.validator.routines.CodeValidatorTest_OE25Dev
+[INFO] Tests run: 99, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.validator.routines.CodeValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.EmailValidatorTest_OE25Dev
 abigail@example.com : expected true actual false
  abigail@example.com: expected true actual false
@@ -431,78 +431,78 @@ $@[]: expected true actual false
 Gourmets:  Pompous Person <WhoZiWhatZit\@Cordon-Bleu>,\x0D\x0A        Childs\@WGBH.Boston, "Galloping Gourmet"\@\x0D\x0A        ANT.Down-Under (Australian National Television),\x0D\x0A        Cheapie\@Discount-Liquors;: expected true actual false
 fred\ barny@example.com: expected false actual true
 invalid�char@example.com: expected false actual true
-[ERROR] Tests run: 97, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.047 s <<< FAILURE! - in org.apache.commons.validator.routines.EmailValidatorTest_OE25Dev
-[ERROR] testEmailFromPerl_1_oe(org.apache.commons.validator.routines.EmailValidatorTest_OE25Dev)  Time elapsed: 0.018 s  <<< FAILURE!
+[ERROR] Tests run: 97, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in org.apache.commons.validator.routines.EmailValidatorTest_OE25Dev
+[ERROR] testEmailFromPerl_1_oe(org.apache.commons.validator.routines.EmailValidatorTest_OE25Dev)  Time elapsed: 0.01 s  <<< FAILURE!
 java.lang.AssertionError: Expected 0 errors expected:<0> but was:<43>
 	at org.apache.commons.validator.routines.EmailValidatorTest_OE25Dev.testEmailFromPerl_1_oe(EmailValidatorTest_OE25Dev.java:1942)
 
 [INFO] Running org.apache.commons.validator.routines.ShortValidatorTest_OE25Dev
-[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.apache.commons.validator.routines.ShortValidatorTest_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.validator.routines.ShortValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.DoubleValidatorTest_OE25Dev
-[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in org.apache.commons.validator.routines.DoubleValidatorTest_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.validator.routines.DoubleValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.DomainValidatorStartupTest_OE25Dev
-[ERROR] Tests run: 39, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.331 s <<< FAILURE! - in org.apache.commons.validator.routines.DomainValidatorStartupTest_OE25Dev
-[ERROR] testInstanceOverride_9_oe(org.apache.commons.validator.routines.DomainValidatorStartupTest_OE25Dev)  Time elapsed: 0.005 s  <<< FAILURE!
+[ERROR] Tests run: 39, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.407 s <<< FAILURE! - in org.apache.commons.validator.routines.DomainValidatorStartupTest_OE25Dev
+[ERROR] testInstanceOverride_9_oe(org.apache.commons.validator.routines.DomainValidatorStartupTest_OE25Dev)  Time elapsed: 0.016 s  <<< FAILURE!
 java.lang.AssertionError
 	at org.apache.commons.validator.routines.DomainValidatorStartupTest_OE25Dev.testInstanceOverride_9_oe(DomainValidatorStartupTest_OE25Dev.java:428)
 
-[ERROR] testInstanceOverride_11_oe(org.apache.commons.validator.routines.DomainValidatorStartupTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
+[ERROR] testInstanceOverride_11_oe(org.apache.commons.validator.routines.DomainValidatorStartupTest_OE25Dev)  Time elapsed: 0.008 s  <<< FAILURE!
 java.lang.AssertionError
 	at org.apache.commons.validator.routines.DomainValidatorStartupTest_OE25Dev.testInstanceOverride_11_oe(DomainValidatorStartupTest_OE25Dev.java:479)
 
 [INFO] Running org.apache.commons.validator.routines.TimeValidatorTest_OE25Dev
-[INFO] Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s - in org.apache.commons.validator.routines.TimeValidatorTest_OE25Dev
+[INFO] Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.apache.commons.validator.routines.TimeValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.ByteValidatorTest_OE25Dev
-[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.validator.routines.ByteValidatorTest_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.validator.routines.ByteValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.IBANValidatorTest_OE25Dev
-[ERROR] Tests run: 18, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in org.apache.commons.validator.routines.IBANValidatorTest_OE25Dev
+[ERROR] Tests run: 18, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in org.apache.commons.validator.routines.IBANValidatorTest_OE25Dev
 [ERROR] testSetValidatorLen_1_2_oe(org.apache.commons.validator.routines.IBANValidatorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 java.lang.AssertionError: no longer present expected null, but was:<org.apache.commons.validator.routines.IBANValidator$Validator@44c03695>
 	at org.apache.commons.validator.routines.IBANValidatorTest_OE25Dev.testSetValidatorLen_1_2_oe(IBANValidatorTest_OE25Dev.java:395)
 
 [INFO] Running org.apache.commons.validator.routines.ISSNValidatorTest_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.validator.routines.ISSNValidatorTest_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.validator.routines.ISSNValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.IntegerValidatorTest_OE25Dev
-[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.validator.routines.IntegerValidatorTest_OE25Dev
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.validator.routines.IntegerValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.LongValidatorTest_OE25Dev
-[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.validator.routines.LongValidatorTest_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.validator.routines.LongValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.routines.ISBNValidatorTest_OE25Dev
-[INFO] Tests run: 88, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.validator.routines.ISBNValidatorTest_OE25Dev
+[INFO] Tests run: 88, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.validator.routines.ISBNValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.RequiredIfTest_OE25Dev
-[ERROR] Tests run: 35, Failures: 0, Errors: 35, Skipped: 0, Time elapsed: 0.263 s <<< FAILURE! - in org.apache.commons.validator.RequiredIfTest_OE25Dev
-[ERROR] testRequired_1_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
+[ERROR] Tests run: 35, Failures: 0, Errors: 35, Skipped: 0, Time elapsed: 0.158 s <<< FAILURE! - in org.apache.commons.validator.RequiredIfTest_OE25Dev
+[ERROR] testRequired_1_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequired_2_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testRequired_2_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequired_3_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] testRequired_3_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequired_4_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
+[ERROR] testRequired_4_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequired_5_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testRequired_5_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequired_6_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testRequired_6_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequired_7_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testRequired_7_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredLastNameBlank_1_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_1_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredLastNameBlank_2_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_2_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
@@ -510,23 +510,23 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredLastNameBlank_4_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_4_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredLastNameBlank_5_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_5_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredLastNameBlank_6_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.014 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_6_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredLastNameBlank_7_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_7_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredLastName_1_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.02 s  <<< ERROR!
+[ERROR] testRequiredLastName_1_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
@@ -534,59 +534,59 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredLastName_3_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testRequiredLastName_3_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.018 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredLastName_4_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.01 s  <<< ERROR!
+[ERROR] testRequiredLastName_4_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredLastName_5_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRequiredLastName_5_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredLastName_6_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
+[ERROR] testRequiredLastName_6_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredLastName_7_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
+[ERROR] testRequiredLastName_7_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredFirstName_1_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testRequiredFirstName_1_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredFirstName_2_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
+[ERROR] testRequiredFirstName_2_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredFirstName_3_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] testRequiredFirstName_3_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredFirstName_4_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
+[ERROR] testRequiredFirstName_4_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredFirstName_5_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRequiredFirstName_5_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredFirstName_6_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.019 s  <<< ERROR!
+[ERROR] testRequiredFirstName_6_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.014 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredFirstName_7_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.011 s  <<< ERROR!
+[ERROR] testRequiredFirstName_7_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredFirstNameBlank_1_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_1_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredFirstNameBlank_2_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_2_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
@@ -602,25 +602,25 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredFirstNameBlank_6_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_6_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.011 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
-[ERROR] testRequiredFirstNameBlank_7_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_7_oe(org.apache.commons.validator.RequiredIfTest_OE25Dev)  Time elapsed: 0.012 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredIfTest_OE25Dev.setUp(RequiredIfTest_OE25Dev.java:52)
 
 [INFO] Running org.apache.commons.validator.VarTest_OE25Dev
-[ERROR] Tests run: 22, Failures: 0, Errors: 22, Skipped: 0, Time elapsed: 0.132 s <<< FAILURE! - in org.apache.commons.validator.VarTest_OE25Dev
-[ERROR] testVars_1_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] Tests run: 22, Failures: 0, Errors: 22, Skipped: 0, Time elapsed: 0.13 s <<< FAILURE! - in org.apache.commons.validator.VarTest_OE25Dev
+[ERROR] testVars_1_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_2_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] testVars_2_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_3_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.018 s  <<< ERROR!
+[ERROR] testVars_3_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
@@ -628,55 +628,55 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_5_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
+[ERROR] testVars_5_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_6_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.01 s  <<< ERROR!
+[ERROR] testVars_6_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_7_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
+[ERROR] testVars_7_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_8_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] testVars_8_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_9_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testVars_9_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.014 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_10_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
+[ERROR] testVars_10_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_11_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
+[ERROR] testVars_11_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_12_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.012 s  <<< ERROR!
+[ERROR] testVars_12_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_13_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
+[ERROR] testVars_13_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.01 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_14_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testVars_14_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_15_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
+[ERROR] testVars_15_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_16_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
+[ERROR] testVars_16_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_17_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
+[ERROR] testVars_17_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.017 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
@@ -684,77 +684,77 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_19_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testVars_19_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.014 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_20_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testVars_20_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.011 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_21_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testVars_21_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.011 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
-[ERROR] testVars_22_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testVars_22_oe(org.apache.commons.validator.VarTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.VarTest_OE25Dev.setUp(VarTest_OE25Dev.java:56)
 
 [INFO] Running org.apache.commons.validator.CreditCardValidatorTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.validator.CreditCardValidatorTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.validator.CreditCardValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.EmailTest_OE25Dev
-[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in org.apache.commons.validator.EmailTest_OE25Dev
-[ERROR] testEmailWithControlChars_1_oe(org.apache.commons.validator.EmailTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.029 s <<< FAILURE! - in org.apache.commons.validator.EmailTest_OE25Dev
+[ERROR] testEmailWithControlChars_1_oe(org.apache.commons.validator.EmailTest_OE25Dev)  Time elapsed: 0.016 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.EmailTest_OE25Dev.setUp(EmailTest_OE25Dev.java:55)
 
-[ERROR] testEmailWithControlChars_2_oe(org.apache.commons.validator.EmailTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testEmailWithControlChars_2_oe(org.apache.commons.validator.EmailTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.EmailTest_OE25Dev.setUp(EmailTest_OE25Dev.java:55)
 
-[ERROR] testEmailAtTLD_1_oe(org.apache.commons.validator.EmailTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] testEmailAtTLD_1_oe(org.apache.commons.validator.EmailTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.EmailTest_OE25Dev.setUp(EmailTest_OE25Dev.java:55)
 
 [INFO] Running org.apache.commons.validator.ExceptionTest_OE25Dev
-[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in org.apache.commons.validator.ExceptionTest_OE25Dev
-[ERROR] testValidatorException_2_oe(org.apache.commons.validator.ExceptionTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.apache.commons.validator.ExceptionTest_OE25Dev
+[ERROR] testValidatorException_2_oe(org.apache.commons.validator.ExceptionTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.ExceptionTest_OE25Dev.setUp(ExceptionTest_OE25Dev.java:51)
 
 [INFO] Running org.apache.commons.validator.EntityImportTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 s - in org.apache.commons.validator.EntityImportTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.126 s - in org.apache.commons.validator.EntityImportTest_OE25Dev
 [INFO] Running org.apache.commons.validator.RequiredNameTest_OE25Dev
-[ERROR] Tests run: 42, Failures: 0, Errors: 42, Skipped: 0, Time elapsed: 0.318 s <<< FAILURE! - in org.apache.commons.validator.RequiredNameTest_OE25Dev
-[ERROR] testRequired_1_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
+[ERROR] Tests run: 42, Failures: 0, Errors: 42, Skipped: 0, Time elapsed: 0.093 s <<< FAILURE! - in org.apache.commons.validator.RequiredNameTest_OE25Dev
+[ERROR] testRequired_1_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequired_2_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
+[ERROR] testRequired_2_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequired_3_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
+[ERROR] testRequired_3_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequired_4_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.011 s  <<< ERROR!
+[ERROR] testRequired_4_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.012 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequired_5_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testRequired_5_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequired_6_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
+[ERROR] testRequired_6_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.011 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequired_7_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
+[ERROR] testRequired_7_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredLastNameBlank_1_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_1_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
@@ -766,63 +766,63 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredLastNameBlank_4_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_4_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredLastNameBlank_5_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_5_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredLastNameBlank_6_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.012 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_6_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredLastNameBlank_7_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRequiredLastNameBlank_7_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredLastName_1_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.014 s  <<< ERROR!
+[ERROR] testRequiredLastName_1_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredLastName_2_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testRequiredLastName_2_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredLastName_3_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
+[ERROR] testRequiredLastName_3_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredLastName_4_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.022 s  <<< ERROR!
+[ERROR] testRequiredLastName_4_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredLastName_5_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRequiredLastName_5_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredLastName_6_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRequiredLastName_6_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredLastName_7_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testRequiredLastName_7_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredFirstName_1_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] testRequiredFirstName_1_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.032 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredFirstName_2_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.01 s  <<< ERROR!
+[ERROR] testRequiredFirstName_2_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredFirstName_3_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
+[ERROR] testRequiredFirstName_3_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredFirstName_4_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
+[ERROR] testRequiredFirstName_4_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
@@ -830,15 +830,15 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredFirstName_6_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] testRequiredFirstName_6_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredFirstName_7_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.01 s  <<< ERROR!
+[ERROR] testRequiredFirstName_7_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredFirstNameBlank_1_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_1_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
@@ -846,35 +846,35 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredFirstNameBlank_3_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.011 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_3_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredFirstNameBlank_4_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_4_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredFirstNameBlank_5_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_5_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredFirstNameBlank_6_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_6_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredFirstNameBlank_7_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlank_7_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredName_1_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testRequiredName_1_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredName_2_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
+[ERROR] testRequiredName_2_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredName_3_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
+[ERROR] testRequiredName_3_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
@@ -882,56 +882,56 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredName_5_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.011 s  <<< ERROR!
+[ERROR] testRequiredName_5_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredName_6_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] testRequiredName_6_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
-[ERROR] testRequiredName_7_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testRequiredName_7_oe(org.apache.commons.validator.RequiredNameTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.RequiredNameTest_OE25Dev.setUp(RequiredNameTest_OE25Dev.java:53)
 
 [INFO] Running org.apache.commons.validator.MultipleTest_OE25Dev
-[INFO] Tests run: 58, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.659 s - in org.apache.commons.validator.MultipleTest_OE25Dev
+[INFO] Tests run: 58, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.734 s - in org.apache.commons.validator.MultipleTest_OE25Dev
 [INFO] Running org.apache.commons.validator.ValidatorTest_OE25Dev
 ValidatorTest_OE25Dev.formatDate() - Unparseable date: "2/30/1999"
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.validator.ValidatorTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.validator.ValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.CustomValidatorResourcesTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.validator.CustomValidatorResourcesTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.validator.CustomValidatorResourcesTest_OE25Dev
 [INFO] Running org.apache.commons.validator.util.FlagsTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.validator.util.FlagsTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.validator.util.FlagsTest_OE25Dev
 [INFO] Running org.apache.commons.validator.GenericValidatorTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.validator.GenericValidatorTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.validator.GenericValidatorTest_OE25Dev
 [INFO] Running org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev
-[ERROR] Tests run: 41, Failures: 0, Errors: 41, Skipped: 0, Time elapsed: 0.158 s <<< FAILURE! - in org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev
+[ERROR] Tests run: 41, Failures: 0, Errors: 41, Skipped: 0, Time elapsed: 0.109 s <<< FAILURE! - in org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev
 [ERROR] testRequiredFirstNameBlankLastNameShort_1_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredFirstNameBlankLastNameShort_2_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlankLastNameShort_2_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredFirstNameBlankLastNameShort_3_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlankLastNameShort_3_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredFirstNameBlankLastNameShort_4_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlankLastNameShort_4_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredFirstNameBlankLastNameShort_5_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlankLastNameShort_5_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredFirstNameBlankLastNameShort_6_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlankLastNameShort_6_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredFirstNameBlankLastNameShort_7_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testRequiredFirstNameBlankLastNameShort_7_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
@@ -939,7 +939,7 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredLastNameLong_2_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.01 s  <<< ERROR!
+[ERROR] testRequiredLastNameLong_2_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
@@ -947,23 +947,23 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredLastNameLong_4_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
+[ERROR] testRequiredLastNameLong_4_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredLastNameLong_5_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testRequiredLastNameLong_5_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredLastNameLong_6_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testRequiredLastNameLong_6_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredLastNameLong_7_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
+[ERROR] testRequiredLastNameLong_7_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testBothBlank_1_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testBothBlank_1_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
@@ -971,15 +971,15 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testBothBlank_3_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
+[ERROR] testBothBlank_3_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testBothBlank_4_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testBothBlank_4_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testBothBlank_5_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
+[ERROR] testBothBlank_5_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
@@ -991,7 +991,7 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testBothBlank_8_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
+[ERROR] testBothBlank_8_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
@@ -1007,15 +1007,15 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredLastNameShort_1_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
+[ERROR] testRequiredLastNameShort_1_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredLastNameShort_2_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.011 s  <<< ERROR!
+[ERROR] testRequiredLastNameShort_2_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredLastNameShort_3_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRequiredLastNameShort_3_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
@@ -1023,51 +1023,51 @@ java.lang.IllegalArgumentException: Stream[0] is null
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredLastNameShort_5_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
+[ERROR] testRequiredLastNameShort_5_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredLastNameShort_6_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRequiredLastNameShort_6_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testRequiredLastNameShort_7_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
+[ERROR] testRequiredLastNameShort_7_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testMergedConfig_1_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+[ERROR] testMergedConfig_1_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testMergedConfig_2_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.016 s  <<< ERROR!
+[ERROR] testMergedConfig_2_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testMergedConfig_3_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testMergedConfig_3_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testMergedConfig_4_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testMergedConfig_4_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testMergedConfig_5_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
+[ERROR] testMergedConfig_5_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testMergedConfig_6_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testMergedConfig_6_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testMergedConfig_7_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testMergedConfig_7_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testMergedConfig_8_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
+[ERROR] testMergedConfig_8_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
-[ERROR] testMergedConfig_9_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testMergedConfig_9_oe(org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
 java.lang.IllegalArgumentException: Stream[0] is null
 	at org.apache.commons.validator.MultipleConfigFilesTest_OE25Dev.setUp(MultipleConfigFilesTest_OE25Dev.java:70)
 
@@ -1303,8 +1303,8 @@ java.lang.IllegalArgumentException: Stream[0] is null
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  22.320 s
-[INFO] Finished at: 2026-02-06T14:01:03-06:00
+[INFO] Total time:  23.186 s
+[INFO] Finished at: 2026-02-06T14:37:27-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-validator: There are test failures.
 [ERROR] 

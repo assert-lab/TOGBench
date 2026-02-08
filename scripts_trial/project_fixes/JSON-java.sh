@@ -98,6 +98,25 @@ fail_list = [
   "JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_9_oe",
   "JSONObjectTest_OE25Dev.issue654StackOverflowInputWellFormed_1_oe",
   "JSONObjectTest_OE25Dev.issue654StackOverflowInputWellFormed_2_oe",
+  "CDLTest.badEscapedQuote_2_oe",
+"CDLTest.nullInName_2_oe",
+"JSONArrayTest.failedGetArrayValues_10_oe",
+"JSONArrayTest.failedGetArrayValues_12_oe",
+"JSONArrayTest.failedGetArrayValues_14_oe",
+"JSONArrayTest.failedGetArrayValues_16_oe",
+"JSONArrayTest.failedGetArrayValues_2_oe",
+"JSONArrayTest.failedGetArrayValues_6_oe",
+"JSONArrayTest.failedGetArrayValues_8_oe",
+"JSONMLTest.emptyTagException_2_oe",
+"JSONObjectTest.jsonObjectNonAndWrongValues_12_oe",
+"JSONObjectTest.jsonObjectNonAndWrongValues_16_oe",
+"JSONObjectTest.jsonObjectNonAndWrongValues_20_oe",
+"JSONObjectTest.jsonObjectNonAndWrongValues_24_oe",
+"JSONObjectTest.jsonObjectNonAndWrongValues_28_oe",
+"JSONObjectTest.jsonObjectNonAndWrongValues_32_oe",
+"JSONObjectTest.jsonObjectNonAndWrongValues_4_oe",
+"JSONObjectTest.jsonObjectNonAndWrongValues_8_oe",
+
 ]
 
 pairs = set()

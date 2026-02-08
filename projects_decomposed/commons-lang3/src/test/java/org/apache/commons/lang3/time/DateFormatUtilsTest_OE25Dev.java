@@ -94,21 +94,6 @@ public class DateFormatUtilsTest_OE25Dev {
      * This method test that the bug is fixed.
      */
 
-    @DefaultLocale(language = "en")
-    @Test
-    public void testSMTP() {
-        TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
-        Calendar june = createJuneTestDate(timeZone);
-
-        assertFormats("Sun, 08 Jun 2003 10:11:12 -0300", DateFormatUtils.SMTP_DATETIME_FORMAT.getPattern(),
-                timeZone, june);
-
-        timeZone = FastTimeZone.getGmtTimeZone();
-        june = createJuneTestDate(timeZone);
-        assertFormats("Sun, 08 Jun 2003 10:11:12 +0000", DateFormatUtils.SMTP_DATETIME_FORMAT.getPattern(),
-                timeZone, june);
-    }
-
     @Test
     public void testTimeISO() {
         testGmtMinus3("T09:11:12", DateFormatUtils.ISO_TIME_FORMAT.getPattern());
@@ -524,6 +509,96 @@ public class DateFormatUtilsTest_OE25Dev {
             final String value = DateFormatUtils.format(cal, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), TimeZone.getTimeZone("Europe/London"));
             assertEquals("2009-10-16T07:42:16+01:00", value, "calendar");
     }
+    }
+
+    @Test
+    public void testSMTP_1_oe_1_oe() {
+        TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
+        Calendar june = createJuneTestDate(timeZone);
+
+                final String expectedValue0 = "Sun, 08 Jun 2003 10:11:12 -0300";
+        final String pattern0 = DateFormatUtils.SMTP_DATETIME_FORMAT.getPattern();
+        final TimeZone timeZone0 = timeZone;
+        final Calendar cal0 = june;
+        assertEquals(expectedValue0, DateFormatUtils.format(cal0.getTime(), pattern0, timeZone0));
+    }
+
+    @Test
+    public void testSMTP_1_oe_2_oe() {
+        TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
+        Calendar june = createJuneTestDate(timeZone);
+
+                final String expectedValue0 = "Sun, 08 Jun 2003 10:11:12 -0300";
+        final String pattern0 = DateFormatUtils.SMTP_DATETIME_FORMAT.getPattern();
+        final TimeZone timeZone0 = timeZone;
+        final Calendar cal0 = june;
+        // removed other assertion
+                assertEquals(expectedValue0, DateFormatUtils.format(cal0.getTime().getTime(), pattern0, timeZone0));
+    }
+
+    @Test
+    public void testSMTP_1_oe_3_oe() {
+        TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
+        Calendar june = createJuneTestDate(timeZone);
+
+                final String expectedValue0 = "Sun, 08 Jun 2003 10:11:12 -0300";
+        final String pattern0 = DateFormatUtils.SMTP_DATETIME_FORMAT.getPattern();
+        final TimeZone timeZone0 = timeZone;
+        final Calendar cal0 = june;
+        // removed other assertion
+                // removed other assertion
+                assertEquals(expectedValue0, DateFormatUtils.format(cal0, pattern0, timeZone0));
+    }
+
+    @Test
+    public void testSMTP_2_oe_1_oe() {
+        TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
+        Calendar june = createJuneTestDate(timeZone);
+
+        // removed other assertion
+
+        timeZone = FastTimeZone.getGmtTimeZone();
+        june = createJuneTestDate(timeZone);
+                final String expectedValue0 = "Sun, 08 Jun 2003 10:11:12 +0000";
+        final String pattern0 = DateFormatUtils.SMTP_DATETIME_FORMAT.getPattern();
+        final TimeZone timeZone0 = timeZone;
+        final Calendar cal0 = june;
+        assertEquals(expectedValue0, DateFormatUtils.format(cal0.getTime(), pattern0, timeZone0));
+    }
+
+    @Test
+    public void testSMTP_2_oe_2_oe() {
+        TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
+        Calendar june = createJuneTestDate(timeZone);
+
+        // removed other assertion
+
+        timeZone = FastTimeZone.getGmtTimeZone();
+        june = createJuneTestDate(timeZone);
+                final String expectedValue0 = "Sun, 08 Jun 2003 10:11:12 +0000";
+        final String pattern0 = DateFormatUtils.SMTP_DATETIME_FORMAT.getPattern();
+        final TimeZone timeZone0 = timeZone;
+        final Calendar cal0 = june;
+        // removed other assertion
+                assertEquals(expectedValue0, DateFormatUtils.format(cal0.getTime().getTime(), pattern0, timeZone0));
+    }
+
+    @Test
+    public void testSMTP_2_oe_3_oe() {
+        TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
+        Calendar june = createJuneTestDate(timeZone);
+
+        // removed other assertion
+
+        timeZone = FastTimeZone.getGmtTimeZone();
+        june = createJuneTestDate(timeZone);
+                final String expectedValue0 = "Sun, 08 Jun 2003 10:11:12 +0000";
+        final String pattern0 = DateFormatUtils.SMTP_DATETIME_FORMAT.getPattern();
+        final TimeZone timeZone0 = timeZone;
+        final Calendar cal0 = june;
+        // removed other assertion
+                // removed other assertion
+                assertEquals(expectedValue0, DateFormatUtils.format(cal0, pattern0, timeZone0));
     }
 
 }

@@ -1,0 +1,3013 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.collections4.multimap;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.apache.commons.collections4.AbstractObjectTest;
+import org.apache.commons.collections4.Bag;
+import org.apache.commons.collections4.BulkTest;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.MapIterator;
+import org.apache.commons.collections4.MultiSet;
+import org.apache.commons.collections4.MultiValuedMap;
+import org.apache.commons.collections4.SetValuedMap;
+import org.apache.commons.collections4.bag.AbstractBagTest;
+import org.apache.commons.collections4.bag.HashBag;
+import org.apache.commons.collections4.collection.AbstractCollectionTest;
+import org.apache.commons.collections4.map.AbstractMapTest;
+import org.apache.commons.collections4.multiset.AbstractMultiSetTest;
+import org.apache.commons.collections4.set.AbstractSetTest;
+
+/**
+ * Abstract test class for {@link MultiValuedMap} contract and methods.
+ * <p>
+ * To use, extend this class and implement the {@link #makeObject} method and if
+ * necessary override the {@link #makeFullMap()} method.
+ *
+ * @since 4.1
+ */
+public abstract class AbstractMultiValuedMapTest_OE25Dev<K, V> extends AbstractObjectTest {
+
+    /** Map created by reset(). */
+    protected MultiValuedMap<K, V> map;
+
+    /** MultiValuedHashMap created by reset(). */
+    protected MultiValuedMap<K, V> confirmed;
+
+    public AbstractMultiValuedMapTest_OE25Dev(final String testName) {
+        super(testName);
+    }
+
+    @Override
+    abstract public MultiValuedMap<K, V> makeObject();
+
+    @Override
+    public String getCompatibilityVersion() {
+        return "4.1"; // MultiValuedMap has been added in version 4.1
+    }
+
+    /**
+     * Returns true if the maps produced by {@link #makeObject()} and
+     * {@link #makeFullMap()} support the <code>put</code> and
+     * <code>putAll</code> operations adding new mappings.
+     * <p>
+     * Default implementation returns true. Override if your collection class
+     * does not support put adding.
+     */
+    public boolean isAddSupported() {
+        return true;
+    }
+
+    /**
+     * Returns true if the maps produced by {@link #makeObject()} and
+     * {@link #makeFullMap()} support the <code>remove</code> and
+     * <code>clear</code> operations.
+     * <p>
+     * Default implementation returns true. Override if your collection class
+     * does not support removal operations.
+     */
+    public boolean isRemoveSupported() {
+        return true;
+    }
+
+    /**
+     * Returns true if the maps produced by {@link #makeObject()} and
+     * {@link #makeFullMap()} supports null keys.
+     * <p>
+     * Default implementation returns true. Override if your collection class
+     * does not support null keys.
+     */
+    public boolean isAllowNullKey() {
+        return true;
+    }
+
+    @Override
+    public boolean isTestSerialization() {
+        return true;
+    }
+
+    /**
+     * Returns the set of keys in the mappings used to test the map. This method
+     * must return an array with the same length as {@link #getSampleValues()}
+     * and all array elements must be different. The default implementation
+     * constructs a set of String keys, and includes a single null key if
+     * {@link #isAllowNullKey()} returns <code>true</code>.
+     */
+    @SuppressWarnings("unchecked")
+    public K[] getSampleKeys() {
+        final Object[] result = new Object[] {
+                "one", "one", "two", "two",
+                "three", "three"
+        };
+        return (K[]) result;
+    }
+
+    /**
+     * Returns the set of values in the mappings used to test the map. This
+     * method must return an array with the same length as
+     * {@link #getSampleKeys()}. The default implementation constructs a set of
+     * String values
+     */
+    @SuppressWarnings("unchecked")
+    public V[] getSampleValues() {
+        final Object[] result = new Object[] {
+                "uno", "un", "dos", "deux",
+                "tres", "trois"
+        };
+        return (V[]) result;
+    }
+
+    protected MultiValuedMap<K, V> makeFullMap() {
+        final MultiValuedMap<K, V> map = makeObject();
+        addSampleMappings(map);
+        return map;
+    }
+
+    protected void addSampleMappings(final MultiValuedMap<? super K, ? super V> map) {
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        for (int i = 0; i < keys.length; i++) {
+            map.put(keys[i], values[i]);
+        }
+    }
+
+    /**
+     * Override to return a MultiValuedMap other than ArrayListValuedHashMap
+     * as the confirmed map.
+     *
+     * @return a MultiValuedMap that is known to be valid
+     */
+    public MultiValuedMap<K, V> makeConfirmedMap() {
+        return new ArrayListValuedHashMap<>();
+    }
+
+    public MultiValuedMap<K, V> getConfirmed() {
+        return this.confirmed;
+    }
+
+    public void setConfirmed(final MultiValuedMap<K, V> map) {
+        this.confirmed = map;
+    }
+
+    public MultiValuedMap<K, V> getMap() {
+        return this.map;
+    }
+
+    /**
+     * Resets the {@link #map} and {@link #confirmed} fields to empty.
+     */
+    public void resetEmpty() {
+        this.map = makeObject();
+        this.confirmed = makeConfirmedMap();
+    }
+
+    /**
+     * Resets the {@link #map} and {@link #confirmed} fields to full.
+     */
+    public void resetFull() {
+        this.map = makeFullMap();
+        this.confirmed = makeConfirmedMap();
+        final K[] k = getSampleKeys();
+        final V[] v = getSampleValues();
+        for (int i = 0; i < k.length; i++) {
+            confirmed.put(k[i], v[i]);
+        }
+    }
+
+//    public void testKeyedIterator() {
+//        final MultiValuedMap<K, V> map = makeFullMap();
+//        final ArrayList<Object> actual = new ArrayList<Object>(IteratorUtils.toList(map.iterator("one")));
+//        final ArrayList<Object> expected = new ArrayList<Object>(Arrays.asList("uno", "un"));
+//        assertEquals(expected, actual);
+//    }
+
+    /*public void testRemoveViaGetCollectionRemove() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeFullMap();
+        Collection<V> values = map.get("one");
+        values.remove("uno");
+        values.remove("un");
+        assertFalse(map.containsKey("one"));
+        assertEquals(4, map.size());
+    }*/
+
+//    public void testRemoveAllViaKeyedIterator() {
+//        if (!isRemoveSupported()) {
+//            return;
+//        }
+//        final MultiValuedMap<K, V> map = makeFullMap();
+//        for (final Iterator<?> i = map.iterator("one"); i.hasNext();) {
+//            i.next();
+//            i.remove();
+//        }
+//        assertNull(map.get("one"));
+//        assertEquals(4, map.size());
+//    }
+
+    // -----------------------------------------------------------------------
+
+//    @SuppressWarnings("unchecked")
+//    public void testIterator_Key() {
+//        final MultiValuedMap<K, V> map = makeFullMap();
+//        Iterator<V> it = map.iterator("one");
+//        assertEquals(true, it.hasNext());
+//        Set<V> values = new HashSet<V>();
+//        while (it.hasNext()) {
+//            values.add(it.next());
+//        }
+//        assertEquals(true, values.contains("un"));
+//        assertEquals(true, values.contains("uno"));
+//        assertEquals(false, map.iterator("A").hasNext());
+//        assertEquals(false, map.iterator("A").hasNext());
+//        if (!isAddSupported()) {
+//            return;
+//        }
+//        map.put((K) "A", (V) "AA");
+//        it = map.iterator("A");
+//        assertEquals(true, it.hasNext());
+//        it.next();
+//        assertEquals(false, it.hasNext());
+//    }
+
+    @SuppressWarnings("unchecked")
+    public void testMapIteratorUnsupportedSet() {
+        resetFull();
+        final MapIterator<K, V> mapIt = getMap().mapIterator();
+        mapIt.next();
+        try {
+            mapIt.setValue((V) "some value");
+            fail();
+        } catch (final UnsupportedOperationException e) {
+        }
+    }
+
+    // -----------------------------------------------------------------------
+    // Manual serialization testing as this class cannot easily
+    // extend the AbstractTestMap
+    // -----------------------------------------------------------------------
+
+    // Bulk Tests
+    /**
+     * Bulk test {@link MultiValuedMap#entries()}. This method runs through all
+     * of the tests in {@link AbstractCollectionTest}. After modification
+     * operations, {@link #verify()} is invoked to ensure that the map and the
+     * other collection views are still valid.
+     *
+     * @return a {@link AbstractCollectionTest} instance for testing the map's
+     *         values collection
+     */
+    public BulkTest bulkTestMultiValuedMapEntries() {
+        return new TestMultiValuedMapEntries();
+    }
+
+    public class TestMultiValuedMapEntries extends AbstractCollectionTest<Entry<K, V>> {
+        public TestMultiValuedMapEntries() {
+            super("");
+        }
+
+        @SuppressWarnings("unchecked")
+        @Override
+        public Entry<K, V>[] getFullElements() {
+            return makeFullMap().entries().toArray(new Entry[0]);
+        }
+
+        @Override
+        public Collection<Entry<K, V>> makeObject() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.makeObject().entries();
+        }
+
+        @Override
+        public Collection<Entry<K, V>> makeFullCollection() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.makeFullMap().entries();
+        }
+
+        @Override
+        public boolean isNullSupported() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.isAllowNullKey();
+        }
+
+        @Override
+        public boolean isAddSupported() {
+            // Add not supported in entries view
+            return false;
+        }
+
+        @Override
+        public boolean isRemoveSupported() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.isRemoveSupported();
+        }
+
+        @Override
+        public boolean isTestSerialization() {
+            return false;
+        }
+
+        @Override
+        public void resetFull() {
+            AbstractMultiValuedMapTest_OE25Dev.this.resetFull();
+            setCollection(AbstractMultiValuedMapTest_OE25Dev.this.getMap().entries());
+            TestMultiValuedMapEntries.this.setConfirmed(AbstractMultiValuedMapTest_OE25Dev.this.getConfirmed().entries());
+        }
+
+        @Override
+        public void resetEmpty() {
+            AbstractMultiValuedMapTest_OE25Dev.this.resetEmpty();
+            setCollection(AbstractMultiValuedMapTest_OE25Dev.this.getMap().entries());
+            TestMultiValuedMapEntries.this.setConfirmed(AbstractMultiValuedMapTest_OE25Dev.this.getConfirmed().entries());
+        }
+
+        @Override
+        public Collection<Entry<K, V>> makeConfirmedCollection() {
+            // never gets called, reset methods are overridden
+            return null;
+        }
+
+        @Override
+        public Collection<Entry<K, V>> makeConfirmedFullCollection() {
+            // never gets called, reset methods are overridden
+            return null;
+        }
+
+    }
+
+    /**
+     * Bulk test {@link MultiValuedMap#keySet()}. This method runs through all
+     * of the tests in {@link AbstractSetTest}. After modification operations,
+     * {@link #verify()} is invoked to ensure that the map and the other
+     * collection views are still valid.
+     *
+     * @return a {@link AbstractSetTest} instance for testing the map's key set
+     */
+    public BulkTest bulkTestMultiValuedMapKeySet() {
+        return new TestMultiValuedMapKeySet();
+    }
+
+    public class TestMultiValuedMapKeySet extends AbstractSetTest<K> {
+        public TestMultiValuedMapKeySet() {
+            super("");
+        }
+
+        @SuppressWarnings("unchecked")
+        @Override
+        public K[] getFullElements() {
+            return (K[]) AbstractMultiValuedMapTest_OE25Dev.this.makeFullMap().keySet().toArray();
+        }
+
+        @Override
+        public Set<K> makeObject() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.makeObject().keySet();
+        }
+
+        @Override
+        public Set<K> makeFullCollection() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.makeFullMap().keySet();
+        }
+
+        @Override
+        public boolean isNullSupported() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.isAllowNullKey();
+        }
+
+        @Override
+        public boolean isAddSupported() {
+            return false;
+        }
+
+        @Override
+        public boolean isRemoveSupported() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.isRemoveSupported();
+        }
+
+        @Override
+        public boolean isTestSerialization() {
+            return false;
+        }
+
+    }
+
+    /**
+     * Bulk test {@link MultiValuedMap#values()}. This method runs through all
+     * of the tests in {@link AbstractCollectionTest}. After modification
+     * operations, {@link #verify()} is invoked to ensure that the map and the
+     * other collection views are still valid.
+     *
+     * @return a {@link AbstractCollectionTest} instance for testing the map's
+     *         values collection
+     */
+    public BulkTest bulkTestMultiValuedMapValues() {
+        return new TestMultiValuedMapValues();
+    }
+
+    public class TestMultiValuedMapValues extends AbstractCollectionTest<V> {
+        public TestMultiValuedMapValues() {
+            super("");
+        }
+
+        @Override
+        public V[] getFullElements() {
+            return getSampleValues();
+        }
+
+        @Override
+        public Collection<V> makeObject() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.makeObject().values();
+        }
+
+        @Override
+        public Collection<V> makeFullCollection() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.makeFullMap().values();
+        }
+
+        @Override
+        public boolean isNullSupported() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.isAllowNullKey();
+        }
+
+        @Override
+        public boolean isAddSupported() {
+            return false;
+        }
+
+        @Override
+        public boolean isRemoveSupported() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.isRemoveSupported();
+        }
+
+        @Override
+        public boolean isTestSerialization() {
+            return false;
+        }
+
+        @Override
+        public void resetFull() {
+            AbstractMultiValuedMapTest_OE25Dev.this.resetFull();
+            setCollection(AbstractMultiValuedMapTest_OE25Dev.this.getMap().values());
+            TestMultiValuedMapValues.this.setConfirmed(AbstractMultiValuedMapTest_OE25Dev.this.getConfirmed().values());
+        }
+
+        @Override
+        public void resetEmpty() {
+            AbstractMultiValuedMapTest_OE25Dev.this.resetEmpty();
+            setCollection(AbstractMultiValuedMapTest_OE25Dev.this.getMap().values());
+            TestMultiValuedMapValues.this.setConfirmed(AbstractMultiValuedMapTest_OE25Dev.this.getConfirmed().values());
+        }
+
+        @Override
+        public Collection<V> makeConfirmedCollection() {
+            // never gets called, reset methods are overridden
+            return null;
+        }
+
+        @Override
+        public Collection<V> makeConfirmedFullCollection() {
+            // never gets called, reset methods are overridden
+            return null;
+        }
+
+    }
+
+    /**
+     * Bulk test {@link MultiValuedMap#keys()}. This method runs through all of
+     * the tests in {@link AbstractBagTest}. After modification operations,
+     * {@link #verify()} is invoked to ensure that the map and the other
+     * collection views are still valid.
+     *
+     * @return a {@link AbstractBagTest} instance for testing the map's values
+     *         collection
+     */
+    public BulkTest bulkTestMultiValuedMapKeys() {
+        return new TestMultiValuedMapKeys();
+    }
+
+    public class TestMultiValuedMapKeys extends AbstractMultiSetTest<K> {
+
+        public TestMultiValuedMapKeys() {
+            super("");
+        }
+
+        @Override
+        public K[] getFullElements() {
+            return getSampleKeys();
+        }
+
+        @Override
+        public MultiSet<K> makeObject() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.makeObject().keys();
+        }
+
+        @Override
+        public MultiSet<K> makeFullCollection() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.makeFullMap().keys();
+        }
+
+        @Override
+        public boolean isNullSupported() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.isAllowNullKey();
+        }
+
+        @Override
+        public boolean isAddSupported() {
+            return false;
+        }
+
+        @Override
+        public boolean isRemoveSupported() {
+            return false;
+        }
+
+        @Override
+        public boolean isTestSerialization() {
+            return false;
+        }
+
+        @Override
+        public void resetFull() {
+            AbstractMultiValuedMapTest_OE25Dev.this.resetFull();
+            setCollection(AbstractMultiValuedMapTest_OE25Dev.this.getMap().keys());
+            TestMultiValuedMapKeys.this.setConfirmed(AbstractMultiValuedMapTest_OE25Dev.this.getConfirmed().keys());
+        }
+
+        @Override
+        public void resetEmpty() {
+            AbstractMultiValuedMapTest_OE25Dev.this.resetEmpty();
+            setCollection(AbstractMultiValuedMapTest_OE25Dev.this.getMap().keys());
+            TestMultiValuedMapKeys.this.setConfirmed(AbstractMultiValuedMapTest_OE25Dev.this.getConfirmed().keys());
+        }
+
+    }
+
+    public BulkTest bulkTestAsMap() {
+        return new TestMultiValuedMapAsMap();
+    }
+
+    public class TestMultiValuedMapAsMap extends AbstractMapTest<K, Collection<V>> {
+
+        public TestMultiValuedMapAsMap() {
+            super("");
+        }
+
+        @Override
+        public Map<K, Collection<V>> makeObject() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.makeObject().asMap();
+        }
+
+        @Override
+        public Map<K, Collection<V>> makeFullMap() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.makeFullMap().asMap();
+        }
+
+        @Override
+        @SuppressWarnings("unchecked")
+        public K[] getSampleKeys() {
+            final K[] samplekeys = AbstractMultiValuedMapTest_OE25Dev.this.getSampleKeys();
+            final Object[] finalKeys = new Object[3];
+            for (int i = 0; i < 3; i++) {
+                finalKeys[i] = samplekeys[i * 2];
+            }
+            return (K[]) finalKeys;
+        }
+
+        @Override
+        @SuppressWarnings("unchecked")
+        public Collection<V>[] getSampleValues() {
+            // Calling getMap() instead of makeObject() would make more sense, but due to concurrency
+            // issues, this may lead to intermittent issues. See COLLECTIONS-661. A better solution
+            // would be to re-design the tests, or add a boolean method to the parent.
+            final boolean isSetValuedMap = AbstractMultiValuedMapTest_OE25Dev.this.makeObject() instanceof SetValuedMap;
+            final V[] sampleValues = AbstractMultiValuedMapTest_OE25Dev.this.getSampleValues();
+            final Collection<V>[] colArr = new Collection[3];
+            for(int i = 0; i < 3; i++) {
+                final Collection<V> coll = Arrays.asList(sampleValues[i*2], sampleValues[i*2 + 1]);
+                colArr[i] = isSetValuedMap ? new HashSet<>(coll) : coll;
+            }
+            return colArr;
+        }
+
+        @Override
+        @SuppressWarnings("unchecked")
+        public Collection<V>[] getNewSampleValues() {
+            // See comment in getSampleValues() to understand why we are calling makeObject() and not
+            // getMap(). See COLLECTIONS-661 for more.
+            final boolean isSetValuedMap = AbstractMultiValuedMapTest_OE25Dev.this.makeObject() instanceof SetValuedMap;
+            final Object[] sampleValues = { "ein", "ek", "zwei", "duey", "drei", "teen" };
+            final Collection<V>[] colArr = new Collection[3];
+            for (int i = 0; i < 3; i++) {
+                final Collection<V> coll = Arrays.asList((V) sampleValues[i * 2], (V) sampleValues[i * 2 + 1]);
+                colArr[i] = isSetValuedMap ? new HashSet<>(coll) : coll;
+            }
+            return colArr;
+        }
+
+        @Override
+        public boolean isAllowNullKey() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.isAllowNullKey();
+        }
+
+        @Override
+        public boolean isPutAddSupported() {
+            return false;
+        }
+
+        @Override
+        public boolean isPutChangeSupported() {
+            return false;
+        }
+
+        @Override
+        public boolean isRemoveSupported() {
+            return AbstractMultiValuedMapTest_OE25Dev.this.isRemoveSupported();
+        }
+
+        @Override
+        public boolean areEqualElementsDistinguishable() {
+            // work-around for a problem with the EntrySet: the entries contain
+            // the wrapped collection, which will be automatically cleared
+            // when the associated key is removed from the map as the collection
+            // is not cached atm.
+            return true;
+        }
+
+        @Override
+        public boolean isTestSerialization() {
+            return false;
+        }
+    }
+
+    public void testNoMappingReturnsEmptyCol_1_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        assertTrue(map.get((K) "whatever").isEmpty());
+    }
+
+    public void testMultipleValues_1_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        @SuppressWarnings("unchecked")
+        final
+        Collection<V> col = map.get((K) "one");
+        assertTrue(col.contains("uno"));
+    }
+
+    public void testMultipleValues_2_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        @SuppressWarnings("unchecked")
+        final
+        Collection<V> col = map.get((K) "one");
+        // removed other assertion
+        assertTrue(col.contains("un"));
+    }
+
+    public void testGet_1_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        assertTrue(map.get((K) "one").contains("uno"));
+    }
+
+    public void testGet_2_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        assertTrue(map.get((K) "one").contains("un"));
+    }
+
+    public void testGet_3_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        assertTrue(map.get((K) "two").contains("dos"));
+    }
+
+    public void testGet_4_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(map.get((K) "two").contains("deux"));
+    }
+
+    public void testGet_5_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(map.get((K) "three").contains("tres"));
+    }
+
+    public void testGet_6_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(map.get((K) "three").contains("trois"));
+    }
+
+    public void testAddMappingThroughGet_1_oe(){
+        if (!isAddSupported()) {
+            return;
+        }
+        resetEmpty();
+        final MultiValuedMap<K, V> map =  getMap();
+        final Collection<V> col1 = map.get((K) "one");
+        final Collection<V> col2 = map.get((K) "one");
+        assertTrue(col1.isEmpty());
+    }
+
+    public void testAddMappingThroughGet_2_oe(){
+        if (!isAddSupported()) {
+            return;
+        }
+        resetEmpty();
+        final MultiValuedMap<K, V> map =  getMap();
+        final Collection<V> col1 = map.get((K) "one");
+        final Collection<V> col2 = map.get((K) "one");
+        // removed other assertion
+        assertTrue(col2.isEmpty());
+    }
+
+    public void testAddMappingThroughGet_3_oe(){
+        if (!isAddSupported()) {
+            return;
+        }
+        resetEmpty();
+        final MultiValuedMap<K, V> map =  getMap();
+        final Collection<V> col1 = map.get((K) "one");
+        final Collection<V> col2 = map.get((K) "one");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, map.size());
+    }
+
+    public void testAddMappingThroughGet_4_oe(){
+        if (!isAddSupported()) {
+            return;
+        }
+        resetEmpty();
+        final MultiValuedMap<K, V> map =  getMap();
+        final Collection<V> col1 = map.get((K) "one");
+        final Collection<V> col2 = map.get((K) "one");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        col1.add((V) "uno");
+        col2.add((V) "un");
+        assertTrue(map.containsKey("one"));
+    }
+
+    public void testAddMappingThroughGet_5_oe(){
+        if (!isAddSupported()) {
+            return;
+        }
+        resetEmpty();
+        final MultiValuedMap<K, V> map =  getMap();
+        final Collection<V> col1 = map.get((K) "one");
+        final Collection<V> col2 = map.get((K) "one");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        col1.add((V) "uno");
+        col2.add((V) "un");
+        // removed other assertion
+        assertTrue(map.containsMapping("one", "uno"));
+    }
+
+    public void testAddMappingThroughGet_6_oe(){
+        if (!isAddSupported()) {
+            return;
+        }
+        resetEmpty();
+        final MultiValuedMap<K, V> map =  getMap();
+        final Collection<V> col1 = map.get((K) "one");
+        final Collection<V> col2 = map.get((K) "one");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        col1.add((V) "uno");
+        col2.add((V) "un");
+        // removed other assertion
+        // removed other assertion
+        assertTrue(map.containsMapping("one", "un"));
+    }
+
+    public void testAddMappingThroughGet_7_oe(){
+        if (!isAddSupported()) {
+            return;
+        }
+        resetEmpty();
+        final MultiValuedMap<K, V> map =  getMap();
+        final Collection<V> col1 = map.get((K) "one");
+        final Collection<V> col2 = map.get((K) "one");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        col1.add((V) "uno");
+        col2.add((V) "un");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(map.containsValue("uno"));
+    }
+
+    public void testAddMappingThroughGet_8_oe(){
+        if (!isAddSupported()) {
+            return;
+        }
+        resetEmpty();
+        final MultiValuedMap<K, V> map =  getMap();
+        final Collection<V> col1 = map.get((K) "one");
+        final Collection<V> col2 = map.get((K) "one");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        col1.add((V) "uno");
+        col2.add((V) "un");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(map.containsValue("un"));
+    }
+
+    public void testAddMappingThroughGet_9_oe(){
+        if (!isAddSupported()) {
+            return;
+        }
+        resetEmpty();
+        final MultiValuedMap<K, V> map =  getMap();
+        final Collection<V> col1 = map.get((K) "one");
+        final Collection<V> col2 = map.get((K) "one");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        col1.add((V) "uno");
+        col2.add((V) "un");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(col1.contains("un"));
+    }
+
+    public void testAddMappingThroughGet_10_oe(){
+        if (!isAddSupported()) {
+            return;
+        }
+        resetEmpty();
+        final MultiValuedMap<K, V> map =  getMap();
+        final Collection<V> col1 = map.get((K) "one");
+        final Collection<V> col2 = map.get((K) "one");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        col1.add((V) "uno");
+        col2.add((V) "un");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(col2.contains("uno"));
+    }
+
+    public void testRemoveMappingThroughGet_1_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        Collection<V> col = map.get((K) "one");
+        assertEquals(2, col.size());
+    }
+
+    public void testRemoveMappingThroughGet_2_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        Collection<V> col = map.get((K) "one");
+        // removed other assertion
+        assertEquals(6, map.size());
+    }
+
+    public void testRemoveMappingThroughGet_3_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        Collection<V> col = map.get((K) "one");
+        // removed other assertion
+        // removed other assertion
+        col.remove("uno");
+        col.remove("un");
+        assertFalse(map.containsKey("one"));
+    }
+
+    public void testRemoveMappingThroughGet_4_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        Collection<V> col = map.get((K) "one");
+        // removed other assertion
+        // removed other assertion
+        col.remove("uno");
+        col.remove("un");
+        // removed other assertion
+        assertFalse(map.containsMapping("one", "uno"));
+    }
+
+    public void testRemoveMappingThroughGet_5_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        Collection<V> col = map.get((K) "one");
+        // removed other assertion
+        // removed other assertion
+        col.remove("uno");
+        col.remove("un");
+        // removed other assertion
+        // removed other assertion
+        assertFalse(map.containsMapping("one", "un"));
+    }
+
+    public void testRemoveMappingThroughGet_6_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        Collection<V> col = map.get((K) "one");
+        // removed other assertion
+        // removed other assertion
+        col.remove("uno");
+        col.remove("un");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(map.containsValue("uno"));
+    }
+
+    public void testRemoveMappingThroughGet_7_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        Collection<V> col = map.get((K) "one");
+        // removed other assertion
+        // removed other assertion
+        col.remove("uno");
+        col.remove("un");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(map.containsValue("un"));
+    }
+
+    public void testRemoveMappingThroughGet_8_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        Collection<V> col = map.get((K) "one");
+        // removed other assertion
+        // removed other assertion
+        col.remove("uno");
+        col.remove("un");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(4, map.size());
+    }
+
+    public void testRemoveMappingThroughGet_9_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        Collection<V> col = map.get((K) "one");
+        // removed other assertion
+        // removed other assertion
+        col.remove("uno");
+        col.remove("un");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        col = map.remove("one");
+        assertNotNull(col);
+    }
+
+    public void testRemoveMappingThroughGet_10_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        Collection<V> col = map.get((K) "one");
+        // removed other assertion
+        // removed other assertion
+        col.remove("uno");
+        col.remove("un");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        col = map.remove("one");
+        // removed other assertion
+        assertEquals(0, col.size());
+    }
+
+    public void testRemoveMappingThroughGetIterator_1_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        final
+        Iterator<V> it = map.get((K) "one").iterator();
+        while (it.hasNext()) {
+            it.next();
+            it.remove();
+        }
+        assertFalse(map.containsKey("one"));
+    }
+
+    public void testRemoveMappingThroughGetIterator_2_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        final
+        Iterator<V> it = map.get((K) "one").iterator();
+        while (it.hasNext()) {
+            it.next();
+            it.remove();
+        }
+        // removed other assertion
+        assertFalse(map.containsMapping("one", "uno"));
+    }
+
+    public void testRemoveMappingThroughGetIterator_3_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        final
+        Iterator<V> it = map.get((K) "one").iterator();
+        while (it.hasNext()) {
+            it.next();
+            it.remove();
+        }
+        // removed other assertion
+        // removed other assertion
+        assertFalse(map.containsMapping("one", "un"));
+    }
+
+    public void testRemoveMappingThroughGetIterator_4_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        final
+        Iterator<V> it = map.get((K) "one").iterator();
+        while (it.hasNext()) {
+            it.next();
+            it.remove();
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(map.containsValue("uno"));
+    }
+
+    public void testRemoveMappingThroughGetIterator_5_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        final
+        Iterator<V> it = map.get((K) "one").iterator();
+        while (it.hasNext()) {
+            it.next();
+            it.remove();
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(map.containsValue("un"));
+    }
+
+    public void testRemoveMappingThroughGetIterator_6_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        final
+        Iterator<V> it = map.get((K) "one").iterator();
+        while (it.hasNext()) {
+            it.next();
+            it.remove();
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(4, map.size());
+    }
+
+    public void testRemoveMappingThroughGetIterator_7_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        final
+        Iterator<V> it = map.get((K) "one").iterator();
+        while (it.hasNext()) {
+            it.next();
+            it.remove();
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final Collection<V> coll = map.remove("one");
+        assertNotNull(coll);
+    }
+
+    public void testRemoveMappingThroughGetIterator_8_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MultiValuedMap<K, V> map = getMap();
+        @SuppressWarnings("unchecked")
+        final
+        Iterator<V> it = map.get((K) "one").iterator();
+        while (it.hasNext()) {
+            it.next();
+            it.remove();
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final Collection<V> coll = map.remove("one");
+        // removed other assertion
+        assertEquals(0, coll.size());
+    }
+
+    public void testContainsValue_1_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        assertTrue(map.containsValue("uno"));
+    }
+
+    public void testContainsValue_2_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        assertTrue(map.containsValue("un"));
+    }
+
+    public void testContainsValue_3_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        assertTrue(map.containsValue("dos"));
+    }
+
+    public void testContainsValue_4_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(map.containsValue("deux"));
+    }
+
+    public void testContainsValue_5_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(map.containsValue("tres"));
+    }
+
+    public void testContainsValue_6_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(map.containsValue("trois"));
+    }
+
+    public void testContainsValue_7_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(map.containsValue("quatro"));
+    }
+
+    public void testKeyContainsValue_1_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        assertTrue(map.containsMapping("one", "uno"));
+    }
+
+    public void testKeyContainsValue_2_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        assertTrue(map.containsMapping("one", "un"));
+    }
+
+    public void testKeyContainsValue_3_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        assertTrue(map.containsMapping("two", "dos"));
+    }
+
+    public void testKeyContainsValue_4_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(map.containsMapping("two", "deux"));
+    }
+
+    public void testKeyContainsValue_5_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(map.containsMapping("three", "tres"));
+    }
+
+    public void testKeyContainsValue_6_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(map.containsMapping("three", "trois"));
+    }
+
+    public void testKeyContainsValue_7_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(map.containsMapping("four", "quatro"));
+    }
+
+    public void testValues_1_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final HashSet<V> expected = new HashSet<>();
+        expected.add((V) "uno");
+        expected.add((V) "dos");
+        expected.add((V) "tres");
+        expected.add((V) "un");
+        expected.add((V) "deux");
+        expected.add((V) "trois");
+        final Collection<V> c = map.values();
+        assertEquals(6, c.size());
+    }
+
+    public void testValues_2_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final HashSet<V> expected = new HashSet<>();
+        expected.add((V) "uno");
+        expected.add((V) "dos");
+        expected.add((V) "tres");
+        expected.add((V) "un");
+        expected.add((V) "deux");
+        expected.add((V) "trois");
+        final Collection<V> c = map.values();
+        // removed other assertion
+        assertEquals(expected, new HashSet<>(c));
+    }
+
+    public void testRemoveAllViaValuesIterator_1_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeFullMap();
+        for (final Iterator<?> i = map.values().iterator(); i.hasNext();) {
+            i.next();
+            i.remove();
+        }
+        assertTrue(map.get((K) "one").isEmpty());
+    }
+
+    public void testRemoveAllViaValuesIterator_2_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeFullMap();
+        for (final Iterator<?> i = map.values().iterator(); i.hasNext();) {
+            i.next();
+            i.remove();
+        }
+        // removed other assertion
+        assertTrue(map.isEmpty());
+    }
+
+    public void testRemoveViaValuesRemove_1_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final Collection<V> values = map.values();
+        values.remove("uno");
+        values.remove("un");
+        assertFalse(map.containsKey("one"));
+    }
+
+    public void testRemoveViaValuesRemove_2_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final Collection<V> values = map.values();
+        values.remove("uno");
+        values.remove("un");
+        // removed other assertion
+        assertEquals(4, map.size());
+    }
+
+    public void testEntriesCollectionIterator_1_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final Collection<V> values = new ArrayList<>(map.values());
+        final Iterator<Map.Entry<K, V>> iterator = map.entries().iterator();
+        while (iterator.hasNext()) {
+            final Map.Entry<K, V> entry = iterator.next();
+            assertTrue(map.containsMapping(entry.getKey(), entry.getValue()));
+    }
+    }
+
+    public void testEntriesCollectionIterator_2_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final Collection<V> values = new ArrayList<>(map.values());
+        final Iterator<Map.Entry<K, V>> iterator = map.entries().iterator();
+        while (iterator.hasNext()) {
+            final Map.Entry<K, V> entry = iterator.next();
+            // removed other assertion
+            assertTrue(values.contains(entry.getValue()));
+    }
+    }
+
+    public void testEntriesCollectionIterator_3_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final Collection<V> values = new ArrayList<>(map.values());
+        final Iterator<Map.Entry<K, V>> iterator = map.entries().iterator();
+        while (iterator.hasNext()) {
+            final Map.Entry<K, V> entry = iterator.next();
+            // removed other assertion
+            // removed other assertion
+            if (isRemoveSupported()) {
+                assertTrue(values.remove(entry.getValue()));
+    }
+    }
+    }
+
+    public void testEntriesCollectionIterator_4_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final Collection<V> values = new ArrayList<>(map.values());
+        final Iterator<Map.Entry<K, V>> iterator = map.entries().iterator();
+        while (iterator.hasNext()) {
+            final Map.Entry<K, V> entry = iterator.next();
+            // removed other assertion
+            // removed other assertion
+            if (isRemoveSupported()) {
+                // removed other assertion
+            }
+        }
+        if (isRemoveSupported()) {
+            assertTrue(values.isEmpty());
+    }
+    }
+
+    public void testRemoveAllViaEntriesIterator_1_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeFullMap();
+        for (final Iterator<?> i = map.entries().iterator(); i.hasNext();) {
+            i.next();
+            i.remove();
+        }
+        assertTrue(map.get((K) "one").isEmpty());
+    }
+
+    public void testRemoveAllViaEntriesIterator_2_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeFullMap();
+        for (final Iterator<?> i = map.entries().iterator(); i.hasNext();) {
+            i.next();
+            i.remove();
+        }
+        // removed other assertion
+        assertEquals(0, map.size());
+    }
+
+    public void testSize_1_oe() {
+        assertEquals(6, makeFullMap().size());
+    }
+
+    public void testMapEquals_1_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> one = makeObject();
+        final Integer value = Integer.valueOf(1);
+        one.put((K) "One", (V) value);
+        one.removeMapping("One", value);
+
+        final MultiValuedMap<K, V> two = makeObject();
+        assertEquals(two, one);
+    }
+
+    public void testSizeWithPutRemove_1_oe() {
+        if (!isRemoveSupported() || !isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        assertEquals(0, map.size());
+    }
+
+    public void testSizeWithPutRemove_2_oe() {
+        if (!isRemoveSupported() || !isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        // removed other assertion
+        map.put((K) "A", (V) "AA");
+        assertEquals(1, map.size());
+    }
+
+    public void testSizeWithPutRemove_3_oe() {
+        if (!isRemoveSupported() || !isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        // removed other assertion
+        map.put((K) "A", (V) "AA");
+        // removed other assertion
+        map.put((K) "B", (V) "BA");
+        assertEquals(2, map.size());
+    }
+
+    public void testSizeWithPutRemove_4_oe() {
+        if (!isRemoveSupported() || !isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        // removed other assertion
+        map.put((K) "A", (V) "AA");
+        // removed other assertion
+        map.put((K) "B", (V) "BA");
+        // removed other assertion
+        map.put((K) "B", (V) "BB");
+        assertEquals(3, map.size());
+    }
+
+    public void testSizeWithPutRemove_5_oe() {
+        if (!isRemoveSupported() || !isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        // removed other assertion
+        map.put((K) "A", (V) "AA");
+        // removed other assertion
+        map.put((K) "B", (V) "BA");
+        // removed other assertion
+        map.put((K) "B", (V) "BB");
+        // removed other assertion
+        map.put((K) "B", (V) "BC");
+        assertEquals(4, map.size());
+    }
+
+    public void testSizeWithPutRemove_6_oe() {
+        if (!isRemoveSupported() || !isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        // removed other assertion
+        map.put((K) "A", (V) "AA");
+        // removed other assertion
+        map.put((K) "B", (V) "BA");
+        // removed other assertion
+        map.put((K) "B", (V) "BB");
+        // removed other assertion
+        map.put((K) "B", (V) "BC");
+        // removed other assertion
+        map.remove("A");
+        assertEquals(3, map.size());
+    }
+
+    public void testSizeWithPutRemove_7_oe() {
+        if (!isRemoveSupported() || !isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        // removed other assertion
+        map.put((K) "A", (V) "AA");
+        // removed other assertion
+        map.put((K) "B", (V) "BA");
+        // removed other assertion
+        map.put((K) "B", (V) "BB");
+        // removed other assertion
+        map.put((K) "B", (V) "BC");
+        // removed other assertion
+        map.remove("A");
+        // removed other assertion
+        map.removeMapping("B", "BC");
+        assertEquals(2, map.size());
+    }
+
+    public void testKeySetSize_1_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        assertEquals(3, map.keySet().size());
+    }
+
+    public void testSize_Key_1_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        assertEquals(2, map.get((K) "one").size());
+    }
+
+    public void testSize_Key_2_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        assertEquals(2, map.get((K) "two").size());
+    }
+
+    public void testSize_Key_3_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, map.get((K) "three").size());
+    }
+
+    public void testSize_Key_4_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        if (!isAddSupported()) {
+            return;
+        }
+        map.put((K) "A", (V) "AA");
+        assertEquals(1, map.get((K) "A").size());
+    }
+
+    public void testSize_Key_5_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        if (!isAddSupported()) {
+            return;
+        }
+        map.put((K) "A", (V) "AA");
+        // removed other assertion
+        //assertEquals(0, map.get("B").size());
+        map.put((K) "B", (V) "BA");
+        assertEquals(1, map.get((K) "A").size());
+    }
+
+    public void testSize_Key_6_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        if (!isAddSupported()) {
+            return;
+        }
+        map.put((K) "A", (V) "AA");
+        // removed other assertion
+        //assertEquals(0, map.get("B").size());
+        map.put((K) "B", (V) "BA");
+        // removed other assertion
+        assertEquals(1, map.get((K) "B").size());
+    }
+
+    public void testSize_Key_7_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        if (!isAddSupported()) {
+            return;
+        }
+        map.put((K) "A", (V) "AA");
+        // removed other assertion
+        //assertEquals(0, map.get("B").size());
+        map.put((K) "B", (V) "BA");
+        // removed other assertion
+        // removed other assertion
+        map.put((K) "B", (V) "BB");
+        assertEquals(1, map.get((K) "A").size());
+    }
+
+    public void testSize_Key_8_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        if (!isAddSupported()) {
+            return;
+        }
+        map.put((K) "A", (V) "AA");
+        // removed other assertion
+        //assertEquals(0, map.get("B").size());
+        map.put((K) "B", (V) "BA");
+        // removed other assertion
+        // removed other assertion
+        map.put((K) "B", (V) "BB");
+        // removed other assertion
+        assertEquals(2, map.get((K) "B").size());
+    }
+
+    public void testSize_Key_9_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        if (!isAddSupported()) {
+            return;
+        }
+        map.put((K) "A", (V) "AA");
+        // removed other assertion
+        //assertEquals(0, map.get("B").size());
+        map.put((K) "B", (V) "BA");
+        // removed other assertion
+        // removed other assertion
+        map.put((K) "B", (V) "BB");
+        // removed other assertion
+        // removed other assertion
+        map.put((K) "B", (V) "BC");
+        assertEquals(1, map.get((K) "A").size());
+    }
+
+    public void testSize_Key_10_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        if (!isAddSupported()) {
+            return;
+        }
+        map.put((K) "A", (V) "AA");
+        // removed other assertion
+        //assertEquals(0, map.get("B").size());
+        map.put((K) "B", (V) "BA");
+        // removed other assertion
+        // removed other assertion
+        map.put((K) "B", (V) "BB");
+        // removed other assertion
+        // removed other assertion
+        map.put((K) "B", (V) "BC");
+        // removed other assertion
+        assertEquals(3, map.get((K) "B").size());
+    }
+
+    public void testSize_Key_11_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        if (!isAddSupported()) {
+            return;
+        }
+        map.put((K) "A", (V) "AA");
+        // removed other assertion
+        //assertEquals(0, map.get("B").size());
+        map.put((K) "B", (V) "BA");
+        // removed other assertion
+        // removed other assertion
+        map.put((K) "B", (V) "BB");
+        // removed other assertion
+        // removed other assertion
+        map.put((K) "B", (V) "BC");
+        // removed other assertion
+        // removed other assertion
+        if (!isRemoveSupported()) {
+            return;
+        }
+        map.remove("A");
+        //assertEquals(0, map.get("A").size());
+        assertEquals(3, map.get((K) "B").size());
+    }
+
+    public void testSize_Key_12_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        if (!isAddSupported()) {
+            return;
+        }
+        map.put((K) "A", (V) "AA");
+        // removed other assertion
+        //assertEquals(0, map.get("B").size());
+        map.put((K) "B", (V) "BA");
+        // removed other assertion
+        // removed other assertion
+        map.put((K) "B", (V) "BB");
+        // removed other assertion
+        // removed other assertion
+        map.put((K) "B", (V) "BC");
+        // removed other assertion
+        // removed other assertion
+        if (!isRemoveSupported()) {
+            return;
+        }
+        map.remove("A");
+        //assertEquals(0, map.get("A").size());
+        // removed other assertion
+        map.removeMapping("B", "BC");
+        //assertEquals(0, map.get("A").size());
+        assertEquals(2, map.get((K) "B").size());
+    }
+
+    public void testContainsValue_Key_1_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        assertEquals(true, map.containsMapping("one", "uno"));
+    }
+
+    public void testContainsValue_Key_2_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        assertEquals(false, map.containsMapping("two", "2"));
+    }
+
+    public void testContainsValue_Key_3_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        if (!isAddSupported()) {
+            return;
+        }
+        map.put((K) "A", (V) "AA");
+        assertEquals(true, map.containsMapping("A", "AA"));
+    }
+
+    public void testContainsValue_Key_4_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        // removed other assertion
+        // removed other assertion
+        if (!isAddSupported()) {
+            return;
+        }
+        map.put((K) "A", (V) "AA");
+        // removed other assertion
+        assertEquals(false, map.containsMapping("A", "AB"));
+    }
+
+    public void testPutAll_Map1_1_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> original = makeObject();
+        original.put((K) "key", (V) "object1");
+        original.put((K) "key", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "key", (V) "object0");
+        test.putAll(original);
+
+        assertEquals(2, test.keySet().size());
+    }
+
+    public void testPutAll_Map1_2_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> original = makeObject();
+        original.put((K) "key", (V) "object1");
+        original.put((K) "key", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "key", (V) "object0");
+        test.putAll(original);
+
+        // removed other assertion
+        assertEquals(4, test.size());
+    }
+
+    public void testPutAll_Map1_3_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> original = makeObject();
+        original.put((K) "key", (V) "object1");
+        original.put((K) "key", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "key", (V) "object0");
+        test.putAll(original);
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, test.get((K) "keyA").size());
+    }
+
+    public void testPutAll_Map1_4_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> original = makeObject();
+        original.put((K) "key", (V) "object1");
+        original.put((K) "key", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "key", (V) "object0");
+        test.putAll(original);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(3, test.get((K) "key").size());
+    }
+
+    public void testPutAll_Map1_5_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> original = makeObject();
+        original.put((K) "key", (V) "object1");
+        original.put((K) "key", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "key", (V) "object0");
+        test.putAll(original);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, test.containsValue("objectA"));
+    }
+
+    public void testPutAll_Map1_6_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> original = makeObject();
+        original.put((K) "key", (V) "object1");
+        original.put((K) "key", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "key", (V) "object0");
+        test.putAll(original);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, test.containsValue("object0"));
+    }
+
+    public void testPutAll_Map1_7_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> original = makeObject();
+        original.put((K) "key", (V) "object1");
+        original.put((K) "key", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "key", (V) "object0");
+        test.putAll(original);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, test.containsValue("object1"));
+    }
+
+    public void testPutAll_Map1_8_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> original = makeObject();
+        original.put((K) "key", (V) "object1");
+        original.put((K) "key", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "key", (V) "object0");
+        test.putAll(original);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, test.containsValue("object2"));
+    }
+
+    public void testPutAll_Map2_1_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final Map<K, V> original = new HashMap<>();
+        original.put((K) "keyX", (V) "object1");
+        original.put((K) "keyY", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "keyX", (V) "object0");
+        test.putAll(original);
+
+        assertEquals(3, test.keySet().size());
+    }
+
+    public void testPutAll_Map2_2_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final Map<K, V> original = new HashMap<>();
+        original.put((K) "keyX", (V) "object1");
+        original.put((K) "keyY", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "keyX", (V) "object0");
+        test.putAll(original);
+
+        // removed other assertion
+        assertEquals(4, test.size());
+    }
+
+    public void testPutAll_Map2_3_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final Map<K, V> original = new HashMap<>();
+        original.put((K) "keyX", (V) "object1");
+        original.put((K) "keyY", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "keyX", (V) "object0");
+        test.putAll(original);
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, test.get((K) "keyA").size());
+    }
+
+    public void testPutAll_Map2_4_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final Map<K, V> original = new HashMap<>();
+        original.put((K) "keyX", (V) "object1");
+        original.put((K) "keyY", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "keyX", (V) "object0");
+        test.putAll(original);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, test.get((K) "keyX").size());
+    }
+
+    public void testPutAll_Map2_5_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final Map<K, V> original = new HashMap<>();
+        original.put((K) "keyX", (V) "object1");
+        original.put((K) "keyY", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "keyX", (V) "object0");
+        test.putAll(original);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, test.get((K) "keyY").size());
+    }
+
+    public void testPutAll_Map2_6_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final Map<K, V> original = new HashMap<>();
+        original.put((K) "keyX", (V) "object1");
+        original.put((K) "keyY", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "keyX", (V) "object0");
+        test.putAll(original);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, test.containsValue("objectA"));
+    }
+
+    public void testPutAll_Map2_7_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final Map<K, V> original = new HashMap<>();
+        original.put((K) "keyX", (V) "object1");
+        original.put((K) "keyY", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "keyX", (V) "object0");
+        test.putAll(original);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, test.containsValue("object0"));
+    }
+
+    public void testPutAll_Map2_8_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final Map<K, V> original = new HashMap<>();
+        original.put((K) "keyX", (V) "object1");
+        original.put((K) "keyY", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "keyX", (V) "object0");
+        test.putAll(original);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, test.containsValue("object1"));
+    }
+
+    public void testPutAll_Map2_9_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final Map<K, V> original = new HashMap<>();
+        original.put((K) "keyX", (V) "object1");
+        original.put((K) "keyY", (V) "object2");
+
+        final MultiValuedMap<K, V> test = makeObject();
+        test.put((K) "keyA", (V) "objectA");
+        test.put((K) "keyX", (V) "object0");
+        test.putAll(original);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, test.containsValue("object2"));
+    }
+
+    public void testPutAll_KeyIterable_1_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        assertEquals(true, map.putAll((K) "A", coll));
+    }
+
+    public void testPutAll_KeyIterable_2_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        assertEquals(3, map.get((K) "A").size());
+    }
+
+    public void testPutAll_KeyIterable_3_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, map.containsMapping("A", "X"));
+    }
+
+    public void testPutAll_KeyIterable_4_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, map.containsMapping("A", "Y"));
+    }
+
+    public void testPutAll_KeyIterable_5_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, map.containsMapping("A", "Z"));
+    }
+
+    public void testPutAll_KeyIterable_7_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            map.putAll((K) "A", null);
+            // removed other assertion
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        assertEquals(3, map.get((K) "A").size());
+    }
+
+    public void testPutAll_KeyIterable_8_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            map.putAll((K) "A", null);
+            // removed other assertion
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        // removed other assertion
+        assertEquals(true, map.containsMapping("A", "X"));
+    }
+
+    public void testPutAll_KeyIterable_9_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            map.putAll((K) "A", null);
+            // removed other assertion
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, map.containsMapping("A", "Y"));
+    }
+
+    public void testPutAll_KeyIterable_10_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            map.putAll((K) "A", null);
+            // removed other assertion
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, map.containsMapping("A", "Z"));
+    }
+
+    public void testPutAll_KeyIterable_11_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            map.putAll((K) "A", null);
+            // removed other assertion
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(false, map.putAll((K) "A", new ArrayList<V>()));
+    }
+
+    public void testPutAll_KeyIterable_12_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            map.putAll((K) "A", null);
+            // removed other assertion
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(3, map.get((K) "A").size());
+    }
+
+    public void testPutAll_KeyIterable_13_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            map.putAll((K) "A", null);
+            // removed other assertion
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, map.containsMapping("A", "X"));
+    }
+
+    public void testPutAll_KeyIterable_14_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            map.putAll((K) "A", null);
+            // removed other assertion
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, map.containsMapping("A", "Y"));
+    }
+
+    public void testPutAll_KeyIterable_15_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            map.putAll((K) "A", null);
+            // removed other assertion
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, map.containsMapping("A", "Z"));
+    }
+
+    public void testPutAll_KeyIterable_16_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            map.putAll((K) "A", null);
+            // removed other assertion
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        coll = (Collection<V>) Arrays.asList("M");
+        assertEquals(true, map.putAll((K) "A", coll));
+    }
+
+    public void testPutAll_KeyIterable_17_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            map.putAll((K) "A", null);
+            // removed other assertion
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        coll = (Collection<V>) Arrays.asList("M");
+        // removed other assertion
+        assertEquals(4, map.get((K) "A").size());
+    }
+
+    public void testPutAll_KeyIterable_18_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            map.putAll((K) "A", null);
+            // removed other assertion
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        coll = (Collection<V>) Arrays.asList("M");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, map.containsMapping("A", "X"));
+    }
+
+    public void testPutAll_KeyIterable_19_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            map.putAll((K) "A", null);
+            // removed other assertion
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        coll = (Collection<V>) Arrays.asList("M");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, map.containsMapping("A", "Y"));
+    }
+
+    public void testPutAll_KeyIterable_20_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            map.putAll((K) "A", null);
+            // removed other assertion
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        coll = (Collection<V>) Arrays.asList("M");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, map.containsMapping("A", "Z"));
+    }
+
+    public void testPutAll_KeyIterable_21_oe() {
+        if (!isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        Collection<V> coll = (Collection<V>) Arrays.asList("X", "Y", "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            map.putAll((K) "A", null);
+            // removed other assertion
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        coll = (Collection<V>) Arrays.asList("M");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, map.containsMapping("A", "M"));
+    }
+
+    public void testRemove_KeyItem_1_oe() {
+        if (!isRemoveSupported() || !isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        map.put((K) "A", (V) "AA");
+        map.put((K) "A", (V) "AB");
+        map.put((K) "A", (V) "AC");
+        assertEquals(false, map.removeMapping("C", "CA"));
+    }
+
+    public void testRemove_KeyItem_2_oe() {
+        if (!isRemoveSupported() || !isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        map.put((K) "A", (V) "AA");
+        map.put((K) "A", (V) "AB");
+        map.put((K) "A", (V) "AC");
+        // removed other assertion
+        assertEquals(false, map.removeMapping("A", "AD"));
+    }
+
+    public void testRemove_KeyItem_3_oe() {
+        if (!isRemoveSupported() || !isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        map.put((K) "A", (V) "AA");
+        map.put((K) "A", (V) "AB");
+        map.put((K) "A", (V) "AC");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, map.removeMapping("A", "AC"));
+    }
+
+    public void testRemove_KeyItem_4_oe() {
+        if (!isRemoveSupported() || !isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        map.put((K) "A", (V) "AA");
+        map.put((K) "A", (V) "AB");
+        map.put((K) "A", (V) "AC");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, map.removeMapping("A", "AB"));
+    }
+
+    public void testRemove_KeyItem_5_oe() {
+        if (!isRemoveSupported() || !isAddSupported()) {
+            return;
+        }
+        final MultiValuedMap<K, V> map = makeObject();
+        map.put((K) "A", (V) "AA");
+        map.put((K) "A", (V) "AB");
+        map.put((K) "A", (V) "AC");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, map.removeMapping("A", "AA"));
+    }
+
+    public void testKeysMultiSet_1_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final MultiSet<K> keyMultiSet = map.keys();
+        assertEquals(2, keyMultiSet.getCount("one"));
+    }
+
+    public void testKeysMultiSet_2_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final MultiSet<K> keyMultiSet = map.keys();
+        // removed other assertion
+        assertEquals(2, keyMultiSet.getCount("two"));
+    }
+
+    public void testKeysMultiSet_3_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final MultiSet<K> keyMultiSet = map.keys();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, keyMultiSet.getCount("three"));
+    }
+
+    public void testKeysMultiSet_4_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final MultiSet<K> keyMultiSet = map.keys();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(6, keyMultiSet.size());
+    }
+
+    public void testKeysBagIterator_1_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final Collection<K> col = new ArrayList<>();
+        final Iterator<K> it = map.keys().iterator();
+        while (it.hasNext()) {
+            col.add(it.next());
+        }
+        final Bag<K> bag = new HashBag<>(col);
+        assertEquals(2, bag.getCount("one"));
+    }
+
+    public void testKeysBagIterator_2_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final Collection<K> col = new ArrayList<>();
+        final Iterator<K> it = map.keys().iterator();
+        while (it.hasNext()) {
+            col.add(it.next());
+        }
+        final Bag<K> bag = new HashBag<>(col);
+        // removed other assertion
+        assertEquals(2, bag.getCount("two"));
+    }
+
+    public void testKeysBagIterator_3_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final Collection<K> col = new ArrayList<>();
+        final Iterator<K> it = map.keys().iterator();
+        while (it.hasNext()) {
+            col.add(it.next());
+        }
+        final Bag<K> bag = new HashBag<>(col);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, bag.getCount("three"));
+    }
+
+    public void testKeysBagIterator_4_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final Collection<K> col = new ArrayList<>();
+        final Iterator<K> it = map.keys().iterator();
+        while (it.hasNext()) {
+            col.add(it.next());
+        }
+        final Bag<K> bag = new HashBag<>(col);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(6, bag.size());
+    }
+
+    public void testKeysBagContainsAll_1_oe() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        final MultiSet<K> keyMultiSet = map.keys();
+        final Collection<K> col = (Collection<K>) Arrays.asList("one", "two", "three", "one", "two", "three");
+        assertTrue(keyMultiSet.containsAll(col));
+    }
+
+    public void testAsMapGet_1_oe() {
+        resetEmpty();
+        Map<K, Collection<V>> mapCol = getMap().asMap();
+        assertNull(mapCol.get("one"));
+    }
+
+    public void testAsMapGet_2_oe() {
+        resetEmpty();
+        Map<K, Collection<V>> mapCol = getMap().asMap();
+        // removed other assertion
+        assertEquals(0, mapCol.size());
+    }
+
+    public void testAsMapGet_3_oe() {
+        resetEmpty();
+        Map<K, Collection<V>> mapCol = getMap().asMap();
+        // removed other assertion
+        // removed other assertion
+
+        resetFull();
+        mapCol = getMap().asMap();
+        final Collection<V> col = mapCol.get("one");
+        assertNotNull(col);
+    }
+
+    public void testAsMapGet_4_oe() {
+        resetEmpty();
+        Map<K, Collection<V>> mapCol = getMap().asMap();
+        // removed other assertion
+        // removed other assertion
+
+        resetFull();
+        mapCol = getMap().asMap();
+        final Collection<V> col = mapCol.get("one");
+        // removed other assertion
+        assertTrue(col.contains("un"));
+    }
+
+    public void testAsMapGet_5_oe() {
+        resetEmpty();
+        Map<K, Collection<V>> mapCol = getMap().asMap();
+        // removed other assertion
+        // removed other assertion
+
+        resetFull();
+        mapCol = getMap().asMap();
+        final Collection<V> col = mapCol.get("one");
+        // removed other assertion
+        // removed other assertion
+        assertTrue(col.contains("uno"));
+    }
+
+    public void testAsMapRemove_1_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final Map<K, Collection<V>> mapCol = getMap().asMap();
+        mapCol.remove("one");
+        assertFalse(getMap().containsKey("one"));
+    }
+
+    public void testAsMapRemove_2_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final Map<K, Collection<V>> mapCol = getMap().asMap();
+        mapCol.remove("one");
+        // removed other assertion
+        assertEquals(4, getMap().size());
+    }
+
+    public void testMapIterator_1_oe() {
+        resetEmpty();
+        MapIterator<K, V> mapIt  = getMap().mapIterator();
+        assertFalse(mapIt.hasNext());
+    }
+
+    public void testMapIterator_2_oe() {
+        resetEmpty();
+        MapIterator<K, V> mapIt  = getMap().mapIterator();
+        // removed other assertion
+
+        resetFull();
+        mapIt = getMap().mapIterator();
+        while (mapIt.hasNext()) {
+            final K key = mapIt.next();
+            final V value = mapIt.getValue();
+            assertTrue(getMap().containsMapping(key, value));
+    }
+    }
+
+    public void testMapIteratorRemove_1_oe() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+        resetFull();
+        final MapIterator<K, V> mapIt = getMap().mapIterator();
+        while (mapIt.hasNext()) {
+            mapIt.next();
+            mapIt.remove();
+        }
+        assertTrue(getMap().isEmpty());
+    }
+
+    public void testEmptyMapCompatibility_1_oe() throws Exception {
+        final MultiValuedMap<?, ?> map = makeObject();
+        final MultiValuedMap<?, ?> map2 =
+                (MultiValuedMap<?, ?>) readExternalFormFromDisk(getCanonicalEmptyCollectionName(map));
+        assertEquals("Map is empty", 0, map2.size());
+    }
+
+    public void testFullMapCompatibility_1_oe() throws Exception {
+        final MultiValuedMap map = makeFullMap();
+        final MultiValuedMap map2 =
+                (MultiValuedMap) readExternalFormFromDisk(getCanonicalFullCollectionName(map));
+        assertEquals("Map is the right size", map.size(), map2.size());
+    }
+
+    public void testFullMapCompatibility_2_oe() throws Exception {
+        final MultiValuedMap map = makeFullMap();
+        final MultiValuedMap map2 =
+                (MultiValuedMap) readExternalFormFromDisk(getCanonicalFullCollectionName(map));
+        // removed other assertion
+        for (final Object key : map.keySet()) {
+            assertTrue("Map had inequal elements",CollectionUtils.isEqualCollection(map.get(key),map2.get(key)));
+    }
+    }
+
+    public void testFullMapCompatibility_3_oe() throws Exception {
+        final MultiValuedMap map = makeFullMap();
+        final MultiValuedMap map2 =
+                (MultiValuedMap) readExternalFormFromDisk(getCanonicalFullCollectionName(map));
+        // removed other assertion
+        for (final Object key : map.keySet()) {
+            // removed other assertion
+            if (isRemoveSupported()) {
+                map2.remove(key);
+            }
+        }
+        if (isRemoveSupported()) {
+            assertEquals("Map had extra values", 0, map2.size());
+    }
+    }
+
+}

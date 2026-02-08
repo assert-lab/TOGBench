@@ -44,7 +44,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-weaver-normalizer ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer
-[INFO] Storing buildNumber: f446ed1303a240821309b125a7f330fb69105734 at timestamp: 1770408063179
+[INFO] Storing buildNumber: 42f91159e2f430b696e30a5d48814bb569209ba4 at timestamp: 1770410249395
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -87,7 +87,7 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 s - in org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.105 s - in org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -96,6 +96,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.426 s
-[INFO] Finished at: 2026-02-06T14:01:08-06:00
+[INFO] Total time:  8.117 s
+[INFO] Finished at: 2026-02-06T14:37:34-06:00
 [INFO] ------------------------------------------------------------------------

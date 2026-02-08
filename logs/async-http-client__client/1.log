@@ -65,8 +65,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  16.989 s
-[INFO] Finished at: 2026-02-06T14:00:49-06:00
+[INFO] Total time:  16.345 s
+[INFO] Finished at: 2026-02-06T14:37:14-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project async-http-client: Compilation failure: Compilation failure: 
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[180,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev

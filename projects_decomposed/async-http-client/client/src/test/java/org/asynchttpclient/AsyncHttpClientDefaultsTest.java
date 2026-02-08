@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
 
 import static org.asynchttpclient.config.AsyncHttpClientConfigDefaults.ASYNC_CLIENT_CONFIG_ROOT;
 
-@Test
+
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections() {

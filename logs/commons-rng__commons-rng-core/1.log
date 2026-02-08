@@ -26,7 +26,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core
-[INFO] Storing buildNumber: f446ed1303a240821309b125a7f330fb69105734 at timestamp: 2026-02-06 14:01:13-0600
+[INFO] Storing buildNumber: 42f91159e2f430b696e30a5d48814bb569209ba4 at timestamp: 2026-02-06 14:37:40-0600
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -90,9 +90,9 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.rng.core.BaseProviderTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 s - in org.apache.commons.rng.core.BaseProviderTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s - in org.apache.commons.rng.core.BaseProviderTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.JDKRandomTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.JDKRandomTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.source32.JDKRandomTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.XoRoShiRo64StarStarTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.XoRoShiRo64StarStarTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.MiddleSquareWeylSequenceTest_OE25Dev
@@ -102,47 +102,47 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] Running org.apache.commons.rng.core.source32.ISAACRandomTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.ISAACRandomTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.Well19937cTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.source32.Well19937cTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.rng.core.source32.Well19937cTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.PcgXshRr32Test_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.PcgXshRr32Test_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.Well19937aTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.Well19937aTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.rng.core.source32.Well19937aTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.MultiplyWithCarry256Test_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.MultiplyWithCarry256Test_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.rng.core.source32.MultiplyWithCarry256Test_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.PcgMcgXshRr32Test_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.PcgMcgXshRr32Test_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.rng.core.source32.PcgMcgXshRr32Test_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.Well1024aTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.source32.Well1024aTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.rng.core.source32.Well1024aTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.PcgXshRs32Test_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.rng.core.source32.PcgXshRs32Test_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.Well44497aTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.rng.core.source32.Well44497aTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.Well44497aTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.Well44497bTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.rng.core.source32.Well44497bTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.source32.Well44497bTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.Well512aTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.Well512aTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.rng.core.source32.Well512aTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.DotyHumphreySmallFastCounting32Test_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.source32.DotyHumphreySmallFastCounting32Test_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.DotyHumphreySmallFastCounting32Test_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.JenkinsSmallFast32Test_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.JenkinsSmallFast32Test_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.rng.core.source32.JenkinsSmallFast32Test_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.IntProviderTest_OE25Dev
-[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.045 s <<< FAILURE! - in org.apache.commons.rng.core.source32.IntProviderTest_OE25Dev
-[ERROR] testNextBoolean_2_oe  Time elapsed: 0.038 s  <<< FAILURE!
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.034 s <<< FAILURE! - in org.apache.commons.rng.core.source32.IntProviderTest_OE25Dev
+[ERROR] testNextBoolean_2_oe  Time elapsed: 0.026 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Pass 2, bit 0 ==> expected: <false> but was: <true>
 	at org.apache.commons.rng.core.source32.IntProviderTest_OE25Dev.testNextBoolean_2_oe(IntProviderTest_OE25Dev.java:90)
 
 [INFO] Running org.apache.commons.rng.core.source32.PcgMcgXshRs32Test_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.PcgMcgXshRs32Test_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.rng.core.source32.PcgMcgXshRs32Test_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.XoRoShiRo64StarTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.source32.XoRoShiRo64StarTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.MersenneTwisterTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.MersenneTwisterTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.rng.core.source32.MersenneTwisterTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.XoShiRo128StarStarTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.rng.core.source32.XoShiRo128StarStarTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.rng.core.source32.XoShiRo128StarStarTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.XoShiRo128PlusPlusTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.XoShiRo128PlusPlusTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.rng.core.source32.XoShiRo128PlusPlusTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source32.XoShiRo128PlusTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.rng.core.source32.XoShiRo128PlusTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.XoShiRo128PlusTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.XoShiRo256PlusPlusTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoShiRo256PlusPlusTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.PcgRxsMXs64Test_OE25Dev
@@ -152,66 +152,58 @@ org.opentest4j.AssertionFailedError: Pass 2, bit 0 ==> expected: <false> but was
 [INFO] Running org.apache.commons.rng.core.source64.DotyHumphreySmallFastCounting64Test_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.DotyHumphreySmallFastCounting64Test_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.XoShiRo512StarStarTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoShiRo512StarStarTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.rng.core.source64.XoShiRo512StarStarTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo1024PlusPlusTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoRoShiRo1024PlusPlusTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo128PlusPlusTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.rng.core.source64.XoRoShiRo128PlusPlusTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.rng.core.source64.XoRoShiRo128PlusPlusTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo1024StarTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoRoShiRo1024StarTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.JenkinsSmallFast64Test_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.JenkinsSmallFast64Test_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.source64.JenkinsSmallFast64Test_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.MersenneTwister64Test_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.source64.MersenneTwister64Test_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.rng.core.source64.MersenneTwister64Test_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.XoShiRo512PlusTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoShiRo512PlusTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.XorShift1024StarTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.rng.core.source64.XorShift1024StarTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XorShift1024StarTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.XoShiRo512PlusPlusTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoShiRo512PlusPlusTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo128StarStarTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.rng.core.source64.XoRoShiRo128StarStarTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoRoShiRo128StarStarTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.TwoCmresTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s - in org.apache.commons.rng.core.source64.TwoCmresTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.119 s - in org.apache.commons.rng.core.source64.TwoCmresTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.XoShiRo256PlusTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.rng.core.source64.XoShiRo256PlusTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoShiRo256PlusTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo1024StarStarTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoRoShiRo1024StarStarTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.SplitMix64Test_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.rng.core.source64.SplitMix64Test_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.SplitMix64Test_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.LongProviderTest_OE25Dev
-[ERROR] Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.024 s <<< FAILURE! - in org.apache.commons.rng.core.source64.LongProviderTest_OE25Dev
-[ERROR] testNextBoolean_2_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 6, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in org.apache.commons.rng.core.source64.LongProviderTest_OE25Dev
+[ERROR] testNextBoolean_2_oe  Time elapsed: 0.002 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Pass 2, bit 0 ==> expected: <false> but was: <true>
 	at org.apache.commons.rng.core.source64.LongProviderTest_OE25Dev.testNextBoolean_2_oe(LongProviderTest_OE25Dev.java:174)
 
-[ERROR] testNextInt_2_oe  Time elapsed: 0.008 s  <<< FAILURE!
+[ERROR] testNextInt_2_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 2nd call not the lower 32-bits ==> expected: <1> but was: <0>
 	at org.apache.commons.rng.core.source64.LongProviderTest_OE25Dev.testNextInt_2_oe(LongProviderTest_OE25Dev.java:107)
 
-[ERROR] testNextInt_4_oe  Time elapsed: 0.003 s  <<< FAILURE!
+[ERROR] testNextInt_4_oe  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: 4th call not the lower 32-bits ==> expected: <1> but was: <0>
 	at org.apache.commons.rng.core.source64.LongProviderTest_OE25Dev.testNextInt_4_oe(LongProviderTest_OE25Dev.java:138)
 
 [INFO] Running org.apache.commons.rng.core.source64.XorShift1024StarPhiTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.rng.core.source64.XorShift1024StarPhiTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XorShift1024StarPhiTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo128PlusTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.rng.core.source64.XoRoShiRo128PlusTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.rng.core.source64.XoRoShiRo128PlusTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
-[ERROR] Tests run: 799, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 3.1 s <<< FAILURE! - in org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
-[ERROR] testUniformNextBytesFullBuffer_1_oe{UniformRandomProvider}[16]  Time elapsed: 0.001 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: org.apache.commons.rng.core.source32.PcgXshRr32 ==> expected: <true> but was: <false>
-	at org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev.testUniformNextBytesFullBuffer_1_oe(ProvidersCommonParametricTest_OE25Dev.java:568)
-
-[ERROR] testUniformNextBytesFullBuffer_1_oe{UniformRandomProvider}[41]  Time elapsed: 0 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: org.apache.commons.rng.core.source64.JenkinsSmallFast64 ==> expected: <true> but was: <false>
-	at org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev.testUniformNextBytesFullBuffer_1_oe(ProvidersCommonParametricTest_OE25Dev.java:568)
-
+[INFO] Tests run: 799, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.228 s - in org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.RandomProviderDefaultStateTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.RandomProviderDefaultStateTest_OE25Dev
 [INFO] Running org.apache.commons.rng.core.util.NumberFactoryTest_OE25Dev
-[ERROR] Tests run: 37, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.rng.core.util.NumberFactoryTest_OE25Dev
-[ERROR] testIntToByteArraySignificanceOrder_1_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 37, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.rng.core.util.NumberFactoryTest_OE25Dev
+[ERROR] testIntToByteArraySignificanceOrder_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.apache.commons.rng.core.util.NumberFactoryTest_OE25Dev.testIntToByteArraySignificanceOrder_1_oe(NumberFactoryTest_OE25Dev.java:236)
 
@@ -223,8 +215,6 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 [INFO] Results:
 [INFO] 
 [ERROR] Failures: 
-[ERROR]   ProvidersCommonParametricTest_OE25Dev.testUniformNextBytesFullBuffer_1_oe:568 org.apache.commons.rng.core.source32.PcgXshRr32 ==> expected: <true> but was: <false>
-[ERROR]   ProvidersCommonParametricTest_OE25Dev.testUniformNextBytesFullBuffer_1_oe:568 org.apache.commons.rng.core.source64.JenkinsSmallFast64 ==> expected: <true> but was: <false>
 [ERROR]   IntProviderTest_OE25Dev.testNextBoolean_2_oe:90 Pass 2, bit 0 ==> expected: <false> but was: <true>
 [ERROR]   LongProviderTest_OE25Dev.testNextBoolean_2_oe:174 Pass 2, bit 0 ==> expected: <false> but was: <true>
 [ERROR]   LongProviderTest_OE25Dev.testNextInt_2_oe:107 2nd call not the lower 32-bits ==> expected: <1> but was: <0>
@@ -232,13 +222,13 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 [ERROR]   NumberFactoryTest_OE25Dev.testIntToByteArraySignificanceOrder_1_oe:236 expected: <true> but was: <false>
 [ERROR]   NumberFactoryTest_OE25Dev.testLongToByteArraySignificanceOrder_1_oe:199 expected: <true> but was: <false>
 [INFO] 
-[ERROR] Tests run: 912, Failures: 8, Errors: 0, Skipped: 0
+[ERROR] Tests run: 912, Failures: 6, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  15.805 s
-[INFO] Finished at: 2026-02-06T14:01:26-06:00
+[INFO] Total time:  16.315 s
+[INFO] Finished at: 2026-02-06T14:37:53-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-rng-core: There are test failures.
 [ERROR] 

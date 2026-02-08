@@ -129,50 +129,6 @@ public class ClassUtilsTest_OE25Dev  {
 
     //-----------------------------------------------------------------------
 
-    @Test
-    public void testGetClassClassNotFound() throws Exception {
-        assertGetClassThrowsClassNotFound( "bool" );
-        assertGetClassThrowsClassNotFound( "bool[]" );
-        assertGetClassThrowsClassNotFound( "integer[]" );
-    }
-
-    @Test
-    public void testGetClassInvalidArguments() throws Exception {
-        assertGetClassThrowsNullPointerException( null );
-        assertGetClassThrowsClassNotFound( "[][][]" );
-        assertGetClassThrowsClassNotFound( "[[]" );
-        assertGetClassThrowsClassNotFound( "[" );
-        assertGetClassThrowsClassNotFound( "java.lang.String][" );
-        assertGetClassThrowsClassNotFound( ".hello.world" );
-        assertGetClassThrowsClassNotFound( "hello..world" );
-    }
-
-    @Test
-    public void testGetClassWithArrayClasses() throws Exception {
-        assertGetClassReturnsClass( String[].class );
-        assertGetClassReturnsClass( int[].class );
-        assertGetClassReturnsClass( long[].class );
-        assertGetClassReturnsClass( short[].class );
-        assertGetClassReturnsClass( byte[].class );
-        assertGetClassReturnsClass( char[].class );
-        assertGetClassReturnsClass( float[].class );
-        assertGetClassReturnsClass( double[].class );
-        assertGetClassReturnsClass( boolean[].class );
-    }
-
-    @Test
-    public void testGetClassWithArrayClasses2D() throws Exception {
-        assertGetClassReturnsClass( String[][].class );
-        assertGetClassReturnsClass( int[][].class );
-        assertGetClassReturnsClass( long[][].class );
-        assertGetClassReturnsClass( short[][].class );
-        assertGetClassReturnsClass( byte[][].class );
-        assertGetClassReturnsClass( char[][].class );
-        assertGetClassReturnsClass( float[][].class );
-        assertGetClassReturnsClass( double[][].class );
-        assertGetClassReturnsClass( boolean[][].class );
-    }
-
     // Show the Java bug: http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4071957
     // We may have to delete this if a JDK fixes the bug.
 
@@ -16951,6 +16907,270 @@ public class ClassUtilsTest_OE25Dev  {
     @Test
     public void testWrapperToPrimitiveNull_1_oe() {
         assertNull(ClassUtils.wrapperToPrimitive(null), "Wrong result for null class");
+    }
+
+    @Test
+    public void testGetClassClassNotFound_1_oe_1_oe() throws Exception {
+                final String className0 = "bool";
+        assertGetClassThrowsException( className0, ClassNotFoundException.class );
+    }
+
+    @Test
+    public void testGetClassClassNotFound_2_oe_1_oe() throws Exception {
+        // removed other assertion
+                final String className0 = "bool[]";
+        assertGetClassThrowsException( className0, ClassNotFoundException.class );
+    }
+
+    @Test
+    public void testGetClassClassNotFound_3_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+                final String className0 = "integer[]";
+        assertGetClassThrowsException( className0, ClassNotFoundException.class );
+    }
+
+    @Test
+    public void testGetClassInvalidArguments_1_oe_1_oe() throws Exception {
+                final String className0 = null;
+        assertGetClassThrowsException( className0, NullPointerException.class );
+    }
+
+    @Test
+    public void testGetClassInvalidArguments_2_oe_1_oe() throws Exception {
+        // removed other assertion
+                final String className0 = "[][][]";
+        assertGetClassThrowsException( className0, ClassNotFoundException.class );
+    }
+
+    @Test
+    public void testGetClassInvalidArguments_3_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+                final String className0 = "[[]";
+        assertGetClassThrowsException( className0, ClassNotFoundException.class );
+    }
+
+    @Test
+    public void testGetClassInvalidArguments_4_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String className0 = "[";
+        assertGetClassThrowsException( className0, ClassNotFoundException.class );
+    }
+
+    @Test
+    public void testGetClassInvalidArguments_5_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String className0 = "java.lang.String][";
+        assertGetClassThrowsException( className0, ClassNotFoundException.class );
+    }
+
+    @Test
+    public void testGetClassInvalidArguments_6_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String className0 = ".hello.world";
+        assertGetClassThrowsException( className0, ClassNotFoundException.class );
+    }
+
+    @Test
+    public void testGetClassInvalidArguments_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final String className0 = "hello..world";
+        assertGetClassThrowsException( className0, ClassNotFoundException.class );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses_1_oe_1_oe() throws Exception {
+                final Class<?> c0 = String[].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses_2_oe_1_oe() throws Exception {
+        // removed other assertion
+                final Class<?> c0 = int[].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses_3_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+                final Class<?> c0 = long[].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses_4_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Class<?> c0 = short[].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses_5_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Class<?> c0 = byte[].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses_6_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Class<?> c0 = char[].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Class<?> c0 = float[].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses_8_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Class<?> c0 = double[].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses_9_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Class<?> c0 = boolean[].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses2D_1_oe_1_oe() throws Exception {
+                final Class<?> c0 = String[][].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses2D_2_oe_1_oe() throws Exception {
+        // removed other assertion
+                final Class<?> c0 = int[][].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses2D_3_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+                final Class<?> c0 = long[][].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses2D_4_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Class<?> c0 = short[][].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses2D_5_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Class<?> c0 = byte[][].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses2D_6_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Class<?> c0 = char[][].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses2D_7_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Class<?> c0 = float[][].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses2D_8_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Class<?> c0 = double[][].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
+    }
+
+    @Test
+    public void testGetClassWithArrayClasses2D_9_oe_1_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Class<?> c0 = boolean[][].class;
+        assertEquals( c0, ClassUtils.getClass( c0.getName() ) );
     }
 
 }

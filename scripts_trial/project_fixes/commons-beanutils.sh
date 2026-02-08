@@ -62,6 +62,23 @@ fail_list = [
     "BeanUtilsTestCase.testGetSimpleProperty_2_oe",
     "BeanUtilsTestCase.testPopulateArrayProperties_10_oe",
     "BeanUtilsTestCase.testPopulateScalar_13_oe",
+
+    "Jira368TestCase.testBeanUtilsSetProperty_NullBean_1_oe",
+    "BeanIntrospectionDataTestCase.testGetWriteMethodUndefined_2_oe",
+"BeanificationTestCase.testMemoryLeak2_4_oe",
+"BeanificationTestCase.testMemoryLeak_5_oe",
+"DynaBeanMapDecoratorTestCase.testPut_3_oe",
+"DynaBeanMapDecoratorTestCase.testPut_4_oe",
+"DynaBeanMapDecoratorTestCase.testValues_2_oe",
+"LazyDynaListTestCase.testToArrayDynaBeans_2_oe",
+"LazyDynaListTestCase.testToArrayMapType_2_oe",
+"LazyDynaListTestCase.testToArrayOtherType_2_oe",
+"MethodUtilsTestCase.testClearCache_2_oe",
+"MethodUtilsTestCase.testSetCacheMethods_2_oe",
+"LocaleBeanificationTestCase.testMemoryLeak2_4_oe",
+"LocaleBeanificationTestCase.testMemoryLeak_4_oe",
+
+
     "DynaPropertyUtilsTestCase.*",
     "PropertyUtilsTestCase.*",
 

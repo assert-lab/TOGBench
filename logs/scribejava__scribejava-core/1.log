@@ -40,26 +40,26 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running com.github.scribejava.core.utils.OAuthEncoderTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.123 s - in com.github.scribejava.core.utils.OAuthEncoderTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.145 s - in com.github.scribejava.core.utils.OAuthEncoderTest_OE25Dev
 [INFO] Running com.github.scribejava.core.utils.StreamUtilsTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in com.github.scribejava.core.utils.StreamUtilsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in com.github.scribejava.core.utils.StreamUtilsTest_OE25Dev
 [INFO] Running com.github.scribejava.core.pkce.PKCECodeChallengeMethodTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in com.github.scribejava.core.pkce.PKCECodeChallengeMethodTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.pkce.PKCECodeChallengeMethodTest_OE25Dev
 [INFO] Running com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev
-[ERROR] Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.029 s <<< FAILURE! - in com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev
-[ERROR] shouldExtractStandardHeader_6_oe(com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev
+[ERROR] shouldExtractStandardHeader_6_oe(com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev)  Time elapsed: 0.011 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<,[,,]> but was:<,[ , , ]>
 	at com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev.shouldExtractStandardHeader_6_oe(HeaderExtractorTest_OE25Dev.java:129)
 
 [INFO] Running com.github.scribejava.core.extractors.BaseStringExtractorTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in com.github.scribejava.core.extractors.BaseStringExtractorTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in com.github.scribejava.core.extractors.BaseStringExtractorTest_OE25Dev
 [INFO] Running com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
-[ERROR] Tests run: 32, Failures: 18, Errors: 0, Skipped: 0, Time elapsed: 0.06 s <<< FAILURE! - in com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
-[ERROR] testEmptyMultipartPayload_1_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0.014 s  <<< FAILURE!
+[ERROR] Tests run: 32, Failures: 18, Errors: 0, Skipped: 0, Time elapsed: 0.049 s <<< FAILURE! - in com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
+[ERROR] testEmptyMultipartPayload_1_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0.008 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<...multipart/form-data;[]boundary="----Scribe...> but was:<...multipart/form-data;[ ]boundary="----Scribe...>
 	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testEmptyMultipartPayload_1_oe(MultipartUtilsTest_OE25Dev.java:72)
 
-[ERROR] testComplexMultipartPayload_2_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0.012 s  <<< FAILURE!
+[ERROR] testComplexMultipartPayload_2_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
 org.junit.ComparisonFailure: 
 expected:<...e reading this text,[you might want to
 consider changing to a mail reader that understands
@@ -190,7 +190,7 @@ java.lang.AssertionError: expected:<0aA'()+_,-./:=?> but was:<null>
 java.lang.AssertionError: expected:<0aA'()+_,-./:=?> but was:<null>
 	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_3_oe(MultipartUtilsTest_OE25Dev.java:368)
 
-[ERROR] testParseBoundaryFromHeader_4_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testParseBoundaryFromHeader_4_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 java.lang.AssertionError: expected:<0aA'()+_,-./:=?> but was:<null>
 	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_4_oe(MultipartUtilsTest_OE25Dev.java:379)
 
@@ -198,7 +198,7 @@ java.lang.AssertionError: expected:<0aA'()+_,-./:=?> but was:<null>
 java.lang.AssertionError: expected:<0aA'()+_,-./:=?> but was:<null>
 	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_5_oe(MultipartUtilsTest_OE25Dev.java:392)
 
-[ERROR] testParseBoundaryFromHeader_6_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testParseBoundaryFromHeader_6_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0.005 s  <<< FAILURE!
 java.lang.AssertionError: expected:<0aA'()+_,-./:=?> but was:<null>
 	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_6_oe(MultipartUtilsTest_OE25Dev.java:407)
 
@@ -214,7 +214,7 @@ java.lang.AssertionError: expected:< 0aA'()+_,-./:=?> but was:<null>
 org.junit.ComparisonFailure: expected:<...pe: multipart/mixed;[]boundary="simple bou...> but was:<...pe: multipart/mixed;[ ]boundary="simple bou...>
 	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testSimpleMultipartPayload_1_oe(MultipartUtilsTest_OE25Dev.java:121)
 
-[ERROR] testSimpleMultipartPayload_2_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testSimpleMultipartPayload_2_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
 org.junit.ComparisonFailure: 
 expected:<...is is the preamble. [It is to be ignored,though it
 is a handy place for composition agents to include an
@@ -248,23 +248,23 @@ This is the epilogue. ] It is also to be ig...>
 	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testSimpleMultipartPayload_2_oe(MultipartUtilsTest_OE25Dev.java:155)
 
 [INFO] Running com.github.scribejava.core.oauth.OAuth20ServiceTest_OE25Dev
-[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.334 s - in com.github.scribejava.core.oauth.OAuth20ServiceTest_OE25Dev
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.313 s - in com.github.scribejava.core.oauth.OAuth20ServiceTest_OE25Dev
 [INFO] Running com.github.scribejava.core.model.TokenTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in com.github.scribejava.core.model.TokenTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in com.github.scribejava.core.model.TokenTest_OE25Dev
 [INFO] Running com.github.scribejava.core.model.ParameterListTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in com.github.scribejava.core.model.ParameterListTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in com.github.scribejava.core.model.ParameterListTest_OE25Dev
 [INFO] Running com.github.scribejava.core.model.OAuthRequestTest_OE25Dev
 [INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.model.OAuthRequestTest_OE25Dev
 [INFO] Running com.github.scribejava.core.model.RequestTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in com.github.scribejava.core.model.RequestTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in com.github.scribejava.core.model.RequestTest_OE25Dev
 [INFO] Running com.github.scribejava.core.base64.Base64Test_OE25Dev
-[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s - in com.github.scribejava.core.base64.Base64Test_OE25Dev
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s - in com.github.scribejava.core.base64.Base64Test_OE25Dev
 [INFO] Running com.github.scribejava.core.services.RSASha1SignatureServiceTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in com.github.scribejava.core.services.RSASha1SignatureServiceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in com.github.scribejava.core.services.RSASha1SignatureServiceTest_OE25Dev
 [INFO] Running com.github.scribejava.core.services.HMACSha1SignatureServiceTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 s - in com.github.scribejava.core.services.HMACSha1SignatureServiceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in com.github.scribejava.core.services.HMACSha1SignatureServiceTest_OE25Dev
 [INFO] Running com.github.scribejava.core.services.TimestampServiceTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in com.github.scribejava.core.services.TimestampServiceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in com.github.scribejava.core.services.TimestampServiceTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -412,8 +412,8 @@ This is the epilogue. ] It is also to be ig...>
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  9.554 s
-[INFO] Finished at: 2026-02-06T14:02:00-06:00
+[INFO] Total time:  9.414 s
+[INFO] Finished at: 2026-02-06T14:38:26-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project scribejava-core: There are test failures.
 [ERROR] 

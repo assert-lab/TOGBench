@@ -6801,5 +6801,13702 @@ public class DateUtilsTest_OE25Dev {
     }
     }
 
+    @Test
+    public void testAddDays_2_oe_1_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddDays_2_oe_2_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddDays_2_oe_3_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddDays_2_oe_4_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddDays_2_oe_5_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddDays_2_oe_6_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddDays_2_oe_7_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddDays_3_oe_1_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddDays_3_oe_2_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddDays_3_oe_3_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddDays_3_oe_4_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddDays_3_oe_5_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddDays_3_oe_6_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddDays_3_oe_7_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddDays_5_oe_1_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddDays_5_oe_2_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddDays_5_oe_3_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddDays_5_oe_4_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddDays_5_oe_5_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddDays_5_oe_6_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddDays_5_oe_7_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddDays_6_oe_1_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 6;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddDays_6_oe_2_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 6;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddDays_6_oe_3_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 6;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddDays_6_oe_4_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 6;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddDays_6_oe_5_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 6;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddDays_6_oe_6_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 6;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddDays_6_oe_7_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 6;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddDays_8_oe_1_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddDays_8_oe_2_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddDays_8_oe_3_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddDays_8_oe_4_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddDays_8_oe_5_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddDays_8_oe_6_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddDays_8_oe_7_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddDays_9_oe_1_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 4;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddDays_9_oe_2_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 4;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddDays_9_oe_3_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 4;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddDays_9_oe_4_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 4;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddDays_9_oe_5_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 4;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddDays_9_oe_6_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 4;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddDays_9_oe_7_oe() throws Exception {
+        Date result = DateUtils.addDays(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addDays(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 4;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddHours_2_oe_1_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddHours_2_oe_2_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddHours_2_oe_3_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddHours_2_oe_4_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddHours_2_oe_5_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddHours_2_oe_6_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddHours_2_oe_7_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddHours_3_oe_1_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddHours_3_oe_2_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddHours_3_oe_3_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddHours_3_oe_4_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddHours_3_oe_5_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddHours_3_oe_6_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddHours_3_oe_7_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddHours_5_oe_1_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddHours_5_oe_2_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddHours_5_oe_3_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddHours_5_oe_4_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddHours_5_oe_5_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddHours_5_oe_6_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddHours_5_oe_7_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddHours_6_oe_1_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 5;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddHours_6_oe_2_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 5;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddHours_6_oe_3_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 5;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddHours_6_oe_4_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 5;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddHours_6_oe_5_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 5;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddHours_6_oe_6_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 5;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddHours_6_oe_7_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 5;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddHours_8_oe_1_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddHours_8_oe_2_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddHours_8_oe_3_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddHours_8_oe_4_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddHours_8_oe_5_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddHours_8_oe_6_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddHours_8_oe_7_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddHours_9_oe_1_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 3;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddHours_9_oe_2_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 3;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddHours_9_oe_3_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 3;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddHours_9_oe_4_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 3;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddHours_9_oe_5_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 3;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddHours_9_oe_6_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 3;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddHours_9_oe_7_oe() throws Exception {
+        Date result = DateUtils.addHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addHours(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 3;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMilliseconds_2_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMilliseconds_2_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMilliseconds_2_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMilliseconds_2_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMilliseconds_2_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMilliseconds_2_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMilliseconds_2_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMilliseconds_3_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMilliseconds_3_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMilliseconds_3_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMilliseconds_3_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMilliseconds_3_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMilliseconds_3_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMilliseconds_3_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMilliseconds_5_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMilliseconds_5_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMilliseconds_5_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMilliseconds_5_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMilliseconds_5_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMilliseconds_5_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMilliseconds_5_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMilliseconds_6_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 2;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMilliseconds_6_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 2;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMilliseconds_6_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 2;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMilliseconds_6_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 2;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMilliseconds_6_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 2;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMilliseconds_6_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 2;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMilliseconds_6_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 2;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMilliseconds_8_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMilliseconds_8_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMilliseconds_8_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMilliseconds_8_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMilliseconds_8_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMilliseconds_8_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMilliseconds_8_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMilliseconds_9_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 0;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMilliseconds_9_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 0;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMilliseconds_9_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 0;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMilliseconds_9_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 0;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMilliseconds_9_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 0;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMilliseconds_9_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 0;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMilliseconds_9_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMilliseconds(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 0;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMinutes_2_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMinutes_2_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMinutes_2_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMinutes_2_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMinutes_2_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMinutes_2_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMinutes_2_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMinutes_3_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMinutes_3_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMinutes_3_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMinutes_3_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMinutes_3_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMinutes_3_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMinutes_3_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMinutes_5_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMinutes_5_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMinutes_5_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMinutes_5_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMinutes_5_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMinutes_5_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMinutes_5_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMinutes_6_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 4;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMinutes_6_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 4;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMinutes_6_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 4;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMinutes_6_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 4;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMinutes_6_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 4;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMinutes_6_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 4;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMinutes_6_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 4;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMinutes_8_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMinutes_8_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMinutes_8_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMinutes_8_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMinutes_8_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMinutes_8_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMinutes_8_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMinutes_9_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 2;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMinutes_9_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 2;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMinutes_9_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 2;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMinutes_9_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 2;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMinutes_9_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 2;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMinutes_9_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 2;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMinutes_9_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMinutes(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 2;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMonths_2_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMonths_2_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMonths_2_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMonths_2_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMonths_2_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMonths_2_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMonths_2_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMonths_3_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMonths_3_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMonths_3_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMonths_3_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMonths_3_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMonths_3_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMonths_3_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMonths_5_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMonths_5_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMonths_5_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMonths_5_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMonths_5_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMonths_5_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMonths_5_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMonths_6_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 7;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMonths_6_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 7;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMonths_6_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 7;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMonths_6_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 7;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMonths_6_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 7;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMonths_6_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 7;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMonths_6_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 7;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMonths_8_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMonths_8_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMonths_8_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMonths_8_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMonths_8_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMonths_8_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMonths_8_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddMonths_9_oe_1_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddMonths_9_oe_2_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddMonths_9_oe_3_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddMonths_9_oe_4_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddMonths_9_oe_5_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddMonths_9_oe_6_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddMonths_9_oe_7_oe() throws Exception {
+        Date result = DateUtils.addMonths(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addMonths(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddSeconds_2_oe_1_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddSeconds_2_oe_2_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddSeconds_2_oe_3_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddSeconds_2_oe_4_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddSeconds_2_oe_5_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddSeconds_2_oe_6_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddSeconds_2_oe_7_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddSeconds_3_oe_1_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddSeconds_3_oe_2_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddSeconds_3_oe_3_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddSeconds_3_oe_4_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddSeconds_3_oe_5_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddSeconds_3_oe_6_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddSeconds_3_oe_7_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddSeconds_5_oe_1_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddSeconds_5_oe_2_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddSeconds_5_oe_3_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddSeconds_5_oe_4_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddSeconds_5_oe_5_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddSeconds_5_oe_6_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddSeconds_5_oe_7_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddSeconds_6_oe_1_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 3;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddSeconds_6_oe_2_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 3;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddSeconds_6_oe_3_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 3;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddSeconds_6_oe_4_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 3;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddSeconds_6_oe_5_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 3;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddSeconds_6_oe_6_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 3;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddSeconds_6_oe_7_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 3;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddSeconds_8_oe_1_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddSeconds_8_oe_2_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddSeconds_8_oe_3_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddSeconds_8_oe_4_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddSeconds_8_oe_5_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddSeconds_8_oe_6_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddSeconds_8_oe_7_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddSeconds_9_oe_1_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 1;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddSeconds_9_oe_2_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 1;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddSeconds_9_oe_3_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 1;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddSeconds_9_oe_4_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 1;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddSeconds_9_oe_5_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 1;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddSeconds_9_oe_6_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 1;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddSeconds_9_oe_7_oe() throws Exception {
+        Date result = DateUtils.addSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addSeconds(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 1;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddWeeks_2_oe_1_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddWeeks_2_oe_2_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddWeeks_2_oe_3_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddWeeks_2_oe_4_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddWeeks_2_oe_5_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddWeeks_2_oe_6_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddWeeks_2_oe_7_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddWeeks_3_oe_1_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddWeeks_3_oe_2_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddWeeks_3_oe_3_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddWeeks_3_oe_4_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddWeeks_3_oe_5_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddWeeks_3_oe_6_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddWeeks_3_oe_7_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddWeeks_5_oe_1_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddWeeks_5_oe_2_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddWeeks_5_oe_3_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddWeeks_5_oe_4_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddWeeks_5_oe_5_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddWeeks_5_oe_6_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddWeeks_5_oe_7_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddWeeks_6_oe_1_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 12;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddWeeks_6_oe_2_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 12;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddWeeks_6_oe_3_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 12;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddWeeks_6_oe_4_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 12;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddWeeks_6_oe_5_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 12;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddWeeks_6_oe_6_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 12;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddWeeks_6_oe_7_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 12;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddWeeks_8_oe_1_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddWeeks_8_oe_2_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddWeeks_8_oe_3_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddWeeks_8_oe_4_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddWeeks_8_oe_5_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddWeeks_8_oe_6_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddWeeks_8_oe_7_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));      // july;
+    }
+
+    @Test
+    public void testAddWeeks_9_oe_1_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 28;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddWeeks_9_oe_2_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 28;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddWeeks_9_oe_3_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 28;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddWeeks_9_oe_4_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 28;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddWeeks_9_oe_5_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 28;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddWeeks_9_oe_6_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 28;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddWeeks_9_oe_7_oe() throws Exception {
+        Date result = DateUtils.addWeeks(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addWeeks(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 28;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));   // june;
+    }
+
+    @Test
+    public void testAddYears_2_oe_1_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddYears_2_oe_2_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddYears_2_oe_3_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddYears_2_oe_4_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddYears_2_oe_5_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddYears_2_oe_6_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddYears_2_oe_7_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddYears_3_oe_1_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddYears_3_oe_2_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddYears_3_oe_3_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddYears_3_oe_4_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddYears_3_oe_5_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddYears_3_oe_6_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddYears_3_oe_7_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddYears_5_oe_1_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddYears_5_oe_2_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddYears_5_oe_3_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddYears_5_oe_4_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddYears_5_oe_5_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddYears_5_oe_6_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddYears_5_oe_7_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddYears_6_oe_1_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2001;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddYears_6_oe_2_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2001;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddYears_6_oe_3_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2001;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddYears_6_oe_4_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2001;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddYears_6_oe_5_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2001;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddYears_6_oe_6_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2001;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddYears_6_oe_7_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2001;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddYears_8_oe_1_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddYears_8_oe_2_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddYears_8_oe_3_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddYears_8_oe_4_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddYears_8_oe_5_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddYears_8_oe_6_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddYears_8_oe_7_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, -1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testAddYears_9_oe_1_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 1999;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testAddYears_9_oe_2_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 1999;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testAddYears_9_oe_3_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 1999;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testAddYears_9_oe_4_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 1999;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testAddYears_9_oe_5_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 1999;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testAddYears_9_oe_6_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 1999;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testAddYears_9_oe_7_oe() throws Exception {
+        Date result = DateUtils.addYears(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.addYears(BASE_DATE, -1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 1999;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetDays_2_oe_1_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetDays_2_oe_2_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetDays_2_oe_3_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetDays_2_oe_4_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetDays_2_oe_5_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetDays_2_oe_6_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetDays_2_oe_7_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetDays_3_oe_1_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 1;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetDays_3_oe_2_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 1;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetDays_3_oe_3_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 1;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetDays_3_oe_4_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 1;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetDays_3_oe_5_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 1;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetDays_3_oe_6_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 1;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetDays_3_oe_7_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 1;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetDays_5_oe_1_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setDays(BASE_DATE, 29);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetDays_5_oe_2_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setDays(BASE_DATE, 29);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetDays_5_oe_3_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setDays(BASE_DATE, 29);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetDays_5_oe_4_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setDays(BASE_DATE, 29);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetDays_5_oe_5_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setDays(BASE_DATE, 29);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetDays_5_oe_6_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setDays(BASE_DATE, 29);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetDays_5_oe_7_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setDays(BASE_DATE, 29);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetDays_6_oe_1_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setDays(BASE_DATE, 29);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 29;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetDays_6_oe_2_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setDays(BASE_DATE, 29);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 29;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetDays_6_oe_3_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setDays(BASE_DATE, 29);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 29;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetDays_6_oe_4_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setDays(BASE_DATE, 29);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 29;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetDays_6_oe_5_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setDays(BASE_DATE, 29);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 29;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetDays_6_oe_6_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setDays(BASE_DATE, 29);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 29;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetDays_6_oe_7_oe() throws Exception {
+        Date result = DateUtils.setDays(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setDays(BASE_DATE, 29);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 29;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetHours_2_oe_1_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetHours_2_oe_2_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetHours_2_oe_3_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetHours_2_oe_4_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetHours_2_oe_5_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetHours_2_oe_6_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetHours_2_oe_7_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetHours_3_oe_1_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 0;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetHours_3_oe_2_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 0;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetHours_3_oe_3_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 0;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetHours_3_oe_4_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 0;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetHours_3_oe_5_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 0;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetHours_3_oe_6_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 0;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetHours_3_oe_7_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 0;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetHours_5_oe_1_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setHours(BASE_DATE, 23);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetHours_5_oe_2_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setHours(BASE_DATE, 23);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetHours_5_oe_3_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setHours(BASE_DATE, 23);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetHours_5_oe_4_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setHours(BASE_DATE, 23);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetHours_5_oe_5_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setHours(BASE_DATE, 23);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetHours_5_oe_6_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setHours(BASE_DATE, 23);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetHours_5_oe_7_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setHours(BASE_DATE, 23);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetHours_6_oe_1_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setHours(BASE_DATE, 23);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 23;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetHours_6_oe_2_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setHours(BASE_DATE, 23);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 23;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetHours_6_oe_3_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setHours(BASE_DATE, 23);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 23;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetHours_6_oe_4_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setHours(BASE_DATE, 23);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 23;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetHours_6_oe_5_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setHours(BASE_DATE, 23);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 23;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetHours_6_oe_6_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setHours(BASE_DATE, 23);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 23;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetHours_6_oe_7_oe() throws Exception {
+        Date result = DateUtils.setHours(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setHours(BASE_DATE, 23);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 23;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetMilliseconds_2_oe_1_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetMilliseconds_2_oe_2_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetMilliseconds_2_oe_3_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetMilliseconds_2_oe_4_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetMilliseconds_2_oe_5_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetMilliseconds_2_oe_6_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetMilliseconds_2_oe_7_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetMilliseconds_3_oe_1_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 0;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetMilliseconds_3_oe_2_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 0;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetMilliseconds_3_oe_3_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 0;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetMilliseconds_3_oe_4_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 0;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetMilliseconds_3_oe_5_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 0;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetMilliseconds_3_oe_6_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 0;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetMilliseconds_3_oe_7_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 0;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetMilliseconds_5_oe_1_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMilliseconds(BASE_DATE, 999);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetMilliseconds_5_oe_2_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMilliseconds(BASE_DATE, 999);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetMilliseconds_5_oe_3_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMilliseconds(BASE_DATE, 999);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetMilliseconds_5_oe_4_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMilliseconds(BASE_DATE, 999);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetMilliseconds_5_oe_5_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMilliseconds(BASE_DATE, 999);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetMilliseconds_5_oe_6_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMilliseconds(BASE_DATE, 999);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetMilliseconds_5_oe_7_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMilliseconds(BASE_DATE, 999);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetMilliseconds_6_oe_1_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMilliseconds(BASE_DATE, 999);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 999;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetMilliseconds_6_oe_2_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMilliseconds(BASE_DATE, 999);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 999;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetMilliseconds_6_oe_3_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMilliseconds(BASE_DATE, 999);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 999;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetMilliseconds_6_oe_4_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMilliseconds(BASE_DATE, 999);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 999;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetMilliseconds_6_oe_5_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMilliseconds(BASE_DATE, 999);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 999;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetMilliseconds_6_oe_6_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMilliseconds(BASE_DATE, 999);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 999;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetMilliseconds_6_oe_7_oe() throws Exception {
+        Date result = DateUtils.setMilliseconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMilliseconds(BASE_DATE, 999);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 999;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetMinutes_2_oe_1_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetMinutes_2_oe_2_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetMinutes_2_oe_3_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetMinutes_2_oe_4_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetMinutes_2_oe_5_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetMinutes_2_oe_6_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetMinutes_2_oe_7_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetMinutes_3_oe_1_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 0;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetMinutes_3_oe_2_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 0;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetMinutes_3_oe_3_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 0;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetMinutes_3_oe_4_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 0;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetMinutes_3_oe_5_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 0;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetMinutes_3_oe_6_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 0;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetMinutes_3_oe_7_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 0;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetMinutes_5_oe_1_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMinutes(BASE_DATE, 59);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetMinutes_5_oe_2_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMinutes(BASE_DATE, 59);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetMinutes_5_oe_3_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMinutes(BASE_DATE, 59);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetMinutes_5_oe_4_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMinutes(BASE_DATE, 59);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetMinutes_5_oe_5_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMinutes(BASE_DATE, 59);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetMinutes_5_oe_6_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMinutes(BASE_DATE, 59);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetMinutes_5_oe_7_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMinutes(BASE_DATE, 59);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetMinutes_6_oe_1_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMinutes(BASE_DATE, 59);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 59;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetMinutes_6_oe_2_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMinutes(BASE_DATE, 59);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 59;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetMinutes_6_oe_3_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMinutes(BASE_DATE, 59);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 59;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetMinutes_6_oe_4_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMinutes(BASE_DATE, 59);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 59;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetMinutes_6_oe_5_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMinutes(BASE_DATE, 59);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 59;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetMinutes_6_oe_6_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMinutes(BASE_DATE, 59);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 59;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetMinutes_6_oe_7_oe() throws Exception {
+        Date result = DateUtils.setMinutes(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMinutes(BASE_DATE, 59);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 59;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetMonths_2_oe_1_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetMonths_2_oe_2_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetMonths_2_oe_3_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetMonths_2_oe_4_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetMonths_2_oe_5_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetMonths_2_oe_6_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetMonths_2_oe_7_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetMonths_3_oe_1_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetMonths_3_oe_2_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetMonths_3_oe_3_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetMonths_3_oe_4_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetMonths_3_oe_5_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetMonths_3_oe_6_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetMonths_3_oe_7_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 5;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetMonths_5_oe_1_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMonths(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetMonths_5_oe_2_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMonths(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetMonths_5_oe_3_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMonths(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetMonths_5_oe_4_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMonths(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetMonths_5_oe_5_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMonths(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetMonths_5_oe_6_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMonths(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetMonths_5_oe_7_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMonths(BASE_DATE, 1);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetMonths_6_oe_1_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 1;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetMonths_6_oe_2_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 1;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetMonths_6_oe_3_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 1;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetMonths_6_oe_4_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 1;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetMonths_6_oe_5_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 1;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetMonths_6_oe_6_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 1;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetMonths_6_oe_7_oe() throws Exception {
+        Date result = DateUtils.setMonths(BASE_DATE, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setMonths(BASE_DATE, 1);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 1;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetSeconds_2_oe_1_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetSeconds_2_oe_2_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetSeconds_2_oe_3_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetSeconds_2_oe_4_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetSeconds_2_oe_5_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetSeconds_2_oe_6_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetSeconds_2_oe_7_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetSeconds_3_oe_1_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 0;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetSeconds_3_oe_2_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 0;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetSeconds_3_oe_3_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 0;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetSeconds_3_oe_4_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 0;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetSeconds_3_oe_5_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 0;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetSeconds_3_oe_6_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 0;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetSeconds_3_oe_7_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 0;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetSeconds_5_oe_1_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setSeconds(BASE_DATE, 59);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetSeconds_5_oe_2_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setSeconds(BASE_DATE, 59);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetSeconds_5_oe_3_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setSeconds(BASE_DATE, 59);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetSeconds_5_oe_4_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setSeconds(BASE_DATE, 59);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetSeconds_5_oe_5_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setSeconds(BASE_DATE, 59);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetSeconds_5_oe_6_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setSeconds(BASE_DATE, 59);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetSeconds_5_oe_7_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setSeconds(BASE_DATE, 59);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetSeconds_6_oe_1_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setSeconds(BASE_DATE, 59);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 59;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetSeconds_6_oe_2_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setSeconds(BASE_DATE, 59);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 59;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetSeconds_6_oe_3_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setSeconds(BASE_DATE, 59);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 59;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetSeconds_6_oe_4_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setSeconds(BASE_DATE, 59);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 59;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetSeconds_6_oe_5_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setSeconds(BASE_DATE, 59);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 59;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetSeconds_6_oe_6_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setSeconds(BASE_DATE, 59);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 59;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetSeconds_6_oe_7_oe() throws Exception {
+        Date result = DateUtils.setSeconds(BASE_DATE, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setSeconds(BASE_DATE, 59);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 59;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetYears_2_oe_1_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetYears_2_oe_2_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetYears_2_oe_3_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetYears_2_oe_4_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetYears_2_oe_5_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetYears_2_oe_6_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetYears_2_oe_7_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetYears_3_oe_1_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetYears_3_oe_2_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetYears_3_oe_3_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetYears_3_oe_4_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetYears_3_oe_5_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetYears_3_oe_6_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetYears_3_oe_7_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetYears_5_oe_1_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetYears_5_oe_2_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetYears_5_oe_3_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetYears_5_oe_4_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetYears_5_oe_5_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetYears_5_oe_6_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetYears_5_oe_7_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetYears_6_oe_1_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2008;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetYears_6_oe_2_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2008;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetYears_6_oe_3_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2008;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetYears_6_oe_4_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2008;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetYears_6_oe_5_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2008;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetYears_6_oe_6_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2008;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetYears_6_oe_7_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2008;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetYears_8_oe_1_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2005);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetYears_8_oe_2_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2005);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetYears_8_oe_3_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2005);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetYears_8_oe_4_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2005);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetYears_8_oe_5_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2005);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetYears_8_oe_6_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2005);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetYears_8_oe_7_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2005);
+        // removed other assertion
+                final Date date0 = BASE_DATE;
+        final int year0 = 2000;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testSetYears_9_oe_1_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2005);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2005;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                assertEquals(year0, cal0.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testSetYears_9_oe_2_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2005);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2005;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                assertEquals(month0, cal0.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testSetYears_9_oe_3_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2005);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2005;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                assertEquals(day0, cal0.get(Calendar.DAY_OF_MONTH));
+    }
+
+    @Test
+    public void testSetYears_9_oe_4_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2005);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2005;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(hour0, cal0.get(Calendar.HOUR_OF_DAY));
+    }
+
+    @Test
+    public void testSetYears_9_oe_5_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2005);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2005;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(min0, cal0.get(Calendar.MINUTE));
+    }
+
+    @Test
+    public void testSetYears_9_oe_6_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2005);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2005;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(sec0, cal0.get(Calendar.SECOND));
+    }
+
+    @Test
+    public void testSetYears_9_oe_7_oe() throws Exception {
+        Date result = DateUtils.setYears(BASE_DATE, 2000);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2008);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        result = DateUtils.setYears(BASE_DATE, 2005);
+        // removed other assertion
+        // removed other assertion
+                final Date date0 = result;
+        final int year0 = 2005;
+        final int month0 = 6;
+        final int day0 = 5;
+        final int hour0 = 4;
+        final int min0 = 3;
+        final int sec0 = 2;
+        final int mil0 = 1;
+        final GregorianCalendar cal0 = new GregorianCalendar();
+                cal0.setTime(date0);
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(mil0, cal0.get(Calendar.MILLISECOND));
+    }
+
+    @Test
+    public void testWeekIterator_1_oe_1_oe() {
+        final Calendar now = Calendar.getInstance();
+        for (int i = 0; i< 7; i++) {
+            final Calendar today = DateUtils.truncate(now, Calendar.DATE);
+            final Calendar sunday = DateUtils.truncate(now, Calendar.DATE);
+            sunday.add(Calendar.DATE, 1 - sunday.get(Calendar.DAY_OF_WEEK));
+            final Calendar monday = DateUtils.truncate(now, Calendar.DATE);
+            if (monday.get(Calendar.DAY_OF_WEEK) == 1) {
+                //This is sunday... roll back 6 days
+                monday.add(Calendar.DATE, -6);
+            } else {
+                monday.add(Calendar.DATE, 2 - monday.get(Calendar.DAY_OF_WEEK));
+            }
+            final Calendar centered = DateUtils.truncate(now, Calendar.DATE);
+            centered.add(Calendar.DATE, -3);
+
+            Iterator<?> it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_SUNDAY);
+                        final Iterator<?> it0 = it;
+            final Calendar start0 = sunday;
+            final Calendar end0 = (Calendar) start0.clone();
+                    end0.add(Calendar.DATE, 6);
+            
+                    assertWeekIterator(it0, start0, end0);
+    }
+    }
+
+    @Test
+    public void testWeekIterator_2_oe_1_oe() {
+        final Calendar now = Calendar.getInstance();
+        for (int i = 0; i< 7; i++) {
+            final Calendar today = DateUtils.truncate(now, Calendar.DATE);
+            final Calendar sunday = DateUtils.truncate(now, Calendar.DATE);
+            sunday.add(Calendar.DATE, 1 - sunday.get(Calendar.DAY_OF_WEEK));
+            final Calendar monday = DateUtils.truncate(now, Calendar.DATE);
+            if (monday.get(Calendar.DAY_OF_WEEK) == 1) {
+                //This is sunday... roll back 6 days
+                monday.add(Calendar.DATE, -6);
+            } else {
+                monday.add(Calendar.DATE, 2 - monday.get(Calendar.DAY_OF_WEEK));
+            }
+            final Calendar centered = DateUtils.truncate(now, Calendar.DATE);
+            centered.add(Calendar.DATE, -3);
+
+            Iterator<?> it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_SUNDAY);
+            // removed other assertion
+            it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_MONDAY);
+                        final Iterator<?> it0 = it;
+            final Calendar start0 = monday;
+            final Calendar end0 = (Calendar) start0.clone();
+                    end0.add(Calendar.DATE, 6);
+            
+                    assertWeekIterator(it0, start0, end0);
+    }
+    }
+
+    @Test
+    public void testWeekIterator_3_oe_1_oe() {
+        final Calendar now = Calendar.getInstance();
+        for (int i = 0; i< 7; i++) {
+            final Calendar today = DateUtils.truncate(now, Calendar.DATE);
+            final Calendar sunday = DateUtils.truncate(now, Calendar.DATE);
+            sunday.add(Calendar.DATE, 1 - sunday.get(Calendar.DAY_OF_WEEK));
+            final Calendar monday = DateUtils.truncate(now, Calendar.DATE);
+            if (monday.get(Calendar.DAY_OF_WEEK) == 1) {
+                //This is sunday... roll back 6 days
+                monday.add(Calendar.DATE, -6);
+            } else {
+                monday.add(Calendar.DATE, 2 - monday.get(Calendar.DAY_OF_WEEK));
+            }
+            final Calendar centered = DateUtils.truncate(now, Calendar.DATE);
+            centered.add(Calendar.DATE, -3);
+
+            Iterator<?> it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_SUNDAY);
+            // removed other assertion
+            it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_MONDAY);
+            // removed other assertion
+            it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_RELATIVE);
+                        final Iterator<?> it0 = it;
+            final Calendar start0 = today;
+            final Calendar end0 = (Calendar) start0.clone();
+                    end0.add(Calendar.DATE, 6);
+            
+                    assertWeekIterator(it0, start0, end0);
+    }
+    }
+
+    @Test
+    public void testWeekIterator_4_oe_1_oe() {
+        final Calendar now = Calendar.getInstance();
+        for (int i = 0; i< 7; i++) {
+            final Calendar today = DateUtils.truncate(now, Calendar.DATE);
+            final Calendar sunday = DateUtils.truncate(now, Calendar.DATE);
+            sunday.add(Calendar.DATE, 1 - sunday.get(Calendar.DAY_OF_WEEK));
+            final Calendar monday = DateUtils.truncate(now, Calendar.DATE);
+            if (monday.get(Calendar.DAY_OF_WEEK) == 1) {
+                //This is sunday... roll back 6 days
+                monday.add(Calendar.DATE, -6);
+            } else {
+                monday.add(Calendar.DATE, 2 - monday.get(Calendar.DAY_OF_WEEK));
+            }
+            final Calendar centered = DateUtils.truncate(now, Calendar.DATE);
+            centered.add(Calendar.DATE, -3);
+
+            Iterator<?> it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_SUNDAY);
+            // removed other assertion
+            it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_MONDAY);
+            // removed other assertion
+            it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_RELATIVE);
+            // removed other assertion
+            it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_CENTER);
+                        final Iterator<?> it0 = it;
+            final Calendar start0 = centered;
+            final Calendar end0 = (Calendar) start0.clone();
+                    end0.add(Calendar.DATE, 6);
+            
+                    assertWeekIterator(it0, start0, end0);
+    }
+    }
+
+    @Test
+    public void testWeekIterator_5_oe_1_oe() {
+        final Calendar now = Calendar.getInstance();
+        for (int i = 0; i< 7; i++) {
+            final Calendar today = DateUtils.truncate(now, Calendar.DATE);
+            final Calendar sunday = DateUtils.truncate(now, Calendar.DATE);
+            sunday.add(Calendar.DATE, 1 - sunday.get(Calendar.DAY_OF_WEEK));
+            final Calendar monday = DateUtils.truncate(now, Calendar.DATE);
+            if (monday.get(Calendar.DAY_OF_WEEK) == 1) {
+                //This is sunday... roll back 6 days
+                monday.add(Calendar.DATE, -6);
+            } else {
+                monday.add(Calendar.DATE, 2 - monday.get(Calendar.DAY_OF_WEEK));
+            }
+            final Calendar centered = DateUtils.truncate(now, Calendar.DATE);
+            centered.add(Calendar.DATE, -3);
+
+            Iterator<?> it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_SUNDAY);
+            // removed other assertion
+            it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_MONDAY);
+            // removed other assertion
+            it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_RELATIVE);
+            // removed other assertion
+            it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_CENTER);
+            // removed other assertion
+
+            it = DateUtils.iterator((Object) now, DateUtils.RANGE_WEEK_CENTER);
+                        final Iterator<?> it0 = it;
+            final Calendar start0 = centered;
+            final Calendar end0 = (Calendar) start0.clone();
+                    end0.add(Calendar.DATE, 6);
+            
+                    assertWeekIterator(it0, start0, end0);
+    }
+    }
+
+    @Test
+    public void testWeekIterator_6_oe_1_oe() {
+        final Calendar now = Calendar.getInstance();
+        for (int i = 0; i< 7; i++) {
+            final Calendar today = DateUtils.truncate(now, Calendar.DATE);
+            final Calendar sunday = DateUtils.truncate(now, Calendar.DATE);
+            sunday.add(Calendar.DATE, 1 - sunday.get(Calendar.DAY_OF_WEEK));
+            final Calendar monday = DateUtils.truncate(now, Calendar.DATE);
+            if (monday.get(Calendar.DAY_OF_WEEK) == 1) {
+                //This is sunday... roll back 6 days
+                monday.add(Calendar.DATE, -6);
+            } else {
+                monday.add(Calendar.DATE, 2 - monday.get(Calendar.DAY_OF_WEEK));
+            }
+            final Calendar centered = DateUtils.truncate(now, Calendar.DATE);
+            centered.add(Calendar.DATE, -3);
+
+            Iterator<?> it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_SUNDAY);
+            // removed other assertion
+            it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_MONDAY);
+            // removed other assertion
+            it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_RELATIVE);
+            // removed other assertion
+            it = DateUtils.iterator(now, DateUtils.RANGE_WEEK_CENTER);
+            // removed other assertion
+
+            it = DateUtils.iterator((Object) now, DateUtils.RANGE_WEEK_CENTER);
+            // removed other assertion
+            final Iterator<?> it2 = DateUtils.iterator((Object) now.getTime(), DateUtils.RANGE_WEEK_CENTER);
+                        final Iterator<?> it0 = it2;
+            final Calendar start0 = centered;
+            final Calendar end0 = (Calendar) start0.clone();
+                    end0.add(Calendar.DATE, 6);
+            
+                    assertWeekIterator(it0, start0, end0);
+    }
+    }
+
 }
 

@@ -10,18 +10,6 @@ inputs_path = dataset / "inputs.csv"
 
 fail_list = [
 
-"ComparableUtilsTest.betweenExclusive_returns_false_1_oe",
-"ComparableUtilsTest.between_returns_true_1_oe",
-"ComparableUtilsTest.greaterThanOrEqualTo_returns_true_1_oe",
-"ComparableUtilsTest.lessThan_returns_false_1_oe",
-"ComparableUtilsTest.betweenExclusive_returns_true_1_oe",
-"ComparableUtilsTest.between_returns_false_1_oe",
-"ComparableUtilsTest.equalTo_returns_false_1_oe",
-"ComparableUtilsTest.greaterThan_returns_false_1_oe",
-"ComparableUtilsTest.lessThanOrEqualTo_returns_true_1_oe",
-
-"FailableFunctionsTest.*",
-
 "SerializationUtilsTest.testSerializeIOException_2_oe",
 "SerializationUtilsTest.testDeserializeStreamClassNotFound_2_oe",
 
@@ -59,8 +47,11 @@ fail_list = [
 "StreamsTest.testSimpleStreamMapFailing_2_oe",
 
 "ArrayUtilsAddTest.*",
-"FunctionsTest.*"
+"FunctionsTest.*",
 "ValidateTest.*",
+"ComparableUtilsTest.*",
+"FailableFunctionsTest.*",
+"DiffResultTest.*",
 
 ]
 
