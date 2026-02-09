@@ -25,6 +25,16 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class HtmlParserTest_OE25Dev {
 
+    @Test public void handlesQuotesInCommentsInScripts() {
+        String html = "<script>\n" +
+            "  <!--\n" +
+            "    document.write('</scr' + 'ipt>');\n" +
+            "  // -->\n" +
+            "</script>";
+        Document node = Jsoup.parseBodyFragment(html);
+        assertEquals("<script>\n" + " <!--\n" + " document.write('</scr' + 'ipt>');\n" + " // -->\n" + "</script>",node.body().html());
+    }
+
     // form tests
 
     private boolean didAddElements(String input) {
@@ -1955,16 +1965,6 @@ public class HtmlParserTest_OE25Dev {
         assertEquals("<html><head></head><body><table><tbody><tr><td>text</td><!-- Comment --></tr></tbody></table></body></html>", TextUtil.stripNewlines(node.outerHtml()));
         }
 
-    @Test public void handlesQuotesInCommentsInScripts_1_oe() {
-        String html = "<script>\n" +
-            "  <!--\n" +
-            "    document.write('</scr' + 'ipt>');\n" +
-            "  // -->\n" +
-            "</script>";
-        Document node = Jsoup.parseBodyFragment(html);
-        assertEquals("<script>\n" + " <!--\n" + " document.write('</scr' + 'ipt>');\n" + " // -->\n" + "</script>",node.body().html());
-        }
-
     @Test public void handleNullContextInParseFragment_1_oe() {
         String html = "<ol><li>One</li></ol><p>Two</p>";
         List<Node> nodes = Parser.parseFragment(html, null, "http://example.com/");
@@ -2525,13 +2525,6 @@ public class HtmlParserTest_OE25Dev {
         assertEquals("\nOne\nTwo\n", pre.wholeText());
         }
 
-    @Test public void handlesXmlDeclAndCommentsBeforeDoctype_1_oe() throws IOException {
-        File in = ParseTest.getFile("/htmltests/comments.html");
-        Document doc = Jsoup.parse(in, "UTF-8");
-
-        assertEquals("<!--?xml version=\"1.0\" encoding=\"utf-8\"?--><!-- so --> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><!-- what --> <html xml:lang=\"en\" lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\"><!-- now --> <head><!-- then --> <meta http-equiv=\"Content-type\" content=\"text/html;charset=utf-8\"> <title>A Certain Kind of Test</title> </head> <body> <h1>Hello</h1>h1&gt;(There is a UTF8 hidden BOM at the top of this file.)</body> </html>",StringUtil.normaliseWhitespace(doc.html()));
-        }
-
     @Test public void handlesXmlDeclAndCommentsBeforeDoctype_2_oe() throws IOException {
         File in = ParseTest.getFile("/htmltests/comments.html");
         Document doc = Jsoup.parse(in, "UTF-8");
@@ -2855,21 +2848,6 @@ public class HtmlParserTest_OE25Dev {
         // removed other assertion
 
         assertEquals("<pre>One\tTwo</pre><span> Three Four</span>",doc.body().html());// html output provides normalized space,incl tab in pre but not in span doc.outputSettings().prettyPrint(false);
-        }
-
-    @Test public void preservesTabs_4_oe() {
-        // testcase to demonstrate tab retention - https://github.com/jhy/jsoup/issues/1240
-        String html = "<pre>One\tTwo</pre><span>\tThree\tFour</span>";
-        Document doc = Jsoup.parse(html);
-
-        Element pre = doc.selectFirst("pre");
-        Element span = doc.selectFirst("span");
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertEquals(html, doc.body().html()); // disabling pretty-printing - round-trips the tab throughout, as no normalization occurs;
         }
 
     @Test void wholeTextTreatsBRasNewline_1_oe() {

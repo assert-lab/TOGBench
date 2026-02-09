@@ -31,10 +31,10 @@ class BoxMullerGaussianSamplerTest_OE25Dev {
 
     @Test
     void testConstructorThrowsWithZeroStandardDeviation_1_oe() {
-        final RestorableUniformRandomProvider rng =
+         RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final double mean = 1;
-        final double standardDeviation = 0;
+         double mean = 1;
+         double standardDeviation = 0;
         Assertions.assertThrows(IllegalArgumentException.class, () -> new BoxMullerGaussianSampler(rng, mean, standardDeviation));
     }
 

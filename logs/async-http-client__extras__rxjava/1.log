@@ -4,6 +4,8 @@
 [INFO] Building Asynchronous Http Client RxJava Extras 2.12.3
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ async-http-client-extras-rxjava ---
+[INFO] 
 [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ async-http-client-extras-rxjava ---
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ async-http-client-extras-rxjava ---
@@ -30,7 +32,7 @@
  T E S T S
 -------------------------------------------------------
 Running org.asynchttpclient.extras.rxjava.single.AsyncHttpSingleTest_OE25Dev
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.082 sec - in org.asynchttpclient.extras.rxjava.single.AsyncHttpSingleTest_OE25Dev
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.839 sec - in org.asynchttpclient.extras.rxjava.single.AsyncHttpSingleTest_OE25Dev
 
 Results :
 
@@ -39,6 +41,6 @@ Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  13.620 s
-[INFO] Finished at: 2026-02-06T14:36:48-06:00
+[INFO] Total time:  12.971 s
+[INFO] Finished at: 2026-02-09T03:26:33-06:00
 [INFO] ------------------------------------------------------------------------

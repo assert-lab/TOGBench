@@ -52,19 +52,19 @@ class InverseTransformParetoSamplerTest_OE25Dev {
 
     @Test
     void testConstructorThrowsWithZeroScale_1_oe() {
-        final RestorableUniformRandomProvider rng =
+         RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final double scale = 0;
-        final double shape = 1;
+         double scale = 0;
+         double shape = 1;
         Assertions.assertThrows(IllegalArgumentException.class, () -> InverseTransformParetoSampler.of(rng, scale, shape));
     }
 
     @Test
     void testConstructorThrowsWithZeroShape_1_oe() {
-        final RestorableUniformRandomProvider rng =
+         RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final double scale = 1;
-        final double shape = 0;
+         double scale = 1;
+         double shape = 0;
         Assertions.assertThrows(IllegalArgumentException.class, () -> InverseTransformParetoSampler.of(rng, scale, shape));
     }
 

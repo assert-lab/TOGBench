@@ -85,11 +85,11 @@ class HexTest_OE25Dev {
     void testHexEncodeAndDecode_1_oe_1_oe() {
         // Empty bytes
         for (int size = 0; size < 10; size++) {
-                        final byte[] bytes0 = new byte[size];
+                         byte[] bytes0 = new byte[size];
             // Use a StringBuilder to append the chars as this is the method used in the stress command.
-                    final StringBuilder sb0 = new StringBuilder();
+                     StringBuilder sb0 = new StringBuilder();
                     sb0.append(Hex.encodeHex(bytes0));
-                    final byte[] decoded0 = Hex.decodeHex(sb0);
+                     byte[] decoded0 = Hex.decodeHex(sb0);
                     Assertions.assertArrayEquals(bytes0, decoded0);
     }
     }
@@ -102,14 +102,14 @@ class HexTest_OE25Dev {
         }
         // Random bytes
         for (int size : new int[] {3, 4, 5, 8, 16, 31}) {
-            final byte[] bytes = new byte[size];
+             byte[] bytes = new byte[size];
             for (int i = 0; i < 5; i++) {
                 ThreadLocalRandom.current().nextBytes(bytes);
-                                final byte[] bytes0 = bytes;
+                                 byte[] bytes0 = bytes;
                 // Use a StringBuilder to append the chars as this is the method used in the stress command.
-                        final StringBuilder sb0 = new StringBuilder();
+                         StringBuilder sb0 = new StringBuilder();
                         sb0.append(Hex.encodeHex(bytes0));
-                        final byte[] decoded0 = Hex.decodeHex(sb0);
+                         byte[] decoded0 = Hex.decodeHex(sb0);
                         Assertions.assertArrayEquals(bytes0, decoded0);
     }
     }
@@ -120,11 +120,11 @@ class HexTest_OE25Dev {
         // Note: char[] must be an even length.
         // Empty chars.
         for (int size = 0; size < 10; size++) {
-            final char[] chars = new char[size * 2];
+             char[] chars = new char[size * 2];
             Arrays.fill(chars, '0');
-                        final char[] chars0 = chars;
-            final String text0 = String.valueOf(chars0);
-                    final byte[] decoded0 = Hex.decodeHex(text0);
+                         char[] chars0 = chars;
+             String text0 = String.valueOf(chars0);
+                     byte[] decoded0 = Hex.decodeHex(text0);
                     // Test the encoding is lower case
                     Assertions.assertArrayEquals(text0.toLowerCase(Locale.US).toCharArray(), Hex.encodeHex(decoded0));
     }
@@ -135,21 +135,21 @@ class HexTest_OE25Dev {
         // Note: char[] must be an even length.
         // Empty chars.
         for (int size = 0; size < 10; size++) {
-            final char[] chars = new char[size * 2];
+             char[] chars = new char[size * 2];
             Arrays.fill(chars, '0');
             // removed other assertion
         }
         // Random bytes
         for (int size : new int[] {3, 4, 5, 8, 16, 31}) {
-            final char[] chars = new char[size * 2];
+             char[] chars = new char[size * 2];
             for (int i = 0; i < 5; i++) {
                 // Encode upper case
                 for (int j = 0; j < chars.length; j++) {
                     chars[j] = DIGITS[ThreadLocalRandom.current().nextInt(16)];
                 }
-                                final char[] chars0 = chars;
-                final String text0 = String.valueOf(chars0);
-                        final byte[] decoded0 = Hex.decodeHex(text0);
+                                 char[] chars0 = chars;
+                 String text0 = String.valueOf(chars0);
+                         byte[] decoded0 = Hex.decodeHex(text0);
                         // Test the encoding is lower case
                         Assertions.assertArrayEquals(text0.toLowerCase(Locale.US).toCharArray(), Hex.encodeHex(decoded0));
     }

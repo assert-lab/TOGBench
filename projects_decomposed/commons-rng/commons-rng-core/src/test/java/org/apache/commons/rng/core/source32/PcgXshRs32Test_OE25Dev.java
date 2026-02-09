@@ -28,7 +28,7 @@ class PcgXshRs32Test_OE25Dev {
          * Tested with respect to pcg_engines::setseq_xsh_rs_64_32(x, y) from the C++ implementation.
          * See : http://www.pcg-random.org/download.html#cpp-implementation
          */
-        final int[] expectedSequence = {
+         int[] expectedSequence = {
             0xba4138b8, 0xd329a393, 0x75d68d3f, 0xbb7572ca,
             0x7a48d2f2, 0xcb3c1e37, 0xc1374a97, 0x7c2c5bfa,
             0x8a1c8695, 0x30db4fea, 0x95f9a901, 0x72ebfa48,
@@ -49,7 +49,7 @@ class PcgXshRs32Test_OE25Dev {
          * Tested with respect to pcg_engines::setseq_xsh_rs_64_32(x) from the C++ implementation.
          * See : http://www.pcg-random.org/download.html#cpp-implementation
          */
-        final int[] expectedSequence = {
+         int[] expectedSequence = {
             0x5ab2ddd9, 0x215c476c, 0x83c34b11, 0xe2c5e213,
             0x37979624, 0x303cf5b5, 0xbf2a146e, 0xb0692351,
             0x49b00de3, 0xd9ded67c, 0x298e2bb9, 0xa20d2287,

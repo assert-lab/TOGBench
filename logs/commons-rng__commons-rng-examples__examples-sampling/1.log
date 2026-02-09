@@ -4,6 +4,8 @@
 [INFO] Building Apache Commons RNG Examples Sampling Utilities 1.4
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-rng-examples-sampling ---
+[INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-rng-examples-sampling ---
 [INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-rng-examples-sampling ---
@@ -26,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-examples-sampling ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-sampling' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-sampling
-[INFO] Storing buildNumber: 42f91159e2f430b696e30a5d48814bb569209ba4 at timestamp: 2026-02-06 14:37:46-0600
+[INFO] Storing buildNumber: c100078249c05cc4d06c33c5a5c5160a82b0f043 at timestamp: 2026-02-09 03:27:42-0600
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -60,8 +62,8 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  5.595 s
-[INFO] Finished at: 2026-02-06T14:37:49-06:00
+[INFO] Total time:  6.430 s
+[INFO] Finished at: 2026-02-09T03:27:45-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-rng-examples-sampling: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
 [ERROR] 

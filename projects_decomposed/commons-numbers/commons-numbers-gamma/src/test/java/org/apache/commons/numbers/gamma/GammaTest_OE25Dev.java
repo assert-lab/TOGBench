@@ -507,6 +507,20 @@ class GammaTest_OE25Dev {
     };
 
     @Test
+    void testGammaNegativeDouble() {
+        // check that the gamma function properly switches sign
+        // see: https://en.wikipedia.org/wiki/Gamma_function
+
+        double previousGamma = Gamma.value(-18.5);
+        for (double x = -19.5; x > -25; x -= 1.0) {
+            double gamma = Gamma.value(x);
+            Assertions.assertEquals((int) Math.signum(previousGamma), -(int) Math.signum(gamma));
+
+            previousGamma = gamma;
+        }
+    }
+
+    @Test
     void testGamma_1_oe() {
         for (int i = 0; i < GAMMA_REF.length; i++) {
             final double[] ref = GAMMA_REF[i];
@@ -535,18 +549,6 @@ class GammaTest_OE25Dev {
     void testGammaNegativeInteger_1_oe() {
         for (int i = -100; i <= 0; i++) {
             Assertions.assertTrue(Double.isNaN(Gamma.value(i)), Integer.toString(i));
-    }
-    }
-
-    @Test
-    void testGammaNegativeDouble_1_oe() {
-        // check that the gamma function properly switches sign
-        // see: https://en.wikipedia.org/wiki/Gamma_function
-
-        double previousGamma = Gamma.value(-18.5);
-        for (double x = -19.5; x > -25; x -= 1.0) {
-            double gamma = Gamma.value(x);
-            Assertions.assertEquals((int) Math.signum(previousGamma), -(int) Math.signum(gamma));
     }
     }
 

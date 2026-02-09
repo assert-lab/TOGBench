@@ -49,6 +49,11 @@ public class DiffTest_OE25Dev {
     }
 
     @Test
+    public void testToString() {
+        assertEquals(String.format("[%s: %s,%s]",FIELD_NAME,booleanDiff.getLeft(),booleanDiff.getRight()),booleanDiff.toString());
+    }
+
+    @Test
     public void testCannotModify_1_oe() {
         assertThrows(UnsupportedOperationException.class, () -> booleanDiff.setValue(Boolean.FALSE));
     }
@@ -61,11 +66,6 @@ public class DiffTest_OE25Dev {
     @Test
     public void testGetType_1_oe() {
         assertEquals(Boolean.class, booleanDiff.getType());
-    }
-
-    @Test
-    public void testToString_1_oe() {
-        assertEquals(String.format("[%s: %s,%s]",FIELD_NAME,booleanDiff.getLeft(),booleanDiff.getRight()),booleanDiff.toString());
     }
 
 }

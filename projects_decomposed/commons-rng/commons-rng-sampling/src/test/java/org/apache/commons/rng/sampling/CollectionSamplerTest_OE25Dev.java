@@ -46,15 +46,15 @@ class CollectionSamplerTest_OE25Dev {
 
     @Test
     void testSampleTrivial_1_oe() {
-        final ArrayList<String> list = new ArrayList<>();
+         ArrayList<String> list = new ArrayList<>();
         list.add("Apache");
         list.add("Commons");
         list.add("RNG");
 
-        final CollectionSampler<String> sampler =
+         CollectionSampler<String> sampler =
             new CollectionSampler<>(RandomSource.MWC_256.create(),
                                           list);
-        final String word = sampler.sample();
+         String word = sampler.sample();
         for (String w : list) {
             if (word.equals(w)) {
                 return;

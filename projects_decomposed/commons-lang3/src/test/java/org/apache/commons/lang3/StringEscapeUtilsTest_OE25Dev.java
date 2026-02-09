@@ -762,14 +762,6 @@ public class StringEscapeUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testEscapeXml10_4_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("a\ud7ff \ue000b",StringEscapeUtils.escapeXml10("a\ud7ff\ud800 \udfff \ue000b"),"XML 1.0 should omit #xd800-#xdfff");
-    }
-
-    @Test
     public void testEscapeXml10_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -821,16 +813,6 @@ public class StringEscapeUtilsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertEquals("a\u007e&#127;&#132;\u0085&#134;&#159;\u00a0b",StringEscapeUtils.escapeXml11("a\u007e\u007f\u0084\u0085\u0086\u009f\u00a0b"),"XML 1.1 should escape #x7F-#x84 | #x86-#x9F");
-    }
-
-    @Test
-    public void testEscapeXml11_6_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("a\ud7ff \ue000b",StringEscapeUtils.escapeXml11("a\ud7ff\ud800 \udfff \ue000b"),"XML 1.1 should omit #xd800-#xdfff");
     }
 
     @Test

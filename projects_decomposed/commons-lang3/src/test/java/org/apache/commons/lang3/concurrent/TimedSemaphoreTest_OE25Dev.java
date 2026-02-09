@@ -686,20 +686,6 @@ public class TimedSemaphoreTest_OE25Dev {
     }
 
     @Test
-    public void testGetAvailablePermits_1_oe() throws InterruptedException {
-        final ScheduledExecutorService service = EasyMock
-                .createMock(ScheduledExecutorService.class);
-        final ScheduledFuture<?> future = EasyMock.createMock(ScheduledFuture.class);
-        prepareStartTimer(service, future);
-        EasyMock.replay(service, future);
-        final TimedSemaphore semaphore = new TimedSemaphore(service, PERIOD, UNIT,
-                LIMIT);
-        for (int i = 0; i < LIMIT; i++) {
-            assertEquals(LIMIT - i, semaphore.getAvailablePermits(), "Wrong available count at " + i);
-    }
-    }
-
-    @Test
     public void testGetAvailablePermits_2_oe() throws InterruptedException {
         final ScheduledExecutorService service = EasyMock
                 .createMock(ScheduledExecutorService.class);

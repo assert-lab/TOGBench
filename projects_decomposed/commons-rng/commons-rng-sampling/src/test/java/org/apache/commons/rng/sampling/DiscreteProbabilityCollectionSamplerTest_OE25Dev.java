@@ -102,65 +102,65 @@ class DiscreteProbabilityCollectionSamplerTest_OE25Dev {
 
     @Test
     void testSample_1_oe() {
-        final DiscreteProbabilityCollectionSampler<Double> sampler =
+         DiscreteProbabilityCollectionSampler<Double> sampler =
             new DiscreteProbabilityCollectionSampler<>(rng,
                                                        Arrays.asList(3d, -1d, 3d, 7d, -2d, 8d),
                                                        new double[] {0.2, 0.2, 0.3, 0.3, 0, 0});
-        final double expectedMean = 3.4;
-        final double expectedVariance = 7.84;
+         double expectedMean = 3.4;
+         double expectedVariance = 7.84;
 
-        final int n = 100000000;
+         int n = 100000000;
         double sum = 0;
         double sumOfSquares = 0;
         for (int i = 0; i < n; i++) {
-            final double rand = sampler.sample();
+             double rand = sampler.sample();
             sum += rand;
             sumOfSquares += rand * rand;
         }
 
-        final double mean = sum / n;
+         double mean = sum / n;
         Assertions.assertEquals(expectedMean, mean, 1e-3);
     }
 
     @Test
     void testSample_2_oe() {
-        final DiscreteProbabilityCollectionSampler<Double> sampler =
+         DiscreteProbabilityCollectionSampler<Double> sampler =
             new DiscreteProbabilityCollectionSampler<>(rng,
                                                        Arrays.asList(3d, -1d, 3d, 7d, -2d, 8d),
                                                        new double[] {0.2, 0.2, 0.3, 0.3, 0, 0});
-        final double expectedMean = 3.4;
-        final double expectedVariance = 7.84;
+         double expectedMean = 3.4;
+         double expectedVariance = 7.84;
 
-        final int n = 100000000;
+         int n = 100000000;
         double sum = 0;
         double sumOfSquares = 0;
         for (int i = 0; i < n; i++) {
-            final double rand = sampler.sample();
+             double rand = sampler.sample();
             sum += rand;
             sumOfSquares += rand * rand;
         }
 
-        final double mean = sum / n;
+         double mean = sum / n;
         // removed other assertion
-        final double variance = sumOfSquares / n - mean * mean;
+         double variance = sumOfSquares / n - mean * mean;
         Assertions.assertEquals(expectedVariance, variance, 2e-3);
     }
 
     @Test
     void testSampleUsingMap_1_oe() {
-        final UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
-        final UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
-        final List<Integer> items = Arrays.asList(1, 3, 4, 6, 9);
-        final double[] probabilities = {0.1, 0.2, 0.3, 0.4, 0.5};
-        final DiscreteProbabilityCollectionSampler<Integer> sampler1 =
+         UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         List<Integer> items = Arrays.asList(1, 3, 4, 6, 9);
+         double[] probabilities = {0.1, 0.2, 0.3, 0.4, 0.5};
+         DiscreteProbabilityCollectionSampler<Integer> sampler1 =
             new DiscreteProbabilityCollectionSampler<>(rng1, items, probabilities);
 
         // Create a map version. The map iterator must be ordered so use a TreeMap.
-        final Map<Integer, Double> map = new TreeMap<>();
+         Map<Integer, Double> map = new TreeMap<>();
         for (int i = 0; i < probabilities.length; i++) {
             map.put(items.get(i), probabilities[i]);
         }
-        final DiscreteProbabilityCollectionSampler<Integer> sampler2 =
+         DiscreteProbabilityCollectionSampler<Integer> sampler2 =
             new DiscreteProbabilityCollectionSampler<>(rng2, map);
 
         for (int i = 0; i < 50; i++) {
@@ -172,7 +172,7 @@ class DiscreteProbabilityCollectionSamplerTest_OE25Dev {
     void testSampleWithProbabilityAtLastItem_1_oe() {
         // Ensure the samples pick probability 0 (the first item) and then
         // a probability (for the second item) that hits an edge case.
-        final UniformRandomProvider dummyRng = new UniformRandomProvider() {
+         UniformRandomProvider dummyRng = new UniformRandomProvider() {
             private int count;
             // CHECKSTYLE: stop all
             public long nextLong(long n) { return 0; }
@@ -188,13 +188,13 @@ class DiscreteProbabilityCollectionSamplerTest_OE25Dev {
             // CHECKSTYLE: resume all
         };
 
-        final List<Double> items = Arrays.asList(1d, 2d);
-        final DiscreteProbabilityCollectionSampler<Double> sampler =
+         List<Double> items = Arrays.asList(1d, 2d);
+         DiscreteProbabilityCollectionSampler<Double> sampler =
             new DiscreteProbabilityCollectionSampler<>(dummyRng,
                                                        items,
                                                        new double[] {0.5, 0.5});
-        final Double item1 = sampler.sample();
-        final Double item2 = sampler.sample();
+         Double item1 = sampler.sample();
+         Double item2 = sampler.sample();
         // Check they are in the list
         Assertions.assertTrue(items.contains(item1), "Sample item1 is not from the list");
     }
@@ -203,7 +203,7 @@ class DiscreteProbabilityCollectionSamplerTest_OE25Dev {
     void testSampleWithProbabilityAtLastItem_2_oe() {
         // Ensure the samples pick probability 0 (the first item) and then
         // a probability (for the second item) that hits an edge case.
-        final UniformRandomProvider dummyRng = new UniformRandomProvider() {
+         UniformRandomProvider dummyRng = new UniformRandomProvider() {
             private int count;
             // CHECKSTYLE: stop all
             public long nextLong(long n) { return 0; }
@@ -219,13 +219,13 @@ class DiscreteProbabilityCollectionSamplerTest_OE25Dev {
             // CHECKSTYLE: resume all
         };
 
-        final List<Double> items = Arrays.asList(1d, 2d);
-        final DiscreteProbabilityCollectionSampler<Double> sampler =
+         List<Double> items = Arrays.asList(1d, 2d);
+         DiscreteProbabilityCollectionSampler<Double> sampler =
             new DiscreteProbabilityCollectionSampler<>(dummyRng,
                                                        items,
                                                        new double[] {0.5, 0.5});
-        final Double item1 = sampler.sample();
-        final Double item2 = sampler.sample();
+         Double item1 = sampler.sample();
+         Double item2 = sampler.sample();
         // Check they are in the list
         // removed other assertion
         Assertions.assertTrue(items.contains(item2), "Sample item2 is not from the list");
@@ -235,7 +235,7 @@ class DiscreteProbabilityCollectionSamplerTest_OE25Dev {
     void testSampleWithProbabilityAtLastItem_3_oe() {
         // Ensure the samples pick probability 0 (the first item) and then
         // a probability (for the second item) that hits an edge case.
-        final UniformRandomProvider dummyRng = new UniformRandomProvider() {
+         UniformRandomProvider dummyRng = new UniformRandomProvider() {
             private int count;
             // CHECKSTYLE: stop all
             public long nextLong(long n) { return 0; }
@@ -251,13 +251,13 @@ class DiscreteProbabilityCollectionSamplerTest_OE25Dev {
             // CHECKSTYLE: resume all
         };
 
-        final List<Double> items = Arrays.asList(1d, 2d);
-        final DiscreteProbabilityCollectionSampler<Double> sampler =
+         List<Double> items = Arrays.asList(1d, 2d);
+         DiscreteProbabilityCollectionSampler<Double> sampler =
             new DiscreteProbabilityCollectionSampler<>(dummyRng,
                                                        items,
                                                        new double[] {0.5, 0.5});
-        final Double item1 = sampler.sample();
-        final Double item2 = sampler.sample();
+         Double item1 = sampler.sample();
+         Double item2 = sampler.sample();
         // Check they are in the list
         // removed other assertion
         // removed other assertion

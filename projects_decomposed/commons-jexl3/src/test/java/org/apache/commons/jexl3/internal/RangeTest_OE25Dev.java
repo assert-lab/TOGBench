@@ -672,53 +672,6 @@ public class RangeTest_OE25Dev extends JexlTestCase {
     }
 
     @Test
-    public void testRanges_27_oe() throws Exception {
-        final LongRange lr0 = LongRange.create(20,10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkIteration(lr0, 20L, 10L);
-        final LongRange lr1 = LongRange.create(10,20);
-        checkIteration(lr1, 10L, 20L);
-        // removed other assertion
-        final LongRange lr2 = LongRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir0 = IntegerRange.create(20,10);
-        checkIteration(ir0, 20, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir1 = IntegerRange.create(10,20);
-        checkIteration(ir1, 10, 20);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir2 = IntegerRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        long lc0 = 20;
-        final Iterator<Long> il0 = lr0.iterator();
-        while(il0.hasNext()) {
-            final long v0 = il0.next();
-            Assert.assertEquals(lc0, v0);
-    }
-    }
-
-    @Test
     public void testRanges_28_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -777,80 +730,6 @@ public class RangeTest_OE25Dev extends JexlTestCase {
             lc0 -= 1;
         }
         Assert.assertEquals(9L, lc0);
-    }
-
-    @Test
-    public void testRanges_30_oe() throws Exception {
-        final LongRange lr0 = LongRange.create(20,10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkIteration(lr0, 20L, 10L);
-        final LongRange lr1 = LongRange.create(10,20);
-        checkIteration(lr1, 10L, 20L);
-        // removed other assertion
-        final LongRange lr2 = LongRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir0 = IntegerRange.create(20,10);
-        checkIteration(ir0, 20, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir1 = IntegerRange.create(10,20);
-        checkIteration(ir1, 10, 20);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir2 = IntegerRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        long lc0 = 20;
-        final Iterator<Long> il0 = lr0.iterator();
-        while(il0.hasNext()) {
-            final long v0 = il0.next();
-            // removed other assertion
-            try {
-                switch((int)v0) {
-                    case 10:  il0.remove(); Assert.fail(); break;
-                    case 11: lr1.add(v0); Assert.fail(); break;
-                    case 12: lr1.remove(v0); Assert.fail(); break;
-                    case 13: lr1.addAll(Collections.singletonList(v0)); Assert.fail(); break;
-                    case 14: lr1.removeAll(Collections.singletonList(v0)); Assert.fail(); break;
-                    case 15: lr1.retainAll(Collections.singletonList(v0)); Assert.fail(); break;
-                }
-            } catch(final UnsupportedOperationException xuo) {
-                // ok
-            }
-            lc0 -= 1;
-        }
-        // removed other assertion
-        try {
-            il0.next();
-            // removed other assertion
-        } catch(final NoSuchElementException xns) {
-            // ok
-        }
-
-        int ic0 = 20;
-        final Iterator<Integer> ii0 = ir0.iterator();
-        while(ii0.hasNext()) {
-            final int v0 = ii0.next();
-            Assert.assertEquals(ic0, v0);
-    }
     }
 
     @Test

@@ -1701,15 +1701,6 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
     }
     }
 
-    public void testGetName_berlin_english_2_oe() {
-      DateTimeZone berlin = DateTimeZone.forID("Europe/Berlin");
-      if (JDK9) {
-          // removed other assertion
-      } else {
-          assertEquals("Central European Time",berlin.getName(TEST_TIME_WINTER,Locale.ENGLISH));
-    }
-    }
-
     public void testGetName_berlin_english_3_oe() {
       DateTimeZone berlin = DateTimeZone.forID("Europe/Berlin");
       if (JDK9) {
@@ -1732,16 +1723,6 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         if (JDK9) {
             // removed other assertion
             assertEquals("Mitteleurop\u00e4ische Sommerzeit",berlin.getName(TEST_TIME_SUMMER,Locale.GERMAN));
-    }
-    }
-
-    public void testGetName_berlin_german_3_oe() {
-        DateTimeZone berlin = DateTimeZone.forID("Europe/Berlin");
-        if (JDK9) {
-            // removed other assertion
-            // removed other assertion
-        } else if (JDK6PLUS) {
-            assertEquals("Mitteleurop\u00e4ische Zeit",berlin.getName(TEST_TIME_WINTER,Locale.GERMAN));
     }
     }
 

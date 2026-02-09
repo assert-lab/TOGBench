@@ -4,6 +4,8 @@
 [INFO] Building Apache Commons RNG Examples Stress Utilities 1.4
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-rng-examples-stress ---
+[INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-rng-examples-stress ---
 [INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-rng-examples-stress ---
@@ -26,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-examples-stress ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress
-[INFO] Storing buildNumber: 42f91159e2f430b696e30a5d48814bb569209ba4 at timestamp: 2026-02-06 14:37:45-0600
+[INFO] Storing buildNumber: c100078249c05cc4d06c33c5a5c5160a82b0f043 at timestamp: 2026-02-09 03:27:37-0600
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -65,15 +67,15 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.rng.examples.stress.HexTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.rng.examples.stress.HexTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 s - in org.apache.commons.rng.examples.stress.HexTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.750 s
-[INFO] Finished at: 2026-02-06T14:37:51-06:00
+[INFO] Total time:  9.854 s
+[INFO] Finished at: 2026-02-09T03:27:44-06:00
 [INFO] ------------------------------------------------------------------------

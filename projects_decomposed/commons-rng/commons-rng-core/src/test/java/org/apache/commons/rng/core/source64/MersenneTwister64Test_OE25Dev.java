@@ -24,14 +24,14 @@ class MersenneTwister64Test_OE25Dev {
 
     @Test
     void testMakotoNishimura_1_oe() {
-        final MersenneTwister64 rng = new MersenneTwister64(new long[] {0x12345L, 0x23456L, 0x34567L, 0x45678L});
+         MersenneTwister64 rng = new MersenneTwister64(new long[] {0x12345L, 0x23456L, 0x34567L, 0x45678L});
 
         /*
          * Data from
          *   http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/mt19937-64.out.txt
          * converted to hexadecimal.
          */
-        final long[] expectedSequence = {
+         long[] expectedSequence = {
             0x64d79b552a559d7fL, 0x44a572665a6ee240L, 0xeb2bf6dc3d72135cL, 0xe3836981f9f82ea0L,
             0x43a38212350ee392L, 0xce77502bffcacf8bL, 0x5d8a82d90126f0e7L, 0xc0510c6f402c1e3cL,
             0x48d895bf8b69f77bL, 0x8d9fbb371f1de07fL, 0x1126b97be8c91ce2L, 0xf05e1c9dc2674be2L,
@@ -290,7 +290,7 @@ class MersenneTwister64Test_OE25Dev {
     @Test
     void testConstructorWithEmptySeed_1_oe() {
         // An empty seed is allowed
-        final MersenneTwister64 rng = new MersenneTwister64(new long[0]);
+         MersenneTwister64 rng = new MersenneTwister64(new long[0]);
         // It should be functional so check it returns different values.
         Assertions.assertNotEquals(rng.nextLong(),rng.nextLong(),"Empty seed creates sequence with same values");
     }

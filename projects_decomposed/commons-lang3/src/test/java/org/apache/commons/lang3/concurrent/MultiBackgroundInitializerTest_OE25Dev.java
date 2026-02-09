@@ -284,23 +284,6 @@ public class MultiBackgroundInitializerTest_OE25Dev {
     }
 
     @Test
-    public void testInitializeNoChildren_2_oe() throws ConcurrentException {
-        // removed other assertion
-        final MultiBackgroundInitializer.MultiBackgroundInitializerResults res = initializer
-                .get();
-        assertTrue(res.initializerNames().isEmpty(), "Got child initializers");
-    }
-
-    @Test
-    public void testInitializeNoChildren_3_oe() throws ConcurrentException {
-        // removed other assertion
-        final MultiBackgroundInitializer.MultiBackgroundInitializerResults res = initializer
-                .get();
-        // removed other assertion
-        assertTrue(initializer.getActiveExecutor().isShutdown(), "Executor not shutdown");
-    }
-
-    @Test
     public void testInitializeTempExec_1_oe() throws ConcurrentException {
         checkInitialize();
         assertTrue(initializer.getActiveExecutor().isShutdown(), "Executor not shutdown");

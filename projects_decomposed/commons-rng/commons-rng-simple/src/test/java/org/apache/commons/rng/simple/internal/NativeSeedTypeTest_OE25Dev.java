@@ -40,7 +40,7 @@ class NativeSeedTypeTest_OE25Dev {
 
     @Test
     void testConvertSeedToBytesUsingByteArray_1_oe() {
-        final byte[] seed = {42, 78, 99};
+         byte[] seed = {42, 78, 99};
         Assertions.assertSame(seed, NativeSeedType.convertSeedToBytes(seed));
     }
 

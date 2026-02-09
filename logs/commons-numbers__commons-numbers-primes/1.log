@@ -4,6 +4,8 @@
 [INFO] Building Apache Commons Numbers Primes 1.0
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-numbers-primes ---
+[INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-numbers-primes ---
 [INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-numbers-primes ---
@@ -25,7 +27,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-primes ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-primes' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-primes
-[INFO] Storing buildNumber: 42f91159e2f430b696e30a5d48814bb569209ba4 at timestamp: 1770410289524
+[INFO] Storing buildNumber: c100078249c05cc4d06c33c5a5c5160a82b0f043 at timestamp: 1770629280448
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -65,17 +67,17 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.primes.PrimesTest_OE25Dev
-[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.138 s - in org.apache.commons.numbers.primes.PrimesTest_OE25Dev
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.12 s - in org.apache.commons.numbers.primes.PrimesTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.primes.SmallPrimesTest_OE25Dev
-[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.numbers.primes.SmallPrimesTest_OE25Dev
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.numbers.primes.SmallPrimesTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.868 s
-[INFO] Finished at: 2026-02-06T14:38:15-06:00
+[INFO] Total time:  7.716 s
+[INFO] Finished at: 2026-02-09T03:28:06-06:00
 [INFO] ------------------------------------------------------------------------

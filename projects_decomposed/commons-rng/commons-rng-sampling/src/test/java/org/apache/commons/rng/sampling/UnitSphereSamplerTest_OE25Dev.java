@@ -549,9 +549,9 @@ class UnitSphereSamplerTest_OE25Dev {
     void testNextNormSquaredAfterZeroIsValid_1_oe() {
         // The sampler explicitly handles length == 0 using recursion.
         // Anything above zero should be valid.
-        final double normSq = Math.nextUp(0.0);
+         double normSq = Math.nextUp(0.0);
         // Map to the scaling factor
-        final double f = 1 / Math.sqrt(normSq);
+         double f = 1 / Math.sqrt(normSq);
         // As long as this is finite positive then the sampler is valid
         Assertions.assertTrue(f > 0 && f <= Double.MAX_VALUE);
     }

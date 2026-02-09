@@ -45,7 +45,7 @@ class ZigguratNormalizedGaussianSamplerTest_OE25Dev {
     void testInfiniteLoop_1_oe() {
         // A bad implementation whose only purpose is to force access
         // to the rarest branch.
-        final UniformRandomProvider bad = new UniformRandomProvider() {
+         UniformRandomProvider bad = new UniformRandomProvider() {
                 // CHECKSTYLE: stop all
                 public long nextLong(long n) { return 0; }
                 public long nextLong() { return Long.MAX_VALUE; }

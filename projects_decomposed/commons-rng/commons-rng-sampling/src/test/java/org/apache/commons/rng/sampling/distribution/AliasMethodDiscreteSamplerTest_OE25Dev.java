@@ -278,7 +278,7 @@ class AliasMethodDiscreteSamplerTest_OE25Dev {
 
     @Test
     void testToString_1_oe() {
-        final SharedStateDiscreteSampler sampler = createSampler(new double[] {0.5, 0.5});
+         SharedStateDiscreteSampler sampler = createSampler(new double[] {0.5, 0.5});
         Assertions.assertTrue(sampler.toString().toLowerCase().contains("alias method"));
     }
 

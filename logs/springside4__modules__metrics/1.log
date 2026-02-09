@@ -4,6 +4,8 @@
 [INFO] Building Springside :: Module :: Metrics 5.0.0-SNAPSHOT
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ springside-metrics ---
+[INFO] 
 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ springside-metrics ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/resources
@@ -28,7 +30,7 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.springside.modules.metrics.HistogramTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.209 s - in org.springside.modules.metrics.HistogramTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.213 s - in org.springside.modules.metrics.HistogramTest_OE25Dev
 [INFO] Running org.springside.modules.metrics.TimerTest_OE25Dev
 [INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.metrics.TimerTest_OE25Dev
 [INFO] Running org.springside.modules.metrics.CounterTest_OE25Dev
@@ -43,6 +45,6 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  7.377 s
-[INFO] Finished at: 2026-02-06T14:36:41-06:00
+[INFO] Total time:  8.582 s
+[INFO] Finished at: 2026-02-09T03:26:29-06:00
 [INFO] ------------------------------------------------------------------------

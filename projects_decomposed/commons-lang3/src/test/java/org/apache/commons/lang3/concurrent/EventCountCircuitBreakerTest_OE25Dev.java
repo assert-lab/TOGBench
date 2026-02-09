@@ -353,17 +353,6 @@ public class EventCountCircuitBreakerTest_OE25Dev {
     }
 
     @Test
-    public void testNotOpeningCheckIntervalExceeded_1_oe() {
-        long startTime = 0L;
-        final long timeIncrement = 3 * NANO_FACTOR / (2 * OPENING_THRESHOLD);
-        final EventCountCircuitBreakerTestImpl breaker = new EventCountCircuitBreakerTestImpl(OPENING_THRESHOLD, 1,
-                TimeUnit.SECONDS, CLOSING_THRESHOLD, 1, TimeUnit.SECONDS);
-        for (int i = 0; i < 5 * OPENING_THRESHOLD; i++) {
-            assertTrue(breaker.at(startTime).incrementAndCheckState(), "In open state");
-    }
-    }
-
-    @Test
     public void testNotOpeningCheckIntervalExceeded_2_oe() {
         long startTime = 0L;
         final long timeIncrement = 3 * NANO_FACTOR / (2 * OPENING_THRESHOLD);
@@ -438,19 +427,6 @@ public class EventCountCircuitBreakerTest_OE25Dev {
     }
 
     @Test
-    public void testNotClosingOverThreshold_2_oe() {
-        final EventCountCircuitBreakerTestImpl breaker = new EventCountCircuitBreakerTestImpl(OPENING_THRESHOLD,
-                10, TimeUnit.SECONDS, CLOSING_THRESHOLD, 1, TimeUnit.SECONDS);
-        long startTime = 0;
-        breaker.open();
-        for (int i = 0; i <= CLOSING_THRESHOLD; i++) {
-            // removed other assertion
-            startTime += 1000;
-        }
-        assertFalse(breaker.at(startTime + NANO_FACTOR).incrementAndCheckState(), "Closed in new interval");
-    }
-
-    @Test
     public void testNotClosingOverThreshold_3_oe() {
         final EventCountCircuitBreakerTestImpl breaker = new EventCountCircuitBreakerTestImpl(OPENING_THRESHOLD,
                 10, TimeUnit.SECONDS, CLOSING_THRESHOLD, 1, TimeUnit.SECONDS);
@@ -492,18 +468,6 @@ public class EventCountCircuitBreakerTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertTrue(breaker.at(NANO_FACTOR + 1).checkState(), "Not closed after interval end");
-    }
-
-    @Test
-    public void testClosingWhenThresholdReached_4_oe() {
-        final EventCountCircuitBreakerTestImpl breaker = new EventCountCircuitBreakerTestImpl(OPENING_THRESHOLD,
-                10, TimeUnit.SECONDS, CLOSING_THRESHOLD, 1, TimeUnit.SECONDS);
-        breaker.open();
-        breaker.at(1000).incrementAndCheckState();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue(breaker.isClosed(), "Not closed at end");
     }
 
     @Test

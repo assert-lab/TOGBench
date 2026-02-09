@@ -31,12 +31,24 @@ public class DoWhileTest_OE25Dev extends JexlTestCase {
     }
 
     @Test
-    public void testSimpleWhileFalse_1_oe() throws Exception {
-        JexlScript e = JEXL.createScript(" while (false)");
+    public void testSimpleWhileFalse() throws Exception {
+        JexlScript e = JEXL.createScript("do {} while (false)");
         final JexlContext jc = new MapContext();
 
         Object o = e.execute(jc);
         Assert.assertNull("Result is not null", o);
+        e = JEXL.createScript("do {} while (false); 23");
+        o = e.execute(jc);
+        Assert.assertEquals(23, o);
+
+    }
+
+    @Test
+    public void testWhileEmptyStmtBody() throws Exception {
+        final JexlScript e = JEXL.createScript("var i = 0; while((i+=1) < 10) {}; i");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals(10, o);
     }
 
     @Test
@@ -201,14 +213,6 @@ public class DoWhileTest_OE25Dev extends JexlTestCase {
     @Test
     public void testWhileEmptyBody_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("var i = 0; while((i+=1) < 10); i");
-        final JexlContext jc = new MapContext();
-        final Object o = e.execute(jc);
-        Assert.assertEquals(10, o);
-    }
-
-    @Test
-    public void testWhileEmptyStmtBody_1_oe() throws Exception {
-        final JexlScript e = JEXL.createScript("var i = 0; ; i");
         final JexlContext jc = new MapContext();
         final Object o = e.execute(jc);
         Assert.assertEquals(10, o);

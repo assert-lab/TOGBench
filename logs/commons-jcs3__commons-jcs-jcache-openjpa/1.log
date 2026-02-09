@@ -12,6 +12,8 @@
 [INFO] Building Apache Commons JCS :: JCache OpenJPA 3.1
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-jcs3-jcache-openjpa ---
+[INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-jcs3-jcache-openjpa ---
 [INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-jcs3-jcache-openjpa ---
@@ -31,7 +33,7 @@
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-jcache-openjpa ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa
-[INFO] Storing buildNumber: 42f91159e2f430b696e30a5d48814bb569209ba4 at timestamp: 1770410198695
+[INFO] Storing buildNumber: c100078249c05cc4d06c33c5a5c5160a82b0f043 at timestamp: 1770629185385
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -72,58 +74,15 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev
-[ERROR] Tests run: 10, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 5.439 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev
-[ERROR] query_1_oe(org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev)  Time elapsed: 4.028 s  <<< ERROR!
-org.apache.openjpa.persistence.ArgumentException: An error occurred while parsing the query filter "select e from OpenJPAJCacheDataCacheTest$MyEntity e where e.id = :id". Error message: The name "OpenJPAJCacheDataCacheTest$MyEntity" is not a recognized entity or identifier. Perhaps you meant OpenJPAJCacheDataCacheTest_OE25Dev$MyEntity, which is a close match. Known entity names: [OpenJPAJCacheDataCacheTest_OE25Dev$MyEntity]
-	at org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev.query_1_oe(OpenJPAJCacheDataCacheTest_OE25Dev.java:171)
-
-[ERROR] query_2_oe(org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev)  Time elapsed: 0.188 s  <<< ERROR!
-org.apache.openjpa.persistence.ArgumentException: An error occurred while parsing the query filter "select e from OpenJPAJCacheDataCacheTest$MyEntity e where e.id = :id". Error message: The name "OpenJPAJCacheDataCacheTest$MyEntity" is not a recognized entity or identifier. Perhaps you meant OpenJPAJCacheDataCacheTest_OE25Dev$MyEntity, which is a close match. Known entity names: [OpenJPAJCacheDataCacheTest_OE25Dev$MyEntity]
-	at org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev.query_2_oe(OpenJPAJCacheDataCacheTest_OE25Dev.java:188)
-
-[ERROR] query_3_oe(org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev)  Time elapsed: 0.159 s  <<< ERROR!
-org.apache.openjpa.persistence.ArgumentException: An error occurred while parsing the query filter "select e from OpenJPAJCacheDataCacheTest$MyEntity e where e.id = :id". Error message: The name "OpenJPAJCacheDataCacheTest$MyEntity" is not a recognized entity or identifier. Perhaps you meant OpenJPAJCacheDataCacheTest_OE25Dev$MyEntity, which is a close match. Known entity names: [OpenJPAJCacheDataCacheTest_OE25Dev$MyEntity]
-	at org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev.query_3_oe(OpenJPAJCacheDataCacheTest_OE25Dev.java:206)
-
-[ERROR] query_4_oe(org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev)  Time elapsed: 0.131 s  <<< ERROR!
-org.apache.openjpa.persistence.ArgumentException: An error occurred while parsing the query filter "select e from OpenJPAJCacheDataCacheTest$MyEntity e where e.id = :id". Error message: The name "OpenJPAJCacheDataCacheTest$MyEntity" is not a recognized entity or identifier. Perhaps you meant OpenJPAJCacheDataCacheTest_OE25Dev$MyEntity, which is a close match. Known entity names: [OpenJPAJCacheDataCacheTest_OE25Dev$MyEntity]
-	at org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev.query_4_oe(OpenJPAJCacheDataCacheTest_OE25Dev.java:226)
-
-[ERROR] query_5_oe(org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev)  Time elapsed: 0.139 s  <<< ERROR!
-org.apache.openjpa.persistence.ArgumentException: An error occurred while parsing the query filter "select e from OpenJPAJCacheDataCacheTest$MyEntity e where e.id = :id". Error message: The name "OpenJPAJCacheDataCacheTest$MyEntity" is not a recognized entity or identifier. Perhaps you meant OpenJPAJCacheDataCacheTest_OE25Dev$MyEntity, which is a close match. Known entity names: [OpenJPAJCacheDataCacheTest_OE25Dev$MyEntity]
-	at org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev.query_5_oe(OpenJPAJCacheDataCacheTest_OE25Dev.java:247)
-
-[ERROR] query_6_oe(org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev)  Time elapsed: 0.154 s  <<< ERROR!
-org.apache.openjpa.persistence.ArgumentException: An error occurred while parsing the query filter "select e from OpenJPAJCacheDataCacheTest$MyEntity e where e.id = :id". Error message: The name "OpenJPAJCacheDataCacheTest$MyEntity" is not a recognized entity or identifier. Perhaps you meant OpenJPAJCacheDataCacheTest_OE25Dev$MyEntity, which is a close match. Known entity names: [OpenJPAJCacheDataCacheTest_OE25Dev$MyEntity]
-	at org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev.query_6_oe(OpenJPAJCacheDataCacheTest_OE25Dev.java:269)
-
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.153 s - in org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[ERROR] Errors: 
-[ERROR]   OpenJPAJCacheDataCacheTest_OE25Dev.query_1_oe:171 » Argument An error occurred...
-[ERROR]   OpenJPAJCacheDataCacheTest_OE25Dev.query_2_oe:188 » Argument An error occurred...
-[ERROR]   OpenJPAJCacheDataCacheTest_OE25Dev.query_3_oe:206 » Argument An error occurred...
-[ERROR]   OpenJPAJCacheDataCacheTest_OE25Dev.query_4_oe:226 » Argument An error occurred...
-[ERROR]   OpenJPAJCacheDataCacheTest_OE25Dev.query_5_oe:247 » Argument An error occurred...
-[ERROR]   OpenJPAJCacheDataCacheTest_OE25Dev.query_6_oe:269 » Argument An error occurred...
-[INFO] 
-[ERROR] Tests run: 10, Failures: 0, Errors: 6, Skipped: 0
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  19.758 s
-[INFO] Finished at: 2026-02-06T14:36:54-06:00
+[INFO] Total time:  20.258 s
+[INFO] Finished at: 2026-02-09T03:26:40-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project commons-jcs3-jcache-openjpa: There are test failures.
-[ERROR] 
-[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/target/surefire-reports for the individual test results.
-[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

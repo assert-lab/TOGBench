@@ -81,6 +81,19 @@ public class ContextNamespaceTest_OE25Dev extends JexlTestCase {
         }
     }
 
+    @Test
+    public void testNamespacePragma() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().create();
+        final JexlContext context = new TaxesContext(18.6);
+        // local namespace tax declared
+        final String strs =
+                  "#pragma jexl.namespace.tax org.apache.commons.jexl3.ContextNamespaceTest_OE25Dev$Taxes\n"
+                + "tax:vat(2000)";
+        final JexlScript staxes = jexl.createScript(strs);
+        final Object result = staxes.execute(context);
+        Assert.assertEquals(372., result);
+    }
+
     public static class Context346 extends MapContext {
         public int func(int y) { return 42 * y;}
     }
@@ -239,19 +252,6 @@ public class ContextNamespaceTest_OE25Dev extends JexlTestCase {
         final JexlScript staxes = jexl.createScript(strs);
         final Object result = staxes.execute(context);
         Assert.assertEquals(186., result);
-    }
-
-    @Test
-    public void testNamespacePragma_1_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().create();
-        final JexlContext context = new TaxesContext(18.6);
-        // local namespace tax declared
-        final String strs =
-                  "#pragma jexl.namespace.tax org.apache.commons.jexl3.ContextNamespaceTest$Taxes\n"
-                + "tax:vat(2000)";
-        final JexlScript staxes = jexl.createScript(strs);
-        final Object result = staxes.execute(context);
-        Assert.assertEquals(372., result);
     }
 
     @Test

@@ -805,41 +805,4 @@ public class TestChronology_OE25Dev extends TestCase {
         assertEquals("StrictChronology[ISOChronology[Europe/Paris]]",StrictChronology.getInstance(isoParis).toString());
     }
 
-    public void testToString_11_oe() {
-        DateTimeZone paris = DateTimeZone.forID("Europe/Paris");
-        ISOChronology isoParis = ISOChronology.getInstance(paris);
-        
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // removed other assertion
-        // removed other assertion
-        assertEquals("LimitChronology[ISOChronology[Europe/Paris],NoLimit,NoLimit]",LimitChronology.getInstance(isoParis,null,null).toString());
-    }
-
-    public void testToString_12_oe() {
-        DateTimeZone paris = DateTimeZone.forID("Europe/Paris");
-        ISOChronology isoParis = ISOChronology.getInstance(paris);
-        
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("ZonedChronology[ISOChronology[UTC],Europe/Paris]",ZonedChronology.getInstance(isoParis,paris).toString());
-    }
-
 }

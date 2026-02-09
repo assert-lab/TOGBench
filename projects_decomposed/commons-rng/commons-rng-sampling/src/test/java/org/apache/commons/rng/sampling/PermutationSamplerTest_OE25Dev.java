@@ -105,11 +105,11 @@ class PermutationSamplerTest_OE25Dev {
 
     @Test
     void testSampleTrivial_1_oe() {
-        final int n = 6;
-        final int k = 3;
-        final PermutationSampler sampler = new PermutationSampler(RandomSource.KISS.create(),
+         int n = 6;
+         int k = 3;
+         PermutationSampler sampler = new PermutationSampler(RandomSource.KISS.create(),
                                                                   n, k);
-        final int[] random = sampler.sample();
+         int[] random = sampler.sample();
         SAMPLE: for (int s : random) {
             for (int i = 0; i < n; i++) {
                 if (i == s) {
@@ -123,16 +123,16 @@ class PermutationSamplerTest_OE25Dev {
     @Test
     void testSampleBoundaryCase_1_oe() {
         // Check size = 1 boundary case.
-        final PermutationSampler sampler = new PermutationSampler(rng, 1, 1);
-        final int[] perm = sampler.sample();
+         PermutationSampler sampler = new PermutationSampler(rng, 1, 1);
+         int[] perm = sampler.sample();
         Assertions.assertEquals(1, perm.length);
     }
 
     @Test
     void testSampleBoundaryCase_2_oe() {
         // Check size = 1 boundary case.
-        final PermutationSampler sampler = new PermutationSampler(rng, 1, 1);
-        final int[] perm = sampler.sample();
+         PermutationSampler sampler = new PermutationSampler(rng, 1, 1);
+         int[] perm = sampler.sample();
         // removed other assertion
         Assertions.assertEquals(0, perm[0]);
     }
@@ -163,10 +163,10 @@ class PermutationSamplerTest_OE25Dev {
 
     @Test
     void testNatural_1_oe() {
-        final int n = 4;
-        final int[] expected = {0, 1, 2, 3};
+         int n = 4;
+         int[] expected = {0, 1, 2, 3};
 
-        final int[] natural = PermutationSampler.natural(n);
+         int[] natural = PermutationSampler.natural(n);
         for (int i = 0; i < n; i++) {
             Assertions.assertEquals(expected[i], natural[i]);
     }
@@ -174,18 +174,18 @@ class PermutationSamplerTest_OE25Dev {
 
     @Test
     void testNaturalZero_1_oe() {
-        final int[] natural = PermutationSampler.natural(0);
+         int[] natural = PermutationSampler.natural(0);
         Assertions.assertEquals(0, natural.length);
     }
 
     @Test
     void testShuffleNoDuplicates_1_oe() {
-        final int n = 100;
-        final int[] orig = PermutationSampler.natural(n);
+         int n = 100;
+         int[] orig = PermutationSampler.natural(n);
         PermutationSampler.shuffle(rng, orig);
 
         // Test that all (unique) entries exist in the shuffled array.
-        final int[] count = new int[n];
+         int[] count = new int[n];
         for (int i = 0; i < n; i++) {
             count[orig[i]] += 1;
         }
@@ -197,9 +197,9 @@ class PermutationSamplerTest_OE25Dev {
 
     @Test
     void testShuffleTail_1_oe() {
-        final int[] orig = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        final int[] list = orig.clone();
-        final int start = 4;
+         int[] orig = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+         int[] list = orig.clone();
+         int start = 4;
         PermutationSampler.shuffle(rng, list, start, false);
 
         // Ensure that all entries below index "start" did not move.
@@ -210,9 +210,9 @@ class PermutationSamplerTest_OE25Dev {
 
     @Test
     void testShuffleTail_2_oe() {
-        final int[] orig = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        final int[] list = orig.clone();
-        final int start = 4;
+         int[] orig = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+         int[] list = orig.clone();
+         int start = 4;
         PermutationSampler.shuffle(rng, list, start, false);
 
         // Ensure that all entries below index "start" did not move.
@@ -233,9 +233,9 @@ class PermutationSamplerTest_OE25Dev {
 
     @Test
     void testShuffleHead_1_oe() {
-        final int[] orig = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        final int[] list = orig.clone();
-        final int start = 4;
+         int[] orig = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+         int[] list = orig.clone();
+         int start = 4;
         PermutationSampler.shuffle(rng, list, start, true);
 
         // Ensure that all entries above index "start" did not move.
@@ -246,9 +246,9 @@ class PermutationSamplerTest_OE25Dev {
 
     @Test
     void testShuffleHead_2_oe() {
-        final int[] orig = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        final int[] list = orig.clone();
-        final int start = 4;
+         int[] orig = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+         int[] list = orig.clone();
+         int start = 4;
         PermutationSampler.shuffle(rng, list, start, true);
 
         // Ensure that all entries above index "start" did not move.

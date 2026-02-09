@@ -3643,15 +3643,6 @@ public class TestPeriodFormatterBuilder_OE25Dev extends TestCase {
         assertEquals(1,f.getPrinter().countFieldsToPrint(DATE_PERIOD,Integer.MAX_VALUE,null));
     }
 
-    public void testFormatSeparatorComplex_1_oe() {
-        PeriodFormatter f = builder
-            .appendYears().appendSeparator(", ", " and ")
-            .appendHours().appendSeparator(", ", " and ")
-            .appendMinutes().appendSeparator(", ", " and ")
-            .toFormatter();
-        assertEquals("1,5 and 6",f.print(PERIOD));
-    }
-
     public void testFormatSeparatorComplex_2_oe() {
         PeriodFormatter f = builder
             .appendYears().appendSeparator(", ", " and ")

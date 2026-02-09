@@ -114,19 +114,6 @@ public class MemoizerTest_OE25Dev {
     }
 
     @Test
-    public void testDoesRecalculateWhenSetToTrue_2_oe() throws Exception {
-        final Integer input = 1;
-        final Integer answer = 3;
-        final Memoizer<Integer, Integer> memoizer = new Memoizer<>(computable, true);
-        final InterruptedException interruptedException = new InterruptedException();
-        expect(computable.compute(input)).andThrow(interruptedException).andReturn(answer);
-        replay(computable);
-
-        // removed other assertion
-        assertEquals(answer, memoizer.compute(input));
-    }
-
-    @Test
     public void testWhenComputableThrowsRuntimeException_1_oe() throws Exception {
         final Integer input = 1;
         final Memoizer<Integer, Integer> memoizer = new Memoizer<>(computable);

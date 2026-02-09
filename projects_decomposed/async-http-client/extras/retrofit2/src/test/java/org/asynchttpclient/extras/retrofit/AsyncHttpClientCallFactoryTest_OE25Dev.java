@@ -43,8 +43,8 @@ public class AsyncHttpClientCallFactoryTest_OE25Dev {
           .url(URL)
           .build();
 
-  @Test(expectedExceptions = NullPointerException.class,
-          expectedExceptionsMessageRegExp = "httpClientSupplier is marked non-null but is null")
+  // @Test(expectedExceptions = NullPointerException.class,
+//           expectedExceptionsMessageRegExp = "httpClientSupplier is marked non-null but is null")
 
   @Test
   void newCallShouldProduceExpectedResult_1_oe() {

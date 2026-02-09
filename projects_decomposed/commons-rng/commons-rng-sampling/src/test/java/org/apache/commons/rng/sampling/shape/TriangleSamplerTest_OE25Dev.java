@@ -654,28 +654,28 @@ class TriangleSamplerTest_OE25Dev {
     @Test
     void testSamplingAssumptions_1_oe() {
         // The separation between the 2^53 dyadic rationals in the interval [0, 1)
-        final double delta = 0x1.0p-53;
+         double delta = 0x1.0p-53;
         double s = 0.5;
         double t = 0.5 + delta;
         // This value cannot be exactly represented and is rounded
-        final double spt = s + t;
+         double spt = s + t;
         // Test that (1 - (1-s) - (1-t)) is not equal to (s + t - 1).
         // This is due to the rounding to store s + t as a double.
-        final double expected = 1 - (1 - s) - (1 - t);
+         double expected = 1 - (1 - s) - (1 - t);
         Assertions.assertNotEquals(expected, spt - 1);
     }
 
     @Test
     void testSamplingAssumptions_2_oe() {
         // The separation between the 2^53 dyadic rationals in the interval [0, 1)
-        final double delta = 0x1.0p-53;
+         double delta = 0x1.0p-53;
         double s = 0.5;
         double t = 0.5 + delta;
         // This value cannot be exactly represented and is rounded
-        final double spt = s + t;
+         double spt = s + t;
         // Test that (1 - (1-s) - (1-t)) is not equal to (s + t - 1).
         // This is due to the rounding to store s + t as a double.
-        final double expected = 1 - (1 - s) - (1 - t);
+         double expected = 1 - (1 - s) - (1 - t);
         // removed other assertion
         Assertions.assertNotEquals(expected, s + t - 1);
     }
@@ -683,14 +683,14 @@ class TriangleSamplerTest_OE25Dev {
     @Test
     void testSamplingAssumptions_3_oe() {
         // The separation between the 2^53 dyadic rationals in the interval [0, 1)
-        final double delta = 0x1.0p-53;
+         double delta = 0x1.0p-53;
         double s = 0.5;
         double t = 0.5 + delta;
         // This value cannot be exactly represented and is rounded
-        final double spt = s + t;
+         double spt = s + t;
         // Test that (1 - (1-s) - (1-t)) is not equal to (s + t - 1).
         // This is due to the rounding to store s + t as a double.
-        final double expected = 1 - (1 - s) - (1 - t);
+         double expected = 1 - (1 - s) - (1 - t);
         // removed other assertion
         // removed other assertion
         // For any uniform deviate u in [0, 1], u - 1 is exact, thus s - 1 is exact
@@ -701,14 +701,14 @@ class TriangleSamplerTest_OE25Dev {
     @Test
     void testSamplingAssumptions_4_oe() {
         // The separation between the 2^53 dyadic rationals in the interval [0, 1)
-        final double delta = 0x1.0p-53;
+         double delta = 0x1.0p-53;
         double s = 0.5;
         double t = 0.5 + delta;
         // This value cannot be exactly represented and is rounded
-        final double spt = s + t;
+         double spt = s + t;
         // Test that (1 - (1-s) - (1-t)) is not equal to (s + t - 1).
         // This is due to the rounding to store s + t as a double.
-        final double expected = 1 - (1 - s) - (1 - t);
+         double expected = 1 - (1 - s) - (1 - t);
         // removed other assertion
         // removed other assertion
         // For any uniform deviate u in [0, 1], u - 1 is exact, thus s - 1 is exact
@@ -716,9 +716,9 @@ class TriangleSamplerTest_OE25Dev {
         // removed other assertion
 
         // Test that a(1 - s - t) + sb + tc does not overflow is s+t = 1
-        final double max = Double.MAX_VALUE;
+         double max = Double.MAX_VALUE;
         s -= delta;
-        final UniformRandomProvider rng = RandomSource.XO_RO_SHI_RO_128_PP.create();
+         UniformRandomProvider rng = RandomSource.XO_RO_SHI_RO_128_PP.create();
         for (int n = 0; n < 100; n++) {
             Assertions.assertNotEquals(Double.POSITIVE_INFINITY, (1 - s - t) * max + s * max + t * max);
     }
@@ -726,15 +726,15 @@ class TriangleSamplerTest_OE25Dev {
 
     @Test
     void testInvalidDimensionThrows_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         Assertions.assertThrows(IllegalArgumentException.class, () -> TriangleSampler.of(rng, new double[1], new double[1], new double[1]));
     }
 
     @Test
     void testDimensionMismatchThrows_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final double[] c2 = new double[2];
-        final double[] c3 = new double[3];
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         double[] c2 = new double[2];
+         double[] c3 = new double[3];
         for (double[][] c : new double[][][] {
             {c2, c2, c3},
             {c2, c3, c2},
@@ -749,9 +749,9 @@ class TriangleSamplerTest_OE25Dev {
 
     @Test
     void testNonFiniteVertexCoordinates_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         // A valid triangle
-        final double[][] c = new double[][] {
+         double[][] c = new double[][] {
             {0, 0, 1}, {2, 1, 0}, {-1, 2, 3}
         };
         Assertions.assertNotNull(TriangleSampler.of(rng, c[0],  c[1],  c[2]));
@@ -759,19 +759,19 @@ class TriangleSamplerTest_OE25Dev {
 
     @Test
     void testNonFiniteVertexCoordinates_2_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         // A valid triangle
-        final double[][] c = new double[][] {
+         double[][] c = new double[][] {
             {0, 0, 1}, {2, 1, 0}, {-1, 2, 3}
         };
         // removed other assertion
-        final double[] bad = {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NaN};
+         double[] bad = {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NaN};
         for (int i = 0; i < c.length; i++) {
-            final int ii = i;
+             int ii = i;
             for (int j = 0; j < c[0].length; j++) {
-                final int jj = j;
-                for (final double d : bad) {
-                    final double value = c[i][j];
+                 int jj = j;
+                for ( double d : bad) {
+                     double value = c[i][j];
                     c[i][j] = d;
                     Assertions.assertThrows(IllegalArgumentException.class, () -> TriangleSampler.of(rng, c[0], c[1], c[2]), () -> String.format("Did not detect non-finite coordinate: %d,%d = %s", ii, jj, d));
     }
@@ -781,64 +781,64 @@ class TriangleSamplerTest_OE25Dev {
 
     @Test
     void testRotations3D_1_oe() {
-        final double[] x = {1, 0.5, 0};
-        final double[] y = multiply(F3, x);
+         double[] x = {1, 0.5, 0};
+         double[] y = multiply(F3, x);
         Assertions.assertArrayEquals(new double[] {0.465475314831549, 1.004183876910958, -0.157947689551155}, y, 1e-10);
     }
 
     @Test
     void testRotations3D_2_oe() {
-        final double[] x = {1, 0.5, 0};
-        final double[] y = multiply(F3, x);
+         double[] x = {1, 0.5, 0};
+         double[] y = multiply(F3, x);
         // removed other assertion
         Assertions.assertEquals(length(x), length(y), 1e-10);
     }
 
     @Test
     void testRotations3D_3_oe() {
-        final double[] x = {1, 0.5, 0};
-        final double[] y = multiply(F3, x);
+         double[] x = {1, 0.5, 0};
+         double[] y = multiply(F3, x);
         // removed other assertion
         // removed other assertion
-        final double[] x2 = multiply(R3, y);
+         double[] x2 = multiply(R3, y);
         Assertions.assertArrayEquals(x, x2, 1e-10);
     }
 
     @Test
     void testRotations4D_1_oe() {
-        final double[] x = {1, 0.5, 0, 0};
-        final double[] y = multiply(F4, x);
+         double[] x = {1, 0.5, 0, 0};
+         double[] y = multiply(F4, x);
         Assertions.assertArrayEquals( new double[] {0.676776695296637, 0.780330085889911, 0.323223304703363, -0.280330085889911}, y, 1e-10);
     }
 
     @Test
     void testRotations4D_2_oe() {
-        final double[] x = {1, 0.5, 0, 0};
-        final double[] y = multiply(F4, x);
+         double[] x = {1, 0.5, 0, 0};
+         double[] y = multiply(F4, x);
         // removed other assertion
         Assertions.assertEquals(length(x), length(y), 1e-10);
     }
 
     @Test
     void testRotations4D_3_oe() {
-        final double[] x = {1, 0.5, 0, 0};
-        final double[] y = multiply(F4, x);
+         double[] x = {1, 0.5, 0, 0};
+         double[] y = multiply(F4, x);
         // removed other assertion
         // removed other assertion
-        final double[] x2 = multiply(R4, y);
+         double[] x2 = multiply(R4, y);
         Assertions.assertArrayEquals(x, x2, 1e-10);
     }
 
     @Test
     void testTriangleContains_1_oe() {
-        final Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+         Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
         // Vertices
         Assertions.assertTrue(triangle.contains(1, 2));
     }
 
     @Test
     void testTriangleContains_2_oe() {
-        final Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+         Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
         // Vertices
         // removed other assertion
         Assertions.assertTrue(triangle.contains(3, 1));
@@ -846,7 +846,7 @@ class TriangleSamplerTest_OE25Dev {
 
     @Test
     void testTriangleContains_3_oe() {
-        final Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+         Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
         // Vertices
         // removed other assertion
         // removed other assertion
@@ -855,7 +855,7 @@ class TriangleSamplerTest_OE25Dev {
 
     @Test
     void testTriangleContains_4_oe() {
-        final Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+         Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
         // Vertices
         // removed other assertion
         // removed other assertion
@@ -866,7 +866,7 @@ class TriangleSamplerTest_OE25Dev {
 
     @Test
     void testTriangleContains_5_oe() {
-        final Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+         Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
         // Vertices
         // removed other assertion
         // removed other assertion
@@ -879,7 +879,7 @@ class TriangleSamplerTest_OE25Dev {
 
     @Test
     void testTriangleContains_6_oe() {
-        final Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+         Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
         // Vertices
         // removed other assertion
         // removed other assertion
@@ -894,7 +894,7 @@ class TriangleSamplerTest_OE25Dev {
 
     @Test
     void testTriangleContains_7_oe() {
-        final Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+         Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
         // Vertices
         // removed other assertion
         // removed other assertion
@@ -910,7 +910,7 @@ class TriangleSamplerTest_OE25Dev {
 
     @Test
     void testTriangleContains_8_oe() {
-        final Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+         Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
         // Vertices
         // removed other assertion
         // removed other assertion
@@ -927,7 +927,7 @@ class TriangleSamplerTest_OE25Dev {
 
     @Test
     void testTriangleContains_9_oe() {
-        final Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+         Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
         // Vertices
         // removed other assertion
         // removed other assertion
@@ -946,7 +946,7 @@ class TriangleSamplerTest_OE25Dev {
 
     @Test
     void testTriangleContains_10_oe() {
-        final Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+         Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
         // Vertices
         // removed other assertion
         // removed other assertion
@@ -966,13 +966,13 @@ class TriangleSamplerTest_OE25Dev {
         // Touching triangles can both have the point triangle.
         // This predicate is not suitable for assigning points uniquely to
         // non-overlapping triangles that share an edge.
-        final Triangle triangle2 = new Triangle(1, 2, 3, 1, 0, -2);
+         Triangle triangle2 = new Triangle(1, 2, 3, 1, 0, -2);
         Assertions.assertTrue(triangle.contains(2, 1.5));
     }
 
     @Test
     void testTriangleContains_11_oe() {
-        final Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+         Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
         // Vertices
         // removed other assertion
         // removed other assertion
@@ -992,7 +992,7 @@ class TriangleSamplerTest_OE25Dev {
         // Touching triangles can both have the point triangle.
         // This predicate is not suitable for assigning points uniquely to
         // non-overlapping triangles that share an edge.
-        final Triangle triangle2 = new Triangle(1, 2, 3, 1, 0, -2);
+         Triangle triangle2 = new Triangle(1, 2, 3, 1, 0, -2);
         // removed other assertion
         Assertions.assertTrue(triangle2.contains(2, 1.5));
     }

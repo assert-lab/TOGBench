@@ -12,6 +12,8 @@
 [INFO] Building http-request 6.0
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ http-request ---
+[INFO] 
 [INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ http-request ---
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ http-request ---
@@ -37,9 +39,9 @@
  T E S T S
 -------------------------------------------------------
 Running com.github.kevinsawicki.http.EncodeTest_OE25Dev
-Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.233 sec
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.397 sec
 Running com.github.kevinsawicki.http.HttpRequestTest_OE25Dev
-Tests run: 311, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 137.91 sec
+Tests run: 311, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 125.211 sec
 
 Results :
 
@@ -48,6 +50,6 @@ Tests run: 331, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  02:28 min
-[INFO] Finished at: 2026-02-06T14:39:03-06:00
+[INFO] Total time:  02:17 min
+[INFO] Finished at: 2026-02-09T03:28:38-06:00
 [INFO] ------------------------------------------------------------------------

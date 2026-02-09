@@ -28,7 +28,7 @@ fail_list = [
 "SpnegoEngineTest.testGetCompleteServicePrincipalName_2_oe",
 "TextMessageTest.onFailureTest_1_oe",
 
-"AbstractAsyncHttpClientFactoryTest.*"
+"AbstractAsyncHttpClientFactoryTest.*",
 "PerRequestRelative302Test.*",
 "Relative302Test.*",
 ]

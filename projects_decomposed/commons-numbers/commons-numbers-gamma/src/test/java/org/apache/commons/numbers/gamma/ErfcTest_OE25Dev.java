@@ -27,15 +27,8 @@ class ErfcTest_OE25Dev {
      * Compare erfc against reference values computed using GCC 4.2.1
      * (Apple OSX packaged version) erfcl (extended precision erfc).
      */
-
-    /**
-     * Tests erfc against reference data computed using Maple reported in Marsaglia, G,,
-     * "Evaluating the Normal Distribution," Journal of Statistical Software, July, 2004.
-     * http//www.jstatsoft.org/v11/a05/paper
-     */
-
     @Test
-    void testErfcGnu_1_oe() {
+    void testErfcGnu() {
         final double tol = 1e-15;
         final double[] gnuValues = new double[] {
             2,  2,  2,  2,  2,
@@ -53,8 +46,15 @@ class ErfcTest_OE25Dev {
         double x = -10;
         for (int i = 0; i < 41; i++) {
             Assertions.assertEquals(gnuValues[i], Erfc.value(x), tol);
+            x += 0.5d;
+        }
     }
-    }
+
+    /**
+     * Tests erfc against reference data computed using Maple reported in Marsaglia, G,,
+     * "Evaluating the Normal Distribution," Journal of Statistical Software, July, 2004.
+     * http//www.jstatsoft.org/v11/a05/paper
+     */
 
     @Test
     void testErfcMaple_1_oe() {

@@ -28,7 +28,7 @@ class PcgRxsMXs64Test_OE25Dev {
          * Tested with respect to pcg_engines::setseq_rxs_m_xs_64_64(x, y) of the C++ implementation.
          * See : http://www.pcg-random.org/download.html#cpp-implementation
          */
-        final long[] expectedSequence = {
+         long[] expectedSequence = {
             0xc147f2291fa40ccfL, 0x8edbcbf8a5f49877L, 0x61e05a1d5213f0b4L, 0xc039f9369032e638L,
             0x95146e605b2e4a96L, 0x5480af6332262d03L, 0x7cbfb3a67a714557L, 0x5c9f0a25eba41575L,
             0x6e23dba403318decL, 0x7b230e581b829dbcL, 0x0617d61457cce844L, 0x661c9bd85d60eb09L,
@@ -49,7 +49,7 @@ class PcgRxsMXs64Test_OE25Dev {
          * Tested with respect to pcg_engines::setseq_rxs_m_xs_64_64(x) of the C++ implementation.
          * See : http://www.pcg-random.org/download.html#cpp-implementation
          */
-        final long[] expectedSequence = {
+         long[] expectedSequence = {
             0xa5ace6c92c5fa6c7L, 0xac02118387228764L, 0xa6e796e49dc36e00L, 0x4713f32552134368L,
             0xa2ad36cb4e6b7cc9L, 0x6bbce7db898fa11dL, 0x134cb18300fe9eb0L, 0x3f705c0d635cbc23L,
             0x4bd7531b62a59b62L, 0x413cc95f3c3e9952L, 0xbc77749b270d987cL, 0xd2c74089bc6489f5L,

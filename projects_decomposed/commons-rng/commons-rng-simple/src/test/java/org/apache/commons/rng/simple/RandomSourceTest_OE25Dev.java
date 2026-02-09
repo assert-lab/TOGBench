@@ -26,7 +26,7 @@ class RandomSourceTest_OE25Dev {
 
     @Test
     void testCreateInt_1_oe() {
-        final int n = 4;
+         int n = 4;
         for (int i = 0; i < n; i++) {
             // Can fail, but unlikely given the range.
             Assertions.assertNotEquals(RandomSource.createInt(),RandomSource.createInt());
@@ -35,7 +35,7 @@ class RandomSourceTest_OE25Dev {
 
     @Test
     void testCreateLong_1_oe() {
-        final int n = 6;
+         int n = 6;
         for (int i = 0; i < n; i++) {
             // Can fail, but unlikely given the range.
             Assertions.assertNotEquals(RandomSource.createLong(),RandomSource.createLong());
@@ -44,15 +44,15 @@ class RandomSourceTest_OE25Dev {
 
     @Test
     void testCreateIntArray_1_oe() {
-        final int n = 13;
-        final int[] seed = RandomSource.createIntArray(n);
+         int n = 13;
+         int[] seed = RandomSource.createIntArray(n);
         Assertions.assertEquals(n, seed.length);
     }
 
     @Test
     void testCreateIntArray_2_oe() {
-        final int n = 13;
-        final int[] seed = RandomSource.createIntArray(n);
+         int n = 13;
+         int[] seed = RandomSource.createIntArray(n);
         // removed other assertion
 
         for (int i = 1; i < n; i++) {
@@ -63,15 +63,15 @@ class RandomSourceTest_OE25Dev {
 
     @Test
     void testCreateLongArray_1_oe() {
-        final int n = 9;
-        final long[] seed = RandomSource.createLongArray(n);
+         int n = 9;
+         long[] seed = RandomSource.createLongArray(n);
         Assertions.assertEquals(n, seed.length);
     }
 
     @Test
     void testCreateLongArray_2_oe() {
-        final int n = 9;
-        final long[] seed = RandomSource.createLongArray(n);
+         int n = 9;
+         long[] seed = RandomSource.createLongArray(n);
         // removed other assertion
 
         for (int i = 1; i < n; i++) {

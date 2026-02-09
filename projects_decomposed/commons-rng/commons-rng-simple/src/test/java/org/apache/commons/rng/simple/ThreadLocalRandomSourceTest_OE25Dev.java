@@ -65,15 +65,15 @@ class ThreadLocalRandomSourceTest_OE25Dev {
     @Test
     void testCurrentForAllRandomSources_1_oe()
             throws InterruptedException, ExecutionException, TimeoutException {
-        final RandomSource[] sources = RandomSource.values();
-        final UniformRandomProvider[] rngs = new UniformRandomProvider[sources.length];
+         RandomSource[] sources = RandomSource.values();
+         UniformRandomProvider[] rngs = new UniformRandomProvider[sources.length];
 
         for (int i = 0; i < sources.length; i++) {
-            final RandomSource source = sources[i];
+             RandomSource source = sources[i];
             if (toIgnore.contains(source)) {
                 continue;
             }
-            final UniformRandomProvider rng = getCurrent(source);
+             UniformRandomProvider rng = getCurrent(source);
             Assertions.assertNotNull(rng, () -> "Failed to create source: " + source);
     }
     }
@@ -81,24 +81,24 @@ class ThreadLocalRandomSourceTest_OE25Dev {
     @Test
     void testCurrentForAllRandomSources_2_oe()
             throws InterruptedException, ExecutionException, TimeoutException {
-        final RandomSource[] sources = RandomSource.values();
-        final UniformRandomProvider[] rngs = new UniformRandomProvider[sources.length];
+         RandomSource[] sources = RandomSource.values();
+         UniformRandomProvider[] rngs = new UniformRandomProvider[sources.length];
 
         for (int i = 0; i < sources.length; i++) {
-            final RandomSource source = sources[i];
+             RandomSource source = sources[i];
             if (toIgnore.contains(source)) {
                 continue;
             }
-            final UniformRandomProvider rng = getCurrent(source);
+             UniformRandomProvider rng = getCurrent(source);
             // removed other assertion
             rngs[i] = rng;
         }
         for (int i = 0; i < sources.length; i++) {
-            final RandomSource source = sources[i];
+             RandomSource source = sources[i];
             if (toIgnore.contains(source)) {
                 continue;
             }
-            final UniformRandomProvider rng = getCurrent(source);
+             UniformRandomProvider rng = getCurrent(source);
             Assertions.assertSame(rngs[i], rng, () -> "Failed to return same source: " + source);
     }
     }
@@ -106,31 +106,31 @@ class ThreadLocalRandomSourceTest_OE25Dev {
     @Test
     void testCurrentForAllRandomSources_3_oe()
             throws InterruptedException, ExecutionException, TimeoutException {
-        final RandomSource[] sources = RandomSource.values();
-        final UniformRandomProvider[] rngs = new UniformRandomProvider[sources.length];
+         RandomSource[] sources = RandomSource.values();
+         UniformRandomProvider[] rngs = new UniformRandomProvider[sources.length];
 
         for (int i = 0; i < sources.length; i++) {
-            final RandomSource source = sources[i];
+             RandomSource source = sources[i];
             if (toIgnore.contains(source)) {
                 continue;
             }
-            final UniformRandomProvider rng = getCurrent(source);
+             UniformRandomProvider rng = getCurrent(source);
             // removed other assertion
             rngs[i] = rng;
         }
         for (int i = 0; i < sources.length; i++) {
-            final RandomSource source = sources[i];
+             RandomSource source = sources[i];
             if (toIgnore.contains(source)) {
                 continue;
             }
-            final UniformRandomProvider rng = getCurrent(source);
+             UniformRandomProvider rng = getCurrent(source);
             // removed other assertion
         }
 
         // Build on a new thread
-        final UniformRandomProvider[] rngs2 = new UniformRandomProvider[rngs.length];
-        final ExecutorService executor = Executors.newFixedThreadPool(1);
-        final Future<?> future = executor.submit(
+         UniformRandomProvider[] rngs2 = new UniformRandomProvider[rngs.length];
+         ExecutorService executor = Executors.newFixedThreadPool(1);
+         Future<?> future = executor.submit(
             new Runnable() {
                 @Override
                 public void run() {
@@ -149,7 +149,7 @@ class ThreadLocalRandomSourceTest_OE25Dev {
 
         // The RNG from the new thread should be different
         for (int i = 0; i < sources.length; i++) {
-            final RandomSource source = sources[i];
+             RandomSource source = sources[i];
             if (toIgnore.contains(source)) {
                 continue;
             }

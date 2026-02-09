@@ -104,13 +104,4 @@ public class CallableBackgroundInitializerTest_OE25Dev  {
         assertEquals(RESULT, init.initialize(), "Wrong result");
     }
 
-    @Test
-    public void testInitialize_2_oe() throws Exception {
-        final TestCallable call = new TestCallable();
-        final CallableBackgroundInitializer<Integer> init = new CallableBackgroundInitializer<>(
-                call);
-        // removed other assertion
-        assertEquals(1, call.callCount, "Wrong number of invocations");
-    }
-
 }

@@ -54,27 +54,27 @@ class SmallMeanPoissonSamplerTest_OE25Dev {
 
     @Test
     void testConstructorThrowsWithMeanThatSetsProbabilityP0ToZero_1_oe() {
-        final UniformRandomProvider rng =
+         UniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final double p0 = Double.MIN_VALUE;
+         double p0 = Double.MIN_VALUE;
         // Note: p0 = Math.exp(-mean) => mean = -Math.log(p0).
         // Add to the limit on the mean to cause p0 to be zero.
-        final double mean = -Math.log(p0) + 1;
+         double mean = -Math.log(p0) + 1;
         Assertions.assertThrows(IllegalArgumentException.class, () -> SmallMeanPoissonSampler.of(rng, mean));
     }
 
     @Test
     void testConstructorThrowsWithZeroMean_1_oe() {
-        final UniformRandomProvider rng =
+         UniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final double mean = 0;
+         double mean = 0;
         Assertions.assertThrows(IllegalArgumentException.class, () -> SmallMeanPoissonSampler.of(rng, mean));
     }
 
     @Test
     void testSampleUpperBounds_1_oe() {
         // If the nextDouble() is always 1 then the sample will hit the upper bounds
-        final UniformRandomProvider rng = new UniformRandomProvider() {
+         UniformRandomProvider rng = new UniformRandomProvider() {
             // CHECKSTYLE: stop all
             public long nextLong(long n) { return 0; }
             public long nextLong() { return 0; }
@@ -88,8 +88,8 @@ class SmallMeanPoissonSamplerTest_OE25Dev {
             // CHECKSTYLE: resume all
         };
         for (double mean : new double[] {0.5, 1, 1.5, 2.2}) {
-            final SharedStateDiscreteSampler sampler = SmallMeanPoissonSampler.of(rng, mean);
-            final int expected = (int) Math.ceil(1000 * mean);
+             SharedStateDiscreteSampler sampler = SmallMeanPoissonSampler.of(rng, mean);
+             int expected = (int) Math.ceil(1000 * mean);
             Assertions.assertEquals(expected, sampler.sample());
     }
     }

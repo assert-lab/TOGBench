@@ -86,14 +86,6 @@ public class PublicFieldsTest_OE25Dev extends JexlTestCase {
     }
 
     @Test
-    public void testSetInt_2_oe() throws Exception {
-        final JexlExpression set = JEXL.createExpression("pub.anInt = value");
-        ctxt.set("value", -42);
-        // removed other assertion
-        Assert.assertEquals(-42, JEXL.getProperty(pub, "anInt"));
-    }
-
-    @Test
     public void testSetInt_3_oe() throws Exception {
         final JexlExpression set = JEXL.createExpression("pub.anInt = value");
         ctxt.set("value", -42);
@@ -136,14 +128,6 @@ public class PublicFieldsTest_OE25Dev extends JexlTestCase {
     }
 
     @Test
-    public void testSetString_2_oe() throws Exception {
-        final JexlExpression set = JEXL.createExpression("pub.aString = value");
-        ctxt.set("value", UPPER42);
-        // removed other assertion
-        Assert.assertEquals(UPPER42, JEXL.getProperty(pub, "aString"));
-    }
-
-    @Test
     public void testSetString_3_oe() throws Exception {
         final JexlExpression set = JEXL.createExpression("pub.aString = value");
         ctxt.set("value", UPPER42);
@@ -183,14 +167,6 @@ public class PublicFieldsTest_OE25Dev extends JexlTestCase {
         final JexlExpression set = JEXL.createExpression("pub.inner.aDouble = value");
         ctxt.set("value", -42.0);
         Assert.assertEquals(-42.0, set.evaluate(ctxt));
-    }
-
-    @Test
-    public void testSetInnerDouble_2_oe() throws Exception {
-        final JexlExpression set = JEXL.createExpression("pub.inner.aDouble = value");
-        ctxt.set("value", -42.0);
-        // removed other assertion
-        Assert.assertEquals(-42.0, JEXL.getProperty(pub, "inner.aDouble"));
     }
 
     @Test

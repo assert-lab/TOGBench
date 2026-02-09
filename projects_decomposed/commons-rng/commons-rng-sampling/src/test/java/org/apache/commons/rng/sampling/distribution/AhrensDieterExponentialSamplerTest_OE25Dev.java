@@ -59,55 +59,39 @@ class AhrensDieterExponentialSamplerTest_OE25Dev {
 
     @Test
     void testConstructorThrowsWithZeroMean_1_oe() {
-        final RestorableUniformRandomProvider rng =
+         RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final double mean = 0;
+         double mean = 0;
         Assertions.assertThrows(IllegalArgumentException.class, () -> AhrensDieterExponentialSampler.of(rng, mean));
     }
 
     @Test
     void testSamplerWithZeroFromRandomGenerator_1_oe() {
         // A broken generator that returns zero.
-        final UniformRandomProvider rng = new SplitMix64(0) {
+         UniformRandomProvider rng = new SplitMix64(0) {
             @Override
             public long nextLong() {
                 return 0L;
             }
         };
-        final SharedStateContinuousSampler sampler = AhrensDieterExponentialSampler.of(rng, 1);
+         SharedStateContinuousSampler sampler = AhrensDieterExponentialSampler.of(rng, 1);
         // This should not infinite loop
-        final double[] x = {-1};
+         double[] x = {-1};
         Assertions.assertTimeout(Duration.ofMillis(50), () -> { x[0] = sampler.sample(); });
-    }
-
-    @Test
-    void testSamplerWithZeroFromRandomGenerator_2_oe() {
-        // A broken generator that returns zero.
-        final UniformRandomProvider rng = new SplitMix64(0) {
-            @Override
-            public long nextLong() {
-                return 0L;
-            }
-        };
-        final SharedStateContinuousSampler sampler = AhrensDieterExponentialSampler.of(rng, 1);
-        // This should not infinite loop
-        final double[] x = {-1};
-        // removed other assertion
-        Assertions.assertTrue(x[0] >= 0);
     }
 
     @Test
     void testSamplerWithOneFromRandomGenerator_1_oe() {
         // A broken generator that returns all the bits set.
-        final UniformRandomProvider rng = new SplitMix64(0) {
+         UniformRandomProvider rng = new SplitMix64(0) {
             @Override
             public long nextLong() {
                 // All the bits set
                 return -1;
             }
         };
-        final SharedStateContinuousSampler sampler = AhrensDieterExponentialSampler.of(rng, 1);
-        final double x = sampler.sample();
+         SharedStateContinuousSampler sampler = AhrensDieterExponentialSampler.of(rng, 1);
+         double x = sampler.sample();
         Assertions.assertTrue(x >= 0);
     }
 

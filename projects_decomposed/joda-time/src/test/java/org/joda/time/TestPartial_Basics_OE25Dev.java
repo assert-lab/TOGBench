@@ -2153,25 +2153,9 @@ public class TestPartial_Basics_OE25Dev extends TestCase {
         assertEquals("-W-5",test.toString());
     }
 
-    public void testToString4_2_oe() {
-        Partial test = new Partial(DateTimeFieldType.dayOfWeek(), 5);
-        // removed other assertion
-        
-        test = test.with(DateTimeFieldType.dayOfMonth(), 13);
-        assertEquals("[dayOfMonth=13,dayOfWeek=5]",test.toString());
-    }
-
     public void testToString5_1_oe() {
         Partial test = new Partial(DateTimeFieldType.era(), 1);
         assertEquals("[era=1]",test.toString());
-    }
-
-    public void testToString5_2_oe() {
-        Partial test = new Partial(DateTimeFieldType.era(), 1);
-        // removed other assertion
-        
-        test = test.with(DateTimeFieldType.halfdayOfDay(), 0);
-        assertEquals("[era=1,halfdayOfDay=0]",test.toString());
     }
 
     public void testToString_String_1_oe() {

@@ -1255,24 +1255,6 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         assertEquals(9,test.monthOfYear().getMaximumTextLength(null));
     }
 
-    public void testPropertyGetMonthOfYear_14_oe() {
-        DateMidnight test = new DateMidnight(2004, 6, 9);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(3,test.monthOfYear().getMaximumShortTextLength(null));
-    }
-
     public void testPropertyGetMonthOfYear_15_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
         // removed other assertion

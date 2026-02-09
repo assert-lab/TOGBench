@@ -165,31 +165,31 @@ class KempSmallMeanPoissonSamplerTest_OE25Dev {
 
     @Test
     void testConstructorThrowsWithMeanLargerThanUpperBound_1_oe() {
-        final double mean = SUPPORTED_UPPER_BOUND + 1;
+         double mean = SUPPORTED_UPPER_BOUND + 1;
         Assertions.assertThrows(IllegalArgumentException.class, () -> KempSmallMeanPoissonSampler.of(dummyRng, mean));
     }
 
     @Test
     void testConstructorThrowsWithZeroMean_1_oe() {
-        final double mean = 0;
+         double mean = 0;
         Assertions.assertThrows(IllegalArgumentException.class, () -> KempSmallMeanPoissonSampler.of(dummyRng, mean));
     }
 
     @Test
     void testConstructorThrowsWithNegativeMean_1_oe() {
-        final double mean = -1;
+         double mean = -1;
         Assertions.assertThrows(IllegalArgumentException.class, () -> KempSmallMeanPoissonSampler.of(dummyRng, mean));
     }
 
     @Test
     void testConstructorWithNaNMean_1_oe() {
-        final double mean = Double.NaN;
+         double mean = Double.NaN;
         Assertions.assertThrows(IllegalArgumentException.class, () -> KempSmallMeanPoissonSampler.of(dummyRng, mean));
     }
 
     @Test
     void testSummationFrom1AtUpperBound_1_oe() {
-        final double mean = SUPPORTED_UPPER_BOUND;
+         double mean = SUPPORTED_UPPER_BOUND;
         double u = 1;
         int x = 0;
         double p = Math.exp(-mean);
@@ -203,7 +203,7 @@ class KempSmallMeanPoissonSamplerTest_OE25Dev {
 
     @Test
     void testSummationFrom1AtUpperBound_2_oe() {
-        final double mean = SUPPORTED_UPPER_BOUND;
+         double mean = SUPPORTED_UPPER_BOUND;
         double u = 1;
         int x = 0;
         double p = Math.exp(-mean);
@@ -218,7 +218,7 @@ class KempSmallMeanPoissonSamplerTest_OE25Dev {
 
     @Test
     void testSummationTo1AtUpperBound_1_oe() {
-        final double mean = SUPPORTED_UPPER_BOUND;
+         double mean = SUPPORTED_UPPER_BOUND;
         double u = 0;
         int x = 0;
         double p = Math.exp(-mean);
@@ -232,7 +232,7 @@ class KempSmallMeanPoissonSamplerTest_OE25Dev {
 
     @Test
     void testSummationTo1AtUpperBound_2_oe() {
-        final double mean = SUPPORTED_UPPER_BOUND;
+         double mean = SUPPORTED_UPPER_BOUND;
         double u = 0;
         int x = 0;
         double p = Math.exp(-mean);

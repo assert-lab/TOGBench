@@ -49,19 +49,4 @@ public class ImmediateExpiryTest_OE25Dev
         assertFalse(cache.containsKey("foo"));
     }
 
-    @Test
-    public void immediate_2_oe()
-    {
-        final CachingProvider cachingProvider = Caching.getCachingProvider();
-        final CacheManager cacheManager = cachingProvider.getCacheManager();
-        cacheManager.createCache("default",
-                new MutableConfiguration<>()
-                        .setExpiryPolicyFactory(
-                                new FactoryBuilder.SingletonFactory<ExpiryPolicy>(new CreatedExpiryPolicy(Duration.ZERO))));
-        final Cache<String, String> cache = cacheManager.getCache("default");
-        // removed other assertion
-        cache.put("foo", "bar");
-        assertFalse(cache.containsKey("foo"));
-    }
-
 }

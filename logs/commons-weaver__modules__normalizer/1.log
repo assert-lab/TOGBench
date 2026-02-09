@@ -4,6 +4,9 @@
 [INFO] Building Apache Commons Weaver Normalizer 2.0
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ commons-weaver-normalizer ---
+[INFO] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer (includes = [dependency-reduced-pom.xml], excludes = [])
+[INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-normalizer ---
 [INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-normalizer ---
@@ -44,7 +47,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-weaver-normalizer ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer
-[INFO] Storing buildNumber: 42f91159e2f430b696e30a5d48814bb569209ba4 at timestamp: 1770410249395
+[INFO] Storing buildNumber: c100078249c05cc4d06c33c5a5c5160a82b0f043 at timestamp: 1770629243588
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -87,7 +90,7 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.105 s - in org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s - in org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -96,6 +99,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.117 s
-[INFO] Finished at: 2026-02-06T14:37:34-06:00
+[INFO] Total time:  6.947 s
+[INFO] Finished at: 2026-02-09T03:27:27-06:00
 [INFO] ------------------------------------------------------------------------

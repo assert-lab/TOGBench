@@ -12,6 +12,8 @@
 [INFO] Building Apache Commons Numbers Complex 1.0
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-numbers-complex ---
+[INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-numbers-complex ---
 [INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-numbers-complex ---
@@ -34,7 +36,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-complex ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex
-[INFO] Storing buildNumber: 42f91159e2f430b696e30a5d48814bb569209ba4 at timestamp: 1770410277271
+[INFO] Storing buildNumber: c100078249c05cc4d06c33c5a5c5160a82b0f043 at timestamp: 1770629271127
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -63,30 +65,623 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-numbers-complex ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 8 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/target/test-classes
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-complex ---
-[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/target/jacoco.exec
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-numbers-complex ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.numbers.complex.ComplexTest_OE25Dev
-[INFO] Tests run: 418, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.475 s - in org.apache.commons.numbers.complex.ComplexTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.complex.CStandardTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.numbers.complex.CStandardTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 447, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
+[INFO] Compiling 9 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7023,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7024,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7025,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7039,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7040,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7041,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7059,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7060,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7061,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7082,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7083,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7084,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7108,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7109,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7110,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7138,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7139,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7140,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7155,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7156,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7157,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7176,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7177,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7178,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7200,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7201,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7202,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7227,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7228,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7229,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7258,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7259,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7260,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7276,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7277,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7278,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7298,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7299,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7300,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7323,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7324,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7325,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7351,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7352,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7353,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7384,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7385,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7386,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7404,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7405,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7406,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7428,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7429,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7430,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7455,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7456,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7457,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7485,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7486,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7487,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7519,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7520,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7521,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7540,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7541,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7542,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7565,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7566,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7567,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7593,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7594,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7595,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7624,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7625,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7626,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7659,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7660,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7661,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7681,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7682,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7683,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7707,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7708,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7709,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7736,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7737,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7738,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7768,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7769,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7770,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7804,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7805,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7806,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7827,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7828,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7829,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7854,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7855,47] cannot find symbol
+  symbol:   method isInfinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7856,45] cannot find symbol
+  symbol:   method isFinite0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7884,42] cannot find symbol
+  symbol:   method isNaN0()
+  location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  10.773 s
-[INFO] Finished at: 2026-02-06T14:38:05-06:00
+[INFO] Total time:  7.710 s
+[INFO] Finished at: 2026-02-09T03:27:56-06:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-numbers-complex: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7023,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7024,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7025,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7039,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7040,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7041,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7059,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7060,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7061,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7082,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7083,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7084,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7108,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7109,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7110,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7138,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7139,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7140,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7155,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7156,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7157,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7176,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7177,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7178,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7200,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7201,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7202,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7227,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7228,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7229,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7258,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7259,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7260,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7276,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7277,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7278,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7298,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7299,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7300,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7323,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7324,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7325,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7351,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7352,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7353,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7384,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7385,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7386,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7404,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7405,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7406,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7428,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7429,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7430,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7455,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7456,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7457,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7485,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7486,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7487,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7519,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7520,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7521,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7540,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7541,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7542,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7565,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7566,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7567,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7593,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7594,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7595,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7624,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7625,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7626,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7659,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7660,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7661,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7681,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7682,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7683,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7707,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7708,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7709,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7736,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7737,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7738,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7768,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7769,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7770,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7804,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7805,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7806,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7827,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7828,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7829,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7854,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7855,47] cannot find symbol
+[ERROR]   symbol:   method isInfinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7856,45] cannot find symbol
+[ERROR]   symbol:   method isFinite0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev.java:[7884,42] cannot find symbol
+[ERROR]   symbol:   method isNaN0()
+[ERROR]   location: variable z0 of type org.apache.commons.numbers.complex.Complex
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

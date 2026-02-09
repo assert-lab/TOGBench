@@ -272,6 +272,13 @@ public class Issues200Test_OE25Dev extends JexlTestCase {
         }
     }
 
+    @Test
+    public void test286() {
+        final String s286 = "var x = 0; for(x : 1..2){}; return x";
+        final JexlEngine jexl = new JexlBuilder().strict(true).create();
+        Assert.assertEquals(2, jexl.createScript(s286).execute(null));
+    }
+
     public static class Cls298 {
         int sz = 42;
 
@@ -1197,118 +1204,6 @@ public class Issues200Test_OE25Dev extends JexlTestCase {
     }
 
     @Test
-    public void test279_3_oe() throws Exception {
-        final Log logger = null;//LogFactory.getLog(Issues200Test.class);
-        Object result;
-        JexlScript script;
-        final JexlContext ctxt = new Context279();
-        final String[] srcs = new String[]{
-            "var z = null; identity(z[0]);",
-             "var z = null; z.0;",
-             "var z = null; z.foo();",
-            "z['y']['z']",
-            "z.y.any()",
-             "identity(z.any())",
-             "z[0]",
-             "z.0",
-             "z.foo()",
-             "z.y[0]",
-             "z.y[0].foo()",
-             "z.y.0",
-             "z.y.foo()",
-             "var z = { 'y' : [42] }; z.y[1]",
-             "var z = { 'y' : [42] }; z.y.1",
-             "var z = { 'y' : [-42] }; z.y[1].foo()",
-             "var z = { 'y' : [42] }; z.y.1.foo()",
-             "var z = { 'y' : [null, null] }; z.y[1].foo()",
-             "var z = { 'y' : [null, null] }; z.y.1.foo()"
-        };
-        for (int i = 0; i < 2; ++i) {
-            for (final boolean strict : new boolean[]{true, false}) {
-                final JexlEngine jexl = new JexlBuilder().safe(false).strict(strict).create();
-                for (final String src : srcs) {
-                    script = jexl.createScript(src);
-                    try {
-                        result = script.execute(ctxt);
-                        if (strict) {
-                            if (logger != null) {
-                                logger.warn(ctxt.has("z") + ": " + src + ": no fail, " + result);
-                            }
-                            // removed other assertion
-                        }
-                        // not reachable
-                        // removed other assertion
-                    } catch (final JexlException.Variable xvar) {
-                        if (logger != null) {
-                            logger.warn(ctxt.has("z") + ": " + src + ": fail, " + xvar);
-                        }
-                        if (!strict) {
-                            Assert.fail(src + ", should not have thrown " + xvar);
-    }
-    }
-    }
-    }
-    }
-    }
-
-    @Test
-    public void test279_4_oe() throws Exception {
-        final Log logger = null;//LogFactory.getLog(Issues200Test.class);
-        Object result;
-        JexlScript script;
-        final JexlContext ctxt = new Context279();
-        final String[] srcs = new String[]{
-            "var z = null; identity(z[0]);",
-             "var z = null; z.0;",
-             "var z = null; z.foo();",
-            "z['y']['z']",
-            "z.y.any()",
-             "identity(z.any())",
-             "z[0]",
-             "z.0",
-             "z.foo()",
-             "z.y[0]",
-             "z.y[0].foo()",
-             "z.y.0",
-             "z.y.foo()",
-             "var z = { 'y' : [42] }; z.y[1]",
-             "var z = { 'y' : [42] }; z.y.1",
-             "var z = { 'y' : [-42] }; z.y[1].foo()",
-             "var z = { 'y' : [42] }; z.y.1.foo()",
-             "var z = { 'y' : [null, null] }; z.y[1].foo()",
-             "var z = { 'y' : [null, null] }; z.y.1.foo()"
-        };
-        for (int i = 0; i < 2; ++i) {
-            for (final boolean strict : new boolean[]{true, false}) {
-                final JexlEngine jexl = new JexlBuilder().safe(false).strict(strict).create();
-                for (final String src : srcs) {
-                    script = jexl.createScript(src);
-                    try {
-                        result = script.execute(ctxt);
-                        if (strict) {
-                            if (logger != null) {
-                                logger.warn(ctxt.has("z") + ": " + src + ": no fail, " + result);
-                            }
-                            // removed other assertion
-                        }
-                        // not reachable
-                        // removed other assertion
-                    } catch (final JexlException.Variable xvar) {
-                        if (logger != null) {
-                            logger.warn(ctxt.has("z") + ": " + src + ": fail, " + xvar);
-                        }
-                        if (!strict) {
-                            // removed other assertion
-                        } else {
-                            Assert.assertTrue(src + ": " + xvar.toString(), xvar.toString().contains("z"));
-    }
-    }
-    }
-    }
-    }
-    }
-
-    @Test
     public void test279_5_oe() throws Exception {
         final Log logger = null;//LogFactory.getLog(Issues200Test.class);
         Object result;
@@ -1610,13 +1505,6 @@ public class Issues200Test_OE25Dev extends JexlTestCase {
         // removed other assertion
         final List<String> ctl = Arrays.asList("g", "h", "i", "j", "k", "l");
         Assert.assertEquals(ctl, out);
-    }
-
-    @Test
-    public void test286_1_oe() {
-        final String s286 = "var x = 0; ; return x";
-        final JexlEngine jexl = new JexlBuilder().strict(true).create();
-        Assert.assertEquals(2, jexl.createScript(s286).execute(null));
     }
 
     @Test

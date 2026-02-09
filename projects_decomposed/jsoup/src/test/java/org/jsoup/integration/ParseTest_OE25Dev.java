@@ -273,29 +273,6 @@ public class ParseTest_OE25Dev {
     }
 
     @Test
-    public void testBaidu_6_oe() throws IOException {
-        // tests <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
-        File in = getFile("/htmltests/baidu-cn-home.html");
-        Document doc = Jsoup.parse(in, null,
-                "http://www.baidu.com/"); // http charset is gb2312, but NOT specifying it, to test http-equiv parse
-        Element submit = doc.select("#su").first();
-        // removed other assertion
-
-        // test from attribute match
-        submit = doc.select("input[value=百度一下]").first();
-        // removed other assertion
-        Element newsLink = doc.select("a:contains(新)").first();
-        // removed other assertion
-
-        // check auto-detect from meta
-        // removed other assertion
-        // removed other assertion
-
-        doc.outputSettings().charset("ascii");
-        assertEquals("<title>&#x767e;&#x5ea6;&#x4e00;&#x4e0b;&#xff0c;&#x4f60;&#x5c31;&#x77e5;&#x9053;</title>",doc.select("title").outerHtml());
-    }
-
-    @Test
     public void testBaiduVariant_1_oe() throws IOException {
         // tests <meta charset> when preceded by another <meta>
         File in = getFile("/htmltests/baidu-variant.html");

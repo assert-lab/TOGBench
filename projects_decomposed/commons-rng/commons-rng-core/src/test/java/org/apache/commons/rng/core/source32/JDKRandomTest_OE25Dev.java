@@ -93,13 +93,13 @@ class JDKRandomTest_OE25Dev {
 
     @Test
     void testReferenceCode_1_oe() {
-        final long refSeed = -1357111213L;
-        final JDKRandom rng = new JDKRandom(refSeed);
-        final Random jdk = new Random(refSeed);
+         long refSeed = -1357111213L;
+         JDKRandom rng = new JDKRandom(refSeed);
+         Random jdk = new Random(refSeed);
 
         // This is a trivial test since "JDKRandom" delegates to "Random".
 
-        final int numRepeats = 1000;
+         int numRepeats = 1000;
         for (int[] r = {0}; r[0] < numRepeats; r[0]++) {
             Assertions.assertEquals(jdk.nextInt(), rng.nextInt(), () -> r[0] + " nextInt");
     }
@@ -107,12 +107,12 @@ class JDKRandomTest_OE25Dev {
 
     @Test
     void testRestoreToNewInstance_1_oe()  {
-        final long seed = 8796746234L;
-        final JDKRandom rng1 = new JDKRandom(seed);
-        final JDKRandom rng2 = new JDKRandom(seed + 1);
+         long seed = 8796746234L;
+         JDKRandom rng1 = new JDKRandom(seed);
+         JDKRandom rng2 = new JDKRandom(seed + 1);
 
         // Ensure different
-        final int numRepeats = 10;
+         int numRepeats = 10;
         for (int[] r = {0}; r[0] < numRepeats; r[0]++) {
             Assertions.assertNotEquals(rng1.nextInt(), rng2.nextInt(), () -> r[0] + " nextInt");
     }

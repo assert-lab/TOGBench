@@ -330,20 +330,6 @@ public class BasicThreadFactoryTest_OE25Dev {
     }
 
     @Test
-    public void testNewThreadPriority_2_oe() {
-        final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
-        final Runnable r = EasyMock.createMock(Runnable.class);
-        final Thread t = new Thread();
-        EasyMock.expect(wrapped.newThread(r)).andReturn(t);
-        EasyMock.replay(wrapped, r);
-        final int priority = Thread.NORM_PRIORITY + 1;
-        final BasicThreadFactory factory = builder.wrappedFactory(wrapped).priority(
-                priority).build();
-        // removed other assertion
-        assertEquals(priority, t.getPriority(), "Wrong priority");
-    }
-
-    @Test
     public void testNewThreadNoPriority_1_oe() {
         final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
         final Runnable r = EasyMock.createMock(Runnable.class);
@@ -382,21 +368,6 @@ public class BasicThreadFactoryTest_OE25Dev {
         final BasicThreadFactory factory = builder.wrappedFactory(wrapped)
                 .uncaughtExceptionHandler(handler).build();
         assertSame(t, factory.newThread(r), "Wrong thread");
-    }
-
-    @Test
-    public void testNewThreadExHandler_2_oe() {
-        final ThreadFactory wrapped = EasyMock.createMock(ThreadFactory.class);
-        final Runnable r = EasyMock.createMock(Runnable.class);
-        final Thread.UncaughtExceptionHandler handler = EasyMock
-                .createMock(Thread.UncaughtExceptionHandler.class);
-        final Thread t = new Thread();
-        EasyMock.expect(wrapped.newThread(r)).andReturn(t);
-        EasyMock.replay(wrapped, r, handler);
-        final BasicThreadFactory factory = builder.wrappedFactory(wrapped)
-                .uncaughtExceptionHandler(handler).build();
-        // removed other assertion
-        assertEquals(handler, t.getUncaughtExceptionHandler(), "Wrong exception handler");
     }
 
     @Test

@@ -28,7 +28,7 @@ class PcgMcgXshRs32Test_OE25Dev {
          * Tested with respect to pcg_engines::mcg_xsh_rs_64_32 of the C++ implementation.
          * See : http://www.pcg-random.org/download.html#cpp-implementation
          */
-        final int[] expectedSequence = {
+         int[] expectedSequence = {
             0xb786f832, 0x6920834f, 0x5b88b399, 0x6b811447,
             0x91230c70, 0x163c83b5, 0x8dd8bba9, 0xb8bcd10a,
             0xe1964b6e, 0x40b9adc8, 0x75fbee87, 0xed3d1e5c,

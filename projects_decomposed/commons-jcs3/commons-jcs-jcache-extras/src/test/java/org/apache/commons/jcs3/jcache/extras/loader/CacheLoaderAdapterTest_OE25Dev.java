@@ -64,29 +64,6 @@ public class CacheLoaderAdapterTest_OE25Dev
     }
 
     @Test
-    public void checkLoadAll_3_oe()
-    {
-        // removed other assertion
-        // removed other assertion
-
-        count.decrementAndGet();
-        cache.loadAll(new HashSet<>(asList("a", "b")), true, null);
-        int retries = 100;
-        while (retries-- > 0 && count.get() != 2)
-        {
-            try
-            {
-                Thread.sleep(20);
-            }
-            catch (final InterruptedException e)
-            {
-                Thread.interrupted();
-            }
-        }
-        assertEquals(2, count.get());
-    }
-
-    @Test
     public void checkLoadAll_4_oe()
     {
         // removed other assertion
@@ -133,32 +110,6 @@ public class CacheLoaderAdapterTest_OE25Dev
         // removed other assertion
         // removed other assertion
         assertEquals("b", cache.get("b"));
-    }
-
-    @Test
-    public void checkLoadAll_6_oe()
-    {
-        // removed other assertion
-        // removed other assertion
-
-        count.decrementAndGet();
-        cache.loadAll(new HashSet<>(asList("a", "b")), true, null);
-        int retries = 100;
-        while (retries-- > 0 && count.get() != 2)
-        {
-            try
-            {
-                Thread.sleep(20);
-            }
-            catch (final InterruptedException e)
-            {
-                Thread.interrupted();
-            }
-        }
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2, count.get());
     }
 
 }

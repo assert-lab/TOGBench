@@ -277,20 +277,6 @@ public class TestMonthDay_Properties_OE25Dev extends TestCase {
         assertEquals("septembre",test.monthOfYear().getAsText(Locale.FRENCH));
     }
 
-    public void testPropertyGetMonthOfYear_10_oe() {
-        MonthDay test = new MonthDay(9, 6);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Sep",test.monthOfYear().getAsShortText());
-    }
-
     public void testPropertyGetMonthOfYear_11_oe() {
         MonthDay test = new MonthDay(9, 6);
         // removed other assertion
@@ -338,25 +324,6 @@ public class TestMonthDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // assertEquals(test.getChronology().days(),test.dayOfMonth().getRangeDurationField());
         assertEquals(9,test.monthOfYear().getMaximumTextLength(null));
-    }
-
-    public void testPropertyGetMonthOfYear_14_oe() {
-        MonthDay test = new MonthDay(9, 6);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // assertEquals(test.getChronology().days(),test.dayOfMonth().getRangeDurationField());
-        // removed other assertion
-        assertEquals(3,test.monthOfYear().getMaximumShortTextLength(null));
     }
 
     public void testPropertyGetMaxMinValuesMonthOfYear_1_oe() {

@@ -28,7 +28,7 @@ class JenkinsSmallFast64Test_OE25Dev {
          * Tested with respect to the original reference:
          * See : https://burtleburtle.net/bob/rand/smallprng.html
          */
-        final long[] expectedSequence = {
+         long[] expectedSequence = {
             0xb2eb2f629a2818c2L, 0xe6c4df3bd8e4a0c8L, 0x2b3ab71e4e888b46L, 0x12a6088f5960738dL,
             0x95715b21fcb1a7d9L, 0x7acafc3916723b0fL, 0x3a0c5f8c4caff822L, 0x9b47b7a1e9784699L,
             0x9c399839261a024fL, 0x56a2fa6eaa7a62aaL, 0xca6995ea5baeb8daL, 0x56cad0c4dee9cbb9L,

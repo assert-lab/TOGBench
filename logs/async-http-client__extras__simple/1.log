@@ -4,6 +4,8 @@
 [INFO] Building Asynchronous Http Simple Client 2.12.3
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ async-http-client-extras-simple ---
+[INFO] 
 [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ async-http-client-extras-simple ---
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ async-http-client-extras-simple ---
@@ -26,8 +28,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  7.442 s
-[INFO] Finished at: 2026-02-06T14:37:04-06:00
+[INFO] Total time:  8.898 s
+[INFO] Finished at: 2026-02-09T03:26:52-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-extras-simple: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
 [ERROR] 

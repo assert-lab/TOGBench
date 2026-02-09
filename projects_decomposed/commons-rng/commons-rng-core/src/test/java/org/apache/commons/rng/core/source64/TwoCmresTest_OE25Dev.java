@@ -34,15 +34,15 @@ class TwoCmresTest_OE25Dev {
 
     @Test
     void testAsymmetric_1_oe() {
-        final int index1 = 2;
-        final int index2 = 5;
-        final int seed = -123456789;
+         int index1 = 2;
+         int index2 = 5;
+         int seed = -123456789;
 
-        final TwoCmres rng1 = new TwoCmres(seed, index1, index2);
-        final TwoCmres rng2 = new TwoCmres(seed, index2, index1);
+         TwoCmres rng1 = new TwoCmres(seed, index1, index2);
+         TwoCmres rng2 = new TwoCmres(seed, index2, index1);
 
         // Try a few values.
-        final int n = 1000;
+         int n = 1000;
         for (int[] i = {0}; i[0] < n; i[0]++) {
             Assertions.assertNotEquals(rng1.nextLong(), rng2.nextLong(), () -> "i=" + i[0]);
     }
@@ -50,37 +50,37 @@ class TwoCmresTest_OE25Dev {
 
     @Test
     void testSeedingWithASingleBitProducesDifferentOutputFromZeroSeed_1_oe() {
-        final int n = 100;
+         int n = 100;
 
         // Output with a zero seed
-        final long[] values = new long[n];
-        final TwoCmres rng = new TwoCmres(0);
+         long[] values = new long[n];
+         TwoCmres rng = new TwoCmres(0);
         for (int i = 0; i < n; i++) {
             values[i] = rng.nextLong();
         }
 
         // Seed with a single bit
         for (int bit = 0; bit < 32; bit++) {
-            final int seed = 1 << bit;
+             int seed = 1 << bit;
             RandomAssert.assertNotEquals(values, new TwoCmres(seed));
     }
     }
 
     @Test
     void testSubcycleGeneratorsMustBeDifferent_1_oe() {
-        final int max = TwoCmres.numberOfSubcycleGenerators();
+         int max = TwoCmres.numberOfSubcycleGenerators();
         for (int i = 0; i < max; i++) {
-            final int subCycle = i;
+             int subCycle = i;
             Assertions.assertThrows(IllegalArgumentException.class, () -> new TwoCmres(-97845, subCycle, subCycle));
     }
     }
 
     @Test
     void testSubcycleGeneratorsIndex_1_oe() {
-        final int seed = 246810;
+         int seed = 246810;
 
         // Valid indices are between 0 (included) and max (excluded).
-        final int max = TwoCmres.numberOfSubcycleGenerators();
+         int max = TwoCmres.numberOfSubcycleGenerators();
 
         for (int i = 0; i < max; i++) {
             for (int j = 0; j < max; j++) {
@@ -98,10 +98,10 @@ class TwoCmresTest_OE25Dev {
 
     @Test
     void testSubcycleGeneratorsIndex_2_oe() {
-        final int seed = 246810;
+         int seed = 246810;
 
         // Valid indices are between 0 (included) and max (excluded).
-        final int max = TwoCmres.numberOfSubcycleGenerators();
+         int max = TwoCmres.numberOfSubcycleGenerators();
 
         for (int i = 0; i < max; i++) {
             for (int j = 0; j < max; j++) {
@@ -120,10 +120,10 @@ class TwoCmresTest_OE25Dev {
 
     @Test
     void testCmresFactoryThrowsWithDuplicateMultiplier_1_oe() {
-        final ArrayList<Cmres> list = new ArrayList<>();
-        final long multiply = 0;
-        final int rotate = 3;
-        final int start = 5;
+         ArrayList<Cmres> list = new ArrayList<>();
+         long multiply = 0;
+         int rotate = 3;
+         int start = 5;
 
         list.add(new Cmres(multiply, rotate, start));
 
@@ -133,10 +133,10 @@ class TwoCmresTest_OE25Dev {
 
     @Test
     void testCmresFactoryThrowsWithDuplicateMultiplier_2_oe() {
-        final ArrayList<Cmres> list = new ArrayList<>();
-        final long multiply = 0;
-        final int rotate = 3;
-        final int start = 5;
+         ArrayList<Cmres> list = new ArrayList<>();
+         long multiply = 0;
+         int rotate = 3;
+         int start = 5;
 
         list.add(new Cmres(multiply, rotate, start));
 

@@ -1,3 +1,5 @@
+# ./scripts_trial/main.sh
+
 find projects_decomposed -type f -name "*_OE25Dev.java" -delete
 
 find projects_decomposed -type d -name "dataset" -exec rm -rf {} +
@@ -42,17 +44,21 @@ python3 scripts_trial/try_catch_filter.py
 ./scripts_trial/project_fixes/commons-geometry.sh
 ./scripts_trial/project_fixes/commons-imaging.sh
 ./scripts_trial/project_fixes/commons-jcs3.sh
+./scripts_trial/project_fixes/commons-jexl3.sh
+./scripts_trial/project_fixes/commons-lang3.sh
+./scripts_trial/project_fixes/commons-rng.sh
 ./scripts_trial/project_fixes/commons-numbers.sh
+./scripts_trial/project_fixes/commons-pool2.sh
+
+./scripts_trial/project_fixes/joda-time.sh
+./scripts_trial/project_fixes/jsoup.sh
 
 ./scripts_trial/project_fixes/JSON-java.sh
 ./scripts_trial/project_fixes/commons-net.sh
 ./scripts_trial/project_fixes/http-request.sh
 ./scripts_trial/project_fixes/commons-beanutils.sh
-./scripts_trial/project_fixes/commons-lang3.sh
 ./scripts_trial/project_fixes/commons-validator.sh
-./scripts_trial/project_fixes/jsoup.sh
-./scripts_trial/project_fixes/commons-jexl3.sh
-./scripts_trial/project_fixes/joda-time.sh
+
 
 # first run to keep all logs - error and running
 python3 scripts_trial/3_rebuild_tests.py
@@ -60,10 +66,13 @@ python3 scripts_trial/3_rebuild_tests.py
 # run each projects' fix.sh before running mvn test
 ./scripts_trial/project_fixes.sh
 
-cd projects_decomposed/commons-geometry/commons-geometry-io-core
-mvn clean test -Dtest="*_OE25Dev#*_oe"
+# cd projects_decomposed/commons-jcs3/commons-jcs-core
+# cd projects_decomposed/commons-numbers/commons-numbers-fraction
+# mvn clean test -Dtest="*_OE25Dev#*_oe" --color=never 2>&1 | tee mvn.log
 
-# ./scripts_trial/clean_loop.sh > compile_error_test_files.log
+
+
+./scripts_trial/clean_loop.sh
 
 # python3 scripts_trial/filter_running_tests.py
 
@@ -72,9 +81,10 @@ mvn clean test -Dtest="*_OE25Dev#*_oe"
 # python3 scripts_trial/3_rebuild_tests.py
 
 
-# ./scripts_trial/clean_loop.sh projects_decomposed/commons-configuration2
+# ./scripts_trial/clean_loop.sh projects_decomposed/commons-lang3
+# ./scripts_trial/clean_loop.sh projects_decomposed/commons-jcs3/commons-jcs-core
 
-# python3 scripts_trial/test_count.py
+python3 scripts_trial/test_count.py
 
 # python3 scripts_trial/filter_by_logs.py
 
@@ -85,3 +95,6 @@ mvn clean test -Dtest="*_OE25Dev#*_oe"
 # # ./scripts_trial/final_mvn_run.sh
 
 # # python3 scripts_trial/filter_dataset.py
+
+find . -type f -name "*.bak" -delete
+ 

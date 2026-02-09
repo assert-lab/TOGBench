@@ -4,6 +4,8 @@
 [INFO] Building Apache Commons Numbers Quaternion 1.0
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-numbers-quaternion ---
+[INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-numbers-quaternion ---
 [INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-numbers-quaternion ---
@@ -26,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-quaternion ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-quaternion' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-quaternion
-[INFO] Storing buildNumber: 42f91159e2f430b696e30a5d48814bb569209ba4 at timestamp: 1770410291746
+[INFO] Storing buildNumber: c100078249c05cc4d06c33c5a5c5160a82b0f043 at timestamp: 1770629282278
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -66,17 +68,17 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.quaternion.QuaternionTest_OE25Dev
-[INFO] Tests run: 135, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.353 s - in org.apache.commons.numbers.quaternion.QuaternionTest_OE25Dev
+[INFO] Tests run: 135, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.294 s - in org.apache.commons.numbers.quaternion.QuaternionTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.quaternion.SlerpTest_OE25Dev
-[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.quaternion.SlerpTest_OE25Dev
+[INFO] Tests run: 122, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s - in org.apache.commons.numbers.quaternion.SlerpTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[INFO] Tests run: 153, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Tests run: 257, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  9.987 s
-[INFO] Finished at: 2026-02-06T14:38:19-06:00
+[INFO] Total time:  9.615 s
+[INFO] Finished at: 2026-02-09T03:28:09-06:00
 [INFO] ------------------------------------------------------------------------

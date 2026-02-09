@@ -26,18 +26,18 @@ class ByteArray2LongArrayTest_OE25Dev {
 
     @Test
     void testSeedSizeIsMultipleOfLongSize_1_oe() {
-        final byte[] seed = new byte[128];
-        final long[] out = new ByteArray2LongArray().convert(seed);
+         byte[] seed = new byte[128];
+         long[] out = new ByteArray2LongArray().convert(seed);
         Assertions.assertEquals(16, out.length);
     }
 
     @Test
     void testSeedSizeIsNotMultipleOfLongSize_1_oe() {
-        final int len = 16;
-        final ByteArray2LongArray conv = new ByteArray2LongArray();
+         int len = 16;
+         ByteArray2LongArray conv = new ByteArray2LongArray();
         for (int i = 1; i < 8; i++) {
-            final byte[] seed = new byte[len + i];
-            final long[] out = conv.convert(seed);
+             byte[] seed = new byte[len + i];
+             long[] out = conv.convert(seed);
             Assertions.assertEquals(3, out.length);
     }
     }

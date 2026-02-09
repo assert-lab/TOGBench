@@ -202,16 +202,16 @@ class SeedFactoryTest_OE25Dev {
 
     @Test
     void testCreateLongArray_1_oe() {
-        final Map<Long, Integer> values = new HashMap<>();
+         Map<Long, Integer> values = new HashMap<>();
 
-        final int n = 100000;
-        final long[] array = SeedFactory.createLongArray(n);
+         int n = 100000;
+         long[] array = SeedFactory.createLongArray(n);
         Assertions.assertEquals(n, array.length);
     }
 
     @Test
     void testCreateByteArrayWithAllZeroBytesUpdatesPosition0_1_oe() {
-        final UniformRandomProvider rng = new IntProvider() {
+         UniformRandomProvider rng = new IntProvider() {
             @Override
             public int next() {
                 // Deliberately produce zero
@@ -219,13 +219,13 @@ class SeedFactoryTest_OE25Dev {
             }
         };
         // Test the method only replaces position 0
-        final byte[] seed = SeedFactory.createByteArray(rng, 4);
+         byte[] seed = SeedFactory.createByteArray(rng, 4);
         Assertions.assertNotEquals(0, seed[0], "Zero at position 0 should be modified");
     }
 
     @Test
     void testCreateByteArrayWithAllZeroBytesUpdatesPosition0_2_oe() {
-        final UniformRandomProvider rng = new IntProvider() {
+         UniformRandomProvider rng = new IntProvider() {
             @Override
             public int next() {
                 // Deliberately produce zero
@@ -233,7 +233,7 @@ class SeedFactoryTest_OE25Dev {
             }
         };
         // Test the method only replaces position 0
-        final byte[] seed = SeedFactory.createByteArray(rng, 4);
+         byte[] seed = SeedFactory.createByteArray(rng, 4);
         // removed other assertion
         for (int i = 1; i < seed.length; i++) {
             Assertions.assertEquals(0, seed[i], "Position above 0 should be unmodified");
@@ -242,18 +242,18 @@ class SeedFactoryTest_OE25Dev {
 
     @Test
     void testEnsureNonZeroIntArrayIgnoresNonZeroPosition0_1_oe() {
-        final int position0 = 123;
-        final int[] seed = new int[] {position0, 0, 0, 0};
-        final int[] before = seed.clone();
+         int position0 = 123;
+         int[] seed = new int[] {position0, 0, 0, 0};
+         int[] before = seed.clone();
         SeedFactory.ensureNonZero(seed);
         Assertions.assertEquals(position0, seed[0], "Non-zero at position 0 should be unmodified");
     }
 
     @Test
     void testEnsureNonZeroIntArrayIgnoresNonZeroPosition0_2_oe() {
-        final int position0 = 123;
-        final int[] seed = new int[] {position0, 0, 0, 0};
-        final int[] before = seed.clone();
+         int position0 = 123;
+         int[] seed = new int[] {position0, 0, 0, 0};
+         int[] before = seed.clone();
         SeedFactory.ensureNonZero(seed);
         // removed other assertion
         for (int i = 1; i < seed.length; i++) {
@@ -264,8 +264,8 @@ class SeedFactoryTest_OE25Dev {
     @Test
     void testEnsureNonZeroIntArrayUpdatesZeroPosition0_1_oe() {
         // Test the method replaces position 0 even if the rest of the array is non-zero
-        final int[] seed = new int[] {0, 123, 456, 789};
-        final int[] before = seed.clone();
+         int[] seed = new int[] {0, 123, 456, 789};
+         int[] before = seed.clone();
         SeedFactory.ensureNonZero(seed);
         Assertions.assertNotEquals(0, seed[0], "Zero at position 0 should be modified");
     }
@@ -273,8 +273,8 @@ class SeedFactoryTest_OE25Dev {
     @Test
     void testEnsureNonZeroIntArrayUpdatesZeroPosition0_2_oe() {
         // Test the method replaces position 0 even if the rest of the array is non-zero
-        final int[] seed = new int[] {0, 123, 456, 789};
-        final int[] before = seed.clone();
+         int[] seed = new int[] {0, 123, 456, 789};
+         int[] before = seed.clone();
         SeedFactory.ensureNonZero(seed);
         // removed other assertion
         for (int i = 1; i < seed.length; i++) {
@@ -284,18 +284,18 @@ class SeedFactoryTest_OE25Dev {
 
     @Test
     void testEnsureNonZeroLongArrayIgnoresNonZeroPosition0_1_oe() {
-        final long position0 = 123;
-        final long[] seed = new long[] {position0, 0, 0, 0};
-        final long[] before = seed.clone();
+         long position0 = 123;
+         long[] seed = new long[] {position0, 0, 0, 0};
+         long[] before = seed.clone();
         SeedFactory.ensureNonZero(seed);
         Assertions.assertEquals(position0, seed[0], "Non-zero at position 0 should be unmodified");
     }
 
     @Test
     void testEnsureNonZeroLongArrayIgnoresNonZeroPosition0_2_oe() {
-        final long position0 = 123;
-        final long[] seed = new long[] {position0, 0, 0, 0};
-        final long[] before = seed.clone();
+         long position0 = 123;
+         long[] seed = new long[] {position0, 0, 0, 0};
+         long[] before = seed.clone();
         SeedFactory.ensureNonZero(seed);
         // removed other assertion
         for (int i = 1; i < seed.length; i++) {
@@ -306,8 +306,8 @@ class SeedFactoryTest_OE25Dev {
     @Test
     void testEnsureNonZeroLongArrayUpdatesZeroPosition0_1_oe() {
         // Test the method replaces position 0 even if the rest of the array is non-zero
-        final long[] seed = new long[] {0, 123, 456, 789};
-        final long[] before = seed.clone();
+         long[] seed = new long[] {0, 123, 456, 789};
+         long[] before = seed.clone();
         SeedFactory.ensureNonZero(seed);
         Assertions.assertNotEquals(0, seed[0], "Zero at position 0 should be modified");
     }
@@ -315,8 +315,8 @@ class SeedFactoryTest_OE25Dev {
     @Test
     void testEnsureNonZeroLongArrayUpdatesZeroPosition0_2_oe() {
         // Test the method replaces position 0 even if the rest of the array is non-zero
-        final long[] seed = new long[] {0, 123, 456, 789};
-        final long[] before = seed.clone();
+         long[] seed = new long[] {0, 123, 456, 789};
+         long[] before = seed.clone();
         SeedFactory.ensureNonZero(seed);
         // removed other assertion
         for (int i = 1; i < seed.length; i++) {
@@ -326,7 +326,7 @@ class SeedFactoryTest_OE25Dev {
 
     @Test
     void testEnsureNonZeroValue_1_oe() {
-        final long expected = 345;
+         long expected = 345;
         RandomLongSource source = new RandomLongSource() {
             @Override
             public long next() {
@@ -338,7 +338,7 @@ class SeedFactoryTest_OE25Dev {
 
     @Test
     void testEnsureNonZeroValue_2_oe() {
-        final long expected = 345;
+         long expected = 345;
         RandomLongSource source = new RandomLongSource() {
             @Override
             public long next() {
@@ -346,7 +346,7 @@ class SeedFactoryTest_OE25Dev {
             }
         };
         // removed other assertion
-        for (final long nonZero : new long[] {Long.MIN_VALUE, -1, 1, 9876654321L, Long.MAX_VALUE}) {
+        for ( long nonZero : new long[] {Long.MIN_VALUE, -1, 1, 9876654321L, Long.MAX_VALUE}) {
             Assertions.assertEquals(nonZero,SeedFactory.ensureNonZero(source,nonZero),"Non-zero should be unmodified");
     }
     }
@@ -354,99 +354,99 @@ class SeedFactoryTest_OE25Dev {
     @Test
     void testCreateIntArrayWithCompleteBlockSize_1_oe_1_oe() {
         // Block size is 8 for int
-                final int n0 = 8;
-        final int[] array0 = SeedFactory.createIntArray(n0);
+                 int n0 = 8;
+         int[] array0 = SeedFactory.createIntArray(n0);
                 Assertions.assertEquals(n0, array0.length, "Incorrect array0 length");
     }
 
     @Test
     void testCreateIntArrayWithCompleteBlockSize_1_oe_2_oe() {
         // Block size is 8 for int
-                final int n0 = 8;
-        final int[] array0 = SeedFactory.createIntArray(n0);
+                 int n0 = 8;
+         int[] array0 = SeedFactory.createIntArray(n0);
                 // removed other assertion
                 // The bit count should be 50%.
                 int bitCount0 = 0;
-                for (final int i0 : array0) {
-                    bitCount0 += Integer.bitCount0(i0);
+                for ( int i0 : array0) {
+                    bitCount0 += Integer.bitCount(i0);
                 }
-                final int numberOfBits0 = n0 * Integer.SIZE;
+                 int numberOfBits0 = n0 * Integer.SIZE;
                 assertMonobit(bitCount0, numberOfBits0);
     }
 
     @Test
     void testCreateIntArrayWithIncompleteBlockSize_1_oe_1_oe() {
         // Block size is 8 for int
-                final int n0 = 8 + 1;
-        final int[] array0 = SeedFactory.createIntArray(n0);
+                 int n0 = 8 + 1;
+         int[] array0 = SeedFactory.createIntArray(n0);
                 Assertions.assertEquals(n0, array0.length, "Incorrect array0 length");
     }
 
     @Test
     void testCreateIntArrayWithIncompleteBlockSize_1_oe_2_oe() {
         // Block size is 8 for int
-                final int n0 = 8 + 1;
-        final int[] array0 = SeedFactory.createIntArray(n0);
+                 int n0 = 8 + 1;
+         int[] array0 = SeedFactory.createIntArray(n0);
                 // removed other assertion
                 // The bit count should be 50%.
                 int bitCount0 = 0;
-                for (final int i0 : array0) {
-                    bitCount0 += Integer.bitCount0(i0);
+                for ( int i0 : array0) {
+                    bitCount0 += Integer.bitCount(i0);
                 }
-                final int numberOfBits0 = n0 * Integer.SIZE;
+                 int numberOfBits0 = n0 * Integer.SIZE;
                 assertMonobit(bitCount0, numberOfBits0);
     }
 
     @Test
     void testCreateLongArrayWithCompleteBlockSize_1_oe_1_oe() {
         // Block size is 4 for long
-                final int n0 = 4;
-        final long[] array0 = SeedFactory.createLongArray(n0);
+                 int n0 = 4;
+         long[] array0 = SeedFactory.createLongArray(n0);
                 Assertions.assertEquals(n0, array0.length, "Incorrect array0 length");
     }
 
     @Test
     void testCreateLongArrayWithCompleteBlockSize_1_oe_2_oe() {
         // Block size is 4 for long
-                final int n0 = 4;
-        final long[] array0 = SeedFactory.createLongArray(n0);
+                 int n0 = 4;
+         long[] array0 = SeedFactory.createLongArray(n0);
                 // removed other assertion
                 // The bit count should be 50%.
                 int bitCount0 = 0;
-                for (final long i0 : array0) {
-                    bitCount0 += Long.bitCount0(i0);
+                for ( long i0 : array0) {
+                    bitCount0 += Long.bitCount(i0);
                 }
-                final int numberOfBits0 = n0 * Long.SIZE;
+                 int numberOfBits0 = n0 * Long.SIZE;
                 assertMonobit(bitCount0, numberOfBits0);
     }
 
     @Test
     void testCreateLongArrayWithIncompleteBlockSize_1_oe_1_oe() {
         // Block size is 4 for long
-                final int n0 = 4 + 1;
-        final long[] array0 = SeedFactory.createLongArray(n0);
+                 int n0 = 4 + 1;
+         long[] array0 = SeedFactory.createLongArray(n0);
                 Assertions.assertEquals(n0, array0.length, "Incorrect array0 length");
     }
 
     @Test
     void testCreateLongArrayWithIncompleteBlockSize_1_oe_2_oe() {
         // Block size is 4 for long
-                final int n0 = 4 + 1;
-        final long[] array0 = SeedFactory.createLongArray(n0);
+                 int n0 = 4 + 1;
+         long[] array0 = SeedFactory.createLongArray(n0);
                 // removed other assertion
                 // The bit count should be 50%.
                 int bitCount0 = 0;
-                for (final long i0 : array0) {
-                    bitCount0 += Long.bitCount0(i0);
+                for ( long i0 : array0) {
+                    bitCount0 += Long.bitCount(i0);
                 }
-                final int numberOfBits0 = n0 * Long.SIZE;
+                 int numberOfBits0 = n0 * Long.SIZE;
                 assertMonobit(bitCount0, numberOfBits0);
     }
 
     @Test
     void testCreateByteArrayWithSizeZero_1_oe_2_oe() {
-                final byte[] expected0 = new byte[0];
-        final UniformRandomProvider rng0 = new IntProvider() {
+                 byte[] expected0 = new byte[0];
+         UniformRandomProvider rng0 = new IntProvider() {
                     @Override
                     public int next() {
                         // removed other assertion
@@ -459,19 +459,19 @@ class SeedFactoryTest_OE25Dev {
                     }
                 };
         
-                final byte[] seed0 = SeedFactory.createByteArray(rng0, expected0.length);
+                 byte[] seed0 = SeedFactory.createByteArray(rng0, expected0.length);
                 Assertions.assertArrayEquals(expected0, seed0);
     }
 
     @Test
     void testCreateByteArrayIgnoresNonZeroPositions_1_oe_2_oe() {
-        final byte position = 123;
+         byte position = 123;
         int n = 3;
         for (int i = 0; i < n; i++) {
-            final byte[] expected = new byte[n];
+             byte[] expected = new byte[n];
             expected[i] = position;
-                        final byte[] expected0 = expected;
-            final UniformRandomProvider rng0 = new IntProvider() {
+                         byte[] expected0 = expected;
+             UniformRandomProvider rng0 = new IntProvider() {
                         @Override
                         public int next() {
                             // removed other assertion
@@ -484,7 +484,7 @@ class SeedFactoryTest_OE25Dev {
                         }
                     };
             
-                    final byte[] seed0 = SeedFactory.createByteArray(rng0, expected0.length);
+                     byte[] seed0 = SeedFactory.createByteArray(rng0, expected0.length);
                     Assertions.assertArrayEquals(expected0, seed0);
     }
     }

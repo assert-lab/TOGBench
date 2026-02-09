@@ -26,9 +26,9 @@ class Long2LongArrayTest_OE25Dev {
 
     @Test
     void testFixedLengthConversion_1_oe() {
-        final Long seed = 567L;
-        final int length = 3;
-        final long[] out = new Long2LongArray(length).convert(seed);
+         Long seed = 567L;
+         int length = 3;
+         long[] out = new Long2LongArray(length).convert(seed);
         Assertions.assertEquals(length, out.length);
     }
 

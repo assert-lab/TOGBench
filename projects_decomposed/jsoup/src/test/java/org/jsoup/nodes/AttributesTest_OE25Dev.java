@@ -526,43 +526,6 @@ public class AttributesTest_OE25Dev {
     }
 
     @Test
-    public void testIterator_2_oe() {
-        Attributes a = new Attributes();
-        String[][] datas = {{"Tot", "raul"},
-            {"Hello", "pismuth"},
-            {"data-name", "Jsoup"}};
-        for (String[] atts : datas) {
-            a.put(atts[0], atts[1]);
-        }
-
-        Iterator<Attribute> iterator = a.iterator();
-        // removed other assertion
-        int i = 0;
-        for (Attribute attribute : a) {
-            assertEquals(datas[i][0], attribute.getKey());
-    }
-    }
-
-    @Test
-    public void testIterator_3_oe() {
-        Attributes a = new Attributes();
-        String[][] datas = {{"Tot", "raul"},
-            {"Hello", "pismuth"},
-            {"data-name", "Jsoup"}};
-        for (String[] atts : datas) {
-            a.put(atts[0], atts[1]);
-        }
-
-        Iterator<Attribute> iterator = a.iterator();
-        // removed other assertion
-        int i = 0;
-        for (Attribute attribute : a) {
-            // removed other assertion
-            assertEquals(datas[i][1], attribute.getValue());
-    }
-    }
-
-    @Test
     public void testIterator_4_oe() {
         Attributes a = new Attributes();
         String[][] datas = {{"Tot", "raul"},
@@ -620,37 +583,6 @@ public class AttributesTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
-    }
-
-    @Test
-    public void testIteratorSkipsInternal_4_oe() {
-        Attributes a = new Attributes();
-        a.put("One", "One");
-        a.put(Attributes.internalKey("baseUri"), "example.com");
-        a.put("Two", "Two");
-        a.put(Attributes.internalKey("another"), "example.com");
-
-        Iterator<Attribute> it = a.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Two", it.next().getKey());
-    }
-
-    @Test
-    public void testIteratorSkipsInternal_5_oe() {
-        Attributes a = new Attributes();
-        a.put("One", "One");
-        a.put(Attributes.internalKey("baseUri"), "example.com");
-        a.put("Two", "Two");
-        a.put(Attributes.internalKey("another"), "example.com");
-
-        Iterator<Attribute> it = a.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse(it.hasNext());
     }
 
     @Test

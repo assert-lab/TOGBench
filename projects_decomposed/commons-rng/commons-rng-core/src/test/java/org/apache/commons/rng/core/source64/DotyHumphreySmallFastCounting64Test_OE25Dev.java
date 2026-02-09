@@ -28,7 +28,7 @@ class DotyHumphreySmallFastCounting64Test_OE25Dev {
          * Tested with respect to PractRand::RNGs::Raw::sfc64 of the C++ implementation (v0.94).
          * See : http://pracrand.sourceforge.net/
          */
-        final long[] expectedSequence = {
+         long[] expectedSequence = {
             0x383be11f844db7f4L, 0x563e7e24056ad886L, 0x959e56afde1c3f72L, 0x7924b83a8ac40b01L,
             0xe3096acc85876ae6L, 0x9932c32968faf17eL, 0x5df8e164496c717bL, 0x443e63b0f0636d11L,
             0xa0c1255bd56fb4ceL, 0xe9b12d67fbae4394L, 0x87a6b8f68968124bL, 0xe7a29a2c9eb466b6L,

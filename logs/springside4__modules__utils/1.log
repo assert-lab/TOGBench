@@ -4,6 +4,8 @@
 [INFO] Building Springside :: Module :: Utils 5.0.0-SNAPSHOT
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ springside-utils ---
+[INFO] 
 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ springside-utils ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/resources
@@ -103,8 +105,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  20.344 s
-[INFO] Finished at: 2026-02-06T14:36:54-06:00
+[INFO] Total time:  23.038 s
+[INFO] Finished at: 2026-02-09T03:26:43-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project springside-utils: Compilation failure: Compilation failure: 
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/CollectionUtilTest_OE25Dev.java:[462,17] reference to assertThat is ambiguous

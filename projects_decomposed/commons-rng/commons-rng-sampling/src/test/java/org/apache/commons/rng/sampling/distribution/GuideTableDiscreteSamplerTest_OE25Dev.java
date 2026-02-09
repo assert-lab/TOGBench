@@ -248,8 +248,8 @@ class GuideTableDiscreteSamplerTest_OE25Dev {
 
     @Test
     void testToString_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create();
-        final SharedStateDiscreteSampler sampler = GuideTableDiscreteSampler.of(rng, new double[] {0.5, 0.5}, 1.0);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create();
+         SharedStateDiscreteSampler sampler = GuideTableDiscreteSampler.of(rng, new double[] {0.5, 0.5}, 1.0);
         Assertions.assertTrue(sampler.toString().toLowerCase().contains("guide table"));
     }
 

@@ -96,77 +96,77 @@ class GaussianSamplerTest_OE25Dev {
 
     @Test
     void testConstructorThrowsWithZeroStandardDeviation_1_oe() {
-        final RestorableUniformRandomProvider rng =
+         RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final NormalizedGaussianSampler gauss = ZigguratSampler.NormalizedGaussian.of(rng);
-        final double mean = 1;
-        final double standardDeviation = 0;
+         NormalizedGaussianSampler gauss = ZigguratSampler.NormalizedGaussian.of(rng);
+         double mean = 1;
+         double standardDeviation = 0;
         Assertions.assertThrows(IllegalArgumentException.class, () -> GaussianSampler.of(gauss, mean, standardDeviation));
     }
 
     @Test
     void testConstructorThrowsWithInfiniteStandardDeviation_1_oe() {
-        final RestorableUniformRandomProvider rng =
+         RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final NormalizedGaussianSampler gauss = new ZigguratNormalizedGaussianSampler(rng);
-        final double mean = 1;
-        final double standardDeviation = Double.POSITIVE_INFINITY;
+         NormalizedGaussianSampler gauss = new ZigguratNormalizedGaussianSampler(rng);
+         double mean = 1;
+         double standardDeviation = Double.POSITIVE_INFINITY;
         Assertions.assertThrows(IllegalArgumentException.class, () -> GaussianSampler.of(gauss, mean, standardDeviation));
     }
 
     @Test
     void testConstructorThrowsWithNaNStandardDeviation_1_oe() {
-        final RestorableUniformRandomProvider rng =
+         RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final NormalizedGaussianSampler gauss = new ZigguratNormalizedGaussianSampler(rng);
-        final double mean = 1;
-        final double standardDeviation = Double.NaN;
+         NormalizedGaussianSampler gauss = new ZigguratNormalizedGaussianSampler(rng);
+         double mean = 1;
+         double standardDeviation = Double.NaN;
         Assertions.assertThrows(IllegalArgumentException.class, () -> GaussianSampler.of(gauss, mean, standardDeviation));
     }
 
     @Test
     void testConstructorThrowsWithInfiniteMean_1_oe() {
-        final RestorableUniformRandomProvider rng =
+         RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final NormalizedGaussianSampler gauss = new ZigguratNormalizedGaussianSampler(rng);
-        final double mean = Double.POSITIVE_INFINITY;
-        final double standardDeviation = 1;
+         NormalizedGaussianSampler gauss = new ZigguratNormalizedGaussianSampler(rng);
+         double mean = Double.POSITIVE_INFINITY;
+         double standardDeviation = 1;
         Assertions.assertThrows(IllegalArgumentException.class, () -> GaussianSampler.of(gauss, mean, standardDeviation));
     }
 
     @Test
     void testConstructorThrowsWithNaNMean_1_oe() {
-        final RestorableUniformRandomProvider rng =
+         RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final NormalizedGaussianSampler gauss = new ZigguratNormalizedGaussianSampler(rng);
-        final double mean = Double.NaN;
-        final double standardDeviation = 1;
+         NormalizedGaussianSampler gauss = new ZigguratNormalizedGaussianSampler(rng);
+         double mean = Double.NaN;
+         double standardDeviation = 1;
         Assertions.assertThrows(IllegalArgumentException.class, () -> GaussianSampler.of(gauss, mean, standardDeviation));
     }
 
     @Test
     void testSharedStateSamplerThrowsIfUnderlyingSamplerDoesNotShareState_1_oe() {
-        final UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
-        final NormalizedGaussianSampler gauss = new NormalizedGaussianSampler() {
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         NormalizedGaussianSampler gauss = new NormalizedGaussianSampler() {
             @Override
             public double sample() {
                 return 0;
             }
         };
-        final double mean = 1.23;
-        final double standardDeviation = 4.56;
-        final SharedStateContinuousSampler sampler1 =
+         double mean = 1.23;
+         double standardDeviation = 4.56;
+         SharedStateContinuousSampler sampler1 =
             GaussianSampler.of(gauss, mean, standardDeviation);
         Assertions.assertThrows(UnsupportedOperationException.class, () -> sampler1.withUniformRandomProvider(rng2));
     }
 
     @Test
     void testSharedStateSamplerThrowsIfUnderlyingSamplerReturnsWrongSharedState_1_oe() {
-        final UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
-        final NormalizedGaussianSampler gauss = new BadSharedStateNormalizedGaussianSampler();
-        final double mean = 1.23;
-        final double standardDeviation = 4.56;
-        final SharedStateContinuousSampler sampler1 =
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         NormalizedGaussianSampler gauss = new BadSharedStateNormalizedGaussianSampler();
+         double mean = 1.23;
+         double standardDeviation = 4.56;
+         SharedStateContinuousSampler sampler1 =
             GaussianSampler.of(gauss, mean, standardDeviation);
         Assertions.assertThrows(UnsupportedOperationException.class, () -> sampler1.withUniformRandomProvider(rng2));
     }

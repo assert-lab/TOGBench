@@ -11,6 +11,8 @@ inputs_path = dataset / "inputs.csv"
 fail_list = [
 
 "DoWhileTest.testSimpleWhileFalse_2_oe",
+
+
 "ArithmeticOperatorTest.testInterval_3_oe",
 "ArithmeticOperatorTest.testInterval_4_oe",
 "ArithmeticOperatorTest.testInterval_7_oe",

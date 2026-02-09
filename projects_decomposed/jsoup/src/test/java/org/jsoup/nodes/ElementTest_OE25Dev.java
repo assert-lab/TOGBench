@@ -52,6 +52,13 @@ public class ElementTest_OE25Dev {
     }
 
     @Test
+    public void testBasicFormats() {
+        String html = "<span>0</span>.<div><span>1</span>-<span>2</span><p><span>3</span>-<span>4</span><div>5</div>";
+        Document doc = Jsoup.parse(html);
+        assertEquals("<span>0</span>.\n" + "<div>\n" + " <span>1</span>-<span>2</span>\n" + " <p><span>3</span>-<span>4</span></p>\n" + " <div>\n" + " 5\n" + " </div>\n" + "</div>",doc.body().html());
+    }
+
+    @Test
     public void insertChildrenArgumentValidation() {
         Document doc = Jsoup.parse("<div id=1>Text <p>One</p> Text <p>Two</p></div><div id=2></div>");
         Element div1 = doc.select("div").get(0);
@@ -1459,22 +1466,6 @@ public class ElementTest_OE25Dev {
         assertEquals(defaultMax, settings.maxPaddingWidth());
         }
 
-    @Test void testIndentLevel_2_oe() {
-        // deep to test default and extended max
-        StringBuilder divs = new StringBuilder();
-        for (int i = 0; i < 40; i++) {
-            divs.append("<div>");
-        }
-        divs.append("Foo");
-        Document doc = Jsoup.parse(divs.toString());
-        Document.OutputSettings settings = doc.outputSettings();
-
-        int defaultMax = 30;
-        // removed other assertion
-        String html = doc.html();
-        assertTrue(html.contains(" <div>\n" + " Foo\n" + " </div>"));
-        }
-
     @Test void testIndentLevel_3_oe() {
         // deep to test default and extended max
         StringBuilder divs = new StringBuilder();
@@ -1492,27 +1483,6 @@ public class ElementTest_OE25Dev {
 
         settings.maxPaddingWidth(32);
         assertEquals(32, settings.maxPaddingWidth());
-        }
-
-    @Test void testIndentLevel_4_oe() {
-        // deep to test default and extended max
-        StringBuilder divs = new StringBuilder();
-        for (int i = 0; i < 40; i++) {
-            divs.append("<div>");
-        }
-        divs.append("Foo");
-        Document doc = Jsoup.parse(divs.toString());
-        Document.OutputSettings settings = doc.outputSettings();
-
-        int defaultMax = 30;
-        // removed other assertion
-        String html = doc.html();
-        // removed other assertion
-
-        settings.maxPaddingWidth(32);
-        // removed other assertion
-        html = doc.html();
-        assertTrue(html.contains(" <div>\n" + " Foo\n" + " </div>"));
         }
 
     @Test void testIndentLevel_5_oe() {
@@ -1537,32 +1507,6 @@ public class ElementTest_OE25Dev {
 
         settings.maxPaddingWidth(-1);
         assertEquals(-1, settings.maxPaddingWidth());
-        }
-
-    @Test void testIndentLevel_6_oe() {
-        // deep to test default and extended max
-        StringBuilder divs = new StringBuilder();
-        for (int i = 0; i < 40; i++) {
-            divs.append("<div>");
-        }
-        divs.append("Foo");
-        Document doc = Jsoup.parse(divs.toString());
-        Document.OutputSettings settings = doc.outputSettings();
-
-        int defaultMax = 30;
-        // removed other assertion
-        String html = doc.html();
-        // removed other assertion
-
-        settings.maxPaddingWidth(32);
-        // removed other assertion
-        html = doc.html();
-        // removed other assertion
-
-        settings.maxPaddingWidth(-1);
-        // removed other assertion
-        html = doc.html();
-        assertTrue(html.contains(" <div>\n" + " Foo\n" + " </div>"));
         }
 
     @Test
@@ -1606,13 +1550,6 @@ public class ElementTest_OE25Dev {
         document.outputSettings().outline(true);
 
         assertEquals("<div>\n <span>1:15</span>\n –\n <span>2:15</span>\n &nbsp;p.m.\n</div>", document.body().html());
-    }
-
-    @Test
-    public void testBasicFormats_1_oe() {
-        String html = "<span>0</span>.<div><span>1</span>-<span>2</span><p><span>3</span>-<span>4</span><div>5</div>";
-        Document doc = Jsoup.parse(html);
-        assertEquals("<span>0</span>.\n" + "<div>\n" + " <span>1</span>-<span>2</span>\n" + " <p><span>3</span>-<span>4</span></p>\n" + " <div>\n" + " 5\n" + " </div>\n" + "</div>",doc.body().html());
     }
 
     @Test
@@ -2648,26 +2585,6 @@ public class ElementTest_OE25Dev {
         clone.append("<span>Three");
         // removed other assertion
         assertEquals("<div><p>One</p><p><span>Two</span></p></div>",TextUtil.stripNewlines(doc.body().html()));// not modified doc.body().appendChild(clone);// adopt assertNotNull(clone.parent());
-    }
-
-    @Test
-    public void testClone_8_oe() {
-        Document doc = Jsoup.parse("<div><p>One<p><span>Two</div>");
-
-        Element p = doc.select("p").get(1);
-        Element clone = p.clone();
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        clone.append("<span>Three");
-        // removed other assertion
-        // removed other assertion
-        assertEquals("<div><p>One</p><p><span>Two</span></p></div><p><span>Two</span><span>Three</span></p>", TextUtil.stripNewlines(doc.body().html()));
     }
 
     @Test

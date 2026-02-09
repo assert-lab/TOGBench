@@ -28,7 +28,7 @@ class DotyHumphreySmallFastCounting32Test_OE25Dev {
          * Tested with respect to PractRand::RNGs::Raw::sfc32 of the C++ implementation (v0.94).
          * See : http://pracrand.sourceforge.net/
          */
-        final int[] expectedSequence = {
+         int[] expectedSequence = {
             0x89b5c414, 0x7ee57639, 0xdbe18f7b, 0x94aa0162,
             0xa22bff0a, 0x21c91fb8, 0x2c6fd6fe, 0xcda90d13,
             0x019684ca, 0xe5b400c0, 0x459d8590, 0x3aec0a1e,

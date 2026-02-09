@@ -5816,7 +5816,7 @@ lang_1186_1,"    @Test
                 assertSame(list0, list20);
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -5874,7 +5874,7 @@ lang_1186_2,"    @Test
                 assertSame(list0, list20);
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -5934,7 +5934,7 @@ lang_1186_3,"    @Test
                 assertSame(list0, list20);
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -6022,7 +6022,7 @@ lang_1187_1,"    @Test
                 assertSame(list0, list20);
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -6112,7 +6112,7 @@ lang_1187_3,"    @Test
                 assertSame(list0, list20);
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {

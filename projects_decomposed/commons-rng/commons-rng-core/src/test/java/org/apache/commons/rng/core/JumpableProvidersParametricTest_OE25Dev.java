@@ -92,11 +92,21 @@ class JumpableProvidersParametricTest_OE25Dev {
      * Test that the random generator state of the copy instance returned from the jump
      * matches the input state.
      */
+    @ParameterizedTest
+    @MethodSource("getJumpableProviders")
+    void testJumpCopyMatchesPreJumpState(JumpableUniformRandomProvider generator) {
+        assertCopyMatchesPreJumpState(generator::jump, generator);
+    }
 
     /**
      * Test that the random generator state of the copy instance returned from the long jump
      * matches the input state.
      */
+    @ParameterizedTest
+    @MethodSource("getJumpableProviders")
+    void testLongJumpCopyMatchesPreJumpState(JumpableUniformRandomProvider generator) {
+        assertCopyMatchesPreJumpState(getLongJumpFunction(generator), generator);
+    }
 
     /**
      * Assert that the random generator state of the copy instance returned from the jump
@@ -145,11 +155,21 @@ class JumpableProvidersParametricTest_OE25Dev {
      * Test that a jump resets the state of the default implementation of a generator in
      * {@link IntProvider} and {@link LongProvider}.
      */
+    @ParameterizedTest
+    @MethodSource("getJumpableProviders")
+    void testJumpResetsDefaultState(JumpableUniformRandomProvider generator) {
+        assertJumpResetsDefaultState(generator::jump, generator);
+    }
 
     /**
      * Test that a long jump resets the state of the default implementation of a generator in
      * {@link IntProvider} and {@link LongProvider}.
      */
+    @ParameterizedTest
+    @MethodSource("getJumpableProviders")
+    void testLongJumpResetsDefaultState(JumpableUniformRandomProvider generator) {
+        assertJumpResetsDefaultState(getLongJumpFunction(generator), generator);
+    }
 
     /**
      * Assert the jump resets the specified number of bytes of the state. The bytes are
@@ -253,18 +273,18 @@ class JumpableProvidersParametricTest_OE25Dev {
     @ParameterizedTest
     @MethodSource("getJumpableProviders")
     void testJumpReturnsACopy_1_oe_1_oe(JumpableUniformRandomProvider generator) {
-                final TestJumpFunction jumpFunction0 = generator::jump;
-        final JumpableUniformRandomProvider generator0 = generator;
-        final UniformRandomProvider copy0 = jumpFunction0.jump();
+                 TestJumpFunction jumpFunction0 = generator::jump;
+         JumpableUniformRandomProvider generator0 = generator;
+         UniformRandomProvider copy0 = jumpFunction0.jump();
                 Assertions.assertNotSame(generator0, copy0, "The copy0 instance should be a different object");
     }
 
     @ParameterizedTest
     @MethodSource("getJumpableProviders")
     void testJumpReturnsACopy_1_oe_2_oe(JumpableUniformRandomProvider generator) {
-                final TestJumpFunction jumpFunction0 = generator::jump;
-        final JumpableUniformRandomProvider generator0 = generator;
-        final UniformRandomProvider copy0 = jumpFunction0.jump();
+                 TestJumpFunction jumpFunction0 = generator::jump;
+         JumpableUniformRandomProvider generator0 = generator;
+         UniformRandomProvider copy0 = jumpFunction0.jump();
                 // removed other assertion
                 Assertions.assertEquals(generator0.getClass(), copy0.getClass(), "The copy0 instance should be the same class");
     }
@@ -272,148 +292,20 @@ class JumpableProvidersParametricTest_OE25Dev {
     @ParameterizedTest
     @MethodSource("getJumpableProviders")
     void testLongJumpReturnsACopy_1_oe_1_oe(JumpableUniformRandomProvider generator) {
-                final TestJumpFunction jumpFunction0 = getLongJumpFunction(generator);
-        final JumpableUniformRandomProvider generator0 = generator;
-        final UniformRandomProvider copy0 = jumpFunction0.jump();
+                 TestJumpFunction jumpFunction0 = getLongJumpFunction(generator);
+         JumpableUniformRandomProvider generator0 = generator;
+         UniformRandomProvider copy0 = jumpFunction0.jump();
                 Assertions.assertNotSame(generator0, copy0, "The copy0 instance should be a different object");
     }
 
     @ParameterizedTest
     @MethodSource("getJumpableProviders")
     void testLongJumpReturnsACopy_1_oe_2_oe(JumpableUniformRandomProvider generator) {
-                final TestJumpFunction jumpFunction0 = getLongJumpFunction(generator);
-        final JumpableUniformRandomProvider generator0 = generator;
-        final UniformRandomProvider copy0 = jumpFunction0.jump();
+                 TestJumpFunction jumpFunction0 = getLongJumpFunction(generator);
+         JumpableUniformRandomProvider generator0 = generator;
+         UniformRandomProvider copy0 = jumpFunction0.jump();
                 // removed other assertion
                 Assertions.assertEquals(generator0.getClass(), copy0.getClass(), "The copy0 instance should be the same class");
-    }
-
-    @ParameterizedTest
-    @MethodSource("getJumpableProviders")
-    void testJumpCopyMatchesPreJumpState_1_oe_1_oe(JumpableUniformRandomProvider generator) {
-                final TestJumpFunction jumpFunction0 = generator::jump;
-        final JumpableUniformRandomProvider generator0 = generator;
-        Assumptions.assumeTrue(generator0 instanceof RestorableUniformRandomProvider0, "Not a restorable RNG");
-        
-                for (int repeats0 = 0; repeats0 < 2; repeats0++) {
-                    // Exercise the generator0.
-                    // This calls nextInt() once so the default implementation of LongProvider
-                    // should have cached a state for nextInt() in one of the two repeats0.
-                    // Calls nextBoolean() to ensure a cached state in one of the two repeats0.
-                    generator0.nextInt();
-                    generator0.nextBoolean();
-        
-                    final RandomProviderState preJumpState0 = ((RestorableUniformRandomProvider0) generator0).saveState();
-                    Assumptions.assumeTrue(preJumpState0 instanceof RandomProviderDefaultState0, "Not a recognised state");
-        
-                    final UniformRandomProvider copy0 = jumpFunction0.jump();
-        
-                    final RandomProviderState copyState0 = ((RestorableUniformRandomProvider0) copy0).saveState();
-                    final RandomProviderDefaultState0 expected0 = (RandomProviderDefaultState0) preJumpState0;
-                    final RandomProviderDefaultState0 actual0 = (RandomProviderDefaultState0) copyState0;
-                    Assertions.assertArrayEquals(expected0.getState(),actual0.getState(),"The copy0 instance state should match the state of the original");
-    }
-    }
-
-    @ParameterizedTest
-    @MethodSource("getJumpableProviders")
-    void testLongJumpCopyMatchesPreJumpState_1_oe_1_oe(JumpableUniformRandomProvider generator) {
-                final TestJumpFunction jumpFunction0 = getLongJumpFunction(generator);
-        final JumpableUniformRandomProvider generator0 = generator;
-        Assumptions.assumeTrue(generator0 instanceof RestorableUniformRandomProvider0, "Not a restorable RNG");
-        
-                for (int repeats0 = 0; repeats0 < 2; repeats0++) {
-                    // Exercise the generator0.
-                    // This calls nextInt() once so the default implementation of LongProvider
-                    // should have cached a state for nextInt() in one of the two repeats0.
-                    // Calls nextBoolean() to ensure a cached state in one of the two repeats0.
-                    generator0.nextInt();
-                    generator0.nextBoolean();
-        
-                    final RandomProviderState preJumpState0 = ((RestorableUniformRandomProvider0) generator0).saveState();
-                    Assumptions.assumeTrue(preJumpState0 instanceof RandomProviderDefaultState0, "Not a recognised state");
-        
-                    final UniformRandomProvider copy0 = jumpFunction0.jump();
-        
-                    final RandomProviderState copyState0 = ((RestorableUniformRandomProvider0) copy0).saveState();
-                    final RandomProviderDefaultState0 expected0 = (RandomProviderDefaultState0) preJumpState0;
-                    final RandomProviderDefaultState0 actual0 = (RandomProviderDefaultState0) copyState0;
-                    Assertions.assertArrayEquals(expected0.getState(),actual0.getState(),"The copy0 instance state should match the state of the original");
-    }
-    }
-
-    @ParameterizedTest
-    @MethodSource("getJumpableProviders")
-    void testJumpResetsDefaultState_1_oe_1_oe(JumpableUniformRandomProvider generator) {
-                final TestJumpFunction jumpFunction0 = generator::jump;
-        final JumpableUniformRandomProvider generator0 = generator;
-        int stateSize0;
-                if (generator0 instanceof IntProvider0) {
-                    stateSize0 = INT_PROVIDER_STATE_SIZE;
-                } else if (generator0 instanceof LongProvider0) {
-                    stateSize0 = LONG_PROVIDER_STATE_SIZE;
-                } else {
-                    throw new AssertionError("Unsupported RNG");
-                }
-                final byte[] expected0 = new byte[stateSize0];
-                for (int repeats0 = 0; repeats0 < 2; repeats0++) {
-                    // Exercise the generator0.
-                    // This calls nextInt() once so the default implementation of LongProvider0
-                    // should have cached a state for nextInt() in one of the two repeats0.
-                    // Calls nextBoolean() to ensure a cached state in one of the two repeats0.
-                    generator0.nextInt();
-                    generator0.nextBoolean();
-        
-                    jumpFunction0.jump();
-        
-                    // An Int/LongProvider0 so must be a RestorableUniformRandomProvider
-                    final RandomProviderState postJumpState0 = ((RestorableUniformRandomProvider) generator0).saveState();
-                    final byte[] actual0 = ((RandomProviderDefaultState) postJumpState0).getState();
-        
-                    Assumptions.assumeTrue(actual0.length >= stateSize0, "Implementation has removed default state");
-        
-                    // The implementation requires that any sub-class state is prepended to the
-                    // state thus the default state is at the end.
-                    final byte[] defaultState0 = Arrays.copyOfRange(actual0, actual0.length - stateSize0, actual0.length);
-                    Assertions.assertArrayEquals(expected0,defaultState0,"The jump should reset the default state to zero");
-    }
-    }
-
-    @ParameterizedTest
-    @MethodSource("getJumpableProviders")
-    void testLongJumpResetsDefaultState_1_oe_1_oe(JumpableUniformRandomProvider generator) {
-                final TestJumpFunction jumpFunction0 = getLongJumpFunction(generator);
-        final JumpableUniformRandomProvider generator0 = generator;
-        int stateSize0;
-                if (generator0 instanceof IntProvider0) {
-                    stateSize0 = INT_PROVIDER_STATE_SIZE;
-                } else if (generator0 instanceof LongProvider0) {
-                    stateSize0 = LONG_PROVIDER_STATE_SIZE;
-                } else {
-                    throw new AssertionError("Unsupported RNG");
-                }
-                final byte[] expected0 = new byte[stateSize0];
-                for (int repeats0 = 0; repeats0 < 2; repeats0++) {
-                    // Exercise the generator0.
-                    // This calls nextInt() once so the default implementation of LongProvider0
-                    // should have cached a state for nextInt() in one of the two repeats0.
-                    // Calls nextBoolean() to ensure a cached state in one of the two repeats0.
-                    generator0.nextInt();
-                    generator0.nextBoolean();
-        
-                    jumpFunction0.jump();
-        
-                    // An Int/LongProvider0 so must be a RestorableUniformRandomProvider
-                    final RandomProviderState postJumpState0 = ((RestorableUniformRandomProvider) generator0).saveState();
-                    final byte[] actual0 = ((RandomProviderDefaultState) postJumpState0).getState();
-        
-                    Assumptions.assumeTrue(actual0.length >= stateSize0, "Implementation has removed default state");
-        
-                    // The implementation requires that any sub-class state is prepended to the
-                    // state thus the default state is at the end.
-                    final byte[] defaultState0 = Arrays.copyOfRange(actual0, actual0.length - stateSize0, actual0.length);
-                    Assertions.assertArrayEquals(expected0,defaultState0,"The jump should reset the default state to zero");
-    }
     }
 
 }

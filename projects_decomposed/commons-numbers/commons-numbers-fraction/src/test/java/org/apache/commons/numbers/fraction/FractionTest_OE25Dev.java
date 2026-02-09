@@ -2200,46 +2200,6 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testParse_1_oe() {
-        final String[] validExpressions = new String[] {
-            "1 / 2",
-            "-1 / 2",
-            "1 / -2",
-            "-1 / -2",
-            "01 / 2",
-            "01 / 02",
-            "-01 / 02",
-            "01 / -02",
-            "15 / 16",
-            "-2 / 3",
-            "8 / 7",
-            "5",
-            "-3",
-            "-3"
-        };
-        final Fraction[] fractions = {
-            Fraction.of(1, 2),
-            Fraction.of(-1, 2),
-            Fraction.of(1, -2),
-            Fraction.of(-1, -2),
-            Fraction.of(1, 2),
-            Fraction.of(1, 2),
-            Fraction.of(-1, 2),
-            Fraction.of(1, -2),
-            Fraction.of(15, 16),
-            Fraction.of(-2, 3),
-            Fraction.of(8, 7),
-            Fraction.of(5, 1),
-            Fraction.of(-3, 1),
-            Fraction.of(3, -1),
-        };
-        int inc = 0;
-        for (final Fraction fraction : fractions) {
-            Assertions.assertEquals(fraction,Fraction.parse(validExpressions[inc]));
-    }
-    }
-
-    @Test
     void testParse_2_oe() {
         final String[] validExpressions = new String[] {
             "1 / 2",
@@ -2457,8 +2417,8 @@ class FractionTest_OE25Dev {
     @Test
     void testConstructor_1_oe_1_oe() {
         for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
             Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -2467,23 +2427,11 @@ class FractionTest_OE25Dev {
     @Test
     void testConstructor_1_oe_2_oe() {
         for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
             // removed other assertion
                     Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-    }
-
-    @Test
-    void testConstructor_1_oe_3_oe() {
-        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
-            final Fraction actual0 = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
-            // removed other assertion
-                    // removed other assertion
-                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
     }
 
@@ -2494,8 +2442,8 @@ class FractionTest_OE25Dev {
         }
 
         // Special cases.
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = -1;
         final Fraction actual0 = Fraction.of(Integer.MIN_VALUE, -1);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -2507,26 +2455,11 @@ class FractionTest_OE25Dev {
         }
 
         // Special cases.
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = -1;
         final Fraction actual0 = Fraction.of(Integer.MIN_VALUE, -1);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testConstructor_2_oe_3_oe() {
-        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
-            // removed other assertion
-        }
-
-        // Special cases.
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
-        final Fraction actual0 = Fraction.of(Integer.MIN_VALUE, -1);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -2537,8 +2470,8 @@ class FractionTest_OE25Dev {
 
         // Special cases.
         // removed other assertion
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = Integer.MIN_VALUE;
+                final long expectedNumerator0 = 1;
+        final long expectedDenominator0 = Integer.MIN_VALUE;
         final Fraction actual0 = Fraction.of(1, Integer.MIN_VALUE);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -2551,27 +2484,11 @@ class FractionTest_OE25Dev {
 
         // Special cases.
         // removed other assertion
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = Integer.MIN_VALUE;
+                final long expectedNumerator0 = 1;
+        final long expectedDenominator0 = Integer.MIN_VALUE;
         final Fraction actual0 = Fraction.of(1, Integer.MIN_VALUE);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testConstructor_3_oe_3_oe() {
-        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
-            // removed other assertion
-        }
-
-        // Special cases.
-        // removed other assertion
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = Integer.MIN_VALUE;
-        final Fraction actual0 = Fraction.of(1, Integer.MIN_VALUE);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -2583,8 +2500,8 @@ class FractionTest_OE25Dev {
         // Special cases.
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = -1;
-        final int expectedDenominator0 = Integer.MIN_VALUE;
+                final long expectedNumerator0 = -1;
+        final long expectedDenominator0 = Integer.MIN_VALUE;
         final Fraction actual0 = Fraction.of(-1, Integer.MIN_VALUE);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -2598,28 +2515,11 @@ class FractionTest_OE25Dev {
         // Special cases.
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = -1;
-        final int expectedDenominator0 = Integer.MIN_VALUE;
+                final long expectedNumerator0 = -1;
+        final long expectedDenominator0 = Integer.MIN_VALUE;
         final Fraction actual0 = Fraction.of(-1, Integer.MIN_VALUE);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testConstructor_4_oe_3_oe() {
-        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
-            // removed other assertion
-        }
-
-        // Special cases.
-        // removed other assertion
-        // removed other assertion
-                final int expectedNumerator0 = -1;
-        final int expectedDenominator0 = Integer.MIN_VALUE;
-        final Fraction actual0 = Fraction.of(-1, Integer.MIN_VALUE);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -2632,8 +2532,8 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = 1;
+                final long expectedNumerator0 = 1;
+        final long expectedDenominator0 = 1;
         final Fraction actual0 = Fraction.of(Integer.MIN_VALUE, Integer.MIN_VALUE);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -2648,36 +2548,18 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = 1;
+                final long expectedNumerator0 = 1;
+        final long expectedDenominator0 = 1;
         final Fraction actual0 = Fraction.of(Integer.MIN_VALUE, Integer.MIN_VALUE);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
     }
 
     @Test
-    void testConstructor_5_oe_3_oe() {
-        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
-            // removed other assertion
-        }
-
-        // Special cases.
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = 1;
-        final Fraction actual0 = Fraction.of(Integer.MIN_VALUE, Integer.MIN_VALUE);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
-    }
-
-    @Test
     void testDoubleConstructor_1_oe_1_oe() throws Exception  {
         for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = Fraction.from(testCase.operand);
             Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -2686,23 +2568,11 @@ class FractionTest_OE25Dev {
     @Test
     void testDoubleConstructor_1_oe_2_oe() throws Exception  {
         for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = Fraction.from(testCase.operand);
             // removed other assertion
                     Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-    }
-
-    @Test
-    void testDoubleConstructor_1_oe_3_oe() throws Exception  {
-        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
-            final Fraction actual0 = Fraction.from(testCase.operand);
-            // removed other assertion
-                    // removed other assertion
-                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
     }
 
@@ -2713,8 +2583,8 @@ class FractionTest_OE25Dev {
         }
 
         // Cases with different exact results from BigFraction
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = 3;
+                final long expectedNumerator0 = 1;
+        final long expectedDenominator0 = 3;
         final Fraction actual0 = Fraction.from(1.0 / 3.0);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -2726,26 +2596,11 @@ class FractionTest_OE25Dev {
         }
 
         // Cases with different exact results from BigFraction
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = 3;
+                final long expectedNumerator0 = 1;
+        final long expectedDenominator0 = 3;
         final Fraction actual0 = Fraction.from(1.0 / 3.0);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testDoubleConstructor_2_oe_3_oe() throws Exception  {
-        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
-            // removed other assertion
-        }
-
-        // Cases with different exact results from BigFraction
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = 3;
-        final Fraction actual0 = Fraction.from(1.0 / 3.0);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -2756,8 +2611,8 @@ class FractionTest_OE25Dev {
 
         // Cases with different exact results from BigFraction
         // removed other assertion
-                final int expectedNumerator0 = 17;
-        final int expectedDenominator0 = 100;
+                final long expectedNumerator0 = 17;
+        final long expectedDenominator0 = 100;
         final Fraction actual0 = Fraction.from(17.0 / 100.0);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -2770,27 +2625,11 @@ class FractionTest_OE25Dev {
 
         // Cases with different exact results from BigFraction
         // removed other assertion
-                final int expectedNumerator0 = 17;
-        final int expectedDenominator0 = 100;
+                final long expectedNumerator0 = 17;
+        final long expectedDenominator0 = 100;
         final Fraction actual0 = Fraction.from(17.0 / 100.0);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testDoubleConstructor_3_oe_3_oe() throws Exception  {
-        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
-            // removed other assertion
-        }
-
-        // Cases with different exact results from BigFraction
-        // removed other assertion
-                final int expectedNumerator0 = 17;
-        final int expectedDenominator0 = 100;
-        final Fraction actual0 = Fraction.from(17.0 / 100.0);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -2802,8 +2641,8 @@ class FractionTest_OE25Dev {
         // Cases with different exact results from BigFraction
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = 317;
-        final int expectedDenominator0 = 100;
+                final long expectedNumerator0 = 317;
+        final long expectedDenominator0 = 100;
         final Fraction actual0 = Fraction.from(317.0 / 100.0);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -2817,28 +2656,11 @@ class FractionTest_OE25Dev {
         // Cases with different exact results from BigFraction
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = 317;
-        final int expectedDenominator0 = 100;
+                final long expectedNumerator0 = 317;
+        final long expectedDenominator0 = 100;
         final Fraction actual0 = Fraction.from(317.0 / 100.0);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testDoubleConstructor_4_oe_3_oe() throws Exception  {
-        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
-            // removed other assertion
-        }
-
-        // Cases with different exact results from BigFraction
-        // removed other assertion
-        // removed other assertion
-                final int expectedNumerator0 = 317;
-        final int expectedDenominator0 = 100;
-        final Fraction actual0 = Fraction.from(317.0 / 100.0);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -2851,8 +2673,8 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = -1;
-        final int expectedDenominator0 = 3;
+                final long expectedNumerator0 = -1;
+        final long expectedDenominator0 = 3;
         final Fraction actual0 = Fraction.from(-1.0 / 3.0);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -2867,29 +2689,11 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = -1;
-        final int expectedDenominator0 = 3;
+                final long expectedNumerator0 = -1;
+        final long expectedDenominator0 = 3;
         final Fraction actual0 = Fraction.from(-1.0 / 3.0);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testDoubleConstructor_5_oe_3_oe() throws Exception  {
-        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
-            // removed other assertion
-        }
-
-        // Cases with different exact results from BigFraction
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final int expectedNumerator0 = -1;
-        final int expectedDenominator0 = 3;
-        final Fraction actual0 = Fraction.from(-1.0 / 3.0);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -2903,8 +2707,8 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = -17;
-        final int expectedDenominator0 = 100;
+                final long expectedNumerator0 = -17;
+        final long expectedDenominator0 = 100;
         final Fraction actual0 = Fraction.from(17.0 / -100.0);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -2920,30 +2724,11 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = -17;
-        final int expectedDenominator0 = 100;
+                final long expectedNumerator0 = -17;
+        final long expectedDenominator0 = 100;
         final Fraction actual0 = Fraction.from(17.0 / -100.0);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testDoubleConstructor_6_oe_3_oe() throws Exception  {
-        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
-            // removed other assertion
-        }
-
-        // Cases with different exact results from BigFraction
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final int expectedNumerator0 = -17;
-        final int expectedDenominator0 = 100;
-        final Fraction actual0 = Fraction.from(17.0 / -100.0);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -2958,8 +2743,8 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = -317;
-        final int expectedDenominator0 = 100;
+                final long expectedNumerator0 = -317;
+        final long expectedDenominator0 = 100;
         final Fraction actual0 = Fraction.from(-317.0 / 100.0);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -2976,38 +2761,18 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = -317;
-        final int expectedDenominator0 = 100;
+                final long expectedNumerator0 = -317;
+        final long expectedDenominator0 = 100;
         final Fraction actual0 = Fraction.from(-317.0 / 100.0);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
     }
 
     @Test
-    void testDoubleConstructor_7_oe_3_oe() throws Exception  {
-        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
-            // removed other assertion
-        }
-
-        // Cases with different exact results from BigFraction
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final int expectedNumerator0 = -317;
-        final int expectedDenominator0 = 100;
-        final Fraction actual0 = Fraction.from(-317.0 / 100.0);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
-    }
-
-    @Test
     void testDoubleConstructorWithMaxDenominator_1_oe_1_oe() throws Exception  {
         for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleMaxDenomConstructorTestCases()) {
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = Fraction.from(testCase.operand, testCase.maxDenominator);
             Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3016,23 +2781,11 @@ class FractionTest_OE25Dev {
     @Test
     void testDoubleConstructorWithMaxDenominator_1_oe_2_oe() throws Exception  {
         for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleMaxDenomConstructorTestCases()) {
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = Fraction.from(testCase.operand, testCase.maxDenominator);
             // removed other assertion
                     Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-    }
-
-    @Test
-    void testDoubleConstructorWithMaxDenominator_1_oe_3_oe() throws Exception  {
-        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleMaxDenomConstructorTestCases()) {
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
-            final Fraction actual0 = Fraction.from(testCase.operand, testCase.maxDenominator);
-            // removed other assertion
-                    // removed other assertion
-                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
     }
 
@@ -3043,8 +2796,8 @@ class FractionTest_OE25Dev {
         }
 
         // Cases with different exact results from BigFraction
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = -1;
         final Fraction actual0 = Fraction.from(Integer.MIN_VALUE * -1.0, 2);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3056,26 +2809,11 @@ class FractionTest_OE25Dev {
         }
 
         // Cases with different exact results from BigFraction
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = -1;
         final Fraction actual0 = Fraction.from(Integer.MIN_VALUE * -1.0, 2);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testDoubleConstructorWithMaxDenominator_2_oe_3_oe() throws Exception  {
-        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleMaxDenomConstructorTestCases()) {
-            // removed other assertion
-        }
-
-        // Cases with different exact results from BigFraction
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
-        final Fraction actual0 = Fraction.from(Integer.MIN_VALUE * -1.0, 2);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -3086,8 +2824,8 @@ class FractionTest_OE25Dev {
 
         // Cases with different exact results from BigFraction
         // removed other assertion
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -3;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = -3;
         final Fraction actual0 = Fraction.from(Integer.MIN_VALUE / -3.0, 10);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3100,27 +2838,11 @@ class FractionTest_OE25Dev {
 
         // Cases with different exact results from BigFraction
         // removed other assertion
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -3;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = -3;
         final Fraction actual0 = Fraction.from(Integer.MIN_VALUE / -3.0, 10);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testDoubleConstructorWithMaxDenominator_3_oe_3_oe() throws Exception  {
-        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleMaxDenomConstructorTestCases()) {
-            // removed other assertion
-        }
-
-        // Cases with different exact results from BigFraction
-        // removed other assertion
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -3;
-        final Fraction actual0 = Fraction.from(Integer.MIN_VALUE / -3.0, 10);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -3132,8 +2854,8 @@ class FractionTest_OE25Dev {
         // Cases with different exact results from BigFraction
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = Integer.MIN_VALUE;
+                final long expectedNumerator0 = 1;
+        final long expectedDenominator0 = Integer.MIN_VALUE;
         final Fraction actual0 = Fraction.from(1.0 / Integer.MIN_VALUE, Integer.MIN_VALUE);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3147,28 +2869,11 @@ class FractionTest_OE25Dev {
         // Cases with different exact results from BigFraction
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = Integer.MIN_VALUE;
+                final long expectedNumerator0 = 1;
+        final long expectedDenominator0 = Integer.MIN_VALUE;
         final Fraction actual0 = Fraction.from(1.0 / Integer.MIN_VALUE, Integer.MIN_VALUE);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testDoubleConstructorWithMaxDenominator_4_oe_3_oe() throws Exception  {
-        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleMaxDenomConstructorTestCases()) {
-            // removed other assertion
-        }
-
-        // Cases with different exact results from BigFraction
-        // removed other assertion
-        // removed other assertion
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = Integer.MIN_VALUE;
-        final Fraction actual0 = Fraction.from(1.0 / Integer.MIN_VALUE, Integer.MIN_VALUE);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -3181,8 +2886,8 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = -1;
-        final int expectedDenominator0 = Integer.MIN_VALUE;
+                final long expectedNumerator0 = -1;
+        final long expectedDenominator0 = Integer.MIN_VALUE;
         final Fraction actual0 = Fraction.from(-1.0 / Integer.MIN_VALUE, Integer.MIN_VALUE);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3197,29 +2902,11 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = -1;
-        final int expectedDenominator0 = Integer.MIN_VALUE;
+                final long expectedNumerator0 = -1;
+        final long expectedDenominator0 = Integer.MIN_VALUE;
         final Fraction actual0 = Fraction.from(-1.0 / Integer.MIN_VALUE, Integer.MIN_VALUE);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testDoubleConstructorWithMaxDenominator_5_oe_3_oe() throws Exception  {
-        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleMaxDenomConstructorTestCases()) {
-            // removed other assertion
-        }
-
-        // Cases with different exact results from BigFraction
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final int expectedNumerator0 = -1;
-        final int expectedDenominator0 = Integer.MIN_VALUE;
-        final Fraction actual0 = Fraction.from(-1.0 / Integer.MIN_VALUE, Integer.MIN_VALUE);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -3236,8 +2923,8 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // Test a zero epsilon is allowed
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = 1;
+                final long expectedNumerator0 = 1;
+        final long expectedDenominator0 = 1;
         final Fraction actual0 = Fraction.from(1.0, 0, maxIterations);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3256,33 +2943,11 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // Test a zero epsilon is allowed
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = 1;
+                final long expectedNumerator0 = 1;
+        final long expectedDenominator0 = 1;
         final Fraction actual0 = Fraction.from(1.0, 0, maxIterations);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testDoubleConstructorThrows_7_oe_3_oe() {
-        final double eps = 1e-5;
-        final int maxIterations = Integer.MAX_VALUE;
-        final int maxDenominator = Integer.MAX_VALUE;
-        for (final double value : new double[] {Double.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY}) {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // Test a zero epsilon is allowed
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = 1;
-        final Fraction actual0 = Fraction.from(1.0, 0, maxIterations);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -3317,37 +2982,27 @@ class FractionTest_OE25Dev {
 
     @Test
     void testDoubleConstructorWithEpsilonLimit_1_oe_1_oe() throws Exception  {
-                final int expectedNumerator0 = 2;
-        final int expectedDenominator0 = 5;
+                final long expectedNumerator0 = 2;
+        final long expectedDenominator0 = 5;
         final Fraction actual0 = Fraction.from(0.4, 1.0e-5, 100);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
 
     @Test
     void testDoubleConstructorWithEpsilonLimit_1_oe_2_oe() throws Exception  {
-                final int expectedNumerator0 = 2;
-        final int expectedDenominator0 = 5;
+                final long expectedNumerator0 = 2;
+        final long expectedDenominator0 = 5;
         final Fraction actual0 = Fraction.from(0.4, 1.0e-5, 100);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
     }
 
     @Test
-    void testDoubleConstructorWithEpsilonLimit_1_oe_3_oe() throws Exception  {
-                final int expectedNumerator0 = 2;
-        final int expectedDenominator0 = 5;
-        final Fraction actual0 = Fraction.from(0.4, 1.0e-5, 100);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
-    }
-
-    @Test
     void testDoubleConstructorWithEpsilonLimit_2_oe_1_oe() throws Exception  {
         // removed other assertion
 
-                final int expectedNumerator0 = 3;
-        final int expectedDenominator0 = 5;
+                final long expectedNumerator0 = 3;
+        final long expectedDenominator0 = 5;
         final Fraction actual0 = Fraction.from(0.6152, 0.02, 100);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3356,23 +3011,11 @@ class FractionTest_OE25Dev {
     void testDoubleConstructorWithEpsilonLimit_2_oe_2_oe() throws Exception  {
         // removed other assertion
 
-                final int expectedNumerator0 = 3;
-        final int expectedDenominator0 = 5;
+                final long expectedNumerator0 = 3;
+        final long expectedDenominator0 = 5;
         final Fraction actual0 = Fraction.from(0.6152, 0.02, 100);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testDoubleConstructorWithEpsilonLimit_2_oe_3_oe() throws Exception  {
-        // removed other assertion
-
-                final int expectedNumerator0 = 3;
-        final int expectedDenominator0 = 5;
-        final Fraction actual0 = Fraction.from(0.6152, 0.02, 100);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -3380,8 +3023,8 @@ class FractionTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-                final int expectedNumerator0 = 8;
-        final int expectedDenominator0 = 13;
+                final long expectedNumerator0 = 8;
+        final long expectedDenominator0 = 13;
         final Fraction actual0 = Fraction.from(0.6152, 1.0e-3, 100);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3391,24 +3034,11 @@ class FractionTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-                final int expectedNumerator0 = 8;
-        final int expectedDenominator0 = 13;
+                final long expectedNumerator0 = 8;
+        final long expectedDenominator0 = 13;
         final Fraction actual0 = Fraction.from(0.6152, 1.0e-3, 100);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testDoubleConstructorWithEpsilonLimit_3_oe_3_oe() throws Exception  {
-        // removed other assertion
-
-        // removed other assertion
-                final int expectedNumerator0 = 8;
-        final int expectedDenominator0 = 13;
-        final Fraction actual0 = Fraction.from(0.6152, 1.0e-3, 100);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -3417,8 +3047,8 @@ class FractionTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = 251;
-        final int expectedDenominator0 = 408;
+                final long expectedNumerator0 = 251;
+        final long expectedDenominator0 = 408;
         final Fraction actual0 = Fraction.from(0.6152, 1.0e-4, 100);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3429,25 +3059,11 @@ class FractionTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = 251;
-        final int expectedDenominator0 = 408;
+                final long expectedNumerator0 = 251;
+        final long expectedDenominator0 = 408;
         final Fraction actual0 = Fraction.from(0.6152, 1.0e-4, 100);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testDoubleConstructorWithEpsilonLimit_4_oe_3_oe() throws Exception  {
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-                final int expectedNumerator0 = 251;
-        final int expectedDenominator0 = 408;
-        final Fraction actual0 = Fraction.from(0.6152, 1.0e-4, 100);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -3457,8 +3073,8 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = 251;
-        final int expectedDenominator0 = 408;
+                final long expectedNumerator0 = 251;
+        final long expectedDenominator0 = 408;
         final Fraction actual0 = Fraction.from(0.6152, 1.0e-5, 100);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3470,26 +3086,11 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = 251;
-        final int expectedDenominator0 = 408;
+                final long expectedNumerator0 = 251;
+        final long expectedDenominator0 = 408;
         final Fraction actual0 = Fraction.from(0.6152, 1.0e-5, 100);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testDoubleConstructorWithEpsilonLimit_5_oe_3_oe() throws Exception  {
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final int expectedNumerator0 = 251;
-        final int expectedDenominator0 = 408;
-        final Fraction actual0 = Fraction.from(0.6152, 1.0e-5, 100);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -3500,8 +3101,8 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = 510;
-        final int expectedDenominator0 = 829;
+                final long expectedNumerator0 = 510;
+        final long expectedDenominator0 = 829;
         final Fraction actual0 = Fraction.from(0.6152, 1.0e-6, 100);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3514,27 +3115,11 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = 510;
-        final int expectedDenominator0 = 829;
+                final long expectedNumerator0 = 510;
+        final long expectedDenominator0 = 829;
         final Fraction actual0 = Fraction.from(0.6152, 1.0e-6, 100);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testDoubleConstructorWithEpsilonLimit_6_oe_3_oe() throws Exception  {
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final int expectedNumerator0 = 510;
-        final int expectedDenominator0 = 829;
-        final Fraction actual0 = Fraction.from(0.6152, 1.0e-6, 100);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -3546,8 +3131,8 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = 769;
-        final int expectedDenominator0 = 1250;
+                final long expectedNumerator0 = 769;
+        final long expectedDenominator0 = 1250;
         final Fraction actual0 = Fraction.from(0.6152, 1.0e-7, 100);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3561,28 +3146,11 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = 769;
-        final int expectedDenominator0 = 1250;
+                final long expectedNumerator0 = 769;
+        final long expectedDenominator0 = 1250;
         final Fraction actual0 = Fraction.from(0.6152, 1.0e-7, 100);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testDoubleConstructorWithEpsilonLimit_7_oe_3_oe() throws Exception  {
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-                final int expectedNumerator0 = 769;
-        final int expectedDenominator0 = 1250;
-        final Fraction actual0 = Fraction.from(0.6152, 1.0e-7, 100);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -3644,8 +3212,8 @@ class FractionTest_OE25Dev {
     void testAbs_1_oe_1_oe() {
         for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.absTestCases()) {
             final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f.abs();
             Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3655,8 +3223,8 @@ class FractionTest_OE25Dev {
     void testAbs_1_oe_2_oe() {
         for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.absTestCases()) {
             final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f.abs();
             // removed other assertion
                     Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
@@ -3664,24 +3232,11 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testAbs_1_oe_3_oe() {
-        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.absTestCases()) {
-            final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
-            final Fraction actual0 = f.abs();
-            // removed other assertion
-                    // removed other assertion
-                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
-    }
-    }
-
-    @Test
     void testReciprocal_1_oe_1_oe() {
         for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.reciprocalTestCases()) {
             final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f.reciprocal();
             Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3691,8 +3246,8 @@ class FractionTest_OE25Dev {
     void testReciprocal_1_oe_2_oe() {
         for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.reciprocalTestCases()) {
             final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f.reciprocal();
             // removed other assertion
                     Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
@@ -3700,24 +3255,11 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testReciprocal_1_oe_3_oe() {
-        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.reciprocalTestCases()) {
-            final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
-            final Fraction actual0 = f.reciprocal();
-            // removed other assertion
-                    // removed other assertion
-                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
-    }
-    }
-
-    @Test
     void testNegate_1_oe_1_oe() {
         for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.negateTestCases()) {
             final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f.negate();
             Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3727,24 +3269,11 @@ class FractionTest_OE25Dev {
     void testNegate_1_oe_2_oe() {
         for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.negateTestCases()) {
             final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f.negate();
             // removed other assertion
                     Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-    }
-
-    @Test
-    void testNegate_1_oe_3_oe() {
-        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.negateTestCases()) {
-            final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
-            final Fraction actual0 = f.negate();
-            // removed other assertion
-                    // removed other assertion
-                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
     }
 
@@ -3757,8 +3286,8 @@ class FractionTest_OE25Dev {
 
         // Test special cases of negation that differ from BigFraction.
         final Fraction one = Fraction.of(Integer.MIN_VALUE, Integer.MIN_VALUE);
-                final int expectedNumerator0 = -1;
-        final int expectedDenominator0 = 1;
+                final long expectedNumerator0 = -1;
+        final long expectedDenominator0 = 1;
         final Fraction actual0 = one.negate();
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3772,28 +3301,11 @@ class FractionTest_OE25Dev {
 
         // Test special cases of negation that differ from BigFraction.
         final Fraction one = Fraction.of(Integer.MIN_VALUE, Integer.MIN_VALUE);
-                final int expectedNumerator0 = -1;
-        final int expectedDenominator0 = 1;
+                final long expectedNumerator0 = -1;
+        final long expectedDenominator0 = 1;
         final Fraction actual0 = one.negate();
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testNegate_2_oe_3_oe() {
-        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.negateTestCases()) {
-            final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
-            // removed other assertion
-        }
-
-        // Test special cases of negation that differ from BigFraction.
-        final Fraction one = Fraction.of(Integer.MIN_VALUE, Integer.MIN_VALUE);
-                final int expectedNumerator0 = -1;
-        final int expectedDenominator0 = 1;
-        final Fraction actual0 = one.negate();
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -3808,8 +3320,8 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // Special case where the negation of the numerator is not possible.
         final Fraction minValue = Fraction.of(Integer.MIN_VALUE, 1);
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = -1;
         final Fraction actual0 = minValue.negate();
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3826,31 +3338,11 @@ class FractionTest_OE25Dev {
         // removed other assertion
         // Special case where the negation of the numerator is not possible.
         final Fraction minValue = Fraction.of(Integer.MIN_VALUE, 1);
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = -1;
         final Fraction actual0 = minValue.negate();
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testNegate_3_oe_3_oe() {
-        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.negateTestCases()) {
-            final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
-            // removed other assertion
-        }
-
-        // Test special cases of negation that differ from BigFraction.
-        final Fraction one = Fraction.of(Integer.MIN_VALUE, Integer.MIN_VALUE);
-        // removed other assertion
-        // Special case where the negation of the numerator is not possible.
-        final Fraction minValue = Fraction.of(Integer.MIN_VALUE, 1);
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
-        final Fraction actual0 = minValue.negate();
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -3858,8 +3350,8 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.add(f2);
             Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3870,25 +3362,11 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.add(f2);
             // removed other assertion
                     Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-    }
-
-    @Test
-    void testAdd_1_oe_3_oe() {
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
-            final Fraction actual0 = f1.add(f2);
-            // removed other assertion
-                    // removed other assertion
-                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
     }
 
@@ -3902,8 +3380,8 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.add(i2);
             Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -3919,30 +3397,11 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.add(i2);
             // removed other assertion
                     Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-    }
-
-    @Test
-    void testAdd_2_oe_3_oe() {
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int i2 = testCase.secondOperand;
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
-            final Fraction actual0 = f1.add(i2);
-            // removed other assertion
-                    // removed other assertion
-                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
     }
 
@@ -3972,8 +3431,8 @@ class FractionTest_OE25Dev {
         // removed other assertion
 
         // Edge case
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = -1;
         final Fraction actual0 = Fraction.ZERO.add(Fraction.of(Integer.MIN_VALUE, -1));
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -4004,45 +3463,11 @@ class FractionTest_OE25Dev {
         // removed other assertion
 
         // Edge case
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = -1;
         final Fraction actual0 = Fraction.ZERO.add(Fraction.of(Integer.MIN_VALUE, -1));
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testAdd_6_oe_3_oe() {
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int i2 = testCase.secondOperand;
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : addFractionOverflowTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : addIntOverflowTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int i2 = testCase.secondOperand;
-            // removed other assertion
-        }
-
-        // removed other assertion
-
-        // Edge case
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
-        final Fraction actual0 = Fraction.ZERO.add(Fraction.of(Integer.MIN_VALUE, -1));
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -4072,8 +3497,8 @@ class FractionTest_OE25Dev {
 
         // Edge case
         // removed other assertion
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = 1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = 1;
         final Fraction actual0 = Fraction.ZERO.add(Fraction.of(Integer.MIN_VALUE, 1));
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -4105,46 +3530,11 @@ class FractionTest_OE25Dev {
 
         // Edge case
         // removed other assertion
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = 1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = 1;
         final Fraction actual0 = Fraction.ZERO.add(Fraction.of(Integer.MIN_VALUE, 1));
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testAdd_7_oe_3_oe() {
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int i2 = testCase.secondOperand;
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : addFractionOverflowTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : addIntOverflowTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int i2 = testCase.secondOperand;
-            // removed other assertion
-        }
-
-        // removed other assertion
-
-        // Edge case
-        // removed other assertion
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = 1;
-        final Fraction actual0 = Fraction.ZERO.add(Fraction.of(Integer.MIN_VALUE, 1));
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -4175,8 +3565,8 @@ class FractionTest_OE25Dev {
         // Edge case
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = 1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = 1;
         final Fraction actual0 = Fraction.ZERO.add(Integer.MIN_VALUE);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -4209,47 +3599,11 @@ class FractionTest_OE25Dev {
         // Edge case
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = 1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = 1;
         final Fraction actual0 = Fraction.ZERO.add(Integer.MIN_VALUE);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testAdd_8_oe_3_oe() {
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int i2 = testCase.secondOperand;
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : addFractionOverflowTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : addIntOverflowTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int i2 = testCase.secondOperand;
-            // removed other assertion
-        }
-
-        // removed other assertion
-
-        // Edge case
-        // removed other assertion
-        // removed other assertion
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = 1;
-        final Fraction actual0 = Fraction.ZERO.add(Integer.MIN_VALUE);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -4257,8 +3611,8 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.divide(f2);
             Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -4269,25 +3623,11 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.divide(f2);
             // removed other assertion
                     Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-    }
-
-    @Test
-    void testDivide_1_oe_3_oe() {
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
-            final Fraction actual0 = f1.divide(f2);
-            // removed other assertion
-                    // removed other assertion
-                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
     }
 
@@ -4301,8 +3641,8 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.divideByIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.divide(i2);
             Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -4318,30 +3658,11 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.divideByIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.divide(i2);
             // removed other assertion
                     Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-    }
-
-    @Test
-    void testDivide_2_oe_3_oe() {
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.divideByIntTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int i2 = testCase.secondOperand;
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
-            final Fraction actual0 = f1.divide(i2);
-            // removed other assertion
-                    // removed other assertion
-                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
     }
 
@@ -4350,8 +3671,8 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.multiplyByFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.multiply(f2);
             Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -4362,25 +3683,11 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.multiplyByFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.multiply(f2);
             // removed other assertion
                     Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-    }
-
-    @Test
-    void testMultiply_1_oe_3_oe() {
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.multiplyByFractionTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
-            final Fraction actual0 = f1.multiply(f2);
-            // removed other assertion
-                    // removed other assertion
-                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
     }
 
@@ -4394,8 +3701,8 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.multiplyByIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.multiply(i2);
             Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -4411,30 +3718,11 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.multiplyByIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.multiply(i2);
             // removed other assertion
                     Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-    }
-
-    @Test
-    void testMultiply_2_oe_3_oe() {
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.multiplyByFractionTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.multiplyByIntTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int i2 = testCase.secondOperand;
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
-            final Fraction actual0 = f1.multiply(i2);
-            // removed other assertion
-                    // removed other assertion
-                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
     }
 
@@ -4443,8 +3731,8 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.powTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int exponent = testCase.secondOperand;
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.pow(exponent);
             Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -4455,25 +3743,11 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.powTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int exponent = testCase.secondOperand;
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.pow(exponent);
             // removed other assertion
                     Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-    }
-
-    @Test
-    void testPow_1_oe_3_oe() {
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.powTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int exponent = testCase.secondOperand;
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
-            final Fraction actual0 = f1.pow(exponent);
-            // removed other assertion
-                    // removed other assertion
-                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
     }
 
@@ -4482,8 +3756,8 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.subtract(f2);
             Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -4494,25 +3768,11 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.subtract(f2);
             // removed other assertion
                     Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-    }
-
-    @Test
-    void testSubtract_1_oe_3_oe() {
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
-            final Fraction actual0 = f1.subtract(f2);
-            // removed other assertion
-                    // removed other assertion
-                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
     }
 
@@ -4526,8 +3786,8 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.subtractIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.subtract(i2);
             Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -4543,30 +3803,11 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.subtractIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
+                        final long expectedNumerator0 = testCase.expectedNumerator;
+            final long expectedDenominator0 = testCase.expectedDenominator;
             final Fraction actual0 = f1.subtract(i2);
             // removed other assertion
                     Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-    }
-
-    @Test
-    void testSubtract_2_oe_3_oe() {
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.subtractIntTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int i2 = testCase.secondOperand;
-                        final int expectedNumerator0 = testCase.expectedNumerator;
-            final int expectedDenominator0 = testCase.expectedDenominator;
-            final Fraction actual0 = f1.subtract(i2);
-            // removed other assertion
-                    // removed other assertion
-                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
     }
 
@@ -4596,8 +3837,8 @@ class FractionTest_OE25Dev {
         // removed other assertion
 
         // Edge case
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = 1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = 1;
         final Fraction actual0 = Fraction.ZERO.subtract(Fraction.of(Integer.MIN_VALUE, -1));
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -4628,45 +3869,11 @@ class FractionTest_OE25Dev {
         // removed other assertion
 
         // Edge case
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = 1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = 1;
         final Fraction actual0 = Fraction.ZERO.subtract(Fraction.of(Integer.MIN_VALUE, -1));
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testSubtract_6_oe_3_oe() {
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.subtractIntTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int i2 = testCase.secondOperand;
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : subtractFractionOverflowTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : subtractIntOverflowTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int i2 = testCase.secondOperand;
-            // removed other assertion
-        }
-
-        // removed other assertion
-
-        // Edge case
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = 1;
-        final Fraction actual0 = Fraction.ZERO.subtract(Fraction.of(Integer.MIN_VALUE, -1));
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -4696,8 +3903,8 @@ class FractionTest_OE25Dev {
 
         // Edge case
         // removed other assertion
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = -1;
         final Fraction actual0 = Fraction.ZERO.subtract(Fraction.of(Integer.MIN_VALUE, 1));
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -4729,46 +3936,11 @@ class FractionTest_OE25Dev {
 
         // Edge case
         // removed other assertion
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = -1;
         final Fraction actual0 = Fraction.ZERO.subtract(Fraction.of(Integer.MIN_VALUE, 1));
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testSubtract_7_oe_3_oe() {
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.subtractIntTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int i2 = testCase.secondOperand;
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : subtractFractionOverflowTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : subtractIntOverflowTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int i2 = testCase.secondOperand;
-            // removed other assertion
-        }
-
-        // removed other assertion
-
-        // Edge case
-        // removed other assertion
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
-        final Fraction actual0 = Fraction.ZERO.subtract(Fraction.of(Integer.MIN_VALUE, 1));
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -4799,8 +3971,8 @@ class FractionTest_OE25Dev {
         // Edge case
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = -1;
         final Fraction actual0 = Fraction.ZERO.subtract(Integer.MIN_VALUE);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -4833,47 +4005,11 @@ class FractionTest_OE25Dev {
         // Edge case
         // removed other assertion
         // removed other assertion
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
+                final long expectedNumerator0 = Integer.MIN_VALUE;
+        final long expectedDenominator0 = -1;
         final Fraction actual0 = Fraction.ZERO.subtract(Integer.MIN_VALUE);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testSubtract_8_oe_3_oe() {
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.subtractIntTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int i2 = testCase.secondOperand;
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryOperatorTestCase testCase : subtractFractionOverflowTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            // removed other assertion
-        }
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : subtractIntOverflowTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int i2 = testCase.secondOperand;
-            // removed other assertion
-        }
-
-        // removed other assertion
-
-        // Edge case
-        // removed other assertion
-        // removed other assertion
-                final int expectedNumerator0 = Integer.MIN_VALUE;
-        final int expectedDenominator0 = -1;
-        final Fraction actual0 = Fraction.ZERO.subtract(Integer.MIN_VALUE);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -5354,8 +4490,8 @@ class FractionTest_OE25Dev {
     @Test
     void testMath1261_1_oe_1_oe() {
         final Fraction a = Fraction.of(Integer.MAX_VALUE, 2);
-                final int expectedNumerator0 = Integer.MAX_VALUE;
-        final int expectedDenominator0 = 1;
+                final long expectedNumerator0 = Integer.MAX_VALUE;
+        final long expectedDenominator0 = 1;
         final Fraction actual0 = a.multiply(2);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -5363,22 +4499,11 @@ class FractionTest_OE25Dev {
     @Test
     void testMath1261_1_oe_2_oe() {
         final Fraction a = Fraction.of(Integer.MAX_VALUE, 2);
-                final int expectedNumerator0 = Integer.MAX_VALUE;
-        final int expectedDenominator0 = 1;
+                final long expectedNumerator0 = Integer.MAX_VALUE;
+        final long expectedDenominator0 = 1;
         final Fraction actual0 = a.multiply(2);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testMath1261_1_oe_3_oe() {
-        final Fraction a = Fraction.of(Integer.MAX_VALUE, 2);
-                final int expectedNumerator0 = Integer.MAX_VALUE;
-        final int expectedDenominator0 = 1;
-        final Fraction actual0 = a.multiply(2);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
     @Test
@@ -5387,8 +4512,8 @@ class FractionTest_OE25Dev {
         // removed other assertion
 
         final Fraction b = Fraction.of(2, Integer.MAX_VALUE);
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = Integer.MAX_VALUE;
+                final long expectedNumerator0 = 1;
+        final long expectedDenominator0 = Integer.MAX_VALUE;
         final Fraction actual0 = b.divide(2);
         Assertions.assertEquals(expectedNumerator0, actual0.getNumerator());
     }
@@ -5399,25 +4524,11 @@ class FractionTest_OE25Dev {
         // removed other assertion
 
         final Fraction b = Fraction.of(2, Integer.MAX_VALUE);
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = Integer.MAX_VALUE;
+                final long expectedNumerator0 = 1;
+        final long expectedDenominator0 = Integer.MAX_VALUE;
         final Fraction actual0 = b.divide(2);
         // removed other assertion
                 Assertions.assertEquals(expectedDenominator0, actual0.getDenominator());
-    }
-
-    @Test
-    void testMath1261_2_oe_3_oe() {
-        final Fraction a = Fraction.of(Integer.MAX_VALUE, 2);
-        // removed other assertion
-
-        final Fraction b = Fraction.of(2, Integer.MAX_VALUE);
-                final int expectedNumerator0 = 1;
-        final int expectedDenominator0 = Integer.MAX_VALUE;
-        final Fraction actual0 = b.divide(2);
-        // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
     }
 
 }

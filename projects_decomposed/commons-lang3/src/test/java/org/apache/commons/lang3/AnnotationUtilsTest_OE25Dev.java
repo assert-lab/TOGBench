@@ -409,6 +409,71 @@ public class AnnotationUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testGeneratedAnnotationEquivalentToRealAnnotation() {
+        assertTimeoutPreemptively(Duration.ofSeconds(666L), () -> {
+            final Test real = getClass().getDeclaredMethod(
+                    "testGeneratedAnnotationEquivalentToRealAnnotation").getAnnotation(Test.class);
+
+            final InvocationHandler generatedTestInvocationHandler = (proxy, method, args) -> {
+                if ("equals".equals(method.getName()) && method.getParameterTypes().length == 1) {
+                    return Boolean.valueOf(proxy == args[0]);
+                }
+                if ("hashCode".equals(method.getName()) && method.getParameterTypes().length == 0) {
+                    return Integer.valueOf(System.identityHashCode(proxy));
+                }
+                if ("toString".equals(method.getName()) && method.getParameterTypes().length == 0) {
+                    return "Test proxy";
+                }
+                return method.invoke(real, args);
+            };
+
+            final Test generated = (Test) Proxy.newProxyInstance(Thread.currentThread()
+                            .getContextClassLoader(), new Class[]{Test.class},
+                    generatedTestInvocationHandler);
+            assertEquals(real, generated);
+            assertNotEquals(generated, real);
+            assertTrue(AnnotationUtils.equals(generated, real));
+            assertTrue(AnnotationUtils.equals(real, generated));
+
+            final Test generated2 = (Test) Proxy.newProxyInstance(Thread.currentThread()
+                            .getContextClassLoader(), new Class[]{Test.class},
+                    generatedTestInvocationHandler);
+            assertNotEquals(generated, generated2);
+            assertNotEquals(generated2, generated);
+            assertTrue(AnnotationUtils.equals(generated, generated2));
+            assertTrue(AnnotationUtils.equals(generated2, generated));
+        });
+    }
+
+    @Test
+    public void testHashCode() {
+        assertTimeoutPreemptively(Duration.ofSeconds(666L), () -> {
+            final Test test = getClass().getDeclaredMethod("testHashCode").getAnnotation(Test.class);
+            assertEquals(test.hashCode(), AnnotationUtils.hashCode(test));
+            final TestAnnotation testAnnotation1 = field1.getAnnotation(TestAnnotation.class);
+            assertEquals(testAnnotation1.hashCode(), AnnotationUtils.hashCode(testAnnotation1));
+            final TestAnnotation testAnnotation3 = field3.getAnnotation(TestAnnotation.class);
+            assertEquals(testAnnotation3.hashCode(), AnnotationUtils.hashCode(testAnnotation3));
+        });
+    }
+
+    @Test
+    @TestMethodAnnotation(timeout = 666000)
+    public void testToString() {
+        assertTimeoutPreemptively(Duration.ofSeconds(666L), () -> {
+            final TestMethodAnnotation testAnnotation =
+                    getClass().getDeclaredMethod("testToString").getAnnotation(TestMethodAnnotation.class);
+
+            final String annotationString = AnnotationUtils.toString(testAnnotation);
+            assertTrue(annotationString.startsWith("@org.apache.commons.lang3.AnnotationUtilsTest_OE25Dev$TestMethodAnnotation("));
+            assertTrue(annotationString.endsWith(")"));
+            assertTrue(annotationString.contains("expected=class org.apache.commons.lang3.AnnotationUtilsTest_OE25Dev$TestMethodAnnotation$None"));
+            assertTrue(annotationString.contains("timeout=666000"));
+            assertTrue(annotationString.contains(", "));
+        });
+    }
+
+    @Test
     public void testEquivalence_1_oe() {
         assertTrue(AnnotationUtils.equals(field1.getAnnotation(TestAnnotation.class), field2.getAnnotation(TestAnnotation.class)));
     }
@@ -506,22 +571,6 @@ public class AnnotationUtilsTest_OE25Dev {
             // removed other assertion
             assertFalse(AnnotationUtils.isValidAnnotationMemberType(Array.newInstance(type,0).getClass()));
     }
-    }
-
-    @Test
-    public void testGeneratedAnnotationEquivalentToRealAnnotation_1_oe() {
-        assertTimeoutPreemptively(Duration.ofSeconds(666L), () -> { final Test real = getClass().getDeclaredMethod( "testGeneratedAnnotationEquivalentToRealAnnotation").getAnnotation(Test.class); final InvocationHandler generatedTestInvocationHandler = (proxy, method, args) -> { if ("equals".equals(method.getName()) && method.getParameterTypes().length == 1) { return Boolean.valueOf(proxy == args[0]); } if ("hashCode".equals(method.getName()) && method.getParameterTypes().length == 0) { return Integer.valueOf(System.identityHashCode(proxy)); } if ("toString".equals(method.getName()) && method.getParameterTypes().length == 0) { return "Test proxy"; } return method.invoke(real, args); }; final Test generated = (Test) Proxy.newProxyInstance(Thread.currentThread() .getContextClassLoader(), new Class[]{Test.class}, generatedTestInvocationHandler); assertEquals(real, generated); assertNotEquals(generated, real); assertTrue(AnnotationUtils.equals(generated, real)); assertTrue(AnnotationUtils.equals(real, generated)); final Test generated2 = (Test) Proxy.newProxyInstance(Thread.currentThread() .getContextClassLoader(), new Class[]{Test.class}, generatedTestInvocationHandler); assertNotEquals(generated, generated2); assertNotEquals(generated2, generated); assertTrue(AnnotationUtils.equals(generated, generated2)); assertTrue(AnnotationUtils.equals(generated2, generated)); });
-    }
-
-    @Test
-    public void testHashCode_1_oe() {
-        assertTimeoutPreemptively(Duration.ofSeconds(666L), () -> { final Test test = getClass().getDeclaredMethod("testHashCode").getAnnotation(Test.class); assertEquals(test.hashCode(), AnnotationUtils.hashCode(test)); final TestAnnotation testAnnotation1 = field1.getAnnotation(TestAnnotation.class); assertEquals(testAnnotation1.hashCode(), AnnotationUtils.hashCode(testAnnotation1)); final TestAnnotation testAnnotation3 = field3.getAnnotation(TestAnnotation.class); assertEquals(testAnnotation3.hashCode(), AnnotationUtils.hashCode(testAnnotation3)); });
-    }
-
-    @Test
-    @TestMethodAnnotation(timeout = 666000)
-    public void testToString_1_oe() {
-        assertTimeoutPreemptively(Duration.ofSeconds(666L), () -> { final TestMethodAnnotation testAnnotation = getClass().getDeclaredMethod("testToString").getAnnotation(TestMethodAnnotation.class); final String annotationString = AnnotationUtils.toString(testAnnotation); assertTrue(annotationString.startsWith("@org.apache.commons.lang3.AnnotationUtilsTest$TestMethodAnnotation(")); assertTrue(annotationString.endsWith(")")); assertTrue(annotationString.contains("expected=class org.apache.commons.lang3.AnnotationUtilsTest$TestMethodAnnotation$None")); assertTrue(annotationString.contains("timeout=666000")); assertTrue(annotationString.contains(", ")); });
     }
 
 }

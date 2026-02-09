@@ -28,7 +28,7 @@ class JenkinsSmallFast32Test_OE25Dev {
          * Tested with respect to the original reference:
          * See : https://burtleburtle.net/bob/rand/smallprng.html
          */
-        final int[] expectedSequence = {
+         int[] expectedSequence = {
             0x3b05df0d, 0xc1b222b1, 0xdc38504a, 0x5a929fee,
             0x695f52ee, 0x49246926, 0xeaca3aaa, 0xb7ea1598,
             0x6f946a66, 0xf4eddf53, 0x4235b7bf, 0x4b1eb3c6,

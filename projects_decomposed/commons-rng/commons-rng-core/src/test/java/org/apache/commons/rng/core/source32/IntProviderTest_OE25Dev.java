@@ -60,34 +60,13 @@ class IntProviderTest_OE25Dev {
     void testNextBoolean_1_oe() {
         for (int i = 0; i < Integer.SIZE; i++) {
             // Set only a single bit in the source
-            final int value = 1 << i;
-            final IntProvider provider = new FlipIntProvider(value);
+             int value = 1 << i;
+             IntProvider provider = new FlipIntProvider(value);
             // Test the result for a single pass over the long
             for (int j = 0; j < Integer.SIZE; j++) {
-                final boolean expected = i == j;
-                final int index = j;
+                 boolean expected = i == j;
+                 int index = j;
                 Assertions.assertEquals(expected, provider.nextBoolean(), () -> "Pass 1, bit " + index);
-    }
-    }
-    }
-
-    @Test
-    void testNextBoolean_2_oe() {
-        for (int i = 0; i < Integer.SIZE; i++) {
-            // Set only a single bit in the source
-            final int value = 1 << i;
-            final IntProvider provider = new FlipIntProvider(value);
-            // Test the result for a single pass over the long
-            for (int j = 0; j < Integer.SIZE; j++) {
-                final boolean expected = i == j;
-                final int index = j;
-                // removed other assertion
-            }
-            // The second pass should use the opposite bits
-            for (int j = 0; j < Integer.SIZE; j++) {
-                final boolean expected = i != j;
-                final int index = j;
-                Assertions.assertEquals(expected, provider.nextBoolean(), () -> "Pass 2, bit " + index);
     }
     }
     }

@@ -326,39 +326,6 @@ async_40_1,"  @Test(expectedExceptions = AsyncHttpClientImplException.class)
     Assert.fail(""Should never have reached here"");
   }
 ",AsyncHttpClientRegistryTest::testBadAsyncHttpClientRegistry_1_oe
-async_51_1,"  @Test(expectedExceptions = AsyncHttpClientImplException.class)
-  public void testRepeatedCallsToBadAsyncHttpClient_1_oe() throws IOException {
-    boolean exceptionCaught = false;
-    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, NON_EXISTENT_CLIENT_CLASS_NAME);
-    AsyncHttpClientConfigHelper.reloadProperties();
-    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
-      //
-    } catch (AsyncHttpClientImplException e) {
-      exceptionCaught = true;
-    }
-    Assert.assertTrue(exceptionCaught, ""Didn't catch exception the first time"");
-  }
-",AbstractAsyncHttpClientFactoryTest::testRepeatedCallsToBadAsyncHttpClient_1_oe
-async_51_2,"  @Test(expectedExceptions = AsyncHttpClientImplException.class)
-  public void testRepeatedCallsToBadAsyncHttpClient_2_oe() throws IOException {
-    boolean exceptionCaught = false;
-    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, NON_EXISTENT_CLIENT_CLASS_NAME);
-    AsyncHttpClientConfigHelper.reloadProperties();
-    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
-      //
-    } catch (AsyncHttpClientImplException e) {
-      exceptionCaught = true;
-    }
-    // removed other assertion
-    exceptionCaught = false;
-    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
-      //
-    } catch (AsyncHttpClientImplException e) {
-      exceptionCaught = true;
-    }
-    Assert.assertTrue(exceptionCaught, ""Didn't catch exception the second time"");
-  }
-",AbstractAsyncHttpClientFactoryTest::testRepeatedCallsToBadAsyncHttpClient_2_oe
 async_54_1,"  @Test
   public void testSynchronousService_FAIL_1_oe() throws Throwable {
     // given
@@ -3425,53 +3392,6 @@ async_156_1,"  @Test
     assertEquals(request.getHeaders().get(""X-Forwarded-For""), ""10.0.0.1"");
   }
 ",RequestBuilderTest::testSettingHeadersUsingMapWithStringKeys_1_oe
-async_165_1,"  @Test(groups = ""online"", enabled = false)
-  public void redirected302InvalidTest_1_oe() throws Exception {
-    isSet.getAndSet(false);
-    Exception e = null;
-
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      c.preparePost(getTargetUrl()).setFollowRedirect(true).setHeader(""X-redirect"", String.format(""http://localhost:%d/"", port2)).execute().get();
-    } catch (ExecutionException ex) {
-      e = ex;
-    }
-
-    assertNotNull(e);
-  }
-",PerRequestRelative302Test::redirected302InvalidTest_1_oe
-async_165_2,"  @Test(groups = ""online"", enabled = false)
-  public void redirected302InvalidTest_2_oe() throws Exception {
-    isSet.getAndSet(false);
-    Exception e = null;
-
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      c.preparePost(getTargetUrl()).setFollowRedirect(true).setHeader(""X-redirect"", String.format(""http://localhost:%d/"", port2)).execute().get();
-    } catch (ExecutionException ex) {
-      e = ex;
-    }
-
-    // removed other assertion
-    Throwable cause = e.getCause();
-    assertTrue(cause instanceof ConnectException);
-  }
-",PerRequestRelative302Test::redirected302InvalidTest_2_oe
-async_165_3,"  @Test(groups = ""online"", enabled = false)
-  public void redirected302InvalidTest_3_oe() throws Exception {
-    isSet.getAndSet(false);
-    Exception e = null;
-
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      c.preparePost(getTargetUrl()).setFollowRedirect(true).setHeader(""X-redirect"", String.format(""http://localhost:%d/"", port2)).execute().get();
-    } catch (ExecutionException ex) {
-      e = ex;
-    }
-
-    // removed other assertion
-    Throwable cause = e.getCause();
-    // removed other assertion
-    assertTrue(cause.getMessage().contains("":"" + port2));
-  }
-",PerRequestRelative302Test::redirected302InvalidTest_3_oe
 async_167_1,"  public void testDefaultMaxTotalConnections_1_oe() {
     Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultMaxConnections(), -1);
   }
@@ -5317,32 +5237,6 @@ async_433_1,"  @Test
     assertEquals(uri.getNonEmptyPath(), ""/"", ""Incorrect path returned from getNonEmptyPath"");
   }
 ",UriTest::testGetPathWhenPathIsEmpty_1_oe
-async_48_1_1,"  @Test
-  public void testGetAsyncHttpClientConfigWithBadAsyncHttpClient_1_oe_1_oe() throws IOException {
-    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, BAD_CLIENT_CLASS_NAME);
-    AsyncHttpClientConfigHelper.reloadProperties();
-    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
-      //
-    } catch (AsyncHttpClientImplException e) {
-            final AsyncHttpClientImplException e0 = e;
-      InvocationTargetException t0 = (InvocationTargetException) e0.getCause();
-          Assert.assertTrue(t0.getCause() instanceof BadAsyncHttpClientException0);
-  }
-  }
-",AbstractAsyncHttpClientFactoryTest::testGetAsyncHttpClientConfigWithBadAsyncHttpClient_1_oe_1_oe
-async_49_1_1,"  @Test
-  public void testGetAsyncHttpClientProviderWithBadAsyncHttpClient_1_oe_1_oe() throws IOException {
-    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, BAD_CLIENT_CLASS_NAME);
-    AsyncHttpClientConfigHelper.reloadProperties();
-    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
-      //
-    } catch (AsyncHttpClientImplException e) {
-            final AsyncHttpClientImplException e0 = e;
-      InvocationTargetException t0 = (InvocationTargetException) e0.getCause();
-          Assert.assertTrue(t0.getCause() instanceof BadAsyncHttpClientException0);
-  }
-  }
-",AbstractAsyncHttpClientFactoryTest::testGetAsyncHttpClientProviderWithBadAsyncHttpClient_1_oe_1_oe
 async_52_1_1,"  @Test
   public void testSynchronousService_OK_1_oe_1_oe() throws Throwable {
     // given

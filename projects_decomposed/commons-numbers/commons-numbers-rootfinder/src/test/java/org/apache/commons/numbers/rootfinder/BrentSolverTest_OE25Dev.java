@@ -1265,25 +1265,6 @@ class BrentSolverTest_OE25Dev {
     }
 
     @Test
-    void testTooManyCalls_4_oe() {
-        final DoubleUnaryOperator func = new QuinticFunction();
-        final BrentSolver solver = new BrentSolver(DEFAULT_ABSOLUTE_ACCURACY,
-                                                   DEFAULT_RELATIVE_ACCURACY,
-                                                   DEFAULT_FUNCTION_ACCURACY);
-
-        // Very large bracket around 1 for testing fast growth behavior.
-        final MonitoredFunction f = new MonitoredFunction(func);
-        final double result = solver.findRoot(f, 0.85, 5);
-        // removed other assertion
-        // removed other assertion
-
-        final MonitoredFunction f2 = new MonitoredFunction(func, 10);
-        // removed other assertion
-        // Ensure expected error condition.
-        Assertions.assertNotEquals(-1, ex.getMessage().indexOf("too many calls"));
-    }
-
-    @Test
     void testRootEndpoints_1_oe() {
         final DoubleUnaryOperator f = new Sin();
         final BrentSolver solver = new BrentSolver(DEFAULT_ABSOLUTE_ACCURACY,

@@ -43,6 +43,24 @@ class ProvidersCommonParametricTest_OE25Dev {
 
     @ParameterizedTest
     @MethodSource("getList")
+    void testUniformNextBytesFullBuffer(UniformRandomProvider generator) {
+        // Value chosen to exercise all the code lines in the
+        // "nextBytes" methods.
+        final int size = 23;
+        final byte[] buffer = new byte[size];
+
+        final Runnable nextMethod = new Runnable() {
+            @Override
+            public void run() {
+                generator.nextBytes(buffer);
+            }
+        };
+
+        Assertions.assertTrue(isUniformNextBytes(buffer, 0, size, nextMethod), generator::toString);
+    }
+
+    @ParameterizedTest
+    @MethodSource("getList")
     void testUniformNextIntegerInRange(UniformRandomProvider generator) {
         // Statistical test uses 10 bins so tests are invalid below this level
         checkNextIntegerInRange(generator, 10, 1000);
@@ -509,18 +527,18 @@ class ProvidersCommonParametricTest_OE25Dev {
     @ParameterizedTest
     @MethodSource("getList")
     void testPreconditionNextBytes_1_oe(UniformRandomProvider generator) {
-        final int size = 10;
-        final int num = 1;
-        final byte[] buf = new byte[size];
+         int size = 10;
+         int num = 1;
+         byte[] buf = new byte[size];
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> generator.nextBytes(buf, -1, num));
     }
 
     @ParameterizedTest
     @MethodSource("getList")
     void testPreconditionNextBytes_2_oe(UniformRandomProvider generator) {
-        final int size = 10;
-        final int num = 1;
-        final byte[] buf = new byte[size];
+         int size = 10;
+         int num = 1;
+         byte[] buf = new byte[size];
         // removed other assertion
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> generator.nextBytes(buf, size, 0));
     }
@@ -528,56 +546,38 @@ class ProvidersCommonParametricTest_OE25Dev {
     @ParameterizedTest
     @MethodSource("getList")
     void testPreconditionNextBytes_3_oe(UniformRandomProvider generator) {
-        final int size = 10;
-        final int num = 1;
-        final byte[] buf = new byte[size];
+         int size = 10;
+         int num = 1;
+         byte[] buf = new byte[size];
         // removed other assertion
         // removed other assertion
-        final int offset = 2;
+         int offset = 2;
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> generator.nextBytes(buf, offset, size - offset + 1));
     }
 
     @ParameterizedTest
     @MethodSource("getList")
     void testPreconditionNextBytes_4_oe(UniformRandomProvider generator) {
-        final int size = 10;
-        final int num = 1;
-        final byte[] buf = new byte[size];
+         int size = 10;
+         int num = 1;
+         byte[] buf = new byte[size];
         // removed other assertion
         // removed other assertion
-        final int offset = 2;
+         int offset = 2;
         // removed other assertion
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> generator.nextBytes(buf, offset, -1));
     }
 
     @ParameterizedTest
     @MethodSource("getList")
-    void testUniformNextBytesFullBuffer_1_oe(UniformRandomProvider generator) {
-        // Value chosen to exercise all the code lines in the
-        // "nextBytes" methods.
-        final int size = 23;
-        final byte[] buffer = new byte[size];
-
-        final Runnable nextMethod = new Runnable() {
-            @Override
-            public void run() {
-                generator.nextBytes(buffer);
-            }
-        };
-
-        Assertions.assertTrue(isUniformNextBytes(buffer, 0, size, nextMethod), generator::toString);
-    }
-
-    @ParameterizedTest
-    @MethodSource("getList")
     void testUniformNextBytesPartialBuffer_1_oe(UniformRandomProvider generator) {
-        final int totalSize = 1234;
-        final int offset = 567;
-        final int size = 89;
+         int totalSize = 1234;
+         int offset = 567;
+         int size = 89;
 
-        final byte[] buffer = new byte[totalSize];
+         byte[] buffer = new byte[totalSize];
 
-        final Runnable nextMethod = new Runnable() {
+         Runnable nextMethod = new Runnable() {
             @Override
             public void run() {
                 generator.nextBytes(buffer, offset, size);
@@ -591,13 +591,13 @@ class ProvidersCommonParametricTest_OE25Dev {
     @ParameterizedTest
     @MethodSource("getList")
     void testUniformNextBytesPartialBuffer_2_oe(UniformRandomProvider generator) {
-        final int totalSize = 1234;
-        final int offset = 567;
-        final int size = 89;
+         int totalSize = 1234;
+         int offset = 567;
+         int size = 89;
 
-        final byte[] buffer = new byte[totalSize];
+         byte[] buffer = new byte[totalSize];
 
-        final Runnable nextMethod = new Runnable() {
+         Runnable nextMethod = new Runnable() {
             @Override
             public void run() {
                 generator.nextBytes(buffer, offset, size);
@@ -614,13 +614,13 @@ class ProvidersCommonParametricTest_OE25Dev {
     @ParameterizedTest
     @MethodSource("getList")
     void testUniformNextBytesPartialBuffer_3_oe(UniformRandomProvider generator) {
-        final int totalSize = 1234;
-        final int offset = 567;
-        final int size = 89;
+         int totalSize = 1234;
+         int offset = 567;
+         int size = 89;
 
-        final byte[] buffer = new byte[totalSize];
+         byte[] buffer = new byte[totalSize];
 
-        final Runnable nextMethod = new Runnable() {
+         Runnable nextMethod = new Runnable() {
             @Override
             public void run() {
                 generator.nextBytes(buffer, offset, size);
@@ -640,14 +640,14 @@ class ProvidersCommonParametricTest_OE25Dev {
     void testStateSettable_1_oe(RestorableUniformRandomProvider generator) {
         // Should be fairly large in order to ensure that all the internal
         // state is away from its initial settings.
-        final int n = 10000;
+         int n = 10000;
 
         // Save.
-        final RandomProviderState state = generator.saveState();
+         RandomProviderState state = generator.saveState();
         // Store some values.
-        final List<Number> listOrig = makeList(n, generator);
+         List<Number> listOrig = makeList(n, generator);
         // Discard a few more.
-        final List<Number> listDiscard = makeList(n, generator);
+         List<Number> listDiscard = makeList(n, generator);
         Assertions.assertNotEquals(0, listDiscard.size());
     }
 
@@ -656,14 +656,14 @@ class ProvidersCommonParametricTest_OE25Dev {
     void testStateSettable_2_oe(RestorableUniformRandomProvider generator) {
         // Should be fairly large in order to ensure that all the internal
         // state is away from its initial settings.
-        final int n = 10000;
+         int n = 10000;
 
         // Save.
-        final RandomProviderState state = generator.saveState();
+         RandomProviderState state = generator.saveState();
         // Store some values.
-        final List<Number> listOrig = makeList(n, generator);
+         List<Number> listOrig = makeList(n, generator);
         // Discard a few more.
-        final List<Number> listDiscard = makeList(n, generator);
+         List<Number> listDiscard = makeList(n, generator);
         // removed other assertion
         Assertions.assertNotEquals(listOrig, listDiscard);
     }
@@ -673,20 +673,20 @@ class ProvidersCommonParametricTest_OE25Dev {
     void testStateSettable_3_oe(RestorableUniformRandomProvider generator) {
         // Should be fairly large in order to ensure that all the internal
         // state is away from its initial settings.
-        final int n = 10000;
+         int n = 10000;
 
         // Save.
-        final RandomProviderState state = generator.saveState();
+         RandomProviderState state = generator.saveState();
         // Store some values.
-        final List<Number> listOrig = makeList(n, generator);
+         List<Number> listOrig = makeList(n, generator);
         // Discard a few more.
-        final List<Number> listDiscard = makeList(n, generator);
+         List<Number> listDiscard = makeList(n, generator);
         // removed other assertion
         // removed other assertion
         // Reset.
         generator.restoreState(state);
         // Replay.
-        final List<Number> listReplay = makeList(n, generator);
+         List<Number> listReplay = makeList(n, generator);
         Assertions.assertNotSame(listOrig, listReplay);
     }
 
@@ -695,20 +695,20 @@ class ProvidersCommonParametricTest_OE25Dev {
     void testStateSettable_4_oe(RestorableUniformRandomProvider generator) {
         // Should be fairly large in order to ensure that all the internal
         // state is away from its initial settings.
-        final int n = 10000;
+         int n = 10000;
 
         // Save.
-        final RandomProviderState state = generator.saveState();
+         RandomProviderState state = generator.saveState();
         // Store some values.
-        final List<Number> listOrig = makeList(n, generator);
+         List<Number> listOrig = makeList(n, generator);
         // Discard a few more.
-        final List<Number> listDiscard = makeList(n, generator);
+         List<Number> listDiscard = makeList(n, generator);
         // removed other assertion
         // removed other assertion
         // Reset.
         generator.restoreState(state);
         // Replay.
-        final List<Number> listReplay = makeList(n, generator);
+         List<Number> listReplay = makeList(n, generator);
         // removed other assertion
         // Check that the restored state is the same as the original.
         Assertions.assertEquals(listOrig, listReplay);
@@ -717,7 +717,7 @@ class ProvidersCommonParametricTest_OE25Dev {
     @ParameterizedTest
     @MethodSource("getList")
     void testStateWrongSize_1_oe(RestorableUniformRandomProvider generator) {
-        final RandomProviderState state = new DummyGenerator().saveState();
+         RandomProviderState state = new DummyGenerator().saveState();
         // Try to restore with an invalid state (wrong size).
         Assertions.assertThrows(IllegalStateException.class, () -> generator.restoreState(state));
     }

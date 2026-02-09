@@ -35,38 +35,7 @@ public class RemoteHttpCacheServiceUnitTest_OE25Dev
      * <p>
      * @throws Exception
      */
-
-    /**
-     * Verify event log calls.
-     * <p>
-     * @throws Exception
-     */
-
-    /**
-     * Verify event log calls.
-     * <p>
-     * @throws Exception
-     */
-
-    /**
-     * Verify event log calls.
-     * <p>
-     * @throws Exception
-     */
-
-    /**
-     * Verify event log calls.
-     * <p>
-     * @throws Exception
-     */
-
-    /**
-     * Verify event log calls.
-     * <p>
-     * @throws Exception
-     */
-
-    public void testUpdate_simple_1_oe()
+    public void testUpdate_simple()
         throws Exception
     {
         // SETUP
@@ -87,9 +56,33 @@ public class RemoteHttpCacheServiceUnitTest_OE25Dev
 
         // VERIFY
         assertEquals( "Start should have been called.", 1, cacheEventLogger.startICacheEventCalls );
+        assertEquals( "End should have been called.", 1, cacheEventLogger.endICacheEventCalls );
     }
 
-    public void testUpdate_simple_2_oe()
+    /**
+     * Verify event log calls.
+     * <p>
+     * @throws Exception
+     */
+
+    /**
+     * Verify event log calls.
+     * <p>
+     * @throws Exception
+     */
+
+    /**
+     * Verify event log calls.
+     * <p>
+     * @throws Exception
+     */
+
+    /**
+     * Verify event log calls.
+     * <p>
+     * @throws Exception
+     */
+    public void testRemove_simple()
         throws Exception
     {
         // SETUP
@@ -100,16 +93,35 @@ public class RemoteHttpCacheServiceUnitTest_OE25Dev
         final RemoteHttpCacheService<String, String> server =
             new RemoteHttpCacheService<>( manager, rcsa, cacheEventLogger );
 
-        final String cacheName = "test";
-        final String key = "key";
-        final long requesterId = 2;
-        final CacheElement<String, String> element = new CacheElement<>( cacheName, key, null );
-
         // DO WORK
-        server.update( element, requesterId );
+        server.remove( "region", "key" );
 
         // VERIFY
-        // removed other assertion
+        assertEquals( "Start should have been called.", 1, cacheEventLogger.startICacheEventCalls );
+        assertEquals( "End should have been called.", 1, cacheEventLogger.endICacheEventCalls );
+    }
+
+    /**
+     * Verify event log calls.
+     * <p>
+     * @throws Exception
+     */
+    public void testRemoveAll_simple()
+        throws Exception
+    {
+        // SETUP
+        final MockCompositeCacheManager manager = new MockCompositeCacheManager();
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+
+        final RemoteHttpCacheServerAttributes rcsa = new RemoteHttpCacheServerAttributes();
+        final RemoteHttpCacheService<String, String> server =
+            new RemoteHttpCacheService<>( manager, rcsa, cacheEventLogger );
+
+        // DO WORK
+        server.removeAll( "region" );
+
+        // VERIFY
+        assertEquals( "Start should have been called.", 1, cacheEventLogger.startICacheEventCalls );
         assertEquals( "End should have been called.", 1, cacheEventLogger.endICacheEventCalls );
     }
 
@@ -129,25 +141,6 @@ public class RemoteHttpCacheServiceUnitTest_OE25Dev
 
         // VERIFY
         assertEquals( "Start should have been called.", 1, cacheEventLogger.startICacheEventCalls );
-    }
-
-    public void testGet_simple_2_oe()
-        throws Exception
-    {
-        // SETUP
-        final MockCompositeCacheManager manager = new MockCompositeCacheManager();
-        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
-
-        final RemoteHttpCacheServerAttributes rcsa = new RemoteHttpCacheServerAttributes();
-        final RemoteHttpCacheService<String, String> server =
-            new RemoteHttpCacheService<>( manager, rcsa, cacheEventLogger );
-
-        // DO WORK
-        server.get( "region", "key" );
-
-        // VERIFY
-        // removed other assertion
-        assertEquals( "End should have been called.", 1, cacheEventLogger.endICacheEventCalls );
     }
 
     public void testGetMatching_simple_1_oe()
@@ -218,80 +211,6 @@ public class RemoteHttpCacheServiceUnitTest_OE25Dev
 
         // DO WORK
         server.getMultiple( "region", new HashSet<>() );
-
-        // VERIFY
-        // removed other assertion
-        assertEquals( "End should have been called.", 1, cacheEventLogger.endICacheEventCalls );
-    }
-
-    public void testRemove_simple_1_oe()
-        throws Exception
-    {
-        // SETUP
-        final MockCompositeCacheManager manager = new MockCompositeCacheManager();
-        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
-
-        final RemoteHttpCacheServerAttributes rcsa = new RemoteHttpCacheServerAttributes();
-        final RemoteHttpCacheService<String, String> server =
-            new RemoteHttpCacheService<>( manager, rcsa, cacheEventLogger );
-
-        // DO WORK
-        server.remove( "region", "key" );
-
-        // VERIFY
-        assertEquals( "Start should have been called.", 1, cacheEventLogger.startICacheEventCalls );
-    }
-
-    public void testRemove_simple_2_oe()
-        throws Exception
-    {
-        // SETUP
-        final MockCompositeCacheManager manager = new MockCompositeCacheManager();
-        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
-
-        final RemoteHttpCacheServerAttributes rcsa = new RemoteHttpCacheServerAttributes();
-        final RemoteHttpCacheService<String, String> server =
-            new RemoteHttpCacheService<>( manager, rcsa, cacheEventLogger );
-
-        // DO WORK
-        server.remove( "region", "key" );
-
-        // VERIFY
-        // removed other assertion
-        assertEquals( "End should have been called.", 1, cacheEventLogger.endICacheEventCalls );
-    }
-
-    public void testRemoveAll_simple_1_oe()
-        throws Exception
-    {
-        // SETUP
-        final MockCompositeCacheManager manager = new MockCompositeCacheManager();
-        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
-
-        final RemoteHttpCacheServerAttributes rcsa = new RemoteHttpCacheServerAttributes();
-        final RemoteHttpCacheService<String, String> server =
-            new RemoteHttpCacheService<>( manager, rcsa, cacheEventLogger );
-
-        // DO WORK
-        server.removeAll( "region" );
-
-        // VERIFY
-        assertEquals( "Start should have been called.", 1, cacheEventLogger.startICacheEventCalls );
-    }
-
-    public void testRemoveAll_simple_2_oe()
-        throws Exception
-    {
-        // SETUP
-        final MockCompositeCacheManager manager = new MockCompositeCacheManager();
-        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
-
-        final RemoteHttpCacheServerAttributes rcsa = new RemoteHttpCacheServerAttributes();
-        final RemoteHttpCacheService<String, String> server =
-            new RemoteHttpCacheService<>( manager, rcsa, cacheEventLogger );
-
-        // DO WORK
-        server.removeAll( "region" );
 
         // VERIFY
         // removed other assertion

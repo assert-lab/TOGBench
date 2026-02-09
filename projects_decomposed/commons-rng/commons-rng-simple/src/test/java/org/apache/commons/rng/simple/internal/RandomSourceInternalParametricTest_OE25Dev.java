@@ -151,16 +151,16 @@ class RandomSourceInternalParametricTest_OE25Dev {
     @ParameterizedTest
     @EnumSource
     void testCreateSeed_1_oe(RandomSourceInternal randomSourceInternal) {
-        final Class<?> type = getType(randomSourceInternal);
-        final Object seed = randomSourceInternal.createSeed();
+         Class<?> type = getType(randomSourceInternal);
+         Object seed = randomSourceInternal.createSeed();
         Assertions.assertNotNull(seed);
     }
 
     @ParameterizedTest
     @EnumSource
     void testCreateSeed_2_oe(RandomSourceInternal randomSourceInternal) {
-        final Class<?> type = getType(randomSourceInternal);
-        final Object seed = randomSourceInternal.createSeed();
+         Class<?> type = getType(randomSourceInternal);
+         Object seed = randomSourceInternal.createSeed();
         // removed other assertion
         Assertions.assertEquals(type, seed.getClass(), "Seed was not the correct class");
     }
@@ -168,8 +168,8 @@ class RandomSourceInternalParametricTest_OE25Dev {
     @ParameterizedTest
     @EnumSource
     void testCreateSeed_3_oe(RandomSourceInternal randomSourceInternal) {
-        final Class<?> type = getType(randomSourceInternal);
-        final Object seed = randomSourceInternal.createSeed();
+         Class<?> type = getType(randomSourceInternal);
+         Object seed = randomSourceInternal.createSeed();
         // removed other assertion
         // removed other assertion
         Assertions.assertTrue(randomSourceInternal.isNativeSeed(seed), "Seed was not identified as the native type");
@@ -178,10 +178,10 @@ class RandomSourceInternalParametricTest_OE25Dev {
     @ParameterizedTest
     @EnumSource
     void testConvertSupportedSeed_1_oe(RandomSourceInternal randomSourceInternal) {
-        final Class<?> type = getType(randomSourceInternal);
-        for (final Object input : SUPPORTED_SEEDS) {
-            final Object seed = randomSourceInternal.convertSeed(input);
-            final Supplier<String> msg = () -> input.getClass() + " input seed was not converted";
+         Class<?> type = getType(randomSourceInternal);
+        for ( Object input : SUPPORTED_SEEDS) {
+             Object seed = randomSourceInternal.convertSeed(input);
+             Supplier<String> msg = () -> input.getClass() + " input seed was not converted";
             Assertions.assertNotNull(seed, msg);
     }
     }
@@ -189,10 +189,10 @@ class RandomSourceInternalParametricTest_OE25Dev {
     @ParameterizedTest
     @EnumSource
     void testConvertSupportedSeed_2_oe(RandomSourceInternal randomSourceInternal) {
-        final Class<?> type = getType(randomSourceInternal);
-        for (final Object input : SUPPORTED_SEEDS) {
-            final Object seed = randomSourceInternal.convertSeed(input);
-            final Supplier<String> msg = () -> input.getClass() + " input seed was not converted";
+         Class<?> type = getType(randomSourceInternal);
+        for ( Object input : SUPPORTED_SEEDS) {
+             Object seed = randomSourceInternal.convertSeed(input);
+             Supplier<String> msg = () -> input.getClass() + " input seed was not converted";
             // removed other assertion
             Assertions.assertEquals(type, seed.getClass(), msg);
     }
@@ -201,10 +201,10 @@ class RandomSourceInternalParametricTest_OE25Dev {
     @ParameterizedTest
     @EnumSource
     void testConvertSupportedSeed_3_oe(RandomSourceInternal randomSourceInternal) {
-        final Class<?> type = getType(randomSourceInternal);
-        for (final Object input : SUPPORTED_SEEDS) {
-            final Object seed = randomSourceInternal.convertSeed(input);
-            final Supplier<String> msg = () -> input.getClass() + " input seed was not converted";
+         Class<?> type = getType(randomSourceInternal);
+        for ( Object input : SUPPORTED_SEEDS) {
+             Object seed = randomSourceInternal.convertSeed(input);
+             Supplier<String> msg = () -> input.getClass() + " input seed was not converted";
             // removed other assertion
             // removed other assertion
             Assertions.assertTrue(randomSourceInternal.isNativeSeed(seed), msg);
@@ -214,7 +214,7 @@ class RandomSourceInternalParametricTest_OE25Dev {
     @ParameterizedTest
     @EnumSource
     void testCannotConvertUnsupportedSeed_1_oe(RandomSourceInternal randomSourceInternal) {
-        for (final Object input : UNSUPPORTED_SEEDS) {
+        for ( Object input : UNSUPPORTED_SEEDS) {
             Assertions.assertThrows(UnsupportedOperationException.class, () -> randomSourceInternal.convertSeed(input), () -> input.getClass() + " input seed was not rejected as unsupported");
     }
     }
@@ -223,9 +223,9 @@ class RandomSourceInternalParametricTest_OE25Dev {
     @EnumSource
     void testCreateSeedBytesSizeIsPositiveAndMultipleOf4Or8_1_oe(RandomSourceInternal randomSourceInternal) {
         // This should be the full length seed
-        final byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+         byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
 
-        final int size = seed.length;
+         int size = seed.length;
         Assertions.assertNotEquals(0, size, "Seed is empty");
     }
 
@@ -233,9 +233,9 @@ class RandomSourceInternalParametricTest_OE25Dev {
     @EnumSource
     void testCreateSeedBytesSizeIsPositiveAndMultipleOf4Or8_2_oe(RandomSourceInternal randomSourceInternal) {
         // This should be the full length seed
-        final byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+         byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
 
-        final int size = seed.length;
+         int size = seed.length;
         // removed other assertion
 
         if (randomSourceInternal.isNativeSeed(Integer.valueOf(0))) {
@@ -247,9 +247,9 @@ class RandomSourceInternalParametricTest_OE25Dev {
     @EnumSource
     void testCreateSeedBytesSizeIsPositiveAndMultipleOf4Or8_3_oe(RandomSourceInternal randomSourceInternal) {
         // This should be the full length seed
-        final byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+         byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
 
-        final int size = seed.length;
+         int size = seed.length;
         // removed other assertion
 
         if (randomSourceInternal.isNativeSeed(Integer.valueOf(0))) {
@@ -263,9 +263,9 @@ class RandomSourceInternalParametricTest_OE25Dev {
     @EnumSource
     void testCreateSeedBytesSizeIsPositiveAndMultipleOf4Or8_4_oe(RandomSourceInternal randomSourceInternal) {
         // This should be the full length seed
-        final byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+         byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
 
-        final int size = seed.length;
+         int size = seed.length;
         // removed other assertion
 
         if (randomSourceInternal.isNativeSeed(Integer.valueOf(0))) {
@@ -281,9 +281,9 @@ class RandomSourceInternalParametricTest_OE25Dev {
     @EnumSource
     void testCreateSeedBytesSizeIsPositiveAndMultipleOf4Or8_5_oe(RandomSourceInternal randomSourceInternal) {
         // This should be the full length seed
-        final byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+         byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
 
-        final int size = seed.length;
+         int size = seed.length;
         // removed other assertion
 
         if (randomSourceInternal.isNativeSeed(Integer.valueOf(0))) {
@@ -301,9 +301,9 @@ class RandomSourceInternalParametricTest_OE25Dev {
     @EnumSource
     void testCreateSeedBytesSizeIsPositiveAndMultipleOf4Or8_6_oe(RandomSourceInternal randomSourceInternal) {
         // This should be the full length seed
-        final byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+         byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
 
-        final int size = seed.length;
+         int size = seed.length;
         // removed other assertion
 
         if (randomSourceInternal.isNativeSeed(Integer.valueOf(0))) {
@@ -323,10 +323,10 @@ class RandomSourceInternalParametricTest_OE25Dev {
     @EnumSource
     void testCreateSeedBytes_1_oe(RandomSourceInternal randomSourceInternal) {
         // This should be the full length seed
-        final byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
-        final int size = seed.length;
+         byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+         int size = seed.length;
 
-        final Integer expected = EXPECTED_SEED_BYTES.get(randomSourceInternal);
+         Integer expected = EXPECTED_SEED_BYTES.get(randomSourceInternal);
         Assertions.assertNotNull(expected, () -> "Missing expected seed byte size: " + randomSourceInternal);
     }
 
@@ -334,10 +334,10 @@ class RandomSourceInternalParametricTest_OE25Dev {
     @EnumSource
     void testCreateSeedBytes_2_oe(RandomSourceInternal randomSourceInternal) {
         // This should be the full length seed
-        final byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
-        final int size = seed.length;
+         byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+         int size = seed.length;
 
-        final Integer expected = EXPECTED_SEED_BYTES.get(randomSourceInternal);
+         Integer expected = EXPECTED_SEED_BYTES.get(randomSourceInternal);
         // removed other assertion
         Assertions.assertEquals(expected.intValue(), size, () -> randomSourceInternal.toString());
     }

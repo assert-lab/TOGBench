@@ -445,8 +445,8 @@ class ZigguratSamplerTest_OE25Dev {
 
     @Test
     void testExponentialConstructorThrowsWithZeroMean_1_oe() {
-        final RestorableUniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final double mean = 0;
+         RestorableUniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         double mean = 0;
         Assertions.assertThrows(IllegalArgumentException.class, () -> ZigguratSampler.Exponential.of(rng, mean));
     }
 
@@ -457,7 +457,7 @@ class ZigguratSamplerTest_OE25Dev {
         // The tail will be selected if the next output is -1.
         // Thus two -1 values enter recursion where a new exponential sample is added
         // to the tail value:
-        final double tailValue = 7.569274694148063;
+         double tailValue = 7.569274694148063;
 
         // Alias sampling assigns the ziggurat layer using the lower 8 bits.
         // The rest determine if the layer or the alias are used. We do not control this
@@ -474,7 +474,7 @@ class ZigguratSamplerTest_OE25Dev {
         // The tail will be selected if the next output is -1.
         // Thus two -1 values enter recursion where a new exponential sample is added
         // to the tail value:
-        final double tailValue = 7.569274694148063;
+         double tailValue = 7.569274694148063;
 
         // Alias sampling assigns the ziggurat layer using the lower 8 bits.
         // The rest determine if the layer or the alias are used. We do not control this
@@ -492,7 +492,7 @@ class ZigguratSamplerTest_OE25Dev {
         // The tail will be selected if the next output is -1.
         // Thus two -1 values enter recursion where a new exponential sample is added
         // to the tail value:
-        final double tailValue = 7.569274694148063;
+         double tailValue = 7.569274694148063;
 
         // Alias sampling assigns the ziggurat layer using the lower 8 bits.
         // The rest determine if the layer or the alias are used. We do not control this
@@ -503,11 +503,11 @@ class ZigguratSamplerTest_OE25Dev {
         // removed other assertion
 
         // Use different seeds to test different layers from the edge of the ziggurat.
-        for (final long seed : new long[] {42, -2136612838, 2340923842L, -1263746817818681L}) {
+        for ( long seed : new long[] {42, -2136612838, 2340923842L, -1263746817818681L}) {
             // Base value
-            final double x0 = expSample(seed);
+             double x0 = expSample(seed);
             // Edge value
-            final double x1 = expSample(seed, -1);
+             double x1 = expSample(seed, -1);
             // Recursion
             Assertions.assertEquals(x0 + tailValue, expSample(seed, -1, -1));
     }
@@ -520,7 +520,7 @@ class ZigguratSamplerTest_OE25Dev {
         // The tail will be selected if the next output is -1.
         // Thus two -1 values enter recursion where a new exponential sample is added
         // to the tail value:
-        final double tailValue = 7.569274694148063;
+         double tailValue = 7.569274694148063;
 
         // Alias sampling assigns the ziggurat layer using the lower 8 bits.
         // The rest determine if the layer or the alias are used. We do not control this
@@ -531,11 +531,11 @@ class ZigguratSamplerTest_OE25Dev {
         // removed other assertion
 
         // Use different seeds to test different layers from the edge of the ziggurat.
-        for (final long seed : new long[] {42, -2136612838, 2340923842L, -1263746817818681L}) {
+        for ( long seed : new long[] {42, -2136612838, 2340923842L, -1263746817818681L}) {
             // Base value
-            final double x0 = expSample(seed);
+             double x0 = expSample(seed);
             // Edge value
-            final double x1 = expSample(seed, -1);
+             double x1 = expSample(seed, -1);
             // Recursion
             // removed other assertion
             Assertions.assertEquals(x1 + tailValue, expSample(seed, -1, -1, -1));
@@ -549,7 +549,7 @@ class ZigguratSamplerTest_OE25Dev {
         // The tail will be selected if the next output is -1.
         // Thus two -1 values enter recursion where a new exponential sample is added
         // to the tail value:
-        final double tailValue = 7.569274694148063;
+         double tailValue = 7.569274694148063;
 
         // Alias sampling assigns the ziggurat layer using the lower 8 bits.
         // The rest determine if the layer or the alias are used. We do not control this
@@ -560,16 +560,16 @@ class ZigguratSamplerTest_OE25Dev {
         // removed other assertion
 
         // Use different seeds to test different layers from the edge of the ziggurat.
-        for (final long seed : new long[] {42, -2136612838, 2340923842L, -1263746817818681L}) {
+        for ( long seed : new long[] {42, -2136612838, 2340923842L, -1263746817818681L}) {
             // Base value
-            final double x0 = expSample(seed);
+             double x0 = expSample(seed);
             // Edge value
-            final double x1 = expSample(seed, -1);
+             double x1 = expSample(seed, -1);
             // Recursion
             // removed other assertion
             // removed other assertion
             // Double recursion
-            // Note the order of additions is important as the final sample is added to
+            // Note the order of additions is important as the  sample is added to
             // a summation of the tail value.
             Assertions.assertEquals(tailValue + tailValue + x0, expSample(seed, -1, -1, -1, -1));
     }
@@ -582,7 +582,7 @@ class ZigguratSamplerTest_OE25Dev {
         // The tail will be selected if the next output is -1.
         // Thus two -1 values enter recursion where a new exponential sample is added
         // to the tail value:
-        final double tailValue = 7.569274694148063;
+         double tailValue = 7.569274694148063;
 
         // Alias sampling assigns the ziggurat layer using the lower 8 bits.
         // The rest determine if the layer or the alias are used. We do not control this
@@ -593,16 +593,16 @@ class ZigguratSamplerTest_OE25Dev {
         // removed other assertion
 
         // Use different seeds to test different layers from the edge of the ziggurat.
-        for (final long seed : new long[] {42, -2136612838, 2340923842L, -1263746817818681L}) {
+        for ( long seed : new long[] {42, -2136612838, 2340923842L, -1263746817818681L}) {
             // Base value
-            final double x0 = expSample(seed);
+             double x0 = expSample(seed);
             // Edge value
-            final double x1 = expSample(seed, -1);
+             double x1 = expSample(seed, -1);
             // Recursion
             // removed other assertion
             // removed other assertion
             // Double recursion
-            // Note the order of additions is important as the final sample is added to
+            // Note the order of additions is important as the  sample is added to
             // a summation of the tail value.
             // removed other assertion
             Assertions.assertEquals(tailValue + tailValue + x1, expSample(seed, -1, -1, -1, -1, -1));

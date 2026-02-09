@@ -47,8 +47,8 @@ class MarsagliaNormalisedGaussianSamplerTest_OE25Dev {
 
     @Test
     void testSamplePairIsRejected_1_oe() {
-        final double value = 0.25;
-        final UniformRandomProvider rng = new IntProvider() {
+         double value = 0.25;
+         UniformRandomProvider rng = new IntProvider() {
             private int i;
 
             @Override
@@ -74,12 +74,12 @@ class MarsagliaNormalisedGaussianSamplerTest_OE25Dev {
             }
         };
 
-        final MarsagliaNormalizedGaussianSampler sampler = new MarsagliaNormalizedGaussianSampler(rng);
+         MarsagliaNormalizedGaussianSampler sampler = new MarsagliaNormalizedGaussianSampler(rng);
 
         // Compute as per the algorithm
-        final double x = 2 * value - 1;
-        final double r2 = x * x + x * x;
-        final double expected = x * Math.sqrt(-2 * Math.log(r2) / r2);
+         double x = 2 * value - 1;
+         double r2 = x * x + x * x;
+         double expected = x * Math.sqrt(-2 * Math.log(r2) / r2);
         Assertions.assertEquals(expected, sampler.sample());
     }
 

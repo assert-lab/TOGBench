@@ -52,19 +52,19 @@ class RejectionInversionZipfSamplerTest_OE25Dev {
 
     @Test
     void testConstructorThrowsWithZeroNumberOfElements_1_oe() {
-        final RestorableUniformRandomProvider rng =
+         RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final int numberOfElements = 0;
-        final double exponent = 1;
+         int numberOfElements = 0;
+         double exponent = 1;
         Assertions.assertThrows(IllegalArgumentException.class, () -> RejectionInversionZipfSampler.of(rng, numberOfElements, exponent));
     }
 
     @Test
     void testConstructorThrowsWithZeroExponent_1_oe() {
-        final RestorableUniformRandomProvider rng =
+         RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final int numberOfElements = 1;
-        final double exponent = 0;
+         int numberOfElements = 1;
+         double exponent = 0;
         Assertions.assertThrows(IllegalArgumentException.class, () -> RejectionInversionZipfSampler.of(rng, numberOfElements, exponent));
     }
 

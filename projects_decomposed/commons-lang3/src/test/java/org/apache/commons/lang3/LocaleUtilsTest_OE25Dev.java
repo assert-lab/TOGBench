@@ -1467,7 +1467,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1488,7 +1488,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1510,7 +1510,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1537,7 +1537,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1587,7 +1587,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1609,7 +1609,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1632,7 +1632,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1660,7 +1660,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1713,7 +1713,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1736,7 +1736,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1760,7 +1760,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1789,7 +1789,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1836,7 +1836,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1857,7 +1857,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1879,7 +1879,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1906,7 +1906,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1959,7 +1959,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -1982,7 +1982,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -2006,7 +2006,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -2035,7 +2035,7 @@ public class LocaleUtilsTest_OE25Dev  {
                 // removed other assertion
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {

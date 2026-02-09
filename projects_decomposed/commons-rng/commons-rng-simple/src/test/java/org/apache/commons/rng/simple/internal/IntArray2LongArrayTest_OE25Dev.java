@@ -26,15 +26,15 @@ class IntArray2LongArrayTest_OE25Dev {
 
     @Test
     void testSeedSizeIsMultipleOfLongSize_1_oe() {
-        final int[] seed = new int[12];
-        final long[] out = new IntArray2LongArray().convert(seed);
+         int[] seed = new int[12];
+         long[] out = new IntArray2LongArray().convert(seed);
         Assertions.assertEquals(6, out.length);
     }
 
     @Test
     void testSeedSizeIsNotMultipleOfLongSize_1_oe() {
-        final int[] seed = new int[13];
-        final long[] out = new IntArray2LongArray().convert(seed);
+         int[] seed = new int[13];
+         long[] out = new IntArray2LongArray().convert(seed);
         Assertions.assertEquals(7, out.length);
     }
 

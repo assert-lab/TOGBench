@@ -389,13 +389,6 @@ public class IBANValidatorTest_OE25Dev {
     }
 
     @Test
-    public void testSetValidatorLen_1_2_oe() {
-        IBANValidator validator = new IBANValidator();
-        // removed other assertion
-        assertNull("no longer present",validator.setValidator("GB", -1, ""));
-    }
-
-    @Test
     public void testSorted_1_oe() {
         IBANValidator validator = new IBANValidator();
         Validator[] vals = validator.getDefaultValidators();

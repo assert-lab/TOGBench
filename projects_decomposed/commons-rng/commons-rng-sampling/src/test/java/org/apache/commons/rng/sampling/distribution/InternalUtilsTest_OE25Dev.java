@@ -76,7 +76,7 @@ class InternalUtilsTest_OE25Dev {
 
     @Test
     void testFactorialLogCacheSizeAboveRepresentableFactorials_1_oe() {
-        final int limit = MAX_REPRESENTABLE + 5;
+         int limit = MAX_REPRESENTABLE + 5;
         FactorialLog factorialLog = FactorialLog.create().withCache(limit);
         for (int n = MAX_REPRESENTABLE; n <= limit; n++) {
             // Use Commons math to compute logGamma(1 + n);
@@ -89,7 +89,7 @@ class InternalUtilsTest_OE25Dev {
     void testFactorialLogCacheExpansion_1_oe() {
         // There is no way to determine if the cache values were reused but this test
         // exercises the method to ensure it does not error.
-        final FactorialLog factorialLog = FactorialLog.create()
+         FactorialLog factorialLog = FactorialLog.create()
                                                       // Edge case where cache should not be copied (<2)
                                                       .withCache(1)
                                                       // Expand

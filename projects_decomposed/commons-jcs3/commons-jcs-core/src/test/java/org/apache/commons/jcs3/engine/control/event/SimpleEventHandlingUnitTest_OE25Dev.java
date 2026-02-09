@@ -76,6 +76,36 @@ public class SimpleEventHandlingUnitTest_OE25Dev
      * Test the ELEMENT_EVENT_EXCEEDED_MAXLIFE_ONREQUEST event.
      * @throws Exception
      */
+    public void testExceededMaxlifeOnrequestEvent()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( "Maxlife" );
+        // this should add the event handler to all items as they are created.
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        attributes.addElementEventHandler( meh );
+        jcs.setDefaultElementAttributes( attributes );
+
+        // put them in
+        for ( int i = 0; i < 200; i++ )
+        {
+            jcs.put( i + ":key", "data" + i);
+        }
+
+        // wait a bit for the items to expire
+        Thread.sleep(attributes.getMaxLife() * 1000 + 100);
+
+        for ( int i = 0; i < 200; i++ )
+        {
+            final String value = jcs.get( i + ":key");
+            assertNull("Item should be null for key " + i + ":key, but is " + value, value);
+        }
+
+        // wait a bit for it to finish
+        Thread.sleep( 100 );
+
+        // test to see if the count is right
+        assertTrue("The number of ELEMENT_EVENT_EXCEEDED_MAXLIFE_ONREQUEST events [" + meh.getExceededMaxlifeCount()+ "] does not equal the number expected.",meh.getExceededMaxlifeCount()>= 200);
+    }
 
     /**
      * Test the ELEMENT_EVENT_EXCEEDED_IDLETIME_ONREQUEST event.
@@ -282,62 +312,6 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         assertTrue("The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [" + meh.getSpoolNotAllowedCount()+ "] does not equal the number expected.",meh.getSpoolNotAllowedCount()>= items);
     }
 
-    public void testExceededMaxlifeOnrequestEvent_1_oe()
-        throws Exception
-    {
-        final CacheAccess<String, String> jcs = JCS.getInstance( "Maxlife" );
-        // this should add the event handler to all items as they are created.
-        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
-        attributes.addElementEventHandler( meh );
-        jcs.setDefaultElementAttributes( attributes );
-
-        // put them in
-        for ( int i = 0; i < 200; i++ )
-        {
-            jcs.put( i + ":key", "data" + i);
-        }
-
-        // wait a bit for the items to expire
-        Thread.sleep(attributes.getMaxLife() * 1000 + 100);
-
-        for ( int i = 0; i < 200; i++ )
-        {
-            final String value = jcs.get( i + ":key");
-            assertNull("Item should be null for key " + i + ":key, but is " + value, value);
-    }
-    }
-
-    public void testExceededMaxlifeOnrequestEvent_2_oe()
-        throws Exception
-    {
-        final CacheAccess<String, String> jcs = JCS.getInstance( "Maxlife" );
-        // this should add the event handler to all items as they are created.
-        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
-        attributes.addElementEventHandler( meh );
-        jcs.setDefaultElementAttributes( attributes );
-
-        // put them in
-        for ( int i = 0; i < 200; i++ )
-        {
-            jcs.put( i + ":key", "data" + i);
-        }
-
-        // wait a bit for the items to expire
-        Thread.sleep(attributes.getMaxLife() * 1000 + 100);
-
-        for ( int i = 0; i < 200; i++ )
-        {
-            final String value = jcs.get( i + ":key");
-            // removed other assertion
-        }
-
-        // wait a bit for it to finish
-        Thread.sleep( 100 );
-
-        // test to see if the count is right
-        assertTrue("The number of ELEMENT_EVENT_EXCEEDED_MAXLIFE_ONREQUEST events [" + meh.getExceededMaxlifeCount()+ "] does not equal the number expected.",meh.getExceededMaxlifeCount()>= 200);
-    }
-
     public void testExceededIdletimeOnrequestEvent_1_oe()
         throws Exception
     {
@@ -359,76 +333,6 @@ public class SimpleEventHandlingUnitTest_OE25Dev
             final String value = jcs.get( i + ":key");
             assertNotNull("Item should not be null for key " + i + ":key", value);
     }
-    }
-
-    public void testExceededIdletimeOnrequestEvent_2_oe()
-        throws Exception
-    {
-        final CacheAccess<String, String> jcs = JCS.getInstance( "Idletime" );
-        // this should add the event handler to all items as they are created.
-        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
-        attributes.addElementEventHandler( meh );
-        jcs.setDefaultElementAttributes( attributes );
-
-        // put them in
-        for ( int i = 0; i < 200; i++ )
-        {
-            jcs.put( i + ":key", "data" + i);
-        }
-
-        // update access time
-        for ( int i = 0; i < 200; i++ )
-        {
-            final String value = jcs.get( i + ":key");
-            // removed other assertion
-        }
-
-        // wait a bit for the items to expire
-        Thread.sleep(attributes.getIdleTime() * 1000 + 100);
-
-        for ( int i = 0; i < 200; i++ )
-        {
-            final String value = jcs.get( i + ":key");
-            assertNull("Item should be null for key " + i + ":key, but is " + value, value);
-    }
-    }
-
-    public void testExceededIdletimeOnrequestEvent_3_oe()
-        throws Exception
-    {
-        final CacheAccess<String, String> jcs = JCS.getInstance( "Idletime" );
-        // this should add the event handler to all items as they are created.
-        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
-        attributes.addElementEventHandler( meh );
-        jcs.setDefaultElementAttributes( attributes );
-
-        // put them in
-        for ( int i = 0; i < 200; i++ )
-        {
-            jcs.put( i + ":key", "data" + i);
-        }
-
-        // update access time
-        for ( int i = 0; i < 200; i++ )
-        {
-            final String value = jcs.get( i + ":key");
-            // removed other assertion
-        }
-
-        // wait a bit for the items to expire
-        Thread.sleep(attributes.getIdleTime() * 1000 + 100);
-
-        for ( int i = 0; i < 200; i++ )
-        {
-            final String value = jcs.get( i + ":key");
-            // removed other assertion
-        }
-
-        // wait a bit for it to finish
-        Thread.sleep( 100 );
-
-        // test to see if the count is right
-        assertTrue("The number of ELEMENT_EVENT_EXCEEDED_IDLETIME_ONREQUEST events [" + meh.getExceededIdletimeCount()+ "] does not equal the number expected.",meh.getExceededIdletimeCount()>= 200);
     }
 
     public void testElementAttributesCreationTime_1_oe()

@@ -4,6 +4,8 @@
 [INFO] Building Asynchronous Http Client Registry Extras 2.12.3
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ async-http-client-extras-registry ---
+[INFO] 
 [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ async-http-client-extras-registry ---
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ async-http-client-extras-registry ---
@@ -24,15 +26,15 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-registry ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 9 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/target/test-classes
+[INFO] Compiling 8 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/target/test-classes
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ async-http-client-extras-registry ---
 
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
-Running TestSuite
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.296 sec - in TestSuite
+Running org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.201 sec - in org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev
 
 Results :
 
@@ -41,6 +43,6 @@ Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.136 s
-[INFO] Finished at: 2026-02-06T14:36:56-06:00
+[INFO] Total time:  10.968 s
+[INFO] Finished at: 2026-02-09T03:26:43-06:00
 [INFO] ------------------------------------------------------------------------

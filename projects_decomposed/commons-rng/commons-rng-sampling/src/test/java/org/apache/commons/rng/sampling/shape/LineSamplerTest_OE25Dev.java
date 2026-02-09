@@ -341,15 +341,15 @@ class LineSamplerTest_OE25Dev {
 
     @Test
     void testInvalidDimensionThrows_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         Assertions.assertThrows(IllegalArgumentException.class, () -> LineSampler.of(rng, new double[0], new double[0]));
     }
 
     @Test
     void testDimensionMismatchThrows_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final double[] c2 = new double[2];
-        final double[] c3 = new double[3];
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         double[] c2 = new double[2];
+         double[] c3 = new double[3];
         for (double[][] c : new double[][][] {
             {c2, c3},
             {c3, c2},
@@ -360,9 +360,9 @@ class LineSamplerTest_OE25Dev {
 
     @Test
     void testNonFiniteVertexCoordinates_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         // A valid line
-        final double[][] c = new double[][] {
+         double[][] c = new double[][] {
             {0, 1, 2}, {-1, 2, 3}
         };
         Assertions.assertNotNull(LineSampler.of(rng, c[0],  c[1]));
@@ -370,19 +370,19 @@ class LineSamplerTest_OE25Dev {
 
     @Test
     void testNonFiniteVertexCoordinates_2_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         // A valid line
-        final double[][] c = new double[][] {
+         double[][] c = new double[][] {
             {0, 1, 2}, {-1, 2, 3}
         };
         // removed other assertion
-        final double[] bad = {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NaN};
+         double[] bad = {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NaN};
         for (int i = 0; i < c.length; i++) {
-            final int ii = i;
+             int ii = i;
             for (int j = 0; j < c[0].length; j++) {
-                final int jj = j;
-                for (final double d : bad) {
-                    final double value = c[i][j];
+                 int jj = j;
+                for ( double d : bad) {
+                     double value = c[i][j];
                     c[i][j] = d;
                     Assertions.assertThrows(IllegalArgumentException.class, () -> LineSampler.of(rng, c[0], c[1]), () -> String.format("Did not detect non-finite coordinate: %d,%d = %s", ii, jj, d));
     }

@@ -71,9 +71,9 @@ class MiddleSquareWeylSequenceTest_OE25Dev {
          *     }
          * }
          */
-        final long[] seed = {0x012de1babb3c4104L, 0xc8161b4202294965L, 0xb5ad4eceda1ce2a9L};
+         long[] seed = {0x012de1babb3c4104L, 0xc8161b4202294965L, 0xb5ad4eceda1ce2a9L};
 
-        final int[] expectedSequence = {
+         int[] expectedSequence = {
             0xe7f4010b, 0x37bdb1e7, 0x05d8934f, 0x22970c75,
             0xe7432a9f, 0xd157c60f, 0x26e9b5ae, 0x3dd91250,
             0x8dbf85f1, 0x99e3aa17, 0xcb90322b, 0x29a007e2,
@@ -91,9 +91,9 @@ class MiddleSquareWeylSequenceTest_OE25Dev {
 
     @Test
     void testNextLong_1_oe() {
-        final long[] seed = {0x012de1babb3c4104L, 0xc8161b4202294965L, 0xb5ad4eceda1ce2a9L};
-        final MiddleSquareWeylSequence rng1 = new MiddleSquareWeylSequence(seed);
-        final MiddleSquareWeylSequence rng2 = new MiddleSquareWeylSequence(seed);
+         long[] seed = {0x012de1babb3c4104L, 0xc8161b4202294965L, 0xb5ad4eceda1ce2a9L};
+         MiddleSquareWeylSequence rng1 = new MiddleSquareWeylSequence(seed);
+         MiddleSquareWeylSequence rng2 = new MiddleSquareWeylSequence(seed);
         for (int i = 0; i < 50; i++) {
             Assertions.assertEquals(NumberFactory.makeLong(rng1.nextInt(),rng1.nextInt()),rng2.nextLong());
     }

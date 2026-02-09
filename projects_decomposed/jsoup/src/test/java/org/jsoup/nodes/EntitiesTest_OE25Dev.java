@@ -369,11 +369,6 @@ public class EntitiesTest_OE25Dev {
         assertEquals("Hello &= &", Entities.unescape(text, false));
         }
 
-    @Test public void caseSensitive_1_oe() {
-        String unescaped = "Ü ü & &";
-        assertEquals("&Uuml;&uuml;&amp;&amp;",Entities.escape(unescaped,new OutputSettings().charset("ascii").escapeMode(extended)));
-        }
-
     @Test public void caseSensitive_2_oe() {
         String unescaped = "Ü ü & &";
         // removed other assertion

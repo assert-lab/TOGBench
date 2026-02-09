@@ -12,6 +12,8 @@
 [INFO] Building Apache Commons JCS :: Core 3.1
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-jcs3-core ---
+[INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-jcs3-core ---
 [INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-jcs3-core ---
@@ -31,7 +33,7 @@
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core
-[INFO] Storing buildNumber: 42f91159e2f430b696e30a5d48814bb569209ba4 at timestamp: 1770410198540
+[INFO] Storing buildNumber: c100078249c05cc4d06c33c5a5c5160a82b0f043 at timestamp: 1770629186351
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -64,7 +66,7 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-jcs3-core ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 231 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/target/test-classes
+[INFO] Compiling 228 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/src/test/java/org/apache/commons/jcs3/auxiliary/disk/jdbc/JDBCDiskCacheRemovalUnitTest_OE25Dev.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/src/test/java/org/apache/commons/jcs3/auxiliary/disk/jdbc/JDBCDiskCacheRemovalUnitTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
 [INFO] 
@@ -74,94 +76,78 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.jcs3.engine.logging.CacheEventLoggerDebugLoggerUnitTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.153 s - in org.apache.commons.jcs3.engine.logging.CacheEventLoggerDebugLoggerUnitTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s - in org.apache.commons.jcs3.engine.logging.CacheEventLoggerDebugLoggerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.607 s - in org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.309 s - in org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev
-[ERROR] Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.351 s <<< FAILURE! - in org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev
-[ERROR] testPutGetThroughHub_1_oe(org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev)  Time elapsed: 0.044 s  <<< FAILURE!
+[ERROR] Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.382 s <<< FAILURE! - in org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev
+[ERROR] testPutGetThroughHub_1_oe(org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev)  Time elapsed: 0.096 s  <<< FAILURE!
 junit.framework.ComparisonFailure: expected:<myregion data 0> but was:<null>
 	at org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev.testPutGetThroughHub_1_oe(SoftReferenceMemoryCacheUnitTest_OE25Dev.java:122)
 
 [INFO] Running org.apache.commons.jcs3.engine.memory.fifo.FIFOMemoryCacheUnitTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.jcs3.engine.memory.fifo.FIFOMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.apache.commons.jcs3.engine.memory.fifo.FIFOMemoryCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.019 s - in org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.073 s - in org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.342 s - in org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.183 s - in org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.match.KeyMatcherPatternImpllUnitTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.jcs3.engine.match.KeyMatcherPatternImpllUnitTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.jcs3.engine.match.KeyMatcherPatternImpllUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocalUnitTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocalUnitTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocalUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.CacheEventQueueFactoryUnitTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 s - in org.apache.commons.jcs3.engine.CacheEventQueueFactoryUnitTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in org.apache.commons.jcs3.engine.CacheEventQueueFactoryUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.control.CacheManagerStatsUnitTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.apache.commons.jcs3.engine.control.CacheManagerStatsUnitTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.jcs3.engine.control.CacheManagerStatsUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev
-[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev
-[ERROR] testRelease_2_oe(org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev
+[ERROR] testRelease_2_oe(org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
 junit.framework.AssertionFailedError: The cache was NOT disposed during release! expected:<DISPOSED> but was:<ALIVE>
 	at org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev.testRelease_2_oe(CompositeCacheManagerTest_OE25Dev.java:70)
 
 [INFO] Running org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev
-[ERROR] Tests run: 10, Failures: 5, Errors: 4, Skipped: 0, Time elapsed: 0.988 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev
-[ERROR] testSpoolNotAllowedEventOnItem_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.247 s  <<< FAILURE!
+[ERROR] Tests run: 6, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 1.273 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev
+[ERROR] testSpoolNotAllowedEventOnItem_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.304 s  <<< FAILURE!
 junit.framework.AssertionFailedError: The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [0] does not equal the number expected.
-	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testSpoolNotAllowedEventOnItem_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:282)
+	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testSpoolNotAllowedEventOnItem_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:312)
 
-[ERROR] testExceededIdletimeOnrequestEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.016 s  <<< FAILURE!
+[ERROR] testExceededIdletimeOnrequestEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.023 s  <<< FAILURE!
 junit.framework.AssertionFailedError: Item should not be null for key 0:key
-	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testExceededIdletimeOnrequestEvent_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:360)
+	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testExceededIdletimeOnrequestEvent_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:334)
 
-[ERROR] testExceededIdletimeOnrequestEvent_2_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.03 s  <<< ERROR!
-java.lang.IllegalArgumentException: timeout value is negative
-	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testExceededIdletimeOnrequestEvent_2_oe(SimpleEventHandlingUnitTest_OE25Dev.java:387)
-
-[ERROR] testExceededIdletimeOnrequestEvent_3_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.088 s  <<< ERROR!
-java.lang.IllegalArgumentException: timeout value is negative
-	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testExceededIdletimeOnrequestEvent_3_oe(SimpleEventHandlingUnitTest_OE25Dev.java:419)
-
-[ERROR] testExceededMaxlifeOnrequestEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.016 s  <<< ERROR!
-java.lang.IllegalArgumentException: timeout value is negative
-	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testExceededMaxlifeOnrequestEvent_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:301)
-
-[ERROR] testExceededMaxlifeOnrequestEvent_2_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.011 s  <<< ERROR!
-java.lang.IllegalArgumentException: timeout value is negative
-	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testExceededMaxlifeOnrequestEvent_2_oe(SimpleEventHandlingUnitTest_OE25Dev.java:326)
-
-[ERROR] testSpoolNotAllowedEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.201 s  <<< FAILURE!
+[ERROR] testSpoolNotAllowedEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.41 s  <<< FAILURE!
 junit.framework.AssertionFailedError: The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [0] does not equal the number expected.
-	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testSpoolNotAllowedEvent_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:258)
+	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testSpoolNotAllowedEvent_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:288)
 
-[ERROR] testSpoolNoDiskEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.194 s  <<< FAILURE!
+[ERROR] testSpoolNoDiskEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.254 s  <<< FAILURE!
 junit.framework.AssertionFailedError: The number of ELEMENT_EVENT_SPOOLED_DISK_NOT_AVAILABLE events [1990] does not equal the number expected.
-	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testSpoolNoDiskEvent_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:236)
+	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testSpoolNoDiskEvent_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:266)
 
-[ERROR] testSpoolEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.149 s  <<< FAILURE!
+[ERROR] testSpoolEvent_1_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.259 s  <<< FAILURE!
 junit.framework.AssertionFailedError: The number of ELEMENT_EVENT_SPOOLED_DISK_AVAILABLE events [0] does not equal the number expected [2000]
-	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testSpoolEvent_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:213)
+	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testSpoolEvent_1_oe(SimpleEventHandlingUnitTest_OE25Dev.java:243)
 
 [INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheUnitTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.apache.commons.jcs3.engine.control.CompositeCacheUnitTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 s - in org.apache.commons.jcs3.engine.control.CompositeCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.035 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev
 [ERROR] testParseSpoolChunkSize_Normal_1_oe(org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: Wrong chunkSize expected:<2> but was:<5>
 	at org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev.testParseSpoolChunkSize_Normal_1_oe(CompositeCacheConfiguratorUnitTest_OE25Dev.java:121)
 
 [INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev
-[ERROR] Tests run: 14, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.067 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev
+[ERROR] Tests run: 14, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.04 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev
 [ERROR] testUpdateConfig_1_oe(org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
 junit.framework.AssertionFailedError: expected:<UPDATE> but was:<SWAP>
 	at org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev.testUpdateConfig_1_oe(CompositeCacheDiskUsageUnitTest_OE25Dev.java:337)
 
 [INFO] Running org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.serialization.SerializerUnitTest_OE25Dev
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.884 s <<< FAILURE! - in org.apache.commons.jcs3.utils.serialization.SerializerUnitTest_OE25Dev
-[ERROR] testReadWrite_1_oe(org.apache.commons.jcs3.utils.serialization.SerializerUnitTest_OE25Dev)  Time elapsed: 0.031 s  <<< FAILURE!
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 8.963 s <<< FAILURE! - in org.apache.commons.jcs3.utils.serialization.SerializerUnitTest_OE25Dev
+[ERROR] testReadWrite_1_oe(org.apache.commons.jcs3.utils.serialization.SerializerUnitTest_OE25Dev)  Time elapsed: 0.042 s  <<< FAILURE!
 junit.framework.AssertionFailedError: 
 [key:0] should not be null, Region Name = blockRegion1
 HitCountRam = 0
@@ -175,27 +161,1295 @@ List Size = 10
 	at org.apache.commons.jcs3.utils.serialization.SerializerUnitTest_OE25Dev.testReadWrite_1_oe(SerializerUnitTest_OE25Dev.java:91)
 
 [INFO] Running org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.serialization.StandardSerializerUnitTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.serialization.StandardSerializerUnitTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.jcs3.utils.serialization.StandardSerializerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.serialization.EncryptingSerializerUnitTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.apache.commons.jcs3.utils.serialization.EncryptingSerializerUnitTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in org.apache.commons.jcs3.utils.serialization.EncryptingSerializerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.189 s - in org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.223 s - in org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.net.HostNameUtilUnitTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.net.HostNameUtilUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.jcs3.utils.net.HostNameUtilUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.config.PropertySetterUnitTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.apache.commons.jcs3.utils.config.PropertySetterUnitTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 s - in org.apache.commons.jcs3.utils.config.PropertySetterUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev
-[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 13.964 s <<< FAILURE! - in org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev
-[ERROR] testSimpleLoad_1_oe(org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev)  Time elapsed: 8.568 s  <<< FAILURE!
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 15.635 s <<< FAILURE! - in org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev
+[ERROR] testSimpleLoad_1_oe(org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev)  Time elapsed: 8.891 s  <<< FAILURE!
 junit.framework.AssertionFailedError
 	at org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev.testSimpleLoad_1_oe(LRUMapPerformanceTest_OE25Dev.java:174)
 
-[ERROR] testSimpleLoad_2_oe(org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev)  Time elapsed: 5.394 s  <<< FAILURE!
+[ERROR] testSimpleLoad_2_oe(org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev)  Time elapsed: 6.743 s  <<< FAILURE!
 junit.framework.AssertionFailedError
 	at org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev.testSimpleLoad_2_oe(LRUMapPerformanceTest_OE25Dev.java:182)
 
-[INFO] Running org.apache.commons.jcs3.utils.struct.LRUMapConcurrentUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.struct.DoubleLinkedListDumpUnitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.DoubleLinkedListDumpUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.struct.JCSvsCommonsLRUMapPerformanceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.JCSvsCommonsLRUMapPerformanceTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.struct.LRUMapUnitTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.LRUMapUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.struct.DoubleLinkedListUnitTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.utils.struct.DoubleLinkedListUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.discovery.UDPDiscoveryServiceUnitTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 s - in org.apache.commons.jcs3.utils.discovery.UDPDiscoveryServiceUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.discovery.UDPDiscoverySenderUnitTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s - in org.apache.commons.jcs3.utils.discovery.UDPDiscoverySenderUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.access.CacheAccessUnitTest_OE25Dev
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.297 s - in org.apache.commons.jcs3.access.CacheAccessUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.access.GroupCacheAccessUnitTest_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in org.apache.commons.jcs3.access.GroupCacheAccessUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.access.SystemPropertyUnitTest_OE25Dev
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in org.apache.commons.jcs3.access.SystemPropertyUnitTest_OE25Dev
+[ERROR] test1SystemPropertyInValueDelimiter_1_oe(org.apache.commons.jcs3.access.SystemPropertyUnitTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
+junit.framework.AssertionFailedError: We should have used the system property for the memory size expected:<1234> but was:<100>
+	at org.apache.commons.jcs3.access.SystemPropertyUnitTest_OE25Dev.test1SystemPropertyInValueDelimiter_1_oe(SystemPropertyUnitTest_OE25Dev.java:67)
+
+[INFO] Running org.apache.commons.jcs3.JCSUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.jcs3.JCSUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPIssueRemoveOnPutUnitTest_OE25Dev
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.151 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPIssueRemoveOnPutUnitTest_OE25Dev
+[ERROR] testStandardPut_1_oe(org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPIssueRemoveOnPutUnitTest_OE25Dev)  Time elapsed: 0.149 s  <<< ERROR!
+java.io.IOException: Cannot connect to localhost:1118
+	at org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPIssueRemoveOnPutUnitTest_OE25Dev.testStandardPut_1_oe(LateralTCPIssueRemoveOnPutUnitTest_OE25Dev.java:208)
+Caused by: java.util.concurrent.ExecutionException: java.net.ConnectException: Connection refused
+	at org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPIssueRemoveOnPutUnitTest_OE25Dev.testStandardPut_1_oe(LateralTCPIssueRemoveOnPutUnitTest_OE25Dev.java:208)
+Caused by: java.net.ConnectException: Connection refused
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.TestTCPLateralUnitTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.32 s - in org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.TestTCPLateralUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPDiscoveryListenerUnitTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPDiscoveryListenerUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.lateral.LateralCacheNoWaitFacadeUnitTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in org.apache.commons.jcs3.auxiliary.lateral.LateralCacheNoWaitFacadeUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.util.ScheduleParserUtilUnitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.util.ScheduleParserUtilUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.MySQLDiskCacheHsqlBackedUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.199 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.MySQLDiskCacheHsqlBackedUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.MySQLDiskCacheUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.MySQLDiskCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheRemovalUnitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.029 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheRemovalUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheUnitTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheShrinkUnitTest_OE25Dev
+[ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 10.178 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheShrinkUnitTest_OE25Dev
+[ERROR] testExpireInBackground_1_oe(org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheShrinkUnitTest_OE25Dev)  Time elapsed: 3.011 s  <<< FAILURE!
+java.lang.AssertionError: Removed key should be null: 0:key expected null, but was:<expire1Second data 0>
+	at org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheShrinkUnitTest_OE25Dev.testExpireInBackground_1_oe(JDBCDiskCacheShrinkUnitTest_OE25Dev.java:126)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDataSourceFactoryUnitTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDataSourceFactoryUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheUnitTest_OE25Dev
+[ERROR] Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheUnitTest_OE25Dev
+[ERROR] testRemoveAllProhibition_1_oe(org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheUnitTest_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
+junit.framework.ComparisonFailure: key = [0:key] value = [null] expected:<noRemoveAll data 0> but was:<null>
+	at org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheUnitTest_OE25Dev.testRemoveAllProhibition_1_oe(HSQLDiskCacheUnitTest_OE25Dev.java:271)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.AbstractDiskCacheUnitTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.204 s - in org.apache.commons.jcs3.auxiliary.disk.AbstractDiskCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.indexed.IndexDiskCacheSizeUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.jcs3.auxiliary.disk.indexed.IndexDiskCacheSizeUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.indexed.IndexDiskCacheCountUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.jcs3.auxiliary.disk.indexed.IndexDiskCacheCountUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCacheKeyStoreUnitTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCacheKeyStoreUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.indexed.LRUMapSizeVsCount_OE25Dev
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 15.215 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.disk.indexed.LRUMapSizeVsCount_OE25Dev
+[ERROR] testSimpleLoad_1_oe(org.apache.commons.jcs3.auxiliary.disk.indexed.LRUMapSizeVsCount_OE25Dev)  Time elapsed: 15.214 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 118 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.indexed.LRUMapSizeVsCount_OE25Dev.doWork(LRUMapSizeVsCount_OE25Dev.java:138)
+	at org.apache.commons.jcs3.auxiliary.disk.indexed.LRUMapSizeVsCount_OE25Dev.testSimpleLoad_1_oe(LRUMapSizeVsCount_OE25Dev.java:210)
+
+[ERROR] testSimpleLoad_2_oe(org.apache.commons.jcs3.auxiliary.disk.indexed.LRUMapSizeVsCount_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 105 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.indexed.LRUMapSizeVsCount_OE25Dev.doWork(LRUMapSizeVsCount_OE25Dev.java:98)
+	at org.apache.commons.jcs3.auxiliary.disk.indexed.LRUMapSizeVsCount_OE25Dev.testSimpleLoad_2_oe(LRUMapSizeVsCount_OE25Dev.java:217)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCacheOptimizationUnitTest_OE25Dev
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCacheOptimizationUnitTest_OE25Dev
+[ERROR] testBasicOptimization_1_oe(org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCacheOptimizationUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 105 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCacheOptimizationUnitTest_OE25Dev.testBasicOptimization_1_oe(IndexedDiskCacheOptimizationUnitTest_OE25Dev.java:53)
+
+[ERROR] testBasicOptimization_2_oe(org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCacheOptimizationUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 105 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCacheOptimizationUnitTest_OE25Dev.testBasicOptimization_2_oe(IndexedDiskCacheOptimizationUnitTest_OE25Dev.java:104)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.PurgatoryElementUnitTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.disk.PurgatoryElementUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev
+[ERROR] Tests run: 29, Failures: 0, Errors: 29, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev
+[ERROR] testWrite_NullBlockElement_1_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_NullBlockElement_1_oe(BlockDiskUnitTest_OE25Dev.java:162)
+
+[ERROR] testWrite_NullBlockElement_2_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_NullBlockElement_2_oe(BlockDiskUnitTest_OE25Dev.java:175)
+
+[ERROR] testWrite_NullBlockElement_3_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_NullBlockElement_3_oe(BlockDiskUnitTest_OE25Dev.java:189)
+
+[ERROR] testWriteAndRead_BigString2_1_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 110 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:66)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWriteAndRead_BigString2_1_oe(BlockDiskUnitTest_OE25Dev.java:645)
+
+[ERROR] testJCS156_1_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:66)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testJCS156_1_oe(BlockDiskUnitTest_OE25Dev.java:662)
+
+[ERROR] testJCS156_2_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:66)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testJCS156_2_oe(BlockDiskUnitTest_OE25Dev.java:670)
+
+[ERROR] testWriteAndReadMultipleMultiBlockElement_setSize_1_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:66)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWriteAndReadMultipleMultiBlockElement_setSize_1_oe(BlockDiskUnitTest_OE25Dev.java:509)
+
+[ERROR] testWriteAndReadMultipleMultiBlockElement_setSize_2_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:66)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWriteAndReadMultipleMultiBlockElement_setSize_2_oe(BlockDiskUnitTest_OE25Dev.java:533)
+
+[ERROR] testWriteAndReadMultipleMultiBlockElement_setSize_3_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:66)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWriteAndReadMultipleMultiBlockElement_setSize_3_oe(BlockDiskUnitTest_OE25Dev.java:558)
+
+[ERROR] testWriteAndReadMultipleMultiBlockElement_setSize_4_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:66)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWriteAndReadMultipleMultiBlockElement_setSize_4_oe(BlockDiskUnitTest_OE25Dev.java:588)
+
+[ERROR] testWrite_SingleBlockElement_1_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_SingleBlockElement_1_oe(BlockDiskUnitTest_OE25Dev.java:204)
+
+[ERROR] testWrite_SingleBlockElement_2_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_SingleBlockElement_2_oe(BlockDiskUnitTest_OE25Dev.java:218)
+
+[ERROR] testWrite_SingleBlockElement_3_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_SingleBlockElement_3_oe(BlockDiskUnitTest_OE25Dev.java:233)
+
+[ERROR] testWriteAndRead_SingleBlockElement_1_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWriteAndRead_SingleBlockElement_1_oe(BlockDiskUnitTest_OE25Dev.java:249)
+
+[ERROR] testWriteAndRead_BigString_1_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:66)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWriteAndRead_BigString_1_oe(BlockDiskUnitTest_OE25Dev.java:619)
+
+[ERROR] testWrite_TwoSingleBlockElements_1_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_TwoSingleBlockElements_1_oe(BlockDiskUnitTest_OE25Dev.java:265)
+
+[ERROR] testWrite_TwoSingleBlockElements_2_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_TwoSingleBlockElements_2_oe(BlockDiskUnitTest_OE25Dev.java:280)
+
+[ERROR] testWrite_TwoSingleBlockElements_3_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_TwoSingleBlockElements_3_oe(BlockDiskUnitTest_OE25Dev.java:296)
+
+[ERROR] testWrite_TwoSingleBlockElements_4_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_TwoSingleBlockElements_4_oe(BlockDiskUnitTest_OE25Dev.java:313)
+
+[ERROR] testWrite_TwoSingleBlockElements_5_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_TwoSingleBlockElements_5_oe(BlockDiskUnitTest_OE25Dev.java:331)
+
+[ERROR] testWrite_128BlockElement_1_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_128BlockElement_1_oe(BlockDiskUnitTest_OE25Dev.java:414)
+
+[ERROR] testWrite_128BlockElement_2_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_128BlockElement_2_oe(BlockDiskUnitTest_OE25Dev.java:431)
+
+[ERROR] testWrite_128BlockElement_3_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_128BlockElement_3_oe(BlockDiskUnitTest_OE25Dev.java:449)
+
+[ERROR] testCalculateBlocksNeededDouble_1_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testCalculateBlocksNeededDouble_1_oe(BlockDiskUnitTest_OE25Dev.java:350)
+
+[ERROR] testWrite_DoubleBlockElement_1_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_DoubleBlockElement_1_oe(BlockDiskUnitTest_OE25Dev.java:364)
+
+[ERROR] testWrite_DoubleBlockElement_2_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_DoubleBlockElement_2_oe(BlockDiskUnitTest_OE25Dev.java:379)
+
+[ERROR] testWrite_DoubleBlockElement_3_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWrite_DoubleBlockElement_3_oe(BlockDiskUnitTest_OE25Dev.java:395)
+
+[ERROR] testWriteAndReadMultipleMultiBlockElement_1_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWriteAndReadMultipleMultiBlockElement_1_oe(BlockDiskUnitTest_OE25Dev.java:466)
+
+[ERROR] testWriteAndReadMultipleMultiBlockElement_2_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.setUpBlockDisk(BlockDiskUnitTest_OE25Dev.java:59)
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest_OE25Dev.testWriteAndReadMultipleMultiBlockElement_2_oe(BlockDiskUnitTest_OE25Dev.java:487)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskCacheKeyStoreUnitTest_OE25Dev
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskCacheKeyStoreUnitTest_OE25Dev
+[ERROR] testObjectLargerThanMaxSize_1_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskCacheKeyStoreUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 105 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskCacheKeyStoreUnitTest_OE25Dev.testObjectLargerThanMaxSize_1_oe(BlockDiskCacheKeyStoreUnitTest_OE25Dev.java:185)
+
+[ERROR] testObjectLargerThanMaxSize_2_oe(org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskCacheKeyStoreUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 105 is too large
+	at org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskCacheKeyStoreUnitTest_OE25Dev.testObjectLargerThanMaxSize_2_oe(BlockDiskCacheKeyStoreUnitTest_OE25Dev.java:203)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.AuxiliaryCacheConfiguratorUnitTest_OE25Dev
+[ERROR] Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.AuxiliaryCacheConfiguratorUnitTest_OE25Dev
+[ERROR] testParseCacheEventLogger_Normal_1_oe(org.apache.commons.jcs3.auxiliary.AuxiliaryCacheConfiguratorUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 119 is too large
+	at org.apache.commons.jcs3.auxiliary.AuxiliaryCacheConfiguratorUnitTest_OE25Dev.testParseCacheEventLogger_Normal_1_oe(AuxiliaryCacheConfiguratorUnitTest_OE25Dev.java:95)
+
+[ERROR] testParseCacheEventLogger_Normal_2_oe(org.apache.commons.jcs3.auxiliary.AuxiliaryCacheConfiguratorUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 119 is too large
+	at org.apache.commons.jcs3.auxiliary.AuxiliaryCacheConfiguratorUnitTest_OE25Dev.testParseCacheEventLogger_Normal_2_oe(AuxiliaryCacheConfiguratorUnitTest_OE25Dev.java:115)
+
+[ERROR] testParseElementSerializer_Null_1_oe(org.apache.commons.jcs3.auxiliary.AuxiliaryCacheConfiguratorUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 192 is too large
+	at org.apache.commons.jcs3.auxiliary.AuxiliaryCacheConfiguratorUnitTest_OE25Dev.testParseElementSerializer_Null_1_oe(AuxiliaryCacheConfiguratorUnitTest_OE25Dev.java:170)
+
+[ERROR] testParseCacheEventLogger_Null_1_oe(org.apache.commons.jcs3.auxiliary.AuxiliaryCacheConfiguratorUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 123 is too large
+	at org.apache.commons.jcs3.auxiliary.AuxiliaryCacheConfiguratorUnitTest_OE25Dev.testParseCacheEventLogger_Null_1_oe(AuxiliaryCacheConfiguratorUnitTest_OE25Dev.java:61)
+
+[ERROR] testParseElementSerializer_Normal_1_oe(org.apache.commons.jcs3.auxiliary.AuxiliaryCacheConfiguratorUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 119 is too large
+	at org.apache.commons.jcs3.auxiliary.AuxiliaryCacheConfiguratorUnitTest_OE25Dev.testParseElementSerializer_Normal_1_oe(AuxiliaryCacheConfiguratorUnitTest_OE25Dev.java:136)
+
+[ERROR] testParseElementSerializer_Normal_2_oe(org.apache.commons.jcs3.auxiliary.AuxiliaryCacheConfiguratorUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 119 is too large
+	at org.apache.commons.jcs3.auxiliary.AuxiliaryCacheConfiguratorUnitTest_OE25Dev.testParseElementSerializer_Normal_2_oe(AuxiliaryCacheConfiguratorUnitTest_OE25Dev.java:156)
+
+[ERROR] testParseCacheEventLogger_NullName_1_oe(org.apache.commons.jcs3.auxiliary.AuxiliaryCacheConfiguratorUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 123 is too large
+	at org.apache.commons.jcs3.auxiliary.AuxiliaryCacheConfiguratorUnitTest_OE25Dev.testParseCacheEventLogger_NullName_1_oe(AuxiliaryCacheConfiguratorUnitTest_OE25Dev.java:74)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev
+[ERROR] Tests run: 15, Failures: 0, Errors: 15, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev
+[ERROR] testProcessRequest_Get_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 138 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev.setUp(RemoteHttpCacheServletUnitTest_OE25Dev.java:49)
+
+[ERROR] testProcessRequest_Get_2_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 138 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev.setUp(RemoteHttpCacheServletUnitTest_OE25Dev.java:49)
+
+[ERROR] testProcessRequest_GetMatching_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 138 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev.setUp(RemoteHttpCacheServletUnitTest_OE25Dev.java:49)
+
+[ERROR] testProcessRequest_GetMatching_2_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 138 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev.setUp(RemoteHttpCacheServletUnitTest_OE25Dev.java:49)
+
+[ERROR] testProcessRequest_GetMultiple_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 138 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev.setUp(RemoteHttpCacheServletUnitTest_OE25Dev.java:49)
+
+[ERROR] testProcessRequest_GetMultiple_2_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 138 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev.setUp(RemoteHttpCacheServletUnitTest_OE25Dev.java:49)
+
+[ERROR] testProcessRequest_Update_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 138 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev.setUp(RemoteHttpCacheServletUnitTest_OE25Dev.java:49)
+
+[ERROR] testProcessRequest_Update_2_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 138 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev.setUp(RemoteHttpCacheServletUnitTest_OE25Dev.java:49)
+
+[ERROR] testProcessRequest_null_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 138 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev.setUp(RemoteHttpCacheServletUnitTest_OE25Dev.java:49)
+
+[ERROR] testProcessRequest_null_2_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 138 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev.setUp(RemoteHttpCacheServletUnitTest_OE25Dev.java:49)
+
+[ERROR] testProcessRequest_null_3_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 138 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev.setUp(RemoteHttpCacheServletUnitTest_OE25Dev.java:49)
+
+[ERROR] testProcessRequest_Remove_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 138 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev.setUp(RemoteHttpCacheServletUnitTest_OE25Dev.java:49)
+
+[ERROR] testProcessRequest_Remove_2_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 138 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev.setUp(RemoteHttpCacheServletUnitTest_OE25Dev.java:49)
+
+[ERROR] testProcessRequest_RemoveAll_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 138 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev.setUp(RemoteHttpCacheServletUnitTest_OE25Dev.java:49)
+
+[ERROR] testProcessRequest_RemoveAll_2_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 138 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev.setUp(RemoteHttpCacheServletUnitTest_OE25Dev.java:49)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServiceUnitTest_OE25Dev
+[ERROR] Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServiceUnitTest_OE25Dev
+[ERROR] testGetMultiple_simple_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServiceUnitTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 118 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServiceUnitTest_OE25Dev.testGetMultiple_simple_1_oe(RemoteHttpCacheServiceUnitTest_OE25Dev.java:195)
+
+[ERROR] testGetMultiple_simple_2_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServiceUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 118 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServiceUnitTest_OE25Dev.testGetMultiple_simple_2_oe(RemoteHttpCacheServiceUnitTest_OE25Dev.java:213)
+
+[ERROR] testGetMatching_simple_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServiceUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 118 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServiceUnitTest_OE25Dev.testGetMatching_simple_1_oe(RemoteHttpCacheServiceUnitTest_OE25Dev.java:158)
+
+[ERROR] testGetMatching_simple_2_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServiceUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 118 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServiceUnitTest_OE25Dev.testGetMatching_simple_2_oe(RemoteHttpCacheServiceUnitTest_OE25Dev.java:176)
+
+[ERROR] testGet_simple_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServiceUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 118 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServiceUnitTest_OE25Dev.testGet_simple_1_oe(RemoteHttpCacheServiceUnitTest_OE25Dev.java:140)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev
+[ERROR] Tests run: 9, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.105 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev
+[ERROR] testGetCache_normal_4_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev)  Time elapsed: 0.1 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 217 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev.testGetCache_normal_4_oe(RemoteHttpCacheFactoryUnitTest_OE25Dev.java:167)
+
+[ERROR] testCreateRemoteHttpCacheClient_default_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 217 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev.testCreateRemoteHttpCacheClient_default_1_oe(RemoteHttpCacheFactoryUnitTest_OE25Dev.java:99)
+
+[ERROR] testCreateRemoteHttpCacheClient_default_2_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 217 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev.testCreateRemoteHttpCacheClient_default_2_oe(RemoteHttpCacheFactoryUnitTest_OE25Dev.java:112)
+
+[ERROR] testCreateRemoteHttpCacheClient_Bad_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 99 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev.testCreateRemoteHttpCacheClient_Bad_1_oe(RemoteHttpCacheFactoryUnitTest_OE25Dev.java:51)
+
+[ERROR] testCreateRemoteHttpCacheClient_Bad_2_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 99 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev.testCreateRemoteHttpCacheClient_Bad_2_oe(RemoteHttpCacheFactoryUnitTest_OE25Dev.java:67)
+
+[ERROR] testCreateRemoteHttpCacheClient_Bad_3_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 99 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev.testCreateRemoteHttpCacheClient_Bad_3_oe(RemoteHttpCacheFactoryUnitTest_OE25Dev.java:84)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheManualTester_OE25Dev
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheManualTester_OE25Dev
+[ERROR] testSimpleLoad_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheManualTester_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheManualTester_OE25Dev.testSimpleLoad_1_oe(RemoteHttpCacheManualTester_OE25Dev.java:51)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev
+[ERROR] Tests run: 12, Failures: 0, Errors: 12, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev
+[ERROR] testRemoveAll_normal_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev)  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 217 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev.testRemoveAll_normal_1_oe(RemoteHttpCacheClientUnitTest_OE25Dev.java:330)
+
+[ERROR] testGetMultiple_normal_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 217 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev.testGetMultiple_normal_1_oe(RemoteHttpCacheClientUnitTest_OE25Dev.java:251)
+
+[ERROR] testGetMultiple_normal_2_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 217 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev.testGetMultiple_normal_2_oe(RemoteHttpCacheClientUnitTest_OE25Dev.java:280)
+
+[ERROR] testGetMatching_normal_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 217 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev.testGetMatching_normal_1_oe(RemoteHttpCacheClientUnitTest_OE25Dev.java:192)
+
+[ERROR] testGetMatching_normal_2_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 217 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev.testGetMatching_normal_2_oe(RemoteHttpCacheClientUnitTest_OE25Dev.java:221)
+
+[ERROR] testDispose_normal_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 217 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev.testDispose_normal_1_oe(RemoteHttpCacheClientUnitTest_OE25Dev.java:370)
+
+[ERROR] testGet_nullFromDispatcher_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 217 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev.testGet_nullFromDispatcher_1_oe(RemoteHttpCacheClientUnitTest_OE25Dev.java:92)
+
+[ERROR] testGet_nullFromDispatcher_2_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 217 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev.testGet_nullFromDispatcher_2_oe(RemoteHttpCacheClientUnitTest_OE25Dev.java:114)
+
+[ERROR] testRemove_normal_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 217 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev.testRemove_normal_1_oe(RemoteHttpCacheClientUnitTest_OE25Dev.java:310)
+
+[ERROR] testGet_normal_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 217 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev.testGet_normal_1_oe(RemoteHttpCacheClientUnitTest_OE25Dev.java:137)
+
+[ERROR] testGet_normal_2_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 217 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev.testGet_normal_2_oe(RemoteHttpCacheClientUnitTest_OE25Dev.java:164)
+
+[ERROR] testUpdate_normal_1_oe(org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 217 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheClientUnitTest_OE25Dev.testUpdate_normal_1_oe(RemoteHttpCacheClientUnitTest_OE25Dev.java:349)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev
+[ERROR] Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.033 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev
+[ERROR] testUpdate_RemoveOnPut_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev)  Time elapsed: 0.029 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 94 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev.testUpdate_RemoveOnPut_1_oe(RemoteCacheListenerUnitTest_OE25Dev.java:232)
+
+[ERROR] testUpdate_PutOnPut_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class sun.rmi.transport.tcp.TCPEndpoint
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev.testUpdate_PutOnPut_1_oe(RemoteCacheListenerUnitTest_OE25Dev.java:67)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.OutOfMemoryError: Required array length 2147483639 + 94 is too large [in thread "main"]
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev.testUpdate_RemoveOnPut_1_oe(RemoteCacheListenerUnitTest_OE25Dev.java:232)
+
+[ERROR] testUpdate_PutOnPut_2_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class sun.rmi.transport.tcp.TCPEndpoint
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev.testUpdate_PutOnPut_2_oe(RemoteCacheListenerUnitTest_OE25Dev.java:98)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.OutOfMemoryError: Required array length 2147483639 + 94 is too large [in thread "main"]
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev.testUpdate_RemoveOnPut_1_oe(RemoteCacheListenerUnitTest_OE25Dev.java:232)
+
+[ERROR] testUpdate_PutOnPut_3_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class sun.rmi.transport.tcp.TCPEndpoint
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev.testUpdate_PutOnPut_3_oe(RemoteCacheListenerUnitTest_OE25Dev.java:130)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.OutOfMemoryError: Required array length 2147483639 + 94 is too large [in thread "main"]
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev.testUpdate_RemoveOnPut_1_oe(RemoteCacheListenerUnitTest_OE25Dev.java:232)
+
+[ERROR] testUpdate_PutOnPut_4_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class sun.rmi.transport.tcp.TCPEndpoint
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev.testUpdate_PutOnPut_4_oe(RemoteCacheListenerUnitTest_OE25Dev.java:163)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.OutOfMemoryError: Required array length 2147483639 + 94 is too large [in thread "main"]
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev.testUpdate_RemoveOnPut_1_oe(RemoteCacheListenerUnitTest_OE25Dev.java:232)
+
+[ERROR] testUpdate_PutOnPut_5_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class sun.rmi.transport.tcp.TCPEndpoint
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev.testUpdate_PutOnPut_5_oe(RemoteCacheListenerUnitTest_OE25Dev.java:197)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.OutOfMemoryError: Required array length 2147483639 + 94 is too large [in thread "main"]
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheListenerUnitTest_OE25Dev.testUpdate_RemoveOnPut_1_oe(RemoteCacheListenerUnitTest_OE25Dev.java:232)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev
+[ERROR] Tests run: 13, Failures: 0, Errors: 13, Skipped: 0, Time elapsed: 0.026 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev
+[ERROR] testFailover_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev)  Time elapsed: 0.009 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class sun.rmi.transport.tcp.TCPEndpoint
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_1_oe(RemoteCacheNoWaitFacadeUnitTest_OE25Dev.java:110)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.OutOfMemoryError: Required array length 2147483639 + 94 is too large [in thread "main"]
+
+[ERROR] testFailover_2_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class sun.rmi.transport.tcp.TCPEndpoint
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_2_oe(RemoteCacheNoWaitFacadeUnitTest_OE25Dev.java:127)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.OutOfMemoryError: Required array length 2147483639 + 94 is too large [in thread "main"]
+
+[ERROR] testFailover_3_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class sun.rmi.transport.tcp.TCPEndpoint
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_3_oe(RemoteCacheNoWaitFacadeUnitTest_OE25Dev.java:145)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.OutOfMemoryError: Required array length 2147483639 + 94 is too large [in thread "main"]
+
+[ERROR] testFailover_4_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class sun.rmi.transport.tcp.TCPEndpoint
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_4_oe(RemoteCacheNoWaitFacadeUnitTest_OE25Dev.java:164)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.OutOfMemoryError: Required array length 2147483639 + 94 is too large [in thread "main"]
+
+[ERROR] testFailover_5_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class sun.rmi.transport.tcp.TCPEndpoint
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_5_oe(RemoteCacheNoWaitFacadeUnitTest_OE25Dev.java:185)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.OutOfMemoryError: Required array length 2147483639 + 94 is too large [in thread "main"]
+
+[ERROR] testFailover_6_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class sun.rmi.transport.tcp.TCPEndpoint
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_6_oe(RemoteCacheNoWaitFacadeUnitTest_OE25Dev.java:210)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.OutOfMemoryError: Required array length 2147483639 + 94 is too large [in thread "main"]
+
+[ERROR] testFailover_7_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class sun.rmi.transport.tcp.TCPEndpoint
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_7_oe(RemoteCacheNoWaitFacadeUnitTest_OE25Dev.java:240)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.OutOfMemoryError: Required array length 2147483639 + 94 is too large [in thread "main"]
+
+[ERROR] testFailover_8_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class sun.rmi.transport.tcp.TCPEndpoint
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_8_oe(RemoteCacheNoWaitFacadeUnitTest_OE25Dev.java:271)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.OutOfMemoryError: Required array length 2147483639 + 94 is too large [in thread "main"]
+
+[ERROR] testFailover_9_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class sun.rmi.transport.tcp.TCPEndpoint
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_9_oe(RemoteCacheNoWaitFacadeUnitTest_OE25Dev.java:303)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.OutOfMemoryError: Required array length 2147483639 + 94 is too large [in thread "main"]
+
+[ERROR] testAddNoWait_InList_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testAddNoWait_InList_1_oe(RemoteCacheNoWaitFacadeUnitTest_OE25Dev.java:52)
+
+[ERROR] testAddNoWait_InList_2_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testAddNoWait_InList_2_oe(RemoteCacheNoWaitFacadeUnitTest_OE25Dev.java:69)
+
+[ERROR] testAddNoWait_InList_3_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 113 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testAddNoWait_InList_3_oe(RemoteCacheNoWaitFacadeUnitTest_OE25Dev.java:87)
+
+[ERROR] testFailover_10_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class sun.rmi.transport.tcp.TCPEndpoint
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_10_oe(RemoteCacheNoWaitFacadeUnitTest_OE25Dev.java:336)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.OutOfMemoryError: Required array length 2147483639 + 94 is too large [in thread "main"]
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.RemoteUtilsUnitTest_OE25Dev
+[ERROR] Tests run: 9, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.017 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.remote.RemoteUtilsUnitTest_OE25Dev
+[ERROR] testParseServerAndPort_5_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteUtilsUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 111 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteUtilsUnitTest_OE25Dev.testParseServerAndPort_5_oe(RemoteUtilsUnitTest_OE25Dev.java:108)
+
+[ERROR] testCreateRegistry_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteUtilsUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteUtilsUnitTest_OE25Dev.testCreateRegistry_1_oe(RemoteUtilsUnitTest_OE25Dev.java:42)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev
+[ERROR] Tests run: 22, Failures: 0, Errors: 22, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev
+[ERROR] testGetMultiple_simple_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testGetMultiple_simple_1_oe(RemoteCacheUnitTest_OE25Dev.java:301)
+
+[ERROR] testGetMultiple_simple_2_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testGetMultiple_simple_2_oe(RemoteCacheUnitTest_OE25Dev.java:316)
+
+[ERROR] testGetMatching_simple_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testGetMatching_simple_1_oe(RemoteCacheUnitTest_OE25Dev.java:397)
+
+[ERROR] testGetMatching_simple_2_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testGetMatching_simple_2_oe(RemoteCacheUnitTest_OE25Dev.java:415)
+
+[ERROR] testGetMatching_simple_3_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testGetMatching_simple_3_oe(RemoteCacheUnitTest_OE25Dev.java:434)
+
+[ERROR] testDispose_simple_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testDispose_simple_1_oe(RemoteCacheUnitTest_OE25Dev.java:451)
+
+[ERROR] testDispose_simple_2_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testDispose_simple_2_oe(RemoteCacheUnitTest_OE25Dev.java:466)
+
+[ERROR] testRemove_simple_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testRemove_simple_1_oe(RemoteCacheUnitTest_OE25Dev.java:332)
+
+[ERROR] testRemove_simple_2_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testRemove_simple_2_oe(RemoteCacheUnitTest_OE25Dev.java:347)
+
+[ERROR] testUpdate_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testUpdate_1_oe(RemoteCacheUnitTest_OE25Dev.java:127)
+
+[ERROR] testUpdate_2_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testUpdate_2_oe(RemoteCacheUnitTest_OE25Dev.java:146)
+
+[ERROR] testUpdate_3_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testUpdate_3_oe(RemoteCacheUnitTest_OE25Dev.java:169)
+
+[ERROR] testGet_simple_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testGet_simple_1_oe(RemoteCacheUnitTest_OE25Dev.java:270)
+
+[ERROR] testGet_simple_2_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testGet_simple_2_oe(RemoteCacheUnitTest_OE25Dev.java:285)
+
+[ERROR] testDispose_nullListener_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testDispose_nullListener_1_oe(RemoteCacheUnitTest_OE25Dev.java:483)
+
+[ERROR] testDispose_nullListener_2_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testDispose_nullListener_2_oe(RemoteCacheUnitTest_OE25Dev.java:499)
+
+[ERROR] testUpdate_simple_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testUpdate_simple_1_oe(RemoteCacheUnitTest_OE25Dev.java:235)
+
+[ERROR] testUpdate_simple_2_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testUpdate_simple_2_oe(RemoteCacheUnitTest_OE25Dev.java:252)
+
+[ERROR] testRemoveAll_simple_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testRemoveAll_simple_1_oe(RemoteCacheUnitTest_OE25Dev.java:363)
+
+[ERROR] testRemoveAll_simple_2_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testRemoveAll_simple_2_oe(RemoteCacheUnitTest_OE25Dev.java:378)
+
+[ERROR] testUpdateZombieThenFix_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testUpdateZombieThenFix_1_oe(RemoteCacheUnitTest_OE25Dev.java:193)
+
+[ERROR] testUpdateZombieThenFix_2_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 107 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheUnitTest_OE25Dev.testUpdateZombieThenFix_2_oe(RemoteCacheUnitTest_OE25Dev.java:214)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.server.BasicRemoteCacheClientServerUnitTest_OE25Dev
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.remote.server.BasicRemoteCacheClientServerUnitTest_OE25Dev
+[ERROR] org.apache.commons.jcs3.auxiliary.remote.server.BasicRemoteCacheClientServerUnitTest_OE25Dev  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.BasicRemoteCacheClientServerUnitTest_OE25Dev.setup(BasicRemoteCacheClientServerUnitTest_OE25Dev.java:109)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerAttributesUnitTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerAttributesUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerFactoryUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerFactoryUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev
+[ERROR] Tests run: 36, Failures: 0, Errors: 36, Skipped: 0, Time elapsed: 0.037 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev
+[ERROR] testGetMultiple_simple_1_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testGetMultiple_simple_2_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testGetMatching_simple_1_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testGetMatching_simple_2_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testSimpleRegisterListenerAndPut_FromClusterWithLCC_1_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testSimpleRegisterListenerAndPut_FromClusterWithLCC_2_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListenerToCache_LOCALtype_1_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0.01 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListenerToCache_LOCALtype_2_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListenerToCache_LOCALtype_3_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListenerToCache_LOCALtype_4_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testRemove_simple_1_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testRemove_simple_2_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testGet_simple_1_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testGet_simple_2_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testUpdate_simple_1_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testUpdate_simple_2_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testSimpleRegisterListenerAndRemove_1_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testSimpleRegisterListenerAndRemove_2_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListener_ToAllThenRemove_clusterType_1_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListener_ToAllThenRemove_clusterType_2_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListener_ToAllThenRemove_clusterType_3_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListener_ToAllThenRemove_clusterType_4_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListener_ToAllThenRemove_clusterType_5_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListener_ToAllThenRemove_clusterType_6_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListener_ToAllThenRemove_1_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListener_ToAllThenRemove_2_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListener_ToAllThenRemove_3_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListener_ToAllThenRemove_4_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListenerToCache_CLUSTERtype_1_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListenerToCache_CLUSTERtype_2_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListenerToCache_CLUSTERtype_3_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testAddListenerToCache_CLUSTERtype_4_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testRemoveAll_simple_1_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testRemoveAll_simple_2_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testSimpleRegisterListenerAndPut_1_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[ERROR] testSimpleRegisterListenerAndPut_2_oe(org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 77 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev.setUp(RemoteCacheServerUnitTest_OE25Dev.java:59)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.ZombieRemoteCacheServiceUnitTest_OE25Dev
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.remote.ZombieRemoteCacheServiceUnitTest_OE25Dev
+[ERROR] testUpdateThenWalk_zeroSize_1_oe(org.apache.commons.jcs3.auxiliary.remote.ZombieRemoteCacheServiceUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 122 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.ZombieRemoteCacheServiceUnitTest_OE25Dev.testUpdateThenWalk_zeroSize_1_oe(ZombieRemoteCacheServiceUnitTest_OE25Dev.java:90)
+
+[ERROR] testUpdateThenWalk_1_oe(org.apache.commons.jcs3.auxiliary.remote.ZombieRemoteCacheServiceUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 122 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.ZombieRemoteCacheServiceUnitTest_OE25Dev.testUpdateThenWalk_1_oe(ZombieRemoteCacheServiceUnitTest_OE25Dev.java:71)
+
+[ERROR] testRemoveThenWalk_1_oe(org.apache.commons.jcs3.auxiliary.remote.ZombieRemoteCacheServiceUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 122 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.ZombieRemoteCacheServiceUnitTest_OE25Dev.testRemoveThenWalk_1_oe(ZombieRemoteCacheServiceUnitTest_OE25Dev.java:109)
+
+[ERROR] testRemoveAllThenWalk_1_oe(org.apache.commons.jcs3.auxiliary.remote.ZombieRemoteCacheServiceUnitTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 122 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.ZombieRemoteCacheServiceUnitTest_OE25Dev.testRemoveAllThenWalk_1_oe(ZombieRemoteCacheServiceUnitTest_OE25Dev.java:127)
+
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev
+[ERROR] Tests run: 9, Failures: 0, Errors: 9, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev
+[ERROR] testGet_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 105 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev.testGet_1_oe(RemoteCacheNoWaitUnitTest_OE25Dev.java:127)
+
+[ERROR] testUpdate_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 105 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev.testUpdate_1_oe(RemoteCacheNoWaitUnitTest_OE25Dev.java:90)
+
+[ERROR] testUpdate_2_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 105 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev.testUpdate_2_oe(RemoteCacheNoWaitUnitTest_OE25Dev.java:108)
+
+[ERROR] testRemove_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 105 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev.testRemove_1_oe(RemoteCacheNoWaitUnitTest_OE25Dev.java:167)
+
+[ERROR] testRemove_2_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 105 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev.testRemove_2_oe(RemoteCacheNoWaitUnitTest_OE25Dev.java:185)
+
+[ERROR] testFixCache_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 105 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev.testFixCache_1_oe(RemoteCacheNoWaitUnitTest_OE25Dev.java:235)
+
+[ERROR] testGetStatus_error_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 105 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev.testGetStatus_error_1_oe(RemoteCacheNoWaitUnitTest_OE25Dev.java:220)
+
+[ERROR] testGetMultiple_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 105 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev.testGetMultiple_1_oe(RemoteCacheNoWaitUnitTest_OE25Dev.java:144)
+
+[ERROR] testGetStats_1_oe(org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 105 is too large
+	at org.apache.commons.jcs3.auxiliary.remote.RemoteCacheNoWaitUnitTest_OE25Dev.testGetStats_1_oe(RemoteCacheNoWaitUnitTest_OE25Dev.java:205)
+
+[INFO] Running org.apache.commons.jcs3.JCSCacheElementRetrievalUnitTest_OE25Dev
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.jcs3.JCSCacheElementRetrievalUnitTest_OE25Dev
+[ERROR] testSimpleElementRetrieval_1_oe(org.apache.commons.jcs3.JCSCacheElementRetrievalUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSCacheElementRetrievalUnitTest_OE25Dev.testSimpleElementRetrieval_1_oe(JCSCacheElementRetrievalUnitTest_OE25Dev.java:42)
+
+[ERROR] testSimpleElementRetrieval_2_oe(org.apache.commons.jcs3.JCSCacheElementRetrievalUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSCacheElementRetrievalUnitTest_OE25Dev.testSimpleElementRetrieval_2_oe(JCSCacheElementRetrievalUnitTest_OE25Dev.java:54)
+
+[INFO] Running org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev
+[ERROR] Tests run: 8, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev
+[ERROR] testClearRepeatedlyWithoutError_1_oe(org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev.setUp(JCSRemovalSimpleConcurrentTest_OE25Dev.java:63)
+
+[ERROR] testClearRepeatedlyWithoutError_2_oe(org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev.setUp(JCSRemovalSimpleConcurrentTest_OE25Dev.java:63)
+
+[ERROR] testSingleDepthRemoval_1_oe(org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev.setUp(JCSRemovalSimpleConcurrentTest_OE25Dev.java:63)
+
+[ERROR] testSingleDepthRemoval_2_oe(org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev.setUp(JCSRemovalSimpleConcurrentTest_OE25Dev.java:63)
+
+[ERROR] testClear_1_oe(org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev.setUp(JCSRemovalSimpleConcurrentTest_OE25Dev.java:63)
+
+[ERROR] testClear_2_oe(org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev.setUp(JCSRemovalSimpleConcurrentTest_OE25Dev.java:63)
+
+[ERROR] testTwoDeepRemoval_1_oe(org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev.setUp(JCSRemovalSimpleConcurrentTest_OE25Dev.java:63)
+
+[ERROR] testTwoDeepRemoval_2_oe(org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev.setUp(JCSRemovalSimpleConcurrentTest_OE25Dev.java:63)
+
+[INFO] Running org.apache.commons.jcs3.admin.CountingStreamUnitTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.admin.CountingStreamUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev
+[ERROR] Tests run: 9, Failures: 0, Errors: 9, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev
+[ERROR] testClearAll_1_oe(org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev.testClearAll_1_oe(AdminBeanUnitTest_OE25Dev.java:281)
+
+[ERROR] testRemove_1_oe(org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev.testRemove_1_oe(AdminBeanUnitTest_OE25Dev.java:213)
+
+[ERROR] testRemove_2_oe(org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev.testRemove_2_oe(AdminBeanUnitTest_OE25Dev.java:232)
+
+[ERROR] testRemove_3_oe(org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev.testRemove_3_oe(AdminBeanUnitTest_OE25Dev.java:254)
+
+[ERROR] testGetElementForRegionInfo_1_oe(org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev.testGetElementForRegionInfo_1_oe(AdminBeanUnitTest_OE25Dev.java:172)
+
+[ERROR] testGetElementForRegionInfo_2_oe(org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev.testGetElementForRegionInfo_2_oe(AdminBeanUnitTest_OE25Dev.java:190)
+
+[ERROR] testGetRegionInfo_1_oe(org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev.testGetRegionInfo_1_oe(AdminBeanUnitTest_OE25Dev.java:88)
+
+[ERROR] testGetRegionInfo_2_oe(org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev.testGetRegionInfo_2_oe(AdminBeanUnitTest_OE25Dev.java:114)
+
+[ERROR] testGetRegionInfo_3_oe(org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.admin.AdminBeanUnitTest_OE25Dev.testGetRegionInfo_3_oe(AdminBeanUnitTest_OE25Dev.java:142)
+
+[INFO] Running org.apache.commons.jcs3.ZeroSizeCacheUnitTest_OE25Dev
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in org.apache.commons.jcs3.ZeroSizeCacheUnitTest_OE25Dev
+[ERROR] testPutGetRemove_1_oe(org.apache.commons.jcs3.ZeroSizeCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.ZeroSizeCacheUnitTest_OE25Dev.setUp(ZeroSizeCacheUnitTest_OE25Dev.java:47)
+
+[ERROR] testPutGetRemove_2_oe(org.apache.commons.jcs3.ZeroSizeCacheUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.ZeroSizeCacheUnitTest_OE25Dev.setUp(ZeroSizeCacheUnitTest_OE25Dev.java:47)
+
+[INFO] Running org.apache.commons.jcs3.JCSLightLoadUnitTest_OE25Dev
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.jcs3.JCSLightLoadUnitTest_OE25Dev
+[ERROR] testSimpleLoad_1_oe(org.apache.commons.jcs3.JCSLightLoadUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSLightLoadUnitTest_OE25Dev.setUp(JCSLightLoadUnitTest_OE25Dev.java:44)
+
+[ERROR] testSimpleLoad_2_oe(org.apache.commons.jcs3.JCSLightLoadUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSLightLoadUnitTest_OE25Dev.setUp(JCSLightLoadUnitTest_OE25Dev.java:44)
+
+[INFO] Running org.apache.commons.jcs3.JCSThrashTest_OE25Dev
+[ERROR] Tests run: 11, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in org.apache.commons.jcs3.JCSThrashTest_OE25Dev
+[ERROR] testPut_1_oe(org.apache.commons.jcs3.JCSThrashTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSThrashTest_OE25Dev.setUp(JCSThrashTest_OE25Dev.java:60)
+
+[ERROR] testPut_2_oe(org.apache.commons.jcs3.JCSThrashTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSThrashTest_OE25Dev.setUp(JCSThrashTest_OE25Dev.java:60)
+
+[ERROR] testPut_3_oe(org.apache.commons.jcs3.JCSThrashTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSThrashTest_OE25Dev.setUp(JCSThrashTest_OE25Dev.java:60)
+
+[ERROR] testPut_4_oe(org.apache.commons.jcs3.JCSThrashTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSThrashTest_OE25Dev.setUp(JCSThrashTest_OE25Dev.java:60)
+
+[ERROR] testPut_5_oe(org.apache.commons.jcs3.JCSThrashTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSThrashTest_OE25Dev.setUp(JCSThrashTest_OE25Dev.java:60)
+
+[ERROR] testForMemoryLeaks_1_oe(org.apache.commons.jcs3.JCSThrashTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSThrashTest_OE25Dev.setUp(JCSThrashTest_OE25Dev.java:60)
+
+[ERROR] testRemove_1_oe(org.apache.commons.jcs3.JCSThrashTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSThrashTest_OE25Dev.setUp(JCSThrashTest_OE25Dev.java:60)
+
+[ERROR] testRemove_2_oe(org.apache.commons.jcs3.JCSThrashTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSThrashTest_OE25Dev.setUp(JCSThrashTest_OE25Dev.java:60)
+
+[ERROR] testRemove_3_oe(org.apache.commons.jcs3.JCSThrashTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSThrashTest_OE25Dev.setUp(JCSThrashTest_OE25Dev.java:60)
+
+[ERROR] testRemove_4_oe(org.apache.commons.jcs3.JCSThrashTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSThrashTest_OE25Dev.setUp(JCSThrashTest_OE25Dev.java:60)
+
+[ERROR] testRemove_5_oe(org.apache.commons.jcs3.JCSThrashTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.OutOfMemoryError: Required array length 2147483639 + 308 is too large
+	at org.apache.commons.jcs3.JCSThrashTest_OE25Dev.setUp(JCSThrashTest_OE25Dev.java:60)
+
+[INFO] Running org.apache.commons.jcs3.JCSvsHashtablePerformanceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.JCSvsHashtablePerformanceTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   SystemPropertyUnitTest_OE25Dev.test1SystemPropertyInValueDelimiter_1_oe:67 We should have used the system property for the memory size expected:<1234> but was:<100>
+[ERROR]   JDBCDiskCacheShrinkUnitTest_OE25Dev.testExpireInBackground_1_oe:126 Removed key should be null: 0:key expected null, but was:<expire1Second data 0>
+[ERROR]   HSQLDiskCacheUnitTest_OE25Dev.testRemoveAllProhibition_1_oe:271 key = [0:key] value = [null] expected:<noRemoveAll data 0> but was:<null>
+[ERROR]   CompositeCacheConfiguratorUnitTest_OE25Dev.testParseSpoolChunkSize_Normal_1_oe:121 Wrong chunkSize expected:<2> but was:<5>
+[ERROR]   CompositeCacheDiskUsageUnitTest_OE25Dev.testUpdateConfig_1_oe:337 expected:<UPDATE> but was:<SWAP>
+[ERROR]   CompositeCacheManagerTest_OE25Dev.testRelease_2_oe:70 The cache was NOT disposed during release! expected:<DISPOSED> but was:<ALIVE>
+[ERROR]   SimpleEventHandlingUnitTest_OE25Dev.testExceededIdletimeOnrequestEvent_1_oe:334 Item should not be null for key 0:key
+[ERROR]   SimpleEventHandlingUnitTest_OE25Dev.testSpoolEvent_1_oe:243 The number of ELEMENT_EVENT_SPOOLED_DISK_AVAILABLE events [0] does not equal the number expected [2000]
+[ERROR]   SimpleEventHandlingUnitTest_OE25Dev.testSpoolNoDiskEvent_1_oe:266 The number of ELEMENT_EVENT_SPOOLED_DISK_NOT_AVAILABLE events [1990] does not equal the number expected.
+[ERROR]   SimpleEventHandlingUnitTest_OE25Dev.testSpoolNotAllowedEventOnItem_1_oe:312 The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [0] does not equal the number expected.
+[ERROR]   SimpleEventHandlingUnitTest_OE25Dev.testSpoolNotAllowedEvent_1_oe:288 The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [0] does not equal the number expected.
+[ERROR]   SoftReferenceMemoryCacheUnitTest_OE25Dev.testPutGetThroughHub_1_oe:122 expected:<myregion data 0> but was:<null>
+[ERROR]   SerializerUnitTest_OE25Dev.testReadWrite_1_oe:91 [key:0] should not be null, Region Name = blockRegion1
+HitCountRam = 0
+HitCountAux = 0
+---------------------------Memory Cache
+Put Count = 500
+Hit Count = 0
+Miss Count = 1
+Map Size = 10
+List Size = 10
+[ERROR]   LRUMapPerformanceTest_OE25Dev.testSimpleLoad_1_oe:174
+[ERROR]   LRUMapPerformanceTest_OE25Dev.testSimpleLoad_2_oe:182
+[ERROR] Errors: 
+[ERROR]   JCSCacheElementRetrievalUnitTest_OE25Dev.testSimpleElementRetrieval_1_oe:42 » OutOfMemory
+[ERROR]   JCSCacheElementRetrievalUnitTest_OE25Dev.testSimpleElementRetrieval_2_oe:54 » OutOfMemory
+[ERROR]   JCSLightLoadUnitTest_OE25Dev.setUp:44 » OutOfMemory Required array length 2147...
+[ERROR]   JCSLightLoadUnitTest_OE25Dev.setUp:44 » OutOfMemory Required array length 2147...
+[ERROR]   JCSRemovalSimpleConcurrentTest_OE25Dev.setUp:63 » OutOfMemory Required array l...
+[ERROR]   JCSRemovalSimpleConcurrentTest_OE25Dev.setUp:63 » OutOfMemory Required array l...
+[ERROR]   JCSRemovalSimpleConcurrentTest_OE25Dev.setUp:63 » OutOfMemory Required array l...
+[ERROR]   JCSRemovalSimpleConcurrentTest_OE25Dev.setUp:63 » OutOfMemory Required array l...
+[ERROR]   JCSRemovalSimpleConcurrentTest_OE25Dev.setUp:63 » OutOfMemory Required array l...
+[ERROR]   JCSRemovalSimpleConcurrentTest_OE25Dev.setUp:63 » OutOfMemory Required array l...
+[ERROR]   JCSRemovalSimpleConcurrentTest_OE25Dev.setUp:63 » OutOfMemory Required array l...
+[ERROR]   JCSRemovalSimpleConcurrentTest_OE25Dev.setUp:63 » OutOfMemory Required array l...
+[ERROR]   JCSThrashTest_OE25Dev.setUp:60 » OutOfMemory Required array length 2147483639 ...
+[ERROR]   JCSThrashTest_OE25Dev.setUp:60 » OutOfMemory Required array length 2147483639 ...
+[ERROR]   JCSThrashTest_OE25Dev.setUp:60 » OutOfMemory Required array length 2147483639 ...
+[ERROR]   JCSThrashTest_OE25Dev.setUp:60 » OutOfMemory Required array length 2147483639 ...
+[ERROR]   JCSThrashTest_OE25Dev.setUp:60 » OutOfMemory Required array length 2147483639 ...
+[ERROR]   JCSThrashTest_OE25Dev.setUp:60 » OutOfMemory Required array length 2147483639 ...
+[ERROR]   JCSThrashTest_OE25Dev.setUp:60 » OutOfMemory Required array length 2147483639 ...
+[ERROR]   JCSThrashTest_OE25Dev.setUp:60 » OutOfMemory Required array length 2147483639 ...
+[ERROR]   JCSThrashTest_OE25Dev.setUp:60 » OutOfMemory Required array length 2147483639 ...
+[ERROR]   JCSThrashTest_OE25Dev.setUp:60 » OutOfMemory Required array length 2147483639 ...
+[ERROR]   JCSThrashTest_OE25Dev.setUp:60 » OutOfMemory Required array length 2147483639 ...
+[ERROR]   ZeroSizeCacheUnitTest_OE25Dev.setUp:47 » OutOfMemory Required array length 214...
+[ERROR]   ZeroSizeCacheUnitTest_OE25Dev.setUp:47 » OutOfMemory Required array length 214...
+[ERROR]   AdminBeanUnitTest_OE25Dev.testClearAll_1_oe:281 » OutOfMemory Required array l...
+[ERROR]   AdminBeanUnitTest_OE25Dev.testGetElementForRegionInfo_1_oe:172 » OutOfMemory R...
+[ERROR]   AdminBeanUnitTest_OE25Dev.testGetElementForRegionInfo_2_oe:190 » OutOfMemory R...
+[ERROR]   AdminBeanUnitTest_OE25Dev.testGetRegionInfo_1_oe:88 » OutOfMemory Required arr...
+[ERROR]   AdminBeanUnitTest_OE25Dev.testGetRegionInfo_2_oe:114 » OutOfMemory Required ar...
+[ERROR]   AdminBeanUnitTest_OE25Dev.testGetRegionInfo_3_oe:142 » OutOfMemory Required ar...
+[ERROR]   AdminBeanUnitTest_OE25Dev.testRemove_1_oe:213 » OutOfMemory Required array len...
+[ERROR]   AdminBeanUnitTest_OE25Dev.testRemove_2_oe:232 » OutOfMemory Required array len...
+[ERROR]   AdminBeanUnitTest_OE25Dev.testRemove_3_oe:254 » OutOfMemory Required array len...
+[ERROR]   AuxiliaryCacheConfiguratorUnitTest_OE25Dev.testParseCacheEventLogger_Normal_1_oe:95 » OutOfMemory
+[ERROR]   AuxiliaryCacheConfiguratorUnitTest_OE25Dev.testParseCacheEventLogger_Normal_2_oe:115 » OutOfMemory
+[ERROR]   AuxiliaryCacheConfiguratorUnitTest_OE25Dev.testParseCacheEventLogger_NullName_1_oe:74 » OutOfMemory
+[ERROR]   AuxiliaryCacheConfiguratorUnitTest_OE25Dev.testParseCacheEventLogger_Null_1_oe:61 » OutOfMemory
+[ERROR]   AuxiliaryCacheConfiguratorUnitTest_OE25Dev.testParseElementSerializer_Normal_1_oe:136 » OutOfMemory
+[ERROR]   AuxiliaryCacheConfiguratorUnitTest_OE25Dev.testParseElementSerializer_Normal_2_oe:156 » OutOfMemory
+[ERROR]   AuxiliaryCacheConfiguratorUnitTest_OE25Dev.testParseElementSerializer_Null_1_oe:170 » OutOfMemory
+[ERROR]   BlockDiskCacheKeyStoreUnitTest_OE25Dev.testObjectLargerThanMaxSize_1_oe:185 » OutOfMemory
+[ERROR]   BlockDiskCacheKeyStoreUnitTest_OE25Dev.testObjectLargerThanMaxSize_2_oe:203 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testCalculateBlocksNeededDouble_1_oe:350->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testJCS156_1_oe:662->setUpBlockDisk:66 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testJCS156_2_oe:670->setUpBlockDisk:66 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWriteAndReadMultipleMultiBlockElement_1_oe:466->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWriteAndReadMultipleMultiBlockElement_2_oe:487->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWriteAndReadMultipleMultiBlockElement_setSize_1_oe:509->setUpBlockDisk:66 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWriteAndReadMultipleMultiBlockElement_setSize_2_oe:533->setUpBlockDisk:66 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWriteAndReadMultipleMultiBlockElement_setSize_3_oe:558->setUpBlockDisk:66 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWriteAndReadMultipleMultiBlockElement_setSize_4_oe:588->setUpBlockDisk:66 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWriteAndRead_BigString2_1_oe:645->setUpBlockDisk:66 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWriteAndRead_BigString_1_oe:619->setUpBlockDisk:66 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWriteAndRead_SingleBlockElement_1_oe:249->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_128BlockElement_1_oe:414->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_128BlockElement_2_oe:431->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_128BlockElement_3_oe:449->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_DoubleBlockElement_1_oe:364->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_DoubleBlockElement_2_oe:379->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_DoubleBlockElement_3_oe:395->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_NullBlockElement_1_oe:162->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_NullBlockElement_2_oe:175->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_NullBlockElement_3_oe:189->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_SingleBlockElement_1_oe:204->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_SingleBlockElement_2_oe:218->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_SingleBlockElement_3_oe:233->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_TwoSingleBlockElements_1_oe:265->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_TwoSingleBlockElements_2_oe:280->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_TwoSingleBlockElements_3_oe:296->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_TwoSingleBlockElements_4_oe:313->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   BlockDiskUnitTest_OE25Dev.testWrite_TwoSingleBlockElements_5_oe:331->setUpBlockDisk:59 » OutOfMemory
+[ERROR]   IndexedDiskCacheOptimizationUnitTest_OE25Dev.testBasicOptimization_1_oe:53 » OutOfMemory
+[ERROR]   IndexedDiskCacheOptimizationUnitTest_OE25Dev.testBasicOptimization_2_oe:104 » OutOfMemory
+[ERROR]   LRUMapSizeVsCount_OE25Dev.testSimpleLoad_1_oe:210->doWork:138 » OutOfMemory Re...
+[ERROR]   LRUMapSizeVsCount_OE25Dev.testSimpleLoad_2_oe:217->doWork:98 » OutOfMemory Req...
+[ERROR]   LateralTCPIssueRemoveOnPutUnitTest_OE25Dev.testStandardPut_1_oe:208 » IO Canno...
+[ERROR]   RemoteCacheListenerUnitTest_OE25Dev.testUpdate_PutOnPut_1_oe:67 » NoClassDefFound
+[ERROR]   RemoteCacheListenerUnitTest_OE25Dev.testUpdate_PutOnPut_2_oe:98 » NoClassDefFound
+[ERROR]   RemoteCacheListenerUnitTest_OE25Dev.testUpdate_PutOnPut_3_oe:130 » NoClassDefFound
+[ERROR]   RemoteCacheListenerUnitTest_OE25Dev.testUpdate_PutOnPut_4_oe:163 » NoClassDefFound
+[ERROR]   RemoteCacheListenerUnitTest_OE25Dev.testUpdate_PutOnPut_5_oe:197 » NoClassDefFound
+[ERROR]   RemoteCacheListenerUnitTest_OE25Dev.testUpdate_RemoveOnPut_1_oe:232 » OutOfMemory
+[ERROR]   RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testAddNoWait_InList_1_oe:52 » OutOfMemory
+[ERROR]   RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testAddNoWait_InList_2_oe:69 » OutOfMemory
+[ERROR]   RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testAddNoWait_InList_3_oe:87 » OutOfMemory
+[ERROR]   RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_10_oe:336 » NoClassDefFound
+[ERROR]   RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_1_oe:110 » NoClassDefFound
+[ERROR]   RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_2_oe:127 » NoClassDefFound
+[ERROR]   RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_3_oe:145 » NoClassDefFound
+[ERROR]   RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_4_oe:164 » NoClassDefFound
+[ERROR]   RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_5_oe:185 » NoClassDefFound
+[ERROR]   RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_6_oe:210 » NoClassDefFound
+[ERROR]   RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_7_oe:240 » NoClassDefFound
+[ERROR]   RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_8_oe:271 » NoClassDefFound
+[ERROR]   RemoteCacheNoWaitFacadeUnitTest_OE25Dev.testFailover_9_oe:303 » NoClassDefFound
+[ERROR]   RemoteCacheNoWaitUnitTest_OE25Dev.testFixCache_1_oe:235 » OutOfMemory Required...
+[ERROR]   RemoteCacheNoWaitUnitTest_OE25Dev.testGetMultiple_1_oe:144 » OutOfMemory Requi...
+[ERROR]   RemoteCacheNoWaitUnitTest_OE25Dev.testGetStats_1_oe:205 » OutOfMemory Required...
+[ERROR]   RemoteCacheNoWaitUnitTest_OE25Dev.testGetStatus_error_1_oe:220 » OutOfMemory R...
+[ERROR]   RemoteCacheNoWaitUnitTest_OE25Dev.testGet_1_oe:127 » OutOfMemory Required arra...
+[ERROR]   RemoteCacheNoWaitUnitTest_OE25Dev.testRemove_1_oe:167 » OutOfMemory Required a...
+[ERROR]   RemoteCacheNoWaitUnitTest_OE25Dev.testRemove_2_oe:185 » OutOfMemory Required a...
+[ERROR]   RemoteCacheNoWaitUnitTest_OE25Dev.testUpdate_1_oe:90 » OutOfMemory Required ar...
+[ERROR]   RemoteCacheNoWaitUnitTest_OE25Dev.testUpdate_2_oe:108 » OutOfMemory Required a...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testDispose_nullListener_1_oe:483 » OutOfMemory Re...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testDispose_nullListener_2_oe:499 » OutOfMemory Re...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testDispose_simple_1_oe:451 » OutOfMemory Required...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testDispose_simple_2_oe:466 » OutOfMemory Required...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testGetMatching_simple_1_oe:397 » OutOfMemory Requ...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testGetMatching_simple_2_oe:415 » OutOfMemory Requ...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testGetMatching_simple_3_oe:434 » OutOfMemory Requ...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testGetMultiple_simple_1_oe:301 » OutOfMemory Requ...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testGetMultiple_simple_2_oe:316 » OutOfMemory Requ...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testGet_simple_1_oe:270 » OutOfMemory Required arr...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testGet_simple_2_oe:285 » OutOfMemory Required arr...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testRemoveAll_simple_1_oe:363 » OutOfMemory Requir...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testRemoveAll_simple_2_oe:378 » OutOfMemory Requir...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testRemove_simple_1_oe:332 » OutOfMemory Required ...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testRemove_simple_2_oe:347 » OutOfMemory Required ...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testUpdateZombieThenFix_1_oe:193 » OutOfMemory Req...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testUpdateZombieThenFix_2_oe:214 » OutOfMemory Req...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testUpdate_1_oe:127 » OutOfMemory Required array l...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testUpdate_2_oe:146 » OutOfMemory Required array l...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testUpdate_3_oe:169 » OutOfMemory Required array l...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testUpdate_simple_1_oe:235 » OutOfMemory Required ...
+[ERROR]   RemoteCacheUnitTest_OE25Dev.testUpdate_simple_2_oe:252 » OutOfMemory Required ...
+[ERROR]   RemoteUtilsUnitTest_OE25Dev.testCreateRegistry_1_oe:42 » OutOfMemory Required ...
+[ERROR]   RemoteUtilsUnitTest_OE25Dev.testParseServerAndPort_5_oe:108 » OutOfMemory Requ...
+[ERROR]   ZombieRemoteCacheServiceUnitTest_OE25Dev.testRemoveAllThenWalk_1_oe:127 » OutOfMemory
+[ERROR]   ZombieRemoteCacheServiceUnitTest_OE25Dev.testRemoveThenWalk_1_oe:109 » OutOfMemory
+[ERROR]   ZombieRemoteCacheServiceUnitTest_OE25Dev.testUpdateThenWalk_1_oe:71 » OutOfMemory
+[ERROR]   ZombieRemoteCacheServiceUnitTest_OE25Dev.testUpdateThenWalk_zeroSize_1_oe:90 » OutOfMemory
+[ERROR]   RemoteHttpCacheClientUnitTest_OE25Dev.testDispose_normal_1_oe:370 » OutOfMemory
+[ERROR]   RemoteHttpCacheClientUnitTest_OE25Dev.testGetMatching_normal_1_oe:192 » OutOfMemory
+[ERROR]   RemoteHttpCacheClientUnitTest_OE25Dev.testGetMatching_normal_2_oe:221 » OutOfMemory
+[ERROR]   RemoteHttpCacheClientUnitTest_OE25Dev.testGetMultiple_normal_1_oe:251 » OutOfMemory
+[ERROR]   RemoteHttpCacheClientUnitTest_OE25Dev.testGetMultiple_normal_2_oe:280 » OutOfMemory
+[ERROR]   RemoteHttpCacheClientUnitTest_OE25Dev.testGet_normal_1_oe:137 » OutOfMemory Re...
+[ERROR]   RemoteHttpCacheClientUnitTest_OE25Dev.testGet_normal_2_oe:164 » OutOfMemory Re...
+[ERROR]   RemoteHttpCacheClientUnitTest_OE25Dev.testGet_nullFromDispatcher_1_oe:92 » OutOfMemory
+[ERROR]   RemoteHttpCacheClientUnitTest_OE25Dev.testGet_nullFromDispatcher_2_oe:114 » OutOfMemory
+[ERROR]   RemoteHttpCacheClientUnitTest_OE25Dev.testRemoveAll_normal_1_oe:330 » OutOfMemory
+[ERROR]   RemoteHttpCacheClientUnitTest_OE25Dev.testRemove_normal_1_oe:310 » OutOfMemory
+[ERROR]   RemoteHttpCacheClientUnitTest_OE25Dev.testUpdate_normal_1_oe:349 » OutOfMemory
+[ERROR]   RemoteHttpCacheFactoryUnitTest_OE25Dev.testCreateRemoteHttpCacheClient_Bad_1_oe:51 » OutOfMemory
+[ERROR]   RemoteHttpCacheFactoryUnitTest_OE25Dev.testCreateRemoteHttpCacheClient_Bad_2_oe:67 » OutOfMemory
+[ERROR]   RemoteHttpCacheFactoryUnitTest_OE25Dev.testCreateRemoteHttpCacheClient_Bad_3_oe:84 » OutOfMemory
+[ERROR]   RemoteHttpCacheFactoryUnitTest_OE25Dev.testCreateRemoteHttpCacheClient_default_1_oe:99 » OutOfMemory
+[ERROR]   RemoteHttpCacheFactoryUnitTest_OE25Dev.testCreateRemoteHttpCacheClient_default_2_oe:112 » OutOfMemory
+[ERROR]   RemoteHttpCacheFactoryUnitTest_OE25Dev.testGetCache_normal_4_oe:167 » OutOfMemory
+[ERROR]   RemoteHttpCacheManualTester_OE25Dev.testSimpleLoad_1_oe:51 » OutOfMemory Requi...
+[ERROR]   RemoteHttpCacheServiceUnitTest_OE25Dev.testGetMatching_simple_1_oe:158 » OutOfMemory
+[ERROR]   RemoteHttpCacheServiceUnitTest_OE25Dev.testGetMatching_simple_2_oe:176 » OutOfMemory
+[ERROR]   RemoteHttpCacheServiceUnitTest_OE25Dev.testGetMultiple_simple_1_oe:195 » OutOfMemory
+[ERROR]   RemoteHttpCacheServiceUnitTest_OE25Dev.testGetMultiple_simple_2_oe:213 » OutOfMemory
+[ERROR]   RemoteHttpCacheServiceUnitTest_OE25Dev.testGet_simple_1_oe:140 » OutOfMemory R...
+[ERROR]   RemoteHttpCacheServletUnitTest_OE25Dev.setUp:49 » OutOfMemory Required array l...
+[ERROR]   RemoteHttpCacheServletUnitTest_OE25Dev.setUp:49 » OutOfMemory Required array l...
+[ERROR]   RemoteHttpCacheServletUnitTest_OE25Dev.setUp:49 » OutOfMemory Required array l...
+[ERROR]   RemoteHttpCacheServletUnitTest_OE25Dev.setUp:49 » OutOfMemory Required array l...
+[ERROR]   RemoteHttpCacheServletUnitTest_OE25Dev.setUp:49 » OutOfMemory Required array l...
+[ERROR]   RemoteHttpCacheServletUnitTest_OE25Dev.setUp:49 » OutOfMemory Required array l...
+[ERROR]   RemoteHttpCacheServletUnitTest_OE25Dev.setUp:49 » OutOfMemory Required array l...
+[ERROR]   RemoteHttpCacheServletUnitTest_OE25Dev.setUp:49 » OutOfMemory Required array l...
+[ERROR]   RemoteHttpCacheServletUnitTest_OE25Dev.setUp:49 » OutOfMemory Required array l...
+[ERROR]   RemoteHttpCacheServletUnitTest_OE25Dev.setUp:49 » OutOfMemory Required array l...
+[ERROR]   RemoteHttpCacheServletUnitTest_OE25Dev.setUp:49 » OutOfMemory Required array l...
+[ERROR]   RemoteHttpCacheServletUnitTest_OE25Dev.setUp:49 » OutOfMemory Required array l...
+[ERROR]   RemoteHttpCacheServletUnitTest_OE25Dev.setUp:49 » OutOfMemory Required array l...
+[ERROR]   RemoteHttpCacheServletUnitTest_OE25Dev.setUp:49 » OutOfMemory Required array l...
+[ERROR]   RemoteHttpCacheServletUnitTest_OE25Dev.setUp:49 » OutOfMemory Required array l...
+[ERROR]   BasicRemoteCacheClientServerUnitTest_OE25Dev.setup:109 » OutOfMemory Required ...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[ERROR]   RemoteCacheServerUnitTest_OE25Dev.setUp:59 » OutOfMemory Required array length...
+[INFO] 
+[ERROR] Tests run: 589, Failures: 15, Errors: 209, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:42 min
+[INFO] Finished at: 2026-02-09T03:28:03-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-jcs3-core: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

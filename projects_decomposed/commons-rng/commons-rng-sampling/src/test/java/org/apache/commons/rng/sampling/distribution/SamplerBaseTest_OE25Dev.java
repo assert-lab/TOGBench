@@ -58,10 +58,10 @@ class SamplerBaseTest_OE25Dev {
 
     @Test
     void testNextMethods_1_oe() {
-        final UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
-        final UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
-        final SimpleSampler sampler = new SimpleSampler(rng2);
-        final int n = 256;
+         UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         SimpleSampler sampler = new SimpleSampler(rng2);
+         int n = 256;
         for (int i = 0; i < 3; i++) {
             Assertions.assertEquals(rng1.nextDouble(), sampler.nextDouble());
     }
@@ -69,10 +69,10 @@ class SamplerBaseTest_OE25Dev {
 
     @Test
     void testNextMethods_2_oe() {
-        final UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
-        final UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
-        final SimpleSampler sampler = new SimpleSampler(rng2);
-        final int n = 256;
+         UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         SimpleSampler sampler = new SimpleSampler(rng2);
+         int n = 256;
         for (int i = 0; i < 3; i++) {
             // removed other assertion
             Assertions.assertEquals(rng1.nextInt(), sampler.nextInt());
@@ -81,10 +81,10 @@ class SamplerBaseTest_OE25Dev {
 
     @Test
     void testNextMethods_3_oe() {
-        final UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
-        final UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
-        final SimpleSampler sampler = new SimpleSampler(rng2);
-        final int n = 256;
+         UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         SimpleSampler sampler = new SimpleSampler(rng2);
+         int n = 256;
         for (int i = 0; i < 3; i++) {
             // removed other assertion
             // removed other assertion
@@ -94,10 +94,10 @@ class SamplerBaseTest_OE25Dev {
 
     @Test
     void testNextMethods_4_oe() {
-        final UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
-        final UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
-        final SimpleSampler sampler = new SimpleSampler(rng2);
-        final int n = 256;
+         UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         SimpleSampler sampler = new SimpleSampler(rng2);
+         int n = 256;
         for (int i = 0; i < 3; i++) {
             // removed other assertion
             // removed other assertion
@@ -108,8 +108,8 @@ class SamplerBaseTest_OE25Dev {
 
     @Test
     void testToString_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final SimpleSampler sampler = new SimpleSampler(rng);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         SimpleSampler sampler = new SimpleSampler(rng);
         Assertions.assertTrue(sampler.toString().contains("rng"));
     }
 

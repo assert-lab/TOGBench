@@ -455,41 +455,6 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
 
     @Test
     @SuppressWarnings("unchecked")
-    public void testInterval_3_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
-        JexlScript script;
-        Object result;
-
-        script = jexl.createScript("1 .. 3");
-        result = script.execute(null);
-        // removed other assertion
-        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        Assert.assertEquals(Integer.valueOf(2), ii.next());
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testInterval_4_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
-        JexlScript script;
-        Object result;
-
-        script = jexl.createScript("1 .. 3");
-        result = script.execute(null);
-        // removed other assertion
-        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        // removed other assertion
-        Assert.assertEquals(Integer.valueOf(3), ii.next());
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
     public void testInterval_5_oe() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
         ns.put("calc", Aggregate.class);
@@ -532,57 +497,6 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         // removed other assertion
         ii = ((Iterable<Integer>) result).iterator();
         Assert.assertEquals(Integer.valueOf(1), ii.next());
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testInterval_7_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
-        JexlScript script;
-        Object result;
-
-        script = jexl.createScript("1 .. 3");
-        result = script.execute(null);
-        // removed other assertion
-        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        script = jexl.createScript("(4 - 3) .. (9 / 3)");
-        result = script.execute(null);
-        // removed other assertion
-        ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        Assert.assertEquals(Integer.valueOf(2), ii.next());
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testInterval_8_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
-        JexlScript script;
-        Object result;
-
-        script = jexl.createScript("1 .. 3");
-        result = script.execute(null);
-        // removed other assertion
-        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        script = jexl.createScript("(4 - 3) .. (9 / 3)");
-        result = script.execute(null);
-        // removed other assertion
-        ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        // removed other assertion
-        Assert.assertEquals(Integer.valueOf(3), ii.next());
     }
 
     @Test

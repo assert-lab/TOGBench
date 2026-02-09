@@ -26,15 +26,15 @@ class NoOpConverterTest_OE25Dev {
 
     @Test
     void testNoOpIntegerCoversion_1_oe() {
-        final NoOpConverter<Integer> converter = new NoOpConverter<>();
-        final Integer in = 123;
+         NoOpConverter<Integer> converter = new NoOpConverter<>();
+         Integer in = 123;
         Assertions.assertSame(in, converter.convert(in));
     }
 
     @Test
     void testNoOpLongArrayCoversion_1_oe() {
-        final NoOpConverter<long[]> converter = new NoOpConverter<>();
-        final long[] in = {123L, 456L, Long.MAX_VALUE};
+         NoOpConverter<long[]> converter = new NoOpConverter<>();
+         long[] in = {123L, 456L, Long.MAX_VALUE};
         Assertions.assertSame(in, converter.convert(in));
     }
 

@@ -52,6 +52,193 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         asserter = new Asserter(JEXL);
     }
 
+    @Test
+    public void testSideEffectVar() throws Exception {
+        final Map<String,Object> context = asserter.getVariables();
+        final Integer i41 = Integer.valueOf(4141);
+        final Object foo = i41;
+
+        context.put("foo", foo);
+        asserter.assertExpression("foo += 2", i41 + 2);
+        Assert.assertEquals(context.get("foo"), i41 + 2);
+
+        context.put("foo", foo);
+        asserter.assertExpression("foo -= 2", i41 - 2);
+        Assert.assertEquals(context.get("foo"), i41 - 2);
+
+        context.put("foo", foo);
+        asserter.assertExpression("foo *= 2", i41 * 2);
+        Assert.assertEquals(context.get("foo"), i41 * 2);
+
+        context.put("foo", foo);
+        asserter.assertExpression("foo /= 2", i41 / 2);
+        Assert.assertEquals(context.get("foo"), i41 / 2);
+
+        context.put("foo", foo);
+        asserter.assertExpression("foo %= 2", i41 % 2);
+        Assert.assertEquals(context.get("foo"), i41 % 2);
+
+        context.put("foo", foo);
+        asserter.assertExpression("foo &= 3", (long) (i41 & 3));
+        Assert.assertEquals(context.get("foo"), (long)(i41 & 3));
+
+        context.put("foo", foo);
+        asserter.assertExpression("foo |= 2", (long)(i41 | 2));
+        Assert.assertEquals(context.get("foo"), (long)(i41 | 2));
+
+        context.put("foo", foo);
+        asserter.assertExpression("foo ^= 2", (long)(i41 ^ 2));
+        Assert.assertEquals(context.get("foo"), (long)(i41 ^ 2));
+    }
+
+    @Test
+    public void testSideEffectVarDots() throws Exception {
+        final Map<String,Object> context = asserter.getVariables();
+        final Integer i41 = Integer.valueOf(4141);
+        final Object foo = i41;
+
+        context.put("foo.bar.quux", foo);
+        asserter.assertExpression("foo.bar.quux += 2", i41 + 2);
+        Assert.assertEquals(context.get("foo.bar.quux"), i41 + 2);
+
+        context.put("foo.bar.quux", foo);
+        asserter.assertExpression("foo.bar.quux -= 2", i41 - 2);
+        Assert.assertEquals(context.get("foo.bar.quux"), i41 - 2);
+
+        context.put("foo.bar.quux", foo);
+        asserter.assertExpression("foo.bar.quux *= 2", i41 * 2);
+        Assert.assertEquals(context.get("foo.bar.quux"), i41 * 2);
+
+        context.put("foo.bar.quux", foo);
+        asserter.assertExpression("foo.bar.quux /= 2", i41 / 2);
+        Assert.assertEquals(context.get("foo.bar.quux"), i41 / 2);
+
+        context.put("foo.bar.quux", foo);
+        asserter.assertExpression("foo.bar.quux %= 2", i41 % 2);
+        Assert.assertEquals(context.get("foo.bar.quux"), i41 % 2);
+
+        context.put("foo.bar.quux", foo);
+        asserter.assertExpression("foo.bar.quux &= 3", (long) (i41 & 3));
+        Assert.assertEquals(context.get("foo.bar.quux"), (long)(i41 & 3));
+
+        context.put("foo.bar.quux", foo);
+        asserter.assertExpression("foo.bar.quux |= 2", (long)(i41 | 2));
+        Assert.assertEquals(context.get("foo.bar.quux"), (long)(i41 | 2));
+
+        context.put("foo.bar.quux", foo);
+        asserter.assertExpression("foo.bar.quux ^= 2", (long)(i41 ^ 2));
+        Assert.assertEquals(context.get("foo.bar.quux"), (long)(i41 ^ 2));
+    }
+
+    @Test
+    public void testSideEffectArray() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final String s43 = "fourty-three";
+        final Object[] foo = new Object[3];
+        foo[1] = i42;
+        foo[2] = i43;
+        asserter.setVariable("foo", foo);
+        foo[0] = i41;
+        asserter.assertExpression("foo[0] += 2", i41 + 2);
+        Assert.assertEquals(foo[0], i41 + 2);
+        foo[0] = i41;
+        asserter.assertExpression("foo[0] -= 2", i41 - 2);
+        Assert.assertEquals(foo[0], i41 - 2);
+        foo[0] = i41;
+        asserter.assertExpression("foo[0] *= 2", i41 * 2);
+        Assert.assertEquals(foo[0], i41 * 2);
+        foo[0] = i41;
+        asserter.assertExpression("foo[0] /= 2", i41 / 2);
+        Assert.assertEquals(foo[0], i41 / 2);
+        foo[0] = i41;
+        asserter.assertExpression("foo[0] %= 2", i41 % 2);
+        Assert.assertEquals(foo[0], i41 % 2);
+        foo[0] = i41;
+        asserter.assertExpression("foo[0] &= 3", (long) (i41 & 3));
+        Assert.assertEquals(foo[0], (long)(i41 & 3));
+        foo[0] = i41;
+        asserter.assertExpression("foo[0] |= 2", (long)(i41 | 2));
+        Assert.assertEquals(foo[0], (long)(i41 | 2));
+        foo[0] = i41;
+        asserter.assertExpression("foo[0] ^= 2", (long)(i41 ^ 2));
+        Assert.assertEquals(foo[0], (long)(i41 ^ 2));
+    }
+
+    @Test
+    public void testSideEffectDotArray() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final String s43 = "fourty-three";
+        final Object[] foo = new Object[3];
+        foo[1] = i42;
+        foo[2] = i43;
+        asserter.setVariable("foo", foo);
+        foo[0] = i41;
+        asserter.assertExpression("foo.0 += 2", i41 + 2);
+        Assert.assertEquals(foo[0], i41 + 2);
+        foo[0] = i41;
+        asserter.assertExpression("foo.0 -= 2", i41 - 2);
+        Assert.assertEquals(foo[0], i41 - 2);
+        foo[0] = i41;
+        asserter.assertExpression("foo.0 *= 2", i41 * 2);
+        Assert.assertEquals(foo[0], i41 * 2);
+        foo[0] = i41;
+        asserter.assertExpression("foo.0 /= 2", i41 / 2);
+        Assert.assertEquals(foo[0], i41 / 2);
+        foo[0] = i41;
+        asserter.assertExpression("foo.0 %= 2", i41 % 2);
+        Assert.assertEquals(foo[0], i41 % 2);
+        foo[0] = i41;
+        asserter.assertExpression("foo.0 &= 3", (long) (i41 & 3));
+        Assert.assertEquals(foo[0], (long)(i41 & 3));
+        foo[0] = i41;
+        asserter.assertExpression("foo.0 |= 2", (long)(i41 | 2));
+        Assert.assertEquals(foo[0], (long)(i41 | 2));
+        foo[0] = i41;
+        asserter.assertExpression("foo.0 ^= 2", (long)(i41 ^ 2));
+        Assert.assertEquals(foo[0], (long)(i41 ^ 2));
+    }
+
+    @Test
+    public void testSideEffectAntishArray() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final Object[] foo = new Object[3];
+        foo[1] = i42;
+        foo[2] = i43;
+        asserter.setVariable("foo.bar", foo);
+        foo[0] = i41;
+        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
+        Assert.assertEquals(foo[0], i41 + 2);
+        foo[0] = i41;
+        asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
+        Assert.assertEquals(foo[0], i41 - 2);
+        foo[0] = i41;
+        asserter.assertExpression("foo.bar[0] *= 2", i41 * 2);
+        Assert.assertEquals(foo[0], i41 * 2);
+        foo[0] = i41;
+        asserter.assertExpression("foo.bar[0] /= 2", i41 / 2);
+        Assert.assertEquals(foo[0], i41 / 2);
+        foo[0] = i41;
+        asserter.assertExpression("foo.bar[0] %= 2", i41 % 2);
+        Assert.assertEquals(foo[0], i41 % 2);
+        foo[0] = i41;
+        asserter.assertExpression("foo.bar[0] &= 3", (long) (i41 & 3));
+        Assert.assertEquals(foo[0], (long)(i41 & 3));
+        foo[0] = i41;
+        asserter.assertExpression("foo.bar[0] |= 2", (long)(i41 | 2));
+        Assert.assertEquals(foo[0], (long)(i41 | 2));
+        foo[0] = i41;
+        asserter.assertExpression("foo.bar[0] ^= 2", (long)(i41 ^ 2));
+        Assert.assertEquals(foo[0], (long)(i41 ^ 2));
+    }
+
     public static class Foo {
         int value;
         Foo(final int v) {
@@ -77,6 +264,71 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         public int getBar(final int x) {
             return value + x;
         }
+    }
+
+    @Test
+    public void testSideEffectBean() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Foo foo = new Foo(0);
+        asserter.setVariable("foo", foo);
+        foo.value = i41;
+        asserter.assertExpression("foo.value += 2", i41 + 2);
+        Assert.assertEquals(foo.value, i41 + 2);
+        foo.value = i41;
+        asserter.assertExpression("foo.value -= 2", i41 - 2);
+        Assert.assertEquals(foo.value, i41 - 2);
+        foo.value = i41;
+        asserter.assertExpression("foo.value *= 2", i41 * 2);
+        Assert.assertEquals(foo.value, i41 * 2);
+        foo.value = i41;
+        asserter.assertExpression("foo.value /= 2", i41 / 2);
+        Assert.assertEquals(foo.value, i41 / 2);
+        foo.value = i41;
+        asserter.assertExpression("foo.value %= 2", i41 % 2);
+        Assert.assertEquals(foo.value, i41 % 2);
+        foo.value = i41;
+        asserter.assertExpression("foo.value &= 3", (long) (i41 & 3));
+        Assert.assertEquals(foo.value, i41 & 3);
+        foo.value = i41;
+        asserter.assertExpression("foo.value |= 2", (long)(i41 | 2));
+        Assert.assertEquals(foo.value, i41 | 2);
+        foo.value = i41;
+        asserter.assertExpression("foo.value ^= 2", (long)(i41 ^ 2));
+        Assert.assertEquals(foo.value, i41 ^ 2);
+    }
+
+    @Test
+    public void testSideEffectBeanContainer() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Foo foo = new Foo(0);
+        asserter.setVariable("foo", foo);
+        foo.value = i41;
+        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
+        Assert.assertEquals(foo.value, i41 + 2);
+        foo.value = i41;
+        asserter.assertExpression("foo.bar[1] += 2", i41 + 3);
+        Assert.assertEquals(foo.value, i41 + 4);
+        foo.value = i41;
+        asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
+        Assert.assertEquals(foo.value, i41 - 2);
+        foo.value = i41;
+        asserter.assertExpression("foo.bar[0] *= 2", i41 * 2);
+        Assert.assertEquals(foo.value, i41 * 2);
+        foo.value = i41;
+        asserter.assertExpression("foo.bar[0] /= 2", i41 / 2);
+        Assert.assertEquals(foo.value, i41 / 2);
+        foo.value = i41;
+        asserter.assertExpression("foo.bar[0] %= 2", i41 % 2);
+        Assert.assertEquals(foo.value, i41 % 2);
+        foo.value = i41;
+        asserter.assertExpression("foo.bar[0] &= 3", (long) (i41 & 3));
+        Assert.assertEquals(foo.value, i41 & 3);
+        foo.value = i41;
+        asserter.assertExpression("foo.bar[0] |= 2", (long)(i41 | 2));
+        Assert.assertEquals(foo.value, i41 | 2);
+        foo.value = i41;
+        asserter.assertExpression("foo.bar[0] ^= 2", (long)(i41 ^ 2));
+        Assert.assertEquals(foo.value, i41 ^ 2);
     }
 
     @Test
@@ -359,1388 +611,6 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
             }
             return list;
         }
-    }
-
-    @Test
-    public void testSideEffectVar_2_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo", foo);
-        // removed other assertion
-        Assert.assertEquals(context.get("foo"), i41 + 2);
-    }
-
-    @Test
-    public void testSideEffectVar_4_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        Assert.assertEquals(context.get("foo"), i41 - 2);
-    }
-
-    @Test
-    public void testSideEffectVar_6_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        Assert.assertEquals(context.get("foo"), i41 * 2);
-    }
-
-    @Test
-    public void testSideEffectVar_8_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        Assert.assertEquals(context.get("foo"), i41 / 2);
-    }
-
-    @Test
-    public void testSideEffectVar_10_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        Assert.assertEquals(context.get("foo"), i41 % 2);
-    }
-
-    @Test
-    public void testSideEffectVar_12_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        Assert.assertEquals(context.get("foo"), (long)(i41 & 3));
-    }
-
-    @Test
-    public void testSideEffectVar_14_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        Assert.assertEquals(context.get("foo"), (long)(i41 | 2));
-    }
-
-    @Test
-    public void testSideEffectVar_16_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo", foo);
-        // removed other assertion
-        Assert.assertEquals(context.get("foo"), (long)(i41 ^ 2));
-    }
-
-    @Test
-    public void testSideEffectVarDots_2_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        Assert.assertEquals(context.get("foo.bar.quux"), i41 + 2);
-    }
-
-    @Test
-    public void testSideEffectVarDots_4_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        Assert.assertEquals(context.get("foo.bar.quux"), i41 - 2);
-    }
-
-    @Test
-    public void testSideEffectVarDots_6_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        Assert.assertEquals(context.get("foo.bar.quux"), i41 * 2);
-    }
-
-    @Test
-    public void testSideEffectVarDots_8_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        Assert.assertEquals(context.get("foo.bar.quux"), i41 / 2);
-    }
-
-    @Test
-    public void testSideEffectVarDots_10_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        Assert.assertEquals(context.get("foo.bar.quux"), i41 % 2);
-    }
-
-    @Test
-    public void testSideEffectVarDots_12_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        Assert.assertEquals(context.get("foo.bar.quux"), (long)(i41 & 3));
-    }
-
-    @Test
-    public void testSideEffectVarDots_14_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        Assert.assertEquals(context.get("foo.bar.quux"), (long)(i41 | 2));
-    }
-
-    @Test
-    public void testSideEffectVarDots_16_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        // removed other assertion
-        Assert.assertEquals(context.get("foo.bar.quux"), (long)(i41 ^ 2));
-    }
-
-    @Test
-    public void testSideEffectArray_2_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], i41 + 2);
-    }
-
-    @Test
-    public void testSideEffectArray_4_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], i41 - 2);
-    }
-
-    @Test
-    public void testSideEffectArray_6_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], i41 * 2);
-    }
-
-    @Test
-    public void testSideEffectArray_8_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], i41 / 2);
-    }
-
-    @Test
-    public void testSideEffectArray_10_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], i41 % 2);
-    }
-
-    @Test
-    public void testSideEffectArray_12_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], (long)(i41 & 3));
-    }
-
-    @Test
-    public void testSideEffectArray_14_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], (long)(i41 | 2));
-    }
-
-    @Test
-    public void testSideEffectArray_16_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], (long)(i41 ^ 2));
-    }
-
-    @Test
-    public void testSideEffectDotArray_2_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], i41 + 2);
-    }
-
-    @Test
-    public void testSideEffectDotArray_4_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], i41 - 2);
-    }
-
-    @Test
-    public void testSideEffectDotArray_6_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], i41 * 2);
-    }
-
-    @Test
-    public void testSideEffectDotArray_8_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], i41 / 2);
-    }
-
-    @Test
-    public void testSideEffectDotArray_10_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], i41 % 2);
-    }
-
-    @Test
-    public void testSideEffectDotArray_12_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], (long)(i41 & 3));
-    }
-
-    @Test
-    public void testSideEffectDotArray_14_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], (long)(i41 | 2));
-    }
-
-    @Test
-    public void testSideEffectDotArray_16_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], (long)(i41 ^ 2));
-    }
-
-    @Test
-    public void testSideEffectAntishArray_2_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo.bar", foo);
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], i41 + 2);
-    }
-
-    @Test
-    public void testSideEffectAntishArray_4_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo.bar", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], i41 - 2);
-    }
-
-    @Test
-    public void testSideEffectAntishArray_6_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo.bar", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], i41 * 2);
-    }
-
-    @Test
-    public void testSideEffectAntishArray_8_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo.bar", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], i41 / 2);
-    }
-
-    @Test
-    public void testSideEffectAntishArray_10_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo.bar", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], i41 % 2);
-    }
-
-    @Test
-    public void testSideEffectAntishArray_12_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo.bar", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], (long)(i41 & 3));
-    }
-
-    @Test
-    public void testSideEffectAntishArray_14_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo.bar", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], (long)(i41 | 2));
-    }
-
-    @Test
-    public void testSideEffectAntishArray_16_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo.bar", foo);
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        // removed other assertion
-        foo[0] = i41;
-        // removed other assertion
-        Assert.assertEquals(foo[0], (long)(i41 ^ 2));
-    }
-
-    @Test
-    public void testSideEffectBean_2_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 + 2);
-    }
-
-    @Test
-    public void testSideEffectBean_4_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 - 2);
-    }
-
-    @Test
-    public void testSideEffectBean_6_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 * 2);
-    }
-
-    @Test
-    public void testSideEffectBean_8_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 / 2);
-    }
-
-    @Test
-    public void testSideEffectBean_10_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 % 2);
-    }
-
-    @Test
-    public void testSideEffectBean_12_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 & 3);
-    }
-
-    @Test
-    public void testSideEffectBean_14_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 | 2);
-    }
-
-    @Test
-    public void testSideEffectBean_16_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 ^ 2);
-    }
-
-    @Test
-    public void testSideEffectBeanContainer_2_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 + 2);
-    }
-
-    @Test
-    public void testSideEffectBeanContainer_4_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 + 4);
-    }
-
-    @Test
-    public void testSideEffectBeanContainer_6_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 - 2);
-    }
-
-    @Test
-    public void testSideEffectBeanContainer_8_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 * 2);
-    }
-
-    @Test
-    public void testSideEffectBeanContainer_10_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 / 2);
-    }
-
-    @Test
-    public void testSideEffectBeanContainer_12_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 % 2);
-    }
-
-    @Test
-    public void testSideEffectBeanContainer_14_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 & 3);
-    }
-
-    @Test
-    public void testSideEffectBeanContainer_16_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 | 2);
-    }
-
-    @Test
-    public void testSideEffectBeanContainer_18_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        // removed other assertion
-        foo.value = i41;
-        // removed other assertion
-        Assert.assertEquals(foo.value, i41 ^ 2);
     }
 
     @Test

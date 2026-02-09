@@ -4,6 +4,8 @@
 [INFO] Building Springside :: Module :: Utils 5.0.0-SNAPSHOT
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ springside-utils ---
+[INFO] 
 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ springside-utils ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/resources
@@ -76,10 +78,10 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.springside.modules.utils.misc.SamplerTest_OE25Dev
-sample 10.5% in 10000 hits should close to 1050, actual is 1073
-sample 10.5% in 10000 hits should close to 1050, actual is 1063
-sample 0.5% in 10000 hits should close to 50, actual is 51
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.291 s - in org.springside.modules.utils.misc.SamplerTest_OE25Dev
+sample 10.5% in 10000 hits should close to 1050, actual is 1035
+sample 10.5% in 10000 hits should close to 1050, actual is 1020
+sample 0.5% in 10000 hits should close to 50, actual is 37
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.227 s - in org.springside.modules.utils.misc.SamplerTest_OE25Dev
 [INFO] Running org.springside.modules.utils.concurrent.BasicFutureTest_OE25Dev
 onCompleted:haha
 onCompleted:haha

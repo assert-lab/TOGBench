@@ -1296,24 +1296,6 @@ public class MethodUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testInvokeMethod_14_oe() throws Exception {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("foo(int,String...)",MethodUtils.invokeMethod(testBean,"foo",5,"a","b","c"));
-    }
-
-    @Test
     public void testInvokeMethod_15_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -1598,22 +1580,6 @@ public class MethodUtilsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertEquals("bar(long...)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",1L,2L));
-    }
-
-    @Test
-    public void testInvokeStaticMethod_12_oe() throws Exception {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("bar(int,String...)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",NumberUtils.INTEGER_ONE,"a","b"));
     }
 
     @Test

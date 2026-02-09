@@ -773,15 +773,6 @@ public class StrBuilderTest_OE25Dev {
     }
 
     @Test
-    public void testChaining_4_oe() {
-        final StrBuilder sb = new StrBuilder();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame(sb, sb.setCharAt(0, 'a'));
-    }
-
-    @Test
     public void testChaining_5_oe() {
         final StrBuilder sb = new StrBuilder();
         // removed other assertion
@@ -6796,16 +6787,6 @@ public class StrBuilderTest_OE25Dev {
     }
 
     @Test
-    public void testReverse_3_oe() {
-        final StrBuilder sb = new StrBuilder();
-        // removed other assertion
-
-        sb.clear().append(true);
-        // removed other assertion
-        assertEquals("true", sb.reverse().toString());
-    }
-
-    @Test
     public void testTrim_1_oe() {
         final StrBuilder sb = new StrBuilder();
         assertEquals("", sb.reverse().toString());
@@ -10699,29 +10680,6 @@ public class StrBuilderTest_OE25Dev {
     }
 
     @Test
-    public void testAsTokenizer_10_oe() {
-        // from Javadoc
-        final StrBuilder b = new StrBuilder();
-        b.append("a b ");
-        final StrTokenizer t = b.asTokenizer();
-
-        final String[] tokens1 = t.getTokenArray();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        b.append("c d ");
-        final String[] tokens2 = t.getTokenArray();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("b", t.next());
-    }
-
-    @Test
     public void testAsTokenizer_11_oe() {
         // from Javadoc
         final StrBuilder b = new StrBuilder();
@@ -10932,111 +10890,6 @@ public class StrBuilderTest_OE25Dev {
     }
 
     @Test
-    public void testAsTokenizer_18_oe() {
-        // from Javadoc
-        final StrBuilder b = new StrBuilder();
-        b.append("a b ");
-        final StrTokenizer t = b.asTokenizer();
-
-        final String[] tokens1 = t.getTokenArray();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        b.append("c d ");
-        final String[] tokens2 = t.getTokenArray();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        t.reset();
-        final String[] tokens3 = t.getTokenArray();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("b", t.next());
-    }
-
-    @Test
-    public void testAsTokenizer_19_oe() {
-        // from Javadoc
-        final StrBuilder b = new StrBuilder();
-        b.append("a b ");
-        final StrTokenizer t = b.asTokenizer();
-
-        final String[] tokens1 = t.getTokenArray();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        b.append("c d ");
-        final String[] tokens2 = t.getTokenArray();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        t.reset();
-        final String[] tokens3 = t.getTokenArray();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("c", t.next());
-    }
-
-    @Test
-    public void testAsTokenizer_20_oe() {
-        // from Javadoc
-        final StrBuilder b = new StrBuilder();
-        b.append("a b ");
-        final StrTokenizer t = b.asTokenizer();
-
-        final String[] tokens1 = t.getTokenArray();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        b.append("c d ");
-        final String[] tokens2 = t.getTokenArray();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        t.reset();
-        final String[] tokens3 = t.getTokenArray();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("d", t.next());
-    }
-
-    @Test
     public void testAsTokenizer_21_oe() {
         // from Javadoc
         final StrBuilder b = new StrBuilder();
@@ -11088,55 +10941,6 @@ public class StrBuilderTest_OE25Dev {
         // removed other assertion
         final char[] buf = new char[40];
         assertEquals(9, reader.read(buf));
-    }
-
-    @Test
-    public void testAsReader_3_oe() throws Exception {
-        final StrBuilder sb = new StrBuilder("some text");
-        Reader reader = sb.asReader();
-        // removed other assertion
-        final char[] buf = new char[40];
-        // removed other assertion
-        assertEquals("some text", new String(buf, 0, 9));
-    }
-
-    @Test
-    public void testAsReader_4_oe() throws Exception {
-        final StrBuilder sb = new StrBuilder("some text");
-        Reader reader = sb.asReader();
-        // removed other assertion
-        final char[] buf = new char[40];
-        // removed other assertion
-        // removed other assertion
-
-        assertEquals(-1, reader.read());
-    }
-
-    @Test
-    public void testAsReader_5_oe() throws Exception {
-        final StrBuilder sb = new StrBuilder("some text");
-        Reader reader = sb.asReader();
-        // removed other assertion
-        final char[] buf = new char[40];
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertFalse(reader.ready());
-    }
-
-    @Test
-    public void testAsReader_6_oe() throws Exception {
-        final StrBuilder sb = new StrBuilder("some text");
-        Reader reader = sb.asReader();
-        // removed other assertion
-        final char[] buf = new char[40];
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        assertEquals(0, reader.skip(2));
     }
 
     @Test
@@ -11213,78 +11017,6 @@ public class StrBuilderTest_OE25Dev {
     }
 
     @Test
-    public void testAsReader_11_oe() throws Exception {
-        final StrBuilder sb = new StrBuilder("some text");
-        Reader reader = sb.asReader();
-        // removed other assertion
-        final char[] buf = new char[40];
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        reader = sb.asReader();
-        // removed other assertion
-        reader.mark(-1);
-        char[] array = new char[3];
-        // removed other assertion
-        assertEquals('o', array[0]);
-    }
-
-    @Test
-    public void testAsReader_12_oe() throws Exception {
-        final StrBuilder sb = new StrBuilder("some text");
-        Reader reader = sb.asReader();
-        // removed other assertion
-        final char[] buf = new char[40];
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        reader = sb.asReader();
-        // removed other assertion
-        reader.mark(-1);
-        char[] array = new char[3];
-        // removed other assertion
-        // removed other assertion
-        assertEquals('m', array[1]);
-    }
-
-    @Test
-    public void testAsReader_13_oe() throws Exception {
-        final StrBuilder sb = new StrBuilder("some text");
-        Reader reader = sb.asReader();
-        // removed other assertion
-        final char[] buf = new char[40];
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        reader = sb.asReader();
-        // removed other assertion
-        reader.mark(-1);
-        char[] array = new char[3];
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals('e', array[2]);
-    }
-
-    @Test
     public void testAsReader_14_oe() throws Exception {
         final StrBuilder sb = new StrBuilder("some text");
         Reader reader = sb.asReader();
@@ -11309,93 +11041,6 @@ public class StrBuilderTest_OE25Dev {
         // removed other assertion
         reader.reset();
         assertEquals(1, reader.read(array, 1, 1));
-    }
-
-    @Test
-    public void testAsReader_15_oe() throws Exception {
-        final StrBuilder sb = new StrBuilder("some text");
-        Reader reader = sb.asReader();
-        // removed other assertion
-        final char[] buf = new char[40];
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        reader = sb.asReader();
-        // removed other assertion
-        reader.mark(-1);
-        char[] array = new char[3];
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        reader.reset();
-        // removed other assertion
-        assertEquals('o', array[0]);
-    }
-
-    @Test
-    public void testAsReader_16_oe() throws Exception {
-        final StrBuilder sb = new StrBuilder("some text");
-        Reader reader = sb.asReader();
-        // removed other assertion
-        final char[] buf = new char[40];
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        reader = sb.asReader();
-        // removed other assertion
-        reader.mark(-1);
-        char[] array = new char[3];
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        reader.reset();
-        // removed other assertion
-        // removed other assertion
-        assertEquals('o', array[1]);
-    }
-
-    @Test
-    public void testAsReader_17_oe() throws Exception {
-        final StrBuilder sb = new StrBuilder("some text");
-        Reader reader = sb.asReader();
-        // removed other assertion
-        final char[] buf = new char[40];
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        reader = sb.asReader();
-        // removed other assertion
-        reader.mark(-1);
-        char[] array = new char[3];
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        reader.reset();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals('e', array[2]);
     }
 
     @Test
@@ -11427,38 +11072,6 @@ public class StrBuilderTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertEquals(2, reader.skip(2));
-    }
-
-    @Test
-    public void testAsReader_19_oe() throws Exception {
-        final StrBuilder sb = new StrBuilder("some text");
-        Reader reader = sb.asReader();
-        // removed other assertion
-        final char[] buf = new char[40];
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        reader = sb.asReader();
-        // removed other assertion
-        reader.mark(-1);
-        char[] array = new char[3];
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        reader.reset();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(' ', reader.read());
     }
 
     @Test

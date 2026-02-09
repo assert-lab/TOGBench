@@ -550,27 +550,6 @@ public class LexicalTest_OE25Dev {
     }
 
     @Test
-    public void testScopeFrame_2_oe() throws Exception {
-        final LexicalScope scope = new LexicalScope();
-        for(int i = 0; i < 128; i += 2) {
-            // removed other assertion
-            Assert.assertFalse(scope.addSymbol(i));
-    }
-    }
-
-    @Test
-    public void testScopeFrame_3_oe() throws Exception {
-        final LexicalScope scope = new LexicalScope();
-        for(int i = 0; i < 128; i += 2) {
-            // removed other assertion
-            // removed other assertion
-        }
-        for(int i = 0; i < 128; i += 2) {
-            Assert.assertTrue(scope.hasSymbol(i));
-    }
-    }
-
-    @Test
     public void testScopeFrame_4_oe() throws Exception {
         final LexicalScope scope = new LexicalScope();
         for(int i = 0; i < 128; i += 2) {

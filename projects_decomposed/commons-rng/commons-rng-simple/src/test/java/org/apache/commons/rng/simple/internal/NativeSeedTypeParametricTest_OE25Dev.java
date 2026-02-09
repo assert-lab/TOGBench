@@ -98,7 +98,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
             .collect(Collectors.toSet());
         // removed other assertion
 
-        final NativeSeedType[] values = NativeSeedType.values();
+         NativeSeedType[] values = NativeSeedType.values();
         Assertions.assertEquals(SUPPORTED_NATIVE_TYPES.length,values.length,"Incorrect number of enum values for the supported native types");
     }
 
@@ -109,7 +109,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
             .collect(Collectors.toSet());
         // removed other assertion
 
-        final NativeSeedType[] values = NativeSeedType.values();
+         NativeSeedType[] values = NativeSeedType.values();
         // removed other assertion
 
         // Remove each
@@ -120,28 +120,28 @@ class NativeSeedTypeParametricTest_OE25Dev {
     @ParameterizedTest
     @EnumSource
     void testCreateSeed_1_oe(NativeSeedType nativeSeedType) {
-        final int size = 3;
-        final Object seed = nativeSeedType.createSeed(size);
+         int size = 3;
+         Object seed = nativeSeedType.createSeed(size);
         Assertions.assertNotNull(seed);
     }
 
     @ParameterizedTest
     @EnumSource
     void testCreateSeed_2_oe(NativeSeedType nativeSeedType) {
-        final int size = 3;
-        final Object seed = nativeSeedType.createSeed(size);
+         int size = 3;
+         Object seed = nativeSeedType.createSeed(size);
         // removed other assertion
-        final Class<?> type = nativeSeedType.getType();
+         Class<?> type = nativeSeedType.getType();
         Assertions.assertEquals(type, seed.getClass(), "Seed was not the correct class");
     }
 
     @ParameterizedTest
     @EnumSource
     void testCreateSeed_3_oe(NativeSeedType nativeSeedType) {
-        final int size = 3;
-        final Object seed = nativeSeedType.createSeed(size);
+         int size = 3;
+         Object seed = nativeSeedType.createSeed(size);
         // removed other assertion
-        final Class<?> type = nativeSeedType.getType();
+         Class<?> type = nativeSeedType.getType();
         // removed other assertion
         if (type.isArray()) {
             Assertions.assertEquals(size, Array.getLength(seed), "Seed was not created the correct length");
@@ -151,33 +151,33 @@ class NativeSeedTypeParametricTest_OE25Dev {
     @ParameterizedTest
     @EnumSource
     void testConvertSeedToBytes_1_oe(NativeSeedType nativeSeedType) {
-        final int size = 3;
-        final Object seed = nativeSeedType.createSeed(size);
+         int size = 3;
+         Object seed = nativeSeedType.createSeed(size);
         Assertions.assertNotNull(seed, "Null seed");
     }
 
     @ParameterizedTest
     @EnumSource
     void testConvertSeedToBytes_2_oe(NativeSeedType nativeSeedType) {
-        final int size = 3;
-        final Object seed = nativeSeedType.createSeed(size);
+         int size = 3;
+         Object seed = nativeSeedType.createSeed(size);
         // removed other assertion
 
-        final byte[] bytes = NativeSeedType.convertSeedToBytes(seed);
+         byte[] bytes = NativeSeedType.convertSeedToBytes(seed);
         Assertions.assertNotNull(bytes, "Null byte[] seed");
     }
 
     @ParameterizedTest
     @EnumSource
     void testConvertSeedToBytes_3_oe(NativeSeedType nativeSeedType) {
-        final int size = 3;
-        final Object seed = nativeSeedType.createSeed(size);
+         int size = 3;
+         Object seed = nativeSeedType.createSeed(size);
         // removed other assertion
 
-        final byte[] bytes = NativeSeedType.convertSeedToBytes(seed);
+         byte[] bytes = NativeSeedType.convertSeedToBytes(seed);
         // removed other assertion
 
-        final Object seed2 = nativeSeedType.convertSeed(bytes, size);
+         Object seed2 = nativeSeedType.convertSeed(bytes, size);
         if (nativeSeedType.getType().isArray()) {
             // This handles nested primitive arrays
             Assertions.assertArrayEquals(new Object[] {seed}, new Object[] {seed2}, "byte[] seed was not converted back");
@@ -187,14 +187,14 @@ class NativeSeedTypeParametricTest_OE25Dev {
     @ParameterizedTest
     @EnumSource
     void testConvertSeedToBytes_4_oe(NativeSeedType nativeSeedType) {
-        final int size = 3;
-        final Object seed = nativeSeedType.createSeed(size);
+         int size = 3;
+         Object seed = nativeSeedType.createSeed(size);
         // removed other assertion
 
-        final byte[] bytes = NativeSeedType.convertSeedToBytes(seed);
+         byte[] bytes = NativeSeedType.convertSeedToBytes(seed);
         // removed other assertion
 
-        final Object seed2 = nativeSeedType.convertSeed(bytes, size);
+         Object seed2 = nativeSeedType.convertSeed(bytes, size);
         if (nativeSeedType.getType().isArray()) {
             // This handles nested primitive arrays
             // removed other assertion
@@ -207,10 +207,10 @@ class NativeSeedTypeParametricTest_OE25Dev {
     @EnumSource
     void testConvertSupportedSeed_1_oe(NativeSeedType nativeSeedType) {
         // Size can be ignored during conversion and so it not asserted
-        final int size = 3;
-        for (final Object input : SUPPORTED_SEEDS) {
-            final Object seed = nativeSeedType.convertSeed(input, size);
-            final Supplier<String> msg = () -> input.getClass() + " input seed was not converted";
+         int size = 3;
+        for ( Object input : SUPPORTED_SEEDS) {
+             Object seed = nativeSeedType.convertSeed(input, size);
+             Supplier<String> msg = () -> input.getClass() + " input seed was not converted";
             Assertions.assertNotNull(seed, msg);
     }
     }
@@ -219,10 +219,10 @@ class NativeSeedTypeParametricTest_OE25Dev {
     @EnumSource
     void testConvertSupportedSeed_2_oe(NativeSeedType nativeSeedType) {
         // Size can be ignored during conversion and so it not asserted
-        final int size = 3;
-        for (final Object input : SUPPORTED_SEEDS) {
-            final Object seed = nativeSeedType.convertSeed(input, size);
-            final Supplier<String> msg = () -> input.getClass() + " input seed was not converted";
+         int size = 3;
+        for ( Object input : SUPPORTED_SEEDS) {
+             Object seed = nativeSeedType.convertSeed(input, size);
+             Supplier<String> msg = () -> input.getClass() + " input seed was not converted";
             // removed other assertion
             Assertions.assertEquals(nativeSeedType.getType(), seed.getClass(), msg);
     }
@@ -231,8 +231,8 @@ class NativeSeedTypeParametricTest_OE25Dev {
     @ParameterizedTest
     @EnumSource
     void testCannotConvertUnsupportedSeed_1_oe(NativeSeedType nativeSeedType) {
-        final int size = 3;
-        for (final Object input : UNSUPPORTED_SEEDS) {
+         int size = 3;
+        for ( Object input : UNSUPPORTED_SEEDS) {
             Assertions.assertThrows(UnsupportedOperationException.class, () -> nativeSeedType.convertSeed(input, size));
     }
     }

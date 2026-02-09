@@ -23,7 +23,7 @@ class KISSRandomTest_OE25Dev {
 
     @Test
     void testMarsaglia_1_oe() {
-        final int[] seed = {
+         int[] seed = {
             0x159a55e5, 0x1f123bb5, 0x75bcd15, 0x16a81cc0
         };
 
@@ -33,7 +33,7 @@ class KISSRandomTest_OE25Dev {
          * Test code was modified w.r.t the above (because the latter uses
          * calls to functions not defined for "KISS").
          */
-        final int[] expectedSequence = {
+         int[] expectedSequence = {
             0x9bddf92e, 0xd5a41e38, 0xb2f6ff02, 0x181980c1, 0x1a48acf3, 0x5877789e, 0x08477a08, 0xabd9fdcd,
             0x20d27205, 0xd55e1658, 0x6625bdda, 0x46e92162, 0x5dc0ac63, 0x0be5e04a, 0x2c8cde38, 0xdfe87d7b,
             0xa1372cc8, 0x49908cc8, 0x150b6104, 0xd5d397ad, 0x44651a2d, 0xc65d6e70, 0x053ea995, 0xb004ca00,

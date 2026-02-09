@@ -4,6 +4,8 @@
 [INFO] Building Asynchronous Http Client Netty Utils 2.12.3
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ async-http-client-netty-utils ---
+[INFO] 
 [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ async-http-client-netty-utils ---
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ async-http-client-netty-utils ---
@@ -26,8 +28,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  6.111 s
-[INFO] Finished at: 2026-02-06T14:36:40-06:00
+[INFO] Total time:  7.115 s
+[INFO] Finished at: 2026-02-09T03:26:27-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-netty-utils: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
 [ERROR] 

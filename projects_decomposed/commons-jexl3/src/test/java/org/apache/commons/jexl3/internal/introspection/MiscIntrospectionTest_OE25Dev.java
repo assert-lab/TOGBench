@@ -183,30 +183,6 @@ public class MiscIntrospectionTest_OE25Dev {
     }
 
     @Test
-    public void testArrayIterator_7_oe() {
-        // not on lists
-        try {
-            new ArrayIterator(new ArrayList<>());
-        } catch(IllegalArgumentException xill) {
-            // removed other assertion
-        }
-        // wih null?
-        ArrayIterator ai0 = new ArrayIterator(null);
-        // removed other assertion
-        try {
-            ai0.next();
-            // removed other assertion
-        } catch(NoSuchElementException no) {
-            // removed other assertion
-        }
-        // an array
-        ai0 = new ArrayIterator(new int[]{42});
-        // removed other assertion
-        // removed other assertion
-        Assert.assertFalse(ai0.hasNext());
-    }
-
-    @Test
     public void testArrayIterator_9_oe() {
         // not on lists
         try {

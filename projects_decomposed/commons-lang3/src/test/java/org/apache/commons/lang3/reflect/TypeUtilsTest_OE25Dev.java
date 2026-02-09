@@ -154,6 +154,13 @@ public class TypeUtilsTest_OE25Dev<B> {
     }
 
     @Test
+    public void testParameterizeWithOwner() throws Exception {
+        final Type owner = TypeUtils.parameterize(TypeUtilsTest_OE25Dev.class, String.class);
+        final ParameterizedType dat2Type = TypeUtils.parameterizeWithOwner(owner, That.class, String.class, String.class);
+        assertTrue(TypeUtils.equals(getClass().getField("dat2").getGenericType(), dat2Type));
+    }
+
+    @Test
     public void testContainsTypeVariables_1_oe() throws Exception {
         assertFalse(TypeUtils.containsTypeVariables(Test1.class.getMethod("m0").getGenericReturnType()));
     }
@@ -14676,13 +14683,6 @@ public class TypeUtilsTest_OE25Dev<B> {
         final Map<TypeVariable<?>, Type> mapping = Collections.<TypeVariable<?>, Type>singletonMap(variables[0], String.class);
         final Type unrolled = TypeUtils.unrollVariables(mapping, parameterizedType);
         assertEquals(TypeUtils.parameterize(ArrayList.class, String.class), unrolled);
-    }
-
-    @Test
-    public void testParameterizeWithOwner_1_oe() throws Exception {
-        final Type owner = TypeUtils.parameterize(TypeUtilsTest.class, String.class);
-        final ParameterizedType dat2Type = TypeUtils.parameterizeWithOwner(owner, That.class, String.class, String.class);
-        assertTrue(TypeUtils.equals(getClass().getField("dat2").getGenericType(), dat2Type));
     }
 
     @Test

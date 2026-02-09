@@ -356,34 +356,6 @@ public class JexlTest_OE25Dev extends JexlTestCase {
     }
 
     @Test
-    public void testAssignment_2_oe() throws Exception {
-        final JexlContext jc = new MapContext();
-        jc.set("aString", "Hello");
-        final Foo foo = new Foo();
-        jc.set("foo", foo);
-        final Parser parser = new Parser(";");
-        parser.parse(null, new JexlFeatures().register(false), "aString = 'World';", null);
-
-        // removed other assertion
-        Assert.assertEquals("hello variable not changed", "world", jc.get("hello"));
-    }
-
-    @Test
-    public void testAssignment_4_oe() throws Exception {
-        final JexlContext jc = new MapContext();
-        jc.set("aString", "Hello");
-        final Foo foo = new Foo();
-        jc.set("foo", foo);
-        final Parser parser = new Parser(";");
-        parser.parse(null, new JexlFeatures().register(false), "aString = 'World';", null);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assert.assertEquals("result variable not changed", new Integer(2), jc.get("result"));
-    }
-
-    @Test
     public void testDuck_1_oe() throws Exception {
         final JexlEngine jexl = JEXL;
         final JexlContext jc = new MapContext();

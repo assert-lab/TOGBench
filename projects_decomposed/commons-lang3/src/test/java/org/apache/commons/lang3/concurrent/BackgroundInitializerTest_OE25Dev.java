@@ -226,26 +226,9 @@ public class BackgroundInitializerTest_OE25Dev {
     }
 
     @Test
-    public void testInitializeTempExecutor_2_oe() throws ConcurrentException {
-        final BackgroundInitializerTestImpl init = new BackgroundInitializerTestImpl();
-        // removed other assertion
-        checkInitialize(init);
-        assertTrue(init.getActiveExecutor().isShutdown(), "Executor not shutdown");
-    }
-
-    @Test
     public void testStartMultipleTimes_1_oe() throws ConcurrentException {
         final BackgroundInitializerTestImpl init = new BackgroundInitializerTestImpl();
         assertTrue(init.start(), "Wrong result for start()");
-    }
-
-    @Test
-    public void testStartMultipleTimes_2_oe() throws ConcurrentException {
-        final BackgroundInitializerTestImpl init = new BackgroundInitializerTestImpl();
-        // removed other assertion
-        for (int i = 0; i < 10; i++) {
-            assertFalse(init.start(), "Could start again");
-    }
     }
 
     @Test

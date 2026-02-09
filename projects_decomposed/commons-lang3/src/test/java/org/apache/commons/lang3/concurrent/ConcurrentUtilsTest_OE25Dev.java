@@ -595,15 +595,6 @@ public class ConcurrentUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testPutIfAbsentKeyNotPresent_2_oe() {
-        final String key = "testKey";
-        final Integer value = 42;
-        final ConcurrentMap<String, Integer> map = new ConcurrentHashMap<>();
-        // removed other assertion
-        assertEquals(value, map.get(key), "Wrong value in map");
-    }
-
-    @Test
     public void testPutIfAbsentNullMap_1_oe() {
         assertNull(ConcurrentUtils.putIfAbsent(null, "test", 100), "Wrong result");
     }
@@ -652,21 +643,6 @@ public class ConcurrentUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testCreateIfAbsentKeyNotPresent_2_oe() throws ConcurrentException {
-        @SuppressWarnings("unchecked")
-        final
-        ConcurrentInitializer<Integer> init = EasyMock
-                .createMock(ConcurrentInitializer.class);
-        final String key = "testKey";
-        final Integer value = 42;
-        EasyMock.expect(init.get()).andReturn(value);
-        EasyMock.replay(init);
-        final ConcurrentMap<String, Integer> map = new ConcurrentHashMap<>();
-        // removed other assertion
-        assertEquals(value, map.get(key), "Wrong value in map");
-    }
-
-    @Test
     public void testCreateIfAbsentNullMap_1_oe() throws ConcurrentException {
         @SuppressWarnings("unchecked")
         final
@@ -701,15 +677,6 @@ public class ConcurrentUtilsTest_OE25Dev {
         final Integer value = 42;
         final ConcurrentMap<String, Integer> map = new ConcurrentHashMap<>();
         assertEquals(value,ConcurrentUtils.createIfAbsentUnchecked(map,key,new ConstantInitializer<>(value)),"Wrong result");
-    }
-
-    @Test
-    public void testCreateIfAbsentUncheckedSuccess_2_oe() {
-        final String key = "testKey";
-        final Integer value = 42;
-        final ConcurrentMap<String, Integer> map = new ConcurrentHashMap<>();
-        // removed other assertion
-        assertEquals(value, map.get(key), "Wrong value in map");
     }
 
     @Test

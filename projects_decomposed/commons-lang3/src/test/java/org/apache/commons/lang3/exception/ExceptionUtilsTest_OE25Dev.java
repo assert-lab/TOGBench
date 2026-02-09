@@ -221,18 +221,6 @@ public class ExceptionUtilsTest_OE25Dev {
     }
 
     @Test
-    public void test_getMessage_Throwable_3_oe() {
-        Throwable th = null;
-        // removed other assertion
-
-        th = new IllegalArgumentException("Base");
-        // removed other assertion
-
-        th = new ExceptionWithCause("Wrapper", th);
-        assertEquals("ExceptionUtilsTest.ExceptionWithCause: Wrapper", ExceptionUtils.getMessage(th));
-    }
-
-    @Test
     public void test_getRootCauseMessage_Throwable_1_oe() {
         Throwable th = null;
         assertEquals("", ExceptionUtils.getRootCauseMessage(th));

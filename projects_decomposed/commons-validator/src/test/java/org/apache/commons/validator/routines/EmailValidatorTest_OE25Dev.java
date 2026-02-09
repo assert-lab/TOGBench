@@ -202,6 +202,21 @@ public class EmailValidatorTest_OE25Dev {
      * This test fails so disable it
      * The real solution is to fix the email parsing.
      */
+    @Ignore("VALIDATOR-267")
+    @Test
+    public void testEmailFromPerl()  {
+        int errors = 0;
+        for (int index = 0; index < testEmailFromPerl.length; index++) {
+            String item = testEmailFromPerl[index].item;
+            boolean exp =  testEmailFromPerl[index].valid;
+            boolean act = validator.isValid(item);
+            if (act != exp) {
+                System.out.printf("%s: expected %s actual %s%n", item, exp, act);
+                errors += 1;
+            }
+        }
+        assertEquals("Expected 0 errors", 0, errors);
+    }
 
     /**
      * Tests the e-mail validation with a user at a TLD
@@ -1925,21 +1940,6 @@ public class EmailValidatorTest_OE25Dev {
         // removed other assertion
 
         assertTrue(validator.isValid("space\\ monkey@example.com"));
-    }
-
-    @Test
-    public void testEmailFromPerl_1_oe()  {
-        int errors = 0;
-        for (int index = 0; index < testEmailFromPerl.length; index++) {
-            String item = testEmailFromPerl[index].item;
-            boolean exp =  testEmailFromPerl[index].valid;
-            boolean act = validator.isValid(item);
-            if (act != exp) {
-                System.out.printf("%s: expected %s actual %s%n", item, exp, act);
-                errors += 1;
-            }
-        }
-        assertEquals("Expected 0 errors", 0, errors);
     }
 
     @Test

@@ -52,14 +52,6 @@ public class StringUtilTest_OE25Dev {
         assertEquals("               ", StringUtil.padding(15));
         }
 
-    @Test public void padding_5_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(" ",StringUtil.padding(45));// we default to tap out at 30 assertEquals("",StringUtil.padding(0,-1));
-        }
-
     @Test public void padding_6_oe() {
         // removed other assertion
         // removed other assertion

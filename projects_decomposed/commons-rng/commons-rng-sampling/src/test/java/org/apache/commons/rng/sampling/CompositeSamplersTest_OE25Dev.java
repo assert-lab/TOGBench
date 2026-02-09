@@ -741,12 +741,12 @@ class CompositeSamplersTest_OE25Dev {
 
     @Test
     void testDiscreteProbabilitySampler_1_oe() {
-        final UniformRandomProvider rng = RandomSource.MWC_256.create(78979L);
-        final double[] probabilities = {0.1, 0.2, 0.3, 0.4};
-        final double mean = 0.2 + 2 * 0.3 + 3 * 0.4;
-        final int n = 1000000;
-        for (final DiscreteProbabilitySampler item : DiscreteProbabilitySampler.values()) {
-            final DiscreteSampler sampler = item.create(rng, probabilities.clone());
+         UniformRandomProvider rng = RandomSource.MWC_256.create(78979L);
+         double[] probabilities = {0.1, 0.2, 0.3, 0.4};
+         double mean = 0.2 + 2 * 0.3 + 3 * 0.4;
+         int n = 1000000;
+        for ( DiscreteProbabilitySampler item : DiscreteProbabilitySampler.values()) {
+             DiscreteSampler sampler = item.create(rng, probabilities.clone());
             long sum = 0;
             for (int i = 0; i < n; i++) {
                 sum += sampler.sample();
@@ -757,16 +757,16 @@ class CompositeSamplersTest_OE25Dev {
 
     @Test
     void testEmptyBuilderThrows_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
         Assertions.assertEquals(0, builder.size());
     }
 
     @Test
     void testEmptyBuilderThrows_2_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
         // removed other assertion
         Assertions.assertThrows(IllegalStateException.class, () -> builder.build(rng));
@@ -774,27 +774,27 @@ class CompositeSamplersTest_OE25Dev {
 
     @Test
     void testNullSharedStateObjectSamplerThrows_1_oe() {
-        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+         Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
         Assertions.assertThrows(NullPointerException.class, () -> builder.add(null, 1.0));
     }
 
     @Test
     void testInvalidWeights_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
-        final RangeSampler sampler = new RangeSampler(45, 63, rng);
+         RangeSampler sampler = new RangeSampler(45, 63, rng);
         // Zero weight is ignored
         Assertions.assertEquals(0, builder.size());
     }
 
     @Test
     void testInvalidWeights_2_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
-        final RangeSampler sampler = new RangeSampler(45, 63, rng);
+         RangeSampler sampler = new RangeSampler(45, 63, rng);
         // Zero weight is ignored
         // removed other assertion
         builder.add(sampler, 0.0);
@@ -803,140 +803,79 @@ class CompositeSamplersTest_OE25Dev {
 
     @Test
     void testInvalidWeights_3_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
-        final RangeSampler sampler = new RangeSampler(45, 63, rng);
+         RangeSampler sampler = new RangeSampler(45, 63, rng);
         // Zero weight is ignored
         // removed other assertion
         builder.add(sampler, 0.0);
         // removed other assertion
 
-        final double[] bad = {-1, Double.NaN, Double.POSITIVE_INFINITY};
-        for (final double weight : bad) {
+         double[] bad = {-1, Double.NaN, Double.POSITIVE_INFINITY};
+        for ( double weight : bad) {
             Assertions.assertThrows(IllegalArgumentException.class, () -> builder.add(sampler, weight), () -> "Did not detect invalid weight: " + weight);
     }
     }
 
     @Test
     void testSingleSharedStateObjectSampler_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
-        final RangeSampler sampler = new RangeSampler(45, 63, rng);
+         RangeSampler sampler = new RangeSampler(45, 63, rng);
         builder.add(sampler, 1.0);
         Assertions.assertEquals(1, builder.size());
     }
 
     @Test
     void testSingleSharedStateObjectSampler_2_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
-        final RangeSampler sampler = new RangeSampler(45, 63, rng);
+         RangeSampler sampler = new RangeSampler(45, 63, rng);
         builder.add(sampler, 1.0);
         // removed other assertion
-        final SharedStateObjectSampler<Integer> composite = builder.build(rng);
+         SharedStateObjectSampler<Integer> composite = builder.build(rng);
         Assertions.assertSame(sampler, composite);
     }
 
     @Test
-    void testSharedStateObjectSamplerSamplesWithCustomSharedStateDiscreteSamplerFactory_2_oe() {
-        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
-                .newSharedStateObjectSamplerBuilder();
-        final AtomicInteger factoryCount = new AtomicInteger();
-        builder.setFactory(new DiscreteProbabilitySamplerFactory() {
-            @Override
-            public DiscreteSampler create(UniformRandomProvider rng, double[] probabilities) {
-                factoryCount.incrementAndGet();
-                // Use an expanded table with a non-default alpha
-                return AliasMethodDiscreteSampler.of(rng, probabilities, 2);
-            }
-        });
-        final UniformRandomProvider rng = RandomSource.XO_SHI_RO_128_PP.create(0xa6b7c9);
-        final int n = 7;
-        final int min = -610;
-        final int max = 745;
-        addObjectSamplers(builder, n, min, max, rng);
-
-        // Exercise the shared state interface
-        final UniformRandomProvider rng1 = RandomSource.XO_SHI_RO_256_PLUS.create(0x1f2e3d);
-        // removed other assertion
-
-        Assertions.assertEquals(1, factoryCount.get(), "Factory should not be used to create the shared state sampler");
-    }
-
-    @Test
-    void testSharedStateObjectSamplerSamplesWithCustomDiscreteSamplerFactory_2_oe() {
-        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
-                .newSharedStateObjectSamplerBuilder();
-        final AtomicInteger factoryCount = new AtomicInteger();
-        builder.setFactory(new DiscreteProbabilitySamplerFactory() {
-            @Override
-            public DiscreteSampler create(UniformRandomProvider rng, double[] probabilities) {
-                factoryCount.incrementAndGet();
-                // Wrap so it is not a SharedStateSamplerInstance.
-                final DiscreteSampler sampler = GuideTableDiscreteSampler.of(rng, probabilities, 2);
-                // Destroy the probabilities to check that custom factories are not trusted.
-                Arrays.fill(probabilities, Double.NaN);
-                return new DiscreteSampler() {
-                    @Override
-                    public int sample() {
-                        return sampler.sample();
-                    }
-                };
-            }
-        });
-        final UniformRandomProvider rng = RandomSource.XO_SHI_RO_128_PP.create(0x263478628L);
-        final int n = 14;
-        final int min = 56;
-        final int max = 2033;
-        addObjectSamplers(builder, n, min, max, rng);
-
-        // Exercise the shared state interface.
-        // This tests the custom factory is used twice.
-        final UniformRandomProvider rng1 = RandomSource.XO_SHI_RO_256_PLUS.create(0x8c7b6a);
-        // removed other assertion
-
-        Assertions.assertEquals(2, factoryCount.get(), "Factory should be used to create the shared state sampler");
-    }
-
-    @Test
     void testObjectSamplerSamplesWithVeryLargeWeights_1_oe() {
-        final Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
-        final UniformRandomProvider rng = RandomSource.SFC_64.create(267934293);
+         Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
+         UniformRandomProvider rng = RandomSource.SFC_64.create(267934293);
         // Ratio 4:4:2:1
         // The weights will sum to infinity as they are more than 2^1024.
-        final double w4 = 0x1.0p1023;
-        final double w2 = 0x1.0p1022;
-        final double w1 = 0x1.0p1021;
+         double w4 = 0x1.0p1023;
+         double w2 = 0x1.0p1022;
+         double w1 = 0x1.0p1021;
         Assertions.assertEquals(Double.POSITIVE_INFINITY, w4 + w4 + w2 + w1);
     }
 
     @Test
     void testObjectSamplerSamplesWithSubNormalWeights_1_oe() {
-        final Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
-        final UniformRandomProvider rng = RandomSource.MSWS.create(6786);
+         Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
+         UniformRandomProvider rng = RandomSource.MSWS.create(6786);
         // Ratio 4:4:2:1
         // The weights are very small sub-normal numbers
-        final double w4 = Double.MIN_VALUE * 4;
-        final double w2 = Double.MIN_VALUE * 2;
-        final double w1 = Double.MIN_VALUE;
-        final double sum = w4 + w4 + w2 + w1;
+         double w4 = Double.MIN_VALUE * 4;
+         double w2 = Double.MIN_VALUE * 2;
+         double w1 = Double.MIN_VALUE;
+         double sum = w4 + w4 + w2 + w1;
         // Cannot do a divide by multiplying by the reciprocal
         Assertions.assertEquals(Double.POSITIVE_INFINITY, 1.0 / sum);
     }
 
     @Test
     void testObjectSamplerSamplesWithSubNormalWeights_2_oe() {
-        final Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
-        final UniformRandomProvider rng = RandomSource.MSWS.create(6786);
+         Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
+         UniformRandomProvider rng = RandomSource.MSWS.create(6786);
         // Ratio 4:4:2:1
         // The weights are very small sub-normal numbers
-        final double w4 = Double.MIN_VALUE * 4;
-        final double w2 = Double.MIN_VALUE * 2;
-        final double w1 = Double.MIN_VALUE;
-        final double sum = w4 + w4 + w2 + w1;
+         double w4 = Double.MIN_VALUE * 4;
+         double w2 = Double.MIN_VALUE * 2;
+         double w1 = Double.MIN_VALUE;
+         double sum = w4 + w4 + w2 + w1;
         // Cannot do a divide by multiplying by the reciprocal
         // removed other assertion
         // A divide works so the sampler should work
@@ -945,14 +884,14 @@ class CompositeSamplersTest_OE25Dev {
 
     @Test
     void testObjectSamplerSamplesWithSubNormalWeights_3_oe() {
-        final Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
-        final UniformRandomProvider rng = RandomSource.MSWS.create(6786);
+         Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
+         UniformRandomProvider rng = RandomSource.MSWS.create(6786);
         // Ratio 4:4:2:1
         // The weights are very small sub-normal numbers
-        final double w4 = Double.MIN_VALUE * 4;
-        final double w2 = Double.MIN_VALUE * 2;
-        final double w1 = Double.MIN_VALUE;
-        final double sum = w4 + w4 + w2 + w1;
+         double w4 = Double.MIN_VALUE * 4;
+         double w2 = Double.MIN_VALUE * 2;
+         double w1 = Double.MIN_VALUE;
+         double sum = w4 + w4 + w2 + w1;
         // Cannot do a divide by multiplying by the reciprocal
         // removed other assertion
         // A divide works so the sampler should work
@@ -962,14 +901,14 @@ class CompositeSamplersTest_OE25Dev {
 
     @Test
     void testObjectSamplerSamplesWithSubNormalWeights_4_oe() {
-        final Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
-        final UniformRandomProvider rng = RandomSource.MSWS.create(6786);
+         Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
+         UniformRandomProvider rng = RandomSource.MSWS.create(6786);
         // Ratio 4:4:2:1
         // The weights are very small sub-normal numbers
-        final double w4 = Double.MIN_VALUE * 4;
-        final double w2 = Double.MIN_VALUE * 2;
-        final double w1 = Double.MIN_VALUE;
-        final double sum = w4 + w4 + w2 + w1;
+         double w4 = Double.MIN_VALUE * 4;
+         double w2 = Double.MIN_VALUE * 2;
+         double w1 = Double.MIN_VALUE;
+         double sum = w4 + w4 + w2 + w1;
         // Cannot do a divide by multiplying by the reciprocal
         // removed other assertion
         // A divide works so the sampler should work
@@ -980,58 +919,58 @@ class CompositeSamplersTest_OE25Dev {
 
     @Test
     void testObjectSamplerSamples_1_oe_1_oe() {
-        final Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
-        final UniformRandomProvider rng = RandomSource.PCG_XSH_RR_32_OS.create(345);
-        final int n = 15;
-        final int min = -134;
-        final int max = 2097;
+         Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
+         UniformRandomProvider rng = RandomSource.PCG_XSH_RR_32_OS.create(345);
+         int n = 15;
+         int min = -134;
+         int max = 2097;
         addObjectSamplers(builder, n, min, max, rng);
-                final ObjectSampler<Integer> sampler0 = builder.build(rng);
-        final int min0 = min;
-        final int max0 = max;
-        final int n0 = 100000;
-                final long[] observed0 = new long[max0 - min0];
+                 ObjectSampler<Integer> sampler0 = builder.build(rng);
+         int min0 = min;
+         int max0 = max;
+         int n0 = 100000;
+                 long[] observed0 = new long[max0 - min0];
                 for (int i0 = 0; i0 < n0; i0++) {
                     observed0[sampler0.sample() - min0]++;
                 }
         
-                final double[] expected0 = new double[observed0.length];
+                 double[] expected0 = new double[observed0.length];
                 Arrays.fill(expected0, (double) n0 / expected0.length);
-                final double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
+                 double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
                 Assertions.assertFalse(p0 < 0.001, () -> "p0-value too small: " + p0);
     }
 
     @Test
     void testSharedStateObjectSamplerSamples_1_oe_1_oe() {
-        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+         Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
-        final UniformRandomProvider rng = RandomSource.PCG_XSH_RS_32_OS.create(299);
-        final int n = 11;
-        final int min = 42;
-        final int max = 678;
+         UniformRandomProvider rng = RandomSource.PCG_XSH_RS_32_OS.create(299);
+         int n = 11;
+         int min = 42;
+         int max = 678;
         addObjectSamplers(builder, n, min, max, rng);
         // Exercise the shared state interface
-        final UniformRandomProvider rng1 = RandomSource.XO_SHI_RO_256_PLUS.create(0x9a8c6f5e);
-                final ObjectSampler<Integer> sampler0 = builder.build(rng).withUniformRandomProvider(rng1);
-        final int min0 = min;
-        final int max0 = max;
-        final int n0 = 100000;
-                final long[] observed0 = new long[max0 - min0];
+         UniformRandomProvider rng1 = RandomSource.XO_SHI_RO_256_PLUS.create(0x9a8c6f5e);
+                 ObjectSampler<Integer> sampler0 = builder.build(rng).withUniformRandomProvider(rng1);
+         int min0 = min;
+         int max0 = max;
+         int n0 = 100000;
+                 long[] observed0 = new long[max0 - min0];
                 for (int i0 = 0; i0 < n0; i0++) {
                     observed0[sampler0.sample() - min0]++;
                 }
         
-                final double[] expected0 = new double[observed0.length];
+                 double[] expected0 = new double[observed0.length];
                 Arrays.fill(expected0, (double) n0 / expected0.length);
-                final double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
+                 double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
                 Assertions.assertFalse(p0 < 0.001, () -> "p0-value too small: " + p0);
     }
 
     @Test
     void testSharedStateObjectSamplerSamplesWithCustomSharedStateDiscreteSamplerFactory_1_oe_1_oe() {
-        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+         Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
-        final AtomicInteger factoryCount = new AtomicInteger();
+         AtomicInteger factoryCount = new AtomicInteger();
         builder.setFactory(new DiscreteProbabilitySamplerFactory() {
             @Override
             public DiscreteSampler create(UniformRandomProvider rng, double[] probabilities) {
@@ -1040,40 +979,40 @@ class CompositeSamplersTest_OE25Dev {
                 return AliasMethodDiscreteSampler.of(rng, probabilities, 2);
             }
         });
-        final UniformRandomProvider rng = RandomSource.XO_SHI_RO_128_PP.create(0xa6b7c9);
-        final int n = 7;
-        final int min = -610;
-        final int max = 745;
+         UniformRandomProvider rng = RandomSource.XO_SHI_RO_128_PP.create(0xa6b7c9);
+         int n = 7;
+         int min = -610;
+         int max = 745;
         addObjectSamplers(builder, n, min, max, rng);
 
         // Exercise the shared state interface
-        final UniformRandomProvider rng1 = RandomSource.XO_SHI_RO_256_PLUS.create(0x1f2e3d);
-                final ObjectSampler<Integer> sampler0 = builder.build(rng).withUniformRandomProvider(rng1);
-        final int min0 = min;
-        final int max0 = max;
-        final int n0 = 100000;
-                final long[] observed0 = new long[max0 - min0];
+         UniformRandomProvider rng1 = RandomSource.XO_SHI_RO_256_PLUS.create(0x1f2e3d);
+                 ObjectSampler<Integer> sampler0 = builder.build(rng).withUniformRandomProvider(rng1);
+         int min0 = min;
+         int max0 = max;
+         int n0 = 100000;
+                 long[] observed0 = new long[max0 - min0];
                 for (int i0 = 0; i0 < n0; i0++) {
                     observed0[sampler0.sample() - min0]++;
                 }
         
-                final double[] expected0 = new double[observed0.length];
+                 double[] expected0 = new double[observed0.length];
                 Arrays.fill(expected0, (double) n0 / expected0.length);
-                final double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
+                 double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
                 Assertions.assertFalse(p0 < 0.001, () -> "p0-value too small: " + p0);
     }
 
     @Test
     void testSharedStateObjectSamplerSamplesWithCustomDiscreteSamplerFactory_1_oe_1_oe() {
-        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+         Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
-        final AtomicInteger factoryCount = new AtomicInteger();
+         AtomicInteger factoryCount = new AtomicInteger();
         builder.setFactory(new DiscreteProbabilitySamplerFactory() {
             @Override
             public DiscreteSampler create(UniformRandomProvider rng, double[] probabilities) {
                 factoryCount.incrementAndGet();
                 // Wrap so it is not a SharedStateSamplerInstance.
-                final DiscreteSampler sampler = GuideTableDiscreteSampler.of(rng, probabilities, 2);
+                 DiscreteSampler sampler = GuideTableDiscreteSampler.of(rng, probabilities, 2);
                 // Destroy the probabilities to check that custom factories are not trusted.
                 Arrays.fill(probabilities, Double.NaN);
                 return new DiscreteSampler() {
@@ -1084,93 +1023,93 @@ class CompositeSamplersTest_OE25Dev {
                 };
             }
         });
-        final UniformRandomProvider rng = RandomSource.XO_SHI_RO_128_PP.create(0x263478628L);
-        final int n = 14;
-        final int min = 56;
-        final int max = 2033;
+         UniformRandomProvider rng = RandomSource.XO_SHI_RO_128_PP.create(0x263478628L);
+         int n = 14;
+         int min = 56;
+         int max = 2033;
         addObjectSamplers(builder, n, min, max, rng);
 
         // Exercise the shared state interface.
         // This tests the custom factory is used twice.
-        final UniformRandomProvider rng1 = RandomSource.XO_SHI_RO_256_PLUS.create(0x8c7b6a);
-                final ObjectSampler<Integer> sampler0 = builder.build(rng).withUniformRandomProvider(rng1);
-        final int min0 = min;
-        final int max0 = max;
-        final int n0 = 100000;
-                final long[] observed0 = new long[max0 - min0];
+         UniformRandomProvider rng1 = RandomSource.XO_SHI_RO_256_PLUS.create(0x8c7b6a);
+                 ObjectSampler<Integer> sampler0 = builder.build(rng).withUniformRandomProvider(rng1);
+         int min0 = min;
+         int max0 = max;
+         int n0 = 100000;
+                 long[] observed0 = new long[max0 - min0];
                 for (int i0 = 0; i0 < n0; i0++) {
                     observed0[sampler0.sample() - min0]++;
                 }
         
-                final double[] expected0 = new double[observed0.length];
+                 double[] expected0 = new double[observed0.length];
                 Arrays.fill(expected0, (double) n0 / expected0.length);
-                final double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
+                 double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
                 Assertions.assertFalse(p0 < 0.001, () -> "p0-value too small: " + p0);
     }
 
     @Test
     void testObjectSamplerSamplesWithUniformWeights_1_oe_1_oe() {
-        final Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
-        final UniformRandomProvider rng = RandomSource.JSF_64.create(678345);
-        final int max = 60;
-        final int interval = 10;
+         Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
+         UniformRandomProvider rng = RandomSource.JSF_64.create(678345);
+         int max = 60;
+         int interval = 10;
         for (int min = 0; min < max; min += interval) {
             builder.add(new RangeSampler(min, min + interval, rng), 1.0);
         }
-                final ObjectSampler<Integer> sampler0 = builder.build(rng);
-        final int min0 = 0;
-        final int max0 = max;
-        final int n0 = 100000;
-                final long[] observed0 = new long[max0 - min0];
+                 ObjectSampler<Integer> sampler0 = builder.build(rng);
+         int min0 = 0;
+         int max0 = max;
+         int n0 = 100000;
+                 long[] observed0 = new long[max0 - min0];
                 for (int i0 = 0; i0 < n0; i0++) {
                     observed0[sampler0.sample() - min0]++;
                 }
         
-                final double[] expected0 = new double[observed0.length];
+                 double[] expected0 = new double[observed0.length];
                 Arrays.fill(expected0, (double) n0 / expected0.length);
-                final double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
+                 double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
                 Assertions.assertFalse(p0 < 0.001, () -> "p0-value too small: " + p0);
     }
 
     @Test
     void testObjectSamplerSamplesWithVeryLargeWeights_2_oe_1_oe() {
-        final Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
-        final UniformRandomProvider rng = RandomSource.SFC_64.create(267934293);
+         Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
+         UniformRandomProvider rng = RandomSource.SFC_64.create(267934293);
         // Ratio 4:4:2:1
         // The weights will sum to infinity as they are more than 2^1024.
-        final double w4 = 0x1.0p1023;
-        final double w2 = 0x1.0p1022;
-        final double w1 = 0x1.0p1021;
+         double w4 = 0x1.0p1023;
+         double w2 = 0x1.0p1022;
+         double w1 = 0x1.0p1021;
         // removed other assertion
         builder.add(new RangeSampler(0, 40, rng), w4);
         builder.add(new RangeSampler(40, 80, rng), w4);
         builder.add(new RangeSampler(80, 100, rng), w2);
         builder.add(new RangeSampler(100, 110, rng), w1);
-                final ObjectSampler<Integer> sampler0 = builder.build(rng);
-        final int min0 = 0;
-        final int max0 = 110;
-        final int n0 = 100000;
-                final long[] observed0 = new long[max0 - min0];
+                 ObjectSampler<Integer> sampler0 = builder.build(rng);
+         int min0 = 0;
+         int max0 = 110;
+         int n0 = 100000;
+                 long[] observed0 = new long[max0 - min0];
                 for (int i0 = 0; i0 < n0; i0++) {
                     observed0[sampler0.sample() - min0]++;
                 }
         
-                final double[] expected0 = new double[observed0.length];
+                 double[] expected0 = new double[observed0.length];
                 Arrays.fill(expected0, (double) n0 / expected0.length);
-                final double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
+                 double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
                 Assertions.assertFalse(p0 < 0.001, () -> "p0-value too small: " + p0);
     }
 
     @Test
     void testObjectSamplerSamplesWithSubNormalWeights_5_oe_1_oe() {
-        final Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
-        final UniformRandomProvider rng = RandomSource.MSWS.create(6786);
+         Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
+         UniformRandomProvider rng = RandomSource.MSWS.create(6786);
         // Ratio 4:4:2:1
         // The weights are very small sub-normal numbers
-        final double w4 = Double.MIN_VALUE * 4;
-        final double w2 = Double.MIN_VALUE * 2;
-        final double w1 = Double.MIN_VALUE;
-        final double sum = w4 + w4 + w2 + w1;
+         double w4 = Double.MIN_VALUE * 4;
+         double w2 = Double.MIN_VALUE * 2;
+         double w1 = Double.MIN_VALUE;
+         double sum = w4 + w4 + w2 + w1;
         // Cannot do a divide by multiplying by the reciprocal
         // removed other assertion
         // A divide works so the sampler should work
@@ -1181,171 +1120,171 @@ class CompositeSamplersTest_OE25Dev {
         builder.add(new RangeSampler(40, 80, rng), w4);
         builder.add(new RangeSampler(80, 100, rng), w2);
         builder.add(new RangeSampler(100, 110, rng), w1);
-                final ObjectSampler<Integer> sampler0 = builder.build(rng);
-        final int min0 = 0;
-        final int max0 = 110;
-        final int n0 = 100000;
-                final long[] observed0 = new long[max0 - min0];
+                 ObjectSampler<Integer> sampler0 = builder.build(rng);
+         int min0 = 0;
+         int max0 = 110;
+         int n0 = 100000;
+                 long[] observed0 = new long[max0 - min0];
                 for (int i0 = 0; i0 < n0; i0++) {
                     observed0[sampler0.sample() - min0]++;
                 }
         
-                final double[] expected0 = new double[observed0.length];
+                 double[] expected0 = new double[observed0.length];
                 Arrays.fill(expected0, (double) n0 / expected0.length);
-                final double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
+                 double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
                 Assertions.assertFalse(p0 < 0.001, () -> "p0-value too small: " + p0);
     }
 
     @Test
     void testDiscreteSamplerSamples_1_oe_1_oe() {
-        final Builder<DiscreteSampler> builder = CompositeSamplers.newDiscreteSamplerBuilder();
-        final UniformRandomProvider rng = RandomSource.PCG_XSH_RR_32_OS.create(345);
-        final int n = 15;
-        final int min = -134;
-        final int max = 2097;
+         Builder<DiscreteSampler> builder = CompositeSamplers.newDiscreteSamplerBuilder();
+         UniformRandomProvider rng = RandomSource.PCG_XSH_RR_32_OS.create(345);
+         int n = 15;
+         int min = -134;
+         int max = 2097;
         addDiscreteSamplers(builder, n, min, max, rng);
-                final DiscreteSampler sampler0 = builder.build(rng);
-        final int min0 = min;
-        final int max0 = max;
-        final int n0 = 100000;
-                final long[] observed0 = new long[max0 - min0];
+                 DiscreteSampler sampler0 = builder.build(rng);
+         int min0 = min;
+         int max0 = max;
+         int n0 = 100000;
+                 long[] observed0 = new long[max0 - min0];
                 for (int i0 = 0; i0 < n0; i0++) {
                     observed0[sampler0.sample() - min0]++;
                 }
         
-                final double[] expected0 = new double[observed0.length];
+                 double[] expected0 = new double[observed0.length];
                 Arrays.fill(expected0, (double) n0 / expected0.length);
-                final double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
+                 double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
                 Assertions.assertFalse(p0 < 0.001, () -> "p0-value too small: " + p0);
     }
 
     @Test
     void testSharedStateDiscreteSamplerSamples_1_oe_1_oe() {
-        final Builder<SharedStateDiscreteSampler> builder = CompositeSamplers.newSharedStateDiscreteSamplerBuilder();
-        final UniformRandomProvider rng = RandomSource.PCG_XSH_RS_32_OS.create(299);
-        final int n = 11;
-        final int min = 42;
-        final int max = 678;
+         Builder<SharedStateDiscreteSampler> builder = CompositeSamplers.newSharedStateDiscreteSamplerBuilder();
+         UniformRandomProvider rng = RandomSource.PCG_XSH_RS_32_OS.create(299);
+         int n = 11;
+         int min = 42;
+         int max = 678;
         addDiscreteSamplers(builder, n, min, max, rng);
-                final DiscreteSampler sampler0 = builder.build(rng);
-        final int min0 = min;
-        final int max0 = max;
-        final int n0 = 100000;
-                final long[] observed0 = new long[max0 - min0];
+                 DiscreteSampler sampler0 = builder.build(rng);
+         int min0 = min;
+         int max0 = max;
+         int n0 = 100000;
+                 long[] observed0 = new long[max0 - min0];
                 for (int i0 = 0; i0 < n0; i0++) {
                     observed0[sampler0.sample() - min0]++;
                 }
         
-                final double[] expected0 = new double[observed0.length];
+                 double[] expected0 = new double[observed0.length];
                 Arrays.fill(expected0, (double) n0 / expected0.length);
-                final double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
+                 double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
                 Assertions.assertFalse(p0 < 0.001, () -> "p0-value too small: " + p0);
     }
 
     @Test
     void testContinuousSamplerSamples_1_oe_1_oe() {
-        final Builder<ContinuousSampler> builder = CompositeSamplers.newContinuousSamplerBuilder();
-        final UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_PP.create(9283756);
-        final int n = 15;
-        final double min = 67.2;
-        final double max = 2033.8;
+         Builder<ContinuousSampler> builder = CompositeSamplers.newContinuousSamplerBuilder();
+         UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_PP.create(9283756);
+         int n = 15;
+         double min = 67.2;
+         double max = 2033.8;
         addContinuousSamplers(builder, n, min, max, rng);
-                final ContinuousSampler sampler0 = builder.build(rng);
-        final double min0 = min;
-        final double max0 = max;
-        final int n0 = 100000;
-                final int bins0 = 200;
-                final long[] observed0 = new long[bins0];
-                final double scale0 = bins0 / (max0 - min0);
+                 ContinuousSampler sampler0 = builder.build(rng);
+         double min0 = min;
+         double max0 = max;
+         int n0 = 100000;
+                 int bins0 = 200;
+                 long[] observed0 = new long[bins0];
+                 double scale0 = bins0 / (max0 - min0);
                 for (int i0 = 0; i0 < n0; i0++) {
                     // scale0 the sample into a bin within the range:
                     // bin = bins0 * (x - min0) / (max0 - min0)
                     observed0[(int) (scale0 * (sampler0.sample() - min0))]++;
                 }
         
-                final double[] expected0 = new double[observed0.length];
+                 double[] expected0 = new double[observed0.length];
                 Arrays.fill(expected0, (double) n0 / expected0.length);
-                final double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
+                 double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
                 Assertions.assertFalse(p0 < 0.001, () -> "p0-value too small: " + p0);
     }
 
     @Test
     void testSharedStateContinuousSamplerSamples_1_oe_1_oe() {
-        final Builder<SharedStateContinuousSampler> builder = CompositeSamplers
+         Builder<SharedStateContinuousSampler> builder = CompositeSamplers
                 .newSharedStateContinuousSamplerBuilder();
-        final UniformRandomProvider rng = RandomSource.PCG_RXS_M_XS_64_OS.create(0x567567345L);
-        final int n = 11;
-        final double min = -15.7;
-        final double max = 123.4;
+         UniformRandomProvider rng = RandomSource.PCG_RXS_M_XS_64_OS.create(0x567567345L);
+         int n = 11;
+         double min = -15.7;
+         double max = 123.4;
         addContinuousSamplers(builder, n, min, max, rng);
-                final ContinuousSampler sampler0 = builder.build(rng);
-        final double min0 = min;
-        final double max0 = max;
-        final int n0 = 100000;
-                final int bins0 = 200;
-                final long[] observed0 = new long[bins0];
-                final double scale0 = bins0 / (max0 - min0);
+                 ContinuousSampler sampler0 = builder.build(rng);
+         double min0 = min;
+         double max0 = max;
+         int n0 = 100000;
+                 int bins0 = 200;
+                 long[] observed0 = new long[bins0];
+                 double scale0 = bins0 / (max0 - min0);
                 for (int i0 = 0; i0 < n0; i0++) {
                     // scale0 the sample into a bin within the range:
                     // bin = bins0 * (x - min0) / (max0 - min0)
                     observed0[(int) (scale0 * (sampler0.sample() - min0))]++;
                 }
         
-                final double[] expected0 = new double[observed0.length];
+                 double[] expected0 = new double[observed0.length];
                 Arrays.fill(expected0, (double) n0 / expected0.length);
-                final double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
+                 double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
                 Assertions.assertFalse(p0 < 0.001, () -> "p0-value too small: " + p0);
     }
 
     @Test
     void testLongSamplerSamples_1_oe_1_oe() {
-        final Builder<LongSampler> builder = CompositeSamplers.newLongSamplerBuilder();
-        final UniformRandomProvider rng = RandomSource.KISS.create(67842321783L);
-        final int n = 15;
-        final long min = -134;
-        final long max = 1L << 54;
+         Builder<LongSampler> builder = CompositeSamplers.newLongSamplerBuilder();
+         UniformRandomProvider rng = RandomSource.KISS.create(67842321783L);
+         int n = 15;
+         long min = -134;
+         long max = 1L << 54;
         addLongSamplers(builder, n, min, max, rng);
-                final LongSampler sampler0 = builder.build(rng);
-        final long min0 = min;
-        final long max0 = max;
-        final int n0 = 100000;
-                final int bins0 = 200;
-                final long[] observed0 = new long[bins0];
-                final long range0 = max0 - min0;
+                 LongSampler sampler0 = builder.build(rng);
+         long min0 = min;
+         long max0 = max;
+         int n0 = 100000;
+                 int bins0 = 200;
+                 long[] observed0 = new long[bins0];
+                 long range0 = max0 - min0;
                 for (int i0 = 0; i0 < n0; i0++) {
                     // scale the sample into a bin within the range0:
                     observed0[(int) (bins0 * (sampler0.sample() - min0) / range0)]++;
                 }
         
-                final double[] expected0 = new double[observed0.length];
+                 double[] expected0 = new double[observed0.length];
                 Arrays.fill(expected0, (double) n0 / expected0.length);
-                final double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
+                 double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
                 Assertions.assertFalse(p0 < 0.001, () -> "p0-value too small: " + p0);
     }
 
     @Test
     void testSharedStateLongSamplerSamples_1_oe_1_oe() {
-        final Builder<SharedStateLongSampler> builder = CompositeSamplers.newSharedStateLongSamplerBuilder();
-        final UniformRandomProvider rng = RandomSource.KISS.create(12369279382030L);
-        final int n = 11;
-        final long min = 42;
-        final long max = 1L << 53;
+         Builder<SharedStateLongSampler> builder = CompositeSamplers.newSharedStateLongSamplerBuilder();
+         UniformRandomProvider rng = RandomSource.KISS.create(12369279382030L);
+         int n = 11;
+         long min = 42;
+         long max = 1L << 53;
         addLongSamplers(builder, n, min, max, rng);
-                final LongSampler sampler0 = builder.build(rng);
-        final long min0 = min;
-        final long max0 = max;
-        final int n0 = 100000;
-                final int bins0 = 200;
-                final long[] observed0 = new long[bins0];
-                final long range0 = max0 - min0;
+                 LongSampler sampler0 = builder.build(rng);
+         long min0 = min;
+         long max0 = max;
+         int n0 = 100000;
+                 int bins0 = 200;
+                 long[] observed0 = new long[bins0];
+                 long range0 = max0 - min0;
                 for (int i0 = 0; i0 < n0; i0++) {
                     // scale the sample into a bin within the range0:
                     observed0[(int) (bins0 * (sampler0.sample() - min0) / range0)]++;
                 }
         
-                final double[] expected0 = new double[observed0.length];
+                 double[] expected0 = new double[observed0.length];
                 Arrays.fill(expected0, (double) n0 / expected0.length);
-                final double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
+                 double p0 = new ChiSquareTest().chiSquareTest(expected0, observed0);
                 Assertions.assertFalse(p0 < 0.001, () -> "p0-value too small: " + p0);
     }
 

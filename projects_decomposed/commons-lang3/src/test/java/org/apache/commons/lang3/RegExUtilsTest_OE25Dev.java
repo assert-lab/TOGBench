@@ -868,31 +868,6 @@ public class RegExUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testReplaceAll_StringPatternString_16_oe() {
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Lorem_ipsum_dolor_sit",RegExUtils.replaceAll("Lorem ipsum dolor sit",Pattern.compile("(+)([a-z]+)"),"_$2"));
-    }
-
-    @Test
     public void testReplaceAll_StringStringString_1_oe() {
         assertNull(RegExUtils.replaceAll(null, "", ""));
     }
@@ -1245,27 +1220,6 @@ public class RegExUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testReplaceFirst_StringPatternString_13_oe() {
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Lorem_ipsum dolor sit",RegExUtils.replaceFirst("Lorem ipsum dolor sit",Pattern.compile("(+)([a-z]+)"),"_$2"));
-    }
-
-    @Test
     public void testReplaceFirst_StringStringString_1_oe() {
         assertNull(RegExUtils.replaceFirst(null, "", ""));
     }
@@ -1417,27 +1371,6 @@ public class RegExUtilsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertEquals("ABC123abc", RegExUtils.replaceFirst("ABCabc123abc", "[^A-Z0-9]+", ""));
-    }
-
-    @Test
-    public void testReplaceFirst_StringStringString_13_oe() {
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Lorem_ipsum dolor sit",RegExUtils.replaceFirst("Lorem ipsum dolor sit","(+)([a-z]+)","_$2"));
     }
 
     @Test
@@ -1605,26 +1538,6 @@ public class RegExUtilsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertEquals("ABC123", RegExUtils.replacePattern("ABCabc123", "[^A-Z0-9]+", ""));
-    }
-
-    @Test
-    public void testReplacePattern_StringStringString_13_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Lorem_ipsum_dolor_sit",RegExUtils.replacePattern("Lorem ipsum dolor sit","(+)([a-z]+)","_$2"));
     }
 
 }

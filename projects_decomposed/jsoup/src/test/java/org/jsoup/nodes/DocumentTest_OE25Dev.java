@@ -25,6 +25,17 @@ public class DocumentTest_OE25Dev {
     private static final String charsetUtf8 = "UTF-8";
     private static final String charsetIso8859 = "ISO-8859-1";
 
+    @Test public void testHtmlAndXmlSyntax() {
+        String h = "<!DOCTYPE html><body><img async checked='checked' src='&<>\"'>&lt;&gt;&amp;&quot;<foo />bar";
+        Document doc = Jsoup.parse(h);
+
+        doc.outputSettings().syntax(Syntax.html);
+        assertEquals("<!doctype html>\n" + "<html>\n" + " <head></head>\n" + " <body>\n" + " <img async checked src=\"&amp;<>&quot;\">&lt;&gt;&amp;\"<foo />bar\n" + " </body>\n" + "</html>",doc.html());
+
+        doc.outputSettings().syntax(Document.OutputSettings.Syntax.xml);
+        assertEquals("<!DOCTYPE html>\n" + "<html>\n" + " <head></head>\n" + " <body>\n" + " <img async=\"\" checked=\"checked\" src=\"&amp;&lt;>&quot;\" />&lt;&gt;&amp;\"<foo />bar\n" + " </body>\n" + "</html>",doc.html());
+    }
+
     private Document createHtmlDocument(String charset) {
         final Document doc = Document.createShell("");
         doc.head().appendElement("meta").attr("charset", charset);
@@ -433,25 +444,6 @@ public class DocumentTest_OE25Dev {
     @Test public void testLocationFromString_1_oe() {
         Document doc = Jsoup.parse("<p>Hello");
         assertEquals("", doc.location());
-        }
-
-    @Test public void testHtmlAndXmlSyntax_1_oe() {
-        String h = "<!DOCTYPE html><body><img async checked='checked' src='&<>\"'>&lt;&gt;&amp;&quot;<foo />bar";
-        Document doc = Jsoup.parse(h);
-
-        doc.outputSettings().syntax(Syntax.html);
-        assertEquals("<!doctype html>\n" + "<html>\n" + " <head></head>\n" + " <body>\n" + " <img async checked src=\"&amp;<>&quot;\">&lt;&gt;&amp;\"<foo />bar\n" + " </body>\n" + "</html>",doc.html());
-        }
-
-    @Test public void testHtmlAndXmlSyntax_2_oe() {
-        String h = "<!DOCTYPE html><body><img async checked='checked' src='&<>\"'>&lt;&gt;&amp;&quot;<foo />bar";
-        Document doc = Jsoup.parse(h);
-
-        doc.outputSettings().syntax(Syntax.html);
-        // removed other assertion
-
-        doc.outputSettings().syntax(Document.OutputSettings.Syntax.xml);
-        assertEquals("<!DOCTYPE html>\n" + "<html>\n" + " <head></head>\n" + " <body>\n" + " <img async=\"\" checked=\"checked\" src=\"&amp;&lt;>&quot;\" />&lt;&gt;&amp;\"<foo />bar\n" + " </body>\n" + "</html>",doc.html());
         }
 
     @Test public void htmlParseDefaultsToHtmlOutputSyntax_1_oe() {
@@ -1332,30 +1324,6 @@ public class DocumentTest_OE25Dev {
         // removed other assertion
 
         assertNull(doc.selectFirst("body"));// did not vivify a body element;
-        }
-
-    @Test public void framesetSupportsBodyMethod_9_oe() {
-        String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
-        Document doc = Jsoup.parse(html);
-        Element head = doc.head();
-        // removed other assertion
-        // removed other assertion
-
-        // Frameset docs per html5 spec have no body element - but instead a frameset elelemt
-        // removed other assertion
-        Element frameset = doc.selectFirst("frameset");
-        // removed other assertion
-
-        // the body() method returns body or frameset and does not otherwise modify the document
-        // doing it in body() vs parse keeps the html close to original for round-trip option
-        Element body = doc.body();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        String expected = "<html>\n" + " <head>\n" + " <title>Frame Test</title>\n" + " </head>\n" + " <frameset id=\"id\">\n" + " <frame src=\"foo.html\">\n" + " </frameset>\n" + "</html>";
-        assertEquals(expected, doc.html());
         }
 
 }

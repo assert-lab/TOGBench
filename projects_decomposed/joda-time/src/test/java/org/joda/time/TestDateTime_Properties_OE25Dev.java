@@ -1877,28 +1877,6 @@ public class TestDateTime_Properties_OE25Dev extends TestCase {
         assertEquals(9,test.monthOfYear().getMaximumTextLength(null));
     }
 
-    public void testPropertyGetMonthOfYear_18_oe() {
-        DateTime test = new DateTime(2004, 6, 9, 0, 0, 0, 0);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(3,test.monthOfYear().getMaximumShortTextLength(null));
-    }
-
     public void testPropertyGetMonthOfYear_19_oe() {
         DateTime test = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         // removed other assertion

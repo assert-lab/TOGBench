@@ -93,20 +93,6 @@ public class XmlTreeBuilderTest_OE25Dev {
     }
 
     @Test
-    public void testSupplyParserToConnection_3_oe() throws IOException {
-        String xmlUrl = "http://direct.infohound.net/tools/jsoup-xml-test.xml";
-
-        // parse with both xml and html parser, ensure different
-        Document xmlDoc = Jsoup.connect(xmlUrl).parser(Parser.xmlParser()).get();
-        Document htmlDoc = Jsoup.connect(xmlUrl).parser(Parser.htmlParser()).get();
-        Document autoXmlDoc = Jsoup.connect(xmlUrl).get(); // check connection auto detects xml, uses xml parser
-
-        // removed other assertion
-        // removed other assertion
-        assertEquals(xmlDoc, autoXmlDoc);
-    }
-
-    @Test
     public void testSupplyParserToConnection_4_oe() throws IOException {
         String xmlUrl = "http://direct.infohound.net/tools/jsoup-xml-test.xml";
 

@@ -1190,11 +1190,6 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         assertEquals("PT12.345S",test.toString());
     }
 
-    public void testToString_PeriodFormatter_1_oe() {
-        Period test = new Period(1, 2, 3, 4, 5, 6, 7, 8);
-        assertEquals("1 year,2 months,3 weeks,4 days,5 hours,6 minutes,7 seconds and 8 milliseconds",test.toString(PeriodFormat.getDefault()));
-    }
-
     public void testToString_PeriodFormatter_2_oe() {
         Period test = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         // removed other assertion

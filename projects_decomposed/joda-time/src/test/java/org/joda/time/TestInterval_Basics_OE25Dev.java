@@ -5489,67 +5489,6 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
         assertNull(test1020.gap(interval));
     }
 
-    public void test_useCase_ContainsOverlapAbutGap_zeroDuration_15_oe() {
-        // this is a simple test to ensure that the use case of these methods
-        // is OK when considering a zero duration inerval
-        // when comparing any two intervals they can be in one and only one of these states
-        // (a) have a gap between them, (b) abut or (c) overlap
-        // contains is a subset of overlap
-        Interval test1020 = new Interval(10, 20);
-        
-        // [8,8) [10,20) - gap
-        Interval interval = new Interval(8, 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // [10,10) [10,20) - abuts and contains-one-way
-        interval = new Interval(10, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(false,test1020.abuts(interval));
-    }
-
-    public void test_useCase_ContainsOverlapAbutGap_zeroDuration_16_oe() {
-        // this is a simple test to ensure that the use case of these methods
-        // is OK when considering a zero duration inerval
-        // when comparing any two intervals they can be in one and only one of these states
-        // (a) have a gap between them, (b) abut or (c) overlap
-        // contains is a subset of overlap
-        Interval test1020 = new Interval(10, 20);
-        
-        // [8,8) [10,20) - gap
-        Interval interval = new Interval(8, 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // [10,10) [10,20) - abuts and contains-one-way
-        interval = new Interval(10, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(true,test1020.overlaps(interval));
-    }
-
     public void test_useCase_ContainsOverlapAbutGap_zeroDuration_17_oe() {
         // this is a simple test to ensure that the use case of these methods
         // is OK when considering a zero duration inerval
@@ -5580,73 +5519,6 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         assertEquals(true,test1020.contains(interval));// normal contains zero-duration assertNull(interval.gap(test1020));
-    }
-
-    public void test_useCase_ContainsOverlapAbutGap_zeroDuration_18_oe() {
-        // this is a simple test to ensure that the use case of these methods
-        // is OK when considering a zero duration inerval
-        // when comparing any two intervals they can be in one and only one of these states
-        // (a) have a gap between them, (b) abut or (c) overlap
-        // contains is a subset of overlap
-        Interval test1020 = new Interval(10, 20);
-        
-        // [8,8) [10,20) - gap
-        Interval interval = new Interval(8, 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // [10,10) [10,20) - abuts and contains-one-way
-        interval = new Interval(10, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(false,interval.abuts(test1020));
-    }
-
-    public void test_useCase_ContainsOverlapAbutGap_zeroDuration_19_oe() {
-        // this is a simple test to ensure that the use case of these methods
-        // is OK when considering a zero duration inerval
-        // when comparing any two intervals they can be in one and only one of these states
-        // (a) have a gap between them, (b) abut or (c) overlap
-        // contains is a subset of overlap
-        Interval test1020 = new Interval(10, 20);
-        
-        // [8,8) [10,20) - gap
-        Interval interval = new Interval(8, 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // [10,10) [10,20) - abuts and contains-one-way
-        interval = new Interval(10, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(true,interval.overlaps(test1020));
     }
 
     public void test_useCase_ContainsOverlapAbutGap_zeroDuration_20_oe() {
@@ -5793,45 +5665,6 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         assertEquals(false,test1020.overlaps(interval));
-    }
-
-    public void test_useCase_ContainsOverlapAbutGap_zeroDuration_24_oe() {
-        // this is a simple test to ensure that the use case of these methods
-        // is OK when considering a zero duration inerval
-        // when comparing any two intervals they can be in one and only one of these states
-        // (a) have a gap between them, (b) abut or (c) overlap
-        // contains is a subset of overlap
-        Interval test1020 = new Interval(10, 20);
-        
-        // [8,8) [10,20) - gap
-        Interval interval = new Interval(8, 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // [10,10) [10,20) - abuts and contains-one-way
-        interval = new Interval(10, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(false,test1020.contains(interval));
     }
 
     public void test_useCase_ContainsOverlapAbutGap_zeroDuration_25_oe() {
@@ -6681,12 +6514,6 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,interval37.containsNow());// value before DateTimeUtils.setCurrentMillisFixed(3);
     }
 
-    public void testContainsNow_2_oe() {
-        DateTimeUtils.setCurrentMillisFixed(2);
-        // removed other assertion
-        assertEquals(true,interval37.containsNow());
-    }
-
     public void testContainsNow_3_oe() {
         DateTimeUtils.setCurrentMillisFixed(2);
         // removed other assertion
@@ -6817,12 +6644,6 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
     public void testContains_RI_null_1_oe() {
         DateTimeUtils.setCurrentMillisFixed(2);
         assertEquals(false,interval37.contains((ReadableInstant)null));// value before DateTimeUtils.setCurrentMillisFixed(3);
-    }
-
-    public void testContains_RI_null_2_oe() {
-        DateTimeUtils.setCurrentMillisFixed(2);
-        // removed other assertion
-        assertEquals(true,interval37.contains((ReadableInstant)null));
     }
 
     public void testContains_RI_null_3_oe() {
@@ -7243,12 +7064,6 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
     public void testContains_RInterval_null_1_oe() {
         DateTimeUtils.setCurrentMillisFixed(2);
         assertEquals(false,interval37.contains((ReadableInterval)null));// gap before DateTimeUtils.setCurrentMillisFixed(3);
-    }
-
-    public void testContains_RInterval_null_2_oe() {
-        DateTimeUtils.setCurrentMillisFixed(2);
-        // removed other assertion
-        assertEquals(true,interval37.contains((ReadableInterval)null));
     }
 
     public void testContains_RInterval_null_3_oe() {
@@ -7689,13 +7504,6 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,interval37.overlaps((ReadableInterval)null));// abuts before DateTimeUtils.setCurrentMillisFixed(4);
     }
 
-    public void testOverlaps_RInterval_null_3_oe() {
-        DateTimeUtils.setCurrentMillisFixed(2);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(true,interval37.overlaps((ReadableInterval)null));
-    }
-
     public void testOverlaps_RInterval_null_4_oe() {
         DateTimeUtils.setCurrentMillisFixed(2);
         // removed other assertion
@@ -7933,13 +7741,6 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
         assertEquals(null,interval37.overlap((ReadableInterval)null));// abuts before DateTimeUtils.setCurrentMillisFixed(4);
     }
 
-    public void testOverlap_RInterval_null_3_oe() {
-        DateTimeUtils.setCurrentMillisFixed(2);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(new Interval(4,4),interval37.overlap((ReadableInterval)null));
-    }
-
     public void testOverlap_RInterval_null_4_oe() {
         DateTimeUtils.setCurrentMillisFixed(2);
         // removed other assertion
@@ -8121,17 +7922,6 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
         assertEquals(null,interval37.gap((ReadableInterval)null));// abuts after DateTimeUtils.setCurrentMillisFixed(8);
     }
 
-    public void testGap_RInterval_null_6_oe() {
-        DateTimeUtils.setCurrentMillisFixed(2);
-        // removed other assertion
-        DateTimeUtils.setCurrentMillisFixed(3);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(new Interval(7,8),interval37.gap((ReadableInterval)null));
-    }
-
     public void testGap_RInterval_zone_1_oe() {
         Interval testA = new Interval(new DateTime(3, LONDON), new DateTime(7, LONDON));
         assertEquals(ISOChronology.getInstance(LONDON),testA.getChronology());
@@ -8259,12 +8049,6 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
         assertEquals(false,interval37.abuts((ReadableInterval)null));// gap before DateTimeUtils.setCurrentMillisFixed(3);
     }
 
-    public void testAbuts_RInterval_null_2_oe() {
-        DateTimeUtils.setCurrentMillisFixed(2);
-        // removed other assertion
-        assertEquals(true,interval37.abuts((ReadableInterval)null));
-    }
-
     public void testAbuts_RInterval_null_3_oe() {
         DateTimeUtils.setCurrentMillisFixed(2);
         // removed other assertion
@@ -8280,16 +8064,6 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
         DateTimeUtils.setCurrentMillisFixed(4);
         // removed other assertion
         assertEquals(false,interval37.abuts((ReadableInterval)null));// overlaps DateTimeUtils.setCurrentMillisFixed(7);
-    }
-
-    public void testAbuts_RInterval_null_5_oe() {
-        DateTimeUtils.setCurrentMillisFixed(2);
-        // removed other assertion
-        // removed other assertion
-        DateTimeUtils.setCurrentMillisFixed(4);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(true,interval37.abuts((ReadableInterval)null));
     }
 
     public void testAbuts_RInterval_null_6_oe() {

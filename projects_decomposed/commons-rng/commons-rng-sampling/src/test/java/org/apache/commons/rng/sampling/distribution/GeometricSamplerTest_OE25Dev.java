@@ -92,8 +92,8 @@ class GeometricSamplerTest_OE25Dev {
 
     @Test
     void testProbabilityOfSuccessIsOneGeneratesZeroForSamples_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final SharedStateDiscreteSampler sampler = GeometricSampler.of(rng, 1);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         SharedStateDiscreteSampler sampler = GeometricSampler.of(rng, 1);
         // All samples should be 0
         for (int i = 0; i < 10; i++) {
             Assertions.assertEquals(0, sampler.sample(), "p=1 should have 0 for all samples");
@@ -104,24 +104,24 @@ class GeometricSamplerTest_OE25Dev {
     void testProbabilityOfSuccessUnderOneIsValid_1_oe() {
         // The sampler explicitly handles probabilityOfSuccess == 1 as an edge case.
         // Anything under it should be valid for sampling from an ExponentialDistribution.
-        final double probabilityOfSuccess = Math.nextDown(1);
+         double probabilityOfSuccess = Math.nextDown(1);
         // Map to the mean
-        final double exponentialMean = 1.0 / (-Math.log1p(-probabilityOfSuccess));
+         double exponentialMean = 1.0 / (-Math.log1p(-probabilityOfSuccess));
         // As long as this is finite positive then the sampler is valid
         Assertions.assertTrue(exponentialMean > 0 && exponentialMean <= Double.MAX_VALUE);
     }
 
     @Test
     void testProbabilityOfSuccessIsOneSamplerToString_1_oe() {
-        final UniformRandomProvider unusedRng = RandomSource.SPLIT_MIX_64.create(0L);
-        final SharedStateDiscreteSampler sampler = GeometricSampler.of(unusedRng, 1);
+         UniformRandomProvider unusedRng = RandomSource.SPLIT_MIX_64.create(0L);
+         SharedStateDiscreteSampler sampler = GeometricSampler.of(unusedRng, 1);
         Assertions.assertTrue(sampler.toString().contains("Geometric"),"Missing 'Geometric' from toString");
     }
 
     @Test
     void testProbabilityOfSuccessIsAlmostZeroGeneratesMaxValueForSamples_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final SharedStateDiscreteSampler sampler = GeometricSampler.of(rng, Double.MIN_VALUE);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         SharedStateDiscreteSampler sampler = GeometricSampler.of(rng, Double.MIN_VALUE);
         // All samples should be max value
         for (int i = 0; i < 10; i++) {
             Assertions.assertEquals(Integer.MAX_VALUE,sampler.sample(),"p=(almost 0)should have Integer.MAX_VALUE for all samples");
@@ -130,15 +130,15 @@ class GeometricSamplerTest_OE25Dev {
 
     @Test
     void testProbabilityOfSuccessAboveOneThrows_1_oe() {
-        final UniformRandomProvider unusedRng = RandomSource.SPLIT_MIX_64.create(0L);
-        final double probabilityOfSuccess = Math.nextUp(1.0);
+         UniformRandomProvider unusedRng = RandomSource.SPLIT_MIX_64.create(0L);
+         double probabilityOfSuccess = Math.nextUp(1.0);
         Assertions.assertThrows(IllegalArgumentException.class, () -> GeometricSampler.of(unusedRng, probabilityOfSuccess));
     }
 
     @Test
     void testProbabilityOfSuccessIsZeroThrows_1_oe() {
-        final UniformRandomProvider unusedRng = RandomSource.SPLIT_MIX_64.create(0L);
-        final double probabilityOfSuccess = 0;
+         UniformRandomProvider unusedRng = RandomSource.SPLIT_MIX_64.create(0L);
+         double probabilityOfSuccess = 0;
         Assertions.assertThrows(IllegalArgumentException.class, () -> GeometricSampler.of(unusedRng, probabilityOfSuccess));
     }
 

@@ -26,23 +26,23 @@ class SeedConverterComposerTest_OE25Dev {
 
     @Test
     void testComposedCoversion_1_oe() {
-        final Int2Long int2Long = new Int2Long();
-        final Long2LongArray long2LongArray = new Long2LongArray(3);
-        final SeedConverterComposer<Integer, Long, long[]> composer =
+         Int2Long int2Long = new Int2Long();
+         Long2LongArray long2LongArray = new Long2LongArray(3);
+         SeedConverterComposer<Integer, Long, long[]> composer =
                 new SeedConverterComposer<>(int2Long, long2LongArray);
-        final Integer in = 123;
-        final Object out = composer.convert(in);
+         Integer in = 123;
+         Object out = composer.convert(in);
         Assertions.assertTrue(out instanceof long[], "Bad type conversion");
     }
 
     @Test
     void testComposedCoversion_2_oe() {
-        final Int2Long int2Long = new Int2Long();
-        final Long2LongArray long2LongArray = new Long2LongArray(3);
-        final SeedConverterComposer<Integer, Long, long[]> composer =
+         Int2Long int2Long = new Int2Long();
+         Long2LongArray long2LongArray = new Long2LongArray(3);
+         SeedConverterComposer<Integer, Long, long[]> composer =
                 new SeedConverterComposer<>(int2Long, long2LongArray);
-        final Integer in = 123;
-        final Object out = composer.convert(in);
+         Integer in = 123;
+         Object out = composer.convert(in);
         // removed other assertion
         Assertions.assertEquals(3, ((long[])out).length, "Incorrect long[] length");
     }

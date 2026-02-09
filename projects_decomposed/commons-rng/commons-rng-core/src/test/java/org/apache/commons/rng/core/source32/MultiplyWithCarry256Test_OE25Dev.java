@@ -35,7 +35,7 @@ class MultiplyWithCarry256Test_OE25Dev {
 
     @Test
     void testMarsaglia_1_oe() {
-        final int[] seed = {
+         int[] seed = {
             0x000587c4, // initial carry
             0xff710353, 0x1b427020, 0xc9c59991, 0x96e511e0, 0xf1d06013, 0xe0216c68, 0x98999e3d, 0xce158f68,
             0xb8d320ef, 0x905ddbf0, 0xda9717c9, 0x78498c30, 0x4681a0ab, 0x781347a8, 0x62eafcb5, 0x0a9bdc68,
@@ -75,7 +75,7 @@ class MultiplyWithCarry256Test_OE25Dev {
          * Data generated from code snippet provided here:
          *   http://school.anhb.uwa.edu.au/personalpages/kwessen/shared/Marsaglia03.html
          */
-        final int[] expectedSequence = {
+         int[] expectedSequence = {
             0x257c6890, 0x2a638c7d, 0x24e92547, 0x3f021e24, 0x59cd3f37, 0x92c71967, 0x6d55aab2, 0xa662f2ad,
             0x8633e15a, 0x19d38d42, 0xbbe8381e, 0x8312f976, 0xee4b2e57, 0xbe88c5d5, 0xb291b54e, 0x531ab614,
             0xb6627311, 0x8ca090fd, 0x27e62e4a, 0x57b6879b, 0xce50ecc1, 0x41cf8cc8, 0x5a12c57a, 0xf0d9051d,

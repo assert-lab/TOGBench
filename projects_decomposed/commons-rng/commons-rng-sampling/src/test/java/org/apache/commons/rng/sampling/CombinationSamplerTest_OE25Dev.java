@@ -122,9 +122,9 @@ class CombinationSamplerTest_OE25Dev {
         // Check n == k boundary case.
         // This is allowed but the sample is not shuffled.
         for (int n = 1; n < 3; n++) {
-            final int k = n;
-            final CombinationSampler sampler = new CombinationSampler(rng, n, k);
-            final int[] sample = sampler.sample();
+             int k = n;
+             CombinationSampler sampler = new CombinationSampler(rng, n, k);
+             int[] sample = sampler.sample();
             Assertions.assertEquals(n, sample.length, "Incorrect sample length");
     }
     }
@@ -134,9 +134,9 @@ class CombinationSamplerTest_OE25Dev {
         // Check n == k boundary case.
         // This is allowed but the sample is not shuffled.
         for (int n = 1; n < 3; n++) {
-            final int k = n;
-            final CombinationSampler sampler = new CombinationSampler(rng, n, k);
-            final int[] sample = sampler.sample();
+             int k = n;
+             CombinationSampler sampler = new CombinationSampler(rng, n, k);
+             int[] sample = sampler.sample();
             // removed other assertion
             for (int i = 0; i < n; i++) {
                 Assertions.assertEquals(i, sample[i], "Sample was shuffled");
@@ -147,52 +147,52 @@ class CombinationSamplerTest_OE25Dev {
     @Test
     void testKgreaterThanNThrows_1_oe() {
         // Must fail for k > n.
-        final int n = 2;
-        final int k = 3;
+         int n = 2;
+         int k = 3;
         Assertions.assertThrows(IllegalArgumentException.class, () -> new CombinationSampler(rng, n, k));
     }
 
     @Test
     void testNequalsZeroThrows_1_oe() {
         // Must fail for n = 0.
-        final int n = 0;
-        final int k = 3;
+         int n = 0;
+         int k = 3;
         Assertions.assertThrows(IllegalArgumentException.class, () -> new CombinationSampler(rng, n, k));
     }
 
     @Test
     void testKequalsZeroThrows_1_oe() {
         // Must fail for k = 0.
-        final int n = 2;
-        final int k = 0;
+         int n = 2;
+         int k = 0;
         Assertions.assertThrows(IllegalArgumentException.class, () -> new CombinationSampler(rng, n, k));
     }
 
     @Test
     void testNisNegativeThrows_1_oe() {
         // Must fail for n <= 0.
-        final int n = -1;
-        final int k = 3;
+         int n = -1;
+         int k = 3;
         Assertions.assertThrows(IllegalArgumentException.class, () -> new CombinationSampler(rng, n, k));
     }
 
     @Test
     void testKisNegativeThrows_1_oe() {
         // Must fail for k <= 0.
-        final int n = 0;
-        final int k = -1;
+         int n = 0;
+         int k = -1;
         Assertions.assertThrows(IllegalArgumentException.class, () -> new CombinationSampler(rng, n, k));
     }
 
     @Test
     void testSampleIsInDomain_1_oe_1_oe() {
-        final int n = 6;
+         int n = 6;
         for (int k = 1; k <= n; k++) {
-            final CombinationSampler sampler = new CombinationSampler(rng, n, k);
-            final int[] random = sampler.sample();
+             CombinationSampler sampler = new CombinationSampler(rng, n, k);
+             int[] random = sampler.sample();
             for (int s : random) {
-                                final int n0 = n;
-                final int value0 = s;
+                                 int n0 = n;
+                 int value0 = s;
                 if (value0 < 0 || value0 >= n0) {
                             Assertions.fail("sample " + value0 + " not in the domain " + n0);
     }
@@ -202,16 +202,16 @@ class CombinationSamplerTest_OE25Dev {
 
     @Test
     void testUniformWithKlessThanHalfN_1_oe_1_oe() {
-        final int n = 8;
-        final int k = 2;
-                final int n0 = n;
-        final int k0 = k;
+         int n = 8;
+         int k = 2;
+                 int n0 = n;
+         int k0 = k;
         // The C(n0, k0) should generate a sample of unspecified order.
                 // To test this each combination is allocated a unique code
                 // based on setting k0 of the first n0-bits in an integer.
                 // Codes are positive for all combinations of bits that use k0-bits,
                 // otherwise they are negative.
-                final int totalBitCombinations0 = 1 << n0;
+                 int totalBitCombinations0 = 1 << n0;
                 int[] codeLookup0 = new int[totalBitCombinations0];
                 Arrays.fill(codeLookup0, -1); // initialize as negative
                 int codes0 = 0;
@@ -228,16 +228,16 @@ class CombinationSamplerTest_OE25Dev {
 
     @Test
     void testUniformWithKlessThanHalfN_1_oe_2_oe() {
-        final int n = 8;
-        final int k = 2;
-                final int n0 = n;
-        final int k0 = k;
+         int n = 8;
+         int k = 2;
+                 int n0 = n;
+         int k0 = k;
         // The C(n0, k0) should generate a sample of unspecified order.
                 // To test this each combination is allocated a unique code
                 // based on setting k0 of the first n0-bits in an integer.
                 // Codes are positive for all combinations of bits that use k0-bits,
                 // otherwise they are negative.
-                final int totalBitCombinations0 = 1 << n0;
+                 int totalBitCombinations0 = 1 << n0;
                 int[] codeLookup0 = new int[totalBitCombinations0];
                 Arrays.fill(codeLookup0, -1); // initialize as negative
                 int codes0 = 0;
@@ -251,35 +251,35 @@ class CombinationSamplerTest_OE25Dev {
                 // The number of combinations C(n0, k0) is the binomial coefficient
                 // removed other assertion
         
-                final long[] observed0 = new long[codes0];
-                final int numSamples0 = 6000;
+                 long[] observed0 = new long[codes0];
+                 int numSamples0 = 6000;
         
-                final CombinationSampler sampler0 = new CombinationSampler(rng, n0, k0);
+                 CombinationSampler sampler0 = new CombinationSampler(rng, n0, k0);
                 for (int i0 = 0; i0 < numSamples0; i0++) {
                     observed0[findCode(codeLookup0, sampler0.sample())]++;
                 }
         
                 // Chi squared test of uniformity
-                final double numExpected0 = numSamples0 / (double) codes0;
-                final double[] expected0 = new double[codes0];
+                 double numExpected0 = numSamples0 / (double) codes0;
+                 double[] expected0 = new double[codes0];
                 Arrays.fill(expected0, numExpected0);
-                final ChiSquareTest chiSquareTest0 = new ChiSquareTest();
+                 ChiSquareTest chiSquareTest0 = new ChiSquareTest();
                 // Pass if we cannot reject null hypothesis that distributions are the same.
-                Assertions.assertFalse(chiSquareTest0.chiSquareTest0(expected0, observed0, 0.001));
+                Assertions.assertFalse(chiSquareTest0.chiSquareTest(expected0, observed0, 0.001));
     }
 
     @Test
     void testUniformWithKmoreThanHalfN_1_oe_1_oe() {
-        final int n = 8;
-        final int k = 6;
-                final int n0 = n;
-        final int k0 = k;
+         int n = 8;
+         int k = 6;
+                 int n0 = n;
+         int k0 = k;
         // The C(n0, k0) should generate a sample of unspecified order.
                 // To test this each combination is allocated a unique code
                 // based on setting k0 of the first n0-bits in an integer.
                 // Codes are positive for all combinations of bits that use k0-bits,
                 // otherwise they are negative.
-                final int totalBitCombinations0 = 1 << n0;
+                 int totalBitCombinations0 = 1 << n0;
                 int[] codeLookup0 = new int[totalBitCombinations0];
                 Arrays.fill(codeLookup0, -1); // initialize as negative
                 int codes0 = 0;
@@ -292,48 +292,6 @@ class CombinationSamplerTest_OE25Dev {
         
                 // The number of combinations C(n0, k0) is the binomial coefficient
                 Assertions.assertEquals(CombinatoricsUtils.binomialCoefficient(n0,k0),codes0,"Incorrect number of combination codes0");
-    }
-
-    @Test
-    void testUniformWithKmoreThanHalfN_1_oe_2_oe() {
-        final int n = 8;
-        final int k = 6;
-                final int n0 = n;
-        final int k0 = k;
-        // The C(n0, k0) should generate a sample of unspecified order.
-                // To test this each combination is allocated a unique code
-                // based on setting k0 of the first n0-bits in an integer.
-                // Codes are positive for all combinations of bits that use k0-bits,
-                // otherwise they are negative.
-                final int totalBitCombinations0 = 1 << n0;
-                int[] codeLookup0 = new int[totalBitCombinations0];
-                Arrays.fill(codeLookup0, -1); // initialize as negative
-                int codes0 = 0;
-                for (int i0 = 0; i0 < totalBitCombinations0; i0++) {
-                    if (Integer.bitCount(i0) == k0) {
-                        // This is a valid sample so allocate a code
-                        codeLookup0[i0] = codes0++;
-                    }
-                }
-        
-                // The number of combinations C(n0, k0) is the binomial coefficient
-                // removed other assertion
-        
-                final long[] observed0 = new long[codes0];
-                final int numSamples0 = 6000;
-        
-                final CombinationSampler sampler0 = new CombinationSampler(rng, n0, k0);
-                for (int i0 = 0; i0 < numSamples0; i0++) {
-                    observed0[findCode(codeLookup0, sampler0.sample())]++;
-                }
-        
-                // Chi squared test of uniformity
-                final double numExpected0 = numSamples0 / (double) codes0;
-                final double[] expected0 = new double[codes0];
-                Arrays.fill(expected0, numExpected0);
-                final ChiSquareTest chiSquareTest0 = new ChiSquareTest();
-                // Pass if we cannot reject null hypothesis that distributions are the same.
-                Assertions.assertFalse(chiSquareTest0.chiSquareTest0(expected0, observed0, 0.001));
     }
 
 }

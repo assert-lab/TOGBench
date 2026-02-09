@@ -56,26 +56,26 @@ class LevySamplerTest_OE25Dev {
 
     @Test
     void testConstructorThrowsWithNegativeScale_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final double location = 1;
-        final double scale = -1e-6;
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         double location = 1;
+         double scale = -1e-6;
         Assertions.assertThrows(IllegalArgumentException.class, () -> LevySampler.of(rng, location, scale));
     }
 
     @Test
     void testConstructorThrowsWithZeroScale_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final double location = 1;
-        final double scale = 0;
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         double location = 1;
+         double scale = 0;
         Assertions.assertThrows(IllegalArgumentException.class, () -> LevySampler.of(rng, location, scale));
     }
 
     @Test
     void testSupport_1_oe() {
-        final double location = 0.0;
-        final double scale = 1.0;
+         double location = 0.0;
+         double scale = 1.0;
         // Force the underlying ZigguratSampler.NormalizedGaussian to create 0
-        final LevySampler s1 = LevySampler.of(
+         LevySampler s1 = LevySampler.of(
             new SplitMix64(0L) {
                 @Override
                 public long next() {
@@ -87,10 +87,10 @@ class LevySamplerTest_OE25Dev {
 
     @Test
     void testSupport_2_oe() {
-        final double location = 0.0;
-        final double scale = 1.0;
+         double location = 0.0;
+         double scale = 1.0;
         // Force the underlying ZigguratSampler.NormalizedGaussian to create 0
-        final LevySampler s1 = LevySampler.of(
+         LevySampler s1 = LevySampler.of(
             new SplitMix64(0L) {
                 @Override
                 public long next() {
@@ -109,7 +109,7 @@ class LevySamplerTest_OE25Dev {
         // The exponential is multiplied by 0.27502700159745347 to create x.
         // The condition 2y >= x^x must be true to return x.
         // Create x = 4 * 7.57 and y = 16 * 7.57
-        final long[] sequence = {
+         long[] sequence = {
             // Sample the Gaussian tail
             -1, -1,
             // Exponential x = 4 * 7.57... * 0.275027001597525
@@ -118,7 +118,7 @@ class LevySamplerTest_OE25Dev {
             -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
             -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0,
         };
-        final LevySampler s2 = LevySampler.of(
+         LevySampler s2 = LevySampler.of(
             new SplitMix64(0L) {
                 private int i;
                 @Override
@@ -130,11 +130,11 @@ class LevySamplerTest_OE25Dev {
                 }
             }, location, scale);
         // The tail of the zigguart should be approximately s=11.963
-        final double s = 4 * 7.569274694148063 * 0.27502700159745347 + 3.6360066255009455861;
+         double s = 4 * 7.569274694148063 * 0.27502700159745347 + 3.6360066255009455861;
         // expected is 1/s^2 = 0.006987
         // So the sampler never achieves the lower bound of zero.
         // It requires an extreme deviate from the Gaussian.
-        final double expected = 1 / (s * s);
+         double expected = 1 / (s * s);
         Assertions.assertEquals(expected, s2.sample());
     }
 

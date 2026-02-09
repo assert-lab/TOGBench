@@ -74,25 +74,25 @@ class AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev {
 
     @Test
     void testConstructorThrowsWithZeroAlpha_1_oe() {
-        final RestorableUniformRandomProvider rng =
+         RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final double alpha = 0;
-        final double theta = 1;
+         double alpha = 0;
+         double theta = 1;
         Assertions.assertThrows(IllegalArgumentException.class, () -> AhrensDieterMarsagliaTsangGammaSampler.of(rng, alpha, theta));
     }
 
     @Test
     void testConstructorThrowsWithZeroTheta_1_oe() {
-        final RestorableUniformRandomProvider rng =
+         RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final double alpha = 1;
-        final double theta = 0;
+         double alpha = 1;
+         double theta = 0;
         Assertions.assertThrows(IllegalArgumentException.class, () -> AhrensDieterMarsagliaTsangGammaSampler.of(rng, alpha, theta));
     }
 
     @Test
     void testToString_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         Assertions.assertTrue(new AhrensDieterMarsagliaTsangGammaSampler(rng,1.0,2.0).toString().toLowerCase().contains("gamma"));
     }
 

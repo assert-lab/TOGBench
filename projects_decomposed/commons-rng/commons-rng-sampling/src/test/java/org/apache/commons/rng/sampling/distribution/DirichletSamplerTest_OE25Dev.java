@@ -204,65 +204,65 @@ class DirichletSamplerTest_OE25Dev {
 
     @Test
     void testDistributionThrowsWithInvalidNumberOfCategories_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.of(rng, 1.0));
     }
 
     @Test
     void testDistributionThrowsWithZeroConcentration_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.of(rng, 1.0, 0.0));
     }
 
     @Test
     void testDistributionThrowsWithNaNConcentration_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.of(rng, 1.0, Double.NaN));
     }
 
     @Test
     void testDistributionThrowsWithInfiniteConcentration_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.of(rng, 1.0, Double.POSITIVE_INFINITY));
     }
 
     @Test
     void testSymmetricDistributionThrowsWithInvalidNumberOfCategories_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.symmetric(rng, 1, 1.0));
     }
 
     @Test
     void testSymmetricDistributionThrowsWithZeroConcentration_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.symmetric(rng, 2, 0.0));
     }
 
     @Test
     void testSymmetricDistributionThrowsWithNaNConcentration_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.symmetric(rng, 2, Double.NaN));
     }
 
     @Test
     void testSymmetricDistributionThrowsWithInfiniteConcentration_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.symmetric(rng, 2, Double.POSITIVE_INFINITY));
     }
 
     @Test
     void testToString_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final DirichletSampler sampler1 = DirichletSampler.symmetric(rng, 2, 1.0);
-        final DirichletSampler sampler2 = DirichletSampler.of(rng, 0.5, 1, 1.5);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         DirichletSampler sampler1 = DirichletSampler.symmetric(rng, 2, 1.0);
+         DirichletSampler sampler2 = DirichletSampler.of(rng, 0.5, 1, 1.5);
         Assertions.assertTrue(sampler1.toString().toLowerCase().contains("dirichlet"));
     }
 
     @Test
     void testToString_2_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        final DirichletSampler sampler1 = DirichletSampler.symmetric(rng, 2, 1.0);
-        final DirichletSampler sampler2 = DirichletSampler.of(rng, 0.5, 1, 1.5);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         DirichletSampler sampler1 = DirichletSampler.symmetric(rng, 2, 1.0);
+         DirichletSampler sampler2 = DirichletSampler.of(rng, 0.5, 1, 1.5);
         // removed other assertion
         Assertions.assertTrue(sampler2.toString().toLowerCase().contains("dirichlet"));
     }
@@ -271,7 +271,7 @@ class DirichletSamplerTest_OE25Dev {
     void testInvalidSampleIsIgnored_1_oe_1_oe() {
         // An RNG implementation which should create zero samples from the underlying
         // exponential sampler for an initial sequence.
-        final UniformRandomProvider rng = new SplitMix64(0L) {
+         UniformRandomProvider rng = new SplitMix64(0L) {
             private int i;
 
             @Override
@@ -281,9 +281,9 @@ class DirichletSamplerTest_OE25Dev {
         };
 
         // Alpha=1 will use an exponential sampler
-        final DirichletSampler sampler = DirichletSampler.symmetric(rng, 2, 1.0);
-                final int k0 = 2;
-        final double[] x0 = sampler.sample();
+         DirichletSampler sampler = DirichletSampler.symmetric(rng, 2, 1.0);
+                 int k0 = 2;
+         double[] x0 = sampler.sample();
         Assertions.assertEquals(k0, x0.length, "Number of categories");
     }
 
@@ -291,7 +291,7 @@ class DirichletSamplerTest_OE25Dev {
     void testInvalidSampleIsIgnored_1_oe_2_oe() {
         // An RNG implementation which should create zero samples from the underlying
         // exponential sampler for an initial sequence.
-        final UniformRandomProvider rng = new SplitMix64(0L) {
+         UniformRandomProvider rng = new SplitMix64(0L) {
             private int i;
 
             @Override
@@ -301,9 +301,9 @@ class DirichletSamplerTest_OE25Dev {
         };
 
         // Alpha=1 will use an exponential sampler
-        final DirichletSampler sampler = DirichletSampler.symmetric(rng, 2, 1.0);
-                final int k0 = 2;
-        final double[] x0 = sampler.sample();
+         DirichletSampler sampler = DirichletSampler.symmetric(rng, 2, 1.0);
+                 int k0 = 2;
+         double[] x0 = sampler.sample();
         // removed other assertion
                 // There are always at least 2 categories
                 double sum0 = x0[0] + x0[1];

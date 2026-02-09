@@ -90,25 +90,25 @@ class ChengBetaSamplerTest_OE25Dev {
 
     @Test
     void testConstructorThrowsWithZeroAlpha_1_oe() {
-        final RestorableUniformRandomProvider rng =
+         RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final double alpha = 0;
-        final double beta = 1;
+         double alpha = 0;
+         double beta = 1;
         Assertions.assertThrows(IllegalArgumentException.class, () -> ChengBetaSampler.of(rng, alpha, beta));
     }
 
     @Test
     void testConstructorThrowsWithZeroBeta_1_oe() {
-        final RestorableUniformRandomProvider rng =
+         RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
-        final double alpha = 1;
-        final double beta = 0;
+         double alpha = 1;
+         double beta = 0;
         Assertions.assertThrows(IllegalArgumentException.class, () -> ChengBetaSampler.of(rng, alpha, beta));
     }
 
     @Test
     void testToString_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         Assertions.assertTrue(new ChengBetaSampler(rng,1.0,2.0).toString().toLowerCase().contains("beta"));
     }
 

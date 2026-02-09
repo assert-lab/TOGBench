@@ -56,11 +56,11 @@ class XoRoShiRo64StarStarTest_OE25Dev {
          * Data from running the executable compiled from the author's C code:
          *   http://xoshiro.di.unimi.it/xoroshiro64starstar.c
          */
-        final int[] seed = {
+         int[] seed = {
             0x012de1ba, 0xa5a818b8,
         };
 
-        final int[] expectedSequence = {
+         int[] expectedSequence = {
             0x7ac00b42, 0x1f638399, 0x09e4aea4, 0x05cbbd64,
             0x1c967b7b, 0x1cf852fd, 0xc666f4e8, 0xeea9f1ae,
             0xca0fa6bc, 0xa65d0905, 0xa69afc95, 0x34965e62,

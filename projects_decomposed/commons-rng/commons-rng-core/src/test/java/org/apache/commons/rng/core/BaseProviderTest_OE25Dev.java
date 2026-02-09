@@ -70,25 +70,25 @@ class BaseProviderTest_OE25Dev {
 
     @Test
     void testStateSizeTooSmall_1_oe() {
-        final DummyGenerator dummy = new DummyGenerator();
-        final int size = dummy.getStateSize();
+         DummyGenerator dummy = new DummyGenerator();
+         int size = dummy.getStateSize();
         Assumptions.assumeTrue(size > 0);
-        final RandomProviderDefaultState state = new RandomProviderDefaultState(new byte[size - 1]);
+         RandomProviderDefaultState state = new RandomProviderDefaultState(new byte[size - 1]);
         Assertions.assertThrows(IllegalStateException.class, () -> dummy.restoreState(state));
     }
 
     @Test
     void testStateSizeTooLarge_1_oe() {
-        final DummyGenerator dummy = new DummyGenerator();
-        final int size = dummy.getStateSize();
-        final RandomProviderDefaultState state = new RandomProviderDefaultState(new byte[size + 1]);
+         DummyGenerator dummy = new DummyGenerator();
+         int size = dummy.getStateSize();
+         RandomProviderDefaultState state = new RandomProviderDefaultState(new byte[size + 1]);
         Assertions.assertThrows(IllegalStateException.class, () -> dummy.restoreState(state));
     }
 
     @Test
     void testFillStateInt_1_oe() {
-        final int[] state = new int[10];
-        final int[] seed = {1, 2, 3};
+         int[] state = new int[10];
+         int[] seed = {1, 2, 3};
 
         for (int i = 0; i < state.length; i++) {
             Assertions.assertEquals(0, state[i]);
@@ -97,8 +97,8 @@ class BaseProviderTest_OE25Dev {
 
     @Test
     void testFillStateInt_2_oe() {
-        final int[] state = new int[10];
-        final int[] seed = {1, 2, 3};
+         int[] state = new int[10];
+         int[] seed = {1, 2, 3};
 
         for (int i = 0; i < state.length; i++) {
             // removed other assertion
@@ -112,8 +112,8 @@ class BaseProviderTest_OE25Dev {
 
     @Test
     void testFillStateInt_3_oe() {
-        final int[] state = new int[10];
-        final int[] seed = {1, 2, 3};
+         int[] state = new int[10];
+         int[] seed = {1, 2, 3};
 
         for (int i = 0; i < state.length; i++) {
             // removed other assertion
@@ -130,8 +130,8 @@ class BaseProviderTest_OE25Dev {
 
     @Test
     void testFillStateLong_1_oe() {
-        final long[] state = new long[10];
-        final long[] seed = {1, 2, 3};
+         long[] state = new long[10];
+         long[] seed = {1, 2, 3};
 
         for (int i = 0; i < state.length; i++) {
             Assertions.assertEquals(0, state[i]);
@@ -140,8 +140,8 @@ class BaseProviderTest_OE25Dev {
 
     @Test
     void testFillStateLong_2_oe() {
-        final long[] state = new long[10];
-        final long[] seed = {1, 2, 3};
+         long[] state = new long[10];
+         long[] seed = {1, 2, 3};
 
         for (int i = 0; i < state.length; i++) {
             // removed other assertion
@@ -155,8 +155,8 @@ class BaseProviderTest_OE25Dev {
 
     @Test
     void testFillStateLong_3_oe() {
-        final long[] state = new long[10];
-        final long[] seed = {1, 2, 3};
+         long[] state = new long[10];
+         long[] seed = {1, 2, 3};
 
         for (int i = 0; i < state.length; i++) {
             // removed other assertion

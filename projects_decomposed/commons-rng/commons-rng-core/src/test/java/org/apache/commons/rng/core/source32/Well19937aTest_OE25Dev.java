@@ -35,20 +35,20 @@ class Well19937aTest_OE25Dev {
 
     @Test
     void testReferenceCode_1_oe() {
-        final int[] base = {
+         int[] base = {
             0x2c2878c6, 0x47af36c4, 0xf422e677, 0xf08fd8d3, 0xee9a47c7, 0xba983942, 0xa2a9f9a5, 0x1d443748,
             0x8fc260b2, 0x5275c681, 0x4a2f5a28, 0x2911683d, 0xa204c27e, 0xb20a6a26, 0x54ba33be, 0x67d63eb0,
             0xdc8174cf, 0x3e73a4bc, 0x6fce0775, 0x9e6141fc, 0x5232218a, 0x0fa9e601, 0x0b6fdb4a, 0xf10a0a8c,
             0x97829dba, 0xc60b0778, 0x0566db41, 0x620807aa, 0x599b89c9, 0x1a34942b, 0x6baae3da, 0x4ba0b73d
         };
-        final int[] seed = new int[624];
+         int[] seed = new int[624];
         for (int i = 0; i < seed.length; ++i) {
             seed[i] = base[i % base.length] + i;
         }
 
-        final Well19937a rng = new Well19937a(seed);
+         Well19937a rng = new Well19937a(seed);
 
-        final int[] expectedSequence = {
+         int[] expectedSequence = {
             0xdb784719, 0xead77ddc, 0x926f567b, 0x95cf8aff, 0x1097e8d5, 0x486a7ca8, 0x97893622, 0xd2a69352,
             0x99e777cb, 0xf19f7dea, 0xf7558586, 0x1d8b0188, 0xe1570edd, 0xb43dd614, 0x9e3f95f3, 0x329ee317,
             0xdf3bcb8e, 0xb80fe779, 0xdf761444, 0x3064ffba, 0x9cb6fb9f, 0xa515e0ae, 0x546a34d2, 0xf6de0926,

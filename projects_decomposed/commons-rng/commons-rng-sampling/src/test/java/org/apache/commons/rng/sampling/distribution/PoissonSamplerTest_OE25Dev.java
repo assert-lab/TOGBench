@@ -66,7 +66,7 @@ class PoissonSamplerTest_OE25Dev {
 
     @Test
     void testToString_1_oe() {
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         Assertions.assertTrue(new PoissonSampler(rng, 1.23).toString().toLowerCase().contains("poisson"));
     }
 

@@ -10,8 +10,22 @@ inputs_path = dataset / "inputs.csv"
 
 fail_list = [
 
-"UrlTest.*",
+"DomainValidatorStartupTest.testInstanceOverride_9_oe",
+"DomainValidatorStartupTest.testInstanceOverride_11_oe",
+"EmailValidatorTest.testEmailFromPerl_1_oe",
+"IBANValidatorTest.testSetValidatorLen_1_2_oe",
 
+"GenericTypeValidatorTest.*",
+"RequiredIfTest.*",
+"UrlTest.*",
+"VarTest.*",
+"EmailTest.*",
+"ExceptionTest.*",
+"ExceptionTest.*",
+"RequiredNameTest.*",
+"MultipleConfigFilesTest.*",
+"ParameterTest.*",
+"ExtensionTest.*",
 
 ]
 

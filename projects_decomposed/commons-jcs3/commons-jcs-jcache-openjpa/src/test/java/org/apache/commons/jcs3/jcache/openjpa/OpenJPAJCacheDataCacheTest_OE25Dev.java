@@ -58,6 +58,39 @@ public class OpenJPAJCacheDataCacheTest_OE25Dev
         // setProperty("openjpa.QueryCache", "jcache");
     }};
 
+    @Test
+    public void query()
+    {
+        final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
+        final OpenJPAConfiguration conf = OpenJPAEntityManagerFactorySPI.class.cast(emf).getConfiguration();
+
+        final EntityManager em = emf.createEntityManager();
+
+        final MyEntity entity = new MyEntity();
+        entity.setName("cacheMe1");
+        em.getTransaction().begin();
+        em.persist(entity);
+        em.getTransaction().commit();
+        final Query query = em.createQuery("select e from OpenJPAJCacheDataCacheTest_OE25Dev$MyEntity e where e.id = :id");
+        assertEquals(1, query.setParameter("id", entity.getId()).getResultList().size());
+        assertNotNull(conf.getDataCacheManagerInstance().getDataCache("default"));
+
+        assertThat(conf.getDataCacheManagerInstance(), instanceOf(OpenJPAJCacheDataCacheManager.class));
+        assertThat(conf.getDataCacheManagerInstance().getDataCache("default"), instanceOf(OpenJPAJCacheDataCache.class));
+        assertTrue(conf.getDataCacheManagerInstance().getDataCache("default").contains(JPAFacadeHelper.toOpenJPAObjectId(conf.getMetaDataRepositoryInstance().getCachedMetaData(MyEntity.class), entity.getId())));
+
+        final Map<Object, Object> args = new HashMap<Object, Object>()
+        {{
+                put("id", entity.getId());
+        }};
+        final QueryKey qk = QueryKey.newInstance(query.unwrap(org.apache.openjpa.kernel.Query.class), args);
+        assertNotNull(conf.getDataCacheManagerInstance().getSystemQueryCache().get(qk));
+
+        em.close();
+
+        emf.close();
+    }
+
     @Entity
     public static class MyEntity
     {
@@ -153,133 +186,6 @@ public class OpenJPAJCacheDataCacheTest_OE25Dev
         // removed other assertion
         // removed other assertion
         assertTrue(conf.getDataCacheManagerInstance().getDataCache("default").contains(JPAFacadeHelper.toOpenJPAObjectId(conf.getMetaDataRepositoryInstance().getCachedMetaData(MyEntity.class), entity.getId())));
-    }
-
-    @Test
-    public void query_1_oe()
-    {
-        final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
-        final OpenJPAConfiguration conf = OpenJPAEntityManagerFactorySPI.class.cast(emf).getConfiguration();
-
-        final EntityManager em = emf.createEntityManager();
-
-        final MyEntity entity = new MyEntity();
-        entity.setName("cacheMe1");
-        em.getTransaction().begin();
-        em.persist(entity);
-        em.getTransaction().commit();
-        final Query query = em.createQuery("select e from OpenJPAJCacheDataCacheTest$MyEntity e where e.id = :id");
-        assertEquals(1, query.setParameter("id", entity.getId()).getResultList().size());
-    }
-
-    @Test
-    public void query_2_oe()
-    {
-        final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
-        final OpenJPAConfiguration conf = OpenJPAEntityManagerFactorySPI.class.cast(emf).getConfiguration();
-
-        final EntityManager em = emf.createEntityManager();
-
-        final MyEntity entity = new MyEntity();
-        entity.setName("cacheMe1");
-        em.getTransaction().begin();
-        em.persist(entity);
-        em.getTransaction().commit();
-        final Query query = em.createQuery("select e from OpenJPAJCacheDataCacheTest$MyEntity e where e.id = :id");
-        // removed other assertion
-        assertNotNull(conf.getDataCacheManagerInstance().getDataCache("default"));
-    }
-
-    @Test
-    public void query_3_oe()
-    {
-        final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
-        final OpenJPAConfiguration conf = OpenJPAEntityManagerFactorySPI.class.cast(emf).getConfiguration();
-
-        final EntityManager em = emf.createEntityManager();
-
-        final MyEntity entity = new MyEntity();
-        entity.setName("cacheMe1");
-        em.getTransaction().begin();
-        em.persist(entity);
-        em.getTransaction().commit();
-        final Query query = em.createQuery("select e from OpenJPAJCacheDataCacheTest$MyEntity e where e.id = :id");
-        // removed other assertion
-        // removed other assertion
-
-        assertThat(conf.getDataCacheManagerInstance(), instanceOf(OpenJPAJCacheDataCacheManager.class));
-    }
-
-    @Test
-    public void query_4_oe()
-    {
-        final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
-        final OpenJPAConfiguration conf = OpenJPAEntityManagerFactorySPI.class.cast(emf).getConfiguration();
-
-        final EntityManager em = emf.createEntityManager();
-
-        final MyEntity entity = new MyEntity();
-        entity.setName("cacheMe1");
-        em.getTransaction().begin();
-        em.persist(entity);
-        em.getTransaction().commit();
-        final Query query = em.createQuery("select e from OpenJPAJCacheDataCacheTest$MyEntity e where e.id = :id");
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertThat(conf.getDataCacheManagerInstance().getDataCache("default"), instanceOf(OpenJPAJCacheDataCache.class));
-    }
-
-    @Test
-    public void query_5_oe()
-    {
-        final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
-        final OpenJPAConfiguration conf = OpenJPAEntityManagerFactorySPI.class.cast(emf).getConfiguration();
-
-        final EntityManager em = emf.createEntityManager();
-
-        final MyEntity entity = new MyEntity();
-        entity.setName("cacheMe1");
-        em.getTransaction().begin();
-        em.persist(entity);
-        em.getTransaction().commit();
-        final Query query = em.createQuery("select e from OpenJPAJCacheDataCacheTest$MyEntity e where e.id = :id");
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        assertTrue(conf.getDataCacheManagerInstance().getDataCache("default").contains(JPAFacadeHelper.toOpenJPAObjectId(conf.getMetaDataRepositoryInstance().getCachedMetaData(MyEntity.class), entity.getId())));
-    }
-
-    @Test
-    public void query_6_oe()
-    {
-        final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
-        final OpenJPAConfiguration conf = OpenJPAEntityManagerFactorySPI.class.cast(emf).getConfiguration();
-
-        final EntityManager em = emf.createEntityManager();
-
-        final MyEntity entity = new MyEntity();
-        entity.setName("cacheMe1");
-        em.getTransaction().begin();
-        em.persist(entity);
-        em.getTransaction().commit();
-        final Query query = em.createQuery("select e from OpenJPAJCacheDataCacheTest$MyEntity e where e.id = :id");
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        final Map<Object, Object> args = new HashMap<Object, Object>()
-        {{
-                put("id", entity.getId());
-        }};
-        final QueryKey qk = QueryKey.newInstance(query.unwrap(org.apache.openjpa.kernel.Query.class), args);
-        assertNotNull(conf.getDataCacheManagerInstance().getSystemQueryCache().get(qk));
     }
 
 }

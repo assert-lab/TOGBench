@@ -174,26 +174,6 @@ public class Issues300Test_OE25Dev {
     }
 
     @Test
-    public void testIssue304_2_oe() {
-        final JexlEngine jexlEngine = new JexlBuilder().strict(false).create();
-        JexlExpression e304 = jexlEngine.createExpression("overview.limit.var");
-
-        final HashMap<String, Object> map3 = new HashMap<String, Object>();
-        map3.put("var", "4711");
-        final HashMap<String, Object> map2 = new HashMap<String, Object>();
-        map2.put("limit", map3);
-        final HashMap<String, Object> map = new HashMap<String, Object>();
-        map.put("overview", map2);
-
-        final JexlContext context = new MapContext(map);
-        Object value = e304.evaluate(context);
-        // removed other assertion
-        map.put("overview.limit.var", 42);
-        value = e304.evaluate(context);
-        assertEquals(42, value);
-    }
-
-    @Test
     public void testIssue304_3_oe() {
         final JexlEngine jexlEngine = new JexlBuilder().strict(false).create();
         JexlExpression e304 = jexlEngine.createExpression("overview.limit.var");

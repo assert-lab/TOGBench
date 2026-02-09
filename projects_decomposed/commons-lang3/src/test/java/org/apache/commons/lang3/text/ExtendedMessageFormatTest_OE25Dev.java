@@ -724,33 +724,6 @@ public class ExtendedMessageFormatTest_OE25Dev {
     }
 
     @Test
-    public void testEqualsHashcode_8_oe() {
-        final Map<String, ? extends FormatFactory> fmtRegistry = Collections.singletonMap("testfmt", new LowerCaseFormatFactory());
-        final Map<String, ? extends FormatFactory> otherRegistry = Collections.singletonMap("testfmt", new UpperCaseFormatFactory());
-
-        final String pattern = "Pattern: {0,testfmt}";
-        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
-
-        ExtendedMessageFormat other;
-
-        // Same object
-        // removed other assertion
-        // removed other assertion
-
-        // Equal Object
-        other = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
-        // removed other assertion
-        // removed other assertion
-
-        // Different Class
-        other = new OtherExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertNotEquals(emf.hashCode(), other.hashCode(), "pattern, hashcode()");
-    }
-
-    @Test
     public void testEqualsHashcode_9_oe() {
         final Map<String, ? extends FormatFactory> fmtRegistry = Collections.singletonMap("testfmt", new LowerCaseFormatFactory());
         final Map<String, ? extends FormatFactory> otherRegistry = Collections.singletonMap("testfmt", new UpperCaseFormatFactory());

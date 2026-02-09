@@ -33,96 +33,43 @@ class CoordinatesTest_OE25Dev {
 
     @Test
     void testRequireFiniteWithMessageThrows_1_oe() {
-        final double[] c = {0, 1, 2};
-        final String message = "This should be prepended";
+         double[] c = {0, 1, 2};
+         String message = "This should be prepended";
         Assertions.assertSame(c, Coordinates.requireFinite(c, message));
     }
 
     @Test
     void testRequireFiniteWithMessageThrows_2_oe() {
-        final double[] c = {0, 1, 2};
-        final String message = "This should be prepended";
+         double[] c = {0, 1, 2};
+         String message = "This should be prepended";
         // removed other assertion
-        final double[] bad = {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NaN};
+         double[] bad = {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NaN};
         for (int i = 0; i < c.length; i++) {
-            final int ii = i;
-            for (final double d : bad) {
-                final double value = c[i];
+             int ii = i;
+            for ( double d : bad) {
+                 double value = c[i];
                 c[i] = d;
-                final IllegalArgumentException ex = Assertions.assertThrows(IllegalArgumentException.class, () -> Coordinates.requireFinite(c, message), () -> String.format("Did not detect non-finite coordinate: %d = %s", ii, d));
-    }
-    }
-    }
-
-    @Test
-    void testRequireFiniteWithMessageThrows_3_oe() {
-        final double[] c = {0, 1, 2};
-        final String message = "This should be prepended";
-        // removed other assertion
-        final double[] bad = {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NaN};
-        for (int i = 0; i < c.length; i++) {
-            final int ii = i;
-            for (final double d : bad) {
-                final double value = c[i];
-                c[i] = d;
-                // removed other assertion
-                Assertions.assertTrue(ex.getMessage().startsWith(message), "Missing message prefix");
+                 IllegalArgumentException ex = Assertions.assertThrows(IllegalArgumentException.class, () -> Coordinates.requireFinite(c, message), () -> String.format("Did not detect non-finite coordinate: %d = %s", ii, d));
     }
     }
     }
 
     @Test
     void testRequireLengthWithMessageThrows_1_oe() {
-        final String message = "This should be prepended";
-        for (final double[] c : new double[][] {{0, 1}, {0, 1, 2}}) {
-            final int length = c.length;
+         String message = "This should be prepended";
+        for ( double[] c : new double[][] {{0, 1}, {0, 1, 2}}) {
+             int length = c.length;
             Assertions.assertSame(c, Coordinates.requireLength(c, length, message));
     }
     }
 
     @Test
     void testRequireLengthWithMessageThrows_2_oe() {
-        final String message = "This should be prepended";
-        for (final double[] c : new double[][] {{0, 1}, {0, 1, 2}}) {
-            final int length = c.length;
+         String message = "This should be prepended";
+        for ( double[] c : new double[][] {{0, 1}, {0, 1, 2}}) {
+             int length = c.length;
             // removed other assertion
             IllegalArgumentException ex = Assertions.assertThrows(IllegalArgumentException.class, () -> Coordinates.requireLength(c, length - 1, message), () -> "Did not detect length was too long: " + (length - 1));
-    }
-    }
-
-    @Test
-    void testRequireLengthWithMessageThrows_3_oe() {
-        final String message = "This should be prepended";
-        for (final double[] c : new double[][] {{0, 1}, {0, 1, 2}}) {
-            final int length = c.length;
-            // removed other assertion
-            // removed other assertion
-            Assertions.assertTrue(ex.getMessage().startsWith(message), "Missing message prefix");
-    }
-    }
-
-    @Test
-    void testRequireLengthWithMessageThrows_4_oe() {
-        final String message = "This should be prepended";
-        for (final double[] c : new double[][] {{0, 1}, {0, 1, 2}}) {
-            final int length = c.length;
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            ex = Assertions.assertThrows(IllegalArgumentException.class, () -> Coordinates.requireLength(c, length + 1, message), () -> "Did not detect length was too short: " + (length + 1));
-    }
-    }
-
-    @Test
-    void testRequireLengthWithMessageThrows_5_oe() {
-        final String message = "This should be prepended";
-        for (final double[] c : new double[][] {{0, 1}, {0, 1, 2}}) {
-            final int length = c.length;
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            Assertions.assertTrue(ex.getMessage().startsWith(message), "Missing message prefix");
     }
     }
 

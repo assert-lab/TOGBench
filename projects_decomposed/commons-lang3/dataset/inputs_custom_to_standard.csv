@@ -9005,7 +9005,7 @@ lang_1186_1_3,"    @Test
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9026,7 +9026,7 @@ lang_1186_1_4,"    @Test
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9048,7 +9048,7 @@ lang_1186_1_5,"    @Test
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9075,7 +9075,7 @@ lang_1186_1_6,"    @Test
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9125,7 +9125,7 @@ lang_1186_2_3,"    @Test
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9147,7 +9147,7 @@ lang_1186_2_4,"    @Test
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9170,7 +9170,7 @@ lang_1186_2_5,"    @Test
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9198,7 +9198,7 @@ lang_1186_2_6,"    @Test
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9251,7 +9251,7 @@ lang_1186_3_3,"    @Test
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9274,7 +9274,7 @@ lang_1186_3_4,"    @Test
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9298,7 +9298,7 @@ lang_1186_3_5,"    @Test
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9327,7 +9327,7 @@ lang_1186_3_6,"    @Test
                 // removed other assertion
                 //search through languages0
                 for (final String language0 : languages0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9374,7 +9374,7 @@ lang_1187_1_3,"    @Test
                 // removed other assertion
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9395,7 +9395,7 @@ lang_1187_1_4,"    @Test
                 // removed other assertion
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9417,7 +9417,7 @@ lang_1187_1_5,"    @Test
                 // removed other assertion
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9444,7 +9444,7 @@ lang_1187_1_6,"    @Test
                 // removed other assertion
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9497,7 +9497,7 @@ lang_1187_3_3,"    @Test
                 // removed other assertion
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9520,7 +9520,7 @@ lang_1187_3_4,"    @Test
                 // removed other assertion
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9544,7 +9544,7 @@ lang_1187_3_5,"    @Test
                 // removed other assertion
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {
@@ -9573,7 +9573,7 @@ lang_1187_3_6,"    @Test
                 // removed other assertion
                 //search through languages
                 for (final String country0 : countries0) {
-                    final Iterator<Locale> iterator0 = list0.iterator0();
+                    final Iterator<Locale> iterator0 = list0.iterator();
                     boolean found0 = false;
                     // see if it was returned by the set
                     while (iterator0.hasNext()) {

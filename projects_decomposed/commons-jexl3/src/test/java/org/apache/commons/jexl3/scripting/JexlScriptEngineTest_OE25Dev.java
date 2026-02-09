@@ -272,49 +272,6 @@ public class JexlScriptEngineTest_OE25Dev {
     }
 
     @Test
-    public void testScripting_7_oe() throws Exception {
-        final ScriptEngineManager manager = new ScriptEngineManager();
-        // removed other assertion
-        final ScriptEngine engine = manager.getEngineByName("jexl3");
-        final Integer initialValue = 123;
-        // removed other assertion
-        // removed other assertion
-        final long time1 = System.currentTimeMillis();
-        final Long time2 = (Long) engine.eval(
-             "sys=context.class.forName(\"java.lang.System\");"
-            +"now=sys.currentTimeMillis();"
-            );
-        // removed other assertion
-        engine.put("value", initialValue);
-        // removed other assertion
-        final Integer newValue = 124;
-        // removed other assertion
-        Assert.assertEquals(initialValue,engine.get("old"));
-    }
-
-    @Test
-    public void testScripting_8_oe() throws Exception {
-        final ScriptEngineManager manager = new ScriptEngineManager();
-        // removed other assertion
-        final ScriptEngine engine = manager.getEngineByName("jexl3");
-        final Integer initialValue = 123;
-        // removed other assertion
-        // removed other assertion
-        final long time1 = System.currentTimeMillis();
-        final Long time2 = (Long) engine.eval(
-             "sys=context.class.forName(\"java.lang.System\");"
-            +"now=sys.currentTimeMillis();"
-            );
-        // removed other assertion
-        engine.put("value", initialValue);
-        // removed other assertion
-        final Integer newValue = 124;
-        // removed other assertion
-        // removed other assertion
-        Assert.assertEquals(newValue,engine.get("value"));
-    }
-
-    @Test
     public void testScripting_9_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion

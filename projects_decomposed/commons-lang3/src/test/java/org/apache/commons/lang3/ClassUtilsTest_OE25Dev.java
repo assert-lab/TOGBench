@@ -129,6 +129,14 @@ public class ClassUtilsTest_OE25Dev  {
 
     //-----------------------------------------------------------------------
 
+    @Test
+    public void testGetInnerClass() throws ClassNotFoundException {
+        assertEquals( Inner.DeeplyNested.class, ClassUtils.getClass( "org.apache.commons.lang3.ClassUtilsTest_OE25Dev.Inner.DeeplyNested" ) );
+        assertEquals( Inner.DeeplyNested.class, ClassUtils.getClass( "org.apache.commons.lang3.ClassUtilsTest_OE25Dev.Inner$DeeplyNested" ) );
+        assertEquals( Inner.DeeplyNested.class, ClassUtils.getClass( "org.apache.commons.lang3.ClassUtilsTest_OE25Dev$Inner$DeeplyNested" ) );
+        assertEquals( Inner.DeeplyNested.class, ClassUtils.getClass( "org.apache.commons.lang3.ClassUtilsTest_OE25Dev$Inner.DeeplyNested" ) );
+    }
+
     // Show the Java bug: http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4071957
     // We may have to delete this if a JDK fixes the bug.
 
@@ -1308,49 +1316,6 @@ public class ClassUtilsTest_OE25Dev  {
     }
 
     @Test
-    public void test_getCanonicalName_Class_27_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // Primitives
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Primitive Arrays
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Arrays of arrays of ...
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Inner types
-        class Named {
-            // empty
-        }
-        // removed other assertion
-        // removed other assertion
-        assertEquals("org.apache.commons.lang3.ClassUtilsTest.Inner", ClassUtils.getCanonicalName(Inner.class));
-    }
-
-    @Test
     public void test_getCanonicalName_Class_String_1_oe() {
         assertEquals("org.apache.commons.lang3.ClassUtils", ClassUtils.getCanonicalName(ClassUtils.class, "X"));
     }
@@ -1876,49 +1841,6 @@ public class ClassUtilsTest_OE25Dev  {
     }
 
     @Test
-    public void test_getCanonicalName_Class_String_27_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // Primitives
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Primitive Arrays
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Arrays of arrays of ...
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Inner types
-        class Named {
-            // empty
-        }
-        // removed other assertion
-        // removed other assertion
-        assertEquals("org.apache.commons.lang3.ClassUtilsTest.Inner", ClassUtils.getCanonicalName(Inner.class, "X"));
-    }
-
-    @Test
     public void test_getName_Class_1_oe() {
         assertEquals("org.apache.commons.lang3.ClassUtils", ClassUtils.getName(ClassUtils.class));
     }
@@ -2402,99 +2324,8 @@ public class ClassUtilsTest_OE25Dev  {
     }
 
     @Test
-    public void test_getName_Class_26_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // Primitives
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Primitive Arrays
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Arrays of arrays of ...
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Inner types
-        class Named {
-            // empty
-        }
-        // removed other assertion
-        assertEquals("org.apache.commons.lang3.ClassUtilsTest$3Named", ClassUtils.getName(Named.class));
-    }
-
-    @Test
-    public void test_getName_Class_27_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // Primitives
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Primitive Arrays
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Arrays of arrays of ...
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Inner types
-        class Named {
-            // empty
-        }
-        // removed other assertion
-        // removed other assertion
-        assertEquals("org.apache.commons.lang3.ClassUtilsTest$Inner", ClassUtils.getName(Inner.class));
-    }
-
-    @Test
     public void test_getName_Object_1_oe() {
         assertEquals("org.apache.commons.lang3.ClassUtils", ClassUtils.getName(new ClassUtils(), "<null>"));
-    }
-
-    @Test
-    public void test_getName_Object_2_oe() {
-        // removed other assertion
-        assertEquals("org.apache.commons.lang3.ClassUtilsTest$Inner", ClassUtils.getName(new Inner(), "<null>"));
     }
 
     @Test
@@ -2510,37 +2341,6 @@ public class ClassUtilsTest_OE25Dev  {
         // removed other assertion
         // removed other assertion
         assertEquals("<null>", ClassUtils.getName(null, "<null>"));
-    }
-
-    @Test
-    public void test_getName_Object_6_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Inner types
-        class Named {
-            // empty
-        }
-        // removed other assertion
-        assertEquals("org.apache.commons.lang3.ClassUtilsTest$4Named", ClassUtils.getName(new Named(), "<null>"));
-    }
-
-    @Test
-    public void test_getName_Object_7_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Inner types
-        class Named {
-            // empty
-        }
-        // removed other assertion
-        // removed other assertion
-        assertEquals("org.apache.commons.lang3.ClassUtilsTest$Inner", ClassUtils.getName(new Inner(), "<null>"));
     }
 
     @Test
@@ -3167,43 +2967,6 @@ public class ClassUtilsTest_OE25Dev  {
     }
 
     @Test
-    public void test_getShortCanonicalName_Class_7_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Inner types
-        class Named {
-            // empty
-        }
-        // WARNING: this is fragile, implementation may change, naming is not guaranteed
-        // removed other assertion
-        // WARNING: this is fragile, implementation may change, naming is not guaranteed
-        assertEquals("ClassUtilsTest.8Named", ClassUtils.getShortCanonicalName(Named.class));
-    }
-
-    @Test
-    public void test_getShortCanonicalName_Class_8_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Inner types
-        class Named {
-            // empty
-        }
-        // WARNING: this is fragile, implementation may change, naming is not guaranteed
-        // removed other assertion
-        // WARNING: this is fragile, implementation may change, naming is not guaranteed
-        // removed other assertion
-        assertEquals("ClassUtilsTest.Inner", ClassUtils.getShortCanonicalName(Inner.class));
-    }
-
-    @Test
     public void test_getShortCanonicalName_Object_1_oe() {
         assertEquals("<null>", ClassUtils.getShortCanonicalName(null, "<null>"));
     }
@@ -3246,43 +3009,6 @@ public class ClassUtilsTest_OE25Dev  {
         // removed other assertion
         // removed other assertion
         assertEquals("int[][]", ClassUtils.getShortCanonicalName(new int[0][0], "<null>"));
-    }
-
-    @Test
-    public void test_getShortCanonicalName_Object_8_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Inner types
-        class Named {
-            // empty
-        }
-        // WARNING: this is fragile, implementation may change, naming is not guaranteed
-        // removed other assertion
-        assertEquals("ClassUtilsTest.9Named", ClassUtils.getShortCanonicalName(new Named(), "<null>"));
-    }
-
-    @Test
-    public void test_getShortCanonicalName_Object_9_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Inner types
-        class Named {
-            // empty
-        }
-        // WARNING: this is fragile, implementation may change, naming is not guaranteed
-        // removed other assertion
-        // removed other assertion
-        assertEquals("ClassUtilsTest.Inner", ClassUtils.getShortCanonicalName(new Inner(), "<null>"));
     }
 
     @Test
@@ -4127,105 +3853,8 @@ public class ClassUtilsTest_OE25Dev  {
     }
 
     @Test
-    public void test_getShortClassName_Class_26_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // LANG-535
-        // removed other assertion
-        // removed other assertion
-
-        // Primitives
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Primitive Arrays
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Arrays of arrays of ...
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Inner types
-        class Named {
-            // empty
-        }
-      // WARNING: this is fragile, implementation may change, naming is not guaranteed
-        // removed other assertion
-        // WARNING: this is fragile, implementation may change, naming is not guaranteed
-        assertEquals("ClassUtilsTest.10Named", ClassUtils.getShortClassName(Named.class));
-    }
-
-    @Test
-    public void test_getShortClassName_Class_27_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // LANG-535
-        // removed other assertion
-        // removed other assertion
-
-        // Primitives
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Primitive Arrays
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Arrays of arrays of ...
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Inner types
-        class Named {
-            // empty
-        }
-      // WARNING: this is fragile, implementation may change, naming is not guaranteed
-        // removed other assertion
-        // WARNING: this is fragile, implementation may change, naming is not guaranteed
-        // removed other assertion
-        assertEquals("ClassUtilsTest.Inner", ClassUtils.getShortClassName(Inner.class));
-    }
-
-    @Test
     public void test_getShortClassName_Object_1_oe() {
         assertEquals("ClassUtils", ClassUtils.getShortClassName(new ClassUtils(), "<null>"));
-    }
-
-    @Test
-    public void test_getShortClassName_Object_2_oe() {
-        // removed other assertion
-        assertEquals("ClassUtilsTest.Inner", ClassUtils.getShortClassName(new Inner(), "<null>"));
     }
 
     @Test
@@ -4241,41 +3870,6 @@ public class ClassUtilsTest_OE25Dev  {
         // removed other assertion
         // removed other assertion
         assertEquals("<null>", ClassUtils.getShortClassName(null, "<null>"));
-    }
-
-    @Test
-    public void test_getShortClassName_Object_6_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Inner types
-        class Named {
-            // empty
-        }
-      // WARNING: this is fragile, implementation may change, naming is not guaranteed
-        // removed other assertion
-        // WARNING: this is fragile, implementation may change, naming is not guaranteed
-        assertEquals("ClassUtilsTest.11Named", ClassUtils.getShortClassName(new Named(), "<null>"));
-    }
-
-    @Test
-    public void test_getShortClassName_Object_7_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Inner types
-        class Named {
-            // empty
-        }
-      // WARNING: this is fragile, implementation may change, naming is not guaranteed
-        // removed other assertion
-        // WARNING: this is fragile, implementation may change, naming is not guaranteed
-        // removed other assertion
-        assertEquals("ClassUtilsTest.Inner", ClassUtils.getShortClassName(new Inner(), "<null>"));
     }
 
     @Test
@@ -15574,32 +15168,6 @@ public class ClassUtilsTest_OE25Dev  {
     }
 
     @Test
-    public void testGetInnerClass_1_oe() throws ClassNotFoundException {
-        assertEquals( Inner.DeeplyNested.class, ClassUtils.getClass( "org.apache.commons.lang3.ClassUtilsTest.Inner.DeeplyNested" ) );
-    }
-
-    @Test
-    public void testGetInnerClass_2_oe() throws ClassNotFoundException {
-        // removed other assertion
-        assertEquals( Inner.DeeplyNested.class, ClassUtils.getClass( "org.apache.commons.lang3.ClassUtilsTest.Inner$DeeplyNested" ) );
-    }
-
-    @Test
-    public void testGetInnerClass_3_oe() throws ClassNotFoundException {
-        // removed other assertion
-        // removed other assertion
-        assertEquals( Inner.DeeplyNested.class, ClassUtils.getClass( "org.apache.commons.lang3.ClassUtilsTest$Inner$DeeplyNested" ) );
-    }
-
-    @Test
-    public void testGetInnerClass_4_oe() throws ClassNotFoundException {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals( Inner.DeeplyNested.class, ClassUtils.getClass( "org.apache.commons.lang3.ClassUtilsTest$Inner.DeeplyNested" ) );
-    }
-
-    @Test
     public void testGetPublicMethod_1_oe() throws Exception {
         // Tests with Collections$UnmodifiableSet
         final Set<?> set = Collections.unmodifiableSet(new HashSet<>());
@@ -15636,72 +15204,10 @@ public class ClassUtilsTest_OE25Dev  {
     }
 
     @Test
-    public void testHierarchyExcludingInterfaces_2_oe() {
-        final Iterator<Class<?>> iter = ClassUtils.hierarchy(StringParameterizedChild.class).iterator();
-        // removed other assertion
-        assertEquals(GenericParent.class, iter.next());
-    }
-
-    @Test
-    public void testHierarchyExcludingInterfaces_3_oe() {
-        final Iterator<Class<?>> iter = ClassUtils.hierarchy(StringParameterizedChild.class).iterator();
-        // removed other assertion
-        // removed other assertion
-        assertEquals(Object.class, iter.next());
-    }
-
-    @Test
-    public void testHierarchyExcludingInterfaces_4_oe() {
-        final Iterator<Class<?>> iter = ClassUtils.hierarchy(StringParameterizedChild.class).iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse(iter.hasNext());
-    }
-
-    @Test
     public void testHierarchyIncludingInterfaces_1_oe() {
         final Iterator<Class<?>> iter =
             ClassUtils.hierarchy(StringParameterizedChild.class, Interfaces.INCLUDE).iterator();
         assertEquals(StringParameterizedChild.class, iter.next());
-    }
-
-    @Test
-    public void testHierarchyIncludingInterfaces_2_oe() {
-        final Iterator<Class<?>> iter =
-            ClassUtils.hierarchy(StringParameterizedChild.class, Interfaces.INCLUDE).iterator();
-        // removed other assertion
-        assertEquals(GenericParent.class, iter.next());
-    }
-
-    @Test
-    public void testHierarchyIncludingInterfaces_3_oe() {
-        final Iterator<Class<?>> iter =
-            ClassUtils.hierarchy(StringParameterizedChild.class, Interfaces.INCLUDE).iterator();
-        // removed other assertion
-        // removed other assertion
-        assertEquals(GenericConsumer.class, iter.next());
-    }
-
-    @Test
-    public void testHierarchyIncludingInterfaces_4_oe() {
-        final Iterator<Class<?>> iter =
-            ClassUtils.hierarchy(StringParameterizedChild.class, Interfaces.INCLUDE).iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(Object.class, iter.next());
-    }
-
-    @Test
-    public void testHierarchyIncludingInterfaces_5_oe() {
-        final Iterator<Class<?>> iter =
-            ClassUtils.hierarchy(StringParameterizedChild.class, Interfaces.INCLUDE).iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse(iter.hasNext());
     }
 
     @Test

@@ -150,18 +150,18 @@ class DiscreteUniformSamplerTest_OE25Dev {
 
     @Test
     void testConstructorThrowsWithLowerAboveUpper_1_oe() {
-        final int upper = 55;
-        final int lower = upper + 1;
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         int upper = 55;
+         int lower = upper + 1;
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         Assertions.assertThrows(IllegalArgumentException.class, () -> DiscreteUniformSampler.of(rng, lower, upper));
     }
 
     @Test
     void testSamplesWithRangeOf1_1_oe() {
-        final int upper = 99;
-        final int lower = upper;
-        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create();
-        final SharedStateDiscreteSampler sampler = DiscreteUniformSampler.of(rng, lower, upper);
+         int upper = 99;
+         int lower = upper;
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create();
+         SharedStateDiscreteSampler sampler = DiscreteUniformSampler.of(rng, lower, upper);
         for (int i = 0; i < 5; i++) {
             Assertions.assertEquals(lower, sampler.sample());
     }
@@ -169,11 +169,11 @@ class DiscreteUniformSamplerTest_OE25Dev {
 
     @Test
     void testSamplesWithFullRange_1_oe() {
-        final int upper = Integer.MAX_VALUE;
-        final int lower = Integer.MIN_VALUE;
-        final UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
-        final UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
-        final SharedStateDiscreteSampler sampler = DiscreteUniformSampler.of(rng2, lower, upper);
+         int upper = Integer.MAX_VALUE;
+         int lower = Integer.MIN_VALUE;
+         UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         SharedStateDiscreteSampler sampler = DiscreteUniformSampler.of(rng2, lower, upper);
         for (int i = 0; i < 10; i++) {
             Assertions.assertEquals(rng1.nextInt(), sampler.sample());
     }
@@ -181,12 +181,12 @@ class DiscreteUniformSamplerTest_OE25Dev {
 
     @Test
     void testSamplesWithSmallNonPowerOf2Range_1_oe() {
-        final int upper = 257;
-        for (final int lower : new int[] {-13, 0, 13}) {
-            final int n = upper - lower + 1;
-            final UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
-            final UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
-            final SharedStateDiscreteSampler sampler = DiscreteUniformSampler.of(rng2, lower, upper);
+         int upper = 257;
+        for ( int lower : new int[] {-13, 0, 13}) {
+             int n = upper - lower + 1;
+             UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+             UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+             SharedStateDiscreteSampler sampler = DiscreteUniformSampler.of(rng2, lower, upper);
             for (int i = 0; i < 10; i++) {
                 Assertions.assertEquals(lower + rng1.nextInt(n), sampler.sample());
     }
@@ -195,14 +195,14 @@ class DiscreteUniformSamplerTest_OE25Dev {
 
     @Test
     void testSamplesWithPowerOf2Range_1_oe() {
-        final UniformRandomProvider rngZeroBits = new IntProvider() {
+         UniformRandomProvider rngZeroBits = new IntProvider() {
             @Override
             public int next() {
                 // No bits
                 return 0;
             }
         };
-        final UniformRandomProvider rngAllBits = new IntProvider() {
+         UniformRandomProvider rngAllBits = new IntProvider() {
             @Override
             public int next() {
                 // All bits
@@ -210,14 +210,14 @@ class DiscreteUniformSamplerTest_OE25Dev {
             }
         };
 
-        final int lower = -3;
+         int lower = -3;
         DiscreteUniformSampler sampler;
         // The upper range for a positive integer is 2^31-1. So the max positive power of
         // 2 is 2^30. However the sampler should handle a bit shift of 31 to create a range
         // of Integer.MIN_VALUE as this is a power of 2 as an unsigned int (2^31).
         for (int i = 0; i < 32; i++) {
-            final int range = 1 << i;
-            final int upper = lower + range - 1;
+             int range = 1 << i;
+             int upper = lower + range - 1;
             sampler = new DiscreteUniformSampler(rngZeroBits, lower, upper);
             Assertions.assertEquals(lower, sampler.sample(), "Zero bits sample");
     }
@@ -225,14 +225,14 @@ class DiscreteUniformSamplerTest_OE25Dev {
 
     @Test
     void testSamplesWithPowerOf2Range_2_oe() {
-        final UniformRandomProvider rngZeroBits = new IntProvider() {
+         UniformRandomProvider rngZeroBits = new IntProvider() {
             @Override
             public int next() {
                 // No bits
                 return 0;
             }
         };
-        final UniformRandomProvider rngAllBits = new IntProvider() {
+         UniformRandomProvider rngAllBits = new IntProvider() {
             @Override
             public int next() {
                 // All bits
@@ -240,14 +240,14 @@ class DiscreteUniformSamplerTest_OE25Dev {
             }
         };
 
-        final int lower = -3;
+         int lower = -3;
         DiscreteUniformSampler sampler;
         // The upper range for a positive integer is 2^31-1. So the max positive power of
         // 2 is 2^30. However the sampler should handle a bit shift of 31 to create a range
         // of Integer.MIN_VALUE as this is a power of 2 as an unsigned int (2^31).
         for (int i = 0; i < 32; i++) {
-            final int range = 1 << i;
-            final int upper = lower + range - 1;
+             int range = 1 << i;
+             int upper = lower + range - 1;
             sampler = new DiscreteUniformSampler(rngZeroBits, lower, upper);
             // removed other assertion
             sampler = new DiscreteUniformSampler(rngAllBits, lower, upper);
@@ -257,15 +257,15 @@ class DiscreteUniformSamplerTest_OE25Dev {
 
     @Test
     void testSamplesWithPowerOf2RangeIsBitShift_1_oe() {
-        final int lower = 0;
+         int lower = 0;
         SharedStateDiscreteSampler sampler;
         // Power of 2 sampler used for a bit shift of 1 to 31.
         for (int i = 1; i <= 31; i++) {
             // Upper is inclusive so subtract 1
-            final int upper = (1 << i) - 1;
-            final int shift = 32 - i;
-            final UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
-            final UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+             int upper = (1 << i) - 1;
+             int shift = 32 - i;
+             UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+             UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
             sampler = DiscreteUniformSampler.of(rng2, lower, upper);
             for (int j = 0; j < 10; j++) {
                 Assertions.assertEquals(rng1.nextInt() >>> shift, sampler.sample());
@@ -276,11 +276,11 @@ class DiscreteUniformSamplerTest_OE25Dev {
     @Test
     void testSamplesWithLargeNonPowerOf2RangeIsRejectionMethod_1_oe() {
         // Create a range bigger than 2^63
-        final int upper = Integer.MAX_VALUE / 2 + 1;
-        final int lower = Integer.MIN_VALUE / 2 - 1;
-        final UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
-        final UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
-        final SharedStateDiscreteSampler sampler = DiscreteUniformSampler.of(rng2, lower, upper);
+         int upper = Integer.MAX_VALUE / 2 + 1;
+         int lower = Integer.MIN_VALUE / 2 - 1;
+         UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         SharedStateDiscreteSampler sampler = DiscreteUniformSampler.of(rng2, lower, upper);
         for (int i = 0; i < 10; i++) {
             // Get the expected value by the rejection method
             long expected;
@@ -297,10 +297,10 @@ class DiscreteUniformSamplerTest_OE25Dev {
         // Create a Weyl sequence using George Marsaglia’s increment from:
         // Marsaglia, G (July 2003). "Xorshift RNGs". Journal of Statistical Software. 8 (14).
         // https://en.wikipedia.org/wiki/Weyl_sequence
-        final UniformRandomProvider rng = new IntProvider() {
-            private final int increment = 362437;
+         UniformRandomProvider rng = new IntProvider() {
+            private  int increment = 362437;
             // Start at the highest positive number
-            private final int start = Integer.MIN_VALUE - increment;
+            private  int start = Integer.MIN_VALUE - increment;
 
             private int bits = start;
 
@@ -318,13 +318,13 @@ class DiscreteUniformSamplerTest_OE25Dev {
         };
 
         // n = upper range exclusive
-        final int n = 37; // prime
-        final int[] histogram = new int[n];
+         int n = 37; // prime
+         int[] histogram = new int[n];
 
-        final int lower = 0;
-        final int upper = n - 1;
+         int lower = 0;
+         int upper = n - 1;
 
-        final SharedStateDiscreteSampler sampler = DiscreteUniformSampler.of(rng, lower, upper);
+         SharedStateDiscreteSampler sampler = DiscreteUniformSampler.of(rng, lower, upper);
 
         try {
             while (true) {
@@ -349,7 +349,7 @@ class DiscreteUniformSamplerTest_OE25Dev {
         // Test using a RNG that outputs a counter of integers.
         // The n most significant bits will be represented uniformly over a
         // sequence that is a 2^n long.
-        final UniformRandomProvider rng = new IntProvider() {
+         UniformRandomProvider rng = new IntProvider() {
             private int bits = 0;
 
             @Override
@@ -360,15 +360,15 @@ class DiscreteUniformSamplerTest_OE25Dev {
         };
 
         // n = upper range exclusive
-        final int n = 32; // power of 2
-        final int[] histogram = new int[n];
+         int n = 32; // power of 2
+         int[] histogram = new int[n];
 
-        final int lower = 0;
-        final int upper = n - 1;
+         int lower = 0;
+         int upper = n - 1;
 
-        final SharedStateDiscreteSampler sampler = DiscreteUniformSampler.of(rng, lower, upper);
+         SharedStateDiscreteSampler sampler = DiscreteUniformSampler.of(rng, lower, upper);
 
-        final int expected = 2;
+         int expected = 2;
         for (int i = expected * n; i-- > 0;) {
             histogram[sampler.sample()]++;
         }
@@ -383,8 +383,8 @@ class DiscreteUniformSamplerTest_OE25Dev {
     void testSampleRejectionWithNonPowerOf2Range_1_oe() {
         // Test using a RNG that returns a sequence.
         // The first value of zero should produce a sample that is rejected.
-        final int[] value = new int[1];
-        final UniformRandomProvider rng = new IntProvider() {
+         int[] value = new int[1];
+         UniformRandomProvider rng = new IntProvider() {
             @Override
             public int next() {
                 return value[0]++;
@@ -393,13 +393,13 @@ class DiscreteUniformSamplerTest_OE25Dev {
 
         // n = upper range exclusive.
         // Use a prime number to select the rejection algorithm.
-        final int n = 37;
-        final int lower = 0;
-        final int upper = n - 1;
+         int n = 37;
+         int lower = 0;
+         int upper = n - 1;
 
-        final SharedStateDiscreteSampler sampler = DiscreteUniformSampler.of(rng, lower, upper);
+         SharedStateDiscreteSampler sampler = DiscreteUniformSampler.of(rng, lower, upper);
 
-        final int sample = sampler.sample();
+         int sample = sampler.sample();
 
         Assertions.assertEquals(0, sample, "Sample is incorrect");
     }
@@ -408,8 +408,8 @@ class DiscreteUniformSamplerTest_OE25Dev {
     void testSampleRejectionWithNonPowerOf2Range_2_oe() {
         // Test using a RNG that returns a sequence.
         // The first value of zero should produce a sample that is rejected.
-        final int[] value = new int[1];
-        final UniformRandomProvider rng = new IntProvider() {
+         int[] value = new int[1];
+         UniformRandomProvider rng = new IntProvider() {
             @Override
             public int next() {
                 return value[0]++;
@@ -418,13 +418,13 @@ class DiscreteUniformSamplerTest_OE25Dev {
 
         // n = upper range exclusive.
         // Use a prime number to select the rejection algorithm.
-        final int n = 37;
-        final int lower = 0;
-        final int upper = n - 1;
+         int n = 37;
+         int lower = 0;
+         int upper = n - 1;
 
-        final SharedStateDiscreteSampler sampler = DiscreteUniformSampler.of(rng, lower, upper);
+         SharedStateDiscreteSampler sampler = DiscreteUniformSampler.of(rng, lower, upper);
 
-        final int sample = sampler.sample();
+         int sample = sampler.sample();
 
         // removed other assertion
         Assertions.assertEquals(2, value[0], "Sample should be produced from 2nd value");
@@ -432,46 +432,46 @@ class DiscreteUniformSamplerTest_OE25Dev {
 
     @Test
     void testOffsetSamplesWithNonPowerOf2Range_1_oe_1_oe() {
-                final int range0 = 257;
-        final Long seed0 = RandomSource.createLong();
-                final UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(seed0);
-                final UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
-                final UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 int range0 = 257;
+         Long seed0 = RandomSource.createLong();
+                 UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
         
                 // Since the upper limit is inclusive
                 range0 = range0 - 1;
-                final int offsetLo0 = -13;
-                final int offsetHi0 = 42;
-                final SharedStateDiscreteSampler sampler0 = DiscreteUniformSampler.of(rng10, 0, range0);
-                final SharedStateDiscreteSampler samplerLo0 = DiscreteUniformSampler.of(rng20, offsetLo0, offsetLo0 + range0);
-                final SharedStateDiscreteSampler samplerHi0 = DiscreteUniformSampler.of(rng30, offsetHi0, offsetHi0 + range0);
+                 int offsetLo0 = -13;
+                 int offsetHi0 = 42;
+                 SharedStateDiscreteSampler sampler0 = DiscreteUniformSampler.of(rng10, 0, range0);
+                 SharedStateDiscreteSampler samplerLo0 = DiscreteUniformSampler.of(rng20, offsetLo0, offsetLo0 + range0);
+                 SharedStateDiscreteSampler samplerHi0 = DiscreteUniformSampler.of(rng30, offsetHi0, offsetHi0 + range0);
                 for (int i0 = 0; i0 < 10; i0++) {
-                    final int sample10 = sampler0.sample();
-                    final int sample20 = samplerLo0.sample();
-                    final int sample30 = samplerHi0.sample();
+                     int sample10 = sampler0.sample();
+                     int sample20 = samplerLo0.sample();
+                     int sample30 = samplerHi0.sample();
                     Assertions.assertEquals(sample10 + offsetLo0, sample20, "Incorrect negative offset sample");
     }
     }
 
     @Test
     void testOffsetSamplesWithNonPowerOf2Range_1_oe_2_oe() {
-                final int range0 = 257;
-        final Long seed0 = RandomSource.createLong();
-                final UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(seed0);
-                final UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
-                final UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 int range0 = 257;
+         Long seed0 = RandomSource.createLong();
+                 UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
         
                 // Since the upper limit is inclusive
                 range0 = range0 - 1;
-                final int offsetLo0 = -13;
-                final int offsetHi0 = 42;
-                final SharedStateDiscreteSampler sampler0 = DiscreteUniformSampler.of(rng10, 0, range0);
-                final SharedStateDiscreteSampler samplerLo0 = DiscreteUniformSampler.of(rng20, offsetLo0, offsetLo0 + range0);
-                final SharedStateDiscreteSampler samplerHi0 = DiscreteUniformSampler.of(rng30, offsetHi0, offsetHi0 + range0);
+                 int offsetLo0 = -13;
+                 int offsetHi0 = 42;
+                 SharedStateDiscreteSampler sampler0 = DiscreteUniformSampler.of(rng10, 0, range0);
+                 SharedStateDiscreteSampler samplerLo0 = DiscreteUniformSampler.of(rng20, offsetLo0, offsetLo0 + range0);
+                 SharedStateDiscreteSampler samplerHi0 = DiscreteUniformSampler.of(rng30, offsetHi0, offsetHi0 + range0);
                 for (int i0 = 0; i0 < 10; i0++) {
-                    final int sample10 = sampler0.sample();
-                    final int sample20 = samplerLo0.sample();
-                    final int sample30 = samplerHi0.sample();
+                     int sample10 = sampler0.sample();
+                     int sample20 = samplerLo0.sample();
+                     int sample30 = samplerHi0.sample();
                     // removed other assertion
                     Assertions.assertEquals(sample10 + offsetHi0, sample30, "Incorrect positive offset sample");
     }
@@ -479,46 +479,46 @@ class DiscreteUniformSamplerTest_OE25Dev {
 
     @Test
     void testOffsetSamplesWithPowerOf2Range_1_oe_1_oe() {
-                final int range0 = 256;
-        final Long seed0 = RandomSource.createLong();
-                final UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(seed0);
-                final UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
-                final UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 int range0 = 256;
+         Long seed0 = RandomSource.createLong();
+                 UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
         
                 // Since the upper limit is inclusive
                 range0 = range0 - 1;
-                final int offsetLo0 = -13;
-                final int offsetHi0 = 42;
-                final SharedStateDiscreteSampler sampler0 = DiscreteUniformSampler.of(rng10, 0, range0);
-                final SharedStateDiscreteSampler samplerLo0 = DiscreteUniformSampler.of(rng20, offsetLo0, offsetLo0 + range0);
-                final SharedStateDiscreteSampler samplerHi0 = DiscreteUniformSampler.of(rng30, offsetHi0, offsetHi0 + range0);
+                 int offsetLo0 = -13;
+                 int offsetHi0 = 42;
+                 SharedStateDiscreteSampler sampler0 = DiscreteUniformSampler.of(rng10, 0, range0);
+                 SharedStateDiscreteSampler samplerLo0 = DiscreteUniformSampler.of(rng20, offsetLo0, offsetLo0 + range0);
+                 SharedStateDiscreteSampler samplerHi0 = DiscreteUniformSampler.of(rng30, offsetHi0, offsetHi0 + range0);
                 for (int i0 = 0; i0 < 10; i0++) {
-                    final int sample10 = sampler0.sample();
-                    final int sample20 = samplerLo0.sample();
-                    final int sample30 = samplerHi0.sample();
+                     int sample10 = sampler0.sample();
+                     int sample20 = samplerLo0.sample();
+                     int sample30 = samplerHi0.sample();
                     Assertions.assertEquals(sample10 + offsetLo0, sample20, "Incorrect negative offset sample");
     }
     }
 
     @Test
     void testOffsetSamplesWithPowerOf2Range_1_oe_2_oe() {
-                final int range0 = 256;
-        final Long seed0 = RandomSource.createLong();
-                final UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(seed0);
-                final UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
-                final UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 int range0 = 256;
+         Long seed0 = RandomSource.createLong();
+                 UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
         
                 // Since the upper limit is inclusive
                 range0 = range0 - 1;
-                final int offsetLo0 = -13;
-                final int offsetHi0 = 42;
-                final SharedStateDiscreteSampler sampler0 = DiscreteUniformSampler.of(rng10, 0, range0);
-                final SharedStateDiscreteSampler samplerLo0 = DiscreteUniformSampler.of(rng20, offsetLo0, offsetLo0 + range0);
-                final SharedStateDiscreteSampler samplerHi0 = DiscreteUniformSampler.of(rng30, offsetHi0, offsetHi0 + range0);
+                 int offsetLo0 = -13;
+                 int offsetHi0 = 42;
+                 SharedStateDiscreteSampler sampler0 = DiscreteUniformSampler.of(rng10, 0, range0);
+                 SharedStateDiscreteSampler samplerLo0 = DiscreteUniformSampler.of(rng20, offsetLo0, offsetLo0 + range0);
+                 SharedStateDiscreteSampler samplerHi0 = DiscreteUniformSampler.of(rng30, offsetHi0, offsetHi0 + range0);
                 for (int i0 = 0; i0 < 10; i0++) {
-                    final int sample10 = sampler0.sample();
-                    final int sample20 = samplerLo0.sample();
-                    final int sample30 = samplerHi0.sample();
+                     int sample10 = sampler0.sample();
+                     int sample20 = samplerLo0.sample();
+                     int sample30 = samplerHi0.sample();
                     // removed other assertion
                     Assertions.assertEquals(sample10 + offsetHi0, sample30, "Incorrect positive offset sample");
     }
@@ -526,46 +526,46 @@ class DiscreteUniformSamplerTest_OE25Dev {
 
     @Test
     void testOffsetSamplesWithRangeOf1_1_oe_1_oe() {
-                final int range0 = 1;
-        final Long seed0 = RandomSource.createLong();
-                final UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(seed0);
-                final UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
-                final UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 int range0 = 1;
+         Long seed0 = RandomSource.createLong();
+                 UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
         
                 // Since the upper limit is inclusive
                 range0 = range0 - 1;
-                final int offsetLo0 = -13;
-                final int offsetHi0 = 42;
-                final SharedStateDiscreteSampler sampler0 = DiscreteUniformSampler.of(rng10, 0, range0);
-                final SharedStateDiscreteSampler samplerLo0 = DiscreteUniformSampler.of(rng20, offsetLo0, offsetLo0 + range0);
-                final SharedStateDiscreteSampler samplerHi0 = DiscreteUniformSampler.of(rng30, offsetHi0, offsetHi0 + range0);
+                 int offsetLo0 = -13;
+                 int offsetHi0 = 42;
+                 SharedStateDiscreteSampler sampler0 = DiscreteUniformSampler.of(rng10, 0, range0);
+                 SharedStateDiscreteSampler samplerLo0 = DiscreteUniformSampler.of(rng20, offsetLo0, offsetLo0 + range0);
+                 SharedStateDiscreteSampler samplerHi0 = DiscreteUniformSampler.of(rng30, offsetHi0, offsetHi0 + range0);
                 for (int i0 = 0; i0 < 10; i0++) {
-                    final int sample10 = sampler0.sample();
-                    final int sample20 = samplerLo0.sample();
-                    final int sample30 = samplerHi0.sample();
+                     int sample10 = sampler0.sample();
+                     int sample20 = samplerLo0.sample();
+                     int sample30 = samplerHi0.sample();
                     Assertions.assertEquals(sample10 + offsetLo0, sample20, "Incorrect negative offset sample");
     }
     }
 
     @Test
     void testOffsetSamplesWithRangeOf1_1_oe_2_oe() {
-                final int range0 = 1;
-        final Long seed0 = RandomSource.createLong();
-                final UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(seed0);
-                final UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
-                final UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 int range0 = 1;
+         Long seed0 = RandomSource.createLong();
+                 UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
+                 UniformRandomProvider rng30 = RandomSource.SPLIT_MIX_64.create(seed0);
         
                 // Since the upper limit is inclusive
                 range0 = range0 - 1;
-                final int offsetLo0 = -13;
-                final int offsetHi0 = 42;
-                final SharedStateDiscreteSampler sampler0 = DiscreteUniformSampler.of(rng10, 0, range0);
-                final SharedStateDiscreteSampler samplerLo0 = DiscreteUniformSampler.of(rng20, offsetLo0, offsetLo0 + range0);
-                final SharedStateDiscreteSampler samplerHi0 = DiscreteUniformSampler.of(rng30, offsetHi0, offsetHi0 + range0);
+                 int offsetLo0 = -13;
+                 int offsetHi0 = 42;
+                 SharedStateDiscreteSampler sampler0 = DiscreteUniformSampler.of(rng10, 0, range0);
+                 SharedStateDiscreteSampler samplerLo0 = DiscreteUniformSampler.of(rng20, offsetLo0, offsetLo0 + range0);
+                 SharedStateDiscreteSampler samplerHi0 = DiscreteUniformSampler.of(rng30, offsetHi0, offsetHi0 + range0);
                 for (int i0 = 0; i0 < 10; i0++) {
-                    final int sample10 = sampler0.sample();
-                    final int sample20 = samplerLo0.sample();
-                    final int sample30 = samplerHi0.sample();
+                     int sample10 = sampler0.sample();
+                     int sample20 = samplerLo0.sample();
+                     int sample30 = samplerHi0.sample();
                     // removed other assertion
                     Assertions.assertEquals(sample10 + offsetHi0, sample30, "Incorrect positive offset sample");
     }
@@ -573,38 +573,38 @@ class DiscreteUniformSamplerTest_OE25Dev {
 
     @Test
     void testToStringWithSmallRange_1_oe_1_oe() {
-                final int lower0 = 5;
-        final int upper0 = 67;
-        final UniformRandomProvider rng0 = RandomSource.SPLIT_MIX_64.create(0L);
-                final DiscreteUniformSampler sampler0 = new DiscreteUniformSampler(rng0, lower0, upper0);
+                 int lower0 = 5;
+         int upper0 = 67;
+         UniformRandomProvider rng0 = RandomSource.SPLIT_MIX_64.create(0L);
+                 DiscreteUniformSampler sampler0 = new DiscreteUniformSampler(rng0, lower0, upper0);
                 Assertions.assertTrue(sampler0.toString().toLowerCase(Locale.US).contains("uniform"));
     }
 
     @Test
     void testToStringWithLargeRange_1_oe_1_oe() {
-                final int lower0 = -99999999;
-        final int upper0 = Integer.MAX_VALUE;
-        final UniformRandomProvider rng0 = RandomSource.SPLIT_MIX_64.create(0L);
-                final DiscreteUniformSampler sampler0 = new DiscreteUniformSampler(rng0, lower0, upper0);
+                 int lower0 = -99999999;
+         int upper0 = Integer.MAX_VALUE;
+         UniformRandomProvider rng0 = RandomSource.SPLIT_MIX_64.create(0L);
+                 DiscreteUniformSampler sampler0 = new DiscreteUniformSampler(rng0, lower0, upper0);
                 Assertions.assertTrue(sampler0.toString().toLowerCase(Locale.US).contains("uniform"));
     }
 
     @Test
     void testToStringWithPowerOf2Range_1_oe_1_oe() {
         // Note the range is upper - lower + 1
-                final int lower0 = 0;
-        final int upper0 = 31;
-        final UniformRandomProvider rng0 = RandomSource.SPLIT_MIX_64.create(0L);
-                final DiscreteUniformSampler sampler0 = new DiscreteUniformSampler(rng0, lower0, upper0);
+                 int lower0 = 0;
+         int upper0 = 31;
+         UniformRandomProvider rng0 = RandomSource.SPLIT_MIX_64.create(0L);
+                 DiscreteUniformSampler sampler0 = new DiscreteUniformSampler(rng0, lower0, upper0);
                 Assertions.assertTrue(sampler0.toString().toLowerCase(Locale.US).contains("uniform"));
     }
 
     @Test
     void testToStringWithRangeOf1_1_oe_1_oe() {
-                final int lower0 = 9;
-        final int upper0 = 9;
-        final UniformRandomProvider rng0 = RandomSource.SPLIT_MIX_64.create(0L);
-                final DiscreteUniformSampler sampler0 = new DiscreteUniformSampler(rng0, lower0, upper0);
+                 int lower0 = 9;
+         int upper0 = 9;
+         UniformRandomProvider rng0 = RandomSource.SPLIT_MIX_64.create(0L);
+                 DiscreteUniformSampler sampler0 = new DiscreteUniformSampler(rng0, lower0, upper0);
                 Assertions.assertTrue(sampler0.toString().toLowerCase(Locale.US).contains("uniform"));
     }
 

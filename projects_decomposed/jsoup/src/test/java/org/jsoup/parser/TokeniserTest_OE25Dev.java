@@ -484,13 +484,6 @@ public class TokeniserTest_OE25Dev {
         assertEquals("\u20ac", parser.parseInput("<html><body>&#0128;</body></html>", "").text());
         }
 
-    @Test public void cp1252EntitiesProduceError_2_oe() {
-        Parser parser = new Parser(new HtmlTreeBuilder());
-        parser.setTrackErrors(10);
-        // removed other assertion
-        assertEquals(1, parser.getErrors().size());
-        }
-
     @Test public void cp1252SubstitutionTable_1_oe() {
         for (int i = 0; i < Tokeniser.win1252Extensions.length; i++) {
             String s = new String(new byte[]{ (byte) (i + Tokeniser.win1252ExtensionsStart) }, Charset.forName("Windows-1252"));
