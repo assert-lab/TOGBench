@@ -92,5 +92,48 @@ public class ProviderDeleteTests_OE25Dev extends AbstractProviderTestCase {
      * deletes a.txt
      */
 
+    @Test
+    public void testDeleteAllFiles_1_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        final int deleteCount = scratchFolder.delete(new FileTypeSelector(FileType.FILE));
+        if (deleteCount < 2) {
+            // Slow deletion in an embedded server perhaps (FTPS for example).
+            Thread.sleep(500);
+        }
+        assertEquals(2, deleteCount);
+    }
+
+    @Test
+    public void testDeleteFile_1_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        final FileObject file = scratchFolder.resolveFile("dir1/a.txt");
+
+        assertTrue(file.delete());
+    }
+
+    @Test
+    public void testDeleteFiles_1_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        assertEquals(4, scratchFolder.delete(Selectors.EXCLUDE_SELF));
+    }
+
+    @Test
+    public void testDeleteNonExistantFile_1_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        final FileObject file = scratchFolder.resolveFile("dir1/aa.txt");
+
+        assertFalse(file.delete());
+    }
+
+    @Test
+    public void testDeleteOneFiles_1_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        assertEquals(1, scratchFolder.delete(new FileNameSelector("a.txt")));
+    }
 
 }

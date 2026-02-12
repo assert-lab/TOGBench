@@ -31,9 +31,28 @@ python3 scripts_trial/custom_inline_decompose.py
 
 python3 scripts_trial/dataset_post_process.py
 
-python3 scripts_trial/2_filter_compilable_tests.py # also do same for custom assertion inlined decomposition - just rename inputs.csv and meta.csv
+python3 scripts_trial/2_filter_compilable_tests.py
 
 python3 scripts_trial/try_catch_filter.py
+
+
+# ==== try-catch conversion start ====
+
+set -euo pipefail
+
+for p in projects_decomposed/*; do
+  [ -d "$p" ] || continue
+  proj="$(basename "$p")"
+
+  if [ ! -f "$p/dataset/inputs.csv" ]; then
+    continue
+  fi
+
+  echo "=== $proj ==="
+  python3 scripts_trial/transform_try_catch.py --project "$proj"
+done
+
+# ==== try-catch conversion ends ====
 
 
 ./scripts_trial/project_fixes/async-http-client.sh
@@ -58,10 +77,13 @@ python3 scripts_trial/try_catch_filter.py
 ./scripts_trial/project_fixes/http-request.sh
 ./scripts_trial/project_fixes/commons-beanutils.sh
 ./scripts_trial/project_fixes/commons-validator.sh
+./scripts_trial/project_fixes/spark.sh
+./scripts_trial/project_fixes/springside4.sh
 
 
 # first run to keep all logs - error and running
-python3 scripts_trial/3_rebuild_tests.py
+# python3 scripts_trial/3_rebuild_tests.py
+python3 scripts_trial/3_rebuild_decomposed.py
 
 # run each projects' fix.sh before running mvn test
 ./scripts_trial/project_fixes.sh
@@ -70,7 +92,7 @@ python3 scripts_trial/3_rebuild_tests.py
 # cd projects_decomposed/commons-numbers/commons-numbers-fraction
 # mvn clean test -Dtest="*_OE25Dev#*_oe" --color=never 2>&1 | tee mvn.log
 
-#map muts
+# ======== map muts ========
 python3 scripts_trial/collect_methods.py
 python3 scripts_trial/map_mut.py
 
@@ -90,13 +112,8 @@ python3 scripts_trial/test_count.py
 
 # python3 scripts_trial/filter_by_logs.py
 
-# # failes/error removal script
-
-# # ./scripts_trial/clean_loop.sh
-
 # # ./scripts_trial/final_mvn_run.sh
 
-# # python3 scripts_trial/filter_dataset.py
 
 find . -type f -name "*.bak" -delete
  

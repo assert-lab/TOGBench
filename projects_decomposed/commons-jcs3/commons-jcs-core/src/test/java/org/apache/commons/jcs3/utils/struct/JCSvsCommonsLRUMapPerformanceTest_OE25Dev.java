@@ -162,5 +162,33 @@ public class JCSvsCommonsLRUMapPerformanceTest_OE25Dev
             + "x" );
     }
 
+    public void testSimpleLoad_1_oe()
+        throws Exception
+    {
+        final Log log = LogManager.getLog( LRUMap.class );
+        if ( log.isDebugEnabled() )
+        {
+            System.out.println( "The log level must be at info or above for the a performance test." );
+            return;
+        }
+
+        doWork();
+        assertTrue( this.ratioPut < target );
+    }
+
+    public void testSimpleLoad_2_oe()
+        throws Exception
+    {
+        final Log log = LogManager.getLog( LRUMap.class );
+        if ( log.isDebugEnabled() )
+        {
+            System.out.println( "The log level must be at info or above for the a performance test." );
+            return;
+        }
+
+        doWork();
+        // removed other assertion
+        assertTrue( this.ratioGet < target );
+    }
 
 }

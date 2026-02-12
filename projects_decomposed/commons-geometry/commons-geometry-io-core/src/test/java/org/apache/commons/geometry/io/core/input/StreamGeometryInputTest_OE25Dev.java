@@ -26,5 +26,106 @@ class StreamGeometryInputTest_OE25Dev {
 
     private final ByteArrayInputStream byteStream = new ByteArrayInputStream(new byte[0]);
 
+    @Test
+    void testCtor_stream_1_oe() {
+        // act
+        final StreamGeometryInput in = new StreamGeometryInput(byteStream);
+
+        // assert
+        Assertions.assertNull(in.getFileName());
+    }
+
+    @Test
+    void testCtor_stream_2_oe() {
+        // act
+        final StreamGeometryInput in = new StreamGeometryInput(byteStream);
+
+        // assert
+        // removed other assertion
+        Assertions.assertNull(in.getCharset());
+    }
+
+    @Test
+    void testCtor_stream_3_oe() {
+        // act
+        final StreamGeometryInput in = new StreamGeometryInput(byteStream);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(byteStream, in.getInputStream());
+    }
+
+    @Test
+    void testCtor_streamAndFileName_1_oe() {
+        // act
+        final StreamGeometryInput in = new StreamGeometryInput(byteStream, "test.txt");
+
+        // assert
+        Assertions.assertEquals("test.txt", in.getFileName());
+    }
+
+    @Test
+    void testCtor_streamAndFileName_2_oe() {
+        // act
+        final StreamGeometryInput in = new StreamGeometryInput(byteStream, "test.txt");
+
+        // assert
+        // removed other assertion
+        Assertions.assertNull(in.getCharset());
+    }
+
+    @Test
+    void testCtor_streamAndFileName_3_oe() {
+        // act
+        final StreamGeometryInput in = new StreamGeometryInput(byteStream, "test.txt");
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(byteStream, in.getInputStream());
+    }
+
+    @Test
+    void testCtor_allArgs_1_oe() {
+        // act
+        final StreamGeometryInput in = new StreamGeometryInput(byteStream, "test.txt", StandardCharsets.UTF_16);
+
+        // assert
+        Assertions.assertEquals("test.txt", in.getFileName());
+    }
+
+    @Test
+    void testCtor_allArgs_2_oe() {
+        // act
+        final StreamGeometryInput in = new StreamGeometryInput(byteStream, "test.txt", StandardCharsets.UTF_16);
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(StandardCharsets.UTF_16, in.getCharset());
+    }
+
+    @Test
+    void testCtor_allArgs_3_oe() {
+        // act
+        final StreamGeometryInput in = new StreamGeometryInput(byteStream, "test.txt", StandardCharsets.UTF_16);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(byteStream, in.getInputStream());
+    }
+
+    @Test
+    void testToString_1_oe() {
+        // arrange
+        final StreamGeometryInput in = new StreamGeometryInput(byteStream, "abc.txt");
+
+        // act
+        final String result = in.toString();
+
+        // assert
+        Assertions.assertEquals("StreamGeometryInput[fileName= abc.txt]", result);
+    }
 
 }

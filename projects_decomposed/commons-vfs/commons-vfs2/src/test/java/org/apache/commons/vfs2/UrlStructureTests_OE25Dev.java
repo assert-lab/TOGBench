@@ -37,5 +37,38 @@ public class UrlStructureTests_OE25Dev extends AbstractProviderTestCase {
      * Tests that folders have no content.
      */
 
+    @Test
+    public void testFolderURL_1_oe() throws Exception {
+        final FileObject folder = getReadFolder().resolveFile("dir1");
+        if (folder.getFileSystem().hasCapability(Capability.DIRECTORY_READ_CONTENT)) {
+            // test might not fail on e.g. HttpFileSystem as there are no directories.
+            // A Directory do have a content on http. e.g a generated directory listing or the index.html page.
+            return;
+        }
+
+        assertTrue(folder.exists());
+    }
+
+    @Test
+    public void testFolderURL_3_oe_1_oe() throws Exception {
+        final FileObject folder = getReadFolder().resolveFile("dir1");
+        if (folder.getFileSystem().hasCapability(Capability.DIRECTORY_READ_CONTENT)) {
+            // test might not fail on e.g. HttpFileSystem as there are no directories.
+            // A Directory do have a content on http. e.g a generated directory listing or the index.html page.
+            return;
+        }
+
+        // removed other assertion
+
+        // Try getting the content of a folder
+        try (final InputStream inputStream = folder.getURL().openConnection().getInputStream()) {
+            // removed other assertion
+        } catch (final IOException e) {
+                        final String code0 = "vfs.provider/read-not-file.error";
+            final Object param0 = folder;
+            final Throwable throwable0 = e;
+            assertSameMessage(code0, new Object[] { param0 }, throwable0);
+    }
+    }
 
 }

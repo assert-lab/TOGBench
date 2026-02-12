@@ -33,6 +33,8 @@ import org.apache.commons.lang3.mutable.MutableObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Unit tests ConstructorUtils
  */
@@ -205,6 +207,151 @@ public class ConstructorUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testConstructor_1_oe() throws Exception {
+        assertNotNull(MethodUtils.class.newInstance());
+    }
+
+    @Test
+    public void testInvokeConstructor_1_oe() throws Exception {
+        assertEquals("()",ConstructorUtils.invokeConstructor(TestBean.class,(Object[])ArrayUtils.EMPTY_CLASS_ARRAY).toString());
+    }
+
+    @Test
+    public void testInvokeConstructor_2_oe() throws Exception {
+        // removed other assertion
+        assertEquals("()",ConstructorUtils.invokeConstructor(TestBean.class,(Object[])null).toString());
+    }
+
+    @Test
+    public void testInvokeConstructor_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        assertEquals("()", ConstructorUtils.invokeConstructor(TestBean.class).toString());
+    }
+
+    @Test
+    public void testInvokeConstructor_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("(String)",ConstructorUtils.invokeConstructor(TestBean.class,"").toString());
+    }
+
+    @Test
+    public void testInvokeConstructor_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("(Object)",ConstructorUtils.invokeConstructor(TestBean.class,new Object()).toString());
+    }
+
+    @Test
+    public void testInvokeConstructor_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("(Object)",ConstructorUtils.invokeConstructor(TestBean.class,Boolean.TRUE).toString());
+    }
+
+    @Test
+    public void testInvokeConstructor_7_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("(Integer)",ConstructorUtils.invokeConstructor(TestBean.class,NumberUtils.INTEGER_ONE).toString());
+    }
+
+    @Test
+    public void testInvokeConstructor_8_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("(int)",ConstructorUtils.invokeConstructor(TestBean.class,NumberUtils.BYTE_ONE).toString());
+    }
+
+    @Test
+    public void testInvokeConstructor_9_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("(double)",ConstructorUtils.invokeConstructor(TestBean.class,NumberUtils.LONG_ONE).toString());
+    }
+
+    @Test
+    public void testInvokeConstructor_10_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("(double)",ConstructorUtils.invokeConstructor(TestBean.class,NumberUtils.DOUBLE_ONE).toString());
+    }
+
+    @Test
+    public void testInvokeExactConstructor_1_oe() throws Exception {
+        assertEquals("()",ConstructorUtils.invokeExactConstructor(TestBean.class,(Object[])ArrayUtils.EMPTY_CLASS_ARRAY).toString());
+    }
+
+    @Test
+    public void testInvokeExactConstructor_2_oe() throws Exception {
+        // removed other assertion
+        assertEquals("()",ConstructorUtils.invokeExactConstructor(TestBean.class,(Object[])null).toString());
+    }
+
+    @Test
+    public void testInvokeExactConstructor_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        assertEquals("(String)",ConstructorUtils.invokeExactConstructor(TestBean.class,"").toString());
+    }
+
+    @Test
+    public void testInvokeExactConstructor_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("(Object)",ConstructorUtils.invokeExactConstructor(TestBean.class,new Object()).toString());
+    }
+
+    @Test
+    public void testInvokeExactConstructor_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("(Integer)",ConstructorUtils.invokeExactConstructor(TestBean.class,NumberUtils.INTEGER_ONE).toString());
+    }
+
+    @Test
+    public void testInvokeExactConstructor_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("(double)", ConstructorUtils.invokeExactConstructor( TestBean.class, new Object[] { NumberUtils.DOUBLE_ONE }, new Class[] { Double.TYPE }).toString());
+    }
+
+    @Test
     public void testInvokeExactConstructor_7_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -215,7 +362,7 @@ public class ConstructorUtilsTest_OE25Dev {
 
         try {
     ConstructorUtils.invokeExactConstructor(TestBean.class, NumberUtils.BYTE_ONE);
-    org.junit.jupiter.api.Assertions.fail("NoSuchMethodException");
+    fail("NoSuchMethodException");
 } catch (NoSuchMethodException e) {
 }
     }
@@ -232,7 +379,7 @@ public class ConstructorUtilsTest_OE25Dev {
         // removed other assertion
         try {
     ConstructorUtils.invokeExactConstructor(TestBean.class, NumberUtils.LONG_ONE);
-    org.junit.jupiter.api.Assertions.fail("NoSuchMethodException");
+    fail("NoSuchMethodException");
 } catch (NoSuchMethodException e) {
 }
     }
@@ -250,9 +397,46 @@ public class ConstructorUtilsTest_OE25Dev {
         // removed other assertion
         try {
     ConstructorUtils.invokeExactConstructor(TestBean.class, Boolean.TRUE);
-    org.junit.jupiter.api.Assertions.fail("NoSuchMethodException");
+    fail("NoSuchMethodException");
 } catch (NoSuchMethodException e) {
 }
+    }
+
+    @Test
+    public void testGetAccessibleConstructor_1_oe() throws Exception {
+        assertNotNull(ConstructorUtils.getAccessibleConstructor(Object.class .getConstructor(ArrayUtils.EMPTY_CLASS_ARRAY)));
+    }
+
+    @Test
+    public void testGetAccessibleConstructor_2_oe() throws Exception {
+        // removed other assertion
+        assertNull(ConstructorUtils.getAccessibleConstructor(PrivateClass.class .getConstructor(ArrayUtils.EMPTY_CLASS_ARRAY)));
+    }
+
+    @Test
+    public void testGetAccessibleConstructor_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        assertNull(ConstructorUtils.getAccessibleConstructor(PrivateClass.PublicInnerClass.class));
+    }
+
+    @Test
+    public void testGetAccessibleConstructorFromDescription_1_oe() {
+        assertNotNull(ConstructorUtils.getAccessibleConstructor(Object.class,ArrayUtils.EMPTY_CLASS_ARRAY));
+    }
+
+    @Test
+    public void testGetAccessibleConstructorFromDescription_2_oe() {
+        // removed other assertion
+        assertNull(ConstructorUtils.getAccessibleConstructor(PrivateClass.class,ArrayUtils.EMPTY_CLASS_ARRAY));
+    }
+
+    @Test
+    public void testVarArgsUnboxing_1_oe() throws Exception {
+        final TestBean testBean = ConstructorUtils.invokeConstructor(
+                TestBean.class, Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(3));
+
+        assertArrayEquals(new String[]{"2", "3"}, testBean.varArgs);
     }
 
 }

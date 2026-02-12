@@ -1,4 +1,4 @@
-id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+id,test_prefix,test_name
 pool_10_1,"    @Test
     public void testClosedPoolBehavior_1_oe() throws Exception {
         final KeyedObjectPool<Object,Object> pool;
@@ -15,26 +15,11 @@ pool_10_1,"    @Test
 
         try {
     pool.addObject(KEY);
-    org.junit.jupiter.api.Assertions.fail(""IllegalStateException: A closed pool must throw an IllegalStateException when addObject is called."");
+    fail(""IllegalStateException: A closed pool must throw an IllegalStateException when addObject is called."");
 } catch (IllegalStateException e) {
 }
     }
-",TestKeyedObjectPool::testClosedPoolBehavior_1_oe,org.apache.commons.pool2.KeyedObjectPool,void addObject(K key),"/**
-     * Creates an object using the {@link KeyedPooledObjectFactory factory} or
-     * other implementation dependent mechanism, passivate it, and then place it
-     * in the idle object pool. {@code addObject} is useful for
-     * ""pre-loading"" a pool with idle objects (Optional operation).
-     *
-     * @param key the key a new instance should be added to
-     *
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject} fails.
-     * @throws IllegalStateException
-     *              after {@link #close} has been called on this pool.
-     * @throws UnsupportedOperationException
-     *              when this pool cannot add new idle objects.
-     */","void addObject(K key) throws Exception, IllegalStateException,
-            UnsupportedOperationException;"
+",TestKeyedObjectPool::testClosedPoolBehavior_1_oe
 pool_10_2,"    @Test
     public void testClosedPoolBehavior_2_oe() throws Exception {
         final KeyedObjectPool<Object,Object> pool;
@@ -53,46 +38,11 @@ pool_10_2,"    @Test
 
         try {
     pool.borrowObject(KEY);
-    org.junit.jupiter.api.Assertions.fail(""IllegalStateException: A closed pool must throw an IllegalStateException when borrowObject is called."");
+    fail(""IllegalStateException: A closed pool must throw an IllegalStateException when borrowObject is called."");
 } catch (IllegalStateException e) {
 }
     }
-",TestKeyedObjectPool::testClosedPoolBehavior_2_oe,org.apache.commons.pool2.KeyedObjectPool,borrowObject(K key),"/**
-     * Borrows an instance from this pool for the specified {@code key}.
-     * <p>
-     * Instances returned from this method will have been either newly created
-     * with {@link KeyedPooledObjectFactory#makeObject makeObject} or will be
-     * a previously idle object and have been activated with
-     * {@link KeyedPooledObjectFactory#activateObject activateObject} and then
-     * (optionally) validated with
-     * {@link KeyedPooledObjectFactory#validateObject validateObject}.
-     * </p>
-     * <p>
-     * By contract, clients <strong>must</strong> return the borrowed object
-     * using {@link #returnObject returnObject},
-     * {@link #invalidateObject invalidateObject}, or a related method as
-     * defined in an implementation or sub-interface, using a {@code key}
-     * that is {@link Object#equals equivalent} to the one used to borrow the
-     * instance in the first place.
-     * </p>
-     * <p>
-     * The behavior of this method when the pool has been exhausted is not
-     * strictly specified (although it may be specified by implementations).
-     * </p>
-     *
-     * @param key the key used to obtain the object
-     *
-     * @return an instance from this pool.
-     *
-     * @throws IllegalStateException
-     *              after {@link #close close} has been called on this pool
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject
-     *              makeObject} throws an exception
-     * @throws NoSuchElementException
-     *              when the pool is exhausted and cannot or will not return
-     *              another instance
-     */","V borrowObject(K key) throws Exception, NoSuchElementException, IllegalStateException;"
+",TestKeyedObjectPool::testClosedPoolBehavior_2_oe
 pool_11_2,"    @Test
     public void testKPOFAddObjectUsage_2_oe() throws Exception {
         final FailingKeyedPooledObjectFactory factory = new FailingKeyedPooledObjectFactory();
@@ -117,26 +67,11 @@ pool_11_2,"    @Test
         factory.setMakeObjectFail(true);
         try {
     pool.addObject(KEY);
-    org.junit.jupiter.api.Assertions.fail(""PrivateException: Expected addObject to propagate makeObject exception."");
+    fail(""PrivateException: Expected addObject to propagate makeObject exception."");
 } catch (PrivateException e) {
 }
     }
-",TestKeyedObjectPool::testKPOFAddObjectUsage_2_oe,org.apache.commons.pool2.KeyedObjectPool,void addObject(K key),"/**
-     * Creates an object using the {@link KeyedPooledObjectFactory factory} or
-     * other implementation dependent mechanism, passivate it, and then place it
-     * in the idle object pool. {@code addObject} is useful for
-     * ""pre-loading"" a pool with idle objects (Optional operation).
-     *
-     * @param key the key a new instance should be added to
-     *
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject} fails.
-     * @throws IllegalStateException
-     *              after {@link #close} has been called on this pool.
-     * @throws UnsupportedOperationException
-     *              when this pool cannot add new idle objects.
-     */","void addObject(K key) throws Exception, IllegalStateException,
-            UnsupportedOperationException;"
+",TestKeyedObjectPool::testKPOFAddObjectUsage_2_oe
 pool_11_4,"    @Test
     public void testKPOFAddObjectUsage_4_oe() throws Exception {
         final FailingKeyedPooledObjectFactory factory = new FailingKeyedPooledObjectFactory();
@@ -170,26 +105,11 @@ pool_11_4,"    @Test
         factory.setPassivateObjectFail(true);
         try {
     pool.addObject(KEY);
-    org.junit.jupiter.api.Assertions.fail(""PrivateException: Expected addObject to propagate passivateObject exception."");
+    fail(""PrivateException: Expected addObject to propagate passivateObject exception."");
 } catch (PrivateException e) {
 }
     }
-",TestKeyedObjectPool::testKPOFAddObjectUsage_4_oe,org.apache.commons.pool2.KeyedObjectPool,void addObject(K key),"/**
-     * Creates an object using the {@link KeyedPooledObjectFactory factory} or
-     * other implementation dependent mechanism, passivate it, and then place it
-     * in the idle object pool. {@code addObject} is useful for
-     * ""pre-loading"" a pool with idle objects (Optional operation).
-     *
-     * @param key the key a new instance should be added to
-     *
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject} fails.
-     * @throws IllegalStateException
-     *              after {@link #close} has been called on this pool.
-     * @throws UnsupportedOperationException
-     *              when this pool cannot add new idle objects.
-     */","void addObject(K key) throws Exception, IllegalStateException,
-            UnsupportedOperationException;"
+",TestKeyedObjectPool::testKPOFAddObjectUsage_4_oe
 pool_12_4,"    @Test
     public void testKPOFBorrowObjectUsages_4_oe() throws Exception {
         final FailingKeyedPooledObjectFactory factory = new FailingKeyedPooledObjectFactory();
@@ -241,46 +161,11 @@ pool_12_4,"    @Test
         expectedMethods.add(new MethodCall(""activateObject"", KEY, obj));
         try {
     pool.borrowObject(KEY);
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestKeyedObjectPool::testKPOFBorrowObjectUsages_4_oe,org.apache.commons.pool2.KeyedObjectPool,borrowObject(K key),"/**
-     * Borrows an instance from this pool for the specified {@code key}.
-     * <p>
-     * Instances returned from this method will have been either newly created
-     * with {@link KeyedPooledObjectFactory#makeObject makeObject} or will be
-     * a previously idle object and have been activated with
-     * {@link KeyedPooledObjectFactory#activateObject activateObject} and then
-     * (optionally) validated with
-     * {@link KeyedPooledObjectFactory#validateObject validateObject}.
-     * </p>
-     * <p>
-     * By contract, clients <strong>must</strong> return the borrowed object
-     * using {@link #returnObject returnObject},
-     * {@link #invalidateObject invalidateObject}, or a related method as
-     * defined in an implementation or sub-interface, using a {@code key}
-     * that is {@link Object#equals equivalent} to the one used to borrow the
-     * instance in the first place.
-     * </p>
-     * <p>
-     * The behavior of this method when the pool has been exhausted is not
-     * strictly specified (although it may be specified by implementations).
-     * </p>
-     *
-     * @param key the key used to obtain the object
-     *
-     * @return an instance from this pool.
-     *
-     * @throws IllegalStateException
-     *              after {@link #close close} has been called on this pool
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject
-     *              makeObject} throws an exception
-     * @throws NoSuchElementException
-     *              when the pool is exhausted and cannot or will not return
-     *              another instance
-     */","V borrowObject(K key) throws Exception, NoSuchElementException, IllegalStateException;"
+",TestKeyedObjectPool::testKPOFBorrowObjectUsages_4_oe
 pool_12_6,"    @Test
     public void testKPOFBorrowObjectUsages_6_oe() throws Exception {
         final FailingKeyedPooledObjectFactory factory = new FailingKeyedPooledObjectFactory();
@@ -348,46 +233,11 @@ pool_12_6,"    @Test
         // fails validation
         try {
     pool.borrowObject(KEY);
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestKeyedObjectPool::testKPOFBorrowObjectUsages_6_oe,org.apache.commons.pool2.KeyedObjectPool,borrowObject(K key),"/**
-     * Borrows an instance from this pool for the specified {@code key}.
-     * <p>
-     * Instances returned from this method will have been either newly created
-     * with {@link KeyedPooledObjectFactory#makeObject makeObject} or will be
-     * a previously idle object and have been activated with
-     * {@link KeyedPooledObjectFactory#activateObject activateObject} and then
-     * (optionally) validated with
-     * {@link KeyedPooledObjectFactory#validateObject validateObject}.
-     * </p>
-     * <p>
-     * By contract, clients <strong>must</strong> return the borrowed object
-     * using {@link #returnObject returnObject},
-     * {@link #invalidateObject invalidateObject}, or a related method as
-     * defined in an implementation or sub-interface, using a {@code key}
-     * that is {@link Object#equals equivalent} to the one used to borrow the
-     * instance in the first place.
-     * </p>
-     * <p>
-     * The behavior of this method when the pool has been exhausted is not
-     * strictly specified (although it may be specified by implementations).
-     * </p>
-     *
-     * @param key the key used to obtain the object
-     *
-     * @return an instance from this pool.
-     *
-     * @throws IllegalStateException
-     *              after {@link #close close} has been called on this pool
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject
-     *              makeObject} throws an exception
-     * @throws NoSuchElementException
-     *              when the pool is exhausted and cannot or will not return
-     *              another instance
-     */","V borrowObject(K key) throws Exception, NoSuchElementException, IllegalStateException;"
+",TestKeyedObjectPool::testKPOFBorrowObjectUsages_6_oe
 pool_13_2,"    @Test
     public void testKPOFInvalidateObjectUsages_2_oe() throws Exception {
         final FailingKeyedPooledObjectFactory factory = new FailingKeyedPooledObjectFactory();
@@ -417,195 +267,49 @@ pool_13_2,"    @Test
         factory.setDestroyObjectFail(true);
         try {
     pool.invalidateObject(KEY, obj2);
-    org.junit.jupiter.api.Assertions.fail(""PrivateException: Expecting destroy exception to propagate"");
+    fail(""PrivateException: Expecting destroy exception to propagate"");
 } catch (PrivateException e) {
 }
     }
-",TestKeyedObjectPool::testKPOFInvalidateObjectUsages_2_oe,org.apache.commons.pool2.KeyedObjectPool,"void invalidateObject(K key, V obj)","/**
-     * Invalidates an object from the pool.
-     * <p>
-     * By contract, {@code obj} <strong>must</strong> have been obtained
-     * using {@link #borrowObject borrowObject} or a related method as defined
-     * in an implementation or sub-interface using a {@code key} that is
-     * equivalent to the one used to borrow the {@code Object} in the first
-     * place.
-     * </p>
-     * <p>
-     * This method should be used when an object that has been borrowed is
-     * determined (due to an exception or other problem) to be invalid.
-     * </p>
-     *
-     * @param key the key used to obtain the object
-     * @param obj a {@link #borrowObject borrowed} instance to be returned.
-     *
-     * @throws Exception if the instance cannot be invalidated
-     */","void invalidateObject(K key, V obj) throws Exception;"
+",TestKeyedObjectPool::testKPOFInvalidateObjectUsages_2_oe
 pool_17_1,"    @Test
     public void testCheckMinIdleKeyedObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.checkMinIdle(null, new Object(), 1, 1);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.checkMinIdle(KeyedObjectPool,Object,int,long) must not allow null pool."");
+    fail(""IllegalArgumentException: PoolUtils.checkMinIdle(KeyedObjectPool,Object,int,long) must not allow null pool."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testCheckMinIdleKeyedObjectPool_1_oe,org.apache.commons.pool2.PoolUtils,"checkMinIdle(
-            final KeyedObjectPool<K, V> keyedPool, final Collection<K> keys,
-            final int minIdle, final long periodMillis)","/**
-     * Periodically check the idle object count for each key in the
-     * {@code Collection keys} in the keyedPool. At most one idle object will be
-     * added per period.
-     *
-     * @param keyedPool
-     *            the keyedPool to check periodically.
-     * @param keys
-     *            a collection of keys to check the idle object count.
-     * @param minIdle
-     *            if the {@link KeyedObjectPool#getNumIdle(Object)} is less than
-     *            this then add an idle object.
-     * @param periodMillis
-     *            the frequency in milliseconds to check the number of idle objects in a
-     *            keyedPool, see {@link Timer#schedule(TimerTask, long, long)}.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @return a {@link Map} of key and {@link TimerTask} pairs that will
-     *         periodically check the pools idle object count.
-     * @throws IllegalArgumentException
-     *             when {@code keyedPool}, {@code keys}, or any of the values in
-     *             the collection is {@code null} or when {@code minIdle} is
-     *             negative or when {@code period} isn't valid for
-     *             {@link Timer#schedule(TimerTask, long, long)}.
-     * @see #checkMinIdle(KeyedObjectPool, Object, int, long)
-     */","public static <K, V> Map<K, TimerTask> checkMinIdle(
-            final KeyedObjectPool<K, V> keyedPool, final Collection<K> keys,
-            final int minIdle, final long periodMillis)
-            throws IllegalArgumentException {
-        if (keys == null) {
-            throw new IllegalArgumentException(MSG_NULL_KEYS);
-        }
-        final Map<K, TimerTask> tasks = new HashMap<>(keys.size());
-        final Iterator<K> iter = keys.iterator();
-        while (iter.hasNext()) {
-            final K key = iter.next();
-            final TimerTask task = checkMinIdle(keyedPool, key, minIdle, periodMillis);
-            tasks.put(key, task);
-        }
-        return tasks;
-    }"
+",TestPoolUtils::testCheckMinIdleKeyedObjectPool_1_oe
 pool_20_1,"    @Test
     public void testCheckMinIdleObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.checkMinIdle(null, 1, 1);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.checkMinIdle(ObjectPool,,) must not allow null pool."");
+    fail(""IllegalArgumentException: PoolUtils.checkMinIdle(ObjectPool,,) must not allow null pool."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testCheckMinIdleObjectPool_1_oe,org.apache.commons.pool2.PoolUtils,"checkMinIdle(
-            final KeyedObjectPool<K, V> keyedPool, final Collection<K> keys,
-            final int minIdle, final long periodMillis)","/**
-     * Periodically check the idle object count for each key in the
-     * {@code Collection keys} in the keyedPool. At most one idle object will be
-     * added per period.
-     *
-     * @param keyedPool
-     *            the keyedPool to check periodically.
-     * @param keys
-     *            a collection of keys to check the idle object count.
-     * @param minIdle
-     *            if the {@link KeyedObjectPool#getNumIdle(Object)} is less than
-     *            this then add an idle object.
-     * @param periodMillis
-     *            the frequency in milliseconds to check the number of idle objects in a
-     *            keyedPool, see {@link Timer#schedule(TimerTask, long, long)}.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @return a {@link Map} of key and {@link TimerTask} pairs that will
-     *         periodically check the pools idle object count.
-     * @throws IllegalArgumentException
-     *             when {@code keyedPool}, {@code keys}, or any of the values in
-     *             the collection is {@code null} or when {@code minIdle} is
-     *             negative or when {@code period} isn't valid for
-     *             {@link Timer#schedule(TimerTask, long, long)}.
-     * @see #checkMinIdle(KeyedObjectPool, Object, int, long)
-     */","public static <K, V> Map<K, TimerTask> checkMinIdle(
-            final KeyedObjectPool<K, V> keyedPool, final Collection<K> keys,
-            final int minIdle, final long periodMillis)
-            throws IllegalArgumentException {
-        if (keys == null) {
-            throw new IllegalArgumentException(MSG_NULL_KEYS);
-        }
-        final Map<K, TimerTask> tasks = new HashMap<>(keys.size());
-        final Iterator<K> iter = keys.iterator();
-        while (iter.hasNext()) {
-            final K key = iter.next();
-            final TimerTask task = checkMinIdle(keyedPool, key, minIdle, periodMillis);
-            tasks.put(key, task);
-        }
-        return tasks;
-    }"
+",TestPoolUtils::testCheckMinIdleObjectPool_1_oe
 pool_23_1,"    @Test
     public void testErodingPerKeyKeyedObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null, 1f, true);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool) must not allow a null pool."");
+    fail(""IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool) must not allow a null pool."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testErodingPerKeyKeyedObjectPool_1_oe,org.apache.commons.pool2.PoolUtils,"erodingPool(
-            final KeyedObjectPool<K, V> keyedPool)","/**
-     * Returns a pool that adaptively decreases its size when idle objects are
-     * no longer needed. This is intended as an always thread-safe alternative
-     * to using an idle object evictor provided by many pool implementations.
-     * This is also an effective way to shrink FIFO ordered pools that
-     * experience load spikes.
-     *
-     * @param keyedPool
-     *            the KeyedObjectPool to be decorated so it shrinks its idle
-     *            count when possible.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @throws IllegalArgumentException
-     *             when {@code keyedPool} is {@code null}.
-     * @return a pool that adaptively decreases its size when idle objects are
-     *         no longer needed.
-     * @see #erodingPool(KeyedObjectPool, float)
-     * @see #erodingPool(KeyedObjectPool, float, boolean)
-     */","public static <K, V> KeyedObjectPool<K, V> erodingPool(
-            final KeyedObjectPool<K, V> keyedPool) {
-        return erodingPool(keyedPool, 1f);
-    }"
+",TestPoolUtils::testErodingPerKeyKeyedObjectPool_1_oe
 pool_23_2,"    @Test
     public void testErodingPerKeyKeyedObjectPool_2_oe() throws Exception {
         // removed other assertion
 
         try {
     PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null, 0f, true);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float, boolean) must not allow a non-positive factor."");
+    fail(""IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float, boolean) must not allow a non-positive factor."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testErodingPerKeyKeyedObjectPool_2_oe,org.apache.commons.pool2.PoolUtils,"erodingPool(
-            final KeyedObjectPool<K, V> keyedPool)","/**
-     * Returns a pool that adaptively decreases its size when idle objects are
-     * no longer needed. This is intended as an always thread-safe alternative
-     * to using an idle object evictor provided by many pool implementations.
-     * This is also an effective way to shrink FIFO ordered pools that
-     * experience load spikes.
-     *
-     * @param keyedPool
-     *            the KeyedObjectPool to be decorated so it shrinks its idle
-     *            count when possible.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @throws IllegalArgumentException
-     *             when {@code keyedPool} is {@code null}.
-     * @return a pool that adaptively decreases its size when idle objects are
-     *         no longer needed.
-     * @see #erodingPool(KeyedObjectPool, float)
-     * @see #erodingPool(KeyedObjectPool, float, boolean)
-     */","public static <K, V> KeyedObjectPool<K, V> erodingPool(
-            final KeyedObjectPool<K, V> keyedPool) {
-        return erodingPool(keyedPool, 1f);
-    }"
+",TestPoolUtils::testErodingPerKeyKeyedObjectPool_2_oe
 pool_23_3,"    @Test
     public void testErodingPerKeyKeyedObjectPool_3_oe() throws Exception {
         // removed other assertion
@@ -614,97 +318,31 @@ pool_23_3,"    @Test
 
         try {
     PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null, 1f, true);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool, float, boolean) must not allow a null pool."");
+    fail(""IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool, float, boolean) must not allow a null pool."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testErodingPerKeyKeyedObjectPool_3_oe,org.apache.commons.pool2.PoolUtils,"erodingPool(
-            final KeyedObjectPool<K, V> keyedPool)","/**
-     * Returns a pool that adaptively decreases its size when idle objects are
-     * no longer needed. This is intended as an always thread-safe alternative
-     * to using an idle object evictor provided by many pool implementations.
-     * This is also an effective way to shrink FIFO ordered pools that
-     * experience load spikes.
-     *
-     * @param keyedPool
-     *            the KeyedObjectPool to be decorated so it shrinks its idle
-     *            count when possible.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @throws IllegalArgumentException
-     *             when {@code keyedPool} is {@code null}.
-     * @return a pool that adaptively decreases its size when idle objects are
-     *         no longer needed.
-     * @see #erodingPool(KeyedObjectPool, float)
-     * @see #erodingPool(KeyedObjectPool, float, boolean)
-     */","public static <K, V> KeyedObjectPool<K, V> erodingPool(
-            final KeyedObjectPool<K, V> keyedPool) {
-        return erodingPool(keyedPool, 1f);
-    }"
+",TestPoolUtils::testErodingPerKeyKeyedObjectPool_3_oe
 pool_24_1,"    @Test
     public void testErodingPoolKeyedObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool) must not allow a null pool."");
+    fail(""IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool) must not allow a null pool."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testErodingPoolKeyedObjectPool_1_oe,org.apache.commons.pool2.PoolUtils,"erodingPool(
-            final KeyedObjectPool<K, V> keyedPool)","/**
-     * Returns a pool that adaptively decreases its size when idle objects are
-     * no longer needed. This is intended as an always thread-safe alternative
-     * to using an idle object evictor provided by many pool implementations.
-     * This is also an effective way to shrink FIFO ordered pools that
-     * experience load spikes.
-     *
-     * @param keyedPool
-     *            the KeyedObjectPool to be decorated so it shrinks its idle
-     *            count when possible.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @throws IllegalArgumentException
-     *             when {@code keyedPool} is {@code null}.
-     * @return a pool that adaptively decreases its size when idle objects are
-     *         no longer needed.
-     * @see #erodingPool(KeyedObjectPool, float)
-     * @see #erodingPool(KeyedObjectPool, float, boolean)
-     */","public static <K, V> KeyedObjectPool<K, V> erodingPool(
-            final KeyedObjectPool<K, V> keyedPool) {
-        return erodingPool(keyedPool, 1f);
-    }"
+",TestPoolUtils::testErodingPoolKeyedObjectPool_1_oe
 pool_24_2,"    @Test
     public void testErodingPoolKeyedObjectPool_2_oe() throws Exception {
         // removed other assertion
 
         try {
     PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null, 1f);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool, float) must not allow a null pool."");
+    fail(""IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool, float) must not allow a null pool."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testErodingPoolKeyedObjectPool_2_oe,org.apache.commons.pool2.PoolUtils,"erodingPool(
-            final KeyedObjectPool<K, V> keyedPool)","/**
-     * Returns a pool that adaptively decreases its size when idle objects are
-     * no longer needed. This is intended as an always thread-safe alternative
-     * to using an idle object evictor provided by many pool implementations.
-     * This is also an effective way to shrink FIFO ordered pools that
-     * experience load spikes.
-     *
-     * @param keyedPool
-     *            the KeyedObjectPool to be decorated so it shrinks its idle
-     *            count when possible.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @throws IllegalArgumentException
-     *             when {@code keyedPool} is {@code null}.
-     * @return a pool that adaptively decreases its size when idle objects are
-     *         no longer needed.
-     * @see #erodingPool(KeyedObjectPool, float)
-     * @see #erodingPool(KeyedObjectPool, float, boolean)
-     */","public static <K, V> KeyedObjectPool<K, V> erodingPool(
-            final KeyedObjectPool<K, V> keyedPool) {
-        return erodingPool(keyedPool, 1f);
-    }"
+",TestPoolUtils::testErodingPoolKeyedObjectPool_2_oe
 pool_24_3,"    @Test
     public void testErodingPoolKeyedObjectPool_3_oe() throws Exception {
         // removed other assertion
@@ -713,33 +351,11 @@ pool_24_3,"    @Test
 
         try {
     PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null, 1f, true);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool, float, boolean) must not allow a null pool."");
+    fail(""IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool, float, boolean) must not allow a null pool."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testErodingPoolKeyedObjectPool_3_oe,org.apache.commons.pool2.PoolUtils,"erodingPool(
-            final KeyedObjectPool<K, V> keyedPool)","/**
-     * Returns a pool that adaptively decreases its size when idle objects are
-     * no longer needed. This is intended as an always thread-safe alternative
-     * to using an idle object evictor provided by many pool implementations.
-     * This is also an effective way to shrink FIFO ordered pools that
-     * experience load spikes.
-     *
-     * @param keyedPool
-     *            the KeyedObjectPool to be decorated so it shrinks its idle
-     *            count when possible.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @throws IllegalArgumentException
-     *             when {@code keyedPool} is {@code null}.
-     * @return a pool that adaptively decreases its size when idle objects are
-     *         no longer needed.
-     * @see #erodingPool(KeyedObjectPool, float)
-     * @see #erodingPool(KeyedObjectPool, float, boolean)
-     */","public static <K, V> KeyedObjectPool<K, V> erodingPool(
-            final KeyedObjectPool<K, V> keyedPool) {
-        return erodingPool(keyedPool, 1f);
-    }"
+",TestPoolUtils::testErodingPoolKeyedObjectPool_3_oe
 pool_24_4,"    @Test
     public void testErodingPoolKeyedObjectPool_4_oe() throws Exception {
         // removed other assertion
@@ -763,33 +379,11 @@ pool_24_4,"    @Test
 
         try {
     PoolUtils.erodingPool(createProxy(KeyedObjectPool.class, handler), 0f);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float) must not allow a non-positive factor."");
+    fail(""IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float) must not allow a non-positive factor."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testErodingPoolKeyedObjectPool_4_oe,org.apache.commons.pool2.PoolUtils,"erodingPool(
-            final KeyedObjectPool<K, V> keyedPool)","/**
-     * Returns a pool that adaptively decreases its size when idle objects are
-     * no longer needed. This is intended as an always thread-safe alternative
-     * to using an idle object evictor provided by many pool implementations.
-     * This is also an effective way to shrink FIFO ordered pools that
-     * experience load spikes.
-     *
-     * @param keyedPool
-     *            the KeyedObjectPool to be decorated so it shrinks its idle
-     *            count when possible.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @throws IllegalArgumentException
-     *             when {@code keyedPool} is {@code null}.
-     * @return a pool that adaptively decreases its size when idle objects are
-     *         no longer needed.
-     * @see #erodingPool(KeyedObjectPool, float)
-     * @see #erodingPool(KeyedObjectPool, float, boolean)
-     */","public static <K, V> KeyedObjectPool<K, V> erodingPool(
-            final KeyedObjectPool<K, V> keyedPool) {
-        return erodingPool(keyedPool, 1f);
-    }"
+",TestPoolUtils::testErodingPoolKeyedObjectPool_4_oe
 pool_24_5,"    @Test
     public void testErodingPoolKeyedObjectPool_5_oe() throws Exception {
         // removed other assertion
@@ -815,97 +409,31 @@ pool_24_5,"    @Test
 
         try {
     PoolUtils.erodingPool(createProxy(KeyedObjectPool.class, handler), 0f, false);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float, boolean) must not allow a non-positive factor."");
+    fail(""IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float, boolean) must not allow a non-positive factor."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testErodingPoolKeyedObjectPool_5_oe,org.apache.commons.pool2.PoolUtils,"erodingPool(
-            final KeyedObjectPool<K, V> keyedPool)","/**
-     * Returns a pool that adaptively decreases its size when idle objects are
-     * no longer needed. This is intended as an always thread-safe alternative
-     * to using an idle object evictor provided by many pool implementations.
-     * This is also an effective way to shrink FIFO ordered pools that
-     * experience load spikes.
-     *
-     * @param keyedPool
-     *            the KeyedObjectPool to be decorated so it shrinks its idle
-     *            count when possible.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @throws IllegalArgumentException
-     *             when {@code keyedPool} is {@code null}.
-     * @return a pool that adaptively decreases its size when idle objects are
-     *         no longer needed.
-     * @see #erodingPool(KeyedObjectPool, float)
-     * @see #erodingPool(KeyedObjectPool, float, boolean)
-     */","public static <K, V> KeyedObjectPool<K, V> erodingPool(
-            final KeyedObjectPool<K, V> keyedPool) {
-        return erodingPool(keyedPool, 1f);
-    }"
+",TestPoolUtils::testErodingPoolKeyedObjectPool_5_oe
 pool_26_1,"    @Test
     public void testErodingPoolObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.erodingPool((ObjectPool<Object>) null);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.erodingPool(ObjectPool) must not allow a null pool."");
+    fail(""IllegalArgumentException: PoolUtils.erodingPool(ObjectPool) must not allow a null pool."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testErodingPoolObjectPool_1_oe,org.apache.commons.pool2.PoolUtils,"erodingPool(
-            final KeyedObjectPool<K, V> keyedPool)","/**
-     * Returns a pool that adaptively decreases its size when idle objects are
-     * no longer needed. This is intended as an always thread-safe alternative
-     * to using an idle object evictor provided by many pool implementations.
-     * This is also an effective way to shrink FIFO ordered pools that
-     * experience load spikes.
-     *
-     * @param keyedPool
-     *            the KeyedObjectPool to be decorated so it shrinks its idle
-     *            count when possible.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @throws IllegalArgumentException
-     *             when {@code keyedPool} is {@code null}.
-     * @return a pool that adaptively decreases its size when idle objects are
-     *         no longer needed.
-     * @see #erodingPool(KeyedObjectPool, float)
-     * @see #erodingPool(KeyedObjectPool, float, boolean)
-     */","public static <K, V> KeyedObjectPool<K, V> erodingPool(
-            final KeyedObjectPool<K, V> keyedPool) {
-        return erodingPool(keyedPool, 1f);
-    }"
+",TestPoolUtils::testErodingPoolObjectPool_1_oe
 pool_26_2,"    @Test
     public void testErodingPoolObjectPool_2_oe() throws Exception {
         // removed other assertion
 
         try {
     PoolUtils.erodingPool((ObjectPool<Object>) null, 1f);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float) must not allow a null pool."");
+    fail(""IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float) must not allow a null pool."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testErodingPoolObjectPool_2_oe,org.apache.commons.pool2.PoolUtils,"erodingPool(
-            final KeyedObjectPool<K, V> keyedPool)","/**
-     * Returns a pool that adaptively decreases its size when idle objects are
-     * no longer needed. This is intended as an always thread-safe alternative
-     * to using an idle object evictor provided by many pool implementations.
-     * This is also an effective way to shrink FIFO ordered pools that
-     * experience load spikes.
-     *
-     * @param keyedPool
-     *            the KeyedObjectPool to be decorated so it shrinks its idle
-     *            count when possible.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @throws IllegalArgumentException
-     *             when {@code keyedPool} is {@code null}.
-     * @return a pool that adaptively decreases its size when idle objects are
-     *         no longer needed.
-     * @see #erodingPool(KeyedObjectPool, float)
-     * @see #erodingPool(KeyedObjectPool, float, boolean)
-     */","public static <K, V> KeyedObjectPool<K, V> erodingPool(
-            final KeyedObjectPool<K, V> keyedPool) {
-        return erodingPool(keyedPool, 1f);
-    }"
+",TestPoolUtils::testErodingPoolObjectPool_2_oe
 pool_26_3,"    @Test
     public void testErodingPoolObjectPool_3_oe() throws Exception {
         // removed other assertion
@@ -927,236 +455,65 @@ pool_26_3,"    @Test
 
         try {
     PoolUtils.erodingPool(createProxy(ObjectPool.class, handler), -1f);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float) must not allow a non-positive factor."");
+    fail(""IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float) must not allow a non-positive factor."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testErodingPoolObjectPool_3_oe,org.apache.commons.pool2.PoolUtils,"erodingPool(
-            final KeyedObjectPool<K, V> keyedPool)","/**
-     * Returns a pool that adaptively decreases its size when idle objects are
-     * no longer needed. This is intended as an always thread-safe alternative
-     * to using an idle object evictor provided by many pool implementations.
-     * This is also an effective way to shrink FIFO ordered pools that
-     * experience load spikes.
-     *
-     * @param keyedPool
-     *            the KeyedObjectPool to be decorated so it shrinks its idle
-     *            count when possible.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @throws IllegalArgumentException
-     *             when {@code keyedPool} is {@code null}.
-     * @return a pool that adaptively decreases its size when idle objects are
-     *         no longer needed.
-     * @see #erodingPool(KeyedObjectPool, float)
-     * @see #erodingPool(KeyedObjectPool, float, boolean)
-     */","public static <K, V> KeyedObjectPool<K, V> erodingPool(
-            final KeyedObjectPool<K, V> keyedPool) {
-        return erodingPool(keyedPool, 1f);
-    }"
+",TestPoolUtils::testErodingPoolObjectPool_3_oe
 pool_28_1,"    @Test
     public void testPrefillKeyedObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.prefill(null, new Object(), 1);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.prefill(KeyedObjectPool,Object,int) must not accept null pool."");
+    fail(""IllegalArgumentException: PoolUtils.prefill(KeyedObjectPool,Object,int) must not accept null pool."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testPrefillKeyedObjectPool_1_oe,org.apache.commons.pool2.PoolUtils,"void prefill(final KeyedObjectPool<K, V> keyedPool,
-            final Collection<K> keys, final int count)","/**
-     * Calls {@link KeyedObjectPool#addObject(Object)} on {@code keyedPool} with
-     * each key in {@code keys} for {@code count} number of times. This has
-     * the same effect as calling {@link #prefill(KeyedObjectPool, Object, int)}
-     * for each key in the {@code keys} collection.
-     *
-     * @param keyedPool
-     *            the keyedPool to prefill.
-     * @param keys
-     *            {@link Collection} of keys to add objects for.
-     * @param count
-     *            the number of idle objects to add for each {@code key}.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @throws Exception
-     *             when {@link KeyedObjectPool#addObject(Object)} fails.
-     * @throws IllegalArgumentException
-     *             when {@code keyedPool}, {@code keys}, or any value in
-     *             {@code keys} is {@code null}.
-     * @see #prefill(KeyedObjectPool, Object, int)
-     * @deprecated Use {@link KeyedObjectPool#addObjects(Collection, int)}.
-     */","@Deprecated
-    public static <K, V> void prefill(final KeyedObjectPool<K, V> keyedPool,
-            final Collection<K> keys, final int count) throws Exception,
-            IllegalArgumentException {
-        if (keys == null) {
-            throw new IllegalArgumentException(MSG_NULL_KEYS);
-        }
-        keyedPool.addObjects(keys, count);
-    }"
+",TestPoolUtils::testPrefillKeyedObjectPool_1_oe
 pool_30_1,"    @Test
     public void testPrefillObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.prefill(null, 1);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.prefill(ObjectPool,int) must not allow null pool."");
+    fail(""IllegalArgumentException: PoolUtils.prefill(ObjectPool,int) must not allow null pool."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testPrefillObjectPool_1_oe,org.apache.commons.pool2.PoolUtils,"void prefill(final KeyedObjectPool<K, V> keyedPool,
-            final Collection<K> keys, final int count)","/**
-     * Calls {@link KeyedObjectPool#addObject(Object)} on {@code keyedPool} with
-     * each key in {@code keys} for {@code count} number of times. This has
-     * the same effect as calling {@link #prefill(KeyedObjectPool, Object, int)}
-     * for each key in the {@code keys} collection.
-     *
-     * @param keyedPool
-     *            the keyedPool to prefill.
-     * @param keys
-     *            {@link Collection} of keys to add objects for.
-     * @param count
-     *            the number of idle objects to add for each {@code key}.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @throws Exception
-     *             when {@link KeyedObjectPool#addObject(Object)} fails.
-     * @throws IllegalArgumentException
-     *             when {@code keyedPool}, {@code keys}, or any value in
-     *             {@code keys} is {@code null}.
-     * @see #prefill(KeyedObjectPool, Object, int)
-     * @deprecated Use {@link KeyedObjectPool#addObjects(Collection, int)}.
-     */","@Deprecated
-    public static <K, V> void prefill(final KeyedObjectPool<K, V> keyedPool,
-            final Collection<K> keys, final int count) throws Exception,
-            IllegalArgumentException {
-        if (keys == null) {
-            throw new IllegalArgumentException(MSG_NULL_KEYS);
-        }
-        keyedPool.addObjects(keys, count);
-    }"
+",TestPoolUtils::testPrefillObjectPool_1_oe
 pool_31_1,"    @Test
     public void testSynchronizedPoolableFactoryKeyedPoolableObjectFactory_1_oe() throws Exception {
         try {
     PoolUtils.synchronizedKeyedPooledFactory((KeyedPooledObjectFactory<Object, Object>) null);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.synchronizedPoolableFactory(KeyedPoolableObjectFactory) must not allow a null factory."");
+    fail(""IllegalArgumentException: PoolUtils.synchronizedPoolableFactory(KeyedPoolableObjectFactory) must not allow a null factory."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testSynchronizedPoolableFactoryKeyedPoolableObjectFactory_1_oe,org.apache.commons.pool2.PoolUtils,"synchronizedKeyedPooledFactory(
-            final KeyedPooledObjectFactory<K, V> keyedFactory)","/**
-     * Returns a synchronized (thread-safe) KeyedPooledObjectFactory backed by
-     * the specified KeyedPoolableObjectFactory.
-     *
-     * @param keyedFactory
-     *            the KeyedPooledObjectFactory to be ""wrapped"" in a
-     *            synchronized KeyedPooledObjectFactory.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @return a synchronized view of the specified KeyedPooledObjectFactory.
-     */","public static <K, V> KeyedPooledObjectFactory<K, V> synchronizedKeyedPooledFactory(
-            final KeyedPooledObjectFactory<K, V> keyedFactory) {
-        return new SynchronizedKeyedPooledObjectFactory<>(keyedFactory);
-    }"
+",TestPoolUtils::testSynchronizedPoolableFactoryKeyedPoolableObjectFactory_1_oe
 pool_32_1,"    @Test
     public void testSynchronizedPoolableFactoryPoolableObjectFactory_1_oe() throws Exception {
         try {
     PoolUtils.synchronizedPooledFactory((PooledObjectFactory<Object>) null);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.synchronizedPoolableFactory(PoolableObjectFactory) must not allow a null factory."");
+    fail(""IllegalArgumentException: PoolUtils.synchronizedPoolableFactory(PoolableObjectFactory) must not allow a null factory."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testSynchronizedPoolableFactoryPoolableObjectFactory_1_oe,org.apache.commons.pool2.PoolUtils,"synchronizedPooledFactory(
-            final PooledObjectFactory<T> factory)","/**
-     * Returns a synchronized (thread-safe) PooledObjectFactory backed by the
-     * specified PooledObjectFactory.
-     *
-     * @param factory
-     *            the PooledObjectFactory to be ""wrapped"" in a synchronized
-     *            PooledObjectFactory.
-     * @param <T> the type of objects in the pool
-     * @return a synchronized view of the specified PooledObjectFactory.
-     */","public static <T> PooledObjectFactory<T> synchronizedPooledFactory(
-            final PooledObjectFactory<T> factory) {
-        return new SynchronizedPooledObjectFactory<>(factory);
-    }"
+",TestPoolUtils::testSynchronizedPoolableFactoryPoolableObjectFactory_1_oe
 pool_33_1,"    @Test
     public void testSynchronizedPoolKeyedObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.synchronizedPool((KeyedObjectPool<Object, Object>) null);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.synchronizedPool(KeyedObjectPool) must not allow a null pool."");
+    fail(""IllegalArgumentException: PoolUtils.synchronizedPool(KeyedObjectPool) must not allow a null pool."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testSynchronizedPoolKeyedObjectPool_1_oe,org.apache.commons.pool2.PoolUtils,"synchronizedPool(
-            final KeyedObjectPool<K, V> keyedPool)","/**
-     * Returns a synchronized (thread-safe) KeyedObjectPool backed by the
-     * specified KeyedObjectPool.
-     * <p>
-     * <b>Note:</b> This should not be used on pool implementations that already
-     * provide proper synchronization such as the pools provided in the Commons
-     * Pool library. Wrapping a pool that {@link #wait() waits} for poolable
-     * objects to be returned before allowing another one to be borrowed with
-     * another layer of synchronization will cause liveliness issues or a
-     * deadlock.
-     * </p>
-     *
-     * @param keyedPool
-     *            the KeyedObjectPool to be ""wrapped"" in a synchronized
-     *            KeyedObjectPool.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @return a synchronized view of the specified KeyedObjectPool.
-     */","public static <K, V> KeyedObjectPool<K, V> synchronizedPool(
-            final KeyedObjectPool<K, V> keyedPool) {
-        /*
-         * assert !(keyedPool instanceof GenericKeyedObjectPool) :
-         * ""GenericKeyedObjectPool is already thread-safe""; assert !(keyedPool
-         * instanceof StackKeyedObjectPool) :
-         * ""StackKeyedObjectPool is already thread-safe""; assert
-         * !""org.apache.commons.pool.composite.CompositeKeyedObjectPool""
-         * .equals(keyedPool.getClass().getName()) :
-         * ""CompositeKeyedObjectPools are already thread-safe"";
-         */
-        return new SynchronizedKeyedObjectPool<>(keyedPool);
-    }"
+",TestPoolUtils::testSynchronizedPoolKeyedObjectPool_1_oe
 pool_34_1,"    @Test
     public void testSynchronizedPoolObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.synchronizedPool((ObjectPool<Object>) null);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: PoolUtils.synchronizedPool(ObjectPool) must not allow a null pool."");
+    fail(""IllegalArgumentException: PoolUtils.synchronizedPool(ObjectPool) must not allow a null pool."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestPoolUtils::testSynchronizedPoolObjectPool_1_oe,org.apache.commons.pool2.PoolUtils,"synchronizedPool(
-            final KeyedObjectPool<K, V> keyedPool)","/**
-     * Returns a synchronized (thread-safe) KeyedObjectPool backed by the
-     * specified KeyedObjectPool.
-     * <p>
-     * <b>Note:</b> This should not be used on pool implementations that already
-     * provide proper synchronization such as the pools provided in the Commons
-     * Pool library. Wrapping a pool that {@link #wait() waits} for poolable
-     * objects to be returned before allowing another one to be borrowed with
-     * another layer of synchronization will cause liveliness issues or a
-     * deadlock.
-     * </p>
-     *
-     * @param keyedPool
-     *            the KeyedObjectPool to be ""wrapped"" in a synchronized
-     *            KeyedObjectPool.
-     * @param <K> the type of the pool key
-     * @param <V> the type of pool entries
-     * @return a synchronized view of the specified KeyedObjectPool.
-     */","public static <K, V> KeyedObjectPool<K, V> synchronizedPool(
-            final KeyedObjectPool<K, V> keyedPool) {
-        /*
-         * assert !(keyedPool instanceof GenericKeyedObjectPool) :
-         * ""GenericKeyedObjectPool is already thread-safe""; assert !(keyedPool
-         * instanceof StackKeyedObjectPool) :
-         * ""StackKeyedObjectPool is already thread-safe""; assert
-         * !""org.apache.commons.pool.composite.CompositeKeyedObjectPool""
-         * .equals(keyedPool.getClass().getName()) :
-         * ""CompositeKeyedObjectPools are already thread-safe"";
-         */
-        return new SynchronizedKeyedObjectPool<>(keyedPool);
-    }"
+",TestPoolUtils::testSynchronizedPoolObjectPool_1_oe
 pool_37_1,"    @Test
     public void testClosedPoolBehavior_1_oe() throws Exception {
         final ObjectPool<Object> pool;
@@ -1170,19 +527,13 @@ pool_37_1,"    @Test
 
         pool.close();
 
-        assertThrows(IllegalStateException.class, pool::addObject, ""A closed pool must throw an IllegalStateException when addObject is called."");
+        try {
+    pool.addObject();
+    fail(""IllegalStateException: A closed pool must throw an IllegalStateException when addObject is called."");
+} catch (IllegalStateException e) {
+}
     }
-",TestObjectPool::testClosedPoolBehavior_1_oe,org.apache.commons.pool2.ObjectPool,void close(),"/**
-     * Closes this pool, and free any resources associated with it.
-     * <p>
-     * Calling {@link #addObject} or {@link #borrowObject} after invoking this
-     * method on a pool will cause them to throw an {@link IllegalStateException}.
-     * </p>
-     * <p>
-     * Implementations should silently fail if not all resources can be freed.
-     * </p>
-     */","@Override
-    void close();"
+",TestObjectPool::testClosedPoolBehavior_1_oe
 pool_37_2,"    @Test
     public void testClosedPoolBehavior_2_oe() throws Exception {
         final ObjectPool<Object> pool;
@@ -1198,19 +549,13 @@ pool_37_2,"    @Test
 
         // removed other assertion
 
-        assertThrows(IllegalStateException.class, pool::borrowObject, ""A closed pool must throw an IllegalStateException when borrowObject is called."");
+        try {
+    pool.borrowObject();
+    fail(""IllegalStateException: A closed pool must throw an IllegalStateException when borrowObject is called."");
+} catch (IllegalStateException e) {
+}
     }
-",TestObjectPool::testClosedPoolBehavior_2_oe,org.apache.commons.pool2.ObjectPool,void close(),"/**
-     * Closes this pool, and free any resources associated with it.
-     * <p>
-     * Calling {@link #addObject} or {@link #borrowObject} after invoking this
-     * method on a pool will cause them to throw an {@link IllegalStateException}.
-     * </p>
-     * <p>
-     * Implementations should silently fail if not all resources can be freed.
-     * </p>
-     */","@Override
-    void close();"
+",TestObjectPool::testClosedPoolBehavior_2_oe
 pool_38_6,"    @Test
     public void testPOFAddObjectUsage_6_oe() throws Exception {
         final MethodCallPoolableObjectFactory factory = new MethodCallPoolableObjectFactory();
@@ -1242,11 +587,13 @@ pool_38_6,"    @Test
 
         // makeObject Exceptions should be propagated to client code from addObject
         factory.setMakeObjectFail(true);
-        assertThrows(PrivateException.class, pool::addObject, ""Expected addObject to propagate makeObject exception."");
+        try {
+    pool.addObject();
+    fail(""PrivateException: Expected addObject to propagate makeObject exception."");
+} catch (PrivateException e) {
+}
     }
-",TestObjectPool::testPOFAddObjectUsage_6_oe,org.apache.commons.pool2.impl.BaseGenericObjectPool.StatsStore,void add(final Duration value),,"void add(final Duration value) {
-            add(value.toMillis());
-        }"
+",TestObjectPool::testPOFAddObjectUsage_6_oe
 pool_38_8,"    @Test
     public void testPOFAddObjectUsage_8_oe() throws Exception {
         final MethodCallPoolableObjectFactory factory = new MethodCallPoolableObjectFactory();
@@ -1287,16 +634,13 @@ pool_38_8,"    @Test
         // passivateObject Exceptions should be propagated to client code from addObject
         factory.setMakeObjectFail(false);
         factory.setPassivateObjectFail(true);
-        assertThrows(PrivateException.class, pool::addObject, ""Expected addObject to propagate passivateObject exception."");
+        try {
+    pool.addObject();
+    fail(""PrivateException: Expected addObject to propagate passivateObject exception."");
+} catch (PrivateException e) {
+}
     }
-",TestObjectPool::testPOFAddObjectUsage_8_oe,org.apache.commons.pool2.KeyedObjectPool,void clear(),"/**
-     * Clears the pool, removing all pooled instances (optional operation).
-     *
-     * @throws UnsupportedOperationException when this implementation doesn't
-     *                                       support the operation
-     *
-     * @throws Exception if the pool cannot be cleared
-     */","void clear() throws Exception, UnsupportedOperationException;"
+",TestObjectPool::testPOFAddObjectUsage_8_oe
 pool_39_2,"    @Test
     public void testPOFBorrowObjectUsages_2_oe() throws Exception {
         final MethodCallPoolableObjectFactory factory = new MethodCallPoolableObjectFactory();
@@ -1328,24 +672,13 @@ pool_39_2,"    @Test
 
         // makeObject Exceptions should be propagated to client code from borrowObject
         factory.setMakeObjectFail(true);
-        assertThrows(PrivateException.class, pool::borrowObject, ""Expected borrowObject to propagate makeObject exception."");
+        try {
+    pool.borrowObject();
+    fail(""PrivateException: Expected borrowObject to propagate makeObject exception."");
+} catch (PrivateException e) {
+}
     }
-",TestObjectPool::testPOFBorrowObjectUsages_2_oe,org.apache.commons.pool2.ObjectPool,void returnObject(T obj),"/**
-     * Returns an instance to the pool. By contract, {@code obj}
-     * <strong>must</strong> have been obtained using {@link #borrowObject()} or
-     * a related method as defined in an implementation or sub-interface.
-     *
-     * @param obj a {@link #borrowObject borrowed} instance to be returned.
-     *
-     * @throws IllegalStateException
-     *              if an attempt is made to return an object to the pool that
-     *              is in any state other than allocated (i.e. borrowed).
-     *              Attempting to return an object more than once or attempting
-     *              to return an object that was never borrowed from the pool
-     *              will trigger this exception.
-     *
-     * @throws Exception if an instance cannot be returned to the pool
-     */",void returnObject(T obj) throws Exception;
+",TestObjectPool::testPOFBorrowObjectUsages_2_oe
 pool_39_4,"    @Test
     public void testPOFBorrowObjectUsages_4_oe() throws Exception {
         final MethodCallPoolableObjectFactory factory = new MethodCallPoolableObjectFactory();
@@ -1390,11 +723,13 @@ pool_39_4,"    @Test
         factory.setActivateObjectFail(true);
         expectedMethods.add(new MethodCall(""activateObject"", obj));
         // Expected NoSuchElementException - newly created object will also fail to activate
-        assertThrows(NoSuchElementException.class, pool::borrowObject, ""Expecting NoSuchElementException"");
+        try {
+    pool.borrowObject();
+    fail(""NoSuchElementException: Expecting NoSuchElementException"");
+} catch (NoSuchElementException e) {
+}
     }
-",TestObjectPool::testPOFBorrowObjectUsages_4_oe,org.apache.commons.pool2.impl.BaseGenericObjectPool.StatsStore,void add(final Duration value),,"void add(final Duration value) {
-            add(value.toMillis());
-        }"
+",TestObjectPool::testPOFBorrowObjectUsages_4_oe
 pool_39_6,"    @Test
     public void testPOFBorrowObjectUsages_6_oe() throws Exception {
         final MethodCallPoolableObjectFactory factory = new MethodCallPoolableObjectFactory();
@@ -1455,11 +790,13 @@ pool_39_6,"    @Test
         expectedMethods.add(new MethodCall(""activateObject"", ZERO));
         expectedMethods.add(new MethodCall(""validateObject"", ZERO));
         // Expected NoSuchElementException - newly created object will also fail to validate
-        assertThrows(NoSuchElementException.class, pool::borrowObject, ""Expecting NoSuchElementException"");
+        try {
+    pool.borrowObject();
+    fail(""NoSuchElementException: Expecting NoSuchElementException"");
+} catch (NoSuchElementException e) {
+}
     }
-",TestObjectPool::testPOFBorrowObjectUsages_6_oe,org.apache.commons.pool2.impl.BaseGenericObjectPool.StatsStore,void add(final Duration value),,"void add(final Duration value) {
-            add(value.toMillis());
-        }"
+",TestObjectPool::testPOFBorrowObjectUsages_6_oe
 pool_40_2,"    @Test
     public void testPOFInvalidateObjectUsages_2_oe() throws Exception {
         final MethodCallPoolableObjectFactory factory = new MethodCallPoolableObjectFactory();
@@ -1489,26 +826,11 @@ pool_40_2,"    @Test
         factory.setDestroyObjectFail(true);
         try {
     pool.invalidateObject(obj2);
-    org.junit.jupiter.api.Assertions.fail(""PrivateException"");
+    fail(""PrivateException"");
 } catch (PrivateException e) {
 }
     }
-",TestObjectPool::testPOFInvalidateObjectUsages_2_oe,org.apache.commons.pool2.ObjectPool,void invalidateObject(T obj),"/**
-     * Invalidates an object from the pool.
-     * <p>
-     * By contract, {@code obj} <strong>must</strong> have been obtained
-     * using {@link #borrowObject} or a related method as defined in an
-     * implementation or sub-interface.
-     * </p>
-     * <p>
-     * This method should be used when an object that has been borrowed is
-     * determined (due to an exception or other problem) to be invalid.
-     * </p>
-     *
-     * @param obj a {@link #borrowObject borrowed} instance to be disposed.
-     *
-     * @throws Exception if the instance cannot be invalidated
-     */",void invalidateObject(T obj) throws Exception;
+",TestObjectPool::testPOFInvalidateObjectUsages_2_oe
 pool_46_1,"    @Test
     public void testBaseClosePool_1_oe() throws Exception {
         try {
@@ -1520,20 +842,13 @@ pool_46_1,"    @Test
         pool.returnObject(obj);
 
         pool.close();
-        assertThrows(IllegalStateException.class, pool::borrowObject);
+        try {
+    pool.borrowObject();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
-",TestBaseObjectPool::testBaseClosePool_1_oe,org.apache.commons.pool2.KeyedObjectPool,void close(),"/**
-     * Closes this pool, and free any resources associated with it.
-     * <p>
-     * Calling {@link #addObject addObject} or
-     * {@link #borrowObject borrowObject} after invoking this method on a pool
-     * will cause them to throw an {@link IllegalStateException}.
-     * </p>
-     * <p>
-     * Implementations should silently fail if not all resources can be freed.
-     * </p>
-     */","@Override
-    void close();"
+",TestBaseObjectPool::testBaseClosePool_1_oe
 pool_50_4,"    @Test
     public void testAccessAfterInvalidate_4_oe() throws Exception {
         final TestObject obj = pool.borrowObject();
@@ -1547,27 +862,13 @@ pool_50_4,"    @Test
 
         // removed other assertion
 
-        assertThrows(IllegalStateException.class, obj::getData);
+        try {
+    obj.getData();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
-",BaseTestProxiedObjectPool::testAccessAfterInvalidate_4_oe,org.apache.commons.pool2.KeyedObjectPool,"void invalidateObject(K key, V obj)","/**
-     * Invalidates an object from the pool.
-     * <p>
-     * By contract, {@code obj} <strong>must</strong> have been obtained
-     * using {@link #borrowObject borrowObject} or a related method as defined
-     * in an implementation or sub-interface using a {@code key} that is
-     * equivalent to the one used to borrow the {@code Object} in the first
-     * place.
-     * </p>
-     * <p>
-     * This method should be used when an object that has been borrowed is
-     * determined (due to an exception or other problem) to be invalid.
-     * </p>
-     *
-     * @param key the key used to obtain the object
-     * @param obj a {@link #borrowObject borrowed} instance to be returned.
-     *
-     * @throws Exception if the instance cannot be invalidated
-     */","void invalidateObject(K key, V obj) throws Exception;"
+",BaseTestProxiedObjectPool::testAccessAfterInvalidate_4_oe
 pool_51_4,"    @Test
     public void testAccessAfterReturn_4_oe() throws Exception {
         final TestObject obj = pool.borrowObject();
@@ -1581,53 +882,24 @@ pool_51_4,"    @Test
 
         // removed other assertion
 
-        assertThrows(IllegalStateException.class, obj::getData);
+        try {
+    obj.getData();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
-",BaseTestProxiedObjectPool::testAccessAfterReturn_4_oe,org.apache.commons.pool2.KeyedObjectPool,"void returnObject(K key, V obj)","/**
-     * Return an instance to the pool. By contract, {@code obj}
-     * <strong>must</strong> have been obtained using
-     * {@link #borrowObject borrowObject} or a related method as defined in an
-     * implementation or sub-interface using a {@code key} that is
-     * equivalent to the one used to borrow the instance in the first place.
-     *
-     * @param key the key used to obtain the object
-     * @param obj a {@link #borrowObject borrowed} instance to be returned.
-     *
-     * @throws IllegalStateException
-     *              if an attempt is made to return an object to the pool that
-     *              is in any state other than allocated (i.e. borrowed).
-     *              Attempting to return an object more than once or attempting
-     *              to return an object that was never borrowed from the pool
-     *              will trigger this exception.
-     *
-     * @throws Exception if an instance cannot be returned to the pool
-     */","void returnObject(K key, V obj) throws Exception;"
+",BaseTestProxiedObjectPool::testAccessAfterReturn_4_oe
 pool_54_1,"    @Test
     public void testPassThroughMethods02_1_oe() throws Exception {
         pool.close();
 
         try {
     pool.addObject();
-    org.junit.jupiter.api.Assertions.fail(""IllegalStateException"");
+    fail(""IllegalStateException"");
 } catch (IllegalStateException e) {
 }
     }
-",BaseTestProxiedObjectPool::testPassThroughMethods02_1_oe,org.apache.commons.pool2.KeyedObjectPool,void addObject(K key),"/**
-     * Creates an object using the {@link KeyedPooledObjectFactory factory} or
-     * other implementation dependent mechanism, passivate it, and then place it
-     * in the idle object pool. {@code addObject} is useful for
-     * ""pre-loading"" a pool with idle objects (Optional operation).
-     *
-     * @param key the key a new instance should be added to
-     *
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject} fails.
-     * @throws IllegalStateException
-     *              after {@link #close} has been called on this pool.
-     * @throws UnsupportedOperationException
-     *              when this pool cannot add new idle objects.
-     */","void addObject(K key) throws Exception, IllegalStateException,
-            UnsupportedOperationException;"
+",BaseTestProxiedObjectPool::testPassThroughMethods02_1_oe
 pool_56_4,"    @Test
     public void testAccessAfterInvalidate_4_oe() throws Exception {
         final TestObject obj = pool.borrowObject(KEY1);
@@ -1641,27 +913,13 @@ pool_56_4,"    @Test
 
         // removed other assertion
 
-        assertThrows(IllegalStateException.class, obj::getData);
+        try {
+    obj.getData();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
-",BaseTestProxiedKeyedObjectPool::testAccessAfterInvalidate_4_oe,org.apache.commons.pool2.KeyedObjectPool,"void invalidateObject(K key, V obj)","/**
-     * Invalidates an object from the pool.
-     * <p>
-     * By contract, {@code obj} <strong>must</strong> have been obtained
-     * using {@link #borrowObject borrowObject} or a related method as defined
-     * in an implementation or sub-interface using a {@code key} that is
-     * equivalent to the one used to borrow the {@code Object} in the first
-     * place.
-     * </p>
-     * <p>
-     * This method should be used when an object that has been borrowed is
-     * determined (due to an exception or other problem) to be invalid.
-     * </p>
-     *
-     * @param key the key used to obtain the object
-     * @param obj a {@link #borrowObject borrowed} instance to be returned.
-     *
-     * @throws Exception if the instance cannot be invalidated
-     */","void invalidateObject(K key, V obj) throws Exception;"
+",BaseTestProxiedKeyedObjectPool::testAccessAfterInvalidate_4_oe
 pool_57_4,"    @Test
     public void testAccessAfterReturn_4_oe() throws Exception {
         final TestObject obj = pool.borrowObject(KEY1);
@@ -1674,65 +932,34 @@ pool_57_4,"    @Test
         pool.returnObject(KEY1, obj);
 
         // removed other assertion
-        assertThrows(IllegalStateException.class, obj::getData);
+        try {
+    obj.getData();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
-",BaseTestProxiedKeyedObjectPool::testAccessAfterReturn_4_oe,org.apache.commons.pool2.KeyedObjectPool,"void returnObject(K key, V obj)","/**
-     * Return an instance to the pool. By contract, {@code obj}
-     * <strong>must</strong> have been obtained using
-     * {@link #borrowObject borrowObject} or a related method as defined in an
-     * implementation or sub-interface using a {@code key} that is
-     * equivalent to the one used to borrow the instance in the first place.
-     *
-     * @param key the key used to obtain the object
-     * @param obj a {@link #borrowObject borrowed} instance to be returned.
-     *
-     * @throws IllegalStateException
-     *              if an attempt is made to return an object to the pool that
-     *              is in any state other than allocated (i.e. borrowed).
-     *              Attempting to return an object more than once or attempting
-     *              to return an object that was never borrowed from the pool
-     *              will trigger this exception.
-     *
-     * @throws Exception if an instance cannot be returned to the pool
-     */","void returnObject(K key, V obj) throws Exception;"
+",BaseTestProxiedKeyedObjectPool::testAccessAfterReturn_4_oe
 pool_60_1,"    @Test
     public void testPassThroughMethods02_1_oe() throws Exception {
         pool.close();
         try {
     pool.addObject(KEY1);
-    org.junit.jupiter.api.Assertions.fail(""IllegalStateException"");
+    fail(""IllegalStateException"");
 } catch (IllegalStateException e) {
 }
     }
-",BaseTestProxiedKeyedObjectPool::testPassThroughMethods02_1_oe,org.apache.commons.pool2.KeyedObjectPool,void addObject(K key),"/**
-     * Creates an object using the {@link KeyedPooledObjectFactory factory} or
-     * other implementation dependent mechanism, passivate it, and then place it
-     * in the idle object pool. {@code addObject} is useful for
-     * ""pre-loading"" a pool with idle objects (Optional operation).
-     *
-     * @param key the key a new instance should be added to
-     *
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject} fails.
-     * @throws IllegalStateException
-     *              after {@link #close} has been called on this pool.
-     * @throws UnsupportedOperationException
-     *              when this pool cannot add new idle objects.
-     */","void addObject(K key) throws Exception, IllegalStateException,
-            UnsupportedOperationException;"
+",BaseTestProxiedKeyedObjectPool::testPassThroughMethods02_1_oe
 pool_62_3,"    @Test
     public void testAdd_3_oe() throws Exception {
         // removed other assertion
         // removed other assertion
         try {
     deque.add(THREE);
-    org.junit.jupiter.api.Assertions.fail(""IllegalStateException"");
+    fail(""IllegalStateException"");
 } catch (IllegalStateException e) {
 }
     }
-",TestLinkedBlockingDeque::testAdd_3_oe,org.apache.commons.pool2.impl.BaseGenericObjectPool.StatsStore,void add(final Duration value),,"void add(final Duration value) {
-            add(value.toMillis());
-        }"
+",TestLinkedBlockingDeque::testAdd_3_oe
 pool_62_4,"    @Test
     public void testAdd_4_oe() throws Exception {
         // removed other assertion
@@ -1740,13 +967,11 @@ pool_62_4,"    @Test
         // removed other assertion
         try {
     deque.add(null);
-    org.junit.jupiter.api.Assertions.fail(""NullPointerException"");
+    fail(""NullPointerException"");
 } catch (NullPointerException e) {
 }
     }
-",TestLinkedBlockingDeque::testAdd_4_oe,org.apache.commons.pool2.impl.BaseGenericObjectPool.StatsStore,void add(final Duration value),,"void add(final Duration value) {
-            add(value.toMillis());
-        }"
+",TestLinkedBlockingDeque::testAdd_4_oe
 pool_63_2,"    @Test
     public void testAddFirst_2_oe() throws Exception {
         deque.addFirst(ONE);
@@ -1754,13 +979,11 @@ pool_63_2,"    @Test
         // removed other assertion
         try {
     deque.add(THREE);
-    org.junit.jupiter.api.Assertions.fail(""IllegalStateException"");
+    fail(""IllegalStateException"");
 } catch (IllegalStateException e) {
 }
     }
-",TestLinkedBlockingDeque::testAddFirst_2_oe,org.apache.commons.pool2.impl.BaseGenericObjectPool.StatsStore,void add(final Duration value),,"void add(final Duration value) {
-            add(value.toMillis());
-        }"
+",TestLinkedBlockingDeque::testAddFirst_2_oe
 pool_64_2,"    @Test
     public void testAddLast_2_oe() throws Exception {
         deque.addLast(ONE);
@@ -1768,13 +991,11 @@ pool_64_2,"    @Test
         // removed other assertion
         try {
     deque.add(THREE);
-    org.junit.jupiter.api.Assertions.fail(""IllegalStateException"");
+    fail(""IllegalStateException"");
 } catch (IllegalStateException e) {
 }
     }
-",TestLinkedBlockingDeque::testAddLast_2_oe,org.apache.commons.pool2.impl.BaseGenericObjectPool.StatsStore,void add(final Duration value),,"void add(final Duration value) {
-            add(value.toMillis());
-        }"
+",TestLinkedBlockingDeque::testAddLast_2_oe
 pool_66_4,"    @Test
     public void testConstructors_4_oe() throws Exception {
         LinkedBlockingDeque<Integer> deque = new LinkedBlockingDeque<>();
@@ -1788,92 +1009,56 @@ pool_66_4,"    @Test
 
         try {
     new LinkedBlockingDeque<>(Arrays.asList(ONE, null));
-    org.junit.jupiter.api.Assertions.fail(""NullPointerException"");
+    fail(""NullPointerException"");
 } catch (NullPointerException e) {
 }
     }
-",TestLinkedBlockingDeque::testConstructors_4_oe,,,,
+",TestLinkedBlockingDeque::testConstructors_4_oe
 pool_68_1,"    @Test
     public void testDescendingIterator_1_oe() throws Exception {
         try {
     deque.descendingIterator().next();
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestLinkedBlockingDeque::testDescendingIterator_1_oe,org.apache.commons.pool2.impl.BaseGenericObjectPool.EvictionIterator,next(),/** {@inheritDoc} */,"@Override
-        public PooledObject<T> next() {
-            return idleObjectIterator.next();
-        }"
+",TestLinkedBlockingDeque::testDescendingIterator_1_oe
 pool_70_1,"    @Test
     public void testElement_1_oe() throws Exception {
         try {
     deque.element();
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestLinkedBlockingDeque::testElement_1_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,element(),"/**
-     * Retrieves, but does not remove, the head of the queue represented by
-     * this deque.  This method differs from {@link #peek peek} only in that
-     * it throws an exception if this deque is empty.
-     *
-     * <p>This method is equivalent to {@link #getFirst() getFirst}.
-     *
-     * @return the head of the queue represented by this deque
-     * @throws NoSuchElementException if this deque is empty
-     */","@Override
-    public E element() {
-        return getFirst();
-    }"
+",TestLinkedBlockingDeque::testElement_1_oe
 pool_71_1,"    @Test
     public void testGetFirst_1_oe() throws Exception {
         try {
     deque.getFirst();
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestLinkedBlockingDeque::testGetFirst_1_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,getFirst(),"/**
-     * {@inheritDoc}
-     */","@Override
-    public E getFirst() {
-        final E x = peekFirst();
-        if (x == null) {
-            throw new NoSuchElementException();
-        }
-        return x;
-    }"
+",TestLinkedBlockingDeque::testGetFirst_1_oe
 pool_72_1,"    @Test
     public void testGetLast_1_oe() throws Exception {
         try {
     deque.getLast();
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestLinkedBlockingDeque::testGetLast_1_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,getLast(),"/**
-     * {@inheritDoc}
-     */","@Override
-    public E getLast() {
-        final E x = peekLast();
-        if (x == null) {
-            throw new NoSuchElementException();
-        }
-        return x;
-    }"
+",TestLinkedBlockingDeque::testGetLast_1_oe
 pool_73_1,"    @Test
     public void testIterator_1_oe() throws Exception {
         try {
     deque.iterator().next();
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestLinkedBlockingDeque::testIterator_1_oe,org.apache.commons.pool2.impl.BaseGenericObjectPool.EvictionIterator,next(),/** {@inheritDoc} */,"@Override
-        public PooledObject<T> next() {
-            return idleObjectIterator.next();
-        }"
+",TestLinkedBlockingDeque::testIterator_1_oe
 pool_74_4,"    @Test
     public void testOffer_4_oe() throws Exception {
         // removed other assertion
@@ -1881,16 +1066,11 @@ pool_74_4,"    @Test
         // removed other assertion
         try {
     deque.offer(null);
-    org.junit.jupiter.api.Assertions.fail(""NullPointerException"");
+    fail(""NullPointerException"");
 } catch (NullPointerException e) {
 }
     }
-",TestLinkedBlockingDeque::testOffer_4_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,offer(final E e),"/**
-     * {@inheritDoc}
-     */","@Override
-    public boolean offer(final E e) {
-        return offerLast(e);
-    }"
+",TestLinkedBlockingDeque::testOffer_4_oe
 pool_75_2,"    @Test
     public void testOfferFirst_2_oe() throws Exception {
         deque.offerFirst(ONE);
@@ -1898,42 +1078,20 @@ pool_75_2,"    @Test
         // removed other assertion
         try {
     deque.offerFirst(null);
-    org.junit.jupiter.api.Assertions.fail(""NullPointerException"");
+    fail(""NullPointerException"");
 } catch (NullPointerException e) {
 }
     }
-",TestLinkedBlockingDeque::testOfferFirst_2_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,offerFirst(final E e),"/**
-     * {@inheritDoc}
-     */","@Override
-    public boolean offerFirst(final E e) {
-        Objects.requireNonNull(e, ""e"");
-        lock.lock();
-        try {
-            return linkFirst(e);
-        } finally {
-            lock.unlock();
-        }
-    }"
+",TestLinkedBlockingDeque::testOfferFirst_2_oe
 pool_76_1,"    @Test
     public void testOfferFirstWithTimeout_1_oe() throws InterruptedException {
         try {
     deque.offerFirst(null, TIMEOUT_50_MILLIS);
-    org.junit.jupiter.api.Assertions.fail(""NullPointerException"");
+    fail(""NullPointerException"");
 } catch (NullPointerException e) {
 }
     }
-",TestLinkedBlockingDeque::testOfferFirstWithTimeout_1_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,offerFirst(final E e),"/**
-     * {@inheritDoc}
-     */","@Override
-    public boolean offerFirst(final E e) {
-        Objects.requireNonNull(e, ""e"");
-        lock.lock();
-        try {
-            return linkFirst(e);
-        } finally {
-            lock.unlock();
-        }
-    }"
+",TestLinkedBlockingDeque::testOfferFirstWithTimeout_1_oe
 pool_77_2,"    @Test
     public void testOfferLast_2_oe() throws Exception {
         deque.offerLast(ONE);
@@ -1941,42 +1099,20 @@ pool_77_2,"    @Test
         // removed other assertion
         try {
     deque.offerLast(null);
-    org.junit.jupiter.api.Assertions.fail(""NullPointerException"");
+    fail(""NullPointerException"");
 } catch (NullPointerException e) {
 }
     }
-",TestLinkedBlockingDeque::testOfferLast_2_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,offerLast(final E e),"/**
-     * {@inheritDoc}
-     */","@Override
-    public boolean offerLast(final E e) {
-        Objects.requireNonNull(e, ""e"");
-        lock.lock();
-        try {
-            return linkLast(e);
-        } finally {
-            lock.unlock();
-        }
-    }"
+",TestLinkedBlockingDeque::testOfferLast_2_oe
 pool_78_1,"    @Test
     public void testOfferLastWithTimeout_1_oe() throws InterruptedException {
         try {
     deque.offerLast(null, TIMEOUT_50_MILLIS);
-    org.junit.jupiter.api.Assertions.fail(""NullPointerException"");
+    fail(""NullPointerException"");
 } catch (NullPointerException e) {
 }
     }
-",TestLinkedBlockingDeque::testOfferLastWithTimeout_1_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,offerLast(final E e),"/**
-     * {@inheritDoc}
-     */","@Override
-    public boolean offerLast(final E e) {
-        Objects.requireNonNull(e, ""e"");
-        lock.lock();
-        try {
-            return linkLast(e);
-        } finally {
-            lock.unlock();
-        }
-    }"
+",TestLinkedBlockingDeque::testOfferLastWithTimeout_1_oe
 pool_79_4,"    @Test
     public void testOfferWithTimeout_4_oe() throws InterruptedException {
         // removed other assertion
@@ -1984,30 +1120,20 @@ pool_79_4,"    @Test
         // removed other assertion
         try {
     deque.offer(null, TIMEOUT_50_MILLIS);
-    org.junit.jupiter.api.Assertions.fail(""NullPointerException"");
+    fail(""NullPointerException"");
 } catch (NullPointerException e) {
 }
     }
-",TestLinkedBlockingDeque::testOfferWithTimeout_4_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,offer(final E e),"/**
-     * {@inheritDoc}
-     */","@Override
-    public boolean offer(final E e) {
-        return offerLast(e);
-    }"
+",TestLinkedBlockingDeque::testOfferWithTimeout_4_oe
 pool_88_1,"    @Test
     public void testPop_1_oe() throws Exception {
         try {
     deque.pop();
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestLinkedBlockingDeque::testPop_1_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,pop(),"/**
-     * {@inheritDoc}
-     */","@Override
-    public E pop() {
-        return removeFirst();
-    }"
+",TestLinkedBlockingDeque::testPop_1_oe
 pool_88_3,"    @Test
     public void testPop_3_oe() throws Exception {
         // removed other assertion
@@ -2016,16 +1142,11 @@ pool_88_3,"    @Test
         // removed other assertion
         try {
      deque.pop(); deque.pop();
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestLinkedBlockingDeque::testPop_3_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,pop(),"/**
-     * {@inheritDoc}
-     */","@Override
-    public E pop() {
-        return removeFirst();
-    }"
+",TestLinkedBlockingDeque::testPop_3_oe
 pool_89_2,"    @Test
     public void testPush_2_oe() throws Exception {
         deque.push(ONE);
@@ -2033,106 +1154,56 @@ pool_89_2,"    @Test
         // removed other assertion
         try {
     deque.push(THREE);
-    org.junit.jupiter.api.Assertions.fail(""IllegalStateException"");
+    fail(""IllegalStateException"");
 } catch (IllegalStateException e) {
 }
     }
-",TestLinkedBlockingDeque::testPush_2_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,void push(final E e),"/**
-     * {@inheritDoc}
-     */","@Override
-    public void push(final E e) {
-        addFirst(e);
-    }"
+",TestLinkedBlockingDeque::testPush_2_oe
 pool_90_1,"    @Test
     public void testPut_1_oe() throws InterruptedException {
         try {
     deque.put(null);
-    org.junit.jupiter.api.Assertions.fail(""NullPointerException"");
+    fail(""NullPointerException"");
 } catch (NullPointerException e) {
 }
     }
-",TestLinkedBlockingDeque::testPut_1_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,void put(final E e),"/**
-     * Links the provided element as the last in the queue, waiting until there
-     * is space to do so if the queue is full.
-     *
-     * <p>
-     * This method is equivalent to {@link #putLast(Object)}.
-     * </p>
-     *
-     * @param e element to link
-     *
-     * @throws NullPointerException if e is null
-     * @throws InterruptedException if the thread is interrupted whilst waiting
-     *         for space
-     */","public void put(final E e) throws InterruptedException {
-        putLast(e);
-    }"
+",TestLinkedBlockingDeque::testPut_1_oe
 pool_91_1,"    @Test
     public void testPutFirst_1_oe() throws InterruptedException {
         try {
     deque.putFirst(null);
-    org.junit.jupiter.api.Assertions.fail(""NullPointerException"");
+    fail(""NullPointerException"");
 } catch (NullPointerException e) {
 }
     }
-",TestLinkedBlockingDeque::testPutFirst_1_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,void putFirst(final E e),"/**
-     * Links the provided element as the first in the queue, waiting until there
-     * is space to do so if the queue is full.
-     *
-     * @param e element to link
-     *
-     * @throws NullPointerException if e is null
-     * @throws InterruptedException if the thread is interrupted whilst waiting
-     *         for space
-     */","public void putFirst(final E e) throws InterruptedException {
-        Objects.requireNonNull(e, ""e"");
-        lock.lock();
-        try {
-            while (!linkFirst(e)) {
-                notFull.await();
-            }
-        } finally {
-            lock.unlock();
-        }
-    }"
+",TestLinkedBlockingDeque::testPutFirst_1_oe
 pool_92_1,"    @Test
     public void testPutLast_1_oe() throws InterruptedException {
         try {
     deque.putLast(null);
-    org.junit.jupiter.api.Assertions.fail(""NullPointerException"");
+    fail(""NullPointerException"");
 } catch (NullPointerException e) {
 }
     }
-",TestLinkedBlockingDeque::testPutLast_1_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,void putLast(final E e),"/**
-     * Links the provided element as the last in the queue, waiting until there
-     * is space to do so if the queue is full.
-     *
-     * @param e element to link
-     *
-     * @throws NullPointerException if e is null
-     * @throws InterruptedException if the thread is interrupted whilst waiting
-     *         for space
-     */","public void putLast(final E e) throws InterruptedException {
-        Objects.requireNonNull(e, ""e"");
-        lock.lock();
-        try {
-            while (!linkLast(e)) {
-                notFull.await();
-            }
-        } finally {
-            lock.unlock();
-        }
-    }"
+",TestLinkedBlockingDeque::testPutLast_1_oe
 pool_93_1,"    @Test
-    public void testRemove_1_oe() {
-        assertThrows(NoSuchElementException.class, deque::remove);
+    public void testRemove_1_oe() throws Exception {
+        try {
+    deque.remove();
+    fail(""NoSuchElementException"");
+} catch (NoSuchElementException e) {
+}
     }
-",TestLinkedBlockingDeque::testRemove_1_oe,,,,
+",TestLinkedBlockingDeque::testRemove_1_oe
 pool_94_1,"    @Test
-    public void testRemoveFirst_1_oe() {
-        assertThrows(NoSuchElementException.class, deque::removeFirst);
+    public void testRemoveFirst_1_oe() throws Exception {
+        try {
+    deque.removeFirst();
+    fail(""NoSuchElementException"");
+} catch (NoSuchElementException e) {
+}
     }
-",TestLinkedBlockingDeque::testRemoveFirst_1_oe,,,,
+",TestLinkedBlockingDeque::testRemoveFirst_1_oe
 pool_94_3,"    @Test
     public void testRemoveFirst_3_oe() throws Exception {
         // removed other assertion
@@ -2141,25 +1212,20 @@ pool_94_3,"    @Test
         // removed other assertion
         try {
      deque.removeFirst(); deque.removeFirst();
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestLinkedBlockingDeque::testRemoveFirst_3_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,removeFirst(),"/**
-     * {@inheritDoc}
-     */","@Override
-    public E removeFirst() {
-        final E x = pollFirst();
-        if (x == null) {
-            throw new NoSuchElementException();
-        }
-        return x;
-    }"
+",TestLinkedBlockingDeque::testRemoveFirst_3_oe
 pool_95_1,"    @Test
-    public void testRemoveLast_1_oe() {
-        assertThrows(NoSuchElementException.class, deque::removeLast);
+    public void testRemoveLast_1_oe() throws Exception {
+        try {
+    deque.removeLast();
+    fail(""NoSuchElementException"");
+} catch (NoSuchElementException e) {
+}
     }
-",TestLinkedBlockingDeque::testRemoveLast_1_oe,,,,
+",TestLinkedBlockingDeque::testRemoveLast_1_oe
 pool_95_3,"    @Test
     public void testRemoveLast_3_oe() throws Exception {
         // removed other assertion
@@ -2168,31 +1234,22 @@ pool_95_3,"    @Test
         // removed other assertion
         try {
      deque.removeLast(); deque.removeLast();
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestLinkedBlockingDeque::testRemoveLast_3_oe,org.apache.commons.pool2.impl.LinkedBlockingDeque,removeLast(),"/**
-     * {@inheritDoc}
-     */","@Override
-    public E removeLast() {
-        final E x = pollLast();
-        if (x == null) {
-            throw new NoSuchElementException();
-        }
-        return x;
-    }"
-pool_109_1,"    @Test
+",TestLinkedBlockingDeque::testRemoveLast_3_oe
+pool_110_1,"    @Test
     public void testConstructorNullFactory_1_oe() throws Exception {
         // add dummy assert (won't be invoked because of IAE) to avoid ""unused"" warning
         try {
     new GenericObjectPool<>(null);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException"");
+    fail(""IllegalArgumentException"");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestGenericObjectPool::testConstructorNullFactory_1_oe,,,,
-pool_115_1,"    @Test
+",TestGenericObjectPool::testConstructorNullFactory_1_oe
+pool_116_1,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testEvictionPolicy_1_oe() throws Exception {
         genericObjectPool.setMaxIdle(500);
@@ -2205,23 +1262,12 @@ pool_115_1,"    @Test
         // ClassNotFoundException
         try {
     genericObjectPool.setEvictionPolicyClassName(Long.toString(System.currentTimeMillis()));
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: setEvictionPolicyClassName must throw an error if the class name is invalid."");
+    fail(""IllegalArgumentException: setEvictionPolicyClassName must throw an error if the class name is invalid."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestGenericObjectPool::testEvictionPolicy_1_oe,org.apache.commons.pool2.impl.BaseObjectPoolConfig,void setEvictionPolicyClassName(final String evictionPolicyClassName),"/**
-     * Sets the value for the {@code evictionPolicyClassName} configuration
-     * attribute for pools created with this configuration instance.
-     *
-     * @param evictionPolicyClassName The new setting of
-     *        {@code evictionPolicyClassName} for this configuration instance
-     *
-     * @see GenericObjectPool#getEvictionPolicyClassName()
-     * @see GenericKeyedObjectPool#getEvictionPolicyClassName()
-     */","public void setEvictionPolicyClassName(final String evictionPolicyClassName) {
-        this.evictionPolicyClassName = evictionPolicyClassName;
-    }"
-pool_115_2,"    @Test
+",TestGenericObjectPool::testEvictionPolicy_1_oe
+pool_116_2,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testEvictionPolicy_2_oe() throws Exception {
         genericObjectPool.setMaxIdle(500);
@@ -2237,23 +1283,12 @@ pool_115_2,"    @Test
         // InstantiationException
         try {
     genericObjectPool.setEvictionPolicyClassName(java.io.Serializable.class.getName());
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: setEvictionPolicyClassName must throw an error if the class name is invalid."");
+    fail(""IllegalArgumentException: setEvictionPolicyClassName must throw an error if the class name is invalid."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestGenericObjectPool::testEvictionPolicy_2_oe,org.apache.commons.pool2.impl.BaseObjectPoolConfig,void setEvictionPolicyClassName(final String evictionPolicyClassName),"/**
-     * Sets the value for the {@code evictionPolicyClassName} configuration
-     * attribute for pools created with this configuration instance.
-     *
-     * @param evictionPolicyClassName The new setting of
-     *        {@code evictionPolicyClassName} for this configuration instance
-     *
-     * @see GenericObjectPool#getEvictionPolicyClassName()
-     * @see GenericKeyedObjectPool#getEvictionPolicyClassName()
-     */","public void setEvictionPolicyClassName(final String evictionPolicyClassName) {
-        this.evictionPolicyClassName = evictionPolicyClassName;
-    }"
-pool_115_3,"    @Test
+",TestGenericObjectPool::testEvictionPolicy_2_oe
+pool_116_3,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testEvictionPolicy_3_oe() throws Exception {
         genericObjectPool.setMaxIdle(500);
@@ -2272,23 +1307,12 @@ pool_115_3,"    @Test
         // IllegalAccessException
         try {
     genericObjectPool.setEvictionPolicyClassName(java.util.Collections.class.getName());
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: setEvictionPolicyClassName must throw an error if the class name is invalid."");
+    fail(""IllegalArgumentException: setEvictionPolicyClassName must throw an error if the class name is invalid."");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestGenericObjectPool::testEvictionPolicy_3_oe,org.apache.commons.pool2.impl.BaseObjectPoolConfig,void setEvictionPolicyClassName(final String evictionPolicyClassName),"/**
-     * Sets the value for the {@code evictionPolicyClassName} configuration
-     * attribute for pools created with this configuration instance.
-     *
-     * @param evictionPolicyClassName The new setting of
-     *        {@code evictionPolicyClassName} for this configuration instance
-     *
-     * @see GenericObjectPool#getEvictionPolicyClassName()
-     * @see GenericKeyedObjectPool#getEvictionPolicyClassName()
-     */","public void setEvictionPolicyClassName(final String evictionPolicyClassName) {
-        this.evictionPolicyClassName = evictionPolicyClassName;
-    }"
-pool_115_4,"    @Test
+",TestGenericObjectPool::testEvictionPolicy_3_oe
+pool_116_4,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testEvictionPolicy_4_oe() throws Exception {
         genericObjectPool.setMaxIdle(500);
@@ -2309,23 +1333,12 @@ pool_115_4,"    @Test
 
         try {
     genericObjectPool.setEvictionPolicyClassName(java.lang.String.class.getName());
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException: () -> \""setEvictionPolicyClassName must throw an error if a class that does not implement EvictionPolicy is specified.\"""");
+    fail(""IllegalArgumentException: () -> \""setEvictionPolicyClassName must throw an error if a class that does not implement EvictionPolicy is specified.\"""");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestGenericObjectPool::testEvictionPolicy_4_oe,org.apache.commons.pool2.impl.BaseObjectPoolConfig,void setEvictionPolicyClassName(final String evictionPolicyClassName),"/**
-     * Sets the value for the {@code evictionPolicyClassName} configuration
-     * attribute for pools created with this configuration instance.
-     *
-     * @param evictionPolicyClassName The new setting of
-     *        {@code evictionPolicyClassName} for this configuration instance
-     *
-     * @see GenericObjectPool#getEvictionPolicyClassName()
-     * @see GenericKeyedObjectPool#getEvictionPolicyClassName()
-     */","public void setEvictionPolicyClassName(final String evictionPolicyClassName) {
-        this.evictionPolicyClassName = evictionPolicyClassName;
-    }"
-pool_118_1,"    @Test
+",TestGenericObjectPool::testEvictionPolicy_4_oe
+pool_119_1,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testExceptionInValidationDuringEviction_1_oe() throws Exception {
         genericObjectPool.setMaxIdle(1);
@@ -2339,22 +1352,12 @@ pool_118_1,"    @Test
 
         try {
     genericObjectPool.evict();
-    org.junit.jupiter.api.Assertions.fail(""RuntimeException"");
+    fail(""RuntimeException"");
 } catch (RuntimeException e) {
 }
     }
-",TestGenericObjectPool::testExceptionInValidationDuringEviction_1_oe,org.apache.commons.pool2.impl.EvictionPolicy,"evict(EvictionConfig config, PooledObject<T> underTest, int idleCount)","/**
-     * This method is called to test if an idle object in the pool should be
-     * evicted or not.
-     *
-     * @param config    The pool configuration settings related to eviction
-     * @param underTest The pooled object being tested for eviction
-     * @param idleCount The current number of idle objects in the pool including
-     *                      the object under test
-     * @return {@code true} if the object should be evicted, otherwise
-     *             {@code false}
-     */","boolean evict(EvictionConfig config, PooledObject<T> underTest, int idleCount);"
-pool_119_3,"    @Test
+",TestGenericObjectPool::testExceptionInValidationDuringEviction_1_oe
+pool_120_3,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testExceptionOnActivateDuringBorrow_3_oe() throws Exception {
         final String obj1 = genericObjectPool.borrowObject();
@@ -2375,47 +1378,26 @@ pool_119_3,"    @Test
         // an idle instance, and then when attempting to create a new instance
         try {
     genericObjectPool.borrowObject();
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestGenericObjectPool::testExceptionOnActivateDuringBorrow_3_oe,org.apache.commons.pool2.KeyedObjectPool,borrowObject(K key),"/**
-     * Borrows an instance from this pool for the specified {@code key}.
-     * <p>
-     * Instances returned from this method will have been either newly created
-     * with {@link KeyedPooledObjectFactory#makeObject makeObject} or will be
-     * a previously idle object and have been activated with
-     * {@link KeyedPooledObjectFactory#activateObject activateObject} and then
-     * (optionally) validated with
-     * {@link KeyedPooledObjectFactory#validateObject validateObject}.
-     * </p>
-     * <p>
-     * By contract, clients <strong>must</strong> return the borrowed object
-     * using {@link #returnObject returnObject},
-     * {@link #invalidateObject invalidateObject}, or a related method as
-     * defined in an implementation or sub-interface, using a {@code key}
-     * that is {@link Object#equals equivalent} to the one used to borrow the
-     * instance in the first place.
-     * </p>
-     * <p>
-     * The behavior of this method when the pool has been exhausted is not
-     * strictly specified (although it may be specified by implementations).
-     * </p>
-     *
-     * @param key the key used to obtain the object
-     *
-     * @return an instance from this pool.
-     *
-     * @throws IllegalStateException
-     *              after {@link #close close} has been called on this pool
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject
-     *              makeObject} throws an exception
-     * @throws NoSuchElementException
-     *              when the pool is exhausted and cannot or will not return
-     *              another instance
-     */","V borrowObject(K key) throws Exception, NoSuchElementException, IllegalStateException;"
-pool_139_1,"    @Test
+",TestGenericObjectPool::testExceptionOnActivateDuringBorrow_3_oe
+pool_121_1,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnDestroyDuringBorrow_1_oe() throws Exception {
+        simpleFactory.setThrowExceptionOnDestroy(true);
+        genericObjectPool.setTestOnBorrow(true);
+        genericObjectPool.borrowObject();
+        simpleFactory.setValid(false); // Make validation fail on next borrow attempt
+        try {
+    genericObjectPool.borrowObject();
+    fail(""NoSuchElementException"");
+} catch (NoSuchElementException e) {
+}
+    }
+",TestGenericObjectPool::testExceptionOnDestroyDuringBorrow_1_oe
+pool_140_1,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testMaxTotal_1_oe() throws Exception {
         genericObjectPool.setMaxTotal(3);
@@ -2426,47 +1408,52 @@ pool_139_1,"    @Test
         genericObjectPool.borrowObject();
         try {
     genericObjectPool.borrowObject();
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestGenericObjectPool::testMaxTotal_1_oe,org.apache.commons.pool2.KeyedObjectPool,borrowObject(K key),"/**
-     * Borrows an instance from this pool for the specified {@code key}.
-     * <p>
-     * Instances returned from this method will have been either newly created
-     * with {@link KeyedPooledObjectFactory#makeObject makeObject} or will be
-     * a previously idle object and have been activated with
-     * {@link KeyedPooledObjectFactory#activateObject activateObject} and then
-     * (optionally) validated with
-     * {@link KeyedPooledObjectFactory#validateObject validateObject}.
-     * </p>
-     * <p>
-     * By contract, clients <strong>must</strong> return the borrowed object
-     * using {@link #returnObject returnObject},
-     * {@link #invalidateObject invalidateObject}, or a related method as
-     * defined in an implementation or sub-interface, using a {@code key}
-     * that is {@link Object#equals equivalent} to the one used to borrow the
-     * instance in the first place.
-     * </p>
-     * <p>
-     * The behavior of this method when the pool has been exhausted is not
-     * strictly specified (although it may be specified by implementations).
-     * </p>
-     *
-     * @param key the key used to obtain the object
-     *
-     * @return an instance from this pool.
-     *
-     * @throws IllegalStateException
-     *              after {@link #close close} has been called on this pool
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject
-     *              makeObject} throws an exception
-     * @throws NoSuchElementException
-     *              when the pool is exhausted and cannot or will not return
-     *              another instance
-     */","V borrowObject(K key) throws Exception, NoSuchElementException, IllegalStateException;"
+",TestGenericObjectPool::testMaxTotal_1_oe
+pool_142_1,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotalZero_1_oe() throws Exception {
+        genericObjectPool.setMaxTotal(0);
+        genericObjectPool.setBlockWhenExhausted(false);
+        try {
+    genericObjectPool.borrowObject();
+    fail(""NoSuchElementException"");
+} catch (NoSuchElementException e) {
+}
+    }
+",TestGenericObjectPool::testMaxTotalZero_1_oe
 pool_156_1,"    @Test
+    public void testSwallowedExceptionListener_1_oe() throws Exception {
+        genericObjectPool.setSwallowedExceptionListener(null); // must simply return
+        final List<Exception> swallowedExceptions = new ArrayList<>();
+        /*
+         * A simple listener, that will throw a OOM on 3rd exception.
+         */
+        final SwallowedExceptionListener listener = e -> {
+            if (swallowedExceptions.size() == 2) {
+                throw new OutOfMemoryError();
+            }
+            swallowedExceptions.add(e);
+        };
+        genericObjectPool.setSwallowedExceptionListener(listener);
+
+        final Exception e1 = new Exception();
+        final Exception e2 = new ArrayIndexOutOfBoundsException();
+
+        genericObjectPool.swallowException(e1);
+        genericObjectPool.swallowException(e2);
+
+        try {
+    genericObjectPool.swallowException(e1);
+    fail(""OutOfMemoryError"");
+} catch (OutOfMemoryError e) {
+}
+    }
+",TestGenericObjectPool::testSwallowedExceptionListener_1_oe
+pool_157_1,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testTimeoutNoLeak_1_oe() throws Exception {
         genericObjectPool.setMaxTotal(2);
@@ -2476,47 +1463,12 @@ pool_156_1,"    @Test
         final String obj2 = genericObjectPool.borrowObject();
         try {
     genericObjectPool.borrowObject();
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestGenericObjectPool::testTimeoutNoLeak_1_oe,org.apache.commons.pool2.KeyedObjectPool,borrowObject(K key),"/**
-     * Borrows an instance from this pool for the specified {@code key}.
-     * <p>
-     * Instances returned from this method will have been either newly created
-     * with {@link KeyedPooledObjectFactory#makeObject makeObject} or will be
-     * a previously idle object and have been activated with
-     * {@link KeyedPooledObjectFactory#activateObject activateObject} and then
-     * (optionally) validated with
-     * {@link KeyedPooledObjectFactory#validateObject validateObject}.
-     * </p>
-     * <p>
-     * By contract, clients <strong>must</strong> return the borrowed object
-     * using {@link #returnObject returnObject},
-     * {@link #invalidateObject invalidateObject}, or a related method as
-     * defined in an implementation or sub-interface, using a {@code key}
-     * that is {@link Object#equals equivalent} to the one used to borrow the
-     * instance in the first place.
-     * </p>
-     * <p>
-     * The behavior of this method when the pool has been exhausted is not
-     * strictly specified (although it may be specified by implementations).
-     * </p>
-     *
-     * @param key the key used to obtain the object
-     *
-     * @return an instance from this pool.
-     *
-     * @throws IllegalStateException
-     *              after {@link #close close} has been called on this pool
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject
-     *              makeObject} throws an exception
-     * @throws NoSuchElementException
-     *              when the pool is exhausted and cannot or will not return
-     *              another instance
-     */","V borrowObject(K key) throws Exception, NoSuchElementException, IllegalStateException;"
-pool_160_2,"    @Test
+",TestGenericObjectPool::testTimeoutNoLeak_1_oe
+pool_161_2,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testWhenExhaustedBlock_2_oe() throws Exception {
         genericObjectPool.setMaxTotal(1);
@@ -2526,57 +1478,36 @@ pool_160_2,"    @Test
         // removed other assertion
         try {
     genericObjectPool.borrowObject();
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestGenericObjectPool::testWhenExhaustedBlock_2_oe,org.apache.commons.pool2.KeyedObjectPool,borrowObject(K key),"/**
-     * Borrows an instance from this pool for the specified {@code key}.
-     * <p>
-     * Instances returned from this method will have been either newly created
-     * with {@link KeyedPooledObjectFactory#makeObject makeObject} or will be
-     * a previously idle object and have been activated with
-     * {@link KeyedPooledObjectFactory#activateObject activateObject} and then
-     * (optionally) validated with
-     * {@link KeyedPooledObjectFactory#validateObject validateObject}.
-     * </p>
-     * <p>
-     * By contract, clients <strong>must</strong> return the borrowed object
-     * using {@link #returnObject returnObject},
-     * {@link #invalidateObject invalidateObject}, or a related method as
-     * defined in an implementation or sub-interface, using a {@code key}
-     * that is {@link Object#equals equivalent} to the one used to borrow the
-     * instance in the first place.
-     * </p>
-     * <p>
-     * The behavior of this method when the pool has been exhausted is not
-     * strictly specified (although it may be specified by implementations).
-     * </p>
-     *
-     * @param key the key used to obtain the object
-     *
-     * @return an instance from this pool.
-     *
-     * @throws IllegalStateException
-     *              after {@link #close close} has been called on this pool
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject
-     *              makeObject} throws an exception
-     * @throws NoSuchElementException
-     *              when the pool is exhausted and cannot or will not return
-     *              another instance
-     */","V borrowObject(K key) throws Exception, NoSuchElementException, IllegalStateException;"
-pool_247_1,"    @Test
+",TestGenericObjectPool::testWhenExhaustedBlock_2_oe
+pool_164_2,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testWhenExhaustedFail_2_oe() throws Exception {
+        genericObjectPool.setMaxTotal(1);
+        genericObjectPool.setBlockWhenExhausted(false);
+        final String obj1 = genericObjectPool.borrowObject();
+        // removed other assertion
+        try {
+    genericObjectPool.borrowObject();
+    fail(""NoSuchElementException"");
+} catch (NoSuchElementException e) {
+}
+    }
+",TestGenericObjectPool::testWhenExhaustedFail_2_oe
+pool_248_1,"    @Test
     public void testConstructorNullFactory_1_oe() throws Exception {
         // add dummy assert (won't be invoked because of IAE) to avoid ""unused"" warning
         try {
     new GenericKeyedObjectPool<>(null);
-    org.junit.jupiter.api.Assertions.fail(""IllegalArgumentException"");
+    fail(""IllegalArgumentException"");
 } catch (IllegalArgumentException e) {
 }
     }
-",TestGenericKeyedObjectPool::testConstructorNullFactory_1_oe,,,,
-pool_252_1,"    @Test
+",TestGenericKeyedObjectPool::testConstructorNullFactory_1_oe
+pool_253_1,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testExceptionInValidationDuringEviction_1_oe() throws Exception {
         gkoPool.setMaxIdlePerKey(1);
@@ -2587,28 +1518,14 @@ pool_252_1,"    @Test
         gkoPool.returnObject(""one"", obj);
 
         simpleFactory.setThrowExceptionOnValidate(true);
-        assertThrows(RuntimeException.class, gkoPool::evict);
+        try {
+    gkoPool.evict();
+    fail(""RuntimeException"");
+} catch (RuntimeException e) {
+}
     }
-",TestGenericKeyedObjectPool::testExceptionInValidationDuringEviction_1_oe,org.apache.commons.pool2.KeyedObjectPool,"void returnObject(K key, V obj)","/**
-     * Return an instance to the pool. By contract, {@code obj}
-     * <strong>must</strong> have been obtained using
-     * {@link #borrowObject borrowObject} or a related method as defined in an
-     * implementation or sub-interface using a {@code key} that is
-     * equivalent to the one used to borrow the instance in the first place.
-     *
-     * @param key the key used to obtain the object
-     * @param obj a {@link #borrowObject borrowed} instance to be returned.
-     *
-     * @throws IllegalStateException
-     *              if an attempt is made to return an object to the pool that
-     *              is in any state other than allocated (i.e. borrowed).
-     *              Attempting to return an object more than once or attempting
-     *              to return an object that was never borrowed from the pool
-     *              will trigger this exception.
-     *
-     * @throws Exception if an instance cannot be returned to the pool
-     */","void returnObject(K key, V obj) throws Exception;"
-pool_253_5,"    @Test
+",TestGenericKeyedObjectPool::testExceptionInValidationDuringEviction_1_oe
+pool_254_5,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testExceptionOnActivateDuringBorrow_5_oe() throws Exception {
         final String obj1 = gkoPool.borrowObject(""one"");
@@ -2631,47 +1548,12 @@ pool_253_5,"    @Test
         // an idle instance, and then when attempting to create a new instance
         try {
     gkoPool.borrowObject(""one"");
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestGenericKeyedObjectPool::testExceptionOnActivateDuringBorrow_5_oe,org.apache.commons.pool2.KeyedObjectPool,borrowObject(K key),"/**
-     * Borrows an instance from this pool for the specified {@code key}.
-     * <p>
-     * Instances returned from this method will have been either newly created
-     * with {@link KeyedPooledObjectFactory#makeObject makeObject} or will be
-     * a previously idle object and have been activated with
-     * {@link KeyedPooledObjectFactory#activateObject activateObject} and then
-     * (optionally) validated with
-     * {@link KeyedPooledObjectFactory#validateObject validateObject}.
-     * </p>
-     * <p>
-     * By contract, clients <strong>must</strong> return the borrowed object
-     * using {@link #returnObject returnObject},
-     * {@link #invalidateObject invalidateObject}, or a related method as
-     * defined in an implementation or sub-interface, using a {@code key}
-     * that is {@link Object#equals equivalent} to the one used to borrow the
-     * instance in the first place.
-     * </p>
-     * <p>
-     * The behavior of this method when the pool has been exhausted is not
-     * strictly specified (although it may be specified by implementations).
-     * </p>
-     *
-     * @param key the key used to obtain the object
-     *
-     * @return an instance from this pool.
-     *
-     * @throws IllegalStateException
-     *              after {@link #close close} has been called on this pool
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject
-     *              makeObject} throws an exception
-     * @throws NoSuchElementException
-     *              when the pool is exhausted and cannot or will not return
-     *              another instance
-     */","V borrowObject(K key) throws Exception, NoSuchElementException, IllegalStateException;"
-pool_254_1,"    @Test
+",TestGenericKeyedObjectPool::testExceptionOnActivateDuringBorrow_5_oe
+pool_255_1,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testExceptionOnDestroyDuringBorrow_1_oe() throws Exception {
         simpleFactory.setThrowExceptionOnDestroy(true);
@@ -2681,47 +1563,12 @@ pool_254_1,"    @Test
         simpleFactory.setValid(false); // Make validation fail on next borrow attempt
         try {
     gkoPool.borrowObject(""one"");
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestGenericKeyedObjectPool::testExceptionOnDestroyDuringBorrow_1_oe,org.apache.commons.pool2.KeyedObjectPool,borrowObject(K key),"/**
-     * Borrows an instance from this pool for the specified {@code key}.
-     * <p>
-     * Instances returned from this method will have been either newly created
-     * with {@link KeyedPooledObjectFactory#makeObject makeObject} or will be
-     * a previously idle object and have been activated with
-     * {@link KeyedPooledObjectFactory#activateObject activateObject} and then
-     * (optionally) validated with
-     * {@link KeyedPooledObjectFactory#validateObject validateObject}.
-     * </p>
-     * <p>
-     * By contract, clients <strong>must</strong> return the borrowed object
-     * using {@link #returnObject returnObject},
-     * {@link #invalidateObject invalidateObject}, or a related method as
-     * defined in an implementation or sub-interface, using a {@code key}
-     * that is {@link Object#equals equivalent} to the one used to borrow the
-     * instance in the first place.
-     * </p>
-     * <p>
-     * The behavior of this method when the pool has been exhausted is not
-     * strictly specified (although it may be specified by implementations).
-     * </p>
-     *
-     * @param key the key used to obtain the object
-     *
-     * @return an instance from this pool.
-     *
-     * @throws IllegalStateException
-     *              after {@link #close close} has been called on this pool
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject
-     *              makeObject} throws an exception
-     * @throws NoSuchElementException
-     *              when the pool is exhausted and cannot or will not return
-     *              another instance
-     */","V borrowObject(K key) throws Exception, NoSuchElementException, IllegalStateException;"
-pool_265_4,"    @Test
+",TestGenericKeyedObjectPool::testExceptionOnDestroyDuringBorrow_1_oe
+pool_266_4,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testMaxTotal_4_oe() throws Exception {
         gkoPool.setMaxTotalPerKey(2);
@@ -2736,47 +1583,12 @@ pool_265_4,"    @Test
         // removed other assertion
         try {
     gkoPool.borrowObject(""c"");
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestGenericKeyedObjectPool::testMaxTotal_4_oe,org.apache.commons.pool2.KeyedObjectPool,borrowObject(K key),"/**
-     * Borrows an instance from this pool for the specified {@code key}.
-     * <p>
-     * Instances returned from this method will have been either newly created
-     * with {@link KeyedPooledObjectFactory#makeObject makeObject} or will be
-     * a previously idle object and have been activated with
-     * {@link KeyedPooledObjectFactory#activateObject activateObject} and then
-     * (optionally) validated with
-     * {@link KeyedPooledObjectFactory#validateObject validateObject}.
-     * </p>
-     * <p>
-     * By contract, clients <strong>must</strong> return the borrowed object
-     * using {@link #returnObject returnObject},
-     * {@link #invalidateObject invalidateObject}, or a related method as
-     * defined in an implementation or sub-interface, using a {@code key}
-     * that is {@link Object#equals equivalent} to the one used to borrow the
-     * instance in the first place.
-     * </p>
-     * <p>
-     * The behavior of this method when the pool has been exhausted is not
-     * strictly specified (although it may be specified by implementations).
-     * </p>
-     *
-     * @param key the key used to obtain the object
-     *
-     * @return an instance from this pool.
-     *
-     * @throws IllegalStateException
-     *              after {@link #close close} has been called on this pool
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject
-     *              makeObject} throws an exception
-     * @throws NoSuchElementException
-     *              when the pool is exhausted and cannot or will not return
-     *              another instance
-     */","V borrowObject(K key) throws Exception, NoSuchElementException, IllegalStateException;"
-pool_267_1,"    @Test
+",TestGenericKeyedObjectPool::testMaxTotal_4_oe
+pool_268_1,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testMaxTotalPerKey_1_oe() throws Exception {
         gkoPool.setMaxTotalPerKey(3);
@@ -2787,47 +1599,12 @@ pool_267_1,"    @Test
         gkoPool.borrowObject("""");
         try {
     gkoPool.borrowObject("""");
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestGenericKeyedObjectPool::testMaxTotalPerKey_1_oe,org.apache.commons.pool2.KeyedObjectPool,borrowObject(K key),"/**
-     * Borrows an instance from this pool for the specified {@code key}.
-     * <p>
-     * Instances returned from this method will have been either newly created
-     * with {@link KeyedPooledObjectFactory#makeObject makeObject} or will be
-     * a previously idle object and have been activated with
-     * {@link KeyedPooledObjectFactory#activateObject activateObject} and then
-     * (optionally) validated with
-     * {@link KeyedPooledObjectFactory#validateObject validateObject}.
-     * </p>
-     * <p>
-     * By contract, clients <strong>must</strong> return the borrowed object
-     * using {@link #returnObject returnObject},
-     * {@link #invalidateObject invalidateObject}, or a related method as
-     * defined in an implementation or sub-interface, using a {@code key}
-     * that is {@link Object#equals equivalent} to the one used to borrow the
-     * instance in the first place.
-     * </p>
-     * <p>
-     * The behavior of this method when the pool has been exhausted is not
-     * strictly specified (although it may be specified by implementations).
-     * </p>
-     *
-     * @param key the key used to obtain the object
-     *
-     * @return an instance from this pool.
-     *
-     * @throws IllegalStateException
-     *              after {@link #close close} has been called on this pool
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject
-     *              makeObject} throws an exception
-     * @throws NoSuchElementException
-     *              when the pool is exhausted and cannot or will not return
-     *              another instance
-     */","V borrowObject(K key) throws Exception, NoSuchElementException, IllegalStateException;"
-pool_268_1,"    @Test
+",TestGenericKeyedObjectPool::testMaxTotalPerKey_1_oe
+pool_269_1,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testMaxTotalPerKeyZero_1_oe() throws Exception {
         gkoPool.setMaxTotalPerKey(0);
@@ -2835,47 +1612,12 @@ pool_268_1,"    @Test
 
         try {
     gkoPool.borrowObject(""a"");
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestGenericKeyedObjectPool::testMaxTotalPerKeyZero_1_oe,org.apache.commons.pool2.KeyedObjectPool,borrowObject(K key),"/**
-     * Borrows an instance from this pool for the specified {@code key}.
-     * <p>
-     * Instances returned from this method will have been either newly created
-     * with {@link KeyedPooledObjectFactory#makeObject makeObject} or will be
-     * a previously idle object and have been activated with
-     * {@link KeyedPooledObjectFactory#activateObject activateObject} and then
-     * (optionally) validated with
-     * {@link KeyedPooledObjectFactory#validateObject validateObject}.
-     * </p>
-     * <p>
-     * By contract, clients <strong>must</strong> return the borrowed object
-     * using {@link #returnObject returnObject},
-     * {@link #invalidateObject invalidateObject}, or a related method as
-     * defined in an implementation or sub-interface, using a {@code key}
-     * that is {@link Object#equals equivalent} to the one used to borrow the
-     * instance in the first place.
-     * </p>
-     * <p>
-     * The behavior of this method when the pool has been exhausted is not
-     * strictly specified (although it may be specified by implementations).
-     * </p>
-     *
-     * @param key the key used to obtain the object
-     *
-     * @return an instance from this pool.
-     *
-     * @throws IllegalStateException
-     *              after {@link #close close} has been called on this pool
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject
-     *              makeObject} throws an exception
-     * @throws NoSuchElementException
-     *              when the pool is exhausted and cannot or will not return
-     *              another instance
-     */","V borrowObject(K key) throws Exception, NoSuchElementException, IllegalStateException;"
-pool_270_1,"    @Test
+",TestGenericKeyedObjectPool::testMaxTotalPerKeyZero_1_oe
+pool_271_1,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testMaxTotalZero_1_oe() throws Exception {
         gkoPool.setMaxTotal(0);
@@ -2883,43 +1625,8 @@ pool_270_1,"    @Test
 
         try {
     gkoPool.borrowObject(""a"");
-    org.junit.jupiter.api.Assertions.fail(""NoSuchElementException"");
+    fail(""NoSuchElementException"");
 } catch (NoSuchElementException e) {
 }
     }
-",TestGenericKeyedObjectPool::testMaxTotalZero_1_oe,org.apache.commons.pool2.KeyedObjectPool,borrowObject(K key),"/**
-     * Borrows an instance from this pool for the specified {@code key}.
-     * <p>
-     * Instances returned from this method will have been either newly created
-     * with {@link KeyedPooledObjectFactory#makeObject makeObject} or will be
-     * a previously idle object and have been activated with
-     * {@link KeyedPooledObjectFactory#activateObject activateObject} and then
-     * (optionally) validated with
-     * {@link KeyedPooledObjectFactory#validateObject validateObject}.
-     * </p>
-     * <p>
-     * By contract, clients <strong>must</strong> return the borrowed object
-     * using {@link #returnObject returnObject},
-     * {@link #invalidateObject invalidateObject}, or a related method as
-     * defined in an implementation or sub-interface, using a {@code key}
-     * that is {@link Object#equals equivalent} to the one used to borrow the
-     * instance in the first place.
-     * </p>
-     * <p>
-     * The behavior of this method when the pool has been exhausted is not
-     * strictly specified (although it may be specified by implementations).
-     * </p>
-     *
-     * @param key the key used to obtain the object
-     *
-     * @return an instance from this pool.
-     *
-     * @throws IllegalStateException
-     *              after {@link #close close} has been called on this pool
-     * @throws Exception
-     *              when {@link KeyedPooledObjectFactory#makeObject
-     *              makeObject} throws an exception
-     * @throws NoSuchElementException
-     *              when the pool is exhausted and cannot or will not return
-     *              another instance
-     */","V borrowObject(K key) throws Exception, NoSuchElementException, IllegalStateException;"
+",TestGenericKeyedObjectPool::testMaxTotalZero_1_oe

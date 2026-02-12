@@ -204,5 +204,19 @@ public class LRUMapSizeVsCount_OE25Dev
             + "x" );
     }
 
+    public void testSimpleLoad_1_oe()
+        throws Exception
+    {
+        doWork();
+        assertTrue( this.ratioPut < targetPut );
+    }
+
+    public void testSimpleLoad_2_oe()
+        throws Exception
+    {
+        doWork();
+        // removed other assertion
+        assertTrue( this.ratioGet < targetGet );
+    }
 
 }

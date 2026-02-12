@@ -363,5 +363,14 @@ public final class ISAACRandomTest_OE25Dev {
         0xffb09943, 0x0e9d4e1f, 0x5a3c51ac, 0x6f055f04, 0xb2ac9a26, 0xb7fac64f, 0x27cc0c8d, 0x342bbac3
     };
 
+    @Test
+    void testReference1_1_oe() {
+        RandomAssert.assertEquals(EXPECTED_SEQUENCE_1, new ISAACRandom(SEED_1));
+    }
+
+    @Test
+    void testReference2_1_oe() {
+        RandomAssert.assertEquals(EXPECTED_SEQUENCE_2, new ISAACRandom(SEED_2));
+    }
 
 }

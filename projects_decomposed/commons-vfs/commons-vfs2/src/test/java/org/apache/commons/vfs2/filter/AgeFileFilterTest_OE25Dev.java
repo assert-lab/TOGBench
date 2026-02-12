@@ -110,6 +110,386 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
 
     }
 
+    @Test
+    public void testAgeFileFilterDate_1_oe() throws FileSystemException {
+
+        final AgeFileFilter testee = new AgeFileFilter(new Date());
+        Assert.assertTrue(testee.accept(oldFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterDate_2_oe() throws FileSystemException {
+
+        final AgeFileFilter testee = new AgeFileFilter(new Date());
+        // removed other assertion
+        Assert.assertTrue(testee.accept(currentFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterDate_3_oe() throws FileSystemException {
+
+        final AgeFileFilter testee = new AgeFileFilter(new Date());
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(testee.accept(newFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterDateBoolean_1_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(new Date(), true);
+        Assert.assertTrue(testee.accept(oldFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterDateBoolean_2_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(new Date(), true);
+        // removed other assertion
+        Assert.assertTrue(testee.accept(currentFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterDateBoolean_3_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(new Date(), true);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(testee.accept(newFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterDateBoolean_4_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(new Date(), true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new AgeFileFilter(new Date(), false);
+        Assert.assertFalse(testee.accept(oldFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterDateBoolean_5_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(new Date(), true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new AgeFileFilter(new Date(), false);
+        // removed other assertion
+        Assert.assertFalse(testee.accept(currentFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterDateBoolean_6_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(new Date(), true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new AgeFileFilter(new Date(), false);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(testee.accept(newFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterFile_1_oe() throws FileSystemException {
+
+        final AgeFileFilter testee = new AgeFileFilter(currentFileInfo.getFile());
+        Assert.assertTrue(testee.accept(oldFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterFile_2_oe() throws FileSystemException {
+
+        final AgeFileFilter testee = new AgeFileFilter(currentFileInfo.getFile());
+        // removed other assertion
+        Assert.assertTrue(testee.accept(currentFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterFile_3_oe() throws FileSystemException {
+
+        final AgeFileFilter testee = new AgeFileFilter(currentFileInfo.getFile());
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(testee.accept(newFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterFileBoolean_1_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(currentFileInfo.getFile(), true);
+        Assert.assertTrue(testee.accept(oldFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterFileBoolean_2_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(currentFileInfo.getFile(), true);
+        // removed other assertion
+        Assert.assertTrue(testee.accept(currentFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterFileBoolean_3_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(currentFileInfo.getFile(), true);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(testee.accept(newFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterFileBoolean_4_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(currentFileInfo.getFile(), true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new AgeFileFilter(currentFileInfo.getFile(), false);
+        Assert.assertFalse(testee.accept(oldFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterFileBoolean_5_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(currentFileInfo.getFile(), true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new AgeFileFilter(currentFileInfo.getFile(), false);
+        // removed other assertion
+        Assert.assertFalse(testee.accept(currentFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterFileBoolean_6_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(currentFileInfo.getFile(), true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new AgeFileFilter(currentFileInfo.getFile(), false);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(testee.accept(newFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterLong_1_oe() throws FileSystemException {
+
+        final AgeFileFilter testee = new AgeFileFilter(NOW_MILLIS);
+        Assert.assertTrue(testee.accept(oldFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterLong_2_oe() throws FileSystemException {
+
+        final AgeFileFilter testee = new AgeFileFilter(NOW_MILLIS);
+        // removed other assertion
+        Assert.assertTrue(testee.accept(currentFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterLong_3_oe() throws FileSystemException {
+
+        final AgeFileFilter testee = new AgeFileFilter(NOW_MILLIS);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(testee.accept(newFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterLongBoolean_1_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(NOW_MILLIS, true);
+        Assert.assertTrue(testee.accept(oldFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterLongBoolean_2_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        Assert.assertTrue(testee.accept(currentFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterLongBoolean_3_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(testee.accept(newFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterLongBoolean_4_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new AgeFileFilter(NOW_MILLIS, false);
+        Assert.assertFalse(testee.accept(oldFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterLongBoolean_5_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new AgeFileFilter(NOW_MILLIS, false);
+        // removed other assertion
+        Assert.assertFalse(testee.accept(currentFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterLongBoolean_6_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new AgeFileFilter(NOW_MILLIS, false);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(testee.accept(newFileInfo));
+    }
+
+    @Test
+    public void testAgeFileFilterLongBoolean_8_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new AgeFileFilter(NOW_MILLIS, false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, true)));
+        // removed other assertion
+        Assert.assertEquals(2, files.length);
+    }
+
+    @Test
+    public void testAgeFileFilterLongBoolean_10_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new AgeFileFilter(NOW_MILLIS, false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, false)));
+        // removed other assertion
+        Assert.assertEquals(1, files.length);
+    }
+
+    @Test
+    public void testAgeFileFilterLongBoolean_9_oe_1_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new AgeFileFilter(NOW_MILLIS, false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, false)));
+                final FileObject[] fos0 = files;
+        final String string0 = newFile.getName();
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        return;
+                    }
+                }
+        
+                fail(string0 + " should be seen");
+    }
 
 }
 // CHECKSTYLE:ON

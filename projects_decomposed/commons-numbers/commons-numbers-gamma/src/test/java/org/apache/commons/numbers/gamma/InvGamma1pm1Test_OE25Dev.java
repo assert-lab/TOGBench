@@ -19,6 +19,8 @@ package org.apache.commons.numbers.gamma;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Tests for {@link InvGamma1pm1}.
  */
@@ -65,10 +67,23 @@ class InvGamma1pm1Test_OE25Dev {
     };
 
     @Test
+    void testInvGamma1pm1_1_oe() {
+        final int ulps = 3;
+        for (int i = 0; i < INV_GAMMA1P_M1_REF.length; i++) {
+            final double[] ref = INV_GAMMA1P_M1_REF[i];
+            final double x = ref[0];
+            final double expected = ref[1];
+            final double actual = InvGamma1pm1.value(x);
+            final double tol = ulps * Math.ulp(expected);
+            Assertions.assertEquals(expected, actual, tol, Double.toString(x));
+    }
+    }
+
+    @Test
     void testInvGamma1pm1Precondition1_1_oe() {
         try {
     InvGamma1pm1.value(-0.51);
-    org.junit.jupiter.api.Assertions.fail("GammaException");
+    fail("GammaException");
 } catch (GammaException e) {
 }
     }
@@ -77,7 +92,7 @@ class InvGamma1pm1Test_OE25Dev {
     void testInvGamma1pm1Precondition2_1_oe() {
         try {
     InvGamma1pm1.value(1.51);
-    org.junit.jupiter.api.Assertions.fail("GammaException");
+    fail("GammaException");
 } catch (GammaException e) {
 }
     }

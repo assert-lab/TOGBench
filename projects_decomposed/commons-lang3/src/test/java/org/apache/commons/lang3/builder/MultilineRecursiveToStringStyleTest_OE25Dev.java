@@ -88,5 +88,188 @@ public class MultilineRecursiveToStringStyleTest_OE25Dev {
         }
     }
 
+    @Test
+    public void simpleObject_1_oe() {
+        final Transaction tx = new Transaction("2014.10.15", 100);
+        final String expected = getClassPrefix(tx) + "[" + BR
+                        + "  amount=100.0," + BR
+                        + "  date=2014.10.15" + BR
+                        + "]";
+        assertEquals(expected, toString(tx));
+    }
+
+    @Test
+    public void nestedElements_1_oe() {
+        final Customer customer = new Customer("Douglas Adams");
+        final Bank bank = new Bank("ASF Bank");
+        customer.bank = bank;
+        final String exp = getClassPrefix(customer) + "[" + BR
+                   + "  accounts=<null>," + BR
+                   + "  bank=" + getClassPrefix(bank) + "[" + BR
+                   + "    name=ASF Bank" + BR
+                   + "  ]," + BR
+                   + "  name=Douglas Adams" + BR
+                + "]";
+        assertEquals(exp, toString(customer));
+    }
+
+    @Test
+    public void nestedAndArray_1_oe() {
+        final Account acc = new Account();
+        final Transaction tx1 = new Transaction("2014.10.14", 100);
+        final Transaction tx2 = new Transaction("2014.10.15", 50);
+        acc.transactions.add(tx1);
+        acc.transactions.add(tx2);
+        final String expected = getClassPrefix(acc) + "[" + BR
+                        + "  owner=<null>," + BR
+                        + "  transactions=" + getClassPrefix(acc.transactions) + "{" + BR
+                        + "    " + getClassPrefix(tx1) + "[" + BR
+                        + "      amount=100.0," + BR
+                        + "      date=2014.10.14" + BR
+                        + "    ]," + BR
+                        + "    " + getClassPrefix(tx2) + "[" + BR
+                        + "      amount=50.0," + BR
+                        + "      date=2014.10.15" + BR
+                        + "    ]" + BR
+                        + "  }" + BR
+                        + "]";
+        assertEquals(expected, toString(acc));
+    }
+
+    @Test
+    public void noArray_1_oe() {
+        final WithArrays wa = new WithArrays();
+        final String exp = getClassPrefix(wa) + "[" + BR
+                   + "  boolArray=<null>," + BR
+                   + "  charArray=<null>," + BR
+                   + "  doubleArray=<null>," + BR
+                   + "  intArray=<null>," + BR
+                   + "  longArray=<null>," + BR
+                   + "  stringArray=<null>" + BR
+                   + "]";
+        assertEquals(exp, toString(wa));
+    }
+
+    @Test
+    public void boolArray_1_oe() {
+        final WithArrays wa = new WithArrays();
+        wa.boolArray = new boolean[] { true, false, true };
+        final String exp = getClassPrefix(wa) + "[" + BR
+                   + "  boolArray={" + BR
+                   + "    true," + BR
+                   + "    false," + BR
+                   + "    true" + BR
+                   + "  }," + BR
+                   + "  charArray=<null>," + BR
+                   + "  doubleArray=<null>," + BR
+                   + "  intArray=<null>," + BR
+                   + "  longArray=<null>," + BR
+                   + "  stringArray=<null>" + BR
+                   + "]";
+        assertEquals(exp, toString(wa));
+    }
+
+    @Test
+    public void charArray_1_oe() {
+        final WithArrays wa = new WithArrays();
+        wa.charArray = new char[] { 'a', 'A' };
+        final String exp = getClassPrefix(wa) + "[" + BR
+                   + "  boolArray=<null>," + BR
+                   + "  charArray={" + BR
+                   + "    a," + BR
+                   + "    A" + BR
+                   + "  }," + BR
+                   + "  doubleArray=<null>," + BR
+                   + "  intArray=<null>," + BR
+                   + "  longArray=<null>," + BR
+                   + "  stringArray=<null>" + BR
+                   + "]";
+        assertEquals(exp, toString(wa));
+    }
+
+    @Test
+    public void intArray_1_oe() {
+        final WithArrays wa = new WithArrays();
+        wa.intArray = new int[] { 1, 2 };
+        final String exp = getClassPrefix(wa) + "[" + BR
+                   + "  boolArray=<null>," + BR
+                   + "  charArray=<null>," + BR
+                   + "  doubleArray=<null>," + BR
+                   + "  intArray={" + BR
+                   + "    1," + BR
+                   + "    2" + BR
+                   + "  }," + BR
+                   + "  longArray=<null>," + BR
+                   + "  stringArray=<null>" + BR
+                   + "]";
+        assertEquals(exp, toString(wa));
+    }
+
+    @Test
+    public void doubleArray_1_oe() {
+        final WithArrays wa = new WithArrays();
+        wa.doubleArray = new double[] { 1, 2 };
+        final String exp = getClassPrefix(wa) + "[" + BR
+                   + "  boolArray=<null>," + BR
+                   + "  charArray=<null>," + BR
+                   + "  doubleArray={" + BR
+                   + "    1.0," + BR
+                   + "    2.0" + BR
+                   + "  }," + BR
+                   + "  intArray=<null>," + BR
+                   + "  longArray=<null>," + BR
+                   + "  stringArray=<null>" + BR
+                   + "]";
+        assertEquals(exp, toString(wa));
+    }
+
+    @Test
+    public void longArray_1_oe() {
+        final WithArrays wa = new WithArrays();
+        wa.longArray = new long[] { 1L, 2L };
+        final String exp = getClassPrefix(wa) + "[" + BR
+                   + "  boolArray=<null>," + BR
+                   + "  charArray=<null>," + BR
+                   + "  doubleArray=<null>," + BR
+                   + "  intArray=<null>," + BR
+                   + "  longArray={" + BR
+                   + "    1," + BR
+                   + "    2" + BR
+                   + "  }," + BR
+                   + "  stringArray=<null>" + BR
+                   + "]";
+        assertEquals(exp, toString(wa));
+    }
+
+    @Test
+    public void stringArray_1_oe() {
+        final WithArrays wa = new WithArrays();
+        wa.stringArray = new String[] { "a", "A" };
+        final String exp = getClassPrefix(wa) + "[" + BR
+                   + "  boolArray=<null>," + BR
+                   + "  charArray=<null>," + BR
+                   + "  doubleArray=<null>," + BR
+                   + "  intArray=<null>," + BR
+                   + "  longArray=<null>," + BR
+                   + "  stringArray={" + BR
+                   + "    a," + BR
+                   + "    A" + BR
+                   + "  }" + BR
+                   + "]";
+        assertEquals(exp, toString(wa));
+    }
+
+    @Test
+    public void testLANG1319_1_oe() {
+        final String[] stringArray = {"1", "2"};
+
+        final String exp = getClassPrefix(stringArray) + "[" + BR
+                + "  {" + BR
+                + "    1," + BR
+                + "    2" + BR
+                + "  }" + BR
+                + "]";
+        assertEquals(exp, toString(stringArray));
+    }
 
 }

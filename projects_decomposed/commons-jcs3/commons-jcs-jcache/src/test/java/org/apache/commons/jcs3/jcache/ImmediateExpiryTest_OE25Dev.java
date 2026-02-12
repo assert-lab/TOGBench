@@ -36,5 +36,17 @@ import static org.junit.Assert.assertFalse;
 public class ImmediateExpiryTest_OE25Dev
 {
 
+    @Test
+    public void immediate_1_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        cacheManager.createCache("default",
+                new MutableConfiguration<>()
+                        .setExpiryPolicyFactory(
+                                new FactoryBuilder.SingletonFactory<ExpiryPolicy>(new CreatedExpiryPolicy(Duration.ZERO))));
+        final Cache<String, String> cache = cacheManager.getCache("default");
+        assertFalse(cache.containsKey("foo"));
+    }
 
 }

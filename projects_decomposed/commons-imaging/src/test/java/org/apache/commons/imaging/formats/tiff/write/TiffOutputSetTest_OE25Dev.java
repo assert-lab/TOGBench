@@ -38,5 +38,23 @@ public class TiffOutputSetTest_OE25Dev {
      * https://issues.apache.org/jira/browse/IMAGING-144
      */
 
+    @Test
+    public void testImaging144_1_oe() throws Exception {
+        tiffOutputSet.setGPSInDegrees(1.0, 1.0);
+
+        final TiffOutputField gpsVersionId = tiffOutputSet.findField(GpsTagConstants.GPS_TAG_GPS_VERSION_ID);
+
+        assertNotNull(gpsVersionId);
+    }
+
+    @Test
+    public void testImaging144_2_oe() throws Exception {
+        tiffOutputSet.setGPSInDegrees(1.0, 1.0);
+
+        final TiffOutputField gpsVersionId = tiffOutputSet.findField(GpsTagConstants.GPS_TAG_GPS_VERSION_ID);
+
+        // removed other assertion
+        assertTrue(gpsVersionId.bytesEqual(GpsTagConstants.gpsVersion()));
+    }
 
 }

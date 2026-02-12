@@ -38,6 +38,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 public class GifReadTest_OE25Dev extends GifBaseTest {
 
     public static Stream<File> data() throws Exception {
@@ -89,11 +91,269 @@ public class GifReadTest_OE25Dev extends GifBaseTest {
      * @throws IOException if it fails to read the test image
      */
 
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testImageInfo_1_oe(final File imageFile) throws Exception {
+        final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+        assertNotNull(imageInfo);
+    }
+
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testImageDimensions_1_oe(final File imageFile) throws Exception {
+        final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+        final GifImageMetadata metadata = (GifImageMetadata) Imaging.getMetadata(imageFile);
+        final List<BufferedImage> images = Imaging.getAllBufferedImages(imageFile);
+
+        int width = 0;
+        int height = 0;
+        for(int i = 0; i < images.size(); i++) {
+            final BufferedImage image = images.get(i);
+            final GifImageMetadataItem metadataItem = metadata.getItems().get(i);
+            final int xOffset = metadataItem.getLeftPosition();
+            final int yOffset = metadataItem.getTopPosition();
+            width = Math.max(width, image.getWidth() + xOffset);
+            height = Math.max(height, image.getHeight() + yOffset);
+        }
+
+        assertEquals(width, metadata.getWidth());
+    }
+
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testImageDimensions_2_oe(final File imageFile) throws Exception {
+        final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+        final GifImageMetadata metadata = (GifImageMetadata) Imaging.getMetadata(imageFile);
+        final List<BufferedImage> images = Imaging.getAllBufferedImages(imageFile);
+
+        int width = 0;
+        int height = 0;
+        for(int i = 0; i < images.size(); i++) {
+            final BufferedImage image = images.get(i);
+            final GifImageMetadataItem metadataItem = metadata.getItems().get(i);
+            final int xOffset = metadataItem.getLeftPosition();
+            final int yOffset = metadataItem.getTopPosition();
+            width = Math.max(width, image.getWidth() + xOffset);
+            height = Math.max(height, image.getHeight() + yOffset);
+        }
+
+        // removed other assertion
+        assertEquals(height, metadata.getHeight());
+    }
+
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testImageDimensions_3_oe(final File imageFile) throws Exception {
+        final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+        final GifImageMetadata metadata = (GifImageMetadata) Imaging.getMetadata(imageFile);
+        final List<BufferedImage> images = Imaging.getAllBufferedImages(imageFile);
+
+        int width = 0;
+        int height = 0;
+        for(int i = 0; i < images.size(); i++) {
+            final BufferedImage image = images.get(i);
+            final GifImageMetadataItem metadataItem = metadata.getItems().get(i);
+            final int xOffset = metadataItem.getLeftPosition();
+            final int yOffset = metadataItem.getTopPosition();
+            width = Math.max(width, image.getWidth() + xOffset);
+            height = Math.max(height, image.getHeight() + yOffset);
+        }
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(width, imageInfo.getWidth());
+    }
+
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testImageDimensions_4_oe(final File imageFile) throws Exception {
+        final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+        final GifImageMetadata metadata = (GifImageMetadata) Imaging.getMetadata(imageFile);
+        final List<BufferedImage> images = Imaging.getAllBufferedImages(imageFile);
+
+        int width = 0;
+        int height = 0;
+        for(int i = 0; i < images.size(); i++) {
+            final BufferedImage image = images.get(i);
+            final GifImageMetadataItem metadataItem = metadata.getItems().get(i);
+            final int xOffset = metadataItem.getLeftPosition();
+            final int yOffset = metadataItem.getTopPosition();
+            width = Math.max(width, image.getWidth() + xOffset);
+            height = Math.max(height, image.getHeight() + yOffset);
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(height, imageInfo.getHeight());
+    }
+
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testBufferedImage_1_oe(final File imageFile) throws Exception {
+        final BufferedImage image = Imaging.getBufferedImage(imageFile);
+        assertNotNull(image);
+    }
+
+    @ParameterizedTest
+    @MethodSource("singleImageData")
+    public void testBufferedImagesForSingleImageGif_1_oe(final File imageFile) throws Exception {
+        final List<BufferedImage> images = Imaging.getAllBufferedImages(imageFile);
+        assertEquals(1, images.size());
+    }
+
+    @ParameterizedTest
+    @MethodSource("animatedImageData")
+    public void testBufferedImagesForAnimatedImageGif_1_oe(final File imageFile) throws Exception {
+        final List<BufferedImage> images = Imaging.getAllBufferedImages(imageFile);
+        assertTrue(images.size() > 1);
+    }
+
+    @Test
+    public void testCreateMetadataWithDisposalMethods_1_oe() {
+        for(final DisposalMethod disposalMethod : DisposalMethod.values()) {
+            final GifImageMetadataItem metadataItem = new GifImageMetadataItem(0, 0, 0, disposalMethod);
+            Assertions.assertEquals(disposalMethod, metadataItem.getDisposalMethod());
+    }
+    }
+
+    @Test
+    public void testConvertValidDisposalMethodValues_1_oe() throws ImageReadException {
+        final DisposalMethod unspecified = GifImageParser.createDisposalMethodFromIntValue(0);
+        final DisposalMethod doNotDispose = GifImageParser.createDisposalMethodFromIntValue(1);
+        final DisposalMethod restoreToBackground = GifImageParser.createDisposalMethodFromIntValue(2);
+        final DisposalMethod restoreToPrevious = GifImageParser.createDisposalMethodFromIntValue(3);
+        final DisposalMethod toBeDefined1 = GifImageParser.createDisposalMethodFromIntValue(4);
+        final DisposalMethod toBeDefined2 = GifImageParser.createDisposalMethodFromIntValue(5);
+        final DisposalMethod toBeDefined3 = GifImageParser.createDisposalMethodFromIntValue(6);
+        final DisposalMethod toBeDefined4 = GifImageParser.createDisposalMethodFromIntValue(7);
+        Assertions.assertEquals(unspecified, DisposalMethod.UNSPECIFIED);
+    }
+
+    @Test
+    public void testConvertValidDisposalMethodValues_2_oe() throws ImageReadException {
+        final DisposalMethod unspecified = GifImageParser.createDisposalMethodFromIntValue(0);
+        final DisposalMethod doNotDispose = GifImageParser.createDisposalMethodFromIntValue(1);
+        final DisposalMethod restoreToBackground = GifImageParser.createDisposalMethodFromIntValue(2);
+        final DisposalMethod restoreToPrevious = GifImageParser.createDisposalMethodFromIntValue(3);
+        final DisposalMethod toBeDefined1 = GifImageParser.createDisposalMethodFromIntValue(4);
+        final DisposalMethod toBeDefined2 = GifImageParser.createDisposalMethodFromIntValue(5);
+        final DisposalMethod toBeDefined3 = GifImageParser.createDisposalMethodFromIntValue(6);
+        final DisposalMethod toBeDefined4 = GifImageParser.createDisposalMethodFromIntValue(7);
+        // removed other assertion
+        Assertions.assertEquals(doNotDispose, DisposalMethod.DO_NOT_DISPOSE);
+    }
+
+    @Test
+    public void testConvertValidDisposalMethodValues_3_oe() throws ImageReadException {
+        final DisposalMethod unspecified = GifImageParser.createDisposalMethodFromIntValue(0);
+        final DisposalMethod doNotDispose = GifImageParser.createDisposalMethodFromIntValue(1);
+        final DisposalMethod restoreToBackground = GifImageParser.createDisposalMethodFromIntValue(2);
+        final DisposalMethod restoreToPrevious = GifImageParser.createDisposalMethodFromIntValue(3);
+        final DisposalMethod toBeDefined1 = GifImageParser.createDisposalMethodFromIntValue(4);
+        final DisposalMethod toBeDefined2 = GifImageParser.createDisposalMethodFromIntValue(5);
+        final DisposalMethod toBeDefined3 = GifImageParser.createDisposalMethodFromIntValue(6);
+        final DisposalMethod toBeDefined4 = GifImageParser.createDisposalMethodFromIntValue(7);
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(restoreToBackground, DisposalMethod.RESTORE_TO_BACKGROUND);
+    }
+
+    @Test
+    public void testConvertValidDisposalMethodValues_4_oe() throws ImageReadException {
+        final DisposalMethod unspecified = GifImageParser.createDisposalMethodFromIntValue(0);
+        final DisposalMethod doNotDispose = GifImageParser.createDisposalMethodFromIntValue(1);
+        final DisposalMethod restoreToBackground = GifImageParser.createDisposalMethodFromIntValue(2);
+        final DisposalMethod restoreToPrevious = GifImageParser.createDisposalMethodFromIntValue(3);
+        final DisposalMethod toBeDefined1 = GifImageParser.createDisposalMethodFromIntValue(4);
+        final DisposalMethod toBeDefined2 = GifImageParser.createDisposalMethodFromIntValue(5);
+        final DisposalMethod toBeDefined3 = GifImageParser.createDisposalMethodFromIntValue(6);
+        final DisposalMethod toBeDefined4 = GifImageParser.createDisposalMethodFromIntValue(7);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(restoreToPrevious, DisposalMethod.RESTORE_TO_PREVIOUS);
+    }
+
+    @Test
+    public void testConvertValidDisposalMethodValues_5_oe() throws ImageReadException {
+        final DisposalMethod unspecified = GifImageParser.createDisposalMethodFromIntValue(0);
+        final DisposalMethod doNotDispose = GifImageParser.createDisposalMethodFromIntValue(1);
+        final DisposalMethod restoreToBackground = GifImageParser.createDisposalMethodFromIntValue(2);
+        final DisposalMethod restoreToPrevious = GifImageParser.createDisposalMethodFromIntValue(3);
+        final DisposalMethod toBeDefined1 = GifImageParser.createDisposalMethodFromIntValue(4);
+        final DisposalMethod toBeDefined2 = GifImageParser.createDisposalMethodFromIntValue(5);
+        final DisposalMethod toBeDefined3 = GifImageParser.createDisposalMethodFromIntValue(6);
+        final DisposalMethod toBeDefined4 = GifImageParser.createDisposalMethodFromIntValue(7);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(toBeDefined1, DisposalMethod.TO_BE_DEFINED_1);
+    }
+
+    @Test
+    public void testConvertValidDisposalMethodValues_6_oe() throws ImageReadException {
+        final DisposalMethod unspecified = GifImageParser.createDisposalMethodFromIntValue(0);
+        final DisposalMethod doNotDispose = GifImageParser.createDisposalMethodFromIntValue(1);
+        final DisposalMethod restoreToBackground = GifImageParser.createDisposalMethodFromIntValue(2);
+        final DisposalMethod restoreToPrevious = GifImageParser.createDisposalMethodFromIntValue(3);
+        final DisposalMethod toBeDefined1 = GifImageParser.createDisposalMethodFromIntValue(4);
+        final DisposalMethod toBeDefined2 = GifImageParser.createDisposalMethodFromIntValue(5);
+        final DisposalMethod toBeDefined3 = GifImageParser.createDisposalMethodFromIntValue(6);
+        final DisposalMethod toBeDefined4 = GifImageParser.createDisposalMethodFromIntValue(7);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(toBeDefined2, DisposalMethod.TO_BE_DEFINED_2);
+    }
+
+    @Test
+    public void testConvertValidDisposalMethodValues_7_oe() throws ImageReadException {
+        final DisposalMethod unspecified = GifImageParser.createDisposalMethodFromIntValue(0);
+        final DisposalMethod doNotDispose = GifImageParser.createDisposalMethodFromIntValue(1);
+        final DisposalMethod restoreToBackground = GifImageParser.createDisposalMethodFromIntValue(2);
+        final DisposalMethod restoreToPrevious = GifImageParser.createDisposalMethodFromIntValue(3);
+        final DisposalMethod toBeDefined1 = GifImageParser.createDisposalMethodFromIntValue(4);
+        final DisposalMethod toBeDefined2 = GifImageParser.createDisposalMethodFromIntValue(5);
+        final DisposalMethod toBeDefined3 = GifImageParser.createDisposalMethodFromIntValue(6);
+        final DisposalMethod toBeDefined4 = GifImageParser.createDisposalMethodFromIntValue(7);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(toBeDefined3, DisposalMethod.TO_BE_DEFINED_3);
+    }
+
+    @Test
+    public void testConvertValidDisposalMethodValues_8_oe() throws ImageReadException {
+        final DisposalMethod unspecified = GifImageParser.createDisposalMethodFromIntValue(0);
+        final DisposalMethod doNotDispose = GifImageParser.createDisposalMethodFromIntValue(1);
+        final DisposalMethod restoreToBackground = GifImageParser.createDisposalMethodFromIntValue(2);
+        final DisposalMethod restoreToPrevious = GifImageParser.createDisposalMethodFromIntValue(3);
+        final DisposalMethod toBeDefined1 = GifImageParser.createDisposalMethodFromIntValue(4);
+        final DisposalMethod toBeDefined2 = GifImageParser.createDisposalMethodFromIntValue(5);
+        final DisposalMethod toBeDefined3 = GifImageParser.createDisposalMethodFromIntValue(6);
+        final DisposalMethod toBeDefined4 = GifImageParser.createDisposalMethodFromIntValue(7);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(toBeDefined4, DisposalMethod.TO_BE_DEFINED_4);
+    }
+
     @Test
     public void testConvertInvalidDisposalMethodValues_1_oe() throws Exception {
         try {
     GifImageParser.createDisposalMethodFromIntValue(8);
-    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+    fail("ImageReadException");
 } catch (ImageReadException e) {
 }
     }
@@ -105,7 +365,7 @@ public class GifReadTest_OE25Dev extends GifBaseTest {
         final GifImageParser parser = new GifImageParser();
         try {
     parser.getBufferedImage(new ByteSourceFile(new File(file)), new GifImagingParameters());
-    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+    fail("ImageReadException");
 } catch (ImageReadException e) {
 }
     }
@@ -117,7 +377,7 @@ public class GifReadTest_OE25Dev extends GifBaseTest {
         final GifImageParser parser = new GifImageParser();
         try {
     parser.getBufferedImage(new ByteSourceFile(new File(file)), new GifImagingParameters());
-    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+    fail("ImageReadException");
 } catch (ImageReadException e) {
 }
     }
@@ -129,7 +389,7 @@ public class GifReadTest_OE25Dev extends GifBaseTest {
         final GifImageParser parser = new GifImageParser();
         try {
     parser.getBufferedImage(new ByteSourceFile(new File(file)), new GifImagingParameters());
-    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+    fail("ImageReadException");
 } catch (ImageReadException e) {
 }
     }

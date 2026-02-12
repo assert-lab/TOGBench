@@ -19,10 +19,167 @@ package org.apache.commons.numbers.angle;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test cases for the {@link CosAngle} class.
  */
 class CosAngleTest_OE25Dev {
+
+    @Test
+    void testCosAngle2D_1_oe() {
+        double expected;
+
+        final double[] v1 = {1, 0};
+        expected = 1;
+        Assertions.assertEquals(expected, CosAngle.value(v1, v1));
+    }
+
+    @Test
+    void testCosAngle2D_2_oe() {
+        double expected;
+
+        final double[] v1 = {1, 0};
+        expected = 1;
+        // removed other assertion
+
+        final double[] v2 = {0, 1};
+        expected = 0;
+        Assertions.assertEquals(expected, CosAngle.value(v1, v2));
+    }
+
+    @Test
+    void testCosAngle2D_3_oe() {
+        double expected;
+
+        final double[] v1 = {1, 0};
+        expected = 1;
+        // removed other assertion
+
+        final double[] v2 = {0, 1};
+        expected = 0;
+        // removed other assertion
+
+        final double[] v3 = {7, 7};
+        expected = Math.sqrt(2) / 2;
+        Assertions.assertEquals(expected, CosAngle.value(v1, v3), 1e-15);
+    }
+
+    @Test
+    void testCosAngle2D_4_oe() {
+        double expected;
+
+        final double[] v1 = {1, 0};
+        expected = 1;
+        // removed other assertion
+
+        final double[] v2 = {0, 1};
+        expected = 0;
+        // removed other assertion
+
+        final double[] v3 = {7, 7};
+        expected = Math.sqrt(2) / 2;
+        // removed other assertion
+        Assertions.assertEquals(expected, CosAngle.value(v3, v2), 1e-15);
+    }
+
+    @Test
+    void testCosAngle2D_5_oe() {
+        double expected;
+
+        final double[] v1 = {1, 0};
+        expected = 1;
+        // removed other assertion
+
+        final double[] v2 = {0, 1};
+        expected = 0;
+        // removed other assertion
+
+        final double[] v3 = {7, 7};
+        expected = Math.sqrt(2) / 2;
+        // removed other assertion
+        // removed other assertion
+
+        final double[] v4 = {-5, 0};
+        expected = -1;
+        Assertions.assertEquals(expected, CosAngle.value(v1, v4));
+    }
+
+    @Test
+    void testCosAngle2D_6_oe() {
+        double expected;
+
+        final double[] v1 = {1, 0};
+        expected = 1;
+        // removed other assertion
+
+        final double[] v2 = {0, 1};
+        expected = 0;
+        // removed other assertion
+
+        final double[] v3 = {7, 7};
+        expected = Math.sqrt(2) / 2;
+        // removed other assertion
+        // removed other assertion
+
+        final double[] v4 = {-5, 0};
+        expected = -1;
+        // removed other assertion
+
+        final double[] v5 = {-100, 100};
+        expected = 0;
+        Assertions.assertEquals(expected, CosAngle.value(v3, v5));
+    }
+
+    @Test
+    void testCosAngle3D_1_oe() {
+        double expected;
+
+        final double[] v1 = {1, 1, 0};
+        expected = 1;
+        Assertions.assertEquals(expected, CosAngle.value(v1, v1), 1e-15);
+    }
+
+    @Test
+    void testCosAngle3D_2_oe() {
+        double expected;
+
+        final double[] v1 = {1, 1, 0};
+        expected = 1;
+        // removed other assertion
+
+        final double[] v2 = {1, 1, 1};
+        expected = Math.sqrt(2) / Math.sqrt(3);
+        Assertions.assertEquals(expected, CosAngle.value(v1, v2), 1e-15);
+    }
+
+    @Test
+    void testCosAngleExtreme_1_oe() {
+        double expected;
+
+        final double tiny = 1e-200;
+        final double[] v1 = {tiny, tiny};
+        final double big = 1e200;
+        final double[] v2 = {-big, -big};
+        expected = -1;
+        Assertions.assertEquals(expected, CosAngle.value(v1, v2), 1e-15);
+    }
+
+    @Test
+    void testCosAngleExtreme_2_oe() {
+        double expected;
+
+        final double tiny = 1e-200;
+        final double[] v1 = {tiny, tiny};
+        final double big = 1e200;
+        final double[] v2 = {-big, -big};
+        expected = -1;
+        // removed other assertion
+
+        final double[] v3 = {big, -big};
+        expected = 0;
+        Assertions.assertEquals(expected, CosAngle.value(v1, v3), 1e-15);
+    }
 
     @Test
     void testCosAngle_dimensionMismatch_1_oe() {
@@ -31,7 +188,7 @@ class CosAngleTest_OE25Dev {
 
         try {
      CosAngle.value(a, b);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }

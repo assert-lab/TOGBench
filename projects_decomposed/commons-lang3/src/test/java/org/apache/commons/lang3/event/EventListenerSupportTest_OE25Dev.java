@@ -37,6 +37,8 @@ import java.util.List;
 import org.easymock.EasyMock;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * @since 3.0
  */
@@ -98,11 +100,94 @@ public class EventListenerSupportTest_OE25Dev {
     }
 
     @Test
+    public void testAddListenerNoDuplicates_1_oe() {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+
+        final VetoableChangeListener[] listeners = listenerSupport.getListeners();
+        assertEquals(0, listeners.length);
+    }
+
+    @Test
+    public void testAddListenerNoDuplicates_2_oe() {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+
+        final VetoableChangeListener[] listeners = listenerSupport.getListeners();
+        // removed other assertion
+        assertEquals(VetoableChangeListener.class, listeners.getClass().getComponentType());
+    }
+
+    @Test
+    public void testAddListenerNoDuplicates_3_oe() {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+
+        final VetoableChangeListener[] listeners = listenerSupport.getListeners();
+        // removed other assertion
+        // removed other assertion
+        final VetoableChangeListener[] empty = listeners;
+        //for fun, show that the same empty instance is used
+        assertSame(empty, listenerSupport.getListeners());
+    }
+
+    @Test
+    public void testAddListenerNoDuplicates_4_oe() {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+
+        final VetoableChangeListener[] listeners = listenerSupport.getListeners();
+        // removed other assertion
+        // removed other assertion
+        final VetoableChangeListener[] empty = listeners;
+        //for fun, show that the same empty instance is used
+        // removed other assertion
+
+        final VetoableChangeListener listener1 = EasyMock.createNiceMock(VetoableChangeListener.class);
+        listenerSupport.addListener(listener1);
+        assertEquals(1, listenerSupport.getListeners().length);
+    }
+
+    @Test
+    public void testAddListenerNoDuplicates_5_oe() {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+
+        final VetoableChangeListener[] listeners = listenerSupport.getListeners();
+        // removed other assertion
+        // removed other assertion
+        final VetoableChangeListener[] empty = listeners;
+        //for fun, show that the same empty instance is used
+        // removed other assertion
+
+        final VetoableChangeListener listener1 = EasyMock.createNiceMock(VetoableChangeListener.class);
+        listenerSupport.addListener(listener1);
+        // removed other assertion
+        listenerSupport.addListener(listener1, false);
+        assertEquals(1, listenerSupport.getListeners().length);
+    }
+
+    @Test
+    public void testAddListenerNoDuplicates_6_oe() {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+
+        final VetoableChangeListener[] listeners = listenerSupport.getListeners();
+        // removed other assertion
+        // removed other assertion
+        final VetoableChangeListener[] empty = listeners;
+        //for fun, show that the same empty instance is used
+        // removed other assertion
+
+        final VetoableChangeListener listener1 = EasyMock.createNiceMock(VetoableChangeListener.class);
+        listenerSupport.addListener(listener1);
+        // removed other assertion
+        listenerSupport.addListener(listener1, false);
+        // removed other assertion
+        listenerSupport.removeListener(listener1);
+        assertSame(empty, listenerSupport.getListeners());
+    }
+
+    @Test
     public void testAddNullListener_1_oe() throws Exception {
         final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
         try {
     listenerSupport.addListener(null);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
     }
@@ -112,16 +197,58 @@ public class EventListenerSupportTest_OE25Dev {
         final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
         try {
     listenerSupport.removeListener(null);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
+    }
+
+    @Test
+    public void testEventDispatchOrder_1_oe() throws PropertyVetoException {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+        final List<VetoableChangeListener> calledListeners = new ArrayList<>();
+
+        final VetoableChangeListener listener1 = createListener(calledListeners);
+        final VetoableChangeListener listener2 = createListener(calledListeners);
+        listenerSupport.addListener(listener1);
+        listenerSupport.addListener(listener2);
+        listenerSupport.fire().vetoableChange(new PropertyChangeEvent(new Date(), "Day", 4, 5));
+        assertEquals(calledListeners.size(), 2);
+    }
+
+    @Test
+    public void testEventDispatchOrder_2_oe() throws PropertyVetoException {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+        final List<VetoableChangeListener> calledListeners = new ArrayList<>();
+
+        final VetoableChangeListener listener1 = createListener(calledListeners);
+        final VetoableChangeListener listener2 = createListener(calledListeners);
+        listenerSupport.addListener(listener1);
+        listenerSupport.addListener(listener2);
+        listenerSupport.fire().vetoableChange(new PropertyChangeEvent(new Date(), "Day", 4, 5));
+        // removed other assertion
+        assertSame(calledListeners.get(0), listener1);
+    }
+
+    @Test
+    public void testEventDispatchOrder_3_oe() throws PropertyVetoException {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+        final List<VetoableChangeListener> calledListeners = new ArrayList<>();
+
+        final VetoableChangeListener listener1 = createListener(calledListeners);
+        final VetoableChangeListener listener2 = createListener(calledListeners);
+        listenerSupport.addListener(listener1);
+        listenerSupport.addListener(listener2);
+        listenerSupport.fire().vetoableChange(new PropertyChangeEvent(new Date(), "Day", 4, 5));
+        // removed other assertion
+        // removed other assertion
+        assertSame(calledListeners.get(1), listener2);
     }
 
     @Test
     public void testCreateWithNonInterfaceParameter_1_oe() throws Exception {
         try {
     EventListenerSupport.create(String.class);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -130,9 +257,226 @@ public class EventListenerSupportTest_OE25Dev {
     public void testCreateWithNullParameter_1_oe() throws Exception {
         try {
     EventListenerSupport.create(null);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
+    }
+
+    @Test
+    public void testRemoveListenerDuringEvent_1_oe() throws PropertyVetoException {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+        for (int i = 0; i < 10; ++i) {
+            addDeregisterListener(listenerSupport);
+        }
+        assertEquals(listenerSupport.getListenerCount(), 10);
+    }
+
+    @Test
+    public void testRemoveListenerDuringEvent_2_oe() throws PropertyVetoException {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+        for (int i = 0; i < 10; ++i) {
+            addDeregisterListener(listenerSupport);
+        }
+        // removed other assertion
+        listenerSupport.fire().vetoableChange(new PropertyChangeEvent(new Date(), "Day", 4, 5));
+        assertEquals(listenerSupport.getListenerCount(), 0);
+    }
+
+    @Test
+    public void testGetListeners_1_oe() {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+
+        final VetoableChangeListener[] listeners = listenerSupport.getListeners();
+        assertEquals(0, listeners.length);
+    }
+
+    @Test
+    public void testGetListeners_2_oe() {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+
+        final VetoableChangeListener[] listeners = listenerSupport.getListeners();
+        // removed other assertion
+        assertEquals(VetoableChangeListener.class, listeners.getClass().getComponentType());
+    }
+
+    @Test
+    public void testGetListeners_3_oe() {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+
+        final VetoableChangeListener[] listeners = listenerSupport.getListeners();
+        // removed other assertion
+        // removed other assertion
+        final VetoableChangeListener[] empty = listeners;
+        //for fun, show that the same empty instance is used
+        assertSame(empty, listenerSupport.getListeners());
+    }
+
+    @Test
+    public void testGetListeners_4_oe() {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+
+        final VetoableChangeListener[] listeners = listenerSupport.getListeners();
+        // removed other assertion
+        // removed other assertion
+        final VetoableChangeListener[] empty = listeners;
+        //for fun, show that the same empty instance is used
+        // removed other assertion
+
+        final VetoableChangeListener listener1 = EasyMock.createNiceMock(VetoableChangeListener.class);
+        listenerSupport.addListener(listener1);
+        assertEquals(1, listenerSupport.getListeners().length);
+    }
+
+    @Test
+    public void testGetListeners_5_oe() {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+
+        final VetoableChangeListener[] listeners = listenerSupport.getListeners();
+        // removed other assertion
+        // removed other assertion
+        final VetoableChangeListener[] empty = listeners;
+        //for fun, show that the same empty instance is used
+        // removed other assertion
+
+        final VetoableChangeListener listener1 = EasyMock.createNiceMock(VetoableChangeListener.class);
+        listenerSupport.addListener(listener1);
+        // removed other assertion
+        final VetoableChangeListener listener2 = EasyMock.createNiceMock(VetoableChangeListener.class);
+        listenerSupport.addListener(listener2);
+        assertEquals(2, listenerSupport.getListeners().length);
+    }
+
+    @Test
+    public void testGetListeners_6_oe() {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+
+        final VetoableChangeListener[] listeners = listenerSupport.getListeners();
+        // removed other assertion
+        // removed other assertion
+        final VetoableChangeListener[] empty = listeners;
+        //for fun, show that the same empty instance is used
+        // removed other assertion
+
+        final VetoableChangeListener listener1 = EasyMock.createNiceMock(VetoableChangeListener.class);
+        listenerSupport.addListener(listener1);
+        // removed other assertion
+        final VetoableChangeListener listener2 = EasyMock.createNiceMock(VetoableChangeListener.class);
+        listenerSupport.addListener(listener2);
+        // removed other assertion
+        listenerSupport.removeListener(listener1);
+        assertEquals(1, listenerSupport.getListeners().length);
+    }
+
+    @Test
+    public void testGetListeners_7_oe() {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+
+        final VetoableChangeListener[] listeners = listenerSupport.getListeners();
+        // removed other assertion
+        // removed other assertion
+        final VetoableChangeListener[] empty = listeners;
+        //for fun, show that the same empty instance is used
+        // removed other assertion
+
+        final VetoableChangeListener listener1 = EasyMock.createNiceMock(VetoableChangeListener.class);
+        listenerSupport.addListener(listener1);
+        // removed other assertion
+        final VetoableChangeListener listener2 = EasyMock.createNiceMock(VetoableChangeListener.class);
+        listenerSupport.addListener(listener2);
+        // removed other assertion
+        listenerSupport.removeListener(listener1);
+        // removed other assertion
+        listenerSupport.removeListener(listener2);
+        assertSame(empty, listenerSupport.getListeners());
+    }
+
+    @Test
+    public void testSerialization_1_oe() throws IOException, ClassNotFoundException, PropertyVetoException {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+        listenerSupport.addListener(e -> {
+        });
+        listenerSupport.addListener(EasyMock.createNiceMock(VetoableChangeListener.class));
+
+        //serialize:
+        final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        final ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+
+        objectOutputStream.writeObject(listenerSupport);
+        objectOutputStream.close();
+
+        //deserialize:
+        @SuppressWarnings("unchecked")
+        final
+        EventListenerSupport<VetoableChangeListener> deserializedListenerSupport = (EventListenerSupport<VetoableChangeListener>) new ObjectInputStream(
+                new ByteArrayInputStream(outputStream.toByteArray())).readObject();
+
+        //make sure we get a listener array back, of the correct component type, and that it contains only the serializable mock
+        final VetoableChangeListener[] listeners = deserializedListenerSupport.getListeners();
+        assertEquals(VetoableChangeListener.class, listeners.getClass().getComponentType());
+    }
+
+    @Test
+    public void testSerialization_2_oe() throws IOException, ClassNotFoundException, PropertyVetoException {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+        listenerSupport.addListener(e -> {
+        });
+        listenerSupport.addListener(EasyMock.createNiceMock(VetoableChangeListener.class));
+
+        //serialize:
+        final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        final ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+
+        objectOutputStream.writeObject(listenerSupport);
+        objectOutputStream.close();
+
+        //deserialize:
+        @SuppressWarnings("unchecked")
+        final
+        EventListenerSupport<VetoableChangeListener> deserializedListenerSupport = (EventListenerSupport<VetoableChangeListener>) new ObjectInputStream(
+                new ByteArrayInputStream(outputStream.toByteArray())).readObject();
+
+        //make sure we get a listener array back, of the correct component type, and that it contains only the serializable mock
+        final VetoableChangeListener[] listeners = deserializedListenerSupport.getListeners();
+        // removed other assertion
+        assertEquals(1, listeners.length);
+    }
+
+    @Test
+    public void testSerialization_3_oe() throws IOException, ClassNotFoundException, PropertyVetoException {
+        final EventListenerSupport<VetoableChangeListener> listenerSupport = EventListenerSupport.create(VetoableChangeListener.class);
+        listenerSupport.addListener(e -> {
+        });
+        listenerSupport.addListener(EasyMock.createNiceMock(VetoableChangeListener.class));
+
+        //serialize:
+        final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        final ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+
+        objectOutputStream.writeObject(listenerSupport);
+        objectOutputStream.close();
+
+        //deserialize:
+        @SuppressWarnings("unchecked")
+        final
+        EventListenerSupport<VetoableChangeListener> deserializedListenerSupport = (EventListenerSupport<VetoableChangeListener>) new ObjectInputStream(
+                new ByteArrayInputStream(outputStream.toByteArray())).readObject();
+
+        //make sure we get a listener array back, of the correct component type, and that it contains only the serializable mock
+        final VetoableChangeListener[] listeners = deserializedListenerSupport.getListeners();
+        // removed other assertion
+        // removed other assertion
+
+        //now verify that the mock still receives events; we can infer that the proxy was correctly reconstituted
+        final VetoableChangeListener listener = listeners[0];
+        final PropertyChangeEvent evt = new PropertyChangeEvent(new Date(), "Day", 7, 9);
+        listener.vetoableChange(evt);
+        EasyMock.replay(listener);
+        deserializedListenerSupport.fire().vetoableChange(evt);
+        EasyMock.verify(listener);
+
+        //remove listener and verify we get an empty array of listeners
+        deserializedListenerSupport.removeListener(listener);
+        assertEquals(0, deserializedListenerSupport.getListeners().length);
     }
 
 }

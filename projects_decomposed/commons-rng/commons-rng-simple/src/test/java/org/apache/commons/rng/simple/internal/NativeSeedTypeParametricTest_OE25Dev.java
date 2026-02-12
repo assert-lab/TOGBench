@@ -27,6 +27,8 @@ import java.util.Set;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Tests for the {@link NativeSeedType} seed conversions. This test
  * ensures that a seed can be created or converted from any supported input seed to each
@@ -83,6 +85,151 @@ class NativeSeedTypeParametricTest_OE25Dev {
      * @param nativeSeedType The native seed type enum instance.
      */
 
+    @Test
+    void testNativeSeedTypeEnum_1_oe() {
+        Set<Class<?>> supported = Arrays.stream(SUPPORTED_NATIVE_TYPES)
+            .map(o -> (Class<?>) o)
+            .collect(Collectors.toSet());
+        Assertions.assertEquals(SUPPORTED_NATIVE_TYPES.length,supported.size(),"Class type of supported seeds should be unique");
+    }
+
+    @Test
+    void testNativeSeedTypeEnum_2_oe() {
+        Set<Class<?>> supported = Arrays.stream(SUPPORTED_NATIVE_TYPES)
+            .map(o -> (Class<?>) o)
+            .collect(Collectors.toSet());
+        // removed other assertion
+
+         NativeSeedType[] values = NativeSeedType.values();
+        Assertions.assertEquals(SUPPORTED_NATIVE_TYPES.length,values.length,"Incorrect number of enum values for the supported native types");
+    }
+
+    @Test
+    void testNativeSeedTypeEnum_3_oe() {
+        Set<Class<?>> supported = Arrays.stream(SUPPORTED_NATIVE_TYPES)
+            .map(o -> (Class<?>) o)
+            .collect(Collectors.toSet());
+        // removed other assertion
+
+         NativeSeedType[] values = NativeSeedType.values();
+        // removed other assertion
+
+        // Remove each
+        Arrays.stream(values).map(NativeSeedType::getType).forEach(supported::remove);
+        Assertions.assertEquals(0, supported.size());
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testCreateSeed_1_oe(NativeSeedType nativeSeedType) {
+         int size = 3;
+         Object seed = nativeSeedType.createSeed(size);
+        Assertions.assertNotNull(seed);
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testCreateSeed_2_oe(NativeSeedType nativeSeedType) {
+         int size = 3;
+         Object seed = nativeSeedType.createSeed(size);
+        // removed other assertion
+         Class<?> type = nativeSeedType.getType();
+        Assertions.assertEquals(type, seed.getClass(), "Seed was not the correct class");
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testCreateSeed_3_oe(NativeSeedType nativeSeedType) {
+         int size = 3;
+         Object seed = nativeSeedType.createSeed(size);
+        // removed other assertion
+         Class<?> type = nativeSeedType.getType();
+        // removed other assertion
+        if (type.isArray()) {
+            Assertions.assertEquals(size, Array.getLength(seed), "Seed was not created the correct length");
+    }
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testConvertSeedToBytes_1_oe(NativeSeedType nativeSeedType) {
+         int size = 3;
+         Object seed = nativeSeedType.createSeed(size);
+        Assertions.assertNotNull(seed, "Null seed");
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testConvertSeedToBytes_2_oe(NativeSeedType nativeSeedType) {
+         int size = 3;
+         Object seed = nativeSeedType.createSeed(size);
+        // removed other assertion
+
+         byte[] bytes = NativeSeedType.convertSeedToBytes(seed);
+        Assertions.assertNotNull(bytes, "Null byte[] seed");
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testConvertSeedToBytes_3_oe(NativeSeedType nativeSeedType) {
+         int size = 3;
+         Object seed = nativeSeedType.createSeed(size);
+        // removed other assertion
+
+         byte[] bytes = NativeSeedType.convertSeedToBytes(seed);
+        // removed other assertion
+
+         Object seed2 = nativeSeedType.convertSeed(bytes, size);
+        if (nativeSeedType.getType().isArray()) {
+            // This handles nested primitive arrays
+            Assertions.assertArrayEquals(new Object[] {seed}, new Object[] {seed2}, "byte[] seed was not converted back");
+    }
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testConvertSeedToBytes_4_oe(NativeSeedType nativeSeedType) {
+         int size = 3;
+         Object seed = nativeSeedType.createSeed(size);
+        // removed other assertion
+
+         byte[] bytes = NativeSeedType.convertSeedToBytes(seed);
+        // removed other assertion
+
+         Object seed2 = nativeSeedType.convertSeed(bytes, size);
+        if (nativeSeedType.getType().isArray()) {
+            // This handles nested primitive arrays
+            // removed other assertion
+        } else {
+            Assertions.assertEquals(seed, seed2, "byte[] seed was not converted back");
+    }
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testConvertSupportedSeed_1_oe(NativeSeedType nativeSeedType) {
+        // Size can be ignored during conversion and so it not asserted
+         int size = 3;
+        for ( Object input : SUPPORTED_SEEDS) {
+             Object seed = nativeSeedType.convertSeed(input, size);
+             Supplier<String> msg = () -> input.getClass() + " input seed was not converted";
+            Assertions.assertNotNull(seed, msg);
+    }
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testConvertSupportedSeed_2_oe(NativeSeedType nativeSeedType) {
+        // Size can be ignored during conversion and so it not asserted
+         int size = 3;
+        for ( Object input : SUPPORTED_SEEDS) {
+             Object seed = nativeSeedType.convertSeed(input, size);
+             Supplier<String> msg = () -> input.getClass() + " input seed was not converted";
+            // removed other assertion
+            Assertions.assertEquals(nativeSeedType.getType(), seed.getClass(), msg);
+    }
+    }
+
     @ParameterizedTest
     @EnumSource
     void testCannotConvertUnsupportedSeed_1_oe(NativeSeedType nativeSeedType) {
@@ -90,7 +237,7 @@ class NativeSeedTypeParametricTest_OE25Dev {
         for ( Object input : UNSUPPORTED_SEEDS) {
             try {
     nativeSeedType.convertSeed(input, size);
-    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+    fail("UnsupportedOperationException");
 } catch (UnsupportedOperationException e) {
 }
     }

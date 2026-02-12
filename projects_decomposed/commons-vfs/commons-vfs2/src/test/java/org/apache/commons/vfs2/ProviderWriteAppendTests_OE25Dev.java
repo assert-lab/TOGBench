@@ -51,5 +51,13 @@ public class ProviderWriteAppendTests_OE25Dev extends AbstractProviderTestCase {
      * Tests create-delete-create-a-file sequence on the same file system.
      */
 
+    @Test
+    public void testAppendContent_1_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create direct child of the test folder
+        final FileObject file = scratchFolder.resolveFile("file1.txt");
+        assertFalse(file.exists());
+    }
 
 }

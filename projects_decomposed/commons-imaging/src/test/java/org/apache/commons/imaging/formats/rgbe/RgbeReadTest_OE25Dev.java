@@ -32,11 +32,67 @@ import org.apache.commons.imaging.internal.Debug;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 public class RgbeReadTest_OE25Dev extends RgbeBaseTest {
 
     /**
      * Test that a bad file does not gets the RgbeImageParser stuck reading it.
      */
+
+    @Test
+    public void test_1_oe() throws IOException, ImageReadException {
+        Debug.debug("start");
+
+        final List<File> images = getRgbeImages();
+
+        for (final File imageFile : images) {
+
+            Debug.debug("imageFile", imageFile);
+
+            final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            assertNotNull(metadata);
+    }
+    }
+
+    @Test
+    public void test_2_oe() throws IOException, ImageReadException {
+        Debug.debug("start");
+
+        final List<File> images = getRgbeImages();
+
+        for (final File imageFile : images) {
+
+            Debug.debug("imageFile", imageFile);
+
+            final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            // removed other assertion
+
+            final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+            assertNotNull(imageInfo);
+    }
+    }
+
+    @Test
+    public void test_3_oe() throws IOException, ImageReadException {
+        Debug.debug("start");
+
+        final List<File> images = getRgbeImages();
+
+        for (final File imageFile : images) {
+
+            Debug.debug("imageFile", imageFile);
+
+            final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            // removed other assertion
+
+            final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+            // removed other assertion
+
+            final BufferedImage image = Imaging.getBufferedImage(imageFile);
+            assertNotNull(image);
+    }
+    }
 
     @Test
     public void testErrorDecompressingInvalidFile_1_oe() throws Exception {
@@ -48,7 +104,7 @@ public class RgbeReadTest_OE25Dev extends RgbeBaseTest {
         final RgbeImagingParameters params = new RgbeImagingParameters();
         try {
     new RgbeImageParser().getBufferedImage(byteSourceFile, params);
-    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+    fail("ImageReadException");
 } catch (ImageReadException e) {
 }
     }

@@ -38,5 +38,47 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
      * Tests resolution of an absolute file name.
      */
 
+    @Test
+    public void testHashFindFiles_1_oe() throws Exception {
+        final FileSystemManager fsManager = VFS.getManager();
+
+        final FileObject[] foList = getBaseFolder().findFiles(Selectors.SELECT_FILES);
+
+        boolean hashFileFound = false;
+        for (final FileObject fo : foList) {
+            if (fo.getURL().toString().contains("test-hash")) {
+                hashFileFound = true;
+
+                assertEquals(fo.toString(), UriParser.decode(fo.getURL().toString()));
+    }
+    }
+    }
+
+    @Test
+    public void testHashFindFiles_2_oe() throws Exception {
+        final FileSystemManager fsManager = VFS.getManager();
+
+        final FileObject[] foList = getBaseFolder().findFiles(Selectors.SELECT_FILES);
+
+        boolean hashFileFound = false;
+        for (final FileObject fo : foList) {
+            if (fo.getURL().toString().contains("test-hash")) {
+                hashFileFound = true;
+
+                // removed other assertion
+            }
+        }
+
+        if (!hashFileFound) {
+            fail("Test hash file containing 'test-hash' not found");
+    }
+    }
+
+    @Test
+    public void testHashURL_1_oe() throws Exception {
+        final FileObject file = getReadFolder().resolveFile("test-hash-#test.txt");
+
+        assertEquals(file.toString(), UriParser.decode(file.getURL().toString()));
+    }
 
 }

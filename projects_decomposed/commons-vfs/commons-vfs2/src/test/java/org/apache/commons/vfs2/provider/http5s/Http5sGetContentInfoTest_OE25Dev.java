@@ -106,5 +106,13 @@ public void testSSLGetContentInfo() throws IOException {
     }
 }
 
+    @Test
+    public void testGetContentInfo_1_oe() throws FileSystemException, MalformedURLException {
+        final FileSystemManager fsManager = VFS.getManager();
+        final String uri = "http5://www.apache.org/licenses/LICENSE-2.0.txt";
+        final FileObject fo = fsManager.resolveFile(uri, getOptionsWithProxy());
+        final FileContent content = fo.getContent();
+        Assert.assertNotNull(content);
+    }
 
 }

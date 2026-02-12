@@ -68,5 +68,1932 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
      * Tests parsing a URI into its parts.
      */
 
+    @Test
+    public void testParseUri_1_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        assertEquals("ftp", name.getScheme());
+    }
+
+    @Test
+    public void testParseUri_2_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        assertNull(name.getUserName());
+    }
+
+    @Test
+    public void testParseUri_3_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        assertNull(name.getPassword());
+    }
+
+    @Test
+    public void testParseUri_4_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("hostname", name.getHostName());
+    }
+
+    @Test
+    public void testParseUri_5_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(21, name.getPort());
+    }
+
+    @Test
+    public void testParseUri_6_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(name.getDefaultPort(), name.getPort());
+    }
+
+    @Test
+    public void testParseUri_7_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("/file", name.getPath());
+    }
+
+    @Test
+    public void testParseUri_8_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("ftp://hostname/", name.getRootURI());
+    }
+
+    @Test
+    public void testParseUri_9_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("ftp://hostname/file", name.getURI());
+    }
+
+    @Test
+    public void testParseUri_10_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        assertEquals("ftp", name.getScheme());
+    }
+
+    @Test
+    public void testParseUri_11_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        assertNull(name.getUserName());
+    }
+
+    @Test
+    public void testParseUri_12_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        assertNull(name.getPassword());
+    }
+
+    @Test
+    public void testParseUri_13_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("hostname", name.getHostName());
+    }
+
+    @Test
+    public void testParseUri_14_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(9090, name.getPort());
+    }
+
+    @Test
+    public void testParseUri_15_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("/file", name.getPath());
+    }
+
+    @Test
+    public void testParseUri_16_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("ftp://hostname:9090/", name.getRootURI());
+    }
+
+    @Test
+    public void testParseUri_17_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("ftp://hostname:9090/file", name.getURI());
+    }
+
+    @Test
+    public void testParseUri_18_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        assertEquals("ftp", name.getScheme());
+    }
+
+    @Test
+    public void testParseUri_19_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        assertNull(name.getUserName());
+    }
+
+    @Test
+    public void testParseUri_20_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        assertNull(name.getPassword());
+    }
+
+    @Test
+    public void testParseUri_21_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("hostname", name.getHostName());
+    }
+
+    @Test
+    public void testParseUri_22_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(21, name.getPort());
+    }
+
+    @Test
+    public void testParseUri_23_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("/", name.getPath());
+    }
+
+    @Test
+    public void testParseUri_24_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("ftp://hostname/", name.getRootURI());
+    }
+
+    @Test
+    public void testParseUri_25_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("ftp://hostname/", name.getURI());
+    }
+
+    @Test
+    public void testParseUri_26_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        assertEquals("ftp", name.getScheme());
+    }
+
+    @Test
+    public void testParseUri_27_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        assertEquals("user", name.getUserName());
+    }
+
+    @Test
+    public void testParseUri_28_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        assertNull(name.getPassword());
+    }
+
+    @Test
+    public void testParseUri_29_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("hostname", name.getHostName());
+    }
+
+    @Test
+    public void testParseUri_30_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(21, name.getPort());
+    }
+
+    @Test
+    public void testParseUri_31_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("/file", name.getPath());
+    }
+
+    @Test
+    public void testParseUri_32_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("ftp://user@hostname/", name.getRootURI());
+    }
+
+    @Test
+    public void testParseUri_33_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("ftp://user@hostname/file", name.getURI());
+    }
+
+    @Test
+    public void testParseUri_34_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        assertEquals("ftp", name.getScheme());
+    }
+
+    @Test
+    public void testParseUri_35_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        // removed other assertion
+        assertEquals("user", name.getUserName());
+    }
+
+    @Test
+    public void testParseUri_36_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        assertEquals("password", name.getPassword());
+    }
+
+    @Test
+    public void testParseUri_37_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("hostname", name.getHostName());
+    }
+
+    @Test
+    public void testParseUri_38_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(21, name.getPort());
+    }
+
+    @Test
+    public void testParseUri_39_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("/file", name.getPath());
+    }
+
+    @Test
+    public void testParseUri_40_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("ftp://user:password@hostname/", name.getRootURI());
+    }
+
+    @Test
+    public void testParseUri_41_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("ftp://user:password@hostname/file", name.getURI());
+    }
+
+    @Test
+    public void testParseUri_42_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Encoded username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://%75ser%3A:%40@hostname");
+        assertEquals("ftp", name.getScheme());
+    }
+
+    @Test
+    public void testParseUri_43_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Encoded username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://%75ser%3A:%40@hostname");
+        // removed other assertion
+        assertEquals("user:", name.getUserName());
+    }
+
+    @Test
+    public void testParseUri_44_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Encoded username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://%75ser%3A:%40@hostname");
+        // removed other assertion
+        // removed other assertion
+        assertEquals("@", name.getPassword());
+    }
+
+    @Test
+    public void testParseUri_45_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Encoded username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://%75ser%3A:%40@hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("hostname", name.getHostName());
+    }
+
+    @Test
+    public void testParseUri_46_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Encoded username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://%75ser%3A:%40@hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(21, name.getPort());
+    }
+
+    @Test
+    public void testParseUri_47_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Encoded username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://%75ser%3A:%40@hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("/", name.getPath());
+    }
+
+    @Test
+    public void testParseUri_48_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Encoded username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://%75ser%3A:%40@hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("ftp://user%3a:%40@hostname/", name.getRootURI());
+    }
+
+    @Test
+    public void testParseUri_49_oe() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Encoded username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://%75ser%3A:%40@hostname");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("ftp://user%3a:%40@hostname/", name.getURI());
+    }
 
 }

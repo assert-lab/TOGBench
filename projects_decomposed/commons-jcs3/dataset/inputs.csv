@@ -6954,7 +6954,11 @@ jcs3_95_1,"    public void testDifferentKey_1_oe()
         byte[] serialized = serializer.serialize(before);
         serializer.setPreSharedKey(""another_key"");
 
-        assertThrows(IOException.class, () -> serializer.deSerialize(serialized, null));
+        try {
+    serializer.deSerialize(serialized, null);
+    fail(""IOException"");
+} catch (IOException e) {
+}
     }
 ",EncryptingSerializerUnitTest::testDifferentKey_1_oe,org.apache.commons.jcs3.engine.behavior.IElementSerializer,"deSerialize( byte[] bytes, ClassLoader loader )","/**
      * Turns a byte array into an object.

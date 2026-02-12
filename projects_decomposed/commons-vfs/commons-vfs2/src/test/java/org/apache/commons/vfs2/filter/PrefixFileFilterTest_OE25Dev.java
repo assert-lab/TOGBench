@@ -30,6 +30,317 @@ import org.junit.Test;
 // CHECKSTYLE:OFF Test code
 public class PrefixFileFilterTest_OE25Dev extends BaseFilterTest {
 
+    @Test
+    public void testAcceptList_1_oe() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("test1");
+        list.add("test2");
+        final PrefixFileFilter filter = new PrefixFileFilter(list);
+
+        // TEST
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
+    }
+
+    @Test
+    public void testAcceptList_2_oe() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("test1");
+        list.add("test2");
+        final PrefixFileFilter filter = new PrefixFileFilter(list);
+
+        // TEST
+        // removed other assertion
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+    }
+
+    @Test
+    public void testAcceptList_3_oe() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("test1");
+        list.add("test2");
+        final PrefixFileFilter filter = new PrefixFileFilter(list);
+
+        // TEST
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("Test2.txt"))));
+    }
+
+    @Test
+    public void testAcceptList_4_oe() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("test1");
+        list.add("test2");
+        final PrefixFileFilter filter = new PrefixFileFilter(list);
+
+        // TEST
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+    }
+
+    @Test
+    public void testAcceptListIOCaseInsensitive_1_oe() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("test1");
+        list.add("test2");
+        final PrefixFileFilter filter = new PrefixFileFilter(IOCase.INSENSITIVE, list);
+
+        // TEST
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("TEST1.txt"))));
+    }
+
+    @Test
+    public void testAcceptListIOCaseInsensitive_2_oe() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("test1");
+        list.add("test2");
+        final PrefixFileFilter filter = new PrefixFileFilter(IOCase.INSENSITIVE, list);
+
+        // TEST
+        // removed other assertion
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+    }
+
+    @Test
+    public void testAcceptListIOCaseInsensitive_3_oe() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("test1");
+        list.add("test2");
+        final PrefixFileFilter filter = new PrefixFileFilter(IOCase.INSENSITIVE, list);
+
+        // TEST
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test2.txt"))));
+    }
+
+    @Test
+    public void testAcceptListIOCaseInsensitive_4_oe() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("test1");
+        list.add("test2");
+        final PrefixFileFilter filter = new PrefixFileFilter(IOCase.INSENSITIVE, list);
+
+        // TEST
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+    }
+
+    @Test
+    public void testAcceptListIOCaseSensitive_1_oe() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("test1");
+        list.add("test2");
+        final PrefixFileFilter filter = new PrefixFileFilter(IOCase.SENSITIVE, list);
+
+        // TEST
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("TEST1.txt"))));
+    }
+
+    @Test
+    public void testAcceptListIOCaseSensitive_2_oe() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("test1");
+        list.add("test2");
+        final PrefixFileFilter filter = new PrefixFileFilter(IOCase.SENSITIVE, list);
+
+        // TEST
+        // removed other assertion
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+    }
+
+    @Test
+    public void testAcceptListIOCaseSensitive_3_oe() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("test1");
+        list.add("test2");
+        final PrefixFileFilter filter = new PrefixFileFilter(IOCase.SENSITIVE, list);
+
+        // TEST
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("Test2.txt"))));
+    }
+
+    @Test
+    public void testAcceptListIOCaseSensitive_4_oe() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("test1");
+        list.add("test2");
+        final PrefixFileFilter filter = new PrefixFileFilter(IOCase.SENSITIVE, list);
+
+        // TEST
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+    }
+
+    @Test
+    public void testAcceptString_1_oe() throws FileSystemException {
+
+        // PREPARE
+        final PrefixFileFilter filter = new PrefixFileFilter("test");
+
+        // TEST
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
+    }
+
+    @Test
+    public void testAcceptString_2_oe() throws FileSystemException {
+
+        // PREPARE
+        final PrefixFileFilter filter = new PrefixFileFilter("test");
+
+        // TEST
+        // removed other assertion
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+    }
+
+    @Test
+    public void testAcceptString_3_oe() throws FileSystemException {
+
+        // PREPARE
+        final PrefixFileFilter filter = new PrefixFileFilter("test");
+
+        // TEST
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("Test2.txt"))));
+    }
+
+    @Test
+    public void testAcceptString_4_oe() throws FileSystemException {
+
+        // PREPARE
+        final PrefixFileFilter filter = new PrefixFileFilter("test");
+
+        // TEST
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+    }
+
+    @Test
+    public void testAcceptStringIOCaseInsensitive_1_oe() throws FileSystemException {
+
+        // PREPARE
+        final PrefixFileFilter filter = new PrefixFileFilter(IOCase.INSENSITIVE, "test");
+
+        // TEST
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
+    }
+
+    @Test
+    public void testAcceptStringIOCaseInsensitive_2_oe() throws FileSystemException {
+
+        // PREPARE
+        final PrefixFileFilter filter = new PrefixFileFilter(IOCase.INSENSITIVE, "test");
+
+        // TEST
+        // removed other assertion
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+    }
+
+    @Test
+    public void testAcceptStringIOCaseInsensitive_3_oe() throws FileSystemException {
+
+        // PREPARE
+        final PrefixFileFilter filter = new PrefixFileFilter(IOCase.INSENSITIVE, "test");
+
+        // TEST
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test2.txt"))));
+    }
+
+    @Test
+    public void testAcceptStringIOCaseInsensitive_4_oe() throws FileSystemException {
+
+        // PREPARE
+        final PrefixFileFilter filter = new PrefixFileFilter(IOCase.INSENSITIVE, "test");
+
+        // TEST
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+    }
+
+    @Test
+    public void testAcceptStringIOCaseSensitive_1_oe() throws FileSystemException {
+
+        // PREPARE
+        final PrefixFileFilter filter = new PrefixFileFilter(IOCase.SENSITIVE, "test");
+
+        // TEST
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
+    }
+
+    @Test
+    public void testAcceptStringIOCaseSensitive_2_oe() throws FileSystemException {
+
+        // PREPARE
+        final PrefixFileFilter filter = new PrefixFileFilter(IOCase.SENSITIVE, "test");
+
+        // TEST
+        // removed other assertion
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+    }
+
+    @Test
+    public void testAcceptStringIOCaseSensitive_3_oe() throws FileSystemException {
+
+        // PREPARE
+        final PrefixFileFilter filter = new PrefixFileFilter(IOCase.SENSITIVE, "test");
+
+        // TEST
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("Test2.txt"))));
+    }
+
+    @Test
+    public void testAcceptStringIOCaseSensitive_4_oe() throws FileSystemException {
+
+        // PREPARE
+        final PrefixFileFilter filter = new PrefixFileFilter(IOCase.SENSITIVE, "test");
+
+        // TEST
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+    }
 
 }
 // CHECKSTYLE:ON

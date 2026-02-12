@@ -34,5 +34,56 @@ public class FtpMdtmOnLastModifiedTests_OE25Dev extends LastModifiedTests {
      * Tests getting the last modified time of a file.
      */
 
+    @Test
+    public void testGetLastModifiedFileExactMatch_1_oe_1_oe() throws IOException {
+        final String fileName = "file1.txt";
+        final FileObject readFolder = getReadFolder();
+        final FileObject fileObject = readFolder.resolveFile(fileName);
+        final long lastModifiedTimeMillis = fileObject.getContent().getLastModifiedTime();
+        // now try to match
+        final FileTime lastModifiedTime = Files
+            .getLastModifiedTime(Paths.get(getTestDirectory(), AbstractTestSuite.READ_TESTS_FOLDER, fileName));
+        if (SystemUtils.IS_JAVA_1_8) {
+            // Workaround OpenJDK 8 and 9 bug JDK-8177809
+            // https://bugs.openjdk.java.net/browse/JDK-8177809
+                        final String message0 = fileName;
+            final long expected0 = lastModifiedTimeMillis;
+            final long actual0 = lastModifiedTimeMillis;
+            final long delta0 = lastModifiedTimeMillis;
+            if (expected0 == actual0) {
+                        return;
+                    }
+                    // getLastModTimeAccuracy() is not accurate
+                    final long actualDelta0 = Math.abs(expected0 - actual0);
+                    if (actualDelta0 > Math.max(delta0, 1000)) {
+                        Assert.fail(String.format("%s expected0=%,d(%s),actual0=%,d(%s),expected0 delta0=%,d,actual0 delta0=%,d",message0,Long.valueOf(expected0),new Date(expected0).toString(),Long.valueOf(actual0),new Date(actual0).toString(),Long.valueOf(delta0),Long.valueOf(actualDelta0)));
+    }
+    }
+    }
+
+    @Test
+    public void testGetLastModifiedFileExactMatch_2_oe_1_oe() throws IOException {
+        final String fileName = "file1.txt";
+        final FileObject readFolder = getReadFolder();
+        final FileObject fileObject = readFolder.resolveFile(fileName);
+        final long lastModifiedTimeMillis = fileObject.getContent().getLastModifiedTime();
+        // now try to match
+        final FileTime lastModifiedTime = Files
+            .getLastModifiedTime(Paths.get(getTestDirectory(), AbstractTestSuite.READ_TESTS_FOLDER, fileName));
+        if (SystemUtils.IS_JAVA_1_8) {
+            // Workaround OpenJDK 8 and 9 bug JDK-8177809
+            // https://bugs.openjdk.java.net/browse/JDK-8177809
+            // removed other assertion
+        } else {
+                        final String message0 = "getLastModified on " + fileObject;
+            final long expected0 = lastModifiedTime.toMillis();
+            final long actual0 = lastModifiedTimeMillis;
+            if (expected0 != actual0) {
+                        final long delta0 = Math.abs(expected0 - actual0);
+                        Assert
+                            .fail(String.format("%s expected0=%,d (%s), actual0=%,d (%s), delta0=%,d", message0, Long.valueOf(expected0), new Date(expected0).toString(), Long.valueOf(actual0), new Date(actual0).toString(), delta0));
+    }
+    }
+    }
 
 }

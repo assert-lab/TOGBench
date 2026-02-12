@@ -20,6 +20,8 @@ import org.apache.commons.imaging.ImageReadException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Unit tests for class {@link JpegInputStream}.
  * @see JpegInputStream
@@ -27,21 +29,29 @@ import org.junit.jupiter.api.Test;
 public class JpegInputStreamTest_OE25Dev {
 
   @Test
-  public void testNextBitThrowsImageReadExceptionOne_1_oe() {
+  public void testNextBitThrowsImageReadExceptionOne_1_oe() throws Exception {
     final int[] byteArray = new int[6];
     byteArray[0] = (byte) (-1);
     byteArray[1] = (byte) 74;
     final JpegInputStream jpegInputStream = new JpegInputStream(byteArray);
 
-    Assertions.assertThrows(ImageReadException.class, jpegInputStream::nextBit);
+    try {
+    jpegInputStream.nextBit();
+    fail("ImageReadException");
+} catch (ImageReadException e) {
+}
   }
 
   @Test
-  public void testNextBitThrowsImageReadExceptionTwo_1_oe() {
+  public void testNextBitThrowsImageReadExceptionTwo_1_oe() throws Exception {
     final int[] byteArray = new int[0];
     final JpegInputStream jpegInputStream = new JpegInputStream(byteArray);
 
-    Assertions.assertThrows(IllegalStateException.class, jpegInputStream::nextBit);
+    try {
+    jpegInputStream.nextBit();
+    fail("IllegalStateException");
+} catch (IllegalStateException e) {
+}
   }
 
 }

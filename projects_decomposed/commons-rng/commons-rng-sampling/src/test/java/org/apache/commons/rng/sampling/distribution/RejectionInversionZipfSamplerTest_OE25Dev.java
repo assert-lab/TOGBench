@@ -23,6 +23,8 @@ import org.apache.commons.rng.simple.RandomSource;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test for the {@link RejectionInversionZipfSampler}. The tests hit edge cases for the sampler.
  */
@@ -58,7 +60,7 @@ class RejectionInversionZipfSamplerTest_OE25Dev {
          double exponent = 1;
         try {
     RejectionInversionZipfSampler.of(rng, numberOfElements, exponent);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -71,7 +73,7 @@ class RejectionInversionZipfSamplerTest_OE25Dev {
          double exponent = 0;
         try {
     RejectionInversionZipfSampler.of(rng, numberOfElements, exponent);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }

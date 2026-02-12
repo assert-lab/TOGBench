@@ -28,5 +28,9 @@ public class ReflectionToStringBuilderSummaryTest_OE25Dev {
     @ToStringSummary
     private final String summaryString = "summary";
 
+    @Test
+    public void testSummary_1_oe() {
+        assertEquals("[stringField=string,summaryString=<String>]",new ReflectionToStringBuilder(this,ToStringStyle.NO_CLASS_NAME_STYLE).build());
+    }
 
 }

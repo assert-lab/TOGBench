@@ -54,5 +54,58 @@ public class ZeroSizeCacheUnitTest_OE25Dev
      *
      */
 
+    public void testPutGetRemove_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( "testCache1" );
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+
+        // all the gets should be null
+        for ( int i = items; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + ":key" );
+            assertNull( "[" + i + ":key] should be null", res );
+    }
+    }
+
+    public void testPutGetRemove_2_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( "testCache1" );
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+
+        // all the gets should be null
+        for ( int i = items; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + ":key" );
+            // removed other assertion
+        }
+
+        // test removal, should be no exceptions
+        jcs.remove( "300:key" );
+
+        // allow the shrinker to run
+        Thread.sleep( 500 );
+
+        // do it again.
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+
+        for ( int i = items; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + ":key" );
+            assertNull( "[" + i + ":key] should be null", res );
+    }
+    }
 
 }

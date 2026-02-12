@@ -159,5 +159,43 @@ public class JCSvsHashtablePerformanceTest_OE25Dev
         System.out.println( "JCS gets took " + ratioGet + " times the Hashtable, the goal is <" + target + "x" );
     }
 
+    public void testSimpleLoad_1_oe()
+        throws Exception
+    {
+        final Log log1 = LogManager.getLog( LRUMemoryCache.class );
+        if ( log1.isDebugEnabled() )
+        {
+            System.out.println( "The log level must be at info or above for the a performance test." );
+            return;
+        }
+        final Log log2 = LogManager.getLog( JCS.class );
+        if ( log2.isDebugEnabled() )
+        {
+            System.out.println( "The log level must be at info or above for the a performance test." );
+            return;
+        }
+        doWork();
+        assertTrue( this.ratioPut < target );
+    }
+
+    public void testSimpleLoad_2_oe()
+        throws Exception
+    {
+        final Log log1 = LogManager.getLog( LRUMemoryCache.class );
+        if ( log1.isDebugEnabled() )
+        {
+            System.out.println( "The log level must be at info or above for the a performance test." );
+            return;
+        }
+        final Log log2 = LogManager.getLog( JCS.class );
+        if ( log2.isDebugEnabled() )
+        {
+            System.out.println( "The log level must be at info or above for the a performance test." );
+            return;
+        }
+        doWork();
+        // removed other assertion
+        assertTrue( this.ratioGet < target );
+    }
 
 }

@@ -39,5 +39,107 @@ public class IndexedDiskCacheOptimizationUnitTest_OE25Dev
      * @throws Exception
      */
 
+    public void testBasicOptimization_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final int removeCount = 50;
+
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        cattr.setCacheName( "testOptimization" );
+        cattr.setMaxKeySize( removeCount * 2 );
+        cattr.setOptimizeAtRemoveCount( removeCount );
+        cattr.setDiskPath( "target/test-sandbox/testOptimization" );
+        final IndexedDiskCache<Integer, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
+
+        disk.removeAll();
+
+        final int numberToInsert = removeCount * 3;
+        final ICacheElement<Integer, DiskTestObject>[] elements = DiskTestObjectUtil
+            .createCacheElementsWithTestObjectsOfVariableSizes( numberToInsert, cattr.getCacheName() );
+
+        for (final ICacheElement<Integer, DiskTestObject> element : elements) {
+            disk.processUpdate( element );
+        }
+
+
+        Thread.sleep( 1000 );
+        final long sizeBeforeRemove = disk.getDataFileSize();
+        // System.out.println( "file sizeBeforeRemove " + sizeBeforeRemove );
+        // System.out.println( "totalSize inserted " + DiskTestObjectUtil.totalSize( elements, numberToInsert ) );
+
+        // DO WORK
+        for ( int i = 0; i < removeCount; i++ )
+        {
+            disk.processRemove( Integer.valueOf( i ) );
+        }
+
+        SleepUtil.sleepAtLeast( 1000 );
+
+        disk.optimizeFile();
+        // VERIFY
+        final long sizeAfterRemove = disk.getDataFileSize();
+        final long expectedSizeAfterRemove = DiskTestObjectUtil.totalSize( elements, removeCount, elements.length );
+
+        // test is prone to failure for timing reasons.
+        if ( expectedSizeAfterRemove != sizeAfterRemove )
+        {
+            SleepUtil.sleepAtLeast( 2000 );
+        }
+
+        assertTrue("The post optimization size should be smaller." +"sizeAfterRemove=" + sizeAfterRemove + " sizeBeforeRemove= " +sizeBeforeRemove,sizeAfterRemove < sizeBeforeRemove);
+    }
+
+    public void testBasicOptimization_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final int removeCount = 50;
+
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        cattr.setCacheName( "testOptimization" );
+        cattr.setMaxKeySize( removeCount * 2 );
+        cattr.setOptimizeAtRemoveCount( removeCount );
+        cattr.setDiskPath( "target/test-sandbox/testOptimization" );
+        final IndexedDiskCache<Integer, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
+
+        disk.removeAll();
+
+        final int numberToInsert = removeCount * 3;
+        final ICacheElement<Integer, DiskTestObject>[] elements = DiskTestObjectUtil
+            .createCacheElementsWithTestObjectsOfVariableSizes( numberToInsert, cattr.getCacheName() );
+
+        for (final ICacheElement<Integer, DiskTestObject> element : elements) {
+            disk.processUpdate( element );
+        }
+
+
+        Thread.sleep( 1000 );
+        final long sizeBeforeRemove = disk.getDataFileSize();
+        // System.out.println( "file sizeBeforeRemove " + sizeBeforeRemove );
+        // System.out.println( "totalSize inserted " + DiskTestObjectUtil.totalSize( elements, numberToInsert ) );
+
+        // DO WORK
+        for ( int i = 0; i < removeCount; i++ )
+        {
+            disk.processRemove( Integer.valueOf( i ) );
+        }
+
+        SleepUtil.sleepAtLeast( 1000 );
+
+        disk.optimizeFile();
+        // VERIFY
+        final long sizeAfterRemove = disk.getDataFileSize();
+        final long expectedSizeAfterRemove = DiskTestObjectUtil.totalSize( elements, removeCount, elements.length );
+
+        // test is prone to failure for timing reasons.
+        if ( expectedSizeAfterRemove != sizeAfterRemove )
+        {
+            SleepUtil.sleepAtLeast( 2000 );
+        }
+
+        // removed other assertion
+        assertEquals( "The file size is not as expected size.", expectedSizeAfterRemove, sizeAfterRemove );
+    }
 
 }

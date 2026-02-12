@@ -35,6 +35,8 @@ import org.apache.commons.rng.core.source64.SplitMix64;
 import org.apache.commons.rng.sampling.RandomAssert;
 import org.apache.commons.rng.simple.RandomSource;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test for {@link ZigguratSampler}.
  */
@@ -449,9 +451,168 @@ class ZigguratSamplerTest_OE25Dev {
          double mean = 0;
         try {
     ZigguratSampler.Exponential.of(rng, mean);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testExponentialRecursion_1_oe() {
+        // The exponential distribution will enter the edge of the ziggurat if the RNG
+        // outputs -1 (all bits). This performs alias sampling using a long value.
+        // The tail will be selected if the next output is -1.
+        // Thus two -1 values enter recursion where a new exponential sample is added
+        // to the tail value:
+         double tailValue = 7.569274694148063;
+
+        // Alias sampling assigns the ziggurat layer using the lower 8 bits.
+        // The rest determine if the layer or the alias are used. We do not control this
+        // and leave it to a seeded RNG to select different layers.
+
+        // A value of zero will create a sample of zero (42 is the seed)
+        Assertions.assertEquals(0.0, expSample(42, 0));
+    }
+
+    @Test
+    void testExponentialRecursion_2_oe() {
+        // The exponential distribution will enter the edge of the ziggurat if the RNG
+        // outputs -1 (all bits). This performs alias sampling using a long value.
+        // The tail will be selected if the next output is -1.
+        // Thus two -1 values enter recursion where a new exponential sample is added
+        // to the tail value:
+         double tailValue = 7.569274694148063;
+
+        // Alias sampling assigns the ziggurat layer using the lower 8 bits.
+        // The rest determine if the layer or the alias are used. We do not control this
+        // and leave it to a seeded RNG to select different layers.
+
+        // A value of zero will create a sample of zero (42 is the seed)
+        // removed other assertion
+        Assertions.assertEquals(tailValue, expSample(42, -1, -1, 0));
+    }
+
+    @Test
+    void testExponentialRecursion_3_oe() {
+        // The exponential distribution will enter the edge of the ziggurat if the RNG
+        // outputs -1 (all bits). This performs alias sampling using a long value.
+        // The tail will be selected if the next output is -1.
+        // Thus two -1 values enter recursion where a new exponential sample is added
+        // to the tail value:
+         double tailValue = 7.569274694148063;
+
+        // Alias sampling assigns the ziggurat layer using the lower 8 bits.
+        // The rest determine if the layer or the alias are used. We do not control this
+        // and leave it to a seeded RNG to select different layers.
+
+        // A value of zero will create a sample of zero (42 is the seed)
+        // removed other assertion
+        // removed other assertion
+
+        // Use different seeds to test different layers from the edge of the ziggurat.
+        for ( long seed : new long[] {42, -2136612838, 2340923842L, -1263746817818681L}) {
+            // Base value
+             double x0 = expSample(seed);
+            // Edge value
+             double x1 = expSample(seed, -1);
+            // Recursion
+            Assertions.assertEquals(x0 + tailValue, expSample(seed, -1, -1));
+    }
+    }
+
+    @Test
+    void testExponentialRecursion_4_oe() {
+        // The exponential distribution will enter the edge of the ziggurat if the RNG
+        // outputs -1 (all bits). This performs alias sampling using a long value.
+        // The tail will be selected if the next output is -1.
+        // Thus two -1 values enter recursion where a new exponential sample is added
+        // to the tail value:
+         double tailValue = 7.569274694148063;
+
+        // Alias sampling assigns the ziggurat layer using the lower 8 bits.
+        // The rest determine if the layer or the alias are used. We do not control this
+        // and leave it to a seeded RNG to select different layers.
+
+        // A value of zero will create a sample of zero (42 is the seed)
+        // removed other assertion
+        // removed other assertion
+
+        // Use different seeds to test different layers from the edge of the ziggurat.
+        for ( long seed : new long[] {42, -2136612838, 2340923842L, -1263746817818681L}) {
+            // Base value
+             double x0 = expSample(seed);
+            // Edge value
+             double x1 = expSample(seed, -1);
+            // Recursion
+            // removed other assertion
+            Assertions.assertEquals(x1 + tailValue, expSample(seed, -1, -1, -1));
+    }
+    }
+
+    @Test
+    void testExponentialRecursion_5_oe() {
+        // The exponential distribution will enter the edge of the ziggurat if the RNG
+        // outputs -1 (all bits). This performs alias sampling using a long value.
+        // The tail will be selected if the next output is -1.
+        // Thus two -1 values enter recursion where a new exponential sample is added
+        // to the tail value:
+         double tailValue = 7.569274694148063;
+
+        // Alias sampling assigns the ziggurat layer using the lower 8 bits.
+        // The rest determine if the layer or the alias are used. We do not control this
+        // and leave it to a seeded RNG to select different layers.
+
+        // A value of zero will create a sample of zero (42 is the seed)
+        // removed other assertion
+        // removed other assertion
+
+        // Use different seeds to test different layers from the edge of the ziggurat.
+        for ( long seed : new long[] {42, -2136612838, 2340923842L, -1263746817818681L}) {
+            // Base value
+             double x0 = expSample(seed);
+            // Edge value
+             double x1 = expSample(seed, -1);
+            // Recursion
+            // removed other assertion
+            // removed other assertion
+            // Double recursion
+            // Note the order of additions is important as the  sample is added to
+            // a summation of the tail value.
+            Assertions.assertEquals(tailValue + tailValue + x0, expSample(seed, -1, -1, -1, -1));
+    }
+    }
+
+    @Test
+    void testExponentialRecursion_6_oe() {
+        // The exponential distribution will enter the edge of the ziggurat if the RNG
+        // outputs -1 (all bits). This performs alias sampling using a long value.
+        // The tail will be selected if the next output is -1.
+        // Thus two -1 values enter recursion where a new exponential sample is added
+        // to the tail value:
+         double tailValue = 7.569274694148063;
+
+        // Alias sampling assigns the ziggurat layer using the lower 8 bits.
+        // The rest determine if the layer or the alias are used. We do not control this
+        // and leave it to a seeded RNG to select different layers.
+
+        // A value of zero will create a sample of zero (42 is the seed)
+        // removed other assertion
+        // removed other assertion
+
+        // Use different seeds to test different layers from the edge of the ziggurat.
+        for ( long seed : new long[] {42, -2136612838, 2340923842L, -1263746817818681L}) {
+            // Base value
+             double x0 = expSample(seed);
+            // Edge value
+             double x1 = expSample(seed, -1);
+            // Recursion
+            // removed other assertion
+            // removed other assertion
+            // Double recursion
+            // Note the order of additions is important as the  sample is added to
+            // a summation of the tail value.
+            // removed other assertion
+            Assertions.assertEquals(tailValue + tailValue + x1, expSample(seed, -1, -1, -1, -1, -1));
+    }
     }
 
 }

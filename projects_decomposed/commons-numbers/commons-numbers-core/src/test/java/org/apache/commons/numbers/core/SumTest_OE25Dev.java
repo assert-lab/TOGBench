@@ -23,6 +23,8 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class SumTest_OE25Dev {
 
     @Test
@@ -305,12 +307,65 @@ class SumTest_OE25Dev {
     }
 
     @Test
+    void testSum_simple_1_oe() {
+        // act/assert
+        Assertions.assertEquals(0d, Sum.create().getAsDouble());
+    }
+
+    @Test
+    void testAdd_sumInstance_1_oe() {
+        // arrange
+        final double a = Math.PI;
+        final double b = Math.scalb(a, -53);
+        final double c = Math.scalb(a, -53);
+        final double d = Math.scalb(a, -27);
+        final double e = Math.scalb(a, -27);
+        final double f = Math.scalb(a, -50);
+
+        // act/assert
+        Assertions.assertEquals(exactSum(a, b, c, d), Sum.of(a, b, c, d).add(Sum.create()).getAsDouble());
+    }
+
+    @Test
+    void testAdd_sumInstance_2_oe() {
+        // arrange
+        final double a = Math.PI;
+        final double b = Math.scalb(a, -53);
+        final double c = Math.scalb(a, -53);
+        final double d = Math.scalb(a, -27);
+        final double e = Math.scalb(a, -27);
+        final double f = Math.scalb(a, -50);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertEquals(exactSum(a,a,b,c,d,e,f),Sum.of(a,b).add(Sum.of(a,c)).add(Sum.of(d,e,f)).getAsDouble());
+    }
+
+    @Test
+    void testAdd_sumInstance_3_oe() {
+        // arrange
+        final double a = Math.PI;
+        final double b = Math.scalb(a, -53);
+        final double c = Math.scalb(a, -53);
+        final double d = Math.scalb(a, -27);
+        final double e = Math.scalb(a, -27);
+        final double f = Math.scalb(a, -50);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        final Sum s = Sum.of(a, b);
+        Assertions.assertEquals(exactSum(a, b, a, b), s.add(s).getAsDouble());
+    }
+
+    @Test
     void testSumOfProducts_dimensionMismatch_1_oe() {
         // act/assert
         final Sum sum = Sum.create();
         try {
     sum.addProducts(new double[1], new double[2]);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -323,9 +378,786 @@ class SumTest_OE25Dev {
 
         try {
     Sum.ofProducts(new double[1], new double[2]);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testSumOfProducts_singleElement_1_oe() {
+        final double[] a = {1.23456789};
+        final double[] b = {98765432.1};
+
+        Assertions.assertEquals(a[0] * b[0], Sum.ofProducts(a, b).getAsDouble());
+    }
+
+    @Test
+    void testSumOfProducts_1_oe() {
+        // arrange
+        final BigDecimal[] aFN = new BigDecimal[] {
+            BigDecimal.valueOf(-1321008684645961L),
+            BigDecimal.valueOf(-5774608829631843L),
+            BigDecimal.valueOf(-7645843051051357L),
+        };
+        final BigDecimal[] aFD = new BigDecimal[] {
+            BigDecimal.valueOf(268435456L),
+            BigDecimal.valueOf(268435456L),
+            BigDecimal.valueOf(8589934592L)
+        };
+        final BigDecimal[] bFN = new BigDecimal[] {
+            BigDecimal.valueOf(-5712344449280879L),
+            BigDecimal.valueOf(-4550117129121957L),
+            BigDecimal.valueOf(8846951984510141L)
+        };
+        final BigDecimal[] bFD = new BigDecimal[] {
+            BigDecimal.valueOf(2097152L),
+            BigDecimal.valueOf(2097152L),
+            BigDecimal.valueOf(131072L)
+        };
+
+        final int len = aFN.length;
+        final double[] a = new double[len];
+        final double[] b = new double[len];
+        for (int i = 0; i < len; i++) {
+            a[i] = aFN[i].doubleValue() / aFD[i].doubleValue();
+            b[i] = bFN[i].doubleValue() / bFD[i].doubleValue();
+        }
+
+        // act
+        final double sum = Sum.ofProducts(a, b).getAsDouble();
+
+        // assert
+        // Compare with arbitrary precision computation.
+        BigDecimal result = BigDecimal.ZERO;
+        for (int i = 0; i < a.length; i++) {
+            result = result.add(aFN[i].divide(aFD[i]).multiply(bFN[i].divide(bFD[i])));
+        }
+        final double expected = result.doubleValue();
+        Assertions.assertEquals(expected, sum, 1e-15);
+    }
+
+    @Test
+    void testSumOfProducts_2_oe() {
+        // arrange
+        final BigDecimal[] aFN = new BigDecimal[] {
+            BigDecimal.valueOf(-1321008684645961L),
+            BigDecimal.valueOf(-5774608829631843L),
+            BigDecimal.valueOf(-7645843051051357L),
+        };
+        final BigDecimal[] aFD = new BigDecimal[] {
+            BigDecimal.valueOf(268435456L),
+            BigDecimal.valueOf(268435456L),
+            BigDecimal.valueOf(8589934592L)
+        };
+        final BigDecimal[] bFN = new BigDecimal[] {
+            BigDecimal.valueOf(-5712344449280879L),
+            BigDecimal.valueOf(-4550117129121957L),
+            BigDecimal.valueOf(8846951984510141L)
+        };
+        final BigDecimal[] bFD = new BigDecimal[] {
+            BigDecimal.valueOf(2097152L),
+            BigDecimal.valueOf(2097152L),
+            BigDecimal.valueOf(131072L)
+        };
+
+        final int len = aFN.length;
+        final double[] a = new double[len];
+        final double[] b = new double[len];
+        for (int i = 0; i < len; i++) {
+            a[i] = aFN[i].doubleValue() / aFD[i].doubleValue();
+            b[i] = bFN[i].doubleValue() / bFD[i].doubleValue();
+        }
+
+        // act
+        final double sum = Sum.ofProducts(a, b).getAsDouble();
+
+        // assert
+        // Compare with arbitrary precision computation.
+        BigDecimal result = BigDecimal.ZERO;
+        for (int i = 0; i < a.length; i++) {
+            result = result.add(aFN[i].divide(aFD[i]).multiply(bFN[i].divide(bFD[i])));
+        }
+        final double expected = result.doubleValue();
+        // removed other assertion
+
+        final double naive = a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+        Assertions.assertTrue(Math.abs(naive - sum) > 1.5);
+    }
+
+    @Test
+    void testSumOfProducts_huge_1_oe() {
+        // arrange
+        int scale = 971;
+        final double[] a = new double[] {
+            -1321008684645961.0 / 268435456.0,
+            -5774608829631843.0 / 268435456.0,
+            -7645843051051357.0 / 8589934592.0
+        };
+        final double[] b = new double[] {
+            -5712344449280879.0 / 2097152.0,
+            -4550117129121957.0 / 2097152.0,
+            8846951984510141.0 / 131072.0
+        };
+
+        final int len = a.length;
+        final double[] scaledA = new double[len];
+        final double[] scaledB = new double[len];
+        for (int i = 0; i < len; ++i) {
+            scaledA[i] = Math.scalb(a[i], -scale);
+            scaledB[i] = Math.scalb(b[i], scale);
+        }
+
+        // act
+        final double sum = Sum.ofProducts(scaledA, scaledB).getAsDouble();
+
+        // assert
+        Assertions.assertEquals(-1.8551294182586248737720779899, sum, 1e-15);
+    }
+
+    @Test
+    void testSumOfProducts_huge_2_oe() {
+        // arrange
+        int scale = 971;
+        final double[] a = new double[] {
+            -1321008684645961.0 / 268435456.0,
+            -5774608829631843.0 / 268435456.0,
+            -7645843051051357.0 / 8589934592.0
+        };
+        final double[] b = new double[] {
+            -5712344449280879.0 / 2097152.0,
+            -4550117129121957.0 / 2097152.0,
+            8846951984510141.0 / 131072.0
+        };
+
+        final int len = a.length;
+        final double[] scaledA = new double[len];
+        final double[] scaledB = new double[len];
+        for (int i = 0; i < len; ++i) {
+            scaledA[i] = Math.scalb(a[i], -scale);
+            scaledB[i] = Math.scalb(b[i], scale);
+        }
+
+        // act
+        final double sum = Sum.ofProducts(scaledA, scaledB).getAsDouble();
+
+        // assert
+        // removed other assertion
+
+        final double naive = scaledA[0] * scaledB[0] + scaledA[1] * scaledB[1] + scaledA[2] * scaledB[2];
+        Assertions.assertTrue(Math.abs(naive - sum) > 1.5);
+    }
+
+    @Test
+    void testSumOfProducts_overflow_1_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
+        final double x = Math.nextDown(2.0);
+        final double y = -Math.nextDown(x);
+        final double xxMxy = x * x + x * y;
+        final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        Assertions.assertNotEquals(xxMxy, xxMxyHighPrecision, "High precision result should be different");
+    }
+
+    @Test
+    void testSumOfProducts_overflow_2_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
+        final double x = Math.nextDown(2.0);
+        final double y = -Math.nextDown(x);
+        final double xxMxy = x * x + x * y;
+        final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
+
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        Assertions.assertEquals(0, Math.getExponent(x));
+    }
+
+    @Test
+    void testSumOfProducts_overflow_3_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
+        final double x = Math.nextDown(2.0);
+        final double y = -Math.nextDown(x);
+        final double xxMxy = x * x + x * y;
+        final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
+
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        Assertions.assertEquals(0, Math.getExponent(y));
+    }
+
+    @Test
+    void testSumOfProducts_overflow_4_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
+        final double x = Math.nextDown(2.0);
+        final double y = -Math.nextDown(x);
+        final double xxMxy = x * x + x * y;
+        final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
+
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
+
+        final double a1 = Math.scalb(x, 1022 - 30);
+        final double b1 = Math.scalb(x, 30);
+        final double a2 = a1;
+        final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
+        final double sxxMxy = Math.scalb(xxMxy, 1022);
+        Assertions.assertEquals(sxxMxy, a1 * b1 + a2 * b2);
+    }
+
+    @Test
+    void testSumOfProducts_overflow_5_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
+        final double x = Math.nextDown(2.0);
+        final double y = -Math.nextDown(x);
+        final double xxMxy = x * x + x * y;
+        final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
+
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
+
+        final double a1 = Math.scalb(x, 1022 - 30);
+        final double b1 = Math.scalb(x, 30);
+        final double a2 = a1;
+        final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
+        final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        Assertions.assertTrue(Double.isFinite(sxxMxy));
+    }
+
+    @Test
+    void testSumOfProducts_overflow_6_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
+        final double x = Math.nextDown(2.0);
+        final double y = -Math.nextDown(x);
+        final double xxMxy = x * x + x * y;
+        final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
+
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
+
+        final double a1 = Math.scalb(x, 1022 - 30);
+        final double b1 = Math.scalb(x, 30);
+        final double a2 = a1;
+        final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
+        final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
+
+        // High precision result using Dekker's multiplier.
+        final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
+        double c;
+        c = a1 * m;
+        final double ha1 = c - (c - a1);
+        c = b1 * m;
+        final double hb1 = c - (c - b1);
+        c = a2 * m;
+        final double ha2 = c - (c - a2);
+        c = b2 * m;
+        final double hb2 = c - (c - b2);
+        Assertions.assertTrue(Double.isFinite(ha1));
+    }
+
+    @Test
+    void testSumOfProducts_overflow_7_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
+        final double x = Math.nextDown(2.0);
+        final double y = -Math.nextDown(x);
+        final double xxMxy = x * x + x * y;
+        final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
+
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
+
+        final double a1 = Math.scalb(x, 1022 - 30);
+        final double b1 = Math.scalb(x, 30);
+        final double a2 = a1;
+        final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
+        final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
+
+        // High precision result using Dekker's multiplier.
+        final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
+        double c;
+        c = a1 * m;
+        final double ha1 = c - (c - a1);
+        c = b1 * m;
+        final double hb1 = c - (c - b1);
+        c = a2 * m;
+        final double ha2 = c - (c - a2);
+        c = b2 * m;
+        final double hb2 = c - (c - b2);
+        // removed other assertion
+        Assertions.assertTrue(Double.isFinite(hb1));
+    }
+
+    @Test
+    void testSumOfProducts_overflow_8_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
+        final double x = Math.nextDown(2.0);
+        final double y = -Math.nextDown(x);
+        final double xxMxy = x * x + x * y;
+        final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
+
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
+
+        final double a1 = Math.scalb(x, 1022 - 30);
+        final double b1 = Math.scalb(x, 30);
+        final double a2 = a1;
+        final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
+        final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
+
+        // High precision result using Dekker's multiplier.
+        final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
+        double c;
+        c = a1 * m;
+        final double ha1 = c - (c - a1);
+        c = b1 * m;
+        final double hb1 = c - (c - b1);
+        c = a2 * m;
+        final double ha2 = c - (c - a2);
+        c = b2 * m;
+        final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(Double.isFinite(ha2));
+    }
+
+    @Test
+    void testSumOfProducts_overflow_9_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
+        final double x = Math.nextDown(2.0);
+        final double y = -Math.nextDown(x);
+        final double xxMxy = x * x + x * y;
+        final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
+
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
+
+        final double a1 = Math.scalb(x, 1022 - 30);
+        final double b1 = Math.scalb(x, 30);
+        final double a2 = a1;
+        final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
+        final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
+
+        // High precision result using Dekker's multiplier.
+        final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
+        double c;
+        c = a1 * m;
+        final double ha1 = c - (c - a1);
+        c = b1 * m;
+        final double hb1 = c - (c - b1);
+        c = a2 * m;
+        final double ha2 = c - (c - a2);
+        c = b2 * m;
+        final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(Double.isFinite(hb2));
+    }
+
+    @Test
+    void testSumOfProducts_overflow_10_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
+        final double x = Math.nextDown(2.0);
+        final double y = -Math.nextDown(x);
+        final double xxMxy = x * x + x * y;
+        final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
+
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
+
+        final double a1 = Math.scalb(x, 1022 - 30);
+        final double b1 = Math.scalb(x, 30);
+        final double a2 = a1;
+        final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
+        final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
+
+        // High precision result using Dekker's multiplier.
+        final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
+        double c;
+        c = a1 * m;
+        final double ha1 = c - (c - a1);
+        c = b1 * m;
+        final double hb1 = c - (c - b1);
+        c = a2 * m;
+        final double ha2 = c - (c - a2);
+        c = b2 * m;
+        final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        Assertions.assertTrue(Math.abs(ha1) > Math.abs(a1));
+    }
+
+    @Test
+    void testSumOfProducts_overflow_11_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
+        final double x = Math.nextDown(2.0);
+        final double y = -Math.nextDown(x);
+        final double xxMxy = x * x + x * y;
+        final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
+
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
+
+        final double a1 = Math.scalb(x, 1022 - 30);
+        final double b1 = Math.scalb(x, 30);
+        final double a2 = a1;
+        final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
+        final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
+
+        // High precision result using Dekker's multiplier.
+        final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
+        double c;
+        c = a1 * m;
+        final double ha1 = c - (c - a1);
+        c = b1 * m;
+        final double hb1 = c - (c - b1);
+        c = a2 * m;
+        final double ha2 = c - (c - a2);
+        c = b2 * m;
+        final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        Assertions.assertTrue(Math.abs(hb1) > Math.abs(b1));
+    }
+
+    @Test
+    void testSumOfProducts_overflow_12_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
+        final double x = Math.nextDown(2.0);
+        final double y = -Math.nextDown(x);
+        final double xxMxy = x * x + x * y;
+        final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
+
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
+
+        final double a1 = Math.scalb(x, 1022 - 30);
+        final double b1 = Math.scalb(x, 30);
+        final double a2 = a1;
+        final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
+        final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
+
+        // High precision result using Dekker's multiplier.
+        final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
+        double c;
+        c = a1 * m;
+        final double ha1 = c - (c - a1);
+        c = b1 * m;
+        final double hb1 = c - (c - b1);
+        c = a2 * m;
+        final double ha2 = c - (c - a2);
+        c = b2 * m;
+        final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(Math.abs(ha2) > Math.abs(a2));
+    }
+
+    @Test
+    void testSumOfProducts_overflow_13_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
+        final double x = Math.nextDown(2.0);
+        final double y = -Math.nextDown(x);
+        final double xxMxy = x * x + x * y;
+        final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
+
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
+
+        final double a1 = Math.scalb(x, 1022 - 30);
+        final double b1 = Math.scalb(x, 30);
+        final double a2 = a1;
+        final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
+        final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
+
+        // High precision result using Dekker's multiplier.
+        final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
+        double c;
+        c = a1 * m;
+        final double ha1 = c - (c - a1);
+        c = b1 * m;
+        final double hb1 = c - (c - b1);
+        c = a2 * m;
+        final double ha2 = c - (c - a2);
+        c = b2 * m;
+        final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(Math.abs(hb2) > Math.abs(b2));
+    }
+
+    @Test
+    void testSumOfProducts_overflow_14_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
+        final double x = Math.nextDown(2.0);
+        final double y = -Math.nextDown(x);
+        final double xxMxy = x * x + x * y;
+        final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
+
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
+
+        final double a1 = Math.scalb(x, 1022 - 30);
+        final double b1 = Math.scalb(x, 30);
+        final double a2 = a1;
+        final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
+        final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
+
+        // High precision result using Dekker's multiplier.
+        final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
+        double c;
+        c = a1 * m;
+        final double ha1 = c - (c - a1);
+        c = b1 * m;
+        final double hb1 = c - (c - b1);
+        c = a2 * m;
+        final double ha2 = c - (c - a2);
+        c = b2 * m;
+        final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, ha1 * hb1, "Expected split high part to overflow");
+    }
+
+    @Test
+    void testSumOfProducts_overflow_15_oe() {
+        // Create a simple dot product that is different in high precision and has
+        // values that create a high part above the original number. This can be done using
+        // a mantissa with almost all bits set to 1.
+        final double x = Math.nextDown(2.0);
+        final double y = -Math.nextDown(x);
+        final double xxMxy = x * x + x * y;
+        final double xxMxyHighPrecision = Sum.create().addProduct(x, x).addProduct(x, y).getAsDouble();
+        // removed other assertion
+
+        // Scale it close to max value.
+        // The current exponent is 0 so the combined scale must be 1023-1 as the
+        // partial product x*x and x*y have an exponent 1 higher
+        // removed other assertion
+        // removed other assertion
+
+        final double a1 = Math.scalb(x, 1022 - 30);
+        final double b1 = Math.scalb(x, 30);
+        final double a2 = a1;
+        final double b2 = Math.scalb(y, 30);
+        // Verify low precision result is scaled and finite
+        final double sxxMxy = Math.scalb(xxMxy, 1022);
+        // removed other assertion
+        // removed other assertion
+
+        // High precision result using Dekker's multiplier.
+        final double m = (1 << 27) + 1;
+        // First demonstrate that Dekker's split will create overflow in the high part.
+        double c;
+        c = a1 * m;
+        final double ha1 = c - (c - a1);
+        c = b1 * m;
+        final double hb1 = c - (c - b1);
+        c = a2 * m;
+        final double ha2 = c - (c - a2);
+        c = b2 * m;
+        final double hb2 = c - (c - b2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // High part should be bigger in magnitude
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY, ha2 * hb2, "Expected split high part to overflow");
+    }
+
+    @Test
+    void testMixedSingleTermAndProduct_1_oe() {
+        // arrange
+        final double a = 9.999999999;
+        final double b = Math.scalb(a, -53);
+        final double c = Math.scalb(a, -53);
+        final double d = Math.scalb(a, -27);
+
+        // act/assert
+        Assertions.assertEquals(exactLinearCombination(1,a,-1,b,2,c,4,d),Sum.create().add(a).add(-b).addProduct(2,c).addProduct(d,4).getAsDouble());
+    }
+
+    @Test
+    void testMixedSingleTermAndProduct_2_oe() {
+        // arrange
+        final double a = 9.999999999;
+        final double b = Math.scalb(a, -53);
+        final double c = Math.scalb(a, -53);
+        final double d = Math.scalb(a, -27);
+
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertEquals(exactLinearCombination(1,a,-1,b,2,c,4,d),Sum.create().addProduct(d,4).add(a).addProduct(2,c).add(-b).getAsDouble());
+    }
+
+    @Test
+    void testUnityValuesInProduct_1_oe() {
+        // arrange
+        final double a = 9.999999999;
+        final double b = Math.scalb(a, -53);
+        final double c = Math.scalb(a, -53);
+        final double d = Math.scalb(a, -27);
+
+        // act/assert
+        Assertions.assertEquals(exactLinearCombination(1,a,-1,b,2,c,4,d),Sum.create().addProduct(1,a).addProduct(-1,b).addProduct(2,c).addProduct(d,4).getAsDouble());
+    }
+
+    @Test
+    void testUnityValuesInProduct_2_oe() {
+        // arrange
+        final double a = 9.999999999;
+        final double b = Math.scalb(a, -53);
+        final double c = Math.scalb(a, -53);
+        final double d = Math.scalb(a, -27);
+
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertEquals(exactLinearCombination(1,a,-1,b,2,c,4,d),Sum.create().addProduct(a,1).addProduct(b,-1).addProduct(2,c).addProduct(d,4).getAsDouble());
     }
 
 }

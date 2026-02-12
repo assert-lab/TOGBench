@@ -22,6 +22,8 @@ import org.apache.commons.imaging.ImageWriteException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 public class FieldTypeByteTest_OE25Dev{
 
   @Test
@@ -31,7 +33,7 @@ public class FieldTypeByteTest_OE25Dev{
 
       try {
     fieldTypeByte.writeData( null, byteOrder);
-    org.junit.jupiter.api.Assertions.fail("ImageWriteException");
+    fail("ImageWriteException");
 } catch (ImageWriteException e) {
 }
   }

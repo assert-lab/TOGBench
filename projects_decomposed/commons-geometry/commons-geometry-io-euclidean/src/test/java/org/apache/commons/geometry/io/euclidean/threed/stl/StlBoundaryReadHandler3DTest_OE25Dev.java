@@ -41,6 +41,8 @@ import org.apache.commons.numbers.core.Precision;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class StlBoundaryReadHandler3DTest_OE25Dev {
 
     private static final double TEST_EPS = 1e-10;
@@ -174,6 +176,19 @@ class StlBoundaryReadHandler3DTest_OE25Dev {
     }
 
     @Test
+    void testProperties_1_oe() {
+        // assert
+        Assertions.assertEquals(GeometryFormat3D.STL, handler.getFormat());
+    }
+
+    @Test
+    void testProperties_2_oe() {
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(StandardCharsets.UTF_8, handler.getDefaultCharset());
+    }
+
+    @Test
     void testRead_notEnoughBytes_1_oe() {
         // arrange
         final ByteArrayInputStream in = new ByteArrayInputStream(new byte[1]);
@@ -182,7 +197,7 @@ class StlBoundaryReadHandler3DTest_OE25Dev {
         // act/assert
         try {
     handler.facetDefinitionReader(input);
-    org.junit.jupiter.api.Assertions.fail("IllegalStateException");
+    fail("IllegalStateException");
 } catch (IllegalStateException e) {
 }
     }
@@ -196,7 +211,7 @@ class StlBoundaryReadHandler3DTest_OE25Dev {
         // act/assert
         try {
     handler.facetDefinitionReader(input);
-    org.junit.jupiter.api.Assertions.fail("IllegalStateException");
+    fail("IllegalStateException");
 } catch (IllegalStateException e) {
 }
     }

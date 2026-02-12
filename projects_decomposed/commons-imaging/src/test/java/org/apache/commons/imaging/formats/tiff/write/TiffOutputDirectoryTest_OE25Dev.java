@@ -35,5 +35,35 @@ public class TiffOutputDirectoryTest_OE25Dev {
         directory = new TiffOutputDirectory(TiffDirectoryConstants.DIRECTORY_TYPE_ROOT, TiffConstants.DEFAULT_TIFF_BYTE_ORDER);
     }
 
+    @Test
+    public void testFindField_1_oe() throws Exception {
+        directory.add(TIFF_TAG_DOCUMENT_NAME, "Test.tiff");
+
+        final TiffOutputField field = directory.findField(TIFF_TAG_DOCUMENT_NAME);
+
+        assertNotNull(field);
+    }
+
+    @Test
+    public void testFindField_2_oe() throws Exception {
+        directory.add(TIFF_TAG_DOCUMENT_NAME, "Test.tiff");
+
+        final TiffOutputField field = directory.findField(TIFF_TAG_DOCUMENT_NAME);
+
+        // removed other assertion
+        assertEquals(TIFF_TAG_DOCUMENT_NAME, field.tagInfo);
+    }
+
+    @Test
+    public void testFindField_3_oe() throws Exception {
+        directory.add(TIFF_TAG_DOCUMENT_NAME, "Test.tiff");
+
+        final TiffOutputField field = directory.findField(TIFF_TAG_DOCUMENT_NAME);
+
+        // removed other assertion
+        // removed other assertion
+        final byte[] documentNameAsBytes = TIFF_TAG_DOCUMENT_NAME.encodeValue(TiffConstants.DEFAULT_TIFF_BYTE_ORDER, "Test.tiff");
+        assertTrue(field.bytesEqual(documentNameAsBytes));
+    }
 
 }

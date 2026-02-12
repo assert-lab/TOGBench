@@ -1827,13 +1827,17 @@ imag_76_4,"    @Test
         return (int)(numerator / divisor);
     }"
 imag_76_5,"    @Test
-    public void testSpecialRationalNumber_5_oe(){
+    public void testSpecialRationalNumber_5_oe() throws Exception{
         RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
         // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertThrows(NumberFormatException.class, () -> test.negate(), ""Failed to detect negation of large unsigned value"");
+        try {
+    test.negate();
+    fail(""NumberFormatException: Failed to detect negation of large unsigned value"");
+} catch (NumberFormatException e) {
+}
     }
 ",RationalNumberTest::testSpecialRationalNumber_5_oe,org.apache.commons.imaging.common.RationalNumber,negate(),"/**
      * Negates the value of the RationalNumber. If the numerator of this
@@ -2149,9 +2153,13 @@ imag_81_3,"    @ParameterizedTest
         return subsets.size();
     }"
 imag_82_1,"    @Test
-    public void testGetInputStreamThrowsNullPointerException_1_oe() {
+    public void testGetInputStreamThrowsNullPointerException_1_oe() throws Exception {
         final ByteSourceArray byteSourceArray = new ByteSourceArray(null);
-        Assertions.assertThrows(NullPointerException.class, () -> byteSourceArray.getInputStream(0L));
+        try {
+    byteSourceArray.getInputStream(0L);
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
     }
 ",ByteSourceTest::testGetInputStreamThrowsNullPointerException_1_oe,org.apache.commons.imaging.common.bytesource.ByteSourceArray,getInputStream(),,"@Override
     public InputStream getInputStream() {
@@ -2448,11 +2456,15 @@ imag_87_1,"    @ParameterizedTest
         return getImageInfo(new ByteSourceArray(fileName, bytes));
     }"
 imag_88_1,"    @Test
-    public void testUncaughtExceptionOssFuzz33458_1_oe() {
+    public void testUncaughtExceptionOssFuzz33458_1_oe() throws Exception {
         final String input = ""/images/jpeg/oss-fuzz-33458/clusterfuzz-testcase-minimized-ImagingJpegFuzzer-4548690447564800"";
         final String file = JpegReadTest.class.getResource(input).getFile();
         final JpegImageParser parser = new JpegImageParser();
-        assertThrows(ImageReadException.class, () -> parser.getBufferedImage(new ByteSourceFile(new File(file)), new JpegImagingParameters()));
+        try {
+    parser.getBufferedImage(new ByteSourceFile(new File(file)), new JpegImagingParameters());
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",JpegReadTest::testUncaughtExceptionOssFuzz33458_1_oe,org.apache.commons.imaging.formats.jpeg.JpegImageParser,"getBufferedImage(final ByteSource byteSource,
             final JpegImagingParameters params)",,"@Override
@@ -2462,13 +2474,17 @@ imag_88_1,"    @Test
         return jpegDecoder.decode(byteSource);
     }"
 imag_89_1,"    @Test
-    public void testSingleImage_1_oe() {
+    public void testSingleImage_1_oe() throws Exception {
         // we cannot use ImagingTest and getImageByFileName, as it would cause others
         // tests to fail
         final File imageFile = new File(JpegWithInvalidDhtSegmentTest.class
                 .getResource(""/IMAGING-215/ArrayIndexOutOfBoundsException_DhtSegment_79.jpeg"")
                 .getFile());
-        Assertions.assertThrows(ImageReadException.class, () -> Imaging.getMetadata(imageFile));
+        try {
+    Imaging.getMetadata(imageFile);
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",JpegWithInvalidDhtSegmentTest::testSingleImage_1_oe,org.apache.commons.imaging.Imaging,getMetadata(final byte[] bytes),"/**
      * Parses the metadata of an image. This metadata depends on the format of the image.
@@ -2746,23 +2762,81 @@ imag_98_3,"  @Test
         return getStackTrace(e, limit, 0);
     }"
 imag_99_1,"  @Test
-  public void testNextBitThrowsImageReadExceptionOne_1_oe() {
+  public void testNextBitThrowsImageReadExceptionOne_1_oe() throws Exception {
     final int[] byteArray = new int[6];
     byteArray[0] = (byte) (-1);
     byteArray[1] = (byte) 74;
     final JpegInputStream jpegInputStream = new JpegInputStream(byteArray);
 
-    Assertions.assertThrows(ImageReadException.class, jpegInputStream::nextBit);
+    try {
+    jpegInputStream.nextBit();
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
   }
-",JpegInputStreamTest::testNextBitThrowsImageReadExceptionOne_1_oe,,,,
+",JpegInputStreamTest::testNextBitThrowsImageReadExceptionOne_1_oe,org.apache.commons.imaging.formats.jpeg.decoder.JpegInputStream,nextBit(),,"public int nextBit() throws ImageReadException {
+        if (cnt == 0) {
+            b = this.read();
+            if (b < 0) {
+                throw new ImageReadException(""Premature End of File"");
+            }
+            cnt = 8;
+            if (b == 0xff) {
+                final int b2 = this.read();
+                if (b2 < 0) {
+                    throw new ImageReadException(""Premature End of File"");
+                }
+                if (b2 != 0) {
+                    if (b2 == (0xff & JpegConstants.DNL_MARKER)) {
+                        throw new ImageReadException(""DNL not yet supported"");
+                    }
+                    throw new ImageReadException(""Invalid marker found ""
+                        + ""in entropy data: 0xFF "" + Integer.toHexString(b2));
+                }
+            }
+        }
+        final int bit = (b >> 7) & 0x1;
+        cnt--;
+        b <<= 1;
+        return bit;
+    }"
 imag_100_1,"  @Test
-  public void testNextBitThrowsImageReadExceptionTwo_1_oe() {
+  public void testNextBitThrowsImageReadExceptionTwo_1_oe() throws Exception {
     final int[] byteArray = new int[0];
     final JpegInputStream jpegInputStream = new JpegInputStream(byteArray);
 
-    Assertions.assertThrows(IllegalStateException.class, jpegInputStream::nextBit);
+    try {
+    jpegInputStream.nextBit();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
   }
-",JpegInputStreamTest::testNextBitThrowsImageReadExceptionTwo_1_oe,,,,
+",JpegInputStreamTest::testNextBitThrowsImageReadExceptionTwo_1_oe,org.apache.commons.imaging.formats.jpeg.decoder.JpegInputStream,nextBit(),,"public int nextBit() throws ImageReadException {
+        if (cnt == 0) {
+            b = this.read();
+            if (b < 0) {
+                throw new ImageReadException(""Premature End of File"");
+            }
+            cnt = 8;
+            if (b == 0xff) {
+                final int b2 = this.read();
+                if (b2 < 0) {
+                    throw new ImageReadException(""Premature End of File"");
+                }
+                if (b2 != 0) {
+                    if (b2 == (0xff & JpegConstants.DNL_MARKER)) {
+                        throw new ImageReadException(""DNL not yet supported"");
+                    }
+                    throw new ImageReadException(""Invalid marker found ""
+                        + ""in entropy data: 0xFF "" + Integer.toHexString(b2));
+                }
+            }
+        }
+        final int bit = (b >> 7) & 0x1;
+        cnt--;
+        b <<= 1;
+        return bit;
+    }"
 imag_101_1,"    @Test
     public void testVectors_1_oe() {
         final float[] originalData = new float[8];
@@ -3051,13 +3125,17 @@ imag_102_3,"    @Test
         }
     }"
 imag_103_1,"    @Test
-    public void testDecodeBadFile_1_oe() {
+    public void testDecodeBadFile_1_oe() throws Exception {
         // From IMAGING-220
         final File inputFile = new File(
                 JpegDecoderTest.class.getResource(""/IMAGING-220/timeout-48eb4251935b4ca8b26d1859ea525c1b42ae0c78.jpeg"")
                         .getFile());
         final ByteSourceFile byteSourceFile = new ByteSourceFile(inputFile);
-        Assertions.assertThrows(ImageReadException.class, () -> new JpegDecoder().decode(byteSourceFile));
+        try {
+    new JpegDecoder().decode(byteSourceFile);
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",JpegDecoderTest::testDecodeBadFile_1_oe,org.apache.commons.imaging.common.itu_t4.HuffmanTree,decode(final BitInputStreamFlexible bitStream),,"public final T decode(final BitInputStreamFlexible bitStream) throws HuffmanTreeException {
         int position = 0;
@@ -4607,11 +4685,15 @@ imag_127_3,"    @Test
         return data.clone();
     }"
 imag_128_1,"    @Test
-    public void testGetImageInfo_invalidWidth_1_oe() {
+    public void testGetImageInfo_invalidWidth_1_oe() throws Exception {
         final byte[] bytes = ""P1\na 2\n0 0 0 0 0 0 0 0 0 0 0\n1 1 1 1 1 1 1 1 1 1 1\n"".getBytes(US_ASCII);
         final PnmImagingParameters params = new PnmImagingParameters();
         final PnmImageParser underTest = new PnmImageParser();
-        Assertions.assertThrows(ImageReadException.class, () -> underTest.getImageInfo(bytes, params));
+        try {
+    underTest.getImageInfo(bytes, params);
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",PnmImageParserTest::testGetImageInfo_invalidWidth_1_oe,org.apache.commons.imaging.formats.pnm.PnmImageParser,"getImageInfo(final ByteSource byteSource, final PnmImagingParameters params)",,"@Override
     public ImageInfo getImageInfo(final ByteSource byteSource, final PnmImagingParameters params)
@@ -4649,11 +4731,15 @@ imag_128_1,"    @Test
                 usesPalette, colorType, compressionAlgorithm);
     }"
 imag_129_1,"    @Test
-    public void testGetImageInfo_invalidHeight_1_oe() {
+    public void testGetImageInfo_invalidHeight_1_oe() throws Exception {
         final byte[] bytes = ""P1\n2 a\n0 0\n0 0\n0 0\n0 0\n0 0\n0 1\n1 1\n1 1\n1 1\n1 1\n1 1\n"".getBytes(US_ASCII);
         final PnmImagingParameters params = new PnmImagingParameters();
         final PnmImageParser underTest = new PnmImageParser();
-        Assertions.assertThrows(ImageReadException.class, () -> underTest.getImageInfo(bytes, params));
+        try {
+    underTest.getImageInfo(bytes, params);
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",PnmImageParserTest::testGetImageInfo_invalidHeight_1_oe,org.apache.commons.imaging.formats.pnm.PnmImageParser,"getImageInfo(final ByteSource byteSource, final PnmImagingParameters params)",,"@Override
     public ImageInfo getImageInfo(final ByteSource byteSource, final PnmImagingParameters params)
@@ -4691,11 +4777,15 @@ imag_129_1,"    @Test
                 usesPalette, colorType, compressionAlgorithm);
     }"
 imag_130_1,"    @Test
-    public void testGetImageInfo_missingWidthValue_1_oe() {
+    public void testGetImageInfo_missingWidthValue_1_oe() throws Exception {
         final byte[] bytes = ""P7\nWIDTH \n"".getBytes(US_ASCII);
         final PnmImagingParameters params = new PnmImagingParameters();
         final PnmImageParser underTest = new PnmImageParser();
-        Assertions.assertThrows(ImageReadException.class, () -> underTest.getImageInfo(bytes, params));
+        try {
+    underTest.getImageInfo(bytes, params);
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",PnmImageParserTest::testGetImageInfo_missingWidthValue_1_oe,org.apache.commons.imaging.formats.pnm.PnmImageParser,"getImageInfo(final ByteSource byteSource, final PnmImagingParameters params)",,"@Override
     public ImageInfo getImageInfo(final ByteSource byteSource, final PnmImagingParameters params)
@@ -4733,23 +4823,39 @@ imag_130_1,"    @Test
                 usesPalette, colorType, compressionAlgorithm);
     }"
 imag_131_1,"  @Test
-  public void testCreatesPpmFileInfoOne_1_oe() {
-      Assertions.assertThrows(ImageReadException.class, () -> new PpmFileInfo(0, 0, false, 16711680));
+  public void testCreatesPpmFileInfoOne_1_oe() throws Exception {
+      try {
+    new PpmFileInfo(0, 0, false, 16711680);
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
   }
 ",PpmFileInfoTest::testCreatesPpmFileInfoOne_1_oe,,,,
 imag_132_1,"  @Test
-  public void testCreatesPpmFileInfoThree_1_oe() {
-      Assertions.assertThrows(ImageReadException.class, () -> new PpmFileInfo(0, 0, true, 0));
+  public void testCreatesPpmFileInfoThree_1_oe() throws Exception {
+      try {
+    new PpmFileInfo(0, 0, true, 0);
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
   }
 ",PpmFileInfoTest::testCreatesPpmFileInfoThree_1_oe,,,,
 imag_133_1,"    @Test
-    public void testCreateThrowsImageReadExceptionOne_1_oe() {
-        Assertions.assertThrows(ImageReadException.class, () -> new PgmFileInfo(16711680, 16711680, false, 16711680));
+    public void testCreateThrowsImageReadExceptionOne_1_oe() throws Exception {
+        try {
+    new PgmFileInfo(16711680, 16711680, false, 16711680);
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",PgmFileInfoTest::testCreateThrowsImageReadExceptionOne_1_oe,,,,
 imag_134_1,"    @Test
-    public void testCreateThrowsImageReadExceptionTwo_1_oe() {
-        Assertions.assertThrows(ImageReadException.class, () -> new PgmFileInfo(0, 0, true, 0));
+    public void testCreateThrowsImageReadExceptionTwo_1_oe() throws Exception {
+        try {
+    new PgmFileInfo(0, 0, true, 0);
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",PgmFileInfoTest::testCreateThrowsImageReadExceptionTwo_1_oe,,,,
 imag_135_1,"    @Test
@@ -5022,14 +5128,18 @@ imag_142_3,"    @Test
         return getBufferedImage(is, null);
     }"
 imag_143_1,"    @Test
-    public void testErrorDecompressingInvalidFile_1_oe() {
+    public void testErrorDecompressingInvalidFile_1_oe() throws Exception {
         // From IMAGING-219
         final File inputFile = new File(
                 RgbeReadTest.class.getResource(""/IMAGING-219/timeout-9713502c9c371f1654b493650c16ab17c0444369.hdr"")
                         .getFile());
         final ByteSourceFile byteSourceFile = new ByteSourceFile(inputFile);
         final RgbeImagingParameters params = new RgbeImagingParameters();
-        Assertions.assertThrows(ImageReadException.class, () -> new RgbeImageParser().getBufferedImage(byteSourceFile, params));
+        try {
+    new RgbeImageParser().getBufferedImage(byteSourceFile, params);
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",RgbeReadTest::testErrorDecompressingInvalidFile_1_oe,org.apache.commons.imaging.Imaging,getBufferedImage(final InputStream is),"/**
      * Reads the first image from an InputStream.
@@ -5993,7 +6103,11 @@ imag_146_5,"    @Test
             }
             final TiffImagingParameters xparams = new TiffImagingParameters();
             xparams.setSubImage(2, 2, width, height);
-            assertThrows(ImageReadException.class, ()->directory.getRasterData(xparams), ""Failed to catch bad subimage for test ""+name);
+            try {
+    directory.getRasterData(xparams);
+    fail(""ImageReadException: \""Failed to catch bad subimage for test \""+name"");
+} catch (ImageReadException e) {
+}
     }
     }
 ",TiffRoundTripInt32Test::test_5_oe,org.apache.commons.imaging.formats.tiff.TiffDirectory,"getRasterData(
@@ -6481,60 +6595,88 @@ imag_158_1,"    @Test
         return TiffRasterDataType.INTEGER;
     }"
 imag_159_1,"    @Test
-    public void testBadConstructor_1_oe() {
-        assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataFloat(-1, 10), ""Constructor did not detect bad width"");
+    public void testBadConstructor_1_oe() throws Exception {
+        try {
+    new TiffRasterDataFloat(-1, 10);
+    fail(""IllegalArgumentException: Constructor did not detect bad width"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",TiffRasterDataTest::testBadConstructor_1_oe,,,,
 imag_159_2,"    @Test
-    public void testBadConstructor_2_oe() {
+    public void testBadConstructor_2_oe() throws Exception {
         // removed other assertion
-        assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataFloat(10, -1), ""Constructor did not detect bad height"");
+        try {
+    new TiffRasterDataFloat(10, -1);
+    fail(""IllegalArgumentException: Constructor did not detect bad height"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",TiffRasterDataTest::testBadConstructor_2_oe,,,,
 imag_159_3,"    @Test
-    public void testBadConstructor_3_oe() {
+    public void testBadConstructor_3_oe() throws Exception {
         // removed other assertion
         // removed other assertion
-        assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataFloat(1, 1, 0), ""Constructor did not detect bad samplesPerPixel"");
+        try {
+    new TiffRasterDataFloat(1, 1, 0);
+    fail(""IllegalArgumentException: Constructor did not detect bad samplesPerPixel"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",TiffRasterDataTest::testBadConstructor_3_oe,,,,
 imag_159_4,"    @Test
-    public void testBadConstructor_4_oe() {
+    public void testBadConstructor_4_oe() throws Exception {
         // removed other assertion
         // removed other assertion
         // removed other assertion
 
         final float []f = new float[10];
-        assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataFloat(2, 10, f), ""Constructor did not detect insufficient input array size"");
+        try {
+    new TiffRasterDataFloat(2, 10, f);
+    fail(""IllegalArgumentException: Constructor did not detect insufficient input array size"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",TiffRasterDataTest::testBadConstructor_4_oe,,,,
 imag_159_5,"    @Test
-    public void testBadConstructor_5_oe() {
+    public void testBadConstructor_5_oe() throws Exception {
         // removed other assertion
         // removed other assertion
         // removed other assertion
 
         final float []f = new float[10];
         // removed other assertion
-        assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataFloat(2, 3, 2, f), ""Constructor did not detect insufficient input array size"");
+        try {
+    new TiffRasterDataFloat(2, 3, 2, f);
+    fail(""IllegalArgumentException: Constructor did not detect insufficient input array size"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",TiffRasterDataTest::testBadConstructor_5_oe,,,,
 imag_160_1,"    @Test
-    public void testBadCoordinates_1_oe() {
+    public void testBadCoordinates_1_oe() throws Exception {
         final float []f = new float[100];
         final TiffRasterData instance = new TiffRasterDataFloat(10, 10, 1, f);
-        assertThrows(IllegalArgumentException.class, ()->instance.getValue(11, 11),       ""Access method getValue() did not detect bad coordinates"");
+        try {
+    instance.getValue(11, 11);
+    fail(""IllegalArgumentException: Access method getValue() did not detect bad coordinates"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",TiffRasterDataTest::testBadCoordinates_1_oe,org.apache.commons.imaging.formats.tiff.TiffField,getValue(),,"public Object getValue() throws ImageReadException {
         // System.out.print(""getValue"");
         return getTagInfo().getValue(this);
     }"
 imag_160_2,"    @Test
-    public void testBadCoordinates_2_oe() {
+    public void testBadCoordinates_2_oe() throws Exception {
         final float []f = new float[100];
         final TiffRasterData instance = new TiffRasterDataFloat(10, 10, 1, f);
         // removed other assertion
-        assertThrows(IllegalArgumentException.class, ()->instance.setValue(11, 11, 5.0f), ""Access method setValue() did not detect bad coordinates"");
+        try {
+    instance.setValue(11, 11, 5.0f);
+    fail(""IllegalArgumentException: Access method setValue() did not detect bad coordinates"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",TiffRasterDataTest::testBadCoordinates_2_oe,org.apache.commons.imaging.formats.tiff.TiffRasterDataInt,"void setValue(final int x, final int y, final float value)","/**
      * Sets the value stored at the specified raster coordinates.
@@ -6549,12 +6691,16 @@ imag_160_2,"    @Test
         data[index] = (int) value;
     }"
 imag_160_3,"    @Test
-    public void testBadCoordinates_3_oe() {
+    public void testBadCoordinates_3_oe() throws Exception {
         final float []f = new float[100];
         final TiffRasterData instance = new TiffRasterDataFloat(10, 10, 1, f);
         // removed other assertion
         // removed other assertion
-        assertThrows(IllegalArgumentException.class, ()->instance.getValue(1, 1, 2),  ""Access method setValue() did not detect bad sample index"");
+        try {
+    instance.getValue(1, 1, 2);
+    fail(""IllegalArgumentException: Access method setValue() did not detect bad sample index"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",TiffRasterDataTest::testBadCoordinates_3_oe,org.apache.commons.imaging.formats.tiff.TiffRasterDataInt,"void setValue(final int x, final int y, final float value)","/**
      * Sets the value stored at the specified raster coordinates.
@@ -7534,42 +7680,62 @@ imag_185_1,"    @Test
         return TiffRasterDataType.INTEGER;
     }"
 imag_186_1,"    @Test
-    public void testBadConstructor_1_oe() {
-        assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataInt(-1, 10), ""Constructor did not detect bad width"");
+    public void testBadConstructor_1_oe() throws Exception {
+        try {
+    new TiffRasterDataInt(-1, 10);
+    fail(""IllegalArgumentException: Constructor did not detect bad width"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",TiffRasterDataIntTest::testBadConstructor_1_oe,,,,
 imag_186_2,"    @Test
-    public void testBadConstructor_2_oe() {
+    public void testBadConstructor_2_oe() throws Exception {
         // removed other assertion
-        assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataInt(10, -1), ""Constructor did not detect bad height"");
+        try {
+    new TiffRasterDataInt(10, -1);
+    fail(""IllegalArgumentException: Constructor did not detect bad height"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",TiffRasterDataIntTest::testBadConstructor_2_oe,,,,
 imag_186_3,"    @Test
-    public void testBadConstructor_3_oe() {
+    public void testBadConstructor_3_oe() throws Exception {
         // removed other assertion
         // removed other assertion
-        assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataInt(1, 1, 0), ""Constructor did not detect bad samplesPerPixel"");
+        try {
+    new TiffRasterDataInt(1, 1, 0);
+    fail(""IllegalArgumentException: Constructor did not detect bad samplesPerPixel"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",TiffRasterDataIntTest::testBadConstructor_3_oe,,,,
 imag_186_4,"    @Test
-    public void testBadConstructor_4_oe() {
+    public void testBadConstructor_4_oe() throws Exception {
         // removed other assertion
         // removed other assertion
         // removed other assertion
 
         final int []s = new int[10];
-        assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataInt(2, 10, s), ""Constructor did not detect insufficient input array size"");
+        try {
+    new TiffRasterDataInt(2, 10, s);
+    fail(""IllegalArgumentException: Constructor did not detect insufficient input array size"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",TiffRasterDataIntTest::testBadConstructor_4_oe,,,,
 imag_186_5,"    @Test
-    public void testBadConstructor_5_oe() {
+    public void testBadConstructor_5_oe() throws Exception {
         // removed other assertion
         // removed other assertion
         // removed other assertion
 
         final int []s = new int[10];
         // removed other assertion
-        assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataInt(2, 3, 2, s), ""Constructor did not detect insufficient input array size"");
+        try {
+    new TiffRasterDataInt(2, 3, 2, s);
+    fail(""IllegalArgumentException: Constructor did not detect insufficient input array size"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",TiffRasterDataIntTest::testBadConstructor_5_oe,,,,
 imag_189_1,"    @Test
@@ -7895,7 +8061,11 @@ imag_193_5,"    @Test
             }
             final TiffImagingParameters xparams = new TiffImagingParameters();
             xparams.setSubImage(2, 2, width, height);
-            assertThrows(ImageReadException.class, ()->directory.getRasterData(xparams), ""Failed to catch bad subimage for test ""+name);
+            try {
+    directory.getRasterData(xparams);
+    fail(""ImageReadException: \""Failed to catch bad subimage for test \""+name"");
+} catch (ImageReadException e) {
+}
     }
     }
 ",TiffShortIntRoundTripTest::test_5_oe,org.apache.commons.imaging.formats.tiff.TiffDirectory,"getRasterData(
@@ -8260,10 +8430,14 @@ imag_208_1,"  @Test
         return ByteConversions.toBytes(rationalNumbers, byteOrder);
     }"
 imag_209_1,"  @Test
-  public void testWriteDataWithNonNull_1_oe() {
+  public void testWriteDataWithNonNull_1_oe() throws Exception {
       final FieldTypeRational fieldTypeRational = new FieldTypeRational((-922), ""z_AX"");
       final ByteOrder byteOrder = ByteOrder.nativeOrder();
-      Assertions.assertThrows(ImageWriteException.class, () -> fieldTypeRational.writeData(""z_AX"", byteOrder));
+      try {
+    fieldTypeRational.writeData(""z_AX"", byteOrder);
+    fail(""ImageWriteException"");
+} catch (ImageWriteException e) {
+}
   }
 ",FieldTypeRationalTest::testWriteDataWithNonNull_1_oe,org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeRational,"writeData(final Object o, final ByteOrder byteOrder)",,"@Override
     public byte[] writeData(final Object o, final ByteOrder byteOrder) throws ImageWriteException {
@@ -8346,13 +8520,17 @@ imag_210_3,"    @Test
         return getStackTrace(e, limit, 0);
     }"
 imag_211_1,"  @Test
-  public void testCreatesFieldTypeAsciiAndCallsWriteData_1_oe() {
+  public void testCreatesFieldTypeAsciiAndCallsWriteData_1_oe() throws Exception {
       final FieldTypeAscii fieldTypeAscii = new FieldTypeAscii(0, ""1"");
       final byte[] byteArray = new byte[1];
       final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;
       final TiffField tiffField = new TiffField(0, 0, fieldTypeAscii, 0L, 0, byteArray, byteOrder, 1);
 
-      Assertions.assertThrows(ImageWriteException.class, () -> fieldTypeAscii.writeData(tiffField, byteOrder));
+      try {
+    fieldTypeAscii.writeData(tiffField, byteOrder);
+    fail(""ImageWriteException"");
+} catch (ImageWriteException e) {
+}
   }
 ",FieldTypeAsciiTest::testCreatesFieldTypeAsciiAndCallsWriteData_1_oe,org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeAscii,"writeData(final Object o, final ByteOrder byteOrder)",,"@Override
     public byte[] writeData(final Object o, final ByteOrder byteOrder) throws ImageWriteException {
@@ -8474,11 +8652,15 @@ imag_213_1,"    @Test
         return result;
     }"
 imag_214_1,"  @Test
-  public void testWriteDataWithNull_1_oe() {
+  public void testWriteDataWithNull_1_oe() throws Exception {
       final FieldTypeByte fieldTypeByte = FieldType.UNDEFINED;
       final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;
 
-      Assertions.assertThrows(ImageWriteException.class, () -> fieldTypeByte.writeData( null, byteOrder));
+      try {
+    fieldTypeByte.writeData( null, byteOrder);
+    fail(""ImageWriteException"");
+} catch (ImageWriteException e) {
+}
   }
 ",FieldTypeByteTest::testWriteDataWithNull_1_oe,org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeByte,"writeData(final Object o, final ByteOrder byteOrder)",,"@Override
     public byte[] writeData(final Object o, final ByteOrder byteOrder) throws ImageWriteException {
@@ -9491,8 +9673,12 @@ imag_219_6,"    @Test
         return values;
     }"
 imag_220_1,"    @Test
-    public void testInterpretPixelNullSamples_1_oe() {
-        Assertions.assertThrows(ImageReadException.class, () -> p.interpretPixel(null, null, 0, 0));
+    public void testInterpretPixelNullSamples_1_oe() throws Exception {
+        try {
+    p.interpretPixel(null, null, 0, 0);
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",PhotometricInterpreterLogLuvTest::testInterpretPixelNullSamples_1_oe,org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuv,"void interpretPixel(final ImageBuilder imageBuilder, final int[] samples, final int x,
             final int y)",,"@Override
@@ -9530,8 +9716,12 @@ imag_220_1,"    @Test
 
     }"
 imag_221_1,"    @Test
-    public void testInterpretPixelEmptySamples_1_oe() {
-        Assertions.assertThrows(ImageReadException.class, () -> p.interpretPixel(null, new int[] {}, 0, 0));
+    public void testInterpretPixelEmptySamples_1_oe() throws Exception {
+        try {
+    p.interpretPixel(null, new int[] {}, 0, 0);
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",PhotometricInterpreterLogLuvTest::testInterpretPixelEmptySamples_1_oe,org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuv,"void interpretPixel(final ImageBuilder imageBuilder, final int[] samples, final int x,
             final int y)",,"@Override
@@ -10965,7 +11155,11 @@ imag_252_1,"    @Test
 
             Debug.debug(""imageFile"", imageFile);
             if (isInvalidPNGTestFile(imageFile)) {
-                assertThrows( Exception.class, () -> Imaging.getMetadata(imageFile), ""Image read should have failed."" );
+                try {
+    Imaging.getMetadata(imageFile);
+    fail(""Exception: Image read should have failed."");
+} catch (Exception e) {
+}
     }
     }
     }
@@ -10999,7 +11193,11 @@ imag_252_2,"    @Test
             if (isInvalidPNGTestFile(imageFile)) {
                 // removed other assertion
 
-                assertThrows( Exception.class, () -> Imaging.getImageInfo(imageFile), ""Image read should have failed."" );
+                try {
+    Imaging.getImageInfo(imageFile);
+    fail(""Exception: Image read should have failed."");
+} catch (Exception e) {
+}
     }
     }
     }
@@ -11033,7 +11231,11 @@ imag_252_3,"    @Test
 
                 // removed other assertion
 
-                assertThrows( Exception.class, () -> Imaging.getBufferedImage(imageFile), ""Image read should have failed."" );
+                try {
+    Imaging.getBufferedImage(imageFile);
+    fail(""Exception: Image read should have failed."");
+} catch (Exception e) {
+}
     }
     }
     }
@@ -11181,7 +11383,11 @@ imag_253_1,"    @Test
         final String input = ""/images/png/oss-fuzz-33691/clusterfuzz-testcase-minimized-ImagingPngFuzzer-6177282101215232"";
         final String file = PngReadTest.class.getResource(input).getFile();
         final PngImageParser parser = new PngImageParser();
-        assertThrows(ImageReadException.class, () -> parser.getBufferedImage(new ByteSourceFile(new File(file)), new PngImagingParameters()));
+        try {
+    parser.getBufferedImage(new ByteSourceFile(new File(file)), new PngImagingParameters());
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",PngReadTest::testUncaughtExceptionOssFuzz33691_1_oe,org.apache.commons.imaging.formats.png.PngImageParser,"getBufferedImage(final ByteSource byteSource, PngImagingParameters params)",,"@Override
     public BufferedImage getBufferedImage(final ByteSource byteSource, PngImagingParameters params)
@@ -11365,7 +11571,11 @@ imag_254_1,"    @Test
         final String input = ""/images/png/IMAGING-317/clusterfuzz-testcase-minimized-ImagingPngFuzzer-6242400830357504"";
         final String file = PngReadTest.class.getResource(input).getFile();
         final PngImageParser parser = new PngImageParser();
-        assertThrows(ImageReadException.class, () -> parser.getBufferedImage(new ByteSourceFile(new File(file)), new PngImagingParameters()));
+        try {
+    parser.getBufferedImage(new ByteSourceFile(new File(file)), new PngImagingParameters());
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",PngReadTest::testUncaughtExceptionOssFuzz37607_1_oe,org.apache.commons.imaging.formats.png.PngImageParser,"getBufferedImage(final ByteSource byteSource, PngImagingParameters params)",,"@Override
     public BufferedImage getBufferedImage(final ByteSource byteSource, PngImagingParameters params)
@@ -11611,12 +11821,16 @@ imag_257_1,"    @Test
         return transparent;
     }"
 imag_260_1,"    @Test
-    public void testPngWithInvalidPngChunkSize_1_oe() {
+    public void testPngWithInvalidPngChunkSize_1_oe() throws Exception {
         final File imageFile = new File(JpegWithInvalidDhtSegmentTest.class.getResource(""/IMAGING-211/testfile_2.png"").getFile());
         final PngImagingParameters params = new PngImagingParameters();
         params.setBufferedImageFactory(new ManagedImageBufferedImageFactory());
         PngImageParser jpegImageParser = new PngImageParser();
-        Assertions.assertThrows(ImageReadException.class, () -> jpegImageParser.getBufferedImage(imageFile, params));
+        try {
+    jpegImageParser.getBufferedImage(imageFile, params);
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",PngWithInvalidPngChunkSizeTest::testPngWithInvalidPngChunkSize_1_oe,org.apache.commons.imaging.formats.png.PngImageParser,"getBufferedImage(final ByteSource byteSource, PngImagingParameters params)",,"@Override
     public BufferedImage getBufferedImage(final ByteSource byteSource, PngImagingParameters params)
@@ -11796,13 +12010,17 @@ imag_260_1,"    @Test
 
     }"
 imag_261_1,"    @Test
-    public void testPngWithInvalidNegativePngChunkSize_1_oe() {
+    public void testPngWithInvalidNegativePngChunkSize_1_oe() throws Exception {
         final File imageFile = new File(
                 JpegWithInvalidDhtSegmentTest.class.getResource(""/IMAGING-210/testfile.png"").getFile());
         final PngImagingParameters params = new PngImagingParameters();
         params.setBufferedImageFactory(new ManagedImageBufferedImageFactory());
         PngImageParser jpegImageParser = new PngImageParser();
-        Assertions.assertThrows(ImageReadException.class, () -> jpegImageParser.getBufferedImage(imageFile, params));
+        try {
+    jpegImageParser.getBufferedImage(imageFile, params);
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",PngWithInvalidPngChunkSizeTest::testPngWithInvalidNegativePngChunkSize_1_oe,org.apache.commons.imaging.formats.png.PngImageParser,"getBufferedImage(final ByteSource byteSource, PngImagingParameters params)",,"@Override
     public BufferedImage getBufferedImage(final ByteSource byteSource, PngImagingParameters params)
@@ -12120,34 +12338,58 @@ imag_265_3,"   @Test
    }
 ",PngChunkScalTest::testConstructRadians_3_oe,,,,
 imag_266_1,"   @Test
-   public void testConstruct_InvalidUnitSpecifier_1_oe() {
-       Assertions.assertThrows(ImageReadException.class,() -> new PngChunkScal(10, chunkType, 0, new byte[]{3, 48, 46, 48, 49, 0, 48, 46, 48, 50}));
+   public void testConstruct_InvalidUnitSpecifier_1_oe() throws Exception {
+       try {
+    new PngChunkScal(10, chunkType, 0, new byte[]{3, 48, 46, 48, 49, 0, 48, 46, 48, 50});
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
    }
 ",PngChunkScalTest::testConstruct_InvalidUnitSpecifier_1_oe,,,,
 imag_267_1,"   @Test
-   public void testConstruct_MissingSeparator_1_oe() {
-      Assertions.assertThrows(ImageReadException.class,() -> new PngChunkScal(9, chunkType, 0, new byte[]{1, 48, 46, 48, 49, 48, 46, 48, 50}));
+   public void testConstruct_MissingSeparator_1_oe() throws Exception {
+      try {
+    new PngChunkScal(9, chunkType, 0, new byte[]{1, 48, 46, 48, 49, 48, 46, 48, 50});
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
    }
 ",PngChunkScalTest::testConstruct_MissingSeparator_1_oe,,,,
 imag_268_1,"   @Test
-   public void testConstruct_InvalidDblValue_1_oe() {
-       Assertions.assertThrows(ImageReadException.class,() -> new PngChunkScal(10, chunkType, 0, new byte[]{2, 65, 46, 48, 49, 0, 48, 46, 48, 50}));
+   public void testConstruct_InvalidDblValue_1_oe() throws Exception {
+       try {
+    new PngChunkScal(10, chunkType, 0, new byte[]{2, 65, 46, 48, 49, 0, 48, 46, 48, 50});
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
    }
 ",PngChunkScalTest::testConstruct_InvalidDblValue_1_oe,,,,
 imag_269_1,"   @Test
-   public void testConstruct_MissingXValue_1_oe() {
-      Assertions.assertThrows(ImageReadException.class,() -> new PngChunkScal(2, chunkType, 0, new byte[]{2, 0}));
+   public void testConstruct_MissingXValue_1_oe() throws Exception {
+      try {
+    new PngChunkScal(2, chunkType, 0, new byte[]{2, 0});
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
    }
 ",PngChunkScalTest::testConstruct_MissingXValue_1_oe,,,,
 imag_270_1,"   @Test
-   public void testConstruct_MissingYValue_1_oe() {
-       Assertions.assertThrows(ImageReadException.class,() -> new PngChunkScal(6, chunkType, 0, new byte[]{2, 48, 46, 48, 49, 0}));
+   public void testConstruct_MissingYValue_1_oe() throws Exception {
+       try {
+    new PngChunkScal(6, chunkType, 0, new byte[]{2, 48, 46, 48, 49, 0});
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
    }
 ",PngChunkScalTest::testConstruct_MissingYValue_1_oe,,,,
 imag_271_1,"    @Test
-    public void testErrorOnNoProfileName_1_oe() {
+    public void testErrorOnNoProfileName_1_oe() throws Exception {
         final byte[] data = ImagingConstants.EMPTY_BYTE_ARRAY;
-        Assertions.assertThrows(ImageReadException.class, () -> new PngChunkIccp(0, chunkType, 0, data));
+        try {
+    new PngChunkIccp(0, chunkType, 0, data);
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",PngChunkIccpTest::testErrorOnNoProfileName_1_oe,,,,
 imag_273_2,"    @Test
@@ -12896,8 +13138,12 @@ imag_286_8,"    @Test
         }
     }"
 imag_287_1,"    @Test
-    public void testConvertInvalidDisposalMethodValues_1_oe() {
-        Assertions.assertThrows(ImageReadException.class, () -> GifImageParser.createDisposalMethodFromIntValue(8));
+    public void testConvertInvalidDisposalMethodValues_1_oe() throws Exception {
+        try {
+    GifImageParser.createDisposalMethodFromIntValue(8);
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",GifReadTest::testConvertInvalidDisposalMethodValues_1_oe,org.apache.commons.imaging.formats.gif.GifImageParser,createDisposalMethodFromIntValue(final int value),,"static DisposalMethod createDisposalMethodFromIntValue(final int value) throws ImageReadException {
         switch (value) {
@@ -12926,7 +13172,11 @@ imag_288_1,"    @Test
         final String input = ""/images/gif/oss-fuzz-33501/clusterfuzz-testcase-minimized-ImagingGifFuzzer-5914278319226880"";
         final String file = GifReadTest.class.getResource(input).getFile();
         final GifImageParser parser = new GifImageParser();
-        assertThrows(ImageReadException.class, () -> parser.getBufferedImage(new ByteSourceFile(new File(file)), new GifImagingParameters()));
+        try {
+    parser.getBufferedImage(new ByteSourceFile(new File(file)), new GifImagingParameters());
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",GifReadTest::testUncaughtExceptionOssFuzz33501_1_oe,org.apache.commons.imaging.formats.gif.GifImageParser,"getBufferedImage(final GifHeaderInfo headerInfo, final GifImageData imageData, final byte[] globalColorTable)",,"private BufferedImage getBufferedImage(final GifHeaderInfo headerInfo, final GifImageData imageData, final byte[] globalColorTable)
             throws ImageReadException {
@@ -13015,7 +13265,11 @@ imag_289_1,"    @Test
         final String input = ""/images/gif/oss-fuzz-33464/clusterfuzz-testcase-minimized-ImagingGifFuzzer-5174009164595200"";
         final String file = GifReadTest.class.getResource(input).getFile();
         final GifImageParser parser = new GifImageParser();
-        assertThrows(ImageReadException.class, () -> parser.getBufferedImage(new ByteSourceFile(new File(file)), new GifImagingParameters()));
+        try {
+    parser.getBufferedImage(new ByteSourceFile(new File(file)), new GifImagingParameters());
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",GifReadTest::testUncaughtExceptionOssFuzz33464_1_oe,org.apache.commons.imaging.formats.gif.GifImageParser,"getBufferedImage(final GifHeaderInfo headerInfo, final GifImageData imageData, final byte[] globalColorTable)",,"private BufferedImage getBufferedImage(final GifHeaderInfo headerInfo, final GifImageData imageData, final byte[] globalColorTable)
             throws ImageReadException {
@@ -13104,7 +13358,11 @@ imag_290_1,"    @Test
         final String input = ""/images/gif/IMAGING-318/clusterfuzz-testcase-minimized-ImagingGifFuzzer-5005192379629568"";
         final String file = GifReadTest.class.getResource(input).getFile();
         final GifImageParser parser = new GifImageParser();
-        assertThrows(ImageReadException.class, () -> parser.getBufferedImage(new ByteSourceFile(new File(file)), new GifImagingParameters()));
+        try {
+    parser.getBufferedImage(new ByteSourceFile(new File(file)), new GifImagingParameters());
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",GifReadTest::testUncaughtExceptionOssFuzz34185_1_oe,org.apache.commons.imaging.formats.gif.GifImageParser,"getBufferedImage(final GifHeaderInfo headerInfo, final GifImageData imageData, final byte[] globalColorTable)",,"private BufferedImage getBufferedImage(final GifHeaderInfo headerInfo, final GifImageData imageData, final byte[] globalColorTable)
             throws ImageReadException {
@@ -13239,7 +13497,11 @@ imag_294_1,"    @Test
         final String input = ""/images/bmp/IMAGING-325/crash-3afb569de74522535ef65922233e1920455cdc14.bmp"";
         final String location = BmpReadTest.class.getResource(input).getFile();
         final File inputFile = new File(location);
-        assertThrows(ImageReadException.class, () -> new BmpImageParser().dumpImageFile(new ByteSourceFile(inputFile)));
+        try {
+    new BmpImageParser().dumpImageFile(new ByteSourceFile(inputFile));
+    fail(""ImageReadException"");
+} catch (ImageReadException e) {
+}
     }
 ",BmpReadTest::testNegativePaletteLength_1_oe,org.apache.commons.imaging.Imaging,dumpImageFile(final byte[] bytes),"/**
      * Write the ImageInfo and format-specific information for the image content of the specified byte array to a string.
@@ -13275,7 +13537,11 @@ imag_296_1,"    @Test
         final String file = ""/images/bmp/IMAGING-279/negative_array_size_exception.bmp"";
         final File bmp = new File(BmpImageParser.class.getResource(file).getFile());
         final BmpImageParser parser = new BmpImageParser();
-        assertThrows(IOException.class, () -> parser.getImageInfo(bmp, new BmpImagingParameters()));
+        try {
+    parser.getImageInfo(bmp, new BmpImagingParameters());
+    fail(""IOException"");
+} catch (IOException e) {
+}
     }
 ",BmpImageParserTest::testImageForNegativeArraySizeException_1_oe,org.apache.commons.imaging.formats.bmp.BmpImageParser,"getImageInfo(final ByteSource byteSource, final BmpImagingParameters params)",,"@Override
     public ImageInfo getImageInfo(final ByteSource byteSource, final BmpImagingParameters params)

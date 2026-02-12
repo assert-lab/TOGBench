@@ -33,6 +33,41 @@ public class UnicodeUnpairedSurrogateRemoverTest_OE25Dev {
     final UnicodeUnpairedSurrogateRemover subject = new UnicodeUnpairedSurrogateRemover();
     final CharArrayWriter writer = new CharArrayWriter(); // nothing is ever written to it
 
+    @Test
+    public void testValidCharacters_1_oe() throws IOException {
+        assertFalse(subject.translate(0xd7ff, writer));
+    }
+
+    @Test
+    public void testValidCharacters_2_oe() throws IOException {
+        // removed other assertion
+        assertFalse(subject.translate(0xe000, writer));
+    }
+
+    @Test
+    public void testValidCharacters_3_oe() throws IOException {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, writer.size());
+    }
+
+    @Test
+    public void testInvalidCharacters_1_oe() throws IOException {
+        assertTrue(subject.translate(0xd800, writer));
+    }
+
+    @Test
+    public void testInvalidCharacters_2_oe() throws IOException {
+        // removed other assertion
+        assertTrue(subject.translate(0xdfff, writer));
+    }
+
+    @Test
+    public void testInvalidCharacters_3_oe() throws IOException {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, writer.size());
+    }
 
 }
 

@@ -20,6 +20,8 @@ package org.apache.commons.numbers.arrays;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test cases for the {@link SortInPlace} class.
  *
@@ -27,6 +29,150 @@ import org.junit.jupiter.api.Test;
 class SortInPlaceTest_OE25Dev {
 
     // Example in Javadoc.
+
+    @Test
+    void testAscending_1_oe() {
+        final double[] x = {2, 5, -3, 1,  4};
+        final double[] y = {4, 25, 9, 1, 16};
+        final double[] z = {8, -125, 27, 1, 64};
+
+        SortInPlace.ASCENDING.apply(x, y, z);
+
+        final double[] xE = {-3, 1, 2, 4, 5};
+        final double[] yE = {9, 1, 4, 16, 25};
+        final double[] zE = {27, 1, 8, 64, -125};
+
+        Assertions.assertArrayEquals(xE, x);
+    }
+
+    @Test
+    void testAscending_2_oe() {
+        final double[] x = {2, 5, -3, 1,  4};
+        final double[] y = {4, 25, 9, 1, 16};
+        final double[] z = {8, -125, 27, 1, 64};
+
+        SortInPlace.ASCENDING.apply(x, y, z);
+
+        final double[] xE = {-3, 1, 2, 4, 5};
+        final double[] yE = {9, 1, 4, 16, 25};
+        final double[] zE = {27, 1, 8, 64, -125};
+
+        // removed other assertion
+        Assertions.assertArrayEquals(yE, y);
+    }
+
+    @Test
+    void testAscending_3_oe() {
+        final double[] x = {2, 5, -3, 1,  4};
+        final double[] y = {4, 25, 9, 1, 16};
+        final double[] z = {8, -125, 27, 1, 64};
+
+        SortInPlace.ASCENDING.apply(x, y, z);
+
+        final double[] xE = {-3, 1, 2, 4, 5};
+        final double[] yE = {9, 1, 4, 16, 25};
+        final double[] zE = {27, 1, 8, 64, -125};
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertArrayEquals(zE, z);
+    }
+
+    @Test
+    void testDescending_1_oe() {
+        final double[] x = {2, 5, -3, 1, 4};
+        final double[] y = {4, 25, 9, 1, 16};
+        final double[] z = {8, -125, 27, 1, 64};
+
+        SortInPlace.DESCENDING.apply(x, y, z);
+
+        final double[] xE = {5, 4, 2, 1, -3};
+        final double[] yE = {25, 16, 4, 1, 9};
+        final double[] zE = {-125, 64, 8, 1, 27};
+
+        Assertions.assertArrayEquals(xE, x);
+    }
+
+    @Test
+    void testDescending_2_oe() {
+        final double[] x = {2, 5, -3, 1, 4};
+        final double[] y = {4, 25, 9, 1, 16};
+        final double[] z = {8, -125, 27, 1, 64};
+
+        SortInPlace.DESCENDING.apply(x, y, z);
+
+        final double[] xE = {5, 4, 2, 1, -3};
+        final double[] yE = {25, 16, 4, 1, 9};
+        final double[] zE = {-125, 64, 8, 1, 27};
+
+        // removed other assertion
+        Assertions.assertArrayEquals(yE, y);
+    }
+
+    @Test
+    void testDescending_3_oe() {
+        final double[] x = {2, 5, -3, 1, 4};
+        final double[] y = {4, 25, 9, 1, 16};
+        final double[] z = {8, -125, 27, 1, 64};
+
+        SortInPlace.DESCENDING.apply(x, y, z);
+
+        final double[] xE = {5, 4, 2, 1, -3};
+        final double[] yE = {25, 16, 4, 1, 9};
+        final double[] zE = {-125, 64, 8, 1, 27};
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertArrayEquals(zE, z);
+    }
+
+    @Test
+    void testJavadocExample_1_oe() {
+        final double[] x = {3, 1, 2};
+        final double[] y = {1, 2, 3};
+        final double[] z = {0, 5, 7};
+
+        SortInPlace.ASCENDING.apply(x, y, z);
+
+        final double[] xE = {1, 2, 3};
+        final double[] yE = {2, 3, 1};
+        final double[] zE = {5, 7, 0};
+
+        Assertions.assertArrayEquals(xE, x);
+    }
+
+    @Test
+    void testJavadocExample_2_oe() {
+        final double[] x = {3, 1, 2};
+        final double[] y = {1, 2, 3};
+        final double[] z = {0, 5, 7};
+
+        SortInPlace.ASCENDING.apply(x, y, z);
+
+        final double[] xE = {1, 2, 3};
+        final double[] yE = {2, 3, 1};
+        final double[] zE = {5, 7, 0};
+
+        // removed other assertion
+        Assertions.assertArrayEquals(yE, y);
+    }
+
+    @Test
+    void testJavadocExample_3_oe() {
+        final double[] x = {3, 1, 2};
+        final double[] y = {1, 2, 3};
+        final double[] z = {0, 5, 7};
+
+        SortInPlace.ASCENDING.apply(x, y, z);
+
+        final double[] xE = {1, 2, 3};
+        final double[] yE = {2, 3, 1};
+        final double[] zE = {5, 7, 0};
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertArrayEquals(zE, z);
+    }
 
     @Test
     void testPreconditions_1_oe() {
@@ -37,7 +183,7 @@ class SortInPlaceTest_OE25Dev {
 
         try {
     SortInPlace.ASCENDING.apply(one, two);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -52,7 +198,7 @@ class SortInPlaceTest_OE25Dev {
         // removed other assertion
         try {
     SortInPlace.ASCENDING.apply(one, nullArray);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
     }
@@ -68,7 +214,7 @@ class SortInPlaceTest_OE25Dev {
         // removed other assertion
         try {
     SortInPlace.ASCENDING.apply(one, onep, nullArray);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
     }

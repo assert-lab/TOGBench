@@ -25,5 +25,46 @@ import org.junit.jupiter.api.Test;
 
 public class BmpWriterRgbTest_OE25Dev{
 
+    @Test
+    public void testGetImageData_1_oe() {
+        final BmpWriterRgb bmpWriterRgb = new BmpWriterRgb();
+        final BufferedImage bufferedImage = new BufferedImage(2, 2, 5);
+        final byte[] byteArray = bmpWriterRgb.getImageData(bufferedImage);
+
+        assertEquals(24, bmpWriterRgb.getBitsPerPixel());
+    }
+
+    @Test
+    public void testGetImageData_2_oe() {
+        final BmpWriterRgb bmpWriterRgb = new BmpWriterRgb();
+        final BufferedImage bufferedImage = new BufferedImage(2, 2, 5);
+        final byte[] byteArray = bmpWriterRgb.getImageData(bufferedImage);
+
+        // removed other assertion
+        assertEquals(0, bmpWriterRgb.getPaletteSize());
+    }
+
+    @Test
+    public void testGetImageData_3_oe() {
+        final BmpWriterRgb bmpWriterRgb = new BmpWriterRgb();
+        final BufferedImage bufferedImage = new BufferedImage(2, 2, 5);
+        final byte[] byteArray = bmpWriterRgb.getImageData(bufferedImage);
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(16, byteArray.length);
+    }
+
+    @Test
+    public void testGetImageData_4_oe() {
+        final BmpWriterRgb bmpWriterRgb = new BmpWriterRgb();
+        final BufferedImage bufferedImage = new BufferedImage(2, 2, 5);
+        final byte[] byteArray = bmpWriterRgb.getImageData(bufferedImage);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertArrayEquals(new byte[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, byteArray);
+    }
 
 }

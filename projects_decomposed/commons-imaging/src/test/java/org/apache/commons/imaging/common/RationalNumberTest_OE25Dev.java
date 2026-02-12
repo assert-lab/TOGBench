@@ -30,6 +30,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 public class RationalNumberTest_OE25Dev extends ImagingTest {
 
     public static Stream<Double> data() {
@@ -125,6 +127,36 @@ public class RationalNumberTest_OE25Dev extends ImagingTest {
     }
 
     @Test
+    public void testSpecialRationalNumber_1_oe(){
+        RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
+        assertEquals(58.858331871428570, test.doubleValue(), 1.0e-14, "Unsigned integer support failed for double conversion");
+    }
+
+    @Test
+    public void testSpecialRationalNumber_2_oe(){
+        RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
+        // removed other assertion
+        assertEquals(58.858334f, test.floatValue(), 1.0e-6f, "Float conversion failed");
+    }
+
+    @Test
+    public void testSpecialRationalNumber_3_oe(){
+        RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(58L, test.longValue(), "Long value conversion failed");
+    }
+
+    @Test
+    public void testSpecialRationalNumber_4_oe(){
+        RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(58, test.intValue(), "Int value conversion failed");
+    }
+
+    @Test
     public void testSpecialRationalNumber_5_oe() throws Exception{
         RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
         // removed other assertion
@@ -133,7 +165,7 @@ public class RationalNumberTest_OE25Dev extends ImagingTest {
         // removed other assertion
         try {
     test.negate();
-    org.junit.jupiter.api.Assertions.fail("NumberFormatException: Failed to detect negation of large unsigned value");
+    fail("NumberFormatException: Failed to detect negation of large unsigned value");
 } catch (NumberFormatException e) {
 }
     }

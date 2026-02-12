@@ -14,6 +14,8 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  Tests fixes for issues raised by the <a href="https://oss-fuzz.com/testcases?project=jsoup">OSS Fuzz project</a>. As
  some of these are timeout tests - run each file 100 times and ensure under time.
@@ -31,5 +33,56 @@ public class FuzzFixesIT_OE25Dev {
         return Stream.of(files);
     }
 
+    @ParameterizedTest
+    @MethodSource("testFiles")
+    void testHtmlParse_1_oe(File file) throws IOException {
+        long startTime = System.currentTimeMillis();
+        long completeBy = startTime + timeout * 1000L;
+
+        for (int i = 0; i < numIters; i++) {
+            Document doc = Jsoup.parse(file, "UTF-8", "https://example.com/");
+            assertNotNull(doc);
+    }
+    }
+
+    @ParameterizedTest
+    @MethodSource("testFiles")
+    void testHtmlParse_2_oe(File file) throws IOException {
+        long startTime = System.currentTimeMillis();
+        long completeBy = startTime + timeout * 1000L;
+
+        for (int i = 0; i < numIters; i++) {
+            Document doc = Jsoup.parse(file, "UTF-8", "https://example.com/");
+            // removed other assertion
+            if (System.currentTimeMillis() > completeBy)
+                Assertions.fail(String.format("Timeout: only completed %d iters of [%s] in %d seconds", i, file.getName(), timeout));
+    }
+    }
+
+    @ParameterizedTest
+    @MethodSource("testFiles")
+    void testXmlParse_1_oe(File file) throws IOException {
+        long startTime = System.currentTimeMillis();
+        long completeBy = startTime + timeout * 1000L;
+
+        for (int i = 0; i < numIters; i++) {
+            Document doc = Jsoup.parse(file, "UTF-8", "https://example.com/", Parser.xmlParser());
+            assertNotNull(doc);
+    }
+    }
+
+    @ParameterizedTest
+    @MethodSource("testFiles")
+    void testXmlParse_2_oe(File file) throws IOException {
+        long startTime = System.currentTimeMillis();
+        long completeBy = startTime + timeout * 1000L;
+
+        for (int i = 0; i < numIters; i++) {
+            Document doc = Jsoup.parse(file, "UTF-8", "https://example.com/", Parser.xmlParser());
+            // removed other assertion
+            if (System.currentTimeMillis() > completeBy)
+                Assertions.fail(String.format("Timeout: only completed %d iters of [%s] in %d seconds", i, file.getName(), timeout));
+    }
+    }
 
 }

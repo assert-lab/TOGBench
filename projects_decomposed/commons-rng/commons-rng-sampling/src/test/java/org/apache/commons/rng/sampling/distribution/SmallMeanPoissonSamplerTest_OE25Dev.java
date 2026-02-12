@@ -22,6 +22,8 @@ import org.apache.commons.rng.simple.RandomSource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test for the {@link SmallMeanPoissonSampler}. The tests hit edge cases for the sampler.
  */
@@ -62,7 +64,7 @@ class SmallMeanPoissonSamplerTest_OE25Dev {
          double mean = -Math.log(p0) + 1;
         try {
     SmallMeanPoissonSampler.of(rng, mean);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -74,9 +76,32 @@ class SmallMeanPoissonSamplerTest_OE25Dev {
          double mean = 0;
         try {
     SmallMeanPoissonSampler.of(rng, mean);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testSampleUpperBounds_1_oe() {
+        // If the nextDouble() is always 1 then the sample will hit the upper bounds
+         UniformRandomProvider rng = new UniformRandomProvider() {
+            // CHECKSTYLE: stop all
+            public long nextLong(long n) { return 0; }
+            public long nextLong() { return 0; }
+            public int nextInt(int n) { return 0; }
+            public int nextInt() { return 0; }
+            public float nextFloat() { return 0; }
+            public double nextDouble() { return 1;}
+            public void nextBytes(byte[] bytes, int start, int len) {}
+            public void nextBytes(byte[] bytes) {}
+            public boolean nextBoolean() { return false; }
+            // CHECKSTYLE: resume all
+        };
+        for (double mean : new double[] {0.5, 1, 1.5, 2.2}) {
+             SharedStateDiscreteSampler sampler = SmallMeanPoissonSampler.of(rng, mean);
+             int expected = (int) Math.ceil(1000 * mean);
+            Assertions.assertEquals(expected, sampler.sample());
+    }
     }
 
 }

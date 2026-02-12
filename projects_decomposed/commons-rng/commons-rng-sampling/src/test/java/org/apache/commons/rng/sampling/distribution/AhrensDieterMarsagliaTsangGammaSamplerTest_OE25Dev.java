@@ -23,6 +23,8 @@ import org.apache.commons.rng.simple.RandomSource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test for the {@link AhrensDieterMarsagliaTsangGammaSampler}. The tests hit edge cases for the sampler.
  */
@@ -80,7 +82,7 @@ class AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev {
          double theta = 1;
         try {
     AhrensDieterMarsagliaTsangGammaSampler.of(rng, alpha, theta);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -93,9 +95,15 @@ class AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev {
          double theta = 0;
         try {
     AhrensDieterMarsagliaTsangGammaSampler.of(rng, alpha, theta);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testToString_1_oe() {
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertTrue(new AhrensDieterMarsagliaTsangGammaSampler(rng,1.0,2.0).toString().toLowerCase().contains("gamma"));
     }
 
 }

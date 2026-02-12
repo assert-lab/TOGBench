@@ -76,5 +76,16 @@ public class JCSUnitTest_OE25Dev
         return map;
     }
 
+    public void testJCS_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, LinkedList<HashMap<String, String>>> jcs = JCS.getInstance( "testCache1" );
+
+        final LinkedList<HashMap<String, String>> list = buildList();
+
+        jcs.put( "some:key", list );
+
+        assertEquals( list, jcs.get( "some:key" ) );
+    }
 
 }

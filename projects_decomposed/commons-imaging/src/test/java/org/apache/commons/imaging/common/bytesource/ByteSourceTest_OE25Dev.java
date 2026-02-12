@@ -30,6 +30,8 @@ import org.apache.commons.imaging.ImagingTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 public abstract class ByteSourceTest_OE25Dev extends ImagingTest {
     protected File createTempFile(final byte[] src) throws IOException {
         final File file = File.createTempFile("raw_", ".bin");
@@ -73,7 +75,7 @@ public abstract class ByteSourceTest_OE25Dev extends ImagingTest {
         final ByteSourceArray byteSourceArray = new ByteSourceArray(null);
         try {
     byteSourceArray.getInputStream(0L);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
     }

@@ -861,5 +861,1221 @@ class CStandardTest_OE25Dev {
      * ISO C Standard G.6.4.2.
      */
 
+    @Test
+    void testMultiply_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        Assertions.assertEquals(nan, 0.0 * inf, "0 * inf");
+    }
+
+    @Test
+    void testMultiply_2_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        Assertions.assertEquals(nan, 0.0 * negInf, "0 * -inf");
+    }
+
+    @Test
+    void testMultiply_3_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(nan, -0.0 * inf, "-0 * inf");
+    }
+
+    @Test
+    void testMultiply_4_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(nan, -0.0 * negInf, "-0 * -inf");
+    }
+
+    @Test
+    void testAbs_1_oe() {
+        Assertions.assertEquals(inf, complex(inf, nan).abs());
+    }
+
+    @Test
+    void testAbs_2_oe() {
+        // removed other assertion
+        Assertions.assertEquals(inf, complex(negInf, nan).abs());
+    }
+
+    @Test
+    void testAbs_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
+        for (int i = 0; i < 10; i++) {
+            final double x = next(rng);
+            final double y = next(rng);
+            Assertions.assertEquals(complex(x, y).abs(), complex(y, x).abs());
+    }
+    }
+
+    @Test
+    void testAbs_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
+        for (int i = 0; i < 10; i++) {
+            final double x = next(rng);
+            final double y = next(rng);
+            // removed other assertion
+            Assertions.assertEquals(complex(x, y).abs(), complex(x, -y).abs());
+    }
+    }
+
+    @Test
+    void testAbs_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
+        for (int i = 0; i < 10; i++) {
+            final double x = next(rng);
+            final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertEquals(Math.abs(x), complex(x, 0.0).abs());
+    }
+    }
+
+    @Test
+    void testAbs_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
+        for (int i = 0; i < 10; i++) {
+            final double x = next(rng);
+            final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertEquals(Math.abs(x), complex(x, -0.0).abs());
+    }
+    }
+
+    @Test
+    void testAbs_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
+        for (int i = 0; i < 10; i++) {
+            final double x = next(rng);
+            final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertEquals(inf, complex(inf, y).abs());
+    }
+    }
+
+    @Test
+    void testAbs_8_oe() {
+        // removed other assertion
+        // removed other assertion
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
+        for (int i = 0; i < 10; i++) {
+            final double x = next(rng);
+            final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertEquals(inf, complex(negInf, y).abs());
+    }
+    }
+
+    @Test
+    void testAbs_9_oe() {
+        // removed other assertion
+        // removed other assertion
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
+        for (int i = 0; i < 10; i++) {
+            final double x = next(rng);
+            final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Test verses Math.hypot due to the use of a custom implementation.
+        // First test edge cases. Use negatives to test the sign is correctly removed.
+        final double[] parts = {-0.0, -Double.MIN_VALUE, -Double.MIN_NORMAL, -Double.MAX_VALUE,
+            Double.NEGATIVE_INFINITY, Double.NaN};
+        for (final double x : parts) {
+            for (final double y : parts) {
+                Assertions.assertEquals(Math.hypot(x, y), complex(x, y).abs());
+    }
+    }
+    }
+
+    @Test
+    void testAbs_10_oe() {
+        // removed other assertion
+        // removed other assertion
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_128_PP);
+        for (int i = 0; i < 10; i++) {
+            final double x = next(rng);
+            final double y = next(rng);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Test verses Math.hypot due to the use of a custom implementation.
+        // First test edge cases. Use negatives to test the sign is correctly removed.
+        final double[] parts = {-0.0, -Double.MIN_VALUE, -Double.MIN_NORMAL, -Double.MAX_VALUE,
+            Double.NEGATIVE_INFINITY, Double.NaN};
+        for (final double x : parts) {
+            for (final double y : parts) {
+                // removed other assertion
+            }
+        }
+
+        // The reference fdlibm hypot implementation orders using the upper 32-bits of the double.
+        // Tests using random numbers that differ in only the lower 32-bits
+        // show a frequency of <1e-9 that the computation is not commutative: f(x, y) != f(y, x)
+        // Test known cases where ordering is required on the lower 32-bits to ensure |z| == |iz|.
+        // These cases would fail a direct fdlibm conversion of this:
+        // https://www.netlib.org/fdlibm/e_hypot.c
+        for (final double[] pair : new double[][] {
+                {1.3122561682406755, 1.3122565442732959},
+                {1.40905821964671, 1.4090583434236112},
+                {1.912164268932753, 1.9121638616231227}}) {
+            final Complex z = complex(pair[0], pair[1]);
+            Assertions.assertEquals(z.abs(), z.multiplyImaginary(1).abs(), "Expected |z| == |iz|");
+    }
+    }
+
+    @Test
+    void testSqrt1_1_oe_1_oe() {
+                final Complex c10 = complex(-2.0, 0.0).sqrt();
+        final Complex c20 = complex(0.0, Math.sqrt(2));
+        // Use a delta of zero to allow comparison of -0.0 to 0.0
+                Assertions.assertEquals(c20.getReal(), c10.getReal(), 0.0, "real");
+    }
+
+    @Test
+    void testSqrt1_1_oe_2_oe() {
+                final Complex c10 = complex(-2.0, 0.0).sqrt();
+        final Complex c20 = complex(0.0, Math.sqrt(2));
+        // Use a delta of zero to allow comparison of -0.0 to 0.0
+                // removed other assertion
+                Assertions.assertEquals(c20.getImaginary(), c10.getImaginary(), 0.0, "imaginary");
+    }
+
+    @Test
+    void testSqrt1_2_oe_1_oe() {
+        // removed other assertion
+                final Complex c10 = complex(-2.0, -0.0).sqrt();
+        final Complex c20 = complex(0.0, -Math.sqrt(2));
+        // Use a delta of zero to allow comparison of -0.0 to 0.0
+                Assertions.assertEquals(c20.getReal(), c10.getReal(), 0.0, "real");
+    }
+
+    @Test
+    void testSqrt1_2_oe_2_oe() {
+        // removed other assertion
+                final Complex c10 = complex(-2.0, -0.0).sqrt();
+        final Complex c20 = complex(0.0, -Math.sqrt(2));
+        // Use a delta of zero to allow comparison of -0.0 to 0.0
+                // removed other assertion
+                Assertions.assertEquals(c20.getImaginary(), c10.getImaginary(), 0.0, "imaginary");
+    }
+
+    @Test
+    void testImplicitTrig_1_oe_1_oe() {
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.SPLIT_MIX_64);
+        for (int i = 0; i < 100; i++) {
+            final double re = next(rng);
+            final double im = next(rng);
+            final Complex z = complex(re, im);
+            final Complex iz = z.multiplyImaginary(1);
+                        final Complex c10 = z.asin();
+            final Complex c20 = iz.asinh().multiplyImaginary(-1);
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
+                    Assertions.assertEquals(c20.getReal(), c10.getReal(), 0.0, "real");
+    }
+    }
+
+    @Test
+    void testImplicitTrig_1_oe_2_oe() {
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.SPLIT_MIX_64);
+        for (int i = 0; i < 100; i++) {
+            final double re = next(rng);
+            final double im = next(rng);
+            final Complex z = complex(re, im);
+            final Complex iz = z.multiplyImaginary(1);
+                        final Complex c10 = z.asin();
+            final Complex c20 = iz.asinh().multiplyImaginary(-1);
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
+                    // removed other assertion
+                    Assertions.assertEquals(c20.getImaginary(), c10.getImaginary(), 0.0, "imaginary");
+    }
+    }
+
+    @Test
+    void testImplicitTrig_2_oe_1_oe() {
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.SPLIT_MIX_64);
+        for (int i = 0; i < 100; i++) {
+            final double re = next(rng);
+            final double im = next(rng);
+            final Complex z = complex(re, im);
+            final Complex iz = z.multiplyImaginary(1);
+            // removed other assertion
+                        final Complex c10 = z.atan();
+            final Complex c20 = iz.atanh().multiplyImaginary(-1);
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
+                    Assertions.assertEquals(c20.getReal(), c10.getReal(), 0.0, "real");
+    }
+    }
+
+    @Test
+    void testImplicitTrig_2_oe_2_oe() {
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.SPLIT_MIX_64);
+        for (int i = 0; i < 100; i++) {
+            final double re = next(rng);
+            final double im = next(rng);
+            final Complex z = complex(re, im);
+            final Complex iz = z.multiplyImaginary(1);
+            // removed other assertion
+                        final Complex c10 = z.atan();
+            final Complex c20 = iz.atanh().multiplyImaginary(-1);
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
+                    // removed other assertion
+                    Assertions.assertEquals(c20.getImaginary(), c10.getImaginary(), 0.0, "imaginary");
+    }
+    }
+
+    @Test
+    void testImplicitTrig_3_oe_1_oe() {
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.SPLIT_MIX_64);
+        for (int i = 0; i < 100; i++) {
+            final double re = next(rng);
+            final double im = next(rng);
+            final Complex z = complex(re, im);
+            final Complex iz = z.multiplyImaginary(1);
+            // removed other assertion
+            // removed other assertion
+                        final Complex c10 = z.cos();
+            final Complex c20 = iz.cosh();
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
+                    Assertions.assertEquals(c20.getReal(), c10.getReal(), 0.0, "real");
+    }
+    }
+
+    @Test
+    void testImplicitTrig_3_oe_2_oe() {
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.SPLIT_MIX_64);
+        for (int i = 0; i < 100; i++) {
+            final double re = next(rng);
+            final double im = next(rng);
+            final Complex z = complex(re, im);
+            final Complex iz = z.multiplyImaginary(1);
+            // removed other assertion
+            // removed other assertion
+                        final Complex c10 = z.cos();
+            final Complex c20 = iz.cosh();
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
+                    // removed other assertion
+                    Assertions.assertEquals(c20.getImaginary(), c10.getImaginary(), 0.0, "imaginary");
+    }
+    }
+
+    @Test
+    void testImplicitTrig_4_oe_1_oe() {
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.SPLIT_MIX_64);
+        for (int i = 0; i < 100; i++) {
+            final double re = next(rng);
+            final double im = next(rng);
+            final Complex z = complex(re, im);
+            final Complex iz = z.multiplyImaginary(1);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+                        final Complex c10 = z.sin();
+            final Complex c20 = iz.sinh().multiplyImaginary(-1);
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
+                    Assertions.assertEquals(c20.getReal(), c10.getReal(), 0.0, "real");
+    }
+    }
+
+    @Test
+    void testImplicitTrig_4_oe_2_oe() {
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.SPLIT_MIX_64);
+        for (int i = 0; i < 100; i++) {
+            final double re = next(rng);
+            final double im = next(rng);
+            final Complex z = complex(re, im);
+            final Complex iz = z.multiplyImaginary(1);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+                        final Complex c10 = z.sin();
+            final Complex c20 = iz.sinh().multiplyImaginary(-1);
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
+                    // removed other assertion
+                    Assertions.assertEquals(c20.getImaginary(), c10.getImaginary(), 0.0, "imaginary");
+    }
+    }
+
+    @Test
+    void testImplicitTrig_5_oe_1_oe() {
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.SPLIT_MIX_64);
+        for (int i = 0; i < 100; i++) {
+            final double re = next(rng);
+            final double im = next(rng);
+            final Complex z = complex(re, im);
+            final Complex iz = z.multiplyImaginary(1);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+                        final Complex c10 = z.tan();
+            final Complex c20 = iz.tanh().multiplyImaginary(-1);
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
+                    Assertions.assertEquals(c20.getReal(), c10.getReal(), 0.0, "real");
+    }
+    }
+
+    @Test
+    void testImplicitTrig_5_oe_2_oe() {
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.SPLIT_MIX_64);
+        for (int i = 0; i < 100; i++) {
+            final double re = next(rng);
+            final double im = next(rng);
+            final Complex z = complex(re, im);
+            final Complex iz = z.multiplyImaginary(1);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+                        final Complex c10 = z.tan();
+            final Complex c20 = iz.tanh().multiplyImaginary(-1);
+            // Use a delta of zero to allow comparison of -0.0 to 0.0
+                    // removed other assertion
+                    Assertions.assertEquals(c20.getImaginary(), c10.getImaginary(), 0.0, "imaginary");
+    }
+    }
+
+    @Test
+    void testAcos_1_oe_1_oe() {
+        final UnaryOperator<Complex> operation = Complex::acos;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+    }
+    }
+
+    @Test
+    void testAcos_1_oe_2_oe() {
+        final UnaryOperator<Complex> operation = Complex::acos;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            // removed other assertion
+                        }
+                    }
+                }
+                // Random numbers
+                final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
+                for (int i0 = 0; i0 < 100; i0++) {
+                    final double x0 = next(rng0);
+                    final double y0 = next(rng0);
+                    assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+
+    @Test
+    void testAcosh_1_oe_1_oe() {
+        final UnaryOperator<Complex> operation = Complex::acosh;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+    }
+    }
+
+    @Test
+    void testAcosh_1_oe_2_oe() {
+        final UnaryOperator<Complex> operation = Complex::acosh;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            // removed other assertion
+                        }
+                    }
+                }
+                // Random numbers
+                final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
+                for (int i0 = 0; i0 < 100; i0++) {
+                    final double x0 = next(rng0);
+                    final double y0 = next(rng0);
+                    assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+
+    @Test
+    void testAsinh_1_oe_1_oe() {
+        final UnaryOperator<Complex> operation = Complex::asinh;
+        final FunctionType type = FunctionType.ODD;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+    }
+    }
+
+    @Test
+    void testAsinh_1_oe_2_oe() {
+        final UnaryOperator<Complex> operation = Complex::asinh;
+        final FunctionType type = FunctionType.ODD;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            // removed other assertion
+                        }
+                    }
+                }
+                // Random numbers
+                final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
+                for (int i0 = 0; i0 < 100; i0++) {
+                    final double x0 = next(rng0);
+                    final double y0 = next(rng0);
+                    assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+
+    @Test
+    void testAsinh_2_oe_1_oe() {
+        final UnaryOperator<Complex> operation = Complex::asinh;
+        final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+                final UnaryOperator<Complex> operation0 = operation;
+        final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
+                if (type0 == FunctionType.NONE) {
+                    return;
+                }
+        
+                // Edge cases around zero.
+                final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        assertFunctionType(complex(x0, y0), operation0, type0, UnspecifiedSign.NONE);
+    }
+    }
+    }
+
+    @Test
+    void testAsinh_2_oe_2_oe() {
+        final UnaryOperator<Complex> operation = Complex::asinh;
+        final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+                final UnaryOperator<Complex> operation0 = operation;
+        final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
+                if (type0 == FunctionType.NONE) {
+                    return;
+                }
+        
+                // Edge cases around zero.
+                final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // removed other assertion
+                    }
+                }
+                // Random numbers
+                final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
+                for (int i0 = 0; i0 < 100; i0++) {
+                    final double x0 = next(rng0);
+                    final double y0 = next(rng0);
+                    assertFunctionType(complex(x0, y0), operation0, type0, UnspecifiedSign.NONE);
+    }
+    }
+
+    @Test
+    void testAtanh_1_oe_1_oe() {
+        final UnaryOperator<Complex> operation = Complex::atanh;
+        final FunctionType type = FunctionType.ODD;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+    }
+    }
+
+    @Test
+    void testAtanh_1_oe_2_oe() {
+        final UnaryOperator<Complex> operation = Complex::atanh;
+        final FunctionType type = FunctionType.ODD;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            // removed other assertion
+                        }
+                    }
+                }
+                // Random numbers
+                final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
+                for (int i0 = 0; i0 < 100; i0++) {
+                    final double x0 = next(rng0);
+                    final double y0 = next(rng0);
+                    assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+
+    @Test
+    void testAtanh_2_oe_1_oe() {
+        final UnaryOperator<Complex> operation = Complex::atanh;
+        final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+                final UnaryOperator<Complex> operation0 = operation;
+        final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
+                if (type0 == FunctionType.NONE) {
+                    return;
+                }
+        
+                // Edge cases around zero.
+                final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        assertFunctionType(complex(x0, y0), operation0, type0, UnspecifiedSign.NONE);
+    }
+    }
+    }
+
+    @Test
+    void testAtanh_2_oe_2_oe() {
+        final UnaryOperator<Complex> operation = Complex::atanh;
+        final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+                final UnaryOperator<Complex> operation0 = operation;
+        final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
+                if (type0 == FunctionType.NONE) {
+                    return;
+                }
+        
+                // Edge cases around zero.
+                final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // removed other assertion
+                    }
+                }
+                // Random numbers
+                final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
+                for (int i0 = 0; i0 < 100; i0++) {
+                    final double x0 = next(rng0);
+                    final double y0 = next(rng0);
+                    assertFunctionType(complex(x0, y0), operation0, type0, UnspecifiedSign.NONE);
+    }
+    }
+
+    @Test
+    void testCosh_1_oe_1_oe() {
+        final UnaryOperator<Complex> operation = Complex::cosh;
+        final FunctionType type = FunctionType.EVEN;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+    }
+    }
+
+    @Test
+    void testCosh_1_oe_2_oe() {
+        final UnaryOperator<Complex> operation = Complex::cosh;
+        final FunctionType type = FunctionType.EVEN;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            // removed other assertion
+                        }
+                    }
+                }
+                // Random numbers
+                final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
+                for (int i0 = 0; i0 < 100; i0++) {
+                    final double x0 = next(rng0);
+                    final double y0 = next(rng0);
+                    assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+
+    @Test
+    void testCosh_2_oe_1_oe() {
+        final UnaryOperator<Complex> operation = Complex::cosh;
+        final FunctionType type = FunctionType.EVEN;
+        // removed other assertion
+                final UnaryOperator<Complex> operation0 = operation;
+        final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
+                if (type0 == FunctionType.NONE) {
+                    return;
+                }
+        
+                // Edge cases around zero.
+                final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        assertFunctionType(complex(x0, y0), operation0, type0, UnspecifiedSign.NONE);
+    }
+    }
+    }
+
+    @Test
+    void testCosh_2_oe_2_oe() {
+        final UnaryOperator<Complex> operation = Complex::cosh;
+        final FunctionType type = FunctionType.EVEN;
+        // removed other assertion
+                final UnaryOperator<Complex> operation0 = operation;
+        final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
+                if (type0 == FunctionType.NONE) {
+                    return;
+                }
+        
+                // Edge cases around zero.
+                final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // removed other assertion
+                    }
+                }
+                // Random numbers
+                final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
+                for (int i0 = 0; i0 < 100; i0++) {
+                    final double x0 = next(rng0);
+                    final double y0 = next(rng0);
+                    assertFunctionType(complex(x0, y0), operation0, type0, UnspecifiedSign.NONE);
+    }
+    }
+
+    @Test
+    void testSinh_1_oe_1_oe() {
+        final UnaryOperator<Complex> operation = Complex::sinh;
+        final FunctionType type = FunctionType.ODD;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+    }
+    }
+
+    @Test
+    void testSinh_1_oe_2_oe() {
+        final UnaryOperator<Complex> operation = Complex::sinh;
+        final FunctionType type = FunctionType.ODD;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            // removed other assertion
+                        }
+                    }
+                }
+                // Random numbers
+                final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
+                for (int i0 = 0; i0 < 100; i0++) {
+                    final double x0 = next(rng0);
+                    final double y0 = next(rng0);
+                    assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+
+    @Test
+    void testSinh_2_oe_1_oe() {
+        final UnaryOperator<Complex> operation = Complex::sinh;
+        final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+                final UnaryOperator<Complex> operation0 = operation;
+        final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
+                if (type0 == FunctionType.NONE) {
+                    return;
+                }
+        
+                // Edge cases around zero.
+                final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        assertFunctionType(complex(x0, y0), operation0, type0, UnspecifiedSign.NONE);
+    }
+    }
+    }
+
+    @Test
+    void testSinh_2_oe_2_oe() {
+        final UnaryOperator<Complex> operation = Complex::sinh;
+        final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+                final UnaryOperator<Complex> operation0 = operation;
+        final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
+                if (type0 == FunctionType.NONE) {
+                    return;
+                }
+        
+                // Edge cases around zero.
+                final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // removed other assertion
+                    }
+                }
+                // Random numbers
+                final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
+                for (int i0 = 0; i0 < 100; i0++) {
+                    final double x0 = next(rng0);
+                    final double y0 = next(rng0);
+                    assertFunctionType(complex(x0, y0), operation0, type0, UnspecifiedSign.NONE);
+    }
+    }
+
+    @Test
+    void testTanh_1_oe_1_oe() {
+        final UnaryOperator<Complex> operation = Complex::tanh;
+        final FunctionType type = FunctionType.ODD;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+    }
+    }
+
+    @Test
+    void testTanh_1_oe_2_oe() {
+        final UnaryOperator<Complex> operation = Complex::tanh;
+        final FunctionType type = FunctionType.ODD;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            // removed other assertion
+                        }
+                    }
+                }
+                // Random numbers
+                final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
+                for (int i0 = 0; i0 < 100; i0++) {
+                    final double x0 = next(rng0);
+                    final double y0 = next(rng0);
+                    assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+
+    @Test
+    void testTanh_2_oe_1_oe() {
+        final UnaryOperator<Complex> operation = Complex::tanh;
+        final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+                final UnaryOperator<Complex> operation0 = operation;
+        final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
+                if (type0 == FunctionType.NONE) {
+                    return;
+                }
+        
+                // Edge cases around zero.
+                final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        assertFunctionType(complex(x0, y0), operation0, type0, UnspecifiedSign.NONE);
+    }
+    }
+    }
+
+    @Test
+    void testTanh_2_oe_2_oe() {
+        final UnaryOperator<Complex> operation = Complex::tanh;
+        final FunctionType type = FunctionType.ODD;
+        // removed other assertion
+                final UnaryOperator<Complex> operation0 = operation;
+        final FunctionType type0 = type;
+        // Note: It may not be possible to satisfy the conjugate equality
+                // and be an odd/even function with regard to zero.
+                // The C99 standard allows for these cases to have unspecified sign.
+                // This test ignores parts0 that can result in unspecified signed results.
+                // The valid edge cases should be tested for each function separately.
+                if (type0 == FunctionType.NONE) {
+                    return;
+                }
+        
+                // Edge cases around zero.
+                final double[] parts0 = {-2, -1, -0.0, 0.0, 1, 2};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // removed other assertion
+                    }
+                }
+                // Random numbers
+                final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
+                for (int i0 = 0; i0 < 100; i0++) {
+                    final double x0 = next(rng0);
+                    final double y0 = next(rng0);
+                    assertFunctionType(complex(x0, y0), operation0, type0, UnspecifiedSign.NONE);
+    }
+    }
+
+    @Test
+    void testExp_1_oe_1_oe() {
+        final UnaryOperator<Complex> operation = Complex::exp;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+    }
+    }
+
+    @Test
+    void testExp_1_oe_2_oe() {
+        final UnaryOperator<Complex> operation = Complex::exp;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            // removed other assertion
+                        }
+                    }
+                }
+                // Random numbers
+                final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
+                for (int i0 = 0; i0 < 100; i0++) {
+                    final double x0 = next(rng0);
+                    final double y0 = next(rng0);
+                    assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+
+    @Test
+    void testLog_1_oe_1_oe() {
+        final UnaryOperator<Complex> operation = Complex::log;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+    }
+    }
+
+    @Test
+    void testLog_1_oe_2_oe() {
+        final UnaryOperator<Complex> operation = Complex::log;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            // removed other assertion
+                        }
+                    }
+                }
+                // Random numbers
+                final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
+                for (int i0 = 0; i0 < 100; i0++) {
+                    final double x0 = next(rng0);
+                    final double y0 = next(rng0);
+                    assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+
+    @Test
+    void testLog10_1_oe_1_oe() {
+        final UnaryOperator<Complex> operation = Complex::log10;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+    }
+    }
+
+    @Test
+    void testLog10_1_oe_2_oe() {
+        final UnaryOperator<Complex> operation = Complex::log10;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            // removed other assertion
+                        }
+                    }
+                }
+                // Random numbers
+                final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
+                for (int i0 = 0; i0 < 100; i0++) {
+                    final double x0 = next(rng0);
+                    final double y0 = next(rng0);
+                    assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+
+    @Test
+    void testSqrt_1_oe_1_oe() {
+        final UnaryOperator<Complex> operation = Complex::sqrt;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
+    }
+    }
+
+    @Test
+    void testSqrt_1_oe_2_oe() {
+        final UnaryOperator<Complex> operation = Complex::sqrt;
+                final UnaryOperator<Complex> operation0 = operation;
+        // Edge cases. Inf/NaN are specifically handled in the C99 test cases
+                // but are repeated here to enforce the conjugate equality even when the C99
+                // standard does not specify a sign. This may be revised in the future.
+                final double[] parts0 = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1,
+                                        Double.POSITIVE_INFINITY, Double.NaN};
+                for (final double x0 : parts0) {
+                    for (final double y0 : parts0) {
+                        // No conjugate for imaginary NaN
+                        if (!Double.isNaN(y0)) {
+                            // removed other assertion
+                        }
+                    }
+                }
+                // Random numbers
+                final UniformRandomProvider rng0 = RandomSource.create(RandomSource.SPLIT_MIX_64);
+                for (int i0 = 0; i0 < 100; i0++) {
+                    final double x0 = next(rng0);
+                    final double y0 = next(rng0);
+                    assertConjugateEquality(complex(x0, y0), operation0, UnspecifiedSign.NONE);
+    }
+    }
 
 }

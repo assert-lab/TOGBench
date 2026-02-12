@@ -520,5 +520,36 @@ class GammaTest_OE25Dev {
         }
     }
 
+    @Test
+    void testGamma_1_oe() {
+        for (int i = 0; i < GAMMA_REF.length; i++) {
+            final double[] ref = GAMMA_REF[i];
+            final double x = ref[0];
+            final double expected = ref[1];
+            final double actual = Gamma.value(x);
+            final double absX = Math.abs(x);
+            final int ulps;
+            if (absX <= 8.0) {
+                ulps = 3;
+            } else if (absX <= 20.0) {
+                ulps = 5;
+            } else if (absX <= 30.0) {
+                ulps = 50;
+            } else if (absX <= 50.0) {
+                ulps = 180;
+            } else {
+                ulps = 500;
+            }
+            final double tol = ulps * Math.ulp(expected);
+            Assertions.assertEquals(expected, actual, tol, Double.toString(x));
+    }
+    }
+
+    @Test
+    void testGammaNegativeInteger_1_oe() {
+        for (int i = -100; i <= 0; i++) {
+            Assertions.assertTrue(Double.isNaN(Gamma.value(i)), Integer.toString(i));
+    }
+    }
 
 }

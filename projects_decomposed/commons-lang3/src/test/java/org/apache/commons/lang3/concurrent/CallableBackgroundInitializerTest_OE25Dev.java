@@ -26,6 +26,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test class for {@code CallableBackgroundInitializer}
  */
@@ -87,9 +89,25 @@ public class CallableBackgroundInitializerTest_OE25Dev  {
     public void testInitNullCallable_1_oe() throws Exception {
         try {
     new CallableBackgroundInitializer<>(null);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
+    }
+
+    @Test
+    public void testInitExecutor_1_oe() throws InterruptedException {
+        final ExecutorService exec = Executors.newSingleThreadExecutor();
+        final CallableBackgroundInitializer<Integer> init = new CallableBackgroundInitializer<>(
+                new TestCallable(), exec);
+        assertEquals(exec, init.getExternalExecutor(), "Executor not set");
+    }
+
+    @Test
+    public void testInitialize_1_oe() throws Exception {
+        final TestCallable call = new TestCallable();
+        final CallableBackgroundInitializer<Integer> init = new CallableBackgroundInitializer<>(
+                call);
+        assertEquals(RESULT, init.initialize(), "Wrong result");
     }
 
 }

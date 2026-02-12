@@ -1,4 +1,4 @@
-id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+id,test_prefix,test_name
 imag_76_5,"    @Test
     public void testSpecialRationalNumber_5_oe(){
         RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
@@ -8,53 +8,13 @@ imag_76_5,"    @Test
         // removed other assertion
         assertThrows(NumberFormatException.class, () -> test.negate(), ""Failed to detect negation of large unsigned value"");
     }
-",RationalNumberTest::testSpecialRationalNumber_5_oe,org.apache.commons.imaging.common.RationalNumber,negate(),"/**
-     * Negates the value of the RationalNumber. If the numerator of this
-     * instance has its high-order bit set, then its value is too large
-     * to be treated as a Java 32-bit signed integer. In such a case, the
-     * only way that a RationalNumber instance can be negated is to
-     * divide both terms by a common divisor, if a non-zero common divisor exists.
-     * However, if no such divisor exists, there is no numerically correct
-     * way to perform the negation. When a negation cannot be performed correctly,
-     * this method throws an unchecked exception.
-     * @return a valid instance with a negated value.
-     */","public RationalNumber negate() {
-        long n = numerator;
-        long d = divisor;
-        if (unsignedType) {
-            // An instance of an unsigned type can be negated if and only if
-            // its high-order bit (the sign bit) is clear. If the bit is set,
-            // the value will be too large to convert to a signed type.
-            // In such a case it is necessary to adjust the numerator and denominator
-            // by their greatest common divisor (gcd), if one exists.
-            // If no non-zero common divisor exists, an exception is thrown.
-            if ((n >> 31) == 1) {
-                // the unsigned value is so large that the high-order bit is set
-                // it cannot be converted to a negative number. Check to see
-                // whether there is an option to reduce its magnitude.
-                long g = gcd(numerator, divisor);
-                if (g != 0) {
-                    n /= g;
-                    d /= g;
-                }
-                if ((n >> 31) == 1) {
-                    throw new NumberFormatException(
-                            ""Unsigned numerator is too large to negate ""
-                            + numerator);
-                }
-            }
-        }
-        return new RationalNumber(-n, d, false);
-    }"
+",RationalNumberTest::testSpecialRationalNumber_5_oe
 imag_82_1,"    @Test
     public void testGetInputStreamThrowsNullPointerException_1_oe() {
         final ByteSourceArray byteSourceArray = new ByteSourceArray(null);
         Assertions.assertThrows(NullPointerException.class, () -> byteSourceArray.getInputStream(0L));
     }
-",ByteSourceTest::testGetInputStreamThrowsNullPointerException_1_oe,org.apache.commons.imaging.common.bytesource.ByteSourceArray,getInputStream(),,"@Override
-    public InputStream getInputStream() {
-        return new ByteArrayInputStream(bytes);
-    }"
+",ByteSourceTest::testGetInputStreamThrowsNullPointerException_1_oe
 imag_88_1,"    @Test
     public void testUncaughtExceptionOssFuzz33458_1_oe() {
         final String input = ""/images/jpeg/oss-fuzz-33458/clusterfuzz-testcase-minimized-ImagingJpegFuzzer-4548690447564800"";
@@ -62,13 +22,7 @@ imag_88_1,"    @Test
         final JpegImageParser parser = new JpegImageParser();
         assertThrows(ImageReadException.class, () -> parser.getBufferedImage(new ByteSourceFile(new File(file)), new JpegImagingParameters()));
     }
-",JpegReadTest::testUncaughtExceptionOssFuzz33458_1_oe,org.apache.commons.imaging.formats.jpeg.JpegImageParser,"getBufferedImage(final ByteSource byteSource,
-            final JpegImagingParameters params)",,"@Override
-    public final BufferedImage getBufferedImage(final ByteSource byteSource,
-            final JpegImagingParameters params) throws ImageReadException, IOException {
-        final JpegDecoder jpegDecoder = new JpegDecoder();
-        return jpegDecoder.decode(byteSource);
-    }"
+",JpegReadTest::testUncaughtExceptionOssFuzz33458_1_oe
 imag_89_1,"    @Test
     public void testSingleImage_1_oe() {
         // we cannot use ImagingTest and getImageByFileName, as it would cause others
@@ -78,25 +32,7 @@ imag_89_1,"    @Test
                 .getFile());
         Assertions.assertThrows(ImageReadException.class, () -> Imaging.getMetadata(imageFile));
     }
-",JpegWithInvalidDhtSegmentTest::testSingleImage_1_oe,org.apache.commons.imaging.Imaging,getMetadata(final byte[] bytes),"/**
-     * Parses the metadata of an image. This metadata depends on the format of the image.
-     *
-     * <p>JPEG/JFIF files may contain EXIF and/or IPTC metadata. PNG files may
-     * contain comments. TIFF files may contain metadata.</p>
-     *
-     * <p>The instance of IImageMetadata returned by getMetadata() should be upcast
-     * (depending on image format).</p>
-     *
-     * <p>Not to be confused with ""image info.""</p>
-     *
-     * @param bytes Byte array containing an image file.
-     * @return An instance of ImageMetadata.
-     * @see org.apache.commons.imaging.common.ImageMetadata
-     * @throws ImageReadException if it fails to read the image metadata
-     * @throws IOException if it fails to read the image data
-     */","public static ImageMetadata getMetadata(final byte[] bytes) throws ImageReadException, IOException {
-        return getMetadata(new ByteSourceArray(bytes));
-    }"
+",JpegWithInvalidDhtSegmentTest::testSingleImage_1_oe
 imag_99_1,"  @Test
   public void testNextBitThrowsImageReadExceptionOne_1_oe() {
     final int[] byteArray = new int[6];
@@ -106,7 +42,7 @@ imag_99_1,"  @Test
 
     Assertions.assertThrows(ImageReadException.class, jpegInputStream::nextBit);
   }
-",JpegInputStreamTest::testNextBitThrowsImageReadExceptionOne_1_oe,,,,
+",JpegInputStreamTest::testNextBitThrowsImageReadExceptionOne_1_oe
 imag_100_1,"  @Test
   public void testNextBitThrowsImageReadExceptionTwo_1_oe() {
     final int[] byteArray = new int[0];
@@ -114,7 +50,7 @@ imag_100_1,"  @Test
 
     Assertions.assertThrows(IllegalStateException.class, jpegInputStream::nextBit);
   }
-",JpegInputStreamTest::testNextBitThrowsImageReadExceptionTwo_1_oe,,,,
+",JpegInputStreamTest::testNextBitThrowsImageReadExceptionTwo_1_oe
 imag_103_1,"    @Test
     public void testDecodeBadFile_1_oe() {
         // From IMAGING-220
@@ -124,32 +60,7 @@ imag_103_1,"    @Test
         final ByteSourceFile byteSourceFile = new ByteSourceFile(inputFile);
         Assertions.assertThrows(ImageReadException.class, () -> new JpegDecoder().decode(byteSourceFile));
     }
-",JpegDecoderTest::testDecodeBadFile_1_oe,org.apache.commons.imaging.common.itu_t4.HuffmanTree,decode(final BitInputStreamFlexible bitStream),,"public final T decode(final BitInputStreamFlexible bitStream) throws HuffmanTreeException {
-        int position = 0;
-        Node<T> node = nodes.get(0);
-        while (node.value == null) {
-            int nextBit;
-            try {
-                nextBit = bitStream.readBits(1);
-            } catch (final IOException ioEx) {
-                throw new HuffmanTreeException(
-                        ""Error reading stream for huffman tree"", ioEx);
-            }
-            if (nextBit == 0) {
-                position = (position << 1) + 1;
-            } else {
-                position = (position + 1) << 1;
-            }
-            if (position >= nodes.size()) {
-                throw new HuffmanTreeException(""Invalid bit pattern"");
-            }
-            node = nodes.get(position);
-            if (node.empty) {
-                throw new HuffmanTreeException(""Invalid bit pattern"");
-            }
-        }
-        return node.value;
-    }"
+",JpegDecoderTest::testDecodeBadFile_1_oe
 imag_128_1,"    @Test
     public void testGetImageInfo_invalidWidth_1_oe() {
         final byte[] bytes = ""P1\na 2\n0 0 0 0 0 0 0 0 0 0 0\n1 1 1 1 1 1 1 1 1 1 1\n"".getBytes(US_ASCII);
@@ -157,41 +68,7 @@ imag_128_1,"    @Test
         final PnmImageParser underTest = new PnmImageParser();
         Assertions.assertThrows(ImageReadException.class, () -> underTest.getImageInfo(bytes, params));
     }
-",PnmImageParserTest::testGetImageInfo_invalidWidth_1_oe,org.apache.commons.imaging.formats.pnm.PnmImageParser,"getImageInfo(final ByteSource byteSource, final PnmImagingParameters params)",,"@Override
-    public ImageInfo getImageInfo(final ByteSource byteSource, final PnmImagingParameters params)
-            throws ImageReadException, IOException {
-        final FileInfo info = readHeader(byteSource);
-
-        final List<String> comments = new ArrayList<>();
-
-        final int bitsPerPixel = info.getBitDepth() * info.getNumComponents();
-        final ImageFormat format = info.getImageType();
-        final String formatName = info.getImageTypeDescription();
-        final String mimeType = info.getMIMEType();
-        final int numberOfImages = 1;
-        final boolean progressive = false;
-
-        // boolean progressive = (fPNGChunkIHDR.InterlaceMethod != 0);
-        //
-        final int physicalWidthDpi = 72;
-        final float physicalWidthInch = (float) ((double) info.width / (double) physicalWidthDpi);
-        final int physicalHeightDpi = 72;
-        final float physicalHeightInch = (float) ((double) info.height / (double) physicalHeightDpi);
-
-        final String formatDetails = info.getImageTypeDescription();
-
-        final boolean transparent = info.hasAlpha();
-        final boolean usesPalette = false;
-
-        final ImageInfo.ColorType colorType = info.getColorType();
-        final ImageInfo.CompressionAlgorithm compressionAlgorithm = ImageInfo.CompressionAlgorithm.NONE;
-
-        return new ImageInfo(formatDetails, bitsPerPixel, comments,
-                format, formatName, info.height, mimeType, numberOfImages,
-                physicalHeightDpi, physicalHeightInch, physicalWidthDpi,
-                physicalWidthInch, info.width, progressive, transparent,
-                usesPalette, colorType, compressionAlgorithm);
-    }"
+",PnmImageParserTest::testGetImageInfo_invalidWidth_1_oe
 imag_129_1,"    @Test
     public void testGetImageInfo_invalidHeight_1_oe() {
         final byte[] bytes = ""P1\n2 a\n0 0\n0 0\n0 0\n0 0\n0 0\n0 1\n1 1\n1 1\n1 1\n1 1\n1 1\n"".getBytes(US_ASCII);
@@ -199,41 +76,7 @@ imag_129_1,"    @Test
         final PnmImageParser underTest = new PnmImageParser();
         Assertions.assertThrows(ImageReadException.class, () -> underTest.getImageInfo(bytes, params));
     }
-",PnmImageParserTest::testGetImageInfo_invalidHeight_1_oe,org.apache.commons.imaging.formats.pnm.PnmImageParser,"getImageInfo(final ByteSource byteSource, final PnmImagingParameters params)",,"@Override
-    public ImageInfo getImageInfo(final ByteSource byteSource, final PnmImagingParameters params)
-            throws ImageReadException, IOException {
-        final FileInfo info = readHeader(byteSource);
-
-        final List<String> comments = new ArrayList<>();
-
-        final int bitsPerPixel = info.getBitDepth() * info.getNumComponents();
-        final ImageFormat format = info.getImageType();
-        final String formatName = info.getImageTypeDescription();
-        final String mimeType = info.getMIMEType();
-        final int numberOfImages = 1;
-        final boolean progressive = false;
-
-        // boolean progressive = (fPNGChunkIHDR.InterlaceMethod != 0);
-        //
-        final int physicalWidthDpi = 72;
-        final float physicalWidthInch = (float) ((double) info.width / (double) physicalWidthDpi);
-        final int physicalHeightDpi = 72;
-        final float physicalHeightInch = (float) ((double) info.height / (double) physicalHeightDpi);
-
-        final String formatDetails = info.getImageTypeDescription();
-
-        final boolean transparent = info.hasAlpha();
-        final boolean usesPalette = false;
-
-        final ImageInfo.ColorType colorType = info.getColorType();
-        final ImageInfo.CompressionAlgorithm compressionAlgorithm = ImageInfo.CompressionAlgorithm.NONE;
-
-        return new ImageInfo(formatDetails, bitsPerPixel, comments,
-                format, formatName, info.height, mimeType, numberOfImages,
-                physicalHeightDpi, physicalHeightInch, physicalWidthDpi,
-                physicalWidthInch, info.width, progressive, transparent,
-                usesPalette, colorType, compressionAlgorithm);
-    }"
+",PnmImageParserTest::testGetImageInfo_invalidHeight_1_oe
 imag_130_1,"    @Test
     public void testGetImageInfo_missingWidthValue_1_oe() {
         final byte[] bytes = ""P7\nWIDTH \n"".getBytes(US_ASCII);
@@ -241,61 +84,33 @@ imag_130_1,"    @Test
         final PnmImageParser underTest = new PnmImageParser();
         Assertions.assertThrows(ImageReadException.class, () -> underTest.getImageInfo(bytes, params));
     }
-",PnmImageParserTest::testGetImageInfo_missingWidthValue_1_oe,org.apache.commons.imaging.formats.pnm.PnmImageParser,"getImageInfo(final ByteSource byteSource, final PnmImagingParameters params)",,"@Override
-    public ImageInfo getImageInfo(final ByteSource byteSource, final PnmImagingParameters params)
-            throws ImageReadException, IOException {
-        final FileInfo info = readHeader(byteSource);
-
-        final List<String> comments = new ArrayList<>();
-
-        final int bitsPerPixel = info.getBitDepth() * info.getNumComponents();
-        final ImageFormat format = info.getImageType();
-        final String formatName = info.getImageTypeDescription();
-        final String mimeType = info.getMIMEType();
-        final int numberOfImages = 1;
-        final boolean progressive = false;
-
-        // boolean progressive = (fPNGChunkIHDR.InterlaceMethod != 0);
-        //
-        final int physicalWidthDpi = 72;
-        final float physicalWidthInch = (float) ((double) info.width / (double) physicalWidthDpi);
-        final int physicalHeightDpi = 72;
-        final float physicalHeightInch = (float) ((double) info.height / (double) physicalHeightDpi);
-
-        final String formatDetails = info.getImageTypeDescription();
-
-        final boolean transparent = info.hasAlpha();
-        final boolean usesPalette = false;
-
-        final ImageInfo.ColorType colorType = info.getColorType();
-        final ImageInfo.CompressionAlgorithm compressionAlgorithm = ImageInfo.CompressionAlgorithm.NONE;
-
-        return new ImageInfo(formatDetails, bitsPerPixel, comments,
-                format, formatName, info.height, mimeType, numberOfImages,
-                physicalHeightDpi, physicalHeightInch, physicalWidthDpi,
-                physicalWidthInch, info.width, progressive, transparent,
-                usesPalette, colorType, compressionAlgorithm);
-    }"
+",PnmImageParserTest::testGetImageInfo_missingWidthValue_1_oe
 imag_131_1,"  @Test
   public void testCreatesPpmFileInfoOne_1_oe() {
       Assertions.assertThrows(ImageReadException.class, () -> new PpmFileInfo(0, 0, false, 16711680));
   }
-",PpmFileInfoTest::testCreatesPpmFileInfoOne_1_oe,,,,
+",PpmFileInfoTest::testCreatesPpmFileInfoOne_1_oe
 imag_132_1,"  @Test
   public void testCreatesPpmFileInfoThree_1_oe() {
       Assertions.assertThrows(ImageReadException.class, () -> new PpmFileInfo(0, 0, true, 0));
   }
-",PpmFileInfoTest::testCreatesPpmFileInfoThree_1_oe,,,,
+",PpmFileInfoTest::testCreatesPpmFileInfoThree_1_oe
 imag_133_1,"    @Test
     public void testCreateThrowsImageReadExceptionOne_1_oe() {
         Assertions.assertThrows(ImageReadException.class, () -> new PgmFileInfo(16711680, 16711680, false, 16711680));
     }
-",PgmFileInfoTest::testCreateThrowsImageReadExceptionOne_1_oe,,,,
+",PgmFileInfoTest::testCreateThrowsImageReadExceptionOne_1_oe
 imag_134_1,"    @Test
     public void testCreateThrowsImageReadExceptionTwo_1_oe() {
         Assertions.assertThrows(ImageReadException.class, () -> new PgmFileInfo(0, 0, true, 0));
     }
-",PgmFileInfoTest::testCreateThrowsImageReadExceptionTwo_1_oe,,,,
+",PgmFileInfoTest::testCreateThrowsImageReadExceptionTwo_1_oe
+imag_138_1,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testImageMetadata_1_oe(final File imageFile) {
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> Imaging.getMetadata(imageFile));
+    }
+",IcnsReadTest::testImageMetadata_1_oe
 imag_143_1,"    @Test
     public void testErrorDecompressingInvalidFile_1_oe() {
         // From IMAGING-219
@@ -306,23 +121,7 @@ imag_143_1,"    @Test
         final RgbeImagingParameters params = new RgbeImagingParameters();
         Assertions.assertThrows(ImageReadException.class, () -> new RgbeImageParser().getBufferedImage(byteSourceFile, params));
     }
-",RgbeReadTest::testErrorDecompressingInvalidFile_1_oe,org.apache.commons.imaging.Imaging,getBufferedImage(final InputStream is),"/**
-     * Reads the first image from an InputStream.
-     *
-     * <p>For the most recent information on support for specific formats, refer to
-     * <a href=""https://commons.apache.org/imaging/formatsupport.html"">Format Support</a>
-     * at the main project development web site.   While the Apache Commons
-     * Imaging package does not fully support all formats, it  can read
-     * image info, metadata and ICC profiles from all image formats that
-     * provide this data.</p>
-     *
-     * @param is a valid ImageStream from which to read data.
-     * @return if successful, a valid buffered image
-     * @throws ImageReadException in the event of a processing errorfileName while reading an image (i.e. a format violation, etc.).
-     * @throws IOException  in the event of an unrecoverable I/O exception.
-     */","public static BufferedImage getBufferedImage(final InputStream is) throws ImageReadException, IOException {
-        return getBufferedImage(is, null);
-    }"
+",RgbeReadTest::testErrorDecompressingInvalidFile_1_oe
 imag_146_5,"    @Test
     public void test_5_oe() throws Exception {
         final File[] testFile = new File[4];
@@ -361,65 +160,25 @@ imag_146_5,"    @Test
             assertThrows(ImageReadException.class, ()->directory.getRasterData(xparams), ""Failed to catch bad subimage for test ""+name);
     }
     }
-",TiffRoundTripInt32Test::test_5_oe,org.apache.commons.imaging.formats.tiff.TiffDirectory,"getRasterData(
-            final TiffImagingParameters params)","/**
-     * Reads the numerical data stored in this TIFF directory, if available.
-     * Note that this method is defined only for TIFF directories that contain
-     * floating-point data or two-byte signed integer data.
-     * <p>
-     * TIFF directories that provide numerical data do not directly specify
-     * images, though it is possible to interpret the data as an image using
-     * this library. TIFF files may contain multiple directories which are
-     * allowed to have different formats. Thus it is possible for a TIFF file to
-     * contain a mix of image and floating-point raster data.
-     * <p>
-     * If desired, sub-image data can be read from the file by using a Java Map
-     * instance to specify the subsection of the image that is required. The
-     * following code illustrates the approach:
-     * <pre>
-     *   int x; // coordinate (column) of corner of sub-image
-     *   int y; // coordinate (row) of corner of sub-image
-     *   int width; // width of sub-image
-     *   int height; // height of sub-image
-     *
-     *   Map&lt;String, Object&gt;params = new HashMap&lt;&gt;();
-     *   params.put(TiffConstants.PARAM_KEY_SUBIMAGE_X, x);
-     *   params.put(TiffConstants.PARAM_KEY_SUBIMAGE_Y, y);
-     *   params.put(TiffConstants.PARAM_KEY_SUBIMAGE_WIDTH, width);
-     *   params.put(TiffConstants.PARAM_KEY_SUBIMAGE_HEIGHT, height);
-     *   TiffRasterData raster =
-     *        directory.readFloatingPointRasterData(params);
-     * </pre>
-     *
-     * @param params an optional parameter map instance
-     * @return a valid instance
-     * @throws ImageReadException in the event of incompatible or malformed data
-     * @throws IOException in the event of an I/O error
-     */","public TiffRasterData getRasterData(
-            final TiffImagingParameters params)
-            throws ImageReadException, IOException {
-
-        final TiffImageParser parser = new TiffImageParser();
-        return parser.getRasterData(this, headerByteOrder, params);
-    }"
+",TiffRoundTripInt32Test::test_5_oe
 imag_159_1,"    @Test
     public void testBadConstructor_1_oe() {
         assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataFloat(-1, 10), ""Constructor did not detect bad width"");
     }
-",TiffRasterDataTest::testBadConstructor_1_oe,,,,
+",TiffRasterDataTest::testBadConstructor_1_oe
 imag_159_2,"    @Test
     public void testBadConstructor_2_oe() {
         // removed other assertion
         assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataFloat(10, -1), ""Constructor did not detect bad height"");
     }
-",TiffRasterDataTest::testBadConstructor_2_oe,,,,
+",TiffRasterDataTest::testBadConstructor_2_oe
 imag_159_3,"    @Test
     public void testBadConstructor_3_oe() {
         // removed other assertion
         // removed other assertion
         assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataFloat(1, 1, 0), ""Constructor did not detect bad samplesPerPixel"");
     }
-",TiffRasterDataTest::testBadConstructor_3_oe,,,,
+",TiffRasterDataTest::testBadConstructor_3_oe
 imag_159_4,"    @Test
     public void testBadConstructor_4_oe() {
         // removed other assertion
@@ -429,7 +188,7 @@ imag_159_4,"    @Test
         final float []f = new float[10];
         assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataFloat(2, 10, f), ""Constructor did not detect insufficient input array size"");
     }
-",TiffRasterDataTest::testBadConstructor_4_oe,,,,
+",TiffRasterDataTest::testBadConstructor_4_oe
 imag_159_5,"    @Test
     public void testBadConstructor_5_oe() {
         // removed other assertion
@@ -440,17 +199,14 @@ imag_159_5,"    @Test
         // removed other assertion
         assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataFloat(2, 3, 2, f), ""Constructor did not detect insufficient input array size"");
     }
-",TiffRasterDataTest::testBadConstructor_5_oe,,,,
+",TiffRasterDataTest::testBadConstructor_5_oe
 imag_160_1,"    @Test
     public void testBadCoordinates_1_oe() {
         final float []f = new float[100];
         final TiffRasterData instance = new TiffRasterDataFloat(10, 10, 1, f);
         assertThrows(IllegalArgumentException.class, ()->instance.getValue(11, 11),       ""Access method getValue() did not detect bad coordinates"");
     }
-",TiffRasterDataTest::testBadCoordinates_1_oe,org.apache.commons.imaging.formats.tiff.TiffField,getValue(),,"public Object getValue() throws ImageReadException {
-        // System.out.print(""getValue"");
-        return getTagInfo().getValue(this);
-    }"
+",TiffRasterDataTest::testBadCoordinates_1_oe
 imag_160_2,"    @Test
     public void testBadCoordinates_2_oe() {
         final float []f = new float[100];
@@ -458,18 +214,7 @@ imag_160_2,"    @Test
         // removed other assertion
         assertThrows(IllegalArgumentException.class, ()->instance.setValue(11, 11, 5.0f), ""Access method setValue() did not detect bad coordinates"");
     }
-",TiffRasterDataTest::testBadCoordinates_2_oe,org.apache.commons.imaging.formats.tiff.TiffRasterDataInt,"void setValue(final int x, final int y, final float value)","/**
-     * Sets the value stored at the specified raster coordinates.
-     *
-     * @param x integer coordinate in the columnar direction
-     * @param y integer coordinate in the row direction
-     * @param value the value to be stored at the specified location;
-     * potentially a Float&#46;NaN.
-     */","@Override
-    public void setValue(final int x, final int y, final float value) {
-        int index = checkCoordinatesAndComputeIndex(x, y, 0);
-        data[index] = (int) value;
-    }"
+",TiffRasterDataTest::testBadCoordinates_2_oe
 imag_160_3,"    @Test
     public void testBadCoordinates_3_oe() {
         final float []f = new float[100];
@@ -478,36 +223,25 @@ imag_160_3,"    @Test
         // removed other assertion
         assertThrows(IllegalArgumentException.class, ()->instance.getValue(1, 1, 2),  ""Access method setValue() did not detect bad sample index"");
     }
-",TiffRasterDataTest::testBadCoordinates_3_oe,org.apache.commons.imaging.formats.tiff.TiffRasterDataInt,"void setValue(final int x, final int y, final float value)","/**
-     * Sets the value stored at the specified raster coordinates.
-     *
-     * @param x integer coordinate in the columnar direction
-     * @param y integer coordinate in the row direction
-     * @param value the value to be stored at the specified location;
-     * potentially a Float&#46;NaN.
-     */","@Override
-    public void setValue(final int x, final int y, final float value) {
-        int index = checkCoordinatesAndComputeIndex(x, y, 0);
-        data[index] = (int) value;
-    }"
+",TiffRasterDataTest::testBadCoordinates_3_oe
 imag_186_1,"    @Test
     public void testBadConstructor_1_oe() {
         assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataInt(-1, 10), ""Constructor did not detect bad width"");
     }
-",TiffRasterDataIntTest::testBadConstructor_1_oe,,,,
+",TiffRasterDataIntTest::testBadConstructor_1_oe
 imag_186_2,"    @Test
     public void testBadConstructor_2_oe() {
         // removed other assertion
         assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataInt(10, -1), ""Constructor did not detect bad height"");
     }
-",TiffRasterDataIntTest::testBadConstructor_2_oe,,,,
+",TiffRasterDataIntTest::testBadConstructor_2_oe
 imag_186_3,"    @Test
     public void testBadConstructor_3_oe() {
         // removed other assertion
         // removed other assertion
         assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataInt(1, 1, 0), ""Constructor did not detect bad samplesPerPixel"");
     }
-",TiffRasterDataIntTest::testBadConstructor_3_oe,,,,
+",TiffRasterDataIntTest::testBadConstructor_3_oe
 imag_186_4,"    @Test
     public void testBadConstructor_4_oe() {
         // removed other assertion
@@ -517,7 +251,7 @@ imag_186_4,"    @Test
         final int []s = new int[10];
         assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataInt(2, 10, s), ""Constructor did not detect insufficient input array size"");
     }
-",TiffRasterDataIntTest::testBadConstructor_4_oe,,,,
+",TiffRasterDataIntTest::testBadConstructor_4_oe
 imag_186_5,"    @Test
     public void testBadConstructor_5_oe() {
         // removed other assertion
@@ -528,7 +262,7 @@ imag_186_5,"    @Test
         // removed other assertion
         assertThrows(IllegalArgumentException.class, ()-> new TiffRasterDataInt(2, 3, 2, s), ""Constructor did not detect insufficient input array size"");
     }
-",TiffRasterDataIntTest::testBadConstructor_5_oe,,,,
+",TiffRasterDataIntTest::testBadConstructor_5_oe
 imag_193_5,"    @Test
     public void test_5_oe() throws Exception {
         final File[] testFile = new File[4];
@@ -567,86 +301,14 @@ imag_193_5,"    @Test
             assertThrows(ImageReadException.class, ()->directory.getRasterData(xparams), ""Failed to catch bad subimage for test ""+name);
     }
     }
-",TiffShortIntRoundTripTest::test_5_oe,org.apache.commons.imaging.formats.tiff.TiffDirectory,"getRasterData(
-            final TiffImagingParameters params)","/**
-     * Reads the numerical data stored in this TIFF directory, if available.
-     * Note that this method is defined only for TIFF directories that contain
-     * floating-point data or two-byte signed integer data.
-     * <p>
-     * TIFF directories that provide numerical data do not directly specify
-     * images, though it is possible to interpret the data as an image using
-     * this library. TIFF files may contain multiple directories which are
-     * allowed to have different formats. Thus it is possible for a TIFF file to
-     * contain a mix of image and floating-point raster data.
-     * <p>
-     * If desired, sub-image data can be read from the file by using a Java Map
-     * instance to specify the subsection of the image that is required. The
-     * following code illustrates the approach:
-     * <pre>
-     *   int x; // coordinate (column) of corner of sub-image
-     *   int y; // coordinate (row) of corner of sub-image
-     *   int width; // width of sub-image
-     *   int height; // height of sub-image
-     *
-     *   Map&lt;String, Object&gt;params = new HashMap&lt;&gt;();
-     *   params.put(TiffConstants.PARAM_KEY_SUBIMAGE_X, x);
-     *   params.put(TiffConstants.PARAM_KEY_SUBIMAGE_Y, y);
-     *   params.put(TiffConstants.PARAM_KEY_SUBIMAGE_WIDTH, width);
-     *   params.put(TiffConstants.PARAM_KEY_SUBIMAGE_HEIGHT, height);
-     *   TiffRasterData raster =
-     *        directory.readFloatingPointRasterData(params);
-     * </pre>
-     *
-     * @param params an optional parameter map instance
-     * @return a valid instance
-     * @throws ImageReadException in the event of incompatible or malformed data
-     * @throws IOException in the event of an I/O error
-     */","public TiffRasterData getRasterData(
-            final TiffImagingParameters params)
-            throws ImageReadException, IOException {
-
-        final TiffImageParser parser = new TiffImageParser();
-        return parser.getRasterData(this, headerByteOrder, params);
-    }"
+",TiffShortIntRoundTripTest::test_5_oe
 imag_209_1,"  @Test
   public void testWriteDataWithNonNull_1_oe() {
       final FieldTypeRational fieldTypeRational = new FieldTypeRational((-922), ""z_AX"");
       final ByteOrder byteOrder = ByteOrder.nativeOrder();
       Assertions.assertThrows(ImageWriteException.class, () -> fieldTypeRational.writeData(""z_AX"", byteOrder));
   }
-",FieldTypeRationalTest::testWriteDataWithNonNull_1_oe,org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeRational,"writeData(final Object o, final ByteOrder byteOrder)",,"@Override
-    public byte[] writeData(final Object o, final ByteOrder byteOrder) throws ImageWriteException {
-        if (o instanceof RationalNumber) {
-            return ByteConversions.toBytes((RationalNumber) o, byteOrder);
-        }
-        if (o instanceof RationalNumber[]) {
-            return ByteConversions.toBytes((RationalNumber[]) o, byteOrder);
-        }
-        if (o instanceof Number) {
-            final Number number = (Number) o;
-            final RationalNumber rationalNumber = RationalNumber.valueOf(number.doubleValue());
-            return ByteConversions.toBytes(rationalNumber, byteOrder);
-        }
-        if (o instanceof Number[]) {
-            final Number[] numbers = (Number[]) o;
-            final RationalNumber[] rationalNumbers = new RationalNumber[numbers.length];
-            for (int i = 0; i < numbers.length; i++) {
-                final Number number = numbers[i];
-                rationalNumbers[i] = RationalNumber.valueOf(number.doubleValue());
-            }
-            return ByteConversions.toBytes(rationalNumbers, byteOrder);
-        }
-        if (!(o instanceof double[])) {
-            throw new ImageWriteException(""Invalid data"", o);
-        }
-        final double[] numbers = (double[]) o;
-        final RationalNumber[] rationalNumbers = new RationalNumber[numbers.length];
-        for (int i = 0; i < numbers.length; i++) {
-            final double number = numbers[i];
-            rationalNumbers[i] = RationalNumber.valueOf(number);
-        }
-        return ByteConversions.toBytes(rationalNumbers, byteOrder);
-    }"
+",FieldTypeRationalTest::testWriteDataWithNonNull_1_oe
 imag_211_1,"  @Test
   public void testCreatesFieldTypeAsciiAndCallsWriteData_1_oe() {
       final FieldTypeAscii fieldTypeAscii = new FieldTypeAscii(0, ""1"");
@@ -656,40 +318,7 @@ imag_211_1,"  @Test
 
       Assertions.assertThrows(ImageWriteException.class, () -> fieldTypeAscii.writeData(tiffField, byteOrder));
   }
-",FieldTypeAsciiTest::testCreatesFieldTypeAsciiAndCallsWriteData_1_oe,org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeAscii,"writeData(final Object o, final ByteOrder byteOrder)",,"@Override
-    public byte[] writeData(final Object o, final ByteOrder byteOrder) throws ImageWriteException {
-        if (o instanceof byte[]) {
-            final byte[] bytes = (byte[]) o;
-            final byte[] result = new byte[bytes.length + 1];
-            System.arraycopy(bytes, 0, result, 0, bytes.length);
-            result[result.length - 1] = 0;
-            return result;
-        }
-        if (o instanceof String) {
-            final byte[] bytes = ((String) o).getBytes(StandardCharsets.UTF_8);
-            final byte[] result = new byte[bytes.length + 1];
-            System.arraycopy(bytes, 0, result, 0, bytes.length);
-            result[result.length - 1] = 0;
-            return result;
-        }
-        if (!(o instanceof String[])) {
-            throw new ImageWriteException(""Unknown data type: "" + o);
-        }
-        final String[] strings = (String[]) o;
-        int totalLength = 0;
-        for (final String string : strings) {
-            final byte[] bytes = string.getBytes(StandardCharsets.UTF_8);
-            totalLength += (bytes.length + 1);
-        }
-        final byte[] result = new byte[totalLength];
-        int position = 0;
-        for (final String string : strings) {
-            final byte[] bytes = string.getBytes(StandardCharsets.UTF_8);
-            System.arraycopy(bytes, 0, result, position, bytes.length);
-            position += (bytes.length + 1);
-        }
-        return result;
-    }"
+",FieldTypeAsciiTest::testCreatesFieldTypeAsciiAndCallsWriteData_1_oe
 imag_214_1,"  @Test
   public void testWriteDataWithNull_1_oe() {
       final FieldTypeByte fieldTypeByte = FieldType.UNDEFINED;
@@ -697,94 +326,23 @@ imag_214_1,"  @Test
 
       Assertions.assertThrows(ImageWriteException.class, () -> fieldTypeByte.writeData( null, byteOrder));
   }
-",FieldTypeByteTest::testWriteDataWithNull_1_oe,org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeByte,"writeData(final Object o, final ByteOrder byteOrder)",,"@Override
-    public byte[] writeData(final Object o, final ByteOrder byteOrder) throws ImageWriteException {
-        if (o instanceof Byte) {
-            return new byte[] { ((Byte) o).byteValue(), };
-        }
-        if (o instanceof byte[]) {
-            return (byte[]) o;
-        }
-        throw new ImageWriteException(""Invalid data"", o);
-    }"
+",FieldTypeByteTest::testWriteDataWithNull_1_oe
 imag_220_1,"    @Test
     public void testInterpretPixelNullSamples_1_oe() {
         Assertions.assertThrows(ImageReadException.class, () -> p.interpretPixel(null, null, 0, 0));
     }
-",PhotometricInterpreterLogLuvTest::testInterpretPixelNullSamples_1_oe,org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuv,"void interpretPixel(final ImageBuilder imageBuilder, final int[] samples, final int x,
-            final int y)",,"@Override
-    public void interpretPixel(final ImageBuilder imageBuilder, final int[] samples, final int x,
-            final int y) throws ImageReadException, IOException {
-        if (samples == null || samples.length != 3) {
-            throw new ImageReadException(""Invalid length of bits per sample (expected 3)."");
-        }
-
-        // CIE illuminants. An illuminant is a theorical source of visible light with a profile.
-        // CIE stands for Commission Internationale de l'Eclairage, or International
-        // Comission on Illumination.
-        final int cieL = samples[0];
-        final int cieA = (byte) samples[1];
-        final int cieB = (byte) samples[2];
-
-        final TristimulusValues tristimulusValues = getTristimulusValues(cieL, cieA, cieB);
-
-        // ref_X = 95.047 //Observer = 2°, Illuminant = D65
-        // ref_Y = 100.000
-        // ref_Z = 108.883
-
-        final RgbValues rgbValues = getRgbValues(tristimulusValues);
-
-        // float R = 1.910f * X - 0.532f * Y - 0.288f * Z;
-        // float G = -0.985f * X + 1.999f * Y - 0.028f * Z;
-        // float B = 0.058f * X - 0.118f * Y + 0.898f * Z;
-
-        final int red = Math.min(255, Math.max(0, rgbValues.r));
-        final int green = Math.min(255, Math.max(0, rgbValues.g));
-        final int blue = Math.min(255, Math.max(0, rgbValues.b));
-        final int alpha = 0xff;
-        final int rgb = (alpha << 24) | (red << 16) | (green << 8) | (blue << 0);
-        imageBuilder.setRGB(x, y, rgb);
-
-    }"
+",PhotometricInterpreterLogLuvTest::testInterpretPixelNullSamples_1_oe
 imag_221_1,"    @Test
     public void testInterpretPixelEmptySamples_1_oe() {
         Assertions.assertThrows(ImageReadException.class, () -> p.interpretPixel(null, new int[] {}, 0, 0));
     }
-",PhotometricInterpreterLogLuvTest::testInterpretPixelEmptySamples_1_oe,org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuv,"void interpretPixel(final ImageBuilder imageBuilder, final int[] samples, final int x,
-            final int y)",,"@Override
-    public void interpretPixel(final ImageBuilder imageBuilder, final int[] samples, final int x,
-            final int y) throws ImageReadException, IOException {
-        if (samples == null || samples.length != 3) {
-            throw new ImageReadException(""Invalid length of bits per sample (expected 3)."");
-        }
-
-        // CIE illuminants. An illuminant is a theorical source of visible light with a profile.
-        // CIE stands for Commission Internationale de l'Eclairage, or International
-        // Comission on Illumination.
-        final int cieL = samples[0];
-        final int cieA = (byte) samples[1];
-        final int cieB = (byte) samples[2];
-
-        final TristimulusValues tristimulusValues = getTristimulusValues(cieL, cieA, cieB);
-
-        // ref_X = 95.047 //Observer = 2°, Illuminant = D65
-        // ref_Y = 100.000
-        // ref_Z = 108.883
-
-        final RgbValues rgbValues = getRgbValues(tristimulusValues);
-
-        // float R = 1.910f * X - 0.532f * Y - 0.288f * Z;
-        // float G = -0.985f * X + 1.999f * Y - 0.028f * Z;
-        // float B = 0.058f * X - 0.118f * Y + 0.898f * Z;
-
-        final int red = Math.min(255, Math.max(0, rgbValues.r));
-        final int green = Math.min(255, Math.max(0, rgbValues.g));
-        final int blue = Math.min(255, Math.max(0, rgbValues.b));
-        final int alpha = 0xff;
-        final int rgb = (alpha << 24) | (red << 16) | (green << 8) | (blue << 0);
-        imageBuilder.setRGB(x, y, rgb);
-
-    }"
+",PhotometricInterpreterLogLuvTest::testInterpretPixelEmptySamples_1_oe
+imag_244_1,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testImageMetadata_1_oe(final File imageFile) {
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> Imaging.getMetadata(imageFile));
+    }
+",DcxReadTest::testImageMetadata_1_oe
 imag_252_1,"    @Test
     public void test_1_oe() throws Exception {
         Debug.debug(""start"");
@@ -798,25 +356,7 @@ imag_252_1,"    @Test
     }
     }
     }
-",PngReadTest::test_1_oe,org.apache.commons.imaging.Imaging,getMetadata(final byte[] bytes),"/**
-     * Parses the metadata of an image. This metadata depends on the format of the image.
-     *
-     * <p>JPEG/JFIF files may contain EXIF and/or IPTC metadata. PNG files may
-     * contain comments. TIFF files may contain metadata.</p>
-     *
-     * <p>The instance of IImageMetadata returned by getMetadata() should be upcast
-     * (depending on image format).</p>
-     *
-     * <p>Not to be confused with ""image info.""</p>
-     *
-     * @param bytes Byte array containing an image file.
-     * @return An instance of ImageMetadata.
-     * @see org.apache.commons.imaging.common.ImageMetadata
-     * @throws ImageReadException if it fails to read the image metadata
-     * @throws IOException if it fails to read the image data
-     */","public static ImageMetadata getMetadata(final byte[] bytes) throws ImageReadException, IOException {
-        return getMetadata(new ByteSourceArray(bytes));
-    }"
+",PngReadTest::test_1_oe
 imag_252_2,"    @Test
     public void test_2_oe() throws Exception {
         Debug.debug(""start"");
@@ -832,23 +372,7 @@ imag_252_2,"    @Test
     }
     }
     }
-",PngReadTest::test_2_oe,org.apache.commons.imaging.Imaging,"getImageInfo(final String fileName, final byte[] bytes)","/**
-     * Parses the ""image info"" of an image.
-     *
-     * <p>""Image info"" is a summary of basic information about the image such as:
-     * width, height, file format, bit depth, color type, etc.</p>
-     *
-     * <p>Not to be confused with ""image metadata.""</p>
-     *
-     * @param fileName String.
-     * @param bytes Byte array containing an image file.
-     * @return An instance of ImageInfo.
-     * @see ImageInfo
-     * @throws ImageReadException if it fails to parse the image
-     * @throws IOException if it fails to read the image data
-     */","public static ImageInfo getImageInfo(final String fileName, final byte[] bytes) throws ImageReadException, IOException {
-        return getImageInfo(new ByteSourceArray(fileName, bytes));
-    }"
+",PngReadTest::test_2_oe
 imag_252_3,"    @Test
     public void test_3_oe() throws Exception {
         Debug.debug(""start"");
@@ -866,23 +390,7 @@ imag_252_3,"    @Test
     }
     }
     }
-",PngReadTest::test_3_oe,org.apache.commons.imaging.Imaging,getBufferedImage(final InputStream is),"/**
-     * Reads the first image from an InputStream.
-     *
-     * <p>For the most recent information on support for specific formats, refer to
-     * <a href=""https://commons.apache.org/imaging/formatsupport.html"">Format Support</a>
-     * at the main project development web site.   While the Apache Commons
-     * Imaging package does not fully support all formats, it  can read
-     * image info, metadata and ICC profiles from all image formats that
-     * provide this data.</p>
-     *
-     * @param is a valid ImageStream from which to read data.
-     * @return if successful, a valid buffered image
-     * @throws ImageReadException in the event of a processing errorfileName while reading an image (i.e. a format violation, etc.).
-     * @throws IOException  in the event of an unrecoverable I/O exception.
-     */","public static BufferedImage getBufferedImage(final InputStream is) throws ImageReadException, IOException {
-        return getBufferedImage(is, null);
-    }"
+",PngReadTest::test_3_oe
 imag_253_1,"    @Test
     public void testUncaughtExceptionOssFuzz33691_1_oe() throws IOException {
         final String input = ""/images/png/oss-fuzz-33691/clusterfuzz-testcase-minimized-ImagingPngFuzzer-6177282101215232"";
@@ -890,183 +398,7 @@ imag_253_1,"    @Test
         final PngImageParser parser = new PngImageParser();
         assertThrows(ImageReadException.class, () -> parser.getBufferedImage(new ByteSourceFile(new File(file)), new PngImagingParameters()));
     }
-",PngReadTest::testUncaughtExceptionOssFuzz33691_1_oe,org.apache.commons.imaging.formats.png.PngImageParser,"getBufferedImage(final ByteSource byteSource, PngImagingParameters params)",,"@Override
-    public BufferedImage getBufferedImage(final ByteSource byteSource, PngImagingParameters params)
-            throws ImageReadException, IOException {
-
-        final List<PngChunk> chunks = readChunks(byteSource, new ChunkType[] {
-                ChunkType.IHDR,
-                ChunkType.PLTE,
-                ChunkType.IDAT,
-                ChunkType.tRNS,
-                ChunkType.iCCP,
-                ChunkType.gAMA,
-                ChunkType.sRGB,
-            }, false);
-
-        if (chunks.isEmpty()) {
-            throw new ImageReadException(""PNG: no chunks"");
-        }
-
-        final List<PngChunk> IHDRs = filterChunks(chunks, ChunkType.IHDR);
-        if (IHDRs.size() != 1) {
-            throw new ImageReadException(""PNG contains more than one Header"");
-        }
-
-        final PngChunkIhdr pngChunkIHDR = (PngChunkIhdr) IHDRs.get(0);
-
-        final List<PngChunk> PLTEs = filterChunks(chunks, ChunkType.PLTE);
-        if (PLTEs.size() > 1) {
-            throw new ImageReadException(""PNG contains more than one Palette"");
-        }
-
-        PngChunkPlte pngChunkPLTE = null;
-        if (PLTEs.size() == 1) {
-            pngChunkPLTE = (PngChunkPlte) PLTEs.get(0);
-        }
-
-        // -----
-
-        final List<PngChunk> IDATs = filterChunks(chunks, ChunkType.IDAT);
-        if (IDATs.isEmpty()) {
-            throw new ImageReadException(""PNG missing image data"");
-        }
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        for (final PngChunk IDAT : IDATs) {
-            final PngChunkIdat pngChunkIDAT = (PngChunkIdat) IDAT;
-            final byte[] bytes = pngChunkIDAT.getBytes();
-            // System.out.println(i + "": bytes: "" + bytes.length);
-            baos.write(bytes);
-        }
-
-        final byte[] compressed = baos.toByteArray();
-
-        baos = null;
-
-        TransparencyFilter transparencyFilter = null;
-
-        final List<PngChunk> tRNSs = filterChunks(chunks, ChunkType.tRNS);
-        if (!tRNSs.isEmpty()) {
-            final PngChunk pngChunktRNS = tRNSs.get(0);
-            transparencyFilter = getTransparencyFilter(pngChunkIHDR.pngColorType, pngChunktRNS);
-        }
-
-        ICC_Profile iccProfile = null;
-        GammaCorrection gammaCorrection = null;
-        {
-            final List<PngChunk> sRGBs = filterChunks(chunks, ChunkType.sRGB);
-            final List<PngChunk> gAMAs = filterChunks(chunks, ChunkType.gAMA);
-            final List<PngChunk> iCCPs = filterChunks(chunks, ChunkType.iCCP);
-            if (sRGBs.size() > 1) {
-                throw new ImageReadException(""PNG: unexpected sRGB chunk"");
-            }
-            if (gAMAs.size() > 1) {
-                throw new ImageReadException(""PNG: unexpected gAMA chunk"");
-            }
-            if (iCCPs.size() > 1) {
-                throw new ImageReadException(""PNG: unexpected iCCP chunk"");
-            }
-
-            if (sRGBs.size() == 1) {
-                // no color management necessary.
-                if (LOGGER.isLoggable(Level.FINEST)) {
-                    LOGGER.finest(""sRGB, no color management necessary."");
-                }
-            } else if (iCCPs.size() == 1) {
-                if (LOGGER.isLoggable(Level.FINEST)) {
-                    LOGGER.finest(""iCCP."");
-                }
-
-                final PngChunkIccp pngChunkiCCP = (PngChunkIccp) iCCPs.get(0);
-                final byte[] bytes = pngChunkiCCP.getUncompressedProfile();
-
-                try {
-                    iccProfile = ICC_Profile.getInstance(bytes);
-                } catch (IllegalArgumentException iae) {
-                    throw new ImageReadException(""The image data does not correspond to a valid ICC Profile"", iae);
-                }
-            } else if (gAMAs.size() == 1) {
-                final PngChunkGama pngChunkgAMA = (PngChunkGama) gAMAs.get(0);
-                final double gamma = pngChunkgAMA.getGamma();
-
-                // charles: what is the correct target value here?
-                // double targetGamma = 2.2;
-                final double targetGamma = 1.0;
-                final double diff = Math.abs(targetGamma - gamma);
-                if (diff >= 0.5) {
-                    gammaCorrection = new GammaCorrection(gamma, targetGamma);
-                }
-
-                if (gammaCorrection != null) {
-                    if (pngChunkPLTE != null) {
-                        pngChunkPLTE.correct(gammaCorrection);
-                    }
-                }
-
-            }
-        }
-
-        {
-            final int width = pngChunkIHDR.width;
-            final int height = pngChunkIHDR.height;
-            final PngColorType pngColorType = pngChunkIHDR.pngColorType;
-            final int bitDepth = pngChunkIHDR.bitDepth;
-
-            if (pngChunkIHDR.filterMethod != 0) {
-                throw new ImageReadException(""PNG: unknown FilterMethod: "" + pngChunkIHDR.filterMethod);
-            }
-
-            final int bitsPerPixel = bitDepth * pngColorType.getSamplesPerPixel();
-
-            final boolean hasAlpha = pngColorType.hasAlpha() || transparencyFilter != null;
-
-            BufferedImage result;
-            if (pngColorType.isGreyscale()) {
-                result = getBufferedImageFactory(params).getGrayscaleBufferedImage(width, height, hasAlpha);
-            } else {
-                result = getBufferedImageFactory(params).getColorBufferedImage(width, height, hasAlpha);
-            }
-
-            final ByteArrayInputStream bais = new ByteArrayInputStream(compressed);
-            final InflaterInputStream iis = new InflaterInputStream(bais);
-
-            ScanExpediter scanExpediter;
-
-            switch (pngChunkIHDR.interlaceMethod) {
-                case NONE:
-                    scanExpediter = new ScanExpediterSimple(width, height, iis,
-                            result, pngColorType, bitDepth, bitsPerPixel,
-                            pngChunkPLTE, gammaCorrection, transparencyFilter);
-                    break;
-                case ADAM7:
-                    scanExpediter = new ScanExpediterInterlaced(width, height, iis,
-                            result, pngColorType, bitDepth, bitsPerPixel,
-                            pngChunkPLTE, gammaCorrection, transparencyFilter);
-                    break;
-                default:
-                    throw new ImageReadException(""Unknown InterlaceMethod: "" + pngChunkIHDR.interlaceMethod);
-            }
-
-            scanExpediter.drive();
-
-            if (iccProfile != null) {
-                final boolean is_srgb = new IccProfileParser().issRGB(iccProfile);
-                if (!is_srgb) {
-                    final ICC_ColorSpace cs = new ICC_ColorSpace(iccProfile);
-
-                    final ColorModel srgbCM = ColorModel.getRGBdefault();
-                    final ColorSpace cs_sRGB = srgbCM.getColorSpace();
-
-                    result = new ColorTools().convertBetweenColorSpaces(result, cs, cs_sRGB);
-                }
-            }
-
-            return result;
-
-        }
-
-    }"
+",PngReadTest::testUncaughtExceptionOssFuzz33691_1_oe
 imag_254_1,"    @Test
     public void testUncaughtExceptionOssFuzz37607_1_oe() throws IOException {
         final String input = ""/images/png/IMAGING-317/clusterfuzz-testcase-minimized-ImagingPngFuzzer-6242400830357504"";
@@ -1074,183 +406,7 @@ imag_254_1,"    @Test
         final PngImageParser parser = new PngImageParser();
         assertThrows(ImageReadException.class, () -> parser.getBufferedImage(new ByteSourceFile(new File(file)), new PngImagingParameters()));
     }
-",PngReadTest::testUncaughtExceptionOssFuzz37607_1_oe,org.apache.commons.imaging.formats.png.PngImageParser,"getBufferedImage(final ByteSource byteSource, PngImagingParameters params)",,"@Override
-    public BufferedImage getBufferedImage(final ByteSource byteSource, PngImagingParameters params)
-            throws ImageReadException, IOException {
-
-        final List<PngChunk> chunks = readChunks(byteSource, new ChunkType[] {
-                ChunkType.IHDR,
-                ChunkType.PLTE,
-                ChunkType.IDAT,
-                ChunkType.tRNS,
-                ChunkType.iCCP,
-                ChunkType.gAMA,
-                ChunkType.sRGB,
-            }, false);
-
-        if (chunks.isEmpty()) {
-            throw new ImageReadException(""PNG: no chunks"");
-        }
-
-        final List<PngChunk> IHDRs = filterChunks(chunks, ChunkType.IHDR);
-        if (IHDRs.size() != 1) {
-            throw new ImageReadException(""PNG contains more than one Header"");
-        }
-
-        final PngChunkIhdr pngChunkIHDR = (PngChunkIhdr) IHDRs.get(0);
-
-        final List<PngChunk> PLTEs = filterChunks(chunks, ChunkType.PLTE);
-        if (PLTEs.size() > 1) {
-            throw new ImageReadException(""PNG contains more than one Palette"");
-        }
-
-        PngChunkPlte pngChunkPLTE = null;
-        if (PLTEs.size() == 1) {
-            pngChunkPLTE = (PngChunkPlte) PLTEs.get(0);
-        }
-
-        // -----
-
-        final List<PngChunk> IDATs = filterChunks(chunks, ChunkType.IDAT);
-        if (IDATs.isEmpty()) {
-            throw new ImageReadException(""PNG missing image data"");
-        }
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        for (final PngChunk IDAT : IDATs) {
-            final PngChunkIdat pngChunkIDAT = (PngChunkIdat) IDAT;
-            final byte[] bytes = pngChunkIDAT.getBytes();
-            // System.out.println(i + "": bytes: "" + bytes.length);
-            baos.write(bytes);
-        }
-
-        final byte[] compressed = baos.toByteArray();
-
-        baos = null;
-
-        TransparencyFilter transparencyFilter = null;
-
-        final List<PngChunk> tRNSs = filterChunks(chunks, ChunkType.tRNS);
-        if (!tRNSs.isEmpty()) {
-            final PngChunk pngChunktRNS = tRNSs.get(0);
-            transparencyFilter = getTransparencyFilter(pngChunkIHDR.pngColorType, pngChunktRNS);
-        }
-
-        ICC_Profile iccProfile = null;
-        GammaCorrection gammaCorrection = null;
-        {
-            final List<PngChunk> sRGBs = filterChunks(chunks, ChunkType.sRGB);
-            final List<PngChunk> gAMAs = filterChunks(chunks, ChunkType.gAMA);
-            final List<PngChunk> iCCPs = filterChunks(chunks, ChunkType.iCCP);
-            if (sRGBs.size() > 1) {
-                throw new ImageReadException(""PNG: unexpected sRGB chunk"");
-            }
-            if (gAMAs.size() > 1) {
-                throw new ImageReadException(""PNG: unexpected gAMA chunk"");
-            }
-            if (iCCPs.size() > 1) {
-                throw new ImageReadException(""PNG: unexpected iCCP chunk"");
-            }
-
-            if (sRGBs.size() == 1) {
-                // no color management necessary.
-                if (LOGGER.isLoggable(Level.FINEST)) {
-                    LOGGER.finest(""sRGB, no color management necessary."");
-                }
-            } else if (iCCPs.size() == 1) {
-                if (LOGGER.isLoggable(Level.FINEST)) {
-                    LOGGER.finest(""iCCP."");
-                }
-
-                final PngChunkIccp pngChunkiCCP = (PngChunkIccp) iCCPs.get(0);
-                final byte[] bytes = pngChunkiCCP.getUncompressedProfile();
-
-                try {
-                    iccProfile = ICC_Profile.getInstance(bytes);
-                } catch (IllegalArgumentException iae) {
-                    throw new ImageReadException(""The image data does not correspond to a valid ICC Profile"", iae);
-                }
-            } else if (gAMAs.size() == 1) {
-                final PngChunkGama pngChunkgAMA = (PngChunkGama) gAMAs.get(0);
-                final double gamma = pngChunkgAMA.getGamma();
-
-                // charles: what is the correct target value here?
-                // double targetGamma = 2.2;
-                final double targetGamma = 1.0;
-                final double diff = Math.abs(targetGamma - gamma);
-                if (diff >= 0.5) {
-                    gammaCorrection = new GammaCorrection(gamma, targetGamma);
-                }
-
-                if (gammaCorrection != null) {
-                    if (pngChunkPLTE != null) {
-                        pngChunkPLTE.correct(gammaCorrection);
-                    }
-                }
-
-            }
-        }
-
-        {
-            final int width = pngChunkIHDR.width;
-            final int height = pngChunkIHDR.height;
-            final PngColorType pngColorType = pngChunkIHDR.pngColorType;
-            final int bitDepth = pngChunkIHDR.bitDepth;
-
-            if (pngChunkIHDR.filterMethod != 0) {
-                throw new ImageReadException(""PNG: unknown FilterMethod: "" + pngChunkIHDR.filterMethod);
-            }
-
-            final int bitsPerPixel = bitDepth * pngColorType.getSamplesPerPixel();
-
-            final boolean hasAlpha = pngColorType.hasAlpha() || transparencyFilter != null;
-
-            BufferedImage result;
-            if (pngColorType.isGreyscale()) {
-                result = getBufferedImageFactory(params).getGrayscaleBufferedImage(width, height, hasAlpha);
-            } else {
-                result = getBufferedImageFactory(params).getColorBufferedImage(width, height, hasAlpha);
-            }
-
-            final ByteArrayInputStream bais = new ByteArrayInputStream(compressed);
-            final InflaterInputStream iis = new InflaterInputStream(bais);
-
-            ScanExpediter scanExpediter;
-
-            switch (pngChunkIHDR.interlaceMethod) {
-                case NONE:
-                    scanExpediter = new ScanExpediterSimple(width, height, iis,
-                            result, pngColorType, bitDepth, bitsPerPixel,
-                            pngChunkPLTE, gammaCorrection, transparencyFilter);
-                    break;
-                case ADAM7:
-                    scanExpediter = new ScanExpediterInterlaced(width, height, iis,
-                            result, pngColorType, bitDepth, bitsPerPixel,
-                            pngChunkPLTE, gammaCorrection, transparencyFilter);
-                    break;
-                default:
-                    throw new ImageReadException(""Unknown InterlaceMethod: "" + pngChunkIHDR.interlaceMethod);
-            }
-
-            scanExpediter.drive();
-
-            if (iccProfile != null) {
-                final boolean is_srgb = new IccProfileParser().issRGB(iccProfile);
-                if (!is_srgb) {
-                    final ICC_ColorSpace cs = new ICC_ColorSpace(iccProfile);
-
-                    final ColorModel srgbCM = ColorModel.getRGBdefault();
-                    final ColorSpace cs_sRGB = srgbCM.getColorSpace();
-
-                    result = new ColorTools().convertBetweenColorSpaces(result, cs, cs_sRGB);
-                }
-            }
-
-            return result;
-
-        }
-
-    }"
+",PngReadTest::testUncaughtExceptionOssFuzz37607_1_oe
 imag_260_1,"    @Test
     public void testPngWithInvalidPngChunkSize_1_oe() {
         final File imageFile = new File(JpegWithInvalidDhtSegmentTest.class.getResource(""/IMAGING-211/testfile_2.png"").getFile());
@@ -1259,183 +415,7 @@ imag_260_1,"    @Test
         PngImageParser jpegImageParser = new PngImageParser();
         Assertions.assertThrows(ImageReadException.class, () -> jpegImageParser.getBufferedImage(imageFile, params));
     }
-",PngWithInvalidPngChunkSizeTest::testPngWithInvalidPngChunkSize_1_oe,org.apache.commons.imaging.formats.png.PngImageParser,"getBufferedImage(final ByteSource byteSource, PngImagingParameters params)",,"@Override
-    public BufferedImage getBufferedImage(final ByteSource byteSource, PngImagingParameters params)
-            throws ImageReadException, IOException {
-
-        final List<PngChunk> chunks = readChunks(byteSource, new ChunkType[] {
-                ChunkType.IHDR,
-                ChunkType.PLTE,
-                ChunkType.IDAT,
-                ChunkType.tRNS,
-                ChunkType.iCCP,
-                ChunkType.gAMA,
-                ChunkType.sRGB,
-            }, false);
-
-        if (chunks.isEmpty()) {
-            throw new ImageReadException(""PNG: no chunks"");
-        }
-
-        final List<PngChunk> IHDRs = filterChunks(chunks, ChunkType.IHDR);
-        if (IHDRs.size() != 1) {
-            throw new ImageReadException(""PNG contains more than one Header"");
-        }
-
-        final PngChunkIhdr pngChunkIHDR = (PngChunkIhdr) IHDRs.get(0);
-
-        final List<PngChunk> PLTEs = filterChunks(chunks, ChunkType.PLTE);
-        if (PLTEs.size() > 1) {
-            throw new ImageReadException(""PNG contains more than one Palette"");
-        }
-
-        PngChunkPlte pngChunkPLTE = null;
-        if (PLTEs.size() == 1) {
-            pngChunkPLTE = (PngChunkPlte) PLTEs.get(0);
-        }
-
-        // -----
-
-        final List<PngChunk> IDATs = filterChunks(chunks, ChunkType.IDAT);
-        if (IDATs.isEmpty()) {
-            throw new ImageReadException(""PNG missing image data"");
-        }
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        for (final PngChunk IDAT : IDATs) {
-            final PngChunkIdat pngChunkIDAT = (PngChunkIdat) IDAT;
-            final byte[] bytes = pngChunkIDAT.getBytes();
-            // System.out.println(i + "": bytes: "" + bytes.length);
-            baos.write(bytes);
-        }
-
-        final byte[] compressed = baos.toByteArray();
-
-        baos = null;
-
-        TransparencyFilter transparencyFilter = null;
-
-        final List<PngChunk> tRNSs = filterChunks(chunks, ChunkType.tRNS);
-        if (!tRNSs.isEmpty()) {
-            final PngChunk pngChunktRNS = tRNSs.get(0);
-            transparencyFilter = getTransparencyFilter(pngChunkIHDR.pngColorType, pngChunktRNS);
-        }
-
-        ICC_Profile iccProfile = null;
-        GammaCorrection gammaCorrection = null;
-        {
-            final List<PngChunk> sRGBs = filterChunks(chunks, ChunkType.sRGB);
-            final List<PngChunk> gAMAs = filterChunks(chunks, ChunkType.gAMA);
-            final List<PngChunk> iCCPs = filterChunks(chunks, ChunkType.iCCP);
-            if (sRGBs.size() > 1) {
-                throw new ImageReadException(""PNG: unexpected sRGB chunk"");
-            }
-            if (gAMAs.size() > 1) {
-                throw new ImageReadException(""PNG: unexpected gAMA chunk"");
-            }
-            if (iCCPs.size() > 1) {
-                throw new ImageReadException(""PNG: unexpected iCCP chunk"");
-            }
-
-            if (sRGBs.size() == 1) {
-                // no color management necessary.
-                if (LOGGER.isLoggable(Level.FINEST)) {
-                    LOGGER.finest(""sRGB, no color management necessary."");
-                }
-            } else if (iCCPs.size() == 1) {
-                if (LOGGER.isLoggable(Level.FINEST)) {
-                    LOGGER.finest(""iCCP."");
-                }
-
-                final PngChunkIccp pngChunkiCCP = (PngChunkIccp) iCCPs.get(0);
-                final byte[] bytes = pngChunkiCCP.getUncompressedProfile();
-
-                try {
-                    iccProfile = ICC_Profile.getInstance(bytes);
-                } catch (IllegalArgumentException iae) {
-                    throw new ImageReadException(""The image data does not correspond to a valid ICC Profile"", iae);
-                }
-            } else if (gAMAs.size() == 1) {
-                final PngChunkGama pngChunkgAMA = (PngChunkGama) gAMAs.get(0);
-                final double gamma = pngChunkgAMA.getGamma();
-
-                // charles: what is the correct target value here?
-                // double targetGamma = 2.2;
-                final double targetGamma = 1.0;
-                final double diff = Math.abs(targetGamma - gamma);
-                if (diff >= 0.5) {
-                    gammaCorrection = new GammaCorrection(gamma, targetGamma);
-                }
-
-                if (gammaCorrection != null) {
-                    if (pngChunkPLTE != null) {
-                        pngChunkPLTE.correct(gammaCorrection);
-                    }
-                }
-
-            }
-        }
-
-        {
-            final int width = pngChunkIHDR.width;
-            final int height = pngChunkIHDR.height;
-            final PngColorType pngColorType = pngChunkIHDR.pngColorType;
-            final int bitDepth = pngChunkIHDR.bitDepth;
-
-            if (pngChunkIHDR.filterMethod != 0) {
-                throw new ImageReadException(""PNG: unknown FilterMethod: "" + pngChunkIHDR.filterMethod);
-            }
-
-            final int bitsPerPixel = bitDepth * pngColorType.getSamplesPerPixel();
-
-            final boolean hasAlpha = pngColorType.hasAlpha() || transparencyFilter != null;
-
-            BufferedImage result;
-            if (pngColorType.isGreyscale()) {
-                result = getBufferedImageFactory(params).getGrayscaleBufferedImage(width, height, hasAlpha);
-            } else {
-                result = getBufferedImageFactory(params).getColorBufferedImage(width, height, hasAlpha);
-            }
-
-            final ByteArrayInputStream bais = new ByteArrayInputStream(compressed);
-            final InflaterInputStream iis = new InflaterInputStream(bais);
-
-            ScanExpediter scanExpediter;
-
-            switch (pngChunkIHDR.interlaceMethod) {
-                case NONE:
-                    scanExpediter = new ScanExpediterSimple(width, height, iis,
-                            result, pngColorType, bitDepth, bitsPerPixel,
-                            pngChunkPLTE, gammaCorrection, transparencyFilter);
-                    break;
-                case ADAM7:
-                    scanExpediter = new ScanExpediterInterlaced(width, height, iis,
-                            result, pngColorType, bitDepth, bitsPerPixel,
-                            pngChunkPLTE, gammaCorrection, transparencyFilter);
-                    break;
-                default:
-                    throw new ImageReadException(""Unknown InterlaceMethod: "" + pngChunkIHDR.interlaceMethod);
-            }
-
-            scanExpediter.drive();
-
-            if (iccProfile != null) {
-                final boolean is_srgb = new IccProfileParser().issRGB(iccProfile);
-                if (!is_srgb) {
-                    final ICC_ColorSpace cs = new ICC_ColorSpace(iccProfile);
-
-                    final ColorModel srgbCM = ColorModel.getRGBdefault();
-                    final ColorSpace cs_sRGB = srgbCM.getColorSpace();
-
-                    result = new ColorTools().convertBetweenColorSpaces(result, cs, cs_sRGB);
-                }
-            }
-
-            return result;
-
-        }
-
-    }"
+",PngWithInvalidPngChunkSizeTest::testPngWithInvalidPngChunkSize_1_oe
 imag_261_1,"    @Test
     public void testPngWithInvalidNegativePngChunkSize_1_oe() {
         final File imageFile = new File(
@@ -1445,240 +425,49 @@ imag_261_1,"    @Test
         PngImageParser jpegImageParser = new PngImageParser();
         Assertions.assertThrows(ImageReadException.class, () -> jpegImageParser.getBufferedImage(imageFile, params));
     }
-",PngWithInvalidPngChunkSizeTest::testPngWithInvalidNegativePngChunkSize_1_oe,org.apache.commons.imaging.formats.png.PngImageParser,"getBufferedImage(final ByteSource byteSource, PngImagingParameters params)",,"@Override
-    public BufferedImage getBufferedImage(final ByteSource byteSource, PngImagingParameters params)
-            throws ImageReadException, IOException {
-
-        final List<PngChunk> chunks = readChunks(byteSource, new ChunkType[] {
-                ChunkType.IHDR,
-                ChunkType.PLTE,
-                ChunkType.IDAT,
-                ChunkType.tRNS,
-                ChunkType.iCCP,
-                ChunkType.gAMA,
-                ChunkType.sRGB,
-            }, false);
-
-        if (chunks.isEmpty()) {
-            throw new ImageReadException(""PNG: no chunks"");
-        }
-
-        final List<PngChunk> IHDRs = filterChunks(chunks, ChunkType.IHDR);
-        if (IHDRs.size() != 1) {
-            throw new ImageReadException(""PNG contains more than one Header"");
-        }
-
-        final PngChunkIhdr pngChunkIHDR = (PngChunkIhdr) IHDRs.get(0);
-
-        final List<PngChunk> PLTEs = filterChunks(chunks, ChunkType.PLTE);
-        if (PLTEs.size() > 1) {
-            throw new ImageReadException(""PNG contains more than one Palette"");
-        }
-
-        PngChunkPlte pngChunkPLTE = null;
-        if (PLTEs.size() == 1) {
-            pngChunkPLTE = (PngChunkPlte) PLTEs.get(0);
-        }
-
-        // -----
-
-        final List<PngChunk> IDATs = filterChunks(chunks, ChunkType.IDAT);
-        if (IDATs.isEmpty()) {
-            throw new ImageReadException(""PNG missing image data"");
-        }
-
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        for (final PngChunk IDAT : IDATs) {
-            final PngChunkIdat pngChunkIDAT = (PngChunkIdat) IDAT;
-            final byte[] bytes = pngChunkIDAT.getBytes();
-            // System.out.println(i + "": bytes: "" + bytes.length);
-            baos.write(bytes);
-        }
-
-        final byte[] compressed = baos.toByteArray();
-
-        baos = null;
-
-        TransparencyFilter transparencyFilter = null;
-
-        final List<PngChunk> tRNSs = filterChunks(chunks, ChunkType.tRNS);
-        if (!tRNSs.isEmpty()) {
-            final PngChunk pngChunktRNS = tRNSs.get(0);
-            transparencyFilter = getTransparencyFilter(pngChunkIHDR.pngColorType, pngChunktRNS);
-        }
-
-        ICC_Profile iccProfile = null;
-        GammaCorrection gammaCorrection = null;
-        {
-            final List<PngChunk> sRGBs = filterChunks(chunks, ChunkType.sRGB);
-            final List<PngChunk> gAMAs = filterChunks(chunks, ChunkType.gAMA);
-            final List<PngChunk> iCCPs = filterChunks(chunks, ChunkType.iCCP);
-            if (sRGBs.size() > 1) {
-                throw new ImageReadException(""PNG: unexpected sRGB chunk"");
-            }
-            if (gAMAs.size() > 1) {
-                throw new ImageReadException(""PNG: unexpected gAMA chunk"");
-            }
-            if (iCCPs.size() > 1) {
-                throw new ImageReadException(""PNG: unexpected iCCP chunk"");
-            }
-
-            if (sRGBs.size() == 1) {
-                // no color management necessary.
-                if (LOGGER.isLoggable(Level.FINEST)) {
-                    LOGGER.finest(""sRGB, no color management necessary."");
-                }
-            } else if (iCCPs.size() == 1) {
-                if (LOGGER.isLoggable(Level.FINEST)) {
-                    LOGGER.finest(""iCCP."");
-                }
-
-                final PngChunkIccp pngChunkiCCP = (PngChunkIccp) iCCPs.get(0);
-                final byte[] bytes = pngChunkiCCP.getUncompressedProfile();
-
-                try {
-                    iccProfile = ICC_Profile.getInstance(bytes);
-                } catch (IllegalArgumentException iae) {
-                    throw new ImageReadException(""The image data does not correspond to a valid ICC Profile"", iae);
-                }
-            } else if (gAMAs.size() == 1) {
-                final PngChunkGama pngChunkgAMA = (PngChunkGama) gAMAs.get(0);
-                final double gamma = pngChunkgAMA.getGamma();
-
-                // charles: what is the correct target value here?
-                // double targetGamma = 2.2;
-                final double targetGamma = 1.0;
-                final double diff = Math.abs(targetGamma - gamma);
-                if (diff >= 0.5) {
-                    gammaCorrection = new GammaCorrection(gamma, targetGamma);
-                }
-
-                if (gammaCorrection != null) {
-                    if (pngChunkPLTE != null) {
-                        pngChunkPLTE.correct(gammaCorrection);
-                    }
-                }
-
-            }
-        }
-
-        {
-            final int width = pngChunkIHDR.width;
-            final int height = pngChunkIHDR.height;
-            final PngColorType pngColorType = pngChunkIHDR.pngColorType;
-            final int bitDepth = pngChunkIHDR.bitDepth;
-
-            if (pngChunkIHDR.filterMethod != 0) {
-                throw new ImageReadException(""PNG: unknown FilterMethod: "" + pngChunkIHDR.filterMethod);
-            }
-
-            final int bitsPerPixel = bitDepth * pngColorType.getSamplesPerPixel();
-
-            final boolean hasAlpha = pngColorType.hasAlpha() || transparencyFilter != null;
-
-            BufferedImage result;
-            if (pngColorType.isGreyscale()) {
-                result = getBufferedImageFactory(params).getGrayscaleBufferedImage(width, height, hasAlpha);
-            } else {
-                result = getBufferedImageFactory(params).getColorBufferedImage(width, height, hasAlpha);
-            }
-
-            final ByteArrayInputStream bais = new ByteArrayInputStream(compressed);
-            final InflaterInputStream iis = new InflaterInputStream(bais);
-
-            ScanExpediter scanExpediter;
-
-            switch (pngChunkIHDR.interlaceMethod) {
-                case NONE:
-                    scanExpediter = new ScanExpediterSimple(width, height, iis,
-                            result, pngColorType, bitDepth, bitsPerPixel,
-                            pngChunkPLTE, gammaCorrection, transparencyFilter);
-                    break;
-                case ADAM7:
-                    scanExpediter = new ScanExpediterInterlaced(width, height, iis,
-                            result, pngColorType, bitDepth, bitsPerPixel,
-                            pngChunkPLTE, gammaCorrection, transparencyFilter);
-                    break;
-                default:
-                    throw new ImageReadException(""Unknown InterlaceMethod: "" + pngChunkIHDR.interlaceMethod);
-            }
-
-            scanExpediter.drive();
-
-            if (iccProfile != null) {
-                final boolean is_srgb = new IccProfileParser().issRGB(iccProfile);
-                if (!is_srgb) {
-                    final ICC_ColorSpace cs = new ICC_ColorSpace(iccProfile);
-
-                    final ColorModel srgbCM = ColorModel.getRGBdefault();
-                    final ColorSpace cs_sRGB = srgbCM.getColorSpace();
-
-                    result = new ColorTools().convertBetweenColorSpaces(result, cs, cs_sRGB);
-                }
-            }
-
-            return result;
-
-        }
-
-    }"
+",PngWithInvalidPngChunkSizeTest::testPngWithInvalidNegativePngChunkSize_1_oe
 imag_266_1,"   @Test
    public void testConstruct_InvalidUnitSpecifier_1_oe() {
        Assertions.assertThrows(ImageReadException.class,() -> new PngChunkScal(10, chunkType, 0, new byte[]{3, 48, 46, 48, 49, 0, 48, 46, 48, 50}));
    }
-",PngChunkScalTest::testConstruct_InvalidUnitSpecifier_1_oe,,,,
+",PngChunkScalTest::testConstruct_InvalidUnitSpecifier_1_oe
 imag_267_1,"   @Test
    public void testConstruct_MissingSeparator_1_oe() {
       Assertions.assertThrows(ImageReadException.class,() -> new PngChunkScal(9, chunkType, 0, new byte[]{1, 48, 46, 48, 49, 48, 46, 48, 50}));
    }
-",PngChunkScalTest::testConstruct_MissingSeparator_1_oe,,,,
+",PngChunkScalTest::testConstruct_MissingSeparator_1_oe
 imag_268_1,"   @Test
    public void testConstruct_InvalidDblValue_1_oe() {
        Assertions.assertThrows(ImageReadException.class,() -> new PngChunkScal(10, chunkType, 0, new byte[]{2, 65, 46, 48, 49, 0, 48, 46, 48, 50}));
    }
-",PngChunkScalTest::testConstruct_InvalidDblValue_1_oe,,,,
+",PngChunkScalTest::testConstruct_InvalidDblValue_1_oe
 imag_269_1,"   @Test
    public void testConstruct_MissingXValue_1_oe() {
       Assertions.assertThrows(ImageReadException.class,() -> new PngChunkScal(2, chunkType, 0, new byte[]{2, 0}));
    }
-",PngChunkScalTest::testConstruct_MissingXValue_1_oe,,,,
+",PngChunkScalTest::testConstruct_MissingXValue_1_oe
 imag_270_1,"   @Test
    public void testConstruct_MissingYValue_1_oe() {
        Assertions.assertThrows(ImageReadException.class,() -> new PngChunkScal(6, chunkType, 0, new byte[]{2, 48, 46, 48, 49, 0}));
    }
-",PngChunkScalTest::testConstruct_MissingYValue_1_oe,,,,
+",PngChunkScalTest::testConstruct_MissingYValue_1_oe
 imag_271_1,"    @Test
     public void testErrorOnNoProfileName_1_oe() {
         final byte[] data = ImagingConstants.EMPTY_BYTE_ARRAY;
         Assertions.assertThrows(ImageReadException.class, () -> new PngChunkIccp(0, chunkType, 0, data));
     }
-",PngChunkIccpTest::testErrorOnNoProfileName_1_oe,,,,
+",PngChunkIccpTest::testErrorOnNoProfileName_1_oe
+imag_279_1,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testMetadata_1_oe(final File imageFile) {
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> Imaging.getMetadata(imageFile));
+    }
+",GifReadTest::testMetadata_1_oe
 imag_287_1,"    @Test
     public void testConvertInvalidDisposalMethodValues_1_oe() {
         Assertions.assertThrows(ImageReadException.class, () -> GifImageParser.createDisposalMethodFromIntValue(8));
     }
-",GifReadTest::testConvertInvalidDisposalMethodValues_1_oe,org.apache.commons.imaging.formats.gif.GifImageParser,createDisposalMethodFromIntValue(final int value),,"static DisposalMethod createDisposalMethodFromIntValue(final int value) throws ImageReadException {
-        switch (value) {
-            case 0:
-                return DisposalMethod.UNSPECIFIED;
-            case 1:
-                return DisposalMethod.DO_NOT_DISPOSE;
-            case 2:
-                return DisposalMethod.RESTORE_TO_BACKGROUND;
-            case 3:
-                return DisposalMethod.RESTORE_TO_PREVIOUS;
-            case 4:
-                return DisposalMethod.TO_BE_DEFINED_1;
-            case 5:
-                return DisposalMethod.TO_BE_DEFINED_2;
-            case 6:
-                return DisposalMethod.TO_BE_DEFINED_3;
-            case 7:
-                return DisposalMethod.TO_BE_DEFINED_4;
-            default:
-                throw new ImageReadException(""GIF: Invalid parsing of disposal method"");
-        }
-    }"
+",GifReadTest::testConvertInvalidDisposalMethodValues_1_oe
 imag_288_1,"    @Test
     public void testUncaughtExceptionOssFuzz33501_1_oe() throws IOException {
         final String input = ""/images/gif/oss-fuzz-33501/clusterfuzz-testcase-minimized-ImagingGifFuzzer-5914278319226880"";
@@ -1686,88 +475,7 @@ imag_288_1,"    @Test
         final GifImageParser parser = new GifImageParser();
         assertThrows(ImageReadException.class, () -> parser.getBufferedImage(new ByteSourceFile(new File(file)), new GifImagingParameters()));
     }
-",GifReadTest::testUncaughtExceptionOssFuzz33501_1_oe,org.apache.commons.imaging.formats.gif.GifImageParser,"getBufferedImage(final GifHeaderInfo headerInfo, final GifImageData imageData, final byte[] globalColorTable)",,"private BufferedImage getBufferedImage(final GifHeaderInfo headerInfo, final GifImageData imageData, final byte[] globalColorTable)
-            throws ImageReadException {
-        final ImageDescriptor id = imageData.descriptor;
-        final GraphicControlExtension gce = imageData.gce;
-
-        final int width = id.imageWidth;
-        final int height = id.imageHeight;
-
-        boolean hasAlpha = false;
-        if (gce != null && gce.transparency) {
-            hasAlpha = true;
-        }
-
-        final ImageBuilder imageBuilder = new ImageBuilder(width, height, hasAlpha);
-
-        int[] colorTable;
-        if (id.localColorTable != null) {
-            colorTable = getColorTable(id.localColorTable);
-        } else if (globalColorTable != null) {
-            colorTable = getColorTable(globalColorTable);
-        } else {
-            throw new ImageReadException(""Gif: No Color Table"");
-        }
-
-        int transparentIndex = -1;
-        if (gce != null && hasAlpha) {
-            transparentIndex = gce.transparentColorIndex;
-        }
-
-        int counter = 0;
-
-        final int rowsInPass1 = (height + 7) / 8;
-        final int rowsInPass2 = (height + 3) / 8;
-        final int rowsInPass3 = (height + 1) / 4;
-        final int rowsInPass4 = (height) / 2;
-
-        for (int row = 0; row < height; row++) {
-            int y;
-            if (id.interlaceFlag) {
-                int theRow = row;
-                if (theRow < rowsInPass1) {
-                    y = theRow * 8;
-                } else {
-                    theRow -= rowsInPass1;
-                    if (theRow < (rowsInPass2)) {
-                        y = 4 + (theRow * 8);
-                    } else {
-                        theRow -= rowsInPass2;
-                        if (theRow < (rowsInPass3)) {
-                            y = 2 + (theRow * 4);
-                        } else {
-                            theRow -= rowsInPass3;
-                            if (theRow >= (rowsInPass4)) {
-                                throw new ImageReadException(""Gif: Strange Row"");
-                            }
-                            y = 1 + (theRow * 2);
-                        }
-                    }
-                }
-            } else {
-                y = row;
-            }
-
-            for (int x = 0; x < width; x++) {
-                if (counter >= id.imageData.length) {
-                    throw new ImageReadException(String.format(""Invalid GIF image data length [%d], greater than the image data length [%d]"", id.imageData.length, width));
-                }
-                final int index = 0xff & id.imageData[counter++];
-                if (index >= colorTable.length) {
-                    throw new ImageReadException(String.format(""Invalid GIF color table index [%d], greater than the color table length [%d]"", index, colorTable.length));
-                }
-                int rgb = colorTable[index];
-
-                if (transparentIndex == index) {
-                    rgb = 0x00;
-                }
-                imageBuilder.setRGB(x, y, rgb);
-            }
-        }
-
-        return imageBuilder.getBufferedImage();
-    }"
+",GifReadTest::testUncaughtExceptionOssFuzz33501_1_oe
 imag_289_1,"    @Test
     public void testUncaughtExceptionOssFuzz33464_1_oe() throws IOException {
         final String input = ""/images/gif/oss-fuzz-33464/clusterfuzz-testcase-minimized-ImagingGifFuzzer-5174009164595200"";
@@ -1775,88 +483,7 @@ imag_289_1,"    @Test
         final GifImageParser parser = new GifImageParser();
         assertThrows(ImageReadException.class, () -> parser.getBufferedImage(new ByteSourceFile(new File(file)), new GifImagingParameters()));
     }
-",GifReadTest::testUncaughtExceptionOssFuzz33464_1_oe,org.apache.commons.imaging.formats.gif.GifImageParser,"getBufferedImage(final GifHeaderInfo headerInfo, final GifImageData imageData, final byte[] globalColorTable)",,"private BufferedImage getBufferedImage(final GifHeaderInfo headerInfo, final GifImageData imageData, final byte[] globalColorTable)
-            throws ImageReadException {
-        final ImageDescriptor id = imageData.descriptor;
-        final GraphicControlExtension gce = imageData.gce;
-
-        final int width = id.imageWidth;
-        final int height = id.imageHeight;
-
-        boolean hasAlpha = false;
-        if (gce != null && gce.transparency) {
-            hasAlpha = true;
-        }
-
-        final ImageBuilder imageBuilder = new ImageBuilder(width, height, hasAlpha);
-
-        int[] colorTable;
-        if (id.localColorTable != null) {
-            colorTable = getColorTable(id.localColorTable);
-        } else if (globalColorTable != null) {
-            colorTable = getColorTable(globalColorTable);
-        } else {
-            throw new ImageReadException(""Gif: No Color Table"");
-        }
-
-        int transparentIndex = -1;
-        if (gce != null && hasAlpha) {
-            transparentIndex = gce.transparentColorIndex;
-        }
-
-        int counter = 0;
-
-        final int rowsInPass1 = (height + 7) / 8;
-        final int rowsInPass2 = (height + 3) / 8;
-        final int rowsInPass3 = (height + 1) / 4;
-        final int rowsInPass4 = (height) / 2;
-
-        for (int row = 0; row < height; row++) {
-            int y;
-            if (id.interlaceFlag) {
-                int theRow = row;
-                if (theRow < rowsInPass1) {
-                    y = theRow * 8;
-                } else {
-                    theRow -= rowsInPass1;
-                    if (theRow < (rowsInPass2)) {
-                        y = 4 + (theRow * 8);
-                    } else {
-                        theRow -= rowsInPass2;
-                        if (theRow < (rowsInPass3)) {
-                            y = 2 + (theRow * 4);
-                        } else {
-                            theRow -= rowsInPass3;
-                            if (theRow >= (rowsInPass4)) {
-                                throw new ImageReadException(""Gif: Strange Row"");
-                            }
-                            y = 1 + (theRow * 2);
-                        }
-                    }
-                }
-            } else {
-                y = row;
-            }
-
-            for (int x = 0; x < width; x++) {
-                if (counter >= id.imageData.length) {
-                    throw new ImageReadException(String.format(""Invalid GIF image data length [%d], greater than the image data length [%d]"", id.imageData.length, width));
-                }
-                final int index = 0xff & id.imageData[counter++];
-                if (index >= colorTable.length) {
-                    throw new ImageReadException(String.format(""Invalid GIF color table index [%d], greater than the color table length [%d]"", index, colorTable.length));
-                }
-                int rgb = colorTable[index];
-
-                if (transparentIndex == index) {
-                    rgb = 0x00;
-                }
-                imageBuilder.setRGB(x, y, rgb);
-            }
-        }
-
-        return imageBuilder.getBufferedImage();
-    }"
+",GifReadTest::testUncaughtExceptionOssFuzz33464_1_oe
 imag_290_1,"    @Test
     public void testUncaughtExceptionOssFuzz34185_1_oe() throws IOException {
         final String input = ""/images/gif/IMAGING-318/clusterfuzz-testcase-minimized-ImagingGifFuzzer-5005192379629568"";
@@ -1864,88 +491,13 @@ imag_290_1,"    @Test
         final GifImageParser parser = new GifImageParser();
         assertThrows(ImageReadException.class, () -> parser.getBufferedImage(new ByteSourceFile(new File(file)), new GifImagingParameters()));
     }
-",GifReadTest::testUncaughtExceptionOssFuzz34185_1_oe,org.apache.commons.imaging.formats.gif.GifImageParser,"getBufferedImage(final GifHeaderInfo headerInfo, final GifImageData imageData, final byte[] globalColorTable)",,"private BufferedImage getBufferedImage(final GifHeaderInfo headerInfo, final GifImageData imageData, final byte[] globalColorTable)
-            throws ImageReadException {
-        final ImageDescriptor id = imageData.descriptor;
-        final GraphicControlExtension gce = imageData.gce;
-
-        final int width = id.imageWidth;
-        final int height = id.imageHeight;
-
-        boolean hasAlpha = false;
-        if (gce != null && gce.transparency) {
-            hasAlpha = true;
-        }
-
-        final ImageBuilder imageBuilder = new ImageBuilder(width, height, hasAlpha);
-
-        int[] colorTable;
-        if (id.localColorTable != null) {
-            colorTable = getColorTable(id.localColorTable);
-        } else if (globalColorTable != null) {
-            colorTable = getColorTable(globalColorTable);
-        } else {
-            throw new ImageReadException(""Gif: No Color Table"");
-        }
-
-        int transparentIndex = -1;
-        if (gce != null && hasAlpha) {
-            transparentIndex = gce.transparentColorIndex;
-        }
-
-        int counter = 0;
-
-        final int rowsInPass1 = (height + 7) / 8;
-        final int rowsInPass2 = (height + 3) / 8;
-        final int rowsInPass3 = (height + 1) / 4;
-        final int rowsInPass4 = (height) / 2;
-
-        for (int row = 0; row < height; row++) {
-            int y;
-            if (id.interlaceFlag) {
-                int theRow = row;
-                if (theRow < rowsInPass1) {
-                    y = theRow * 8;
-                } else {
-                    theRow -= rowsInPass1;
-                    if (theRow < (rowsInPass2)) {
-                        y = 4 + (theRow * 8);
-                    } else {
-                        theRow -= rowsInPass2;
-                        if (theRow < (rowsInPass3)) {
-                            y = 2 + (theRow * 4);
-                        } else {
-                            theRow -= rowsInPass3;
-                            if (theRow >= (rowsInPass4)) {
-                                throw new ImageReadException(""Gif: Strange Row"");
-                            }
-                            y = 1 + (theRow * 2);
-                        }
-                    }
-                }
-            } else {
-                y = row;
-            }
-
-            for (int x = 0; x < width; x++) {
-                if (counter >= id.imageData.length) {
-                    throw new ImageReadException(String.format(""Invalid GIF image data length [%d], greater than the image data length [%d]"", id.imageData.length, width));
-                }
-                final int index = 0xff & id.imageData[counter++];
-                if (index >= colorTable.length) {
-                    throw new ImageReadException(String.format(""Invalid GIF color table index [%d], greater than the color table length [%d]"", index, colorTable.length));
-                }
-                int rgb = colorTable[index];
-
-                if (transparentIndex == index) {
-                    rgb = 0x00;
-                }
-                imageBuilder.setRGB(x, y, rgb);
-            }
-        }
-
-        return imageBuilder.getBufferedImage();
-    }"
+",GifReadTest::testUncaughtExceptionOssFuzz34185_1_oe
+imag_292_1,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testMetaData_1_oe(final File imageFile) {
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> Imaging.getMetadata(imageFile));
+    }
+",BmpReadTest::testMetaData_1_oe
 imag_294_1,"    @Test
     public void testNegativePaletteLength_1_oe() throws ImageReadException, IOException {
         final String input = ""/images/bmp/IMAGING-325/crash-3afb569de74522535ef65922233e1920455cdc14.bmp"";
@@ -1953,16 +505,7 @@ imag_294_1,"    @Test
         final File inputFile = new File(location);
         assertThrows(ImageReadException.class, () -> new BmpImageParser().dumpImageFile(new ByteSourceFile(inputFile)));
     }
-",BmpReadTest::testNegativePaletteLength_1_oe,org.apache.commons.imaging.Imaging,dumpImageFile(final byte[] bytes),"/**
-     * Write the ImageInfo and format-specific information for the image content of the specified byte array to a string.
-     *
-     * @param bytes A valid array of bytes.
-     * @return A valid string.
-     * @throws ImageReadException In the event that the specified content does not conform to the format of the specific parser implementation.
-     * @throws IOException In the event of unsuccessful read or access operation.
-     */","public static String dumpImageFile(final byte[] bytes) throws ImageReadException, IOException {
-        return dumpImageFile(new ByteSourceArray(bytes));
-    }"
+",BmpReadTest::testNegativePaletteLength_1_oe
 imag_296_1,"    @Test
     public void testImageForNegativeArraySizeException_1_oe() throws ImageReadException, IOException {
         final String file = ""/images/bmp/IMAGING-279/negative_array_size_exception.bmp"";
@@ -1970,57 +513,16 @@ imag_296_1,"    @Test
         final BmpImageParser parser = new BmpImageParser();
         assertThrows(IOException.class, () -> parser.getImageInfo(bmp, new BmpImagingParameters()));
     }
-",BmpImageParserTest::testImageForNegativeArraySizeException_1_oe,org.apache.commons.imaging.formats.bmp.BmpImageParser,"getImageInfo(final ByteSource byteSource, final BmpImagingParameters params)",,"@Override
-    public ImageInfo getImageInfo(final ByteSource byteSource, final BmpImagingParameters params)
-            throws ImageReadException, IOException {
-        BmpImageContents ic = null;
-        try (InputStream is = byteSource.getInputStream()) {
-            ic = readImageContents(is, FormatCompliance.getDefault());
-        }
-
-        final BmpHeaderInfo bhi = ic.bhi;
-        final byte[] colorTable = ic.colorTable;
-
-        if (bhi == null) {
-            throw new ImageReadException(""BMP: couldn't read header"");
-        }
-
-        final int height = bhi.height;
-        final int width = bhi.width;
-
-        final List<String> comments = new ArrayList<>();
-        // TODO: comments...
-
-        final int bitsPerPixel = bhi.bitsPerPixel;
-        final ImageFormat format = ImageFormats.BMP;
-        final String name = ""BMP Windows Bitmap"";
-        final String mimeType = ""image/x-ms-bmp"";
-        // we ought to count images, but don't yet.
-        final int numberOfImages = -1;
-        // not accurate ... only reflects first
-        final boolean progressive = false;
-        // boolean progressive = (fPNGChunkIHDR.InterlaceMethod != 0);
-        //
-        // pixels per meter
-        final int physicalWidthDpi = (int) Math.round(bhi.hResolution * .0254);
-        final float physicalWidthInch = (float) ((double) width / (double) physicalWidthDpi);
-        // int physicalHeightDpi = 72;
-        final int physicalHeightDpi = (int) Math.round(bhi.vResolution * .0254);
-        final float physicalHeightInch = (float) ((double) height / (double) physicalHeightDpi);
-
-        final String formatDetails = ""Bmp ("" + (char) bhi.identifier1
-                + (char) bhi.identifier2 + "": ""
-                + getBmpTypeDescription(bhi.identifier1, bhi.identifier2) + "")"";
-
-        final boolean transparent = false;
-
-        final boolean usesPalette = colorTable != null;
-        final ImageInfo.ColorType colorType = ImageInfo.ColorType.RGB;
-        final ImageInfo.CompressionAlgorithm compressionAlgorithm = ImageInfo.CompressionAlgorithm.RLE;
-
-        return new ImageInfo(formatDetails, bitsPerPixel, comments,
-                format, name, height, mimeType, numberOfImages,
-                physicalHeightDpi, physicalHeightInch, physicalWidthDpi,
-                physicalWidthInch, width, progressive, transparent,
-                usesPalette, colorType, compressionAlgorithm);
-    }"
+",BmpImageParserTest::testImageForNegativeArraySizeException_1_oe
+imag_298_1,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testMetadata_1_oe(final File imageFile) {
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> Imaging.getMetadata(imageFile));
+    }
+",IcoReadTest::testMetadata_1_oe
+imag_299_1,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testImageInfo_1_oe(final File imageFile) {
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> Imaging.getImageInfo(imageFile));
+    }
+",IcoReadTest::testImageInfo_1_oe

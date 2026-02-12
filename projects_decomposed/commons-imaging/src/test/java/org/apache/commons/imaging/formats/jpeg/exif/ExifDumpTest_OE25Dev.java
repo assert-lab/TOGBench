@@ -47,5 +47,13 @@ public class ExifDumpTest_OE25Dev extends ExifBaseTest {
         // TODO assert something
     }
 
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testMetadata_1_oe(final File imageFile) throws Exception {
+        final JpegImagingParameters params = new JpegImagingParameters();
+
+        final JpegImageMetadata metadata = (JpegImageMetadata) Imaging.getMetadata(imageFile);
+        assertNotNull(metadata);
+    }
 
 }

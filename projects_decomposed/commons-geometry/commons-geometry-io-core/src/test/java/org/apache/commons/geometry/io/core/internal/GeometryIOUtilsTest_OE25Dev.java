@@ -163,6 +163,449 @@ class GeometryIOUtilsTest_OE25Dev {
     }
 
     @Test
+    void testGetFileName_path_1_oe() {
+        // act/assert
+        Assertions.assertNull(GeometryIOUtils.getFileName((Path) null));
+    }
+
+    @Test
+    void testGetFileName_path_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertNull(GeometryIOUtils.getFileName(Paths.get("")));
+    }
+
+    @Test
+    void testGetFileName_path_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals("myfile", GeometryIOUtils.getFileName(Paths.get("myfile")));
+    }
+
+    @Test
+    void testGetFileName_path_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals("myfile.txt", GeometryIOUtils.getFileName(Paths.get("path/to/myfile.txt")));
+    }
+
+    @Test
+    void testGetFileName_url_1_oe() throws MalformedURLException {
+        // act/assert
+        Assertions.assertNull(GeometryIOUtils.getFileName((URL) null));
+    }
+
+    @Test
+    void testGetFileName_url_2_oe() throws MalformedURLException {
+        // act/assert
+        // removed other assertion
+        Assertions.assertNull(GeometryIOUtils.getFileName(new URL("http://test.com/")));
+    }
+
+    @Test
+    void testGetFileName_url_3_oe() throws MalformedURLException {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals("myfile.txt",GeometryIOUtils.getFileName(new URL("http://test.com/myfile.txt?a=otherfile.txt")));
+    }
+
+    @Test
+    void testGetFileName_string_1_oe() {
+        // act/assert
+        Assertions.assertNull(GeometryIOUtils.getFileName((String) null));
+    }
+
+    @Test
+    void testGetFileName_string_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertNull(GeometryIOUtils.getFileName(""));
+    }
+
+    @Test
+    void testGetFileName_string_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNull(GeometryIOUtils.getFileName("some/path/"));
+    }
+
+    @Test
+    void testGetFileName_string_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNull(GeometryIOUtils.getFileName("some\\path\\"));
+    }
+
+    @Test
+    void testGetFileName_string_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals("myfile", GeometryIOUtils.getFileName("myfile"));
+    }
+
+    @Test
+    void testGetFileName_string_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals("myfile.txt", GeometryIOUtils.getFileName(Paths.get("path/to/myfile.txt")));
+    }
+
+    @Test
+    void testGetFileName_string_7_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals("myfile.txt", GeometryIOUtils.getFileName(Paths.get("/myfile.txt")));
+    }
+
+    @Test
+    void testGetFileName_string_8_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals("myfile.txt", GeometryIOUtils.getFileName(Paths.get("path\\to\\myfile.txt")));
+    }
+
+    @Test
+    void testGetFileName_string_9_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals("myfile.txt", GeometryIOUtils.getFileName(Paths.get("C:\\myfile.txt")));
+    }
+
+    @Test
+    void testGetFileExtension_1_oe() {
+        // act/assert
+        Assertions.assertEquals(null, GeometryIOUtils.getFileExtension(null));
+    }
+
+    @Test
+    void testGetFileExtension_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertEquals("", GeometryIOUtils.getFileExtension(""));
+    }
+
+    @Test
+    void testGetFileExtension_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals("", GeometryIOUtils.getFileExtension("abc"));
+    }
+
+    @Test
+    void testGetFileExtension_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals("", GeometryIOUtils.getFileExtension("abc."));
+    }
+
+    @Test
+    void testGetFileExtension_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals("txt", GeometryIOUtils.getFileExtension("abc.txt"));
+    }
+
+    @Test
+    void testGetFileExtension_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals("X", GeometryIOUtils.getFileExtension("/a/b/c.X"));
+    }
+
+    @Test
+    void testGetFileExtension_7_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals("jpg", GeometryIOUtils.getFileExtension("/a/b/c.d.jpg"));
+    }
+
+    @Test
+    void testCreateBufferedWriter_givenCharset_1_oe() throws IOException {
+        // arrange
+        final ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        final GeometryOutput output = new StreamGeometryOutput(bytes, null, StandardCharsets.UTF_8);
+
+        // act
+        final BufferedWriter writer = GeometryIOUtils.createBufferedWriter(output, StandardCharsets.ISO_8859_1);
+        writer.append('\u00fc');
+        writer.flush();
+
+        // assert
+        Assertions.assertEquals("\u00fc", new String(bytes.toByteArray(), StandardCharsets.UTF_8));
+    }
+
+    @Test
+    void testCreateBufferedWriter_defaultCharset_1_oe() throws IOException {
+        // arrange
+        final ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        final GeometryOutput output = new StreamGeometryOutput(bytes);
+
+        // act
+        final BufferedWriter writer = GeometryIOUtils.createBufferedWriter(output, StandardCharsets.ISO_8859_1);
+        writer.append('\u00fc');
+        writer.flush();
+
+        // assert
+        Assertions.assertEquals("\u00fc", new String(bytes.toByteArray(), StandardCharsets.ISO_8859_1));
+    }
+
+    @Test
+    void testCreateBufferedReader_givenCharset_1_oe() throws IOException {
+        // arrange
+        final byte[] bytes = "\u00fc".getBytes(StandardCharsets.UTF_8);
+        final GeometryInput input = new StreamGeometryInput(
+                new ByteArrayInputStream(bytes), null, StandardCharsets.UTF_8);
+
+        // act
+        final BufferedReader reader = GeometryIOUtils.createBufferedReader(input, StandardCharsets.ISO_8859_1);
+
+        // assert
+        Assertions.assertEquals("\u00fc", reader.readLine());
+    }
+
+    @Test
+    void testCreateBufferedReader_defaultCharset_1_oe() throws IOException {
+        // arrange
+        final byte[] bytes = "\u00fc".getBytes(StandardCharsets.UTF_8);
+        final GeometryInput input = new StreamGeometryInput(new ByteArrayInputStream(bytes));
+
+        // act
+        final BufferedReader reader = GeometryIOUtils.createBufferedReader(input, StandardCharsets.UTF_8);
+
+        // assert
+        Assertions.assertEquals("\u00fc", reader.readLine());
+    }
+
+    @Test
+    void testGetUnchecked_1_oe() {
+        // act
+        final Object result = GeometryIOUtils.getUnchecked(() -> "abc");
+
+        // assert
+        Assertions.assertSame("abc", result);
+    }
+
+    @Test
+    void testAcceptUnchecked_1_oe() {
+        // arrange
+        final ByteArrayOutputStream out = new ByteArrayOutputStream();
+        final byte[] bytes = new byte[] {0, 1};
+
+        // act
+        GeometryIOUtils.acceptUnchecked(out::write, bytes);
+
+        // assert
+        Assertions.assertArrayEquals(bytes, out.toByteArray());
+    }
+
+    @Test
+    void testApplyAsIntUnchecked_1_oe() {
+        // arrange
+        final ByteArrayInputStream in = new ByteArrayInputStream(new byte[] {0, 1, 2});
+        final byte[] bytes = new byte[10];
+
+        // act
+        int result = GeometryIOUtils.applyAsIntUnchecked(in::read, bytes);
+
+        // assert
+        Assertions.assertEquals(3, result);
+    }
+
+    @Test
+    void testApplyAsIntUnchecked_2_oe() {
+        // arrange
+        final ByteArrayInputStream in = new ByteArrayInputStream(new byte[] {0, 1, 2});
+        final byte[] bytes = new byte[10];
+
+        // act
+        int result = GeometryIOUtils.applyAsIntUnchecked(in::read, bytes);
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals((byte) 0, bytes[0]);
+    }
+
+    @Test
+    void testApplyAsIntUnchecked_3_oe() {
+        // arrange
+        final ByteArrayInputStream in = new ByteArrayInputStream(new byte[] {0, 1, 2});
+        final byte[] bytes = new byte[10];
+
+        // act
+        int result = GeometryIOUtils.applyAsIntUnchecked(in::read, bytes);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals((byte) 1, bytes[1]);
+    }
+
+    @Test
+    void testApplyAsIntUnchecked_4_oe() {
+        // arrange
+        final ByteArrayInputStream in = new ByteArrayInputStream(new byte[] {0, 1, 2});
+        final byte[] bytes = new byte[10];
+
+        // act
+        int result = GeometryIOUtils.applyAsIntUnchecked(in::read, bytes);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals((byte) 2, bytes[2]);
+    }
+
+    @Test
+    void testCreateUnchecked_1_oe() {
+        // arrange
+        final FileNotFoundException exc = new FileNotFoundException("test");
+
+        // act
+        final UncheckedIOException result = GeometryIOUtils.createUnchecked(exc);
+
+        // assert
+        Assertions.assertEquals("FileNotFoundException: test", result.getMessage());
+    }
+
+    @Test
+    void testCreateUnchecked_2_oe() {
+        // arrange
+        final FileNotFoundException exc = new FileNotFoundException("test");
+
+        // act
+        final UncheckedIOException result = GeometryIOUtils.createUnchecked(exc);
+
+        // assert
+        // removed other assertion
+        Assertions.assertSame(exc, result.getCause());
+    }
+
+    @Test
+    void testParseError_noCause_1_oe() {
+        // act
+        final IllegalStateException exc = GeometryIOUtils.parseError("test");
+
+        // assert
+        Assertions.assertEquals("test", exc.getMessage());
+    }
+
+    @Test
+    void testParseError_noCause_2_oe() {
+        // act
+        final IllegalStateException exc = GeometryIOUtils.parseError("test");
+
+        // assert
+        // removed other assertion
+        Assertions.assertNull(exc.getCause());
+    }
+
+    @Test
+    void testParseError_withCause_1_oe() {
+        // arrange
+        final Throwable cause = new Throwable("cause");
+
+        // act
+        final IllegalStateException exc = GeometryIOUtils.parseError("test", cause);
+
+        // assert
+        Assertions.assertEquals("test", exc.getMessage());
+    }
+
+    @Test
+    void testParseError_withCause_2_oe() {
+        // arrange
+        final Throwable cause = new Throwable("cause");
+
+        // act
+        final IllegalStateException exc = GeometryIOUtils.parseError("test", cause);
+
+        // assert
+        // removed other assertion
+        Assertions.assertSame(cause, exc.getCause());
+    }
+
+    @Test
+    void testTryApplyCloseable_1_oe() {
+        // arrange
+        final CloseCountInputStream in = new CloseCountInputStream(new ByteArrayInputStream(new byte[] {1}));
+
+        // act
+        final int result = GeometryIOUtils.tryApplyCloseable(i -> i.read(), () -> in);
+
+        // assert
+        Assertions.assertEquals(1, result);
+    }
+
+    @Test
+    void testTryApplyCloseable_2_oe() {
+        // arrange
+        final CloseCountInputStream in = new CloseCountInputStream(new ByteArrayInputStream(new byte[] {1}));
+
+        // act
+        final int result = GeometryIOUtils.tryApplyCloseable(i -> i.read(), () -> in);
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(0, in.getCloseCount());
+    }
+
+    @Test
     void testTryApplyCloseable_functionThrows_inputCloseThrows_1_oe() {
         // arrange
         final CloseCountInputStream in = new CloseCountInputStream(new CloseFailByteArrayInputStream(new byte[0]));

@@ -27,5 +27,376 @@ import org.junit.jupiter.api.Test;
 @Deprecated
 public class OctalUnescaperTest_OE25Dev {
 
+    @Test
+    public void testBetween_1_oe() {
+        final OctalUnescaper oue = new OctalUnescaper();   //.between("1", "377");
+
+        String input = "\\45";
+        String result = oue.translate(input);
+        assertEquals("\45", result, "Failed to unescape octal characters via the between method");
+    }
+
+    @Test
+    public void testBetween_2_oe() {
+        final OctalUnescaper oue = new OctalUnescaper();   //.between("1", "377");
+
+        String input = "\\45";
+        String result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377";
+        result = oue.translate(input);
+        assertEquals("\377", result, "Failed to unescape octal characters via the between method");
+    }
+
+    @Test
+    public void testBetween_3_oe() {
+        final OctalUnescaper oue = new OctalUnescaper();   //.between("1", "377");
+
+        String input = "\\45";
+        String result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377 and";
+        result = oue.translate(input);
+        assertEquals("\377 and", result, "Failed to unescape octal characters via the between method");
+    }
+
+    @Test
+    public void testBetween_4_oe() {
+        final OctalUnescaper oue = new OctalUnescaper();   //.between("1", "377");
+
+        String input = "\\45";
+        String result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378 and";
+        result = oue.translate(input);
+        assertEquals("\37" + "8 and", result, "Failed to unescape octal characters via the between method");
+    }
+
+    @Test
+    public void testBetween_5_oe() {
+        final OctalUnescaper oue = new OctalUnescaper();   //.between("1", "377");
+
+        String input = "\\45";
+        String result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378";
+        result = oue.translate(input);
+        assertEquals("\37" + "8", result, "Failed to unescape octal characters via the between method");
+    }
+
+    @Test
+    public void testBetween_6_oe() {
+        final OctalUnescaper oue = new OctalUnescaper();   //.between("1", "377");
+
+        String input = "\\45";
+        String result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\1";
+        result = oue.translate(input);
+        assertEquals("\1", result, "Failed to unescape octal characters via the between method");
+    }
+
+    @Test
+    public void testBetween_7_oe() {
+        final OctalUnescaper oue = new OctalUnescaper();   //.between("1", "377");
+
+        String input = "\\45";
+        String result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\1";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\036";
+        result = oue.translate(input);
+        assertEquals("\036", result, "Failed to unescape octal characters via the between method");
+    }
+
+    @Test
+    public void testBetween_8_oe() {
+        final OctalUnescaper oue = new OctalUnescaper();   //.between("1", "377");
+
+        String input = "\\45";
+        String result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\1";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\036";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\0365";
+        result = oue.translate(input);
+        assertEquals("\036" + "5", result, "Failed to unescape octal characters via the between method");
+    }
+
+    @Test
+    public void testBetween_9_oe() {
+        final OctalUnescaper oue = new OctalUnescaper();   //.between("1", "377");
+
+        String input = "\\45";
+        String result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\1";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\036";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\0365";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\003";
+        result = oue.translate(input);
+        assertEquals("\003", result, "Failed to unescape octal characters via the between method");
+    }
+
+    @Test
+    public void testBetween_10_oe() {
+        final OctalUnescaper oue = new OctalUnescaper();   //.between("1", "377");
+
+        String input = "\\45";
+        String result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\1";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\036";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\0365";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\003";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\0003";
+        result = oue.translate(input);
+        assertEquals("\000" + "3", result, "Failed to unescape octal characters via the between method");
+    }
+
+    @Test
+    public void testBetween_11_oe() {
+        final OctalUnescaper oue = new OctalUnescaper();   //.between("1", "377");
+
+        String input = "\\45";
+        String result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\1";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\036";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\0365";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\003";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\0003";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\279";
+        result = oue.translate(input);
+        assertEquals("\279", result, "Failed to unescape octal characters via the between method");
+    }
+
+    @Test
+    public void testBetween_12_oe() {
+        final OctalUnescaper oue = new OctalUnescaper();   //.between("1", "377");
+
+        String input = "\\45";
+        String result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\377 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378 and";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\378";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\1";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\036";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\0365";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\003";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\0003";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\279";
+        result = oue.translate(input);
+        // removed other assertion
+
+        input = "\\999";
+        result = oue.translate(input);
+        assertEquals("\\999", result, "Failed to ignore an out of range octal character via the between method");
+    }
 
 }

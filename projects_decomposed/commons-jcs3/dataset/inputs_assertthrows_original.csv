@@ -1,4 +1,4 @@
-id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+id,test_prefix,test_name
 jcs3_95_1,"    public void testDifferentKey_1_oe()
         throws Exception
     {
@@ -9,13 +9,4 @@ jcs3_95_1,"    public void testDifferentKey_1_oe()
 
         assertThrows(IOException.class, () -> serializer.deSerialize(serialized, null));
     }
-",EncryptingSerializerUnitTest::testDifferentKey_1_oe,org.apache.commons.jcs3.engine.behavior.IElementSerializer,"deSerialize( byte[] bytes, ClassLoader loader )","/**
-     * Turns a byte array into an object.
-     *
-     * @param bytes data bytes
-     * @param loader class loader to use
-     * @return Object
-     * @throws IOException if de-serialization fails
-     * @throws ClassNotFoundException thrown if we don't know the object.
-     */","<T> T deSerialize( byte[] bytes, ClassLoader loader )
-        throws IOException, ClassNotFoundException;"
+",EncryptingSerializerUnitTest::testDifferentKey_1_oe

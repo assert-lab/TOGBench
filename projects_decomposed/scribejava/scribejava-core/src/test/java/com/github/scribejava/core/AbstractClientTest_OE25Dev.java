@@ -224,5 +224,53 @@ public abstract class AbstractClientTest_OE25Dev {
         server.shutdown();
     }
 
+    @Test
+    public void shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_1_oe() throws Exception {
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse());
+        server.start();
+
+        final HttpUrl baseUrl = server.url("/testUrl");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        oAuthService.execute(request, null).get(30, TimeUnit.SECONDS).close();
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals("POST", recordedRequest.getMethod());
+    }
+
+    @Test
+    public void shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_2_oe() throws Exception {
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse());
+        server.start();
+
+        final HttpUrl baseUrl = server.url("/testUrl");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        oAuthService.execute(request, null).get(30, TimeUnit.SECONDS).close();
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        // removed other assertion
+        assertEquals(HttpClient.DEFAULT_CONTENT_TYPE, recordedRequest.getHeader(HttpClient.CONTENT_TYPE));
+    }
+
+    @Test
+    public void shouldCallCallback_1_oe() throws Exception {
+        final String expectedResponseBody = "response body for test shouldCallCallback";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url("/testUrl");
+
+        final OAuthRequest request = new OAuthRequest(Verb.GET, baseUrl.toString());
+
+        final TestCallback callback = new TestCallback();
+        oAuthService.execute(request, callback).get();
+
+        assertEquals(expectedResponseBody, callback.getResponse().getBody());
+    }
 
 }

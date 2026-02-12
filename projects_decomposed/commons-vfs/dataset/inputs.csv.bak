@@ -211,6 +211,37 @@ vfs_10_1,"    @Test
         assertTrue(folder.exists());
     }
 ",UrlStructureTests::testFolderURL_1_oe
+vfs_11_5,"    @Test
+    public void testRandomSetLength_5_oe() throws Exception {
+        try (FileObject file = this.createScratchFolder().resolveFile(""random_write.txt"")) {
+            file.createFile();
+            final String fileString = file.toString();
+            final RandomAccessContent ra = file.getContent().getRandomAccessContent(RandomAccessMode.READWRITE);
+
+            // Write long string
+            ra.writeBytes(TEST_DATA);
+            // removed other assertion
+
+            // Shrink to length 1
+            ra.setLength(1);
+            // removed other assertion
+            // now read 1
+            ra.seek(0);
+            // removed other assertion
+
+            try {
+                ra.readByte();
+                // removed other assertion
+            } catch (final IOException e) {
+                // Expected
+            }
+
+            // Grow to length 2
+            ra.setLength(2);
+            Assert.assertEquals(fileString, 2, ra.length());
+    }
+    }
+",ProviderRandomSetLengthTests::testRandomSetLength_5_oe
 vfs_12_1,"    @Test
     public void testConcurrentReadFolder_1_oe() throws Exception {
         final FileObject file = resolveFile1Txt();
@@ -3951,6 +3982,55 @@ vfs_76_1,"    @Test
         assertFalse(file.exists());
     }
 ",ProviderWriteTests::testOverwriteSameFileSystem_1_oe
+vfs_76_11,"    @Test
+    public void testOverwriteSameFileSystem_11_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create direct child of the test folder
+        final FileObject file = scratchFolder.resolveFile(""file1.txt"");
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+
+        // removed other assertion
+
+        // Make sure we can copy the new file to another file on the same file system
+        final FileObject fileCopy = scratchFolder.resolveFile(""file1copy.txt"");
+        // removed other assertion
+        file.getContent().write(fileCopy);
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        file.getContent().write(fileCopy);
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        file.getContent().write(fileCopy.getContent());
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        OutputStream outputStream = fileCopy.getContent().getOutputStream();
+        try {
+            file.getContent().write(outputStream);
+        } finally {
+            outputStream.close();
+        }
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        assertTrue(fileCopy.exists());
+    }
+",ProviderWriteTests::testOverwriteSameFileSystem_11_oe
 vfs_77_1,"    @Test
     public void testWriteSameFileSystem_1_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
@@ -18496,6 +18576,659 @@ vfs_74_7_2,"    @Test
     }
     }
 ",ProviderWriteTests::testListChildren_7_oe_2_oe
+vfs_76_10_1,"    @Test
+    public void testOverwriteSameFileSystem_10_oe_1_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create direct child of the test folder
+        final FileObject file = scratchFolder.resolveFile(""file1.txt"");
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+
+        // removed other assertion
+
+        // Make sure we can copy the new file to another file on the same file system
+        final FileObject fileCopy = scratchFolder.resolveFile(""file1copy.txt"");
+        // removed other assertion
+        file.getContent().write(fileCopy);
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        file.getContent().write(fileCopy);
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        file.getContent().write(fileCopy.getContent());
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        OutputStream outputStream = fileCopy.getContent().getOutputStream();
+        try {
+            file.getContent().write(outputStream);
+        } finally {
+            outputStream.close();
+        }
+                final FileInfo expected0 = content;
+        final FileObject folder0 = fileCopy;
+        for (final FileInfo fileInfo0 : expected0.children.values()) {
+                    final FileObject child0 = folder0.resolveFile(fileInfo0.baseName, NameScope.CHILD);
+        
+                    assertTrue(child0.getName().toString(), child0.exists());
+    }
+    }
+",ProviderWriteTests::testOverwriteSameFileSystem_10_oe_1_oe
+vfs_76_10_2,"    @Test
+    public void testOverwriteSameFileSystem_10_oe_2_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create direct child of the test folder
+        final FileObject file = scratchFolder.resolveFile(""file1.txt"");
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+
+        // removed other assertion
+
+        // Make sure we can copy the new file to another file on the same file system
+        final FileObject fileCopy = scratchFolder.resolveFile(""file1copy.txt"");
+        // removed other assertion
+        file.getContent().write(fileCopy);
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        file.getContent().write(fileCopy);
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        file.getContent().write(fileCopy.getContent());
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        OutputStream outputStream = fileCopy.getContent().getOutputStream();
+        try {
+            file.getContent().write(outputStream);
+        } finally {
+            outputStream.close();
+        }
+                final FileInfo expected0 = content;
+        final FileObject folder0 = fileCopy;
+        for (final FileInfo fileInfo0 : expected0.children.values()) {
+                    final FileObject child0 = folder0.resolveFile(fileInfo0.baseName, NameScope.CHILD);
+        
+                    // removed other assertion
+                    if (fileInfo0.type == FileType.FILE) {
+                        assertSameContent(fileInfo0.content, child0);
+    }
+    }
+    }
+",ProviderWriteTests::testOverwriteSameFileSystem_10_oe_2_oe
+vfs_76_10_3,"    @Test
+    public void testOverwriteSameFileSystem_10_oe_3_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create direct child of the test folder
+        final FileObject file = scratchFolder.resolveFile(""file1.txt"");
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+
+        // removed other assertion
+
+        // Make sure we can copy the new file to another file on the same file system
+        final FileObject fileCopy = scratchFolder.resolveFile(""file1copy.txt"");
+        // removed other assertion
+        file.getContent().write(fileCopy);
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        file.getContent().write(fileCopy);
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        file.getContent().write(fileCopy.getContent());
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        OutputStream outputStream = fileCopy.getContent().getOutputStream();
+        try {
+            file.getContent().write(outputStream);
+        } finally {
+            outputStream.close();
+        }
+                final FileInfo expected0 = content;
+        final FileObject folder0 = fileCopy;
+        for (final FileInfo fileInfo0 : expected0.children.values()) {
+                    final FileObject child0 = folder0.resolveFile(fileInfo0.baseName, NameScope.CHILD);
+        
+                    // removed other assertion
+                    if (fileInfo0.type == FileType.FILE) {
+                        // removed other assertion
+                    } else {
+                        assertSameContent(fileInfo0, child0);
+    }
+    }
+    }
+",ProviderWriteTests::testOverwriteSameFileSystem_10_oe_3_oe
+vfs_76_12_1,"    @Test
+    public void testOverwriteSameFileSystem_12_oe_1_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create direct child of the test folder
+        final FileObject file = scratchFolder.resolveFile(""file1.txt"");
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+
+        // removed other assertion
+
+        // Make sure we can copy the new file to another file on the same file system
+        final FileObject fileCopy = scratchFolder.resolveFile(""file1copy.txt"");
+        // removed other assertion
+        file.getContent().write(fileCopy);
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        file.getContent().write(fileCopy);
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        file.getContent().write(fileCopy.getContent());
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        OutputStream outputStream = fileCopy.getContent().getOutputStream();
+        try {
+            file.getContent().write(outputStream);
+        } finally {
+            outputStream.close();
+        }
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        outputStream = fileCopy.getContent().getOutputStream();
+        try {
+            file.getContent().write(outputStream, 1234);
+        } finally {
+            outputStream.close();
+        }
+                final FileInfo expected0 = content;
+        final FileObject folder0 = fileCopy;
+        for (final FileInfo fileInfo0 : expected0.children.values()) {
+                    final FileObject child0 = folder0.resolveFile(fileInfo0.baseName, NameScope.CHILD);
+        
+                    assertTrue(child0.getName().toString(), child0.exists());
+    }
+    }
+",ProviderWriteTests::testOverwriteSameFileSystem_12_oe_1_oe
+vfs_76_12_2,"    @Test
+    public void testOverwriteSameFileSystem_12_oe_2_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create direct child of the test folder
+        final FileObject file = scratchFolder.resolveFile(""file1.txt"");
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+
+        // removed other assertion
+
+        // Make sure we can copy the new file to another file on the same file system
+        final FileObject fileCopy = scratchFolder.resolveFile(""file1copy.txt"");
+        // removed other assertion
+        file.getContent().write(fileCopy);
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        file.getContent().write(fileCopy);
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        file.getContent().write(fileCopy.getContent());
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        OutputStream outputStream = fileCopy.getContent().getOutputStream();
+        try {
+            file.getContent().write(outputStream);
+        } finally {
+            outputStream.close();
+        }
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        outputStream = fileCopy.getContent().getOutputStream();
+        try {
+            file.getContent().write(outputStream, 1234);
+        } finally {
+            outputStream.close();
+        }
+                final FileInfo expected0 = content;
+        final FileObject folder0 = fileCopy;
+        for (final FileInfo fileInfo0 : expected0.children.values()) {
+                    final FileObject child0 = folder0.resolveFile(fileInfo0.baseName, NameScope.CHILD);
+        
+                    // removed other assertion
+                    if (fileInfo0.type == FileType.FILE) {
+                        assertSameContent(fileInfo0.content, child0);
+    }
+    }
+    }
+",ProviderWriteTests::testOverwriteSameFileSystem_12_oe_2_oe
+vfs_76_12_3,"    @Test
+    public void testOverwriteSameFileSystem_12_oe_3_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create direct child of the test folder
+        final FileObject file = scratchFolder.resolveFile(""file1.txt"");
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+
+        // removed other assertion
+
+        // Make sure we can copy the new file to another file on the same file system
+        final FileObject fileCopy = scratchFolder.resolveFile(""file1copy.txt"");
+        // removed other assertion
+        file.getContent().write(fileCopy);
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        file.getContent().write(fileCopy);
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        file.getContent().write(fileCopy.getContent());
+
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        OutputStream outputStream = fileCopy.getContent().getOutputStream();
+        try {
+            file.getContent().write(outputStream);
+        } finally {
+            outputStream.close();
+        }
+        // removed other assertion
+
+        // Make sure we can copy the same new file to the same target file on the same file system
+        // removed other assertion
+        outputStream = fileCopy.getContent().getOutputStream();
+        try {
+            file.getContent().write(outputStream, 1234);
+        } finally {
+            outputStream.close();
+        }
+                final FileInfo expected0 = content;
+        final FileObject folder0 = fileCopy;
+        for (final FileInfo fileInfo0 : expected0.children.values()) {
+                    final FileObject child0 = folder0.resolveFile(fileInfo0.baseName, NameScope.CHILD);
+        
+                    // removed other assertion
+                    if (fileInfo0.type == FileType.FILE) {
+                        // removed other assertion
+                    } else {
+                        assertSameContent(fileInfo0, child0);
+    }
+    }
+    }
+",ProviderWriteTests::testOverwriteSameFileSystem_12_oe_3_oe
+vfs_77_5_1,"    @Test
+    public void testWriteSameFileSystem_5_oe_1_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create direct child of the test folder
+        final FileObject fileSource = scratchFolder.resolveFile(""file1.txt"");
+        // removed other assertion
+
+        // Create the source file
+        final String expectedString = ""Here is some sample content for the file.  Blah Blah Blah."";
+        try (OutputStream expectedOutputStream = fileSource.getContent().getOutputStream()) {
+            expectedOutputStream.write(expectedString.getBytes(StandardCharsets.UTF_8));
+        }
+
+        // removed other assertion
+
+        // Make sure we can copy the new file to another file on the same filesystem
+        final FileObject fileTarget = scratchFolder.resolveFile(""file1copy.txt"");
+        // removed other assertion
+
+        final FileContent contentSource = fileSource.getContent();
+        //
+        // Tests FileContent#write(FileContent)
+        contentSource.write(fileTarget.getContent());
+        // removed other assertion
+        //
+        // Tests FileContent#write(OutputStream)
+        OutputStream outputStream = fileTarget.getContent().getOutputStream();
+        try {
+            contentSource.write(outputStream);
+        } finally {
+            outputStream.close();
+        }
+                final FileInfo expected0 = expectedString;
+        final FileObject folder0 = fileTarget;
+        for (final FileInfo fileInfo0 : expected0.children.values()) {
+                    final FileObject child0 = folder0.resolveFile(fileInfo0.baseName, NameScope.CHILD);
+        
+                    assertTrue(child0.getName().toString(), child0.exists());
+    }
+    }
+",ProviderWriteTests::testWriteSameFileSystem_5_oe_1_oe
+vfs_77_5_2,"    @Test
+    public void testWriteSameFileSystem_5_oe_2_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create direct child of the test folder
+        final FileObject fileSource = scratchFolder.resolveFile(""file1.txt"");
+        // removed other assertion
+
+        // Create the source file
+        final String expectedString = ""Here is some sample content for the file.  Blah Blah Blah."";
+        try (OutputStream expectedOutputStream = fileSource.getContent().getOutputStream()) {
+            expectedOutputStream.write(expectedString.getBytes(StandardCharsets.UTF_8));
+        }
+
+        // removed other assertion
+
+        // Make sure we can copy the new file to another file on the same filesystem
+        final FileObject fileTarget = scratchFolder.resolveFile(""file1copy.txt"");
+        // removed other assertion
+
+        final FileContent contentSource = fileSource.getContent();
+        //
+        // Tests FileContent#write(FileContent)
+        contentSource.write(fileTarget.getContent());
+        // removed other assertion
+        //
+        // Tests FileContent#write(OutputStream)
+        OutputStream outputStream = fileTarget.getContent().getOutputStream();
+        try {
+            contentSource.write(outputStream);
+        } finally {
+            outputStream.close();
+        }
+                final FileInfo expected0 = expectedString;
+        final FileObject folder0 = fileTarget;
+        for (final FileInfo fileInfo0 : expected0.children.values()) {
+                    final FileObject child0 = folder0.resolveFile(fileInfo0.baseName, NameScope.CHILD);
+        
+                    // removed other assertion
+                    if (fileInfo0.type == FileType.FILE) {
+                        assertSameContent(fileInfo0.content, child0);
+    }
+    }
+    }
+",ProviderWriteTests::testWriteSameFileSystem_5_oe_2_oe
+vfs_77_5_3,"    @Test
+    public void testWriteSameFileSystem_5_oe_3_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create direct child of the test folder
+        final FileObject fileSource = scratchFolder.resolveFile(""file1.txt"");
+        // removed other assertion
+
+        // Create the source file
+        final String expectedString = ""Here is some sample content for the file.  Blah Blah Blah."";
+        try (OutputStream expectedOutputStream = fileSource.getContent().getOutputStream()) {
+            expectedOutputStream.write(expectedString.getBytes(StandardCharsets.UTF_8));
+        }
+
+        // removed other assertion
+
+        // Make sure we can copy the new file to another file on the same filesystem
+        final FileObject fileTarget = scratchFolder.resolveFile(""file1copy.txt"");
+        // removed other assertion
+
+        final FileContent contentSource = fileSource.getContent();
+        //
+        // Tests FileContent#write(FileContent)
+        contentSource.write(fileTarget.getContent());
+        // removed other assertion
+        //
+        // Tests FileContent#write(OutputStream)
+        OutputStream outputStream = fileTarget.getContent().getOutputStream();
+        try {
+            contentSource.write(outputStream);
+        } finally {
+            outputStream.close();
+        }
+                final FileInfo expected0 = expectedString;
+        final FileObject folder0 = fileTarget;
+        for (final FileInfo fileInfo0 : expected0.children.values()) {
+                    final FileObject child0 = folder0.resolveFile(fileInfo0.baseName, NameScope.CHILD);
+        
+                    // removed other assertion
+                    if (fileInfo0.type == FileType.FILE) {
+                        // removed other assertion
+                    } else {
+                        assertSameContent(fileInfo0, child0);
+    }
+    }
+    }
+",ProviderWriteTests::testWriteSameFileSystem_5_oe_3_oe
+vfs_77_6_1,"    @Test
+    public void testWriteSameFileSystem_6_oe_1_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create direct child of the test folder
+        final FileObject fileSource = scratchFolder.resolveFile(""file1.txt"");
+        // removed other assertion
+
+        // Create the source file
+        final String expectedString = ""Here is some sample content for the file.  Blah Blah Blah."";
+        try (OutputStream expectedOutputStream = fileSource.getContent().getOutputStream()) {
+            expectedOutputStream.write(expectedString.getBytes(StandardCharsets.UTF_8));
+        }
+
+        // removed other assertion
+
+        // Make sure we can copy the new file to another file on the same filesystem
+        final FileObject fileTarget = scratchFolder.resolveFile(""file1copy.txt"");
+        // removed other assertion
+
+        final FileContent contentSource = fileSource.getContent();
+        //
+        // Tests FileContent#write(FileContent)
+        contentSource.write(fileTarget.getContent());
+        // removed other assertion
+        //
+        // Tests FileContent#write(OutputStream)
+        OutputStream outputStream = fileTarget.getContent().getOutputStream();
+        try {
+            contentSource.write(outputStream);
+        } finally {
+            outputStream.close();
+        }
+        // removed other assertion
+        //
+        // Tests FileContent#write(OutputStream, int)
+        outputStream = fileTarget.getContent().getOutputStream();
+        try {
+            contentSource.write(outputStream, 1234);
+        } finally {
+            outputStream.close();
+        }
+                final FileInfo expected0 = expectedString;
+        final FileObject folder0 = fileTarget;
+        for (final FileInfo fileInfo0 : expected0.children.values()) {
+                    final FileObject child0 = folder0.resolveFile(fileInfo0.baseName, NameScope.CHILD);
+        
+                    assertTrue(child0.getName().toString(), child0.exists());
+    }
+    }
+",ProviderWriteTests::testWriteSameFileSystem_6_oe_1_oe
+vfs_77_6_2,"    @Test
+    public void testWriteSameFileSystem_6_oe_2_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create direct child of the test folder
+        final FileObject fileSource = scratchFolder.resolveFile(""file1.txt"");
+        // removed other assertion
+
+        // Create the source file
+        final String expectedString = ""Here is some sample content for the file.  Blah Blah Blah."";
+        try (OutputStream expectedOutputStream = fileSource.getContent().getOutputStream()) {
+            expectedOutputStream.write(expectedString.getBytes(StandardCharsets.UTF_8));
+        }
+
+        // removed other assertion
+
+        // Make sure we can copy the new file to another file on the same filesystem
+        final FileObject fileTarget = scratchFolder.resolveFile(""file1copy.txt"");
+        // removed other assertion
+
+        final FileContent contentSource = fileSource.getContent();
+        //
+        // Tests FileContent#write(FileContent)
+        contentSource.write(fileTarget.getContent());
+        // removed other assertion
+        //
+        // Tests FileContent#write(OutputStream)
+        OutputStream outputStream = fileTarget.getContent().getOutputStream();
+        try {
+            contentSource.write(outputStream);
+        } finally {
+            outputStream.close();
+        }
+        // removed other assertion
+        //
+        // Tests FileContent#write(OutputStream, int)
+        outputStream = fileTarget.getContent().getOutputStream();
+        try {
+            contentSource.write(outputStream, 1234);
+        } finally {
+            outputStream.close();
+        }
+                final FileInfo expected0 = expectedString;
+        final FileObject folder0 = fileTarget;
+        for (final FileInfo fileInfo0 : expected0.children.values()) {
+                    final FileObject child0 = folder0.resolveFile(fileInfo0.baseName, NameScope.CHILD);
+        
+                    // removed other assertion
+                    if (fileInfo0.type == FileType.FILE) {
+                        assertSameContent(fileInfo0.content, child0);
+    }
+    }
+    }
+",ProviderWriteTests::testWriteSameFileSystem_6_oe_2_oe
+vfs_77_6_3,"    @Test
+    public void testWriteSameFileSystem_6_oe_3_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create direct child of the test folder
+        final FileObject fileSource = scratchFolder.resolveFile(""file1.txt"");
+        // removed other assertion
+
+        // Create the source file
+        final String expectedString = ""Here is some sample content for the file.  Blah Blah Blah."";
+        try (OutputStream expectedOutputStream = fileSource.getContent().getOutputStream()) {
+            expectedOutputStream.write(expectedString.getBytes(StandardCharsets.UTF_8));
+        }
+
+        // removed other assertion
+
+        // Make sure we can copy the new file to another file on the same filesystem
+        final FileObject fileTarget = scratchFolder.resolveFile(""file1copy.txt"");
+        // removed other assertion
+
+        final FileContent contentSource = fileSource.getContent();
+        //
+        // Tests FileContent#write(FileContent)
+        contentSource.write(fileTarget.getContent());
+        // removed other assertion
+        //
+        // Tests FileContent#write(OutputStream)
+        OutputStream outputStream = fileTarget.getContent().getOutputStream();
+        try {
+            contentSource.write(outputStream);
+        } finally {
+            outputStream.close();
+        }
+        // removed other assertion
+        //
+        // Tests FileContent#write(OutputStream, int)
+        outputStream = fileTarget.getContent().getOutputStream();
+        try {
+            contentSource.write(outputStream, 1234);
+        } finally {
+            outputStream.close();
+        }
+                final FileInfo expected0 = expectedString;
+        final FileObject folder0 = fileTarget;
+        for (final FileInfo fileInfo0 : expected0.children.values()) {
+                    final FileObject child0 = folder0.resolveFile(fileInfo0.baseName, NameScope.CHILD);
+        
+                    // removed other assertion
+                    if (fileInfo0.type == FileType.FILE) {
+                        // removed other assertion
+                    } else {
+                        assertSameContent(fileInfo0, child0);
+    }
+    }
+    }
+",ProviderWriteTests::testWriteSameFileSystem_6_oe_3_oe
 vfs_79_3_1,"    @Test
     public void testUnknownURL_3_oe_1_oe() throws Exception {
         // Try getting the content of an unknown file
@@ -18906,6 +19639,24 @@ vfs_183_2_1,"    @Test
     }
     }
 ",FtpMdtmOnLastModifiedTests::testGetLastModifiedFileExactMatch_2_oe_1_oe
+vfs_194_1_1,"    @Test
+    public void testReadClosedFileObject_1_oe_1_oe() throws Exception {
+        final FileObject zipFileObjectRef;
+        try (final FileObject zipFileObject = manager.resolveFile(zipFileUri)) {
+            zipFileObjectRef = zipFileObject;
+            try (final InputStream inputStream = zipFileObject.getContent().getInputStream()) {
+                readAndAssert(inputStream);
+            }
+        }
+        try (final InputStream inputStream = zipFileObjectRef.getContent().getInputStream()) {
+            readAndAssert(inputStream);
+        } finally {
+            zipFileObjectRef.close();
+        }
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertTrue(""Could not delete file"", newZipFile.delete());
+    }
+",FileLockTestCase::testReadClosedFileObject_1_oe_1_oe
 vfs_195_1_1,"    @Test
     public void testResolveAndOpenCloseContent_1_oe_1_oe() throws Exception {
         resolveAndOpenCloseContent();

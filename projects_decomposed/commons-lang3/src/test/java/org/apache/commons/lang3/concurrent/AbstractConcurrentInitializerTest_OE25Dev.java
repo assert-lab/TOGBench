@@ -64,5 +64,61 @@ public abstract class AbstractConcurrentInitializerTest_OE25Dev {
      */
     protected abstract ConcurrentInitializer<Object> createInitializer();
 
+    @Test
+    public void testGet_1_oe() throws ConcurrentException {
+        assertNotNull(createInitializer().get(), "No managed object");
+    }
+
+    @Test
+    public void testGetMultipleTimes_1_oe() throws ConcurrentException {
+        final ConcurrentInitializer<Object> initializer = createInitializer();
+        final Object obj = initializer.get();
+        for (int i = 0; i < 10; i++) {
+            assertEquals(obj, initializer.get(), "Got different object at " + i);
+    }
+    }
+
+    @Test
+    public void testGetConcurrent_1_oe() throws ConcurrentException,
+            InterruptedException {
+        final ConcurrentInitializer<Object> initializer = createInitializer();
+        final int threadCount = 20;
+        final CountDownLatch startLatch = new CountDownLatch(1);
+        class GetThread extends Thread {
+            Object object;
+
+            @Override
+            public void run() {
+                try {
+                    // wait until all threads are ready for maximum parallelism
+                    startLatch.await();
+                    // access the initializer
+                    object = initializer.get();
+                } catch (final InterruptedException iex) {
+                    // ignore
+                } catch (final ConcurrentException cex) {
+                    object = cex;
+                }
+            }
+        }
+
+        final GetThread[] threads = new GetThread[threadCount];
+        for (int i = 0; i < threadCount; i++) {
+            threads[i] = new GetThread();
+            threads[i].start();
+        }
+
+        // fire all threads and wait until they are ready
+        startLatch.countDown();
+        for (final Thread t : threads) {
+            t.join();
+        }
+
+        // check results
+        final Object managedObject = initializer.get();
+        for (final GetThread t : threads) {
+            assertEquals(managedObject, t.object, "Wrong object");
+    }
+    }
 
 }

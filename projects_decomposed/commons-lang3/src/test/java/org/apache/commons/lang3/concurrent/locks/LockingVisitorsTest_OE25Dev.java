@@ -127,5 +127,44 @@ public class LockingVisitorsTest_OE25Dev {
             LockingVisitors.stampedLockVisitor(booleanValues));
     }
 
+    @Test
+    public void testResultValidation_1_oe() {
+        final Object hidden = new Object();
+        final StampedLockVisitor<Object> lock = LockingVisitors.stampedLockVisitor(hidden);
+        final Object o1 = lock.applyReadLocked(h -> new Object());
+        assertNotNull(o1);
+    }
+
+    @Test
+    public void testResultValidation_2_oe() {
+        final Object hidden = new Object();
+        final StampedLockVisitor<Object> lock = LockingVisitors.stampedLockVisitor(hidden);
+        final Object o1 = lock.applyReadLocked(h -> new Object());
+        // removed other assertion
+        assertNotSame(hidden, o1);
+    }
+
+    @Test
+    public void testResultValidation_3_oe() {
+        final Object hidden = new Object();
+        final StampedLockVisitor<Object> lock = LockingVisitors.stampedLockVisitor(hidden);
+        final Object o1 = lock.applyReadLocked(h -> new Object());
+        // removed other assertion
+        // removed other assertion
+        final Object o2 = lock.applyWriteLocked(h -> new Object());
+        assertNotNull(o2);
+    }
+
+    @Test
+    public void testResultValidation_4_oe() {
+        final Object hidden = new Object();
+        final StampedLockVisitor<Object> lock = LockingVisitors.stampedLockVisitor(hidden);
+        final Object o1 = lock.applyReadLocked(h -> new Object());
+        // removed other assertion
+        // removed other assertion
+        final Object o2 = lock.applyWriteLocked(h -> new Object());
+        // removed other assertion
+        assertNotSame(hidden, o2);
+    }
 
 }

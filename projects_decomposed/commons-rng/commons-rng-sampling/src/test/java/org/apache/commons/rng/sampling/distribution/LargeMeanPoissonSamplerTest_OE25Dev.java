@@ -25,6 +25,8 @@ import org.apache.commons.rng.simple.RandomSource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * This test checks the {@link LargeMeanPoissonSampler} can be created
  * from a saved state.
@@ -140,7 +142,7 @@ class LargeMeanPoissonSamplerTest_OE25Dev {
          double mean = Integer.MAX_VALUE / 2 + 1;
         try {
     LargeMeanPoissonSampler.of(rng, mean);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -152,7 +154,7 @@ class LargeMeanPoissonSamplerTest_OE25Dev {
          double mean = Math.nextDown(1);
         try {
     LargeMeanPoissonSampler.of(rng, mean);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -164,7 +166,7 @@ class LargeMeanPoissonSamplerTest_OE25Dev {
          LargeMeanPoissonSamplerState state = new LargeMeanPoissonSampler(rng, 1).getState();
         try {
     new LargeMeanPoissonSampler(rng, state, -0.1);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -176,7 +178,7 @@ class LargeMeanPoissonSamplerTest_OE25Dev {
          LargeMeanPoissonSamplerState state = new LargeMeanPoissonSampler(rng, 1).getState();
         try {
     new LargeMeanPoissonSampler(rng, state, 1.1);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -188,7 +190,7 @@ class LargeMeanPoissonSamplerTest_OE25Dev {
          LargeMeanPoissonSamplerState state = new LargeMeanPoissonSampler(rng, 1).getState();
         try {
     new LargeMeanPoissonSampler(rng, state, 1);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }

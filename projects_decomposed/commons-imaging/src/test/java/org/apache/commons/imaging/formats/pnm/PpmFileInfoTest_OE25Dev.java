@@ -20,6 +20,8 @@ import org.apache.commons.imaging.ImageReadException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Unit tests for class {@link PpmFileInfo}.
  * @see PpmFileInfo
@@ -31,7 +33,7 @@ public class PpmFileInfoTest_OE25Dev {
   public void testCreatesPpmFileInfoOne_1_oe() throws Exception {
       try {
     new PpmFileInfo(0, 0, false, 16711680);
-    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+    fail("ImageReadException");
 } catch (ImageReadException e) {
 }
   }
@@ -40,7 +42,7 @@ public class PpmFileInfoTest_OE25Dev {
   public void testCreatesPpmFileInfoThree_1_oe() throws Exception {
       try {
     new PpmFileInfo(0, 0, true, 0);
-    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+    fail("ImageReadException");
 } catch (ImageReadException e) {
 }
   }

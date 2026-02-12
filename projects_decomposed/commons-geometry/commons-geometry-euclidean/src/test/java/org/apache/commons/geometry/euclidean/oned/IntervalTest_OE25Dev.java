@@ -24,6 +24,8 @@ import org.apache.commons.numbers.core.Precision;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class IntervalTest_OE25Dev {
 
     private static final double TEST_EPS = 1e-15;
@@ -390,7 +392,7 @@ class IntervalTest_OE25Dev {
         // act/assert
         try {
     Interval.of(1, Double.NaN, TEST_PRECISION);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -402,7 +404,7 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         try {
     Interval.of(Double.NaN, 1, TEST_PRECISION);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -415,7 +417,7 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         try {
     Interval.of(Double.NaN, Double.NaN, TEST_PRECISION);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -429,7 +431,7 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         try {
     Interval.of(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -444,7 +446,7 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         try {
     Interval.of(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, TEST_PRECISION);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -455,7 +457,7 @@ class IntervalTest_OE25Dev {
         // act/assert
         try {
     Interval.of(Vector1D.of(1), Vector1D.of(Double.NaN), TEST_PRECISION);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -467,9 +469,15 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         try {
     Interval.of(Vector1D.of(Double.POSITIVE_INFINITY), Vector1D.of(Double.POSITIVE_INFINITY), TEST_PRECISION);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testOf_hyperplanes_1_oe() {
+        // act/assert
+        Assertions.assertSame(Interval.full(), Interval.of(null, null));
     }
 
     @Test
@@ -477,7 +485,7 @@ class IntervalTest_OE25Dev {
         // act/assert
         try {
     Interval.of( OrientedPoints.fromLocationAndDirection(1, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(1, false, TEST_PRECISION));
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -488,7 +496,7 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         try {
     Interval.of( OrientedPoints.fromLocationAndDirection(2, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(1, true, TEST_PRECISION));
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -500,7 +508,7 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         try {
     Interval.of( OrientedPoints.fromLocationAndDirection(Double.POSITIVE_INFINITY, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(Double.POSITIVE_INFINITY, true, TEST_PRECISION));
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -513,7 +521,7 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         try {
     Interval.of( OrientedPoints.fromLocationAndDirection(Double.NaN, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(1, true, TEST_PRECISION));
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -527,7 +535,7 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         try {
     Interval.of( OrientedPoints.fromLocationAndDirection(1, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(Double.NaN, true, TEST_PRECISION));
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -542,7 +550,7 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         try {
     Interval.of( OrientedPoints.fromLocationAndDirection(Double.NaN, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(Double.NaN, true, TEST_PRECISION));
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -558,7 +566,7 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         try {
     Interval.of( null, OrientedPoints.fromLocationAndDirection(Double.NaN, true, TEST_PRECISION));
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -568,7 +576,7 @@ class IntervalTest_OE25Dev {
         // act/assert
         try {
     Interval.point(Double.NEGATIVE_INFINITY, TEST_PRECISION);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -579,7 +587,7 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         try {
     Interval.point(Double.POSITIVE_INFINITY, TEST_PRECISION);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -591,7 +599,7 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         try {
     Interval.point(Double.NaN, TEST_PRECISION);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -601,7 +609,7 @@ class IntervalTest_OE25Dev {
         // act/assert
         try {
     Interval.min(Double.POSITIVE_INFINITY, TEST_PRECISION);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -612,7 +620,7 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         try {
     Interval.min(Double.NaN, TEST_PRECISION);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -622,7 +630,7 @@ class IntervalTest_OE25Dev {
         // act/assert
         try {
     Interval.max(Double.NEGATIVE_INFINITY, TEST_PRECISION);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -633,9 +641,746 @@ class IntervalTest_OE25Dev {
         // removed other assertion
         try {
     Interval.max(Double.NaN, TEST_PRECISION);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testIsInfinite_1_oe() {
+        // act/assert
+        Assertions.assertFalse(Interval.of(1, 2, TEST_PRECISION).isInfinite());
+    }
+
+    @Test
+    void testIsInfinite_2_oe() {
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertTrue(Interval.of(Double.NEGATIVE_INFINITY, 2, TEST_PRECISION).isInfinite());
+    }
+
+    @Test
+    void testIsInfinite_3_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertTrue(Interval.of(2, Double.POSITIVE_INFINITY, TEST_PRECISION).isInfinite());
+    }
+
+    @Test
+    void testIsInfinite_4_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(Interval.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION).isInfinite());
+    }
+
+    @Test
+    void testIsFinite_1_oe() {
+        // act/assert
+        Assertions.assertTrue(Interval.of(1, 2, TEST_PRECISION).isFinite());
+    }
+
+    @Test
+    void testIsFinite_2_oe() {
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertFalse(Interval.of(Double.NEGATIVE_INFINITY, 2, TEST_PRECISION).isFinite());
+    }
+
+    @Test
+    void testIsFinite_3_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(Interval.of(2, Double.POSITIVE_INFINITY, TEST_PRECISION).isFinite());
+    }
+
+    @Test
+    void testIsFinite_4_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(Interval.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION).isFinite());
+    }
+
+    @Test
+    void testIsFull_1_oe() {
+        // act/assert
+        Assertions.assertFalse(Interval.of(1, 1, TEST_PRECISION).isFull());
+    }
+
+    @Test
+    void testIsFull_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertFalse(Interval.of(-2, 2, TEST_PRECISION).isFull());
+    }
+
+    @Test
+    void testIsFull_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(Interval.of(1, Double.POSITIVE_INFINITY, TEST_PRECISION).isFull());
+    }
+
+    @Test
+    void testIsFull_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(Interval.of(Double.NEGATIVE_INFINITY, 1, TEST_PRECISION).isFull());
+    }
+
+    @Test
+    void testIsFull_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertTrue(Interval.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION).isFull());
+    }
+
+    @Test
+    void testGetSize_1_oe() {
+        // act/assert
+        Assertions.assertEquals(0, Interval.of(1, 1, TEST_PRECISION).getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testGetSize_2_oe() {
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertEquals(4, Interval.of(-2, 2, TEST_PRECISION).getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testGetSize_3_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(5, Interval.of(2, -3, TEST_PRECISION).getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testGetSize_4_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Interval.of(1,Double.POSITIVE_INFINITY,TEST_PRECISION).getSize(),TEST_EPS);
+    }
+
+    @Test
+    void testGetSize_5_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Interval.of(Double.NEGATIVE_INFINITY,1,TEST_PRECISION).getSize(),TEST_EPS);
+    }
+
+    @Test
+    void testGetSize_6_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Interval.of(Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY,TEST_PRECISION).getSize(),TEST_EPS);
+    }
+
+    @Test
+    void testGetBoundarySize_1_oe() {
+        // act/assert
+        Assertions.assertEquals(0, Interval.of(1, 1, TEST_PRECISION).getBoundarySize(), TEST_EPS);
+    }
+
+    @Test
+    void testGetBoundarySize_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertEquals(0, Interval.of(-2, 5, TEST_PRECISION).getBoundarySize(), TEST_EPS);
+    }
+
+    @Test
+    void testGetBoundarySize_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(0, Interval.full().getBoundarySize(), TEST_EPS);
+    }
+
+    @Test
+    void testGetCentroid_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertNull(Interval.of(1, Double.POSITIVE_INFINITY, TEST_PRECISION).getCentroid());
+    }
+
+    @Test
+    void testGetCentroid_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(Interval.of(Double.NEGATIVE_INFINITY, 1, TEST_PRECISION).getCentroid());
+    }
+
+    @Test
+    void testGetCentroid_7_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNull(Interval.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION).getCentroid());
+    }
+
+    @Test
+    void checkToTree_finite_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.of(-1, 1, precision);
+
+        // act
+        final RegionBSPTree1D tree = interval.toTree();
+
+        // assert
+        Assertions.assertEquals(5, tree.count());
+    }
+
+    @Test
+    void checkToTree_singlePoint_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.of(1, 1, precision);
+
+        // act
+        final RegionBSPTree1D tree = interval.toTree();
+
+        // assert
+        Assertions.assertEquals(5, tree.count());
+    }
+
+    @Test
+    void checkToTree_maxInfinite_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.of(-1, Double.POSITIVE_INFINITY, precision);
+
+        // act
+        final RegionBSPTree1D tree = interval.toTree();
+
+        // assert
+        Assertions.assertEquals(3, tree.count());
+    }
+
+    @Test
+    void checkToTree_minInfinite_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.of(Double.NEGATIVE_INFINITY, 1, precision);
+
+        // act
+        final RegionBSPTree1D tree = interval.toTree();
+
+        // assert
+        Assertions.assertEquals(3, tree.count());
+    }
+
+    @Test
+    void checkToTree_minMaxInfinite_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, precision);
+
+        // act
+        final RegionBSPTree1D tree = interval.toTree();
+
+        // assert
+        Assertions.assertEquals(1, tree.count());
+    }
+
+    @Test
+    void testProjectToBoundary_full_1_oe() {
+        // arrange
+        final Interval full = Interval.full();
+
+
+        // act/assert
+        Assertions.assertNull(full.project(Vector1D.of(Double.NEGATIVE_INFINITY)));
+    }
+
+    @Test
+    void testProjectToBoundary_full_2_oe() {
+        // arrange
+        final Interval full = Interval.full();
+
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertNull(full.project(Vector1D.of(0)));
+    }
+
+    @Test
+    void testProjectToBoundary_full_3_oe() {
+        // arrange
+        final Interval full = Interval.full();
+
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNull(full.project(Vector1D.of(Double.POSITIVE_INFINITY)));
+    }
+
+    @Test
+    void testSplit_full_positiveFacingSplitter_1_oe() {
+        // arrange
+        final Interval interval = Interval.full();
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+    }
+
+    @Test
+    void testSplit_full_negativeFacingSplitter_1_oe() {
+        // arrange
+        final Interval interval = Interval.full();
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+    }
+
+    @Test
+    void testSplit_halfSpace_positiveFacingSplitter_1_oe() {
+        // arrange
+        final Interval interval = Interval.min(-1, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), false, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+    }
+
+    @Test
+    void testSplit_halfSpace_negativeFacingSplitter_1_oe() {
+        // arrange
+        final Interval interval = Interval.min(-1, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), false, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+    }
+
+    @Test
+    void testSplit_splitterBelowInterval_1_oe() {
+        // arrange
+        final Interval interval = Interval.of(5, 10, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
+    }
+
+    @Test
+    void testSplit_splitterBelowInterval_2_oe() {
+        // arrange
+        final Interval interval = Interval.of(5, 10, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        Assertions.assertSame(interval, split.getPlus());
+    }
+
+    @Test
+    void testSplit_splitterOnMinBoundary_1_oe() {
+        // arrange
+        final Interval interval = Interval.of(5, 10, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(5), false, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
+    }
+
+    @Test
+    void testSplit_splitterOnMinBoundary_2_oe() {
+        // arrange
+        final Interval interval = Interval.of(5, 10, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(5), false, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        Assertions.assertSame(interval, split.getMinus());
+    }
+
+    @Test
+    void testSplit_splitterAboveInterval_1_oe() {
+        // arrange
+        final Interval interval = Interval.of(5, 10, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(11), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
+    }
+
+    @Test
+    void testSplit_splitterAboveInterval_2_oe() {
+        // arrange
+        final Interval interval = Interval.of(5, 10, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(11), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        Assertions.assertSame(interval, split.getMinus());
+    }
+
+    @Test
+    void testSplit_splitterOnMaxBoundary_1_oe() {
+        // arrange
+        final Interval interval = Interval.of(5, 10, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(10), false, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
+    }
+
+    @Test
+    void testSplit_splitterOnMaxBoundary_2_oe() {
+        // arrange
+        final Interval interval = Interval.of(5, 10, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(10), false, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        Assertions.assertSame(interval, split.getPlus());
+    }
+
+    @Test
+    void testSplit_point_minusOnly_1_oe() {
+        // arrange
+        final Interval interval = Interval.point(2, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), false, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
+    }
+
+    @Test
+    void testSplit_point_minusOnly_2_oe() {
+        // arrange
+        final Interval interval = Interval.point(2, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), false, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        checkInterval(split.getMinus(), 2, 2);
+        Assertions.assertNull(split.getPlus());
+    }
+
+    @Test
+    void testSplit_point_plusOnly_1_oe() {
+        // arrange
+        final Interval interval = Interval.point(2, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
+    }
+
+    @Test
+    void testSplit_point_plusOnly_2_oe() {
+        // arrange
+        final Interval interval = Interval.point(2, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        Assertions.assertNull(split.getMinus());
+    }
+
+    @Test
+    void testSplit_point_onPoint_1_oe() {
+        // arrange
+        final Interval interval = Interval.point(1, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
+    }
+
+    @Test
+    void testSplit_point_onPoint_2_oe() {
+        // arrange
+        final Interval interval = Interval.point(1, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        Assertions.assertNull(split.getMinus());
+    }
+
+    @Test
+    void testSplit_point_onPoint_3_oe() {
+        // arrange
+        final Interval interval = Interval.point(1, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(split.getPlus());
+    }
+
+    @Test
+    void testToString_1_oe() {
+        // arrange
+        final Interval interval = Interval.of(2, 1, TEST_PRECISION);
+
+        // act
+        final String str = interval.toString();
+
+        // assert
+        Assertions.assertTrue(str.contains("Interval"));
+    }
+
+    @Test
+    void testToString_2_oe() {
+        // arrange
+        final Interval interval = Interval.of(2, 1, TEST_PRECISION);
+
+        // act
+        final String str = interval.toString();
+
+        // assert
+        // removed other assertion
+        Assertions.assertTrue(str.contains("min= 1.0"));
+    }
+
+    @Test
+    void testToString_3_oe() {
+        // arrange
+        final Interval interval = Interval.of(2, 1, TEST_PRECISION);
+
+        // act
+        final String str = interval.toString();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(str.contains("max= 2.0"));
+    }
+
+    @Test
+    void testFull_1_oe() {
+        // act
+        final Interval full = Interval.full();
+
+        // assert
+        Assertions.assertTrue(full.isFull());
+    }
+
+    @Test
+    void testFull_2_oe() {
+        // act
+        final Interval full = Interval.full();
+
+        // assert
+        // removed other assertion
+        Assertions.assertFalse(full.isEmpty());
+    }
+
+    @Test
+    void testFull_3_oe() {
+        // act
+        final Interval full = Interval.full();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(full.hasMinBoundary());
+    }
+
+    @Test
+    void testFull_4_oe() {
+        // act
+        final Interval full = Interval.full();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(full.hasMaxBoundary());
+    }
+
+    @Test
+    void testFull_5_oe() {
+        // act
+        final Interval full = Interval.full();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(full.isInfinite());
+    }
+
+    @Test
+    void testFull_6_oe() {
+        // act
+        final Interval full = Interval.full();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(RegionLocation.INSIDE, full.classify(Double.NEGATIVE_INFINITY));
+    }
+
+    @Test
+    void testFull_7_oe() {
+        // act
+        final Interval full = Interval.full();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(RegionLocation.INSIDE, full.classify(Double.POSITIVE_INFINITY));
     }
 
 }

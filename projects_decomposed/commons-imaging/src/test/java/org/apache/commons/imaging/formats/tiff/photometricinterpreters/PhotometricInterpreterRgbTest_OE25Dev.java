@@ -41,5 +41,56 @@ public class PhotometricInterpreterRgbTest_OE25Dev {
         samplesPerPixel, bitsPerSample, predictor, width, height);
     }
 
+    @Test
+    public void testConstructor_1_oe() {
+        assertEquals(samplesPerPixel, p.samplesPerPixel);
+    }
+
+    @Test
+    public void testConstructor_2_oe() {
+        // removed other assertion
+        for (int i = 0; i < bitsPerSample.length; i++) {
+            assertEquals(bitsPerSample[i], p.getBitsPerSample(i));
+    }
+    }
+
+    @Test
+    public void testConstructor_3_oe() {
+        // removed other assertion
+        for (int i = 0; i < bitsPerSample.length; i++) {
+            // removed other assertion
+        }
+        assertEquals(predictor, p.predictor);
+    }
+
+    @Test
+    public void testConstructor_4_oe() {
+        // removed other assertion
+        for (int i = 0; i < bitsPerSample.length; i++) {
+            // removed other assertion
+        }
+        // removed other assertion
+        assertEquals(width, p.width);
+    }
+
+    @Test
+    public void testConstructor_5_oe() {
+        // removed other assertion
+        for (int i = 0; i < bitsPerSample.length; i++) {
+            // removed other assertion
+        }
+        // removed other assertion
+        // removed other assertion
+        assertEquals(height, p.height);
+    }
+
+    @Test
+    public void testInterpretPixel_1_oe() throws ImageReadException, IOException {
+        final ImageBuilder imgBuilder = new ImageBuilder(600, 400, /*alpha*/ true);
+        final int x = 10;
+        final int y = 20;
+        p.interpretPixel(imgBuilder, new int[] {255, 255, 255}, x, y);
+        assertEquals(0xffffffff, imgBuilder.getRGB(x, y));
+    }
 
 }

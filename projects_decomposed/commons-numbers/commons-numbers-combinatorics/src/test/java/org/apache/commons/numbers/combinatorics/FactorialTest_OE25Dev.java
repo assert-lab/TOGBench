@@ -19,6 +19,8 @@ package org.apache.commons.numbers.combinatorics;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test cases for the {@link Factorial} class.
  */
@@ -36,10 +38,22 @@ class FactorialTest_OE25Dev {
     }
 
     @Test
+    void testFactorialZero_1_oe() {
+        Assertions.assertEquals(1, Factorial.value(0), "0!");
+    }
+
+    @Test
+    void testFactorial_1_oe() {
+        for (int i = 1; i < 21; i++) {
+            Assertions.assertEquals(factorial(i), Factorial.value(i), i + "!");
+    }
+    }
+
+    @Test
     void testPrecondition1_1_oe() {
         try {
     Factorial.value(-1);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -48,7 +62,7 @@ class FactorialTest_OE25Dev {
     void testPrecondition2_1_oe() {
         try {
     Factorial.value(21);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }

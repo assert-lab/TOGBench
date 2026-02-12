@@ -104,6 +104,167 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
 
     }
 
+    @Test
+    public void testAcceptZipFile_2_oe() throws FileSystemException {
+
+        FileObject[] files;
+
+        // FILE Filter
+        files = zipFileObj.findFiles(new FileSelector() {
+            @Override
+            public boolean includeFile(final FileSelectInfo fileInfo) throws Exception {
+                return FileFileFilter.FILE.accept(fileInfo);
+            }
+
+            @Override
+            public boolean traverseDescendents(final FileSelectInfo fileInfo) throws Exception {
+                return true;
+            }
+        });
+        // removed other assertion
+        Assert.assertEquals(1, files.length);
+    }
+
+    @Test
+    public void testAcceptZipFile_4_oe() throws FileSystemException {
+
+        FileObject[] files;
+
+        // FILE Filter
+        files = zipFileObj.findFiles(new FileSelector() {
+            @Override
+            public boolean includeFile(final FileSelectInfo fileInfo) throws Exception {
+                return FileFileFilter.FILE.accept(fileInfo);
+            }
+
+            @Override
+            public boolean traverseDescendents(final FileSelectInfo fileInfo) throws Exception {
+                return true;
+            }
+        });
+        // removed other assertion
+        // removed other assertion
+
+        // DIRECTORY Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(DirectoryFileFilter.DIRECTORY));
+        // removed other assertion
+        Assert.assertEquals(1, files.length);
+    }
+
+    @Test
+    public void testDirectoryFileFilter_1_oe() throws FileSystemException {
+
+        final FileFilter testee = DirectoryFileFilter.DIRECTORY;
+
+        Assert.assertTrue(testee.accept(dirInfo));
+    }
+
+    @Test
+    public void testDirectoryFileFilter_2_oe() throws FileSystemException {
+
+        final FileFilter testee = DirectoryFileFilter.DIRECTORY;
+
+        // removed other assertion
+        Assert.assertFalse(testee.accept(fileInfo));
+    }
+
+    @Test
+    public void testDirectoryFileFilter_3_oe() throws FileSystemException {
+
+        final FileFilter testee = DirectoryFileFilter.DIRECTORY;
+
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(testee.accept(notExistingFileInfo));
+    }
+
+    @Test
+    public void testFileFileFilter_1_oe() throws FileSystemException {
+
+        final FileFilter testee = FileFileFilter.FILE;
+
+        Assert.assertTrue(testee.accept(fileInfo));
+    }
+
+    @Test
+    public void testFileFileFilter_2_oe() throws FileSystemException {
+
+        final FileFilter testee = FileFileFilter.FILE;
+
+        // removed other assertion
+        Assert.assertFalse(testee.accept(dirInfo));
+    }
+
+    @Test
+    public void testFileFileFilter_3_oe() throws FileSystemException {
+
+        final FileFilter testee = FileFileFilter.FILE;
+
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(testee.accept(notExistingFileInfo));
+    }
+
+    @Test
+    public void testAcceptZipFile_1_oe_1_oe() throws FileSystemException {
+
+        FileObject[] files;
+
+        // FILE Filter
+        files = zipFileObj.findFiles(new FileSelector() {
+            @Override
+            public boolean includeFile(final FileSelectInfo fileInfo) throws Exception {
+                return FileFileFilter.FILE.accept(fileInfo);
+            }
+
+            @Override
+            public boolean traverseDescendents(final FileSelectInfo fileInfo) throws Exception {
+                return true;
+            }
+        });
+                final FileObject[] fos0 = files;
+        final String string0 = FILE;
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        return;
+                    }
+                }
+        
+                fail(string0 + " should be seen");
+    }
+
+    @Test
+    public void testAcceptZipFile_3_oe_1_oe() throws FileSystemException {
+
+        FileObject[] files;
+
+        // FILE Filter
+        files = zipFileObj.findFiles(new FileSelector() {
+            @Override
+            public boolean includeFile(final FileSelectInfo fileInfo) throws Exception {
+                return FileFileFilter.FILE.accept(fileInfo);
+            }
+
+            @Override
+            public boolean traverseDescendents(final FileSelectInfo fileInfo) throws Exception {
+                return true;
+            }
+        });
+        // removed other assertion
+        // removed other assertion
+
+        // DIRECTORY Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(DirectoryFileFilter.DIRECTORY));
+                final FileObject[] fos0 = files;
+        final String string0 = DIR;
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        return;
+                    }
+                }
+        
+                fail(string0 + " should be seen");
+    }
 
 }
 // CHECKSTYLE:ON

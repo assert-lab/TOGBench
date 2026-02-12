@@ -30,6 +30,8 @@ import org.apache.commons.numbers.core.Precision;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class Bounds2DTest_OE25Dev {
 
     private static final double TEST_EPS = 1e-10;
@@ -301,13 +303,793 @@ class Bounds2DTest_OE25Dev {
     }
 
     @Test
+    void testHasSize_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
+
+        final Vector2D p1 = Vector2D.ZERO;
+
+        final Vector2D p2 = Vector2D.of(1e-5, 1);
+        final Vector2D p3 = Vector2D.of(1, 1e-5);
+
+        final Vector2D p4 = Vector2D.of(1, 1);
+
+        // act/assert
+        Assertions.assertFalse(Bounds2D.from(p1).hasSize(high));
+    }
+
+    @Test
+    void testHasSize_2_oe() {
+        // arrange
+        final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
+
+        final Vector2D p1 = Vector2D.ZERO;
+
+        final Vector2D p2 = Vector2D.of(1e-5, 1);
+        final Vector2D p3 = Vector2D.of(1, 1e-5);
+
+        final Vector2D p4 = Vector2D.of(1, 1);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertFalse(Bounds2D.from(p1).hasSize(low));
+    }
+
+    @Test
+    void testHasSize_3_oe() {
+        // arrange
+        final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
+
+        final Vector2D p1 = Vector2D.ZERO;
+
+        final Vector2D p2 = Vector2D.of(1e-5, 1);
+        final Vector2D p3 = Vector2D.of(1, 1e-5);
+
+        final Vector2D p4 = Vector2D.of(1, 1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertTrue(Bounds2D.from(p1, p2).hasSize(high));
+    }
+
+    @Test
+    void testHasSize_4_oe() {
+        // arrange
+        final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
+
+        final Vector2D p1 = Vector2D.ZERO;
+
+        final Vector2D p2 = Vector2D.of(1e-5, 1);
+        final Vector2D p3 = Vector2D.of(1, 1e-5);
+
+        final Vector2D p4 = Vector2D.of(1, 1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(Bounds2D.from(p1, p2).hasSize(low));
+    }
+
+    @Test
+    void testHasSize_5_oe() {
+        // arrange
+        final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
+
+        final Vector2D p1 = Vector2D.ZERO;
+
+        final Vector2D p2 = Vector2D.of(1e-5, 1);
+        final Vector2D p3 = Vector2D.of(1, 1e-5);
+
+        final Vector2D p4 = Vector2D.of(1, 1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertTrue(Bounds2D.from(p1, p3).hasSize(high));
+    }
+
+    @Test
+    void testHasSize_6_oe() {
+        // arrange
+        final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
+
+        final Vector2D p1 = Vector2D.ZERO;
+
+        final Vector2D p2 = Vector2D.of(1e-5, 1);
+        final Vector2D p3 = Vector2D.of(1, 1e-5);
+
+        final Vector2D p4 = Vector2D.of(1, 1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(Bounds2D.from(p1, p3).hasSize(low));
+    }
+
+    @Test
+    void testHasSize_7_oe() {
+        // arrange
+        final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
+
+        final Vector2D p1 = Vector2D.ZERO;
+
+        final Vector2D p2 = Vector2D.of(1e-5, 1);
+        final Vector2D p3 = Vector2D.of(1, 1e-5);
+
+        final Vector2D p4 = Vector2D.of(1, 1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertTrue(Bounds2D.from(p1, p4).hasSize(high));
+    }
+
+    @Test
+    void testHasSize_8_oe() {
+        // arrange
+        final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
+
+        final Vector2D p1 = Vector2D.ZERO;
+
+        final Vector2D p2 = Vector2D.of(1e-5, 1);
+        final Vector2D p3 = Vector2D.of(1, 1e-5);
+
+        final Vector2D p4 = Vector2D.of(1, 1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertTrue(Bounds2D.from(p1, p4).hasSize(low));
+    }
+
+    @Test
+    void testIntersection_1_oe() {
+        // -- arrange
+        final Bounds2D b = Bounds2D.from(Vector2D.ZERO, Vector2D.of(1, 1));
+
+        // -- act/assert
+
+        // move along x-axis
+        Assertions.assertNull(b.intersection(Bounds2D.from(Vector2D.of(-2, 0), Vector2D.of(-1, 1))));
+    }
+
+    @Test
+    void testIntersection_2_oe() {
+        // -- arrange
+        final Bounds2D b = Bounds2D.from(Vector2D.ZERO, Vector2D.of(1, 1));
+
+        // -- act/assert
+
+        // move along x-axis
+        // removed other assertion
+        checkIntersection(b, Vector2D.of(-1, 0), Vector2D.of(0, 1),
+                Vector2D.of(0, 0), Vector2D.of(0, 1));
+        checkIntersection(b, Vector2D.of(-1, 0), Vector2D.of(0.5, 1),
+                Vector2D.of(0, 0), Vector2D.of(0.5, 1));
+        checkIntersection(b, Vector2D.of(-1, 0), Vector2D.of(1, 1),
+                Vector2D.of(0, 0), Vector2D.of(1, 1));
+        checkIntersection(b, Vector2D.of(-1, 0), Vector2D.of(2, 1),
+                Vector2D.of(0, 0), Vector2D.of(1, 1));
+        checkIntersection(b, Vector2D.of(0, 0), Vector2D.of(2, 1),
+                Vector2D.of(0, 0), Vector2D.of(1, 1));
+        checkIntersection(b, Vector2D.of(0.5, 0), Vector2D.of(2, 1),
+                Vector2D.of(0.5, 0), Vector2D.of(1, 1));
+        checkIntersection(b, Vector2D.of(1, 0), Vector2D.of(2, 1),
+                Vector2D.of(1, 0), Vector2D.of(1, 1));
+        Assertions.assertNull(b.intersection(Bounds2D.from(Vector2D.of(2, 0), Vector2D.of(3, 1))));
+    }
+
+    @Test
+    void testIntersection_3_oe() {
+        // -- arrange
+        final Bounds2D b = Bounds2D.from(Vector2D.ZERO, Vector2D.of(1, 1));
+
+        // -- act/assert
+
+        // move along x-axis
+        // removed other assertion
+        checkIntersection(b, Vector2D.of(-1, 0), Vector2D.of(0, 1),
+                Vector2D.of(0, 0), Vector2D.of(0, 1));
+        checkIntersection(b, Vector2D.of(-1, 0), Vector2D.of(0.5, 1),
+                Vector2D.of(0, 0), Vector2D.of(0.5, 1));
+        checkIntersection(b, Vector2D.of(-1, 0), Vector2D.of(1, 1),
+                Vector2D.of(0, 0), Vector2D.of(1, 1));
+        checkIntersection(b, Vector2D.of(-1, 0), Vector2D.of(2, 1),
+                Vector2D.of(0, 0), Vector2D.of(1, 1));
+        checkIntersection(b, Vector2D.of(0, 0), Vector2D.of(2, 1),
+                Vector2D.of(0, 0), Vector2D.of(1, 1));
+        checkIntersection(b, Vector2D.of(0.5, 0), Vector2D.of(2, 1),
+                Vector2D.of(0.5, 0), Vector2D.of(1, 1));
+        checkIntersection(b, Vector2D.of(1, 0), Vector2D.of(2, 1),
+                Vector2D.of(1, 0), Vector2D.of(1, 1));
+        // removed other assertion
+
+        // move along y-axis
+        Assertions.assertNull(b.intersection(Bounds2D.from(Vector2D.of(0, -2), Vector2D.of(1, -1))));
+    }
+
+    @Test
+    void testIntersection_4_oe() {
+        // -- arrange
+        final Bounds2D b = Bounds2D.from(Vector2D.ZERO, Vector2D.of(1, 1));
+
+        // -- act/assert
+
+        // move along x-axis
+        // removed other assertion
+        checkIntersection(b, Vector2D.of(-1, 0), Vector2D.of(0, 1),
+                Vector2D.of(0, 0), Vector2D.of(0, 1));
+        checkIntersection(b, Vector2D.of(-1, 0), Vector2D.of(0.5, 1),
+                Vector2D.of(0, 0), Vector2D.of(0.5, 1));
+        checkIntersection(b, Vector2D.of(-1, 0), Vector2D.of(1, 1),
+                Vector2D.of(0, 0), Vector2D.of(1, 1));
+        checkIntersection(b, Vector2D.of(-1, 0), Vector2D.of(2, 1),
+                Vector2D.of(0, 0), Vector2D.of(1, 1));
+        checkIntersection(b, Vector2D.of(0, 0), Vector2D.of(2, 1),
+                Vector2D.of(0, 0), Vector2D.of(1, 1));
+        checkIntersection(b, Vector2D.of(0.5, 0), Vector2D.of(2, 1),
+                Vector2D.of(0.5, 0), Vector2D.of(1, 1));
+        checkIntersection(b, Vector2D.of(1, 0), Vector2D.of(2, 1),
+                Vector2D.of(1, 0), Vector2D.of(1, 1));
+        // removed other assertion
+
+        // move along y-axis
+        // removed other assertion
+        checkIntersection(b, Vector2D.of(0, -1), Vector2D.of(1, 0),
+                Vector2D.of(0, 0), Vector2D.of(1, 0));
+        checkIntersection(b, Vector2D.of(0, -1), Vector2D.of(1, 0.5),
+                Vector2D.of(0, 0), Vector2D.of(1, 0.5));
+        checkIntersection(b, Vector2D.of(0, -1), Vector2D.of(1, 1),
+                Vector2D.of(0, 0), Vector2D.of(1, 1));
+        checkIntersection(b, Vector2D.of(0, -1), Vector2D.of(1, 2),
+                Vector2D.of(0, 0), Vector2D.of(1, 1));
+        checkIntersection(b, Vector2D.of(0, 0), Vector2D.of(1, 2),
+                Vector2D.of(0, 0), Vector2D.of(1, 1));
+        checkIntersection(b, Vector2D.of(0, 0.5), Vector2D.of(1, 2),
+                Vector2D.of(0, 0.5), Vector2D.of(1, 1));
+        checkIntersection(b, Vector2D.of(0, 1), Vector2D.of(1, 2),
+                Vector2D.of(0, 1), Vector2D.of(1, 1));
+        Assertions.assertNull(b.intersection(Bounds2D.from(Vector2D.of(0, 2), Vector2D.of(1, 3))));
+    }
+
+    @Test
+    void toRegion_1_oe() {
+        // arrange
+        final Bounds2D b = Bounds2D.from(
+                Vector2D.of(0, 4),
+                Vector2D.of(2, 6));
+
+        // act
+        final Parallelogram p = b.toRegion(TEST_PRECISION);
+
+        // assert
+        Assertions.assertEquals(4, p.getSize(), TEST_EPS);
+    }
+
+    @Test
     void toRegion_boundingBoxTooSmall_1_oe() {
         // act/assert
         try {
     Bounds2D.from(Vector2D.ZERO, Vector2D.of(1e-12, 1e-12)).toRegion(TEST_PRECISION);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testEq_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
+
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(1.1, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(1.9, 2));
+
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1.001, 1.001), Vector2D.of(2.001, 2.001));
+
+        // act/assert
+        Assertions.assertTrue(b1.eq(b1, low));
+    }
+
+    @Test
+    void testEq_2_oe() {
+        // arrange
+        final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
+
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(1.1, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(1.9, 2));
+
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1.001, 1.001), Vector2D.of(2.001, 2.001));
+
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertFalse(b1.eq(b2, low));
+    }
+
+    @Test
+    void testEq_3_oe() {
+        // arrange
+        final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
+
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(1.1, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(1.9, 2));
+
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1.001, 1.001), Vector2D.of(2.001, 2.001));
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(b1.eq(b3, low));
+    }
+
+    @Test
+    void testEq_4_oe() {
+        // arrange
+        final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
+
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(1.1, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(1.9, 2));
+
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1.001, 1.001), Vector2D.of(2.001, 2.001));
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertTrue(b1.eq(b4, low));
+    }
+
+    @Test
+    void testEq_5_oe() {
+        // arrange
+        final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
+
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(1.1, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(1.9, 2));
+
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1.001, 1.001), Vector2D.of(2.001, 2.001));
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertTrue(b4.eq(b1, low));
+    }
+
+    @Test
+    void testEq_6_oe() {
+        // arrange
+        final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
+
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(1.1, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(1.9, 2));
+
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1.001, 1.001), Vector2D.of(2.001, 2.001));
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(b1.eq(b4, high));
+    }
+
+    @Test
+    void testEq_7_oe() {
+        // arrange
+        final Precision.DoubleEquivalence low = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Precision.DoubleEquivalence high = Precision.doubleEquivalenceOfEpsilon(1e-10);
+
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(1.1, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(1.9, 2));
+
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1.001, 1.001), Vector2D.of(2.001, 2.001));
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(b4.eq(b1, high));
+    }
+
+    @Test
+    void testHashCode_1_oe() {
+        // arrange
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(-2, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(3, 2));
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1 + 1e-15, 1), Vector2D.of(2, 2));
+        final Bounds2D b5 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2 + 1e-15, 2));
+
+        final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        // act
+        final int hash = b1.hashCode();
+
+        // assert
+        Assertions.assertEquals(hash, b1.hashCode());
+    }
+
+    @Test
+    void testHashCode_2_oe() {
+        // arrange
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(-2, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(3, 2));
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1 + 1e-15, 1), Vector2D.of(2, 2));
+        final Bounds2D b5 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2 + 1e-15, 2));
+
+        final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        // act
+        final int hash = b1.hashCode();
+
+        // assert
+        // removed other assertion
+
+        Assertions.assertNotEquals(hash, b2.hashCode());
+    }
+
+    @Test
+    void testHashCode_3_oe() {
+        // arrange
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(-2, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(3, 2));
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1 + 1e-15, 1), Vector2D.of(2, 2));
+        final Bounds2D b5 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2 + 1e-15, 2));
+
+        final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        // act
+        final int hash = b1.hashCode();
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNotEquals(hash, b3.hashCode());
+    }
+
+    @Test
+    void testHashCode_4_oe() {
+        // arrange
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(-2, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(3, 2));
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1 + 1e-15, 1), Vector2D.of(2, 2));
+        final Bounds2D b5 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2 + 1e-15, 2));
+
+        final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        // act
+        final int hash = b1.hashCode();
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(hash, b4.hashCode());
+    }
+
+    @Test
+    void testHashCode_5_oe() {
+        // arrange
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(-2, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(3, 2));
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1 + 1e-15, 1), Vector2D.of(2, 2));
+        final Bounds2D b5 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2 + 1e-15, 2));
+
+        final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        // act
+        final int hash = b1.hashCode();
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(hash, b5.hashCode());
+    }
+
+    @Test
+    void testHashCode_6_oe() {
+        // arrange
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(-2, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(3, 2));
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1 + 1e-15, 1), Vector2D.of(2, 2));
+        final Bounds2D b5 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2 + 1e-15, 2));
+
+        final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        // act
+        final int hash = b1.hashCode();
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(hash, b6.hashCode());
+    }
+
+    @Test
+    void testEquals_2_oe() {
+        // arrange
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(-1, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(3, 2));
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1 + 1e-15, 1), Vector2D.of(2, 2));
+        final Bounds2D b5 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2 + 1e-15, 2));
+
+        final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertNotEquals(b1, b2);
+    }
+
+    @Test
+    void testEquals_3_oe() {
+        // arrange
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(-1, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(3, 2));
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1 + 1e-15, 1), Vector2D.of(2, 2));
+        final Bounds2D b5 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2 + 1e-15, 2));
+
+        final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNotEquals(b1, b3);
+    }
+
+    @Test
+    void testEquals_4_oe() {
+        // arrange
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(-1, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(3, 2));
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1 + 1e-15, 1), Vector2D.of(2, 2));
+        final Bounds2D b5 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2 + 1e-15, 2));
+
+        final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(b1, b4);
+    }
+
+    @Test
+    void testEquals_5_oe() {
+        // arrange
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(-1, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(3, 2));
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1 + 1e-15, 1), Vector2D.of(2, 2));
+        final Bounds2D b5 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2 + 1e-15, 2));
+
+        final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(b1, b5);
+    }
+
+    @Test
+    void testEquals_6_oe() {
+        // arrange
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(-1, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(3, 2));
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1 + 1e-15, 1), Vector2D.of(2, 2));
+        final Bounds2D b5 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2 + 1e-15, 2));
+
+        final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(b1, b6);
+    }
+
+    @Test
+    void testBuilder_hasBounds_1_oe() {
+        // act/assert
+        Assertions.assertFalse(Bounds2D.builder().hasBounds());
+    }
+
+    @Test
+    void testBuilder_hasBounds_2_oe() {
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertFalse(Bounds2D.builder().add(Vector2D.of(Double.NaN, 1)).hasBounds());
+    }
+
+    @Test
+    void testBuilder_hasBounds_3_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(Bounds2D.builder().add(Vector2D.of(1, Double.NaN)).hasBounds());
+    }
+
+    @Test
+    void testBuilder_hasBounds_4_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(Bounds2D.builder().add(Vector2D.of(Double.POSITIVE_INFINITY, 1)).hasBounds());
+    }
+
+    @Test
+    void testBuilder_hasBounds_5_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(Bounds2D.builder().add(Vector2D.of(1, Double.POSITIVE_INFINITY)).hasBounds());
+    }
+
+    @Test
+    void testBuilder_hasBounds_6_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(Bounds2D.builder().add(Vector2D.of(Double.NEGATIVE_INFINITY, 1)).hasBounds());
+    }
+
+    @Test
+    void testBuilder_hasBounds_7_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(Bounds2D.builder().add(Vector2D.of(1, Double.NEGATIVE_INFINITY)).hasBounds());
+    }
+
+    @Test
+    void testBuilder_hasBounds_8_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertTrue(Bounds2D.builder().add(Vector2D.ZERO).hasBounds());
     }
 
 }

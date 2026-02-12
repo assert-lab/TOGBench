@@ -74,5 +74,93 @@ class ObjTriangleMeshReaderTest_OE25Dev {
         return new ObjTriangleMeshReader(new StringReader(str), TEST_PRECISION);
     }
 
+    @Test
+    void testDefaults_1_oe() {
+        // arrange
+        final ObjTriangleMeshReader reader = reader("");
+
+        // act/assert
+        Assertions.assertFalse(reader.isFailOnNonPolygonKeywords());
+    }
+
+    @Test
+    void testReadTriangleMesh_withNormal_1_oe() {
+        // arrange
+        final ObjTriangleMeshReader reader = reader(
+                "o test\n\n" +
+                "v 0 0 0\r\n" +
+                "v 0.5 0 0\n" +
+                "v 1 1 0\r" +
+                "v 0 1 0\n" +
+                "vn 0 0 -1\n" +
+                "f 1//1 2//1 3//1 4//1\n" +
+                "curv non-polygon data\n");
+
+        // act
+        final TriangleMesh mesh = reader.readTriangleMesh();
+
+        // assert
+        Assertions.assertEquals(4, mesh.getVertexCount());
+    }
+
+    @Test
+    void testReadTriangleMesh_withNormal_2_oe() {
+        // arrange
+        final ObjTriangleMeshReader reader = reader(
+                "o test\n\n" +
+                "v 0 0 0\r\n" +
+                "v 0.5 0 0\n" +
+                "v 1 1 0\r" +
+                "v 0 1 0\n" +
+                "vn 0 0 -1\n" +
+                "f 1//1 2//1 3//1 4//1\n" +
+                "curv non-polygon data\n");
+
+        // act
+        final TriangleMesh mesh = reader.readTriangleMesh();
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(2, mesh.getFaceCount());
+    }
+
+    @Test
+    void testReadTriangleMesh_withoutNormal_1_oe() {
+        // arrange
+        final ObjTriangleMeshReader reader = reader(
+                "o test\n\n" +
+                "v -1 0 0\n" +
+                "v 0 0 0\r\n" +
+                "v 1 0 0\n" +
+                "v 1 1 0\r" +
+                "v -2 0 0\n" +
+                "f 2 3 4\n");
+
+        // act
+        final TriangleMesh mesh = reader.readTriangleMesh();
+
+        // assert
+        Assertions.assertEquals(5, mesh.getVertexCount());
+    }
+
+    @Test
+    void testReadTriangleMesh_withoutNormal_2_oe() {
+        // arrange
+        final ObjTriangleMeshReader reader = reader(
+                "o test\n\n" +
+                "v -1 0 0\n" +
+                "v 0 0 0\r\n" +
+                "v 1 0 0\n" +
+                "v 1 1 0\r" +
+                "v -2 0 0\n" +
+                "f 2 3 4\n");
+
+        // act
+        final TriangleMesh mesh = reader.readTriangleMesh();
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(1, mesh.getFaceCount());
+    }
 
 }

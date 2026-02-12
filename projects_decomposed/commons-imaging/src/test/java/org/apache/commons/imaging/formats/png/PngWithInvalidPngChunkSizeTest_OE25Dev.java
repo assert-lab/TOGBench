@@ -25,6 +25,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Tests for PNG files with invalid chunk sizes.
  */
@@ -48,7 +50,7 @@ public class PngWithInvalidPngChunkSizeTest_OE25Dev {
         PngImageParser jpegImageParser = new PngImageParser();
         try {
     jpegImageParser.getBufferedImage(imageFile, params);
-    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+    fail("ImageReadException");
 } catch (ImageReadException e) {
 }
     }
@@ -62,7 +64,7 @@ public class PngWithInvalidPngChunkSizeTest_OE25Dev {
         PngImageParser jpegImageParser = new PngImageParser();
         try {
     jpegImageParser.getBufferedImage(imageFile, params);
-    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+    fail("ImageReadException");
 } catch (ImageReadException e) {
 }
     }

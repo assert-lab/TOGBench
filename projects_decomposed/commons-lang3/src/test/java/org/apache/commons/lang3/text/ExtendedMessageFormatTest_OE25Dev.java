@@ -358,5 +358,505 @@ public class ExtendedMessageFormatTest_OE25Dev {
 
     }
 
+    @Test
+    public void testExtendedFormats_1_oe() {
+        final String pattern = "Lower: {0,lower} Upper: {1,upper}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, registry);
+        assertEquals(pattern, emf.toPattern(), "TOPATTERN");
+    }
+
+    @Test
+    public void testExtendedFormats_2_oe() {
+        final String pattern = "Lower: {0,lower} Upper: {1,upper}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, registry);
+        // removed other assertion
+        assertEquals(emf.format(new Object[] {"foo", "bar"}), "Lower: foo Upper: BAR");
+    }
+
+    @Test
+    public void testExtendedFormats_3_oe() {
+        final String pattern = "Lower: {0,lower} Upper: {1,upper}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, registry);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(emf.format(new Object[] {"Foo", "Bar"}), "Lower: foo Upper: BAR");
+    }
+
+    @Test
+    public void testExtendedFormats_4_oe() {
+        final String pattern = "Lower: {0,lower} Upper: {1,upper}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, registry);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(emf.format(new Object[] {"FOO", "BAR"}), "Lower: foo Upper: BAR");
+    }
+
+    @Test
+    public void testExtendedFormats_5_oe() {
+        final String pattern = "Lower: {0,lower} Upper: {1,upper}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, registry);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(emf.format(new Object[] {"FOO", "bar"}), "Lower: foo Upper: BAR");
+    }
+
+    @Test
+    public void testExtendedFormats_6_oe() {
+        final String pattern = "Lower: {0,lower} Upper: {1,upper}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, registry);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(emf.format(new Object[] {"foo", "BAR"}), "Lower: foo Upper: BAR");
+    }
+
+    @Test
+    public void testEscapedQuote_LANG_477_1_oe() {
+        final String pattern = "it''s a {0,lower} 'test'!";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, registry);
+        assertEquals("it's a dummy test!", emf.format(new Object[] {"DUMMY"}));
+    }
+
+    @Test
+    public void testEmbeddedPatternInChoice_1_oe() {
+        final String pattern = "Hi {0,lower}, got {1,choice,0#none|1#one|1<{1,number}}, {2,upper}!";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, registry);
+        assertEquals(emf.format(new Object[] {"there", 3, "great"}), "Hi there, got 3, GREAT!");
+    }
+
+    @Test
+    public void testEscapedBraces_LANG_948_1_oe() {
+        // message without placeholder because braces are escaped by quotes
+        final String pattern = "Message without placeholders '{}'";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, registry);
+        assertEquals("Message without placeholders {}", emf.format(new Object[] {"DUMMY"}));
+    }
+
+    @Test
+    public void testEscapedBraces_LANG_948_2_oe() {
+        // message without placeholder because braces are escaped by quotes
+        final String pattern = "Message without placeholders '{}'";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, registry);
+        // removed other assertion
+
+        // message with placeholder because quotes are escaped by quotes
+        final String pattern2 = "Message with placeholder ''{0}''";
+        final ExtendedMessageFormat emf2 = new ExtendedMessageFormat(pattern2, registry);
+        assertEquals("Message with placeholder 'DUMMY'", emf2.format(new Object[] {"DUMMY"}));
+    }
+
+    @Test
+    public void testExtendedAndBuiltInFormats_1_oe() {
+        final Calendar cal = Calendar.getInstance();
+        cal.set(2007, Calendar.JANUARY, 23, 18, 33, 5);
+        final Object[] args = new Object[] {"John Doe", cal.getTime(), Double.valueOf("12345.67")};
+        final String builtinsPattern = "DOB: {1,date,short} Salary: {2,number,currency}";
+        final String extendedPattern = "Name: {0,upper} ";
+        final String pattern = extendedPattern + builtinsPattern;
+
+        final HashSet<Locale> testLocales = new HashSet<>(Arrays.asList(DateFormat.getAvailableLocales()));
+        testLocales.retainAll(Arrays.asList(NumberFormat.getAvailableLocales()));
+        testLocales.add(null);
+
+        for (final Locale locale : testLocales) {
+            final MessageFormat builtins = createMessageFormat(builtinsPattern, locale);
+            final String expectedPattern = extendedPattern + builtins.toPattern();
+            DateFormat df = null;
+            NumberFormat nf = null;
+            ExtendedMessageFormat emf = null;
+            if (locale == null) {
+                df = DateFormat.getDateInstance(DateFormat.SHORT);
+                nf = NumberFormat.getCurrencyInstance();
+                emf = new ExtendedMessageFormat(pattern, registry);
+            } else {
+                df = DateFormat.getDateInstance(DateFormat.SHORT, locale);
+                nf = NumberFormat.getCurrencyInstance(locale);
+                emf = new ExtendedMessageFormat(pattern, locale, registry);
+            }
+            final StringBuilder expected = new StringBuilder();
+            expected.append("Name: ");
+            expected.append(args[0].toString().toUpperCase(Locale.ROOT));
+            expected.append(" DOB: ");
+            expected.append(df.format(args[1]));
+            expected.append(" Salary: ");
+            expected.append(nf.format(args[2]));
+            assertEquals(expectedPattern, emf.toPattern(), "pattern comparison for locale " + locale);
+    }
+    }
+
+    @Test
+    public void testExtendedAndBuiltInFormats_2_oe() {
+        final Calendar cal = Calendar.getInstance();
+        cal.set(2007, Calendar.JANUARY, 23, 18, 33, 5);
+        final Object[] args = new Object[] {"John Doe", cal.getTime(), Double.valueOf("12345.67")};
+        final String builtinsPattern = "DOB: {1,date,short} Salary: {2,number,currency}";
+        final String extendedPattern = "Name: {0,upper} ";
+        final String pattern = extendedPattern + builtinsPattern;
+
+        final HashSet<Locale> testLocales = new HashSet<>(Arrays.asList(DateFormat.getAvailableLocales()));
+        testLocales.retainAll(Arrays.asList(NumberFormat.getAvailableLocales()));
+        testLocales.add(null);
+
+        for (final Locale locale : testLocales) {
+            final MessageFormat builtins = createMessageFormat(builtinsPattern, locale);
+            final String expectedPattern = extendedPattern + builtins.toPattern();
+            DateFormat df = null;
+            NumberFormat nf = null;
+            ExtendedMessageFormat emf = null;
+            if (locale == null) {
+                df = DateFormat.getDateInstance(DateFormat.SHORT);
+                nf = NumberFormat.getCurrencyInstance();
+                emf = new ExtendedMessageFormat(pattern, registry);
+            } else {
+                df = DateFormat.getDateInstance(DateFormat.SHORT, locale);
+                nf = NumberFormat.getCurrencyInstance(locale);
+                emf = new ExtendedMessageFormat(pattern, locale, registry);
+            }
+            final StringBuilder expected = new StringBuilder();
+            expected.append("Name: ");
+            expected.append(args[0].toString().toUpperCase(Locale.ROOT));
+            expected.append(" DOB: ");
+            expected.append(df.format(args[1]));
+            expected.append(" Salary: ");
+            expected.append(nf.format(args[2]));
+            // removed other assertion
+            assertEquals(expected.toString(), emf.format(args), String.valueOf(locale));
+    }
+    }
+
+    @Test
+    public void testOverriddenBuiltinFormat_1_oe() {
+        final Calendar cal = Calendar.getInstance();
+        cal.set(2007, Calendar.JANUARY, 23);
+        final Object[] args = new Object[] {cal.getTime()};
+        final Locale[] availableLocales = DateFormat.getAvailableLocales();
+        final Map<String, ? extends FormatFactory> dateRegistry = Collections.singletonMap("date", new OverrideShortDateFormatFactory());
+
+        //check the non-overridden builtins:
+        checkBuiltInFormat("1: {0,date}", dateRegistry,          args, availableLocales);
+        checkBuiltInFormat("2: {0,date,medium}", dateRegistry,   args, availableLocales);
+        checkBuiltInFormat("3: {0,date,long}", dateRegistry,     args, availableLocales);
+        checkBuiltInFormat("4: {0,date,full}", dateRegistry,     args, availableLocales);
+        checkBuiltInFormat("5: {0,date,d MMM yy}", dateRegistry, args, availableLocales);
+
+        //check the overridden format:
+        for (int i = -1; i < availableLocales.length; i++) {
+            final Locale locale = i < 0 ? null : availableLocales[i];
+            final MessageFormat dateDefault = createMessageFormat("{0,date}", locale);
+            final String pattern = "{0,date,short}";
+            final ExtendedMessageFormat dateShort = new ExtendedMessageFormat(pattern, locale, dateRegistry);
+            assertEquals(dateDefault.format(args), dateShort.format(args), "overridden date,short format");
+    }
+    }
+
+    @Test
+    public void testOverriddenBuiltinFormat_2_oe() {
+        final Calendar cal = Calendar.getInstance();
+        cal.set(2007, Calendar.JANUARY, 23);
+        final Object[] args = new Object[] {cal.getTime()};
+        final Locale[] availableLocales = DateFormat.getAvailableLocales();
+        final Map<String, ? extends FormatFactory> dateRegistry = Collections.singletonMap("date", new OverrideShortDateFormatFactory());
+
+        //check the non-overridden builtins:
+        checkBuiltInFormat("1: {0,date}", dateRegistry,          args, availableLocales);
+        checkBuiltInFormat("2: {0,date,medium}", dateRegistry,   args, availableLocales);
+        checkBuiltInFormat("3: {0,date,long}", dateRegistry,     args, availableLocales);
+        checkBuiltInFormat("4: {0,date,full}", dateRegistry,     args, availableLocales);
+        checkBuiltInFormat("5: {0,date,d MMM yy}", dateRegistry, args, availableLocales);
+
+        //check the overridden format:
+        for (int i = -1; i < availableLocales.length; i++) {
+            final Locale locale = i < 0 ? null : availableLocales[i];
+            final MessageFormat dateDefault = createMessageFormat("{0,date}", locale);
+            final String pattern = "{0,date,short}";
+            final ExtendedMessageFormat dateShort = new ExtendedMessageFormat(pattern, locale, dateRegistry);
+            // removed other assertion
+            assertEquals(pattern, dateShort.toPattern(), "overridden date,short pattern");
+    }
+    }
+
+    @Test
+    public void testEqualsHashcode_1_oe() {
+        final Map<String, ? extends FormatFactory> fmtRegistry = Collections.singletonMap("testfmt", new LowerCaseFormatFactory());
+        final Map<String, ? extends FormatFactory> otherRegistry = Collections.singletonMap("testfmt", new UpperCaseFormatFactory());
+
+        final String pattern = "Pattern: {0,testfmt}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+
+        ExtendedMessageFormat other;
+
+        // Same object
+        assertEquals(emf, emf, "same, equals()");
+    }
+
+    @Test
+    public void testEqualsHashcode_2_oe() {
+        final Map<String, ? extends FormatFactory> fmtRegistry = Collections.singletonMap("testfmt", new LowerCaseFormatFactory());
+        final Map<String, ? extends FormatFactory> otherRegistry = Collections.singletonMap("testfmt", new UpperCaseFormatFactory());
+
+        final String pattern = "Pattern: {0,testfmt}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+
+        ExtendedMessageFormat other;
+
+        // Same object
+        // removed other assertion
+        assertEquals(emf.hashCode(), emf.hashCode(), "same, hashcode()");
+    }
+
+    @Test
+    public void testEqualsHashcode_3_oe() {
+        final Map<String, ? extends FormatFactory> fmtRegistry = Collections.singletonMap("testfmt", new LowerCaseFormatFactory());
+        final Map<String, ? extends FormatFactory> otherRegistry = Collections.singletonMap("testfmt", new UpperCaseFormatFactory());
+
+        final String pattern = "Pattern: {0,testfmt}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+
+        ExtendedMessageFormat other;
+
+        // Same object
+        // removed other assertion
+        // removed other assertion
+
+        // Equal Object
+        other = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+        assertEquals(emf, other, "equal, equals()");
+    }
+
+    @Test
+    public void testEqualsHashcode_4_oe() {
+        final Map<String, ? extends FormatFactory> fmtRegistry = Collections.singletonMap("testfmt", new LowerCaseFormatFactory());
+        final Map<String, ? extends FormatFactory> otherRegistry = Collections.singletonMap("testfmt", new UpperCaseFormatFactory());
+
+        final String pattern = "Pattern: {0,testfmt}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+
+        ExtendedMessageFormat other;
+
+        // Same object
+        // removed other assertion
+        // removed other assertion
+
+        // Equal Object
+        other = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+        // removed other assertion
+        assertEquals(emf.hashCode(), other.hashCode(), "equal, hashcode()");
+    }
+
+    @Test
+    public void testEqualsHashcode_5_oe() {
+        final Map<String, ? extends FormatFactory> fmtRegistry = Collections.singletonMap("testfmt", new LowerCaseFormatFactory());
+        final Map<String, ? extends FormatFactory> otherRegistry = Collections.singletonMap("testfmt", new UpperCaseFormatFactory());
+
+        final String pattern = "Pattern: {0,testfmt}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+
+        ExtendedMessageFormat other;
+
+        // Same object
+        // removed other assertion
+        // removed other assertion
+
+        // Equal Object
+        other = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+        // removed other assertion
+        // removed other assertion
+
+        // Different Class
+        other = new OtherExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+        assertNotEquals(emf, other, "class, equals()");
+    }
+
+    @Test
+    public void testEqualsHashcode_6_oe() {
+        final Map<String, ? extends FormatFactory> fmtRegistry = Collections.singletonMap("testfmt", new LowerCaseFormatFactory());
+        final Map<String, ? extends FormatFactory> otherRegistry = Collections.singletonMap("testfmt", new UpperCaseFormatFactory());
+
+        final String pattern = "Pattern: {0,testfmt}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+
+        ExtendedMessageFormat other;
+
+        // Same object
+        // removed other assertion
+        // removed other assertion
+
+        // Equal Object
+        other = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+        // removed other assertion
+        // removed other assertion
+
+        // Different Class
+        other = new OtherExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+        // removed other assertion
+        assertEquals(emf.hashCode(),other.hashCode(),"class,hashcode()");// same hashcode other = new ExtendedMessageFormat("X" + pattern,Locale.US,fmtRegistry);
+    }
+
+    @Test
+    public void testEqualsHashcode_7_oe() {
+        final Map<String, ? extends FormatFactory> fmtRegistry = Collections.singletonMap("testfmt", new LowerCaseFormatFactory());
+        final Map<String, ? extends FormatFactory> otherRegistry = Collections.singletonMap("testfmt", new UpperCaseFormatFactory());
+
+        final String pattern = "Pattern: {0,testfmt}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+
+        ExtendedMessageFormat other;
+
+        // Same object
+        // removed other assertion
+        // removed other assertion
+
+        // Equal Object
+        other = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+        // removed other assertion
+        // removed other assertion
+
+        // Different Class
+        other = new OtherExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+        // removed other assertion
+        // removed other assertion
+        assertNotEquals(emf, other, "pattern, equals()");
+    }
+
+    @Test
+    public void testEqualsHashcode_9_oe() {
+        final Map<String, ? extends FormatFactory> fmtRegistry = Collections.singletonMap("testfmt", new LowerCaseFormatFactory());
+        final Map<String, ? extends FormatFactory> otherRegistry = Collections.singletonMap("testfmt", new UpperCaseFormatFactory());
+
+        final String pattern = "Pattern: {0,testfmt}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+
+        ExtendedMessageFormat other;
+
+        // Same object
+        // removed other assertion
+        // removed other assertion
+
+        // Equal Object
+        other = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+        // removed other assertion
+        // removed other assertion
+
+        // Different Class
+        other = new OtherExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Different registry
+        other = new ExtendedMessageFormat(pattern, Locale.US, otherRegistry);
+        assertNotEquals(emf, other, "registry, equals()");
+    }
+
+    @Test
+    public void testEqualsHashcode_10_oe() {
+        final Map<String, ? extends FormatFactory> fmtRegistry = Collections.singletonMap("testfmt", new LowerCaseFormatFactory());
+        final Map<String, ? extends FormatFactory> otherRegistry = Collections.singletonMap("testfmt", new UpperCaseFormatFactory());
+
+        final String pattern = "Pattern: {0,testfmt}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+
+        ExtendedMessageFormat other;
+
+        // Same object
+        // removed other assertion
+        // removed other assertion
+
+        // Equal Object
+        other = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+        // removed other assertion
+        // removed other assertion
+
+        // Different Class
+        other = new OtherExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Different registry
+        other = new ExtendedMessageFormat(pattern, Locale.US, otherRegistry);
+        // removed other assertion
+        assertNotEquals(emf.hashCode(), other.hashCode(), "registry, hashcode()");
+    }
+
+    @Test
+    public void testEqualsHashcode_11_oe() {
+        final Map<String, ? extends FormatFactory> fmtRegistry = Collections.singletonMap("testfmt", new LowerCaseFormatFactory());
+        final Map<String, ? extends FormatFactory> otherRegistry = Collections.singletonMap("testfmt", new UpperCaseFormatFactory());
+
+        final String pattern = "Pattern: {0,testfmt}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+
+        ExtendedMessageFormat other;
+
+        // Same object
+        // removed other assertion
+        // removed other assertion
+
+        // Equal Object
+        other = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+        // removed other assertion
+        // removed other assertion
+
+        // Different Class
+        other = new OtherExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Different registry
+        other = new ExtendedMessageFormat(pattern, Locale.US, otherRegistry);
+        // removed other assertion
+        // removed other assertion
+
+        // Different Locale
+        other = new ExtendedMessageFormat(pattern, Locale.FRANCE, fmtRegistry);
+        assertNotEquals(emf, other, "locale, equals()");
+    }
+
+    @Test
+    public void testEqualsHashcode_12_oe() {
+        final Map<String, ? extends FormatFactory> fmtRegistry = Collections.singletonMap("testfmt", new LowerCaseFormatFactory());
+        final Map<String, ? extends FormatFactory> otherRegistry = Collections.singletonMap("testfmt", new UpperCaseFormatFactory());
+
+        final String pattern = "Pattern: {0,testfmt}";
+        final ExtendedMessageFormat emf = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+
+        ExtendedMessageFormat other;
+
+        // Same object
+        // removed other assertion
+        // removed other assertion
+
+        // Equal Object
+        other = new ExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+        // removed other assertion
+        // removed other assertion
+
+        // Different Class
+        other = new OtherExtendedMessageFormat(pattern, Locale.US, fmtRegistry);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Different registry
+        other = new ExtendedMessageFormat(pattern, Locale.US, otherRegistry);
+        // removed other assertion
+        // removed other assertion
+
+        // Different Locale
+        other = new ExtendedMessageFormat(pattern, Locale.FRANCE, fmtRegistry);
+        // removed other assertion
+        assertEquals(emf.hashCode(), other.hashCode(), "locale, hashcode()"); // same hashcode;
+    }
 
 }

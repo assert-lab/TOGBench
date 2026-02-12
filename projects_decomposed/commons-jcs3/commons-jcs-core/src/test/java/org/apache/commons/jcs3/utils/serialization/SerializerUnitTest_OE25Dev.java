@@ -73,5 +73,101 @@ public class SerializerUnitTest_OE25Dev
      * @throws Exception
      */
 
+    public void testReadWrite_1_oe()
+        throws Exception
+    {
+        final int count = 500; // 100 fit in memory
+        // CompressingSerializer
+        final CacheAccess<String, String> jcs1 = JCS.getInstance( "blockRegion1" );
+
+        for ( int i = 0; i < count; i++ )
+        {
+            jcs1.put( "key:" + i, "data" + i );
+        }
+
+        for ( int i = 0; i < count; i++ )
+        {
+            final String res = jcs1.get( "key:" + i );
+            assertNotNull( "[key:" + i + "] should not be null, " + jcs1.getStats(), res );
+    }
+    }
+
+    public void testReadWrite_2_oe()
+        throws Exception
+    {
+        final int count = 500; // 100 fit in memory
+        // CompressingSerializer
+        final CacheAccess<String, String> jcs1 = JCS.getInstance( "blockRegion1" );
+
+        for ( int i = 0; i < count; i++ )
+        {
+            jcs1.put( "key:" + i, "data" + i );
+        }
+
+        for ( int i = 0; i < count; i++ )
+        {
+            final String res = jcs1.get( "key:" + i );
+            // removed other assertion
+        }
+
+        // EncryptingSerializer
+        final CacheAccess<String, String> jcs2 = JCS.getInstance( "blockRegion2" );
+
+        for ( int i = 0; i < count; i++ )
+        {
+            jcs2.put( "key:" + i, "data" + i );
+        }
+
+        for ( int i = 0; i < count; i++ )
+        {
+            final String res = jcs2.get( "key:" + i );
+            assertNotNull( "[key:" + i + "] should not be null, " + jcs2.getStats(), res );
+    }
+    }
+
+    public void testReadWrite_3_oe()
+        throws Exception
+    {
+        final int count = 500; // 100 fit in memory
+        // CompressingSerializer
+        final CacheAccess<String, String> jcs1 = JCS.getInstance( "blockRegion1" );
+
+        for ( int i = 0; i < count; i++ )
+        {
+            jcs1.put( "key:" + i, "data" + i );
+        }
+
+        for ( int i = 0; i < count; i++ )
+        {
+            final String res = jcs1.get( "key:" + i );
+            // removed other assertion
+        }
+
+        // EncryptingSerializer
+        final CacheAccess<String, String> jcs2 = JCS.getInstance( "blockRegion2" );
+
+        for ( int i = 0; i < count; i++ )
+        {
+            jcs2.put( "key:" + i, "data" + i );
+        }
+
+        for ( int i = 0; i < count; i++ )
+        {
+            final String res = jcs2.get( "key:" + i );
+            // removed other assertion
+        }
+
+        JCS.shutdown();
+
+        // Re-init
+        // EncryptingSerializer
+        final CacheAccess<String, String> jcs3 = JCS.getInstance( "blockRegion2" );
+
+        for ( int i = 0; i < count; i++ )
+        {
+            final String res = jcs3.get( "key:" + i );
+            assertNotNull( "[key:" + i + "] should not be null, " + jcs3.getStats(), res );
+    }
+    }
 
 }

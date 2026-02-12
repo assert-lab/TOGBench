@@ -20,6 +20,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Assumptions;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Tests for {@link BaseProvider}.
  *
@@ -76,7 +78,7 @@ class BaseProviderTest_OE25Dev {
          RandomProviderDefaultState state = new RandomProviderDefaultState(new byte[size - 1]);
         try {
     dummy.restoreState(state);
-    org.junit.jupiter.api.Assertions.fail("IllegalStateException");
+    fail("IllegalStateException");
 } catch (IllegalStateException e) {
 }
     }
@@ -88,9 +90,95 @@ class BaseProviderTest_OE25Dev {
          RandomProviderDefaultState state = new RandomProviderDefaultState(new byte[size + 1]);
         try {
     dummy.restoreState(state);
-    org.junit.jupiter.api.Assertions.fail("IllegalStateException");
+    fail("IllegalStateException");
 } catch (IllegalStateException e) {
 }
+    }
+
+    @Test
+    void testFillStateInt_1_oe() {
+         int[] state = new int[10];
+         int[] seed = {1, 2, 3};
+
+        for (int i = 0; i < state.length; i++) {
+            Assertions.assertEquals(0, state[i]);
+    }
+    }
+
+    @Test
+    void testFillStateInt_2_oe() {
+         int[] state = new int[10];
+         int[] seed = {1, 2, 3};
+
+        for (int i = 0; i < state.length; i++) {
+            // removed other assertion
+        }
+
+        new DummyGenerator().fillState(state, seed);
+        for (int i = 0; i < seed.length; i++) {
+            Assertions.assertEquals(seed[i], state[i]);
+    }
+    }
+
+    @Test
+    void testFillStateInt_3_oe() {
+         int[] state = new int[10];
+         int[] seed = {1, 2, 3};
+
+        for (int i = 0; i < state.length; i++) {
+            // removed other assertion
+        }
+
+        new DummyGenerator().fillState(state, seed);
+        for (int i = 0; i < seed.length; i++) {
+            // removed other assertion
+        }
+        for (int i = seed.length; i < state.length; i++) {
+            Assertions.assertNotEquals(0, state[i]);
+    }
+    }
+
+    @Test
+    void testFillStateLong_1_oe() {
+         long[] state = new long[10];
+         long[] seed = {1, 2, 3};
+
+        for (int i = 0; i < state.length; i++) {
+            Assertions.assertEquals(0, state[i]);
+    }
+    }
+
+    @Test
+    void testFillStateLong_2_oe() {
+         long[] state = new long[10];
+         long[] seed = {1, 2, 3};
+
+        for (int i = 0; i < state.length; i++) {
+            // removed other assertion
+        }
+
+        new DummyGenerator().fillState(state, seed);
+        for (int i = 0; i < seed.length; i++) {
+            Assertions.assertEquals(seed[i], state[i]);
+    }
+    }
+
+    @Test
+    void testFillStateLong_3_oe() {
+         long[] state = new long[10];
+         long[] seed = {1, 2, 3};
+
+        for (int i = 0; i < state.length; i++) {
+            // removed other assertion
+        }
+
+        new DummyGenerator().fillState(state, seed);
+        for (int i = 0; i < seed.length; i++) {
+            // removed other assertion
+        }
+        for (int i = seed.length; i < state.length; i++) {
+            Assertions.assertNotEquals(0, state[i]);
+    }
     }
 
 }

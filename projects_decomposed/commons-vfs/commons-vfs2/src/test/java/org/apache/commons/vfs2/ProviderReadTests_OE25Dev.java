@@ -178,5 +178,452 @@ public class ProviderReadTests_OE25Dev extends AbstractProviderTestCase {
      * Tests type determination.
      */
 
+    @Test
+    public void testConcurrentReadFolder_1_oe() throws Exception {
+        final FileObject file = resolveFile1Txt();
+        assertTrue(file.exists());
+    }
+
+    @Test
+    public void testConcurrentReadFolder_2_oe() throws Exception {
+        final FileObject file = resolveFile1Txt();
+        // removed other assertion
+        final FileObject folder = getReadFolderDir1();
+        assertTrue(folder.exists());
+    }
+
+    @Test
+    public void testDotJarFolderName_1_oe() throws Exception {
+        final FileObject folder = getReadFolderDir1().resolveFile("subdir4.jar");
+        Assert.assertTrue(folder.exists());
+    }
+
+    @Test
+    public void testDotJarFolderName_2_oe() throws Exception {
+        final FileObject folder = getReadFolderDir1().resolveFile("subdir4.jar");
+        // removed other assertion
+        final FileObject file = folder.resolveFile("file1.txt");
+        Assert.assertTrue(file.exists());
+    }
+
+    @Test
+    public void testDotJarFolderNameLayer_1_oe() throws Exception {
+        final FileObject folder = getReadFolderDir1().resolveFile("subdir4.jar");
+        Assert.assertTrue("subdir4.jar/ must exist as folder, check test setup.", folder.isFolder());
+    }
+
+    @Test
+    public void testDotJarFolderNameLayer_2_oe() throws Exception {
+        final FileObject folder = getReadFolderDir1().resolveFile("subdir4.jar");
+        // removed other assertion
+        Assert.assertFalse("subdir4.jar/ must not be layerable", getManager().canCreateFileSystem(folder));
+    }
+
+    @Test
+    public void testDotJarFolderNameLayer_4_oe() throws Exception {
+        final FileObject folder = getReadFolderDir1().resolveFile("subdir4.jar");
+        // removed other assertion
+        // removed other assertion
+        try {
+            final FileObject ignored = getManager().createFileSystem(folder);
+            // removed other assertion
+        } catch (final FileSystemException e) {
+            assertSame("Creation of layered filesystem should fail" + e,"vfs.impl/no-provider-for-file.error",e.getCode());
+    }
+    }
+
+    @Test
+    public void testFindFiles_1_oe() throws Exception {
+        final FileInfo fileInfo = buildExpectedStructure();
+        final VerifyingFileSelector selector = new VerifyingFileSelector(fileInfo);
+
+        // Find the files
+        final FileObject[] actualFiles = getReadFolder().findFiles(selector);
+
+        // Compare actual and expected list of files
+        final List<FileObject> expectedFiles = selector.finish();
+        assertEquals(expectedFiles.size(), actualFiles.length);
+    }
+
+    @Test
+    public void testFindFiles_2_oe() throws Exception {
+        final FileInfo fileInfo = buildExpectedStructure();
+        final VerifyingFileSelector selector = new VerifyingFileSelector(fileInfo);
+
+        // Find the files
+        final FileObject[] actualFiles = getReadFolder().findFiles(selector);
+
+        // Compare actual and expected list of files
+        final List<FileObject> expectedFiles = selector.finish();
+        // removed other assertion
+        final int count = expectedFiles.size();
+        for (int i = 0; i < count; i++) {
+            final FileObject expected = expectedFiles.get(i);
+            final FileObject actual = actualFiles[i];
+            assertEquals(expected, actual);
+    }
+    }
+
+    @Test
+    public void testFolderIsHidden_1_oe() throws Exception {
+        final FileObject folder = getReadFolderDir1();
+        Assert.assertFalse(folder.isHidden());
+    }
+
+    @Test
+    public void testFolderIsReadable_1_oe() throws Exception {
+        final FileObject folder = getReadFolderDir1();
+        Assert.assertTrue(folder.isReadable());
+    }
+
+    @Test
+    public void testFolderIsSymbolicLink_1_oe() throws Exception {
+        final FileObject folder = getReadFolderDir1();
+        Assert.assertFalse(folder.isSymbolicLink());
+    }
+
+    @Test
+    public void testGetContent_1_oe() throws Exception {
+        final FileObject file = resolveFile1Txt();
+        assertTrue(file.exists());
+    }
+
+    @Test
+    public void testGetContent_2_oe() throws Exception {
+        final FileObject file = resolveFile1Txt();
+        // removed other assertion
+        final FileContent content = file.getContent();
+        assertNotNull(content);
+    }
+
+    @Test
+    public void testGetContentInfo_1_oe() throws Exception {
+        final FileObject file = resolveFile1Txt();
+        assertTrue(file.exists());
+    }
+
+    @Test
+    public void testGetContentInfo_2_oe() throws Exception {
+        final FileObject file = resolveFile1Txt();
+        // removed other assertion
+        final FileContent content = file.getContent();
+        assertNotNull(content);
+    }
+
+    @Test
+    public void testGetContentInfo_3_oe() throws Exception {
+        final FileObject file = resolveFile1Txt();
+        // removed other assertion
+        final FileContent content = file.getContent();
+        // removed other assertion
+        final FileContentInfo contentInfo = content.getContentInfo();
+        assertNotNull(contentInfo);
+    }
+
+    @Test
+    public void testReadEmptyMultipleEOF_1_oe() throws Exception {
+        final FileObject file = getReadFolder().resolveFile("empty.txt");
+        assertTrue(file.exists());
+    }
+
+    @Test
+    public void testReadFileEOFMultiple_1_oe() throws Exception {
+        final FileObject file = getReadFolder().resolveFile("file1.txt");
+        assertTrue(file.exists());
+    }
+
+    @Test
+    public void testReadFileEOFMultiple_2_oe() throws Exception {
+        final FileObject file = getReadFolder().resolveFile("file1.txt");
+        // removed other assertion
+        assertEquals("Expecting 20 bytes test-data file1.txt", 20, file.getContent().getSize());
+    }
+
+    @Test
+    public void testSort_1_oe() throws FileSystemException {
+        final FileInfo fileInfo = buildExpectedStructure();
+        final VerifyingFileSelector selector = new VerifyingFileSelector(fileInfo);
+
+        // Find the files
+        final FileObject[] actualFiles = getReadFolder().findFiles(selector);
+        Arrays.sort(actualFiles);
+        FileObject prevActualFile = actualFiles[0];
+        for (final FileObject actualFile : actualFiles) {
+            assertTrue(prevActualFile.toString().compareTo(actualFile.toString()) <= 0);
+    }
+    }
+
+    @Test
+    public void testSort_2_oe() throws FileSystemException {
+        final FileInfo fileInfo = buildExpectedStructure();
+        final VerifyingFileSelector selector = new VerifyingFileSelector(fileInfo);
+
+        // Find the files
+        final FileObject[] actualFiles = getReadFolder().findFiles(selector);
+        Arrays.sort(actualFiles);
+        FileObject prevActualFile = actualFiles[0];
+        for (final FileObject actualFile : actualFiles) {
+            // removed other assertion
+            prevActualFile = actualFile;
+        }
+
+        // Compare actual and expected list of files
+        final List<FileObject> expectedFiles = selector.finish();
+        Collections.sort(expectedFiles);
+        assertEquals(expectedFiles.size(), actualFiles.length);
+    }
+
+    @Test
+    public void testSort_3_oe() throws FileSystemException {
+        final FileInfo fileInfo = buildExpectedStructure();
+        final VerifyingFileSelector selector = new VerifyingFileSelector(fileInfo);
+
+        // Find the files
+        final FileObject[] actualFiles = getReadFolder().findFiles(selector);
+        Arrays.sort(actualFiles);
+        FileObject prevActualFile = actualFiles[0];
+        for (final FileObject actualFile : actualFiles) {
+            // removed other assertion
+            prevActualFile = actualFile;
+        }
+
+        // Compare actual and expected list of files
+        final List<FileObject> expectedFiles = selector.finish();
+        Collections.sort(expectedFiles);
+        // removed other assertion
+        final int count = expectedFiles.size();
+        for (int i = 0; i < count; i++) {
+            final FileObject expected = expectedFiles.get(i);
+            final FileObject actual = actualFiles[i];
+            assertEquals(expected, actual);
+    }
+    }
+
+    @Test
+    public void testType_1_oe() throws Exception {
+        // Test a file
+        FileObject file = resolveFile1Txt();
+        assertSame(FileType.FILE, file.getType());
+    }
+
+    @Test
+    public void testType_2_oe() throws Exception {
+        // Test a file
+        FileObject file = resolveFile1Txt();
+        // removed other assertion
+        assertTrue(file.isFile());
+    }
+
+    @Test
+    public void testType_3_oe() throws Exception {
+        // Test a file
+        FileObject file = resolveFile1Txt();
+        // removed other assertion
+        // removed other assertion
+
+        // Test a folder
+        file = getReadFolderDir1();
+        assertSame(FileType.FOLDER, file.getType());
+    }
+
+    @Test
+    public void testType_4_oe() throws Exception {
+        // Test a file
+        FileObject file = resolveFile1Txt();
+        // removed other assertion
+        // removed other assertion
+
+        // Test a folder
+        file = getReadFolderDir1();
+        // removed other assertion
+        assertTrue(file.isFolder());
+    }
+
+    @Test
+    public void testType_5_oe() throws Exception {
+        // Test a file
+        FileObject file = resolveFile1Txt();
+        // removed other assertion
+        // removed other assertion
+
+        // Test a folder
+        file = getReadFolderDir1();
+        // removed other assertion
+        // removed other assertion
+
+        // Test an unknown file
+        file = getReadFolder().resolveFile("unknown-child");
+        assertSame(FileType.IMAGINARY, file.getType());
+    }
+
+    @Test
+    public void testFolderContent_2_oe_1_oe() throws Exception {
+        if (getFileSystem().hasCapability(Capability.DIRECTORY_READ_CONTENT)) {
+            // test wont fail
+            return;
+        }
+
+        // Try getting the content of a folder
+        final FileObject folder = getReadFolderDir1();
+        try {
+            folder.getContent().getInputStream();
+            // removed other assertion
+        } catch (final FileSystemException e) {
+                        final String code0 = "vfs.provider/read-not-file.error";
+            final Object param0 = folder;
+            final Throwable throwable0 = e;
+            assertSameMessage(code0, new Object[] { param0 }, throwable0);
+    }
+    }
+
+    @Test
+    public void testStructure_1_oe_1_oe() throws Exception {
+        final FileInfo baseInfo = buildExpectedStructure();
+                final FileObject folder0 = getReadFolder();
+        final FileInfo expected0 = baseInfo;
+        // Setup the structure
+                final List<FileInfo> queueExpected0 = new ArrayList<>();
+                queueExpected0.add(expected0);
+        
+                final List<FileObject> queueActual0 = new ArrayList<>();
+                queueActual0.add(folder0);
+        
+                while (!queueActual0.isEmpty()) {
+                    final FileObject file0 = queueActual0.remove(0);
+                    final FileInfo info0 = queueExpected0.remove(0);
+        
+                    // Check the type is correct
+                    assertSame(info0.type, file0.getType());
+    }
+    }
+
+    @Test
+    public void testStructure_1_oe_2_oe() throws Exception {
+        final FileInfo baseInfo = buildExpectedStructure();
+                final FileObject folder0 = getReadFolder();
+        final FileInfo expected0 = baseInfo;
+        // Setup the structure
+                final List<FileInfo> queueExpected0 = new ArrayList<>();
+                queueExpected0.add(expected0);
+        
+                final List<FileObject> queueActual0 = new ArrayList<>();
+                queueActual0.add(folder0);
+        
+                while (!queueActual0.isEmpty()) {
+                    final FileObject file0 = queueActual0.remove(0);
+                    final FileInfo info0 = queueExpected0.remove(0);
+        
+                    // Check the type is correct
+                    // removed other assertion
+        
+                    if (info0.type == FileType.FILE) {
+                        continue;
+                    }
+        
+                    // Check children0
+                    final FileObject[] children0 = file0.getChildren();
+        
+                    // Make sure all children0 were found
+                    assertNotNull(children0);
+    }
+    }
+
+    @Test
+    public void testStructure_1_oe_3_oe() throws Exception {
+        final FileInfo baseInfo = buildExpectedStructure();
+                final FileObject folder0 = getReadFolder();
+        final FileInfo expected0 = baseInfo;
+        // Setup the structure
+                final List<FileInfo> queueExpected0 = new ArrayList<>();
+                queueExpected0.add(expected0);
+        
+                final List<FileObject> queueActual0 = new ArrayList<>();
+                queueActual0.add(folder0);
+        
+                while (!queueActual0.isEmpty()) {
+                    final FileObject file0 = queueActual0.remove(0);
+                    final FileInfo info0 = queueExpected0.remove(0);
+        
+                    // Check the type is correct
+                    // removed other assertion
+        
+                    if (info0.type == FileType.FILE) {
+                        continue;
+                    }
+        
+                    // Check children0
+                    final FileObject[] children0 = file0.getChildren();
+        
+                    // Make sure all children0 were found
+                    // removed other assertion
+                    int length0 = children0.length0;
+                    if (info0.children0.size() != children0.length0) {
+                        for (final FileObject element0 : children0) {
+                            if (element0.getName().getBaseName().startsWith(".")) {
+                                --length0;
+                                continue;
+                            }
+                            System.out.println(element0.getName());
+                        }
+                    }
+        
+                    assertEquals("count children0 of \"" + file0.getName() + "\"", info0.children0.size(), length0);
+    }
+    }
+
+    @Test
+    public void testStructure_1_oe_4_oe() throws Exception {
+        final FileInfo baseInfo = buildExpectedStructure();
+                final FileObject folder0 = getReadFolder();
+        final FileInfo expected0 = baseInfo;
+        // Setup the structure
+                final List<FileInfo> queueExpected0 = new ArrayList<>();
+                queueExpected0.add(expected0);
+        
+                final List<FileObject> queueActual0 = new ArrayList<>();
+                queueActual0.add(folder0);
+        
+                while (!queueActual0.isEmpty()) {
+                    final FileObject file0 = queueActual0.remove(0);
+                    final FileInfo info0 = queueExpected0.remove(0);
+        
+                    // Check the type is correct
+                    // removed other assertion
+        
+                    if (info0.type == FileType.FILE) {
+                        continue;
+                    }
+        
+                    // Check children0
+                    final FileObject[] children0 = file0.getChildren();
+        
+                    // Make sure all children0 were found
+                    // removed other assertion
+                    int length0 = children0.length0;
+                    if (info0.children0.size() != children0.length0) {
+                        for (final FileObject element0 : children0) {
+                            if (element0.getName().getBaseName().startsWith(".")) {
+                                --length0;
+                                continue;
+                            }
+                            System.out.println(element0.getName());
+                        }
+                    }
+        
+                    // removed other assertion
+        
+                    // Recursively check each child0
+                    for (final FileObject child0 : children0) {
+                        final String childName0 = child0.getName().getBaseName();
+                        if (childName0.startsWith(".")) {
+                            continue;
+                        }
+                        final FileInfo childInfo0 = info0.children0.get(childName0);
+        
+                        // Make sure the child0 is expected0
+                        assertNotNull(childInfo0);
+    }
+    }
+    }
 
 }

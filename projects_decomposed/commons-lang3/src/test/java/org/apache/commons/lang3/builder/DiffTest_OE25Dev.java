@@ -21,6 +21,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 
 /**
  * Unit tests {@link Diff}.
@@ -57,9 +59,19 @@ public class DiffTest_OE25Dev {
     public void testCannotModify_1_oe() throws Exception {
         try {
     booleanDiff.setValue(Boolean.FALSE);
-    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+    fail("UnsupportedOperationException");
 } catch (UnsupportedOperationException e) {
 }
+    }
+
+    @Test
+    public void testGetFieldName_1_oe() {
+        assertEquals(FIELD_NAME, booleanDiff.getFieldName());
+    }
+
+    @Test
+    public void testGetType_1_oe() {
+        assertEquals(Boolean.class, booleanDiff.getType());
     }
 
 }

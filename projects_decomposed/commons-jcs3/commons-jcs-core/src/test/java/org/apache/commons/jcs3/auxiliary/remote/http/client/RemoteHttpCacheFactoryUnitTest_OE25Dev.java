@@ -38,5 +38,136 @@ public class RemoteHttpCacheFactoryUnitTest_OE25Dev
 
     /** Verify that we get a cache no wait. */
 
+    public void testCreateRemoteHttpCacheClient_Bad_1_oe()
+    {
+        // SETUP
+        final String remoteHttpClientClassName = "junk";
+        final RemoteHttpCacheAttributes cattr = new RemoteHttpCacheAttributes();
+        cattr.setRemoteHttpClientClassName( remoteHttpClientClassName );
+
+        final RemoteHttpCacheFactory factory = new RemoteHttpCacheFactory();
+
+        // DO WORK
+        final IRemoteHttpCacheClient<String, String> result = factory.createRemoteHttpCacheClientForAttributes( cattr );
+
+        // VEIFY
+        assertNotNull( "Should have a cache.", result );
+    }
+
+    public void testCreateRemoteHttpCacheClient_Bad_2_oe()
+    {
+        // SETUP
+        final String remoteHttpClientClassName = "junk";
+        final RemoteHttpCacheAttributes cattr = new RemoteHttpCacheAttributes();
+        cattr.setRemoteHttpClientClassName( remoteHttpClientClassName );
+
+        final RemoteHttpCacheFactory factory = new RemoteHttpCacheFactory();
+
+        // DO WORK
+        final IRemoteHttpCacheClient<String, String> result = factory.createRemoteHttpCacheClientForAttributes( cattr );
+
+        // VEIFY
+        // removed other assertion
+        assertTrue( "Wrong default.", result instanceof RemoteHttpCacheClient );
+    }
+
+    public void testCreateRemoteHttpCacheClient_Bad_3_oe()
+    {
+        // SETUP
+        final String remoteHttpClientClassName = "junk";
+        final RemoteHttpCacheAttributes cattr = new RemoteHttpCacheAttributes();
+        cattr.setRemoteHttpClientClassName( remoteHttpClientClassName );
+
+        final RemoteHttpCacheFactory factory = new RemoteHttpCacheFactory();
+
+        // DO WORK
+        final IRemoteHttpCacheClient<String, String> result = factory.createRemoteHttpCacheClientForAttributes( cattr );
+
+        // VEIFY
+        // removed other assertion
+        // removed other assertion
+        assertTrue( "Should be initialized", ((RemoteHttpCacheClient<String, String>)result).isInitialized() );
+    }
+
+    public void testCreateRemoteHttpCacheClient_default_1_oe()
+    {
+        // SETUP
+        final RemoteHttpCacheAttributes cattr = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheFactory factory = new RemoteHttpCacheFactory();
+
+        // DO WORK
+        final IRemoteHttpCacheClient<String, String> result = factory.createRemoteHttpCacheClientForAttributes( cattr );
+
+        // VEIFY
+        assertNotNull( "Should have a cache.", result );
+    }
+
+    public void testCreateRemoteHttpCacheClient_default_2_oe()
+    {
+        // SETUP
+        final RemoteHttpCacheAttributes cattr = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheFactory factory = new RemoteHttpCacheFactory();
+
+        // DO WORK
+        final IRemoteHttpCacheClient<String, String> result = factory.createRemoteHttpCacheClientForAttributes( cattr );
+
+        // VEIFY
+        // removed other assertion
+        assertTrue( "Wrong default.", result instanceof RemoteHttpCacheClient );
+    }
+
+    public void testGetCache_normal_1_oe()
+    {
+        // SETUP
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        assertNotNull( "Should have a manager.", cacheMgr );
+    }
+
+    public void testGetCache_normal_2_oe()
+    {
+        // SETUP
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        // removed other assertion
+        final ICacheEventLogger cacheEventLogger = null;
+        final IElementSerializer elementSerializer = null;
+
+        final RemoteHttpCacheAttributes cattr = new RemoteHttpCacheAttributes();
+        assertNotNull( "Should have attributes.", cattr );
+    }
+
+    public void testGetCache_normal_3_oe()
+    {
+        // SETUP
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        // removed other assertion
+        final ICacheEventLogger cacheEventLogger = null;
+        final IElementSerializer elementSerializer = null;
+
+        final RemoteHttpCacheAttributes cattr = new RemoteHttpCacheAttributes();
+        // removed other assertion
+        final RemoteHttpCacheFactory factory = new RemoteHttpCacheFactory();
+        assertNotNull( "Should have a factory.", factory );
+    }
+
+    public void testGetCache_normal_4_oe()
+    {
+        // SETUP
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        // removed other assertion
+        final ICacheEventLogger cacheEventLogger = null;
+        final IElementSerializer elementSerializer = null;
+
+        final RemoteHttpCacheAttributes cattr = new RemoteHttpCacheAttributes();
+        // removed other assertion
+        final RemoteHttpCacheFactory factory = new RemoteHttpCacheFactory();
+        // removed other assertion
+
+
+        // DO WORK
+        final AuxiliaryCache<String, String> result = factory.createCache(cattr, cacheMgr, cacheEventLogger, elementSerializer);
+
+        // VERIFY
+        assertNotNull( "Should have a cache.", result );
+    }
 
 }

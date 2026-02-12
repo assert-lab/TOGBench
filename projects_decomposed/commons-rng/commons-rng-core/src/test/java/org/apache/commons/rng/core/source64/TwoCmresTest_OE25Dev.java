@@ -23,6 +23,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 
 class TwoCmresTest_OE25Dev {
 
@@ -33,13 +35,47 @@ class TwoCmresTest_OE25Dev {
      */
 
     @Test
+    void testAsymmetric_1_oe() {
+         int index1 = 2;
+         int index2 = 5;
+         int seed = -123456789;
+
+         TwoCmres rng1 = new TwoCmres(seed, index1, index2);
+         TwoCmres rng2 = new TwoCmres(seed, index2, index1);
+
+        // Try a few values.
+         int n = 1000;
+        for (int[] i = {0}; i[0] < n; i[0]++) {
+            Assertions.assertNotEquals(rng1.nextLong(), rng2.nextLong(), () -> "i=" + i[0]);
+    }
+    }
+
+    @Test
+    void testSeedingWithASingleBitProducesDifferentOutputFromZeroSeed_1_oe() {
+         int n = 100;
+
+        // Output with a zero seed
+         long[] values = new long[n];
+         TwoCmres rng = new TwoCmres(0);
+        for (int i = 0; i < n; i++) {
+            values[i] = rng.nextLong();
+        }
+
+        // Seed with a single bit
+        for (int bit = 0; bit < 32; bit++) {
+             int seed = 1 << bit;
+            RandomAssert.assertNotEquals(values, new TwoCmres(seed));
+    }
+    }
+
+    @Test
     void testSubcycleGeneratorsMustBeDifferent_1_oe() {
          int max = TwoCmres.numberOfSubcycleGenerators();
         for (int i = 0; i < max; i++) {
              int subCycle = i;
             try {
     new TwoCmres(-97845, subCycle, subCycle);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -64,7 +100,7 @@ class TwoCmresTest_OE25Dev {
         for (int wrongIndex : new int[] {-1, max}) {
             try {
     new TwoCmres(seed, wrongIndex, 1);
-    org.junit.jupiter.api.Assertions.fail("IndexOutOfBoundsException: () -> \"Exception expected for index i = \" + wrongIndex");
+    fail("IndexOutOfBoundsException: () -> \"Exception expected for index i = \" + wrongIndex");
 } catch (IndexOutOfBoundsException e) {
 }
     }
@@ -90,10 +126,23 @@ class TwoCmresTest_OE25Dev {
             // removed other assertion
             try {
     new TwoCmres(seed, 1, wrongIndex);
-    org.junit.jupiter.api.Assertions.fail("IndexOutOfBoundsException: () -> \"Exception expected for index j = \" + wrongIndex");
+    fail("IndexOutOfBoundsException: () -> \"Exception expected for index j = \" + wrongIndex");
 } catch (IndexOutOfBoundsException e) {
 }
     }
+    }
+
+    @Test
+    void testCmresFactoryThrowsWithDuplicateMultiplier_1_oe() {
+         ArrayList<Cmres> list = new ArrayList<>();
+         long multiply = 0;
+         int rotate = 3;
+         int start = 5;
+
+        list.add(new Cmres(multiply, rotate, start));
+
+        long nextMultiply = multiply + 1;
+        Assertions.assertDoesNotThrow(()-> Cmres.Factory.checkUnique(list,nextMultiply),()-> "The next multiply should be unique: " + nextMultiply);
     }
 
     @Test
@@ -112,7 +161,7 @@ class TwoCmresTest_OE25Dev {
         // This should throw as the list now contains the multiply value
         try {
     Cmres.Factory.checkUnique(list, nextMultiply);
-    org.junit.jupiter.api.Assertions.fail("IllegalStateException");
+    fail("IllegalStateException");
 } catch (IllegalStateException e) {
 }
     }

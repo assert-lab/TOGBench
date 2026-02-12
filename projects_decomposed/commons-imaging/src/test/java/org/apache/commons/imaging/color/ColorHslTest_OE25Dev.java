@@ -36,5 +36,73 @@ public class ColorHslTest_OE25Dev {
         colorCopy = new ColorHsl(1.0, 2.0, 3.0);
     }
 
+    @Test
+    public void testHAssignment_1_oe() {
+        assertEquals(1.0, color.H, 0.0);
+    }
+
+    @Test
+    public void testSAssignment_1_oe() {
+        assertEquals(2.0, color.S, 0.0);
+    }
+
+    @Test
+    public void testLAssignment_1_oe() {
+        assertEquals(3.0, color.L, 0.0);
+    }
+
+    @Test
+    public void testToString_1_oe() {
+        assertEquals("{H: 1.0, S: 2.0, L: 3.0}", color.toString());
+    }
+
+    @Test
+    public void testHashCodeAndEquals_1_oe() {
+        assertTrue(color.equals(colorCopy) && colorCopy.equals(color));
+    }
+
+    @Test
+    public void testHashCodeAndEquals_2_oe() {
+        // removed other assertion
+        assertThat(color.hashCode(), is(colorCopy.hashCode()));
+    }
+
+    @Test
+    public void testCreatesColorHslOne_1_oe() {
+        final ColorHsl colorHsl = ColorHsl.BLUE;
+        final ColorHsl colorHslTwo = new ColorHsl(100.0, 667.226, (-687.72287636));
+
+        assertEquals(667.226, colorHslTwo.S, 0.01);
+    }
+
+    @Test
+    public void testCreatesColorHslOne_2_oe() {
+        final ColorHsl colorHsl = ColorHsl.BLUE;
+        final ColorHsl colorHslTwo = new ColorHsl(100.0, 667.226, (-687.72287636));
+
+        // removed other assertion
+        assertEquals(100.0, colorHslTwo.H, 0.01);
+    }
+
+    @Test
+    public void testCreatesColorHslOne_3_oe() {
+        final ColorHsl colorHsl = ColorHsl.BLUE;
+        final ColorHsl colorHslTwo = new ColorHsl(100.0, 667.226, (-687.72287636));
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals((-687.72287636), colorHslTwo.L, 0.01);
+    }
+
+    @Test
+    public void testCreatesColorHslOne_4_oe() {
+        final ColorHsl colorHsl = ColorHsl.BLUE;
+        final ColorHsl colorHslTwo = new ColorHsl(100.0, 667.226, (-687.72287636));
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNotEquals(colorHsl, colorHslTwo);
+    }
 
 }

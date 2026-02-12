@@ -203,5 +203,108 @@ class InteriorAngleLinePathConnectorTest_OE25Dev {
         }
     }
 
+    @Test
+    void testConnectAll_squaresJoinedAtVertex_maximize_1_oe() {
+        // arrange
+        final Maximize connector = new Maximize();
+
+        final List<LineConvexSubset> segments = new ArrayList<>();
+        segments.addAll(createSquare(Vector2D.ZERO, 1, 1));
+        segments.addAll(createSquare(Vector2D.of(1, 1), 1, 1));
+
+        shuffle(segments);
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        Assertions.assertEquals(1, paths.size());
+    }
+
+    @Test
+    void testConnectAll_multipleSegmentsAtVertex_maximize_1_oe() {
+        // arrange
+        final Maximize connector = new Maximize();
+
+        final List<LineConvexSubset> segments = new ArrayList<>();
+        segments.add(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(2, 2), TEST_PRECISION));
+
+        segments.add(Lines.segmentFromPoints(Vector2D.of(2, 2), Vector2D.of(2, 4), TEST_PRECISION));
+        segments.add(Lines.segmentFromPoints(Vector2D.of(2, 2), Vector2D.of(1, 3), TEST_PRECISION));
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        Assertions.assertEquals(2, paths.size());
+    }
+
+    @Test
+    void testConnectAll_squaresJoinedAtVertex_minimize_1_oe() {
+        // arrange
+        final Minimize connector = new Minimize();
+
+        final List<LineConvexSubset> segments = new ArrayList<>();
+        segments.addAll(createSquare(Vector2D.ZERO, 1, 1));
+        segments.addAll(createSquare(Vector2D.of(1, 1), 1, 1));
+
+        shuffle(segments);
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        Assertions.assertEquals(2, paths.size());
+    }
+
+    @Test
+    void testConnectAll_multipleSegmentsAtVertex_minimize_1_oe() {
+        // arrange
+        final Minimize connector = new Minimize();
+
+        final List<LineConvexSubset> segments = new ArrayList<>();
+        segments.add(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(2, 2), TEST_PRECISION));
+
+        segments.add(Lines.segmentFromPoints(Vector2D.of(2, 2), Vector2D.of(2, 4), TEST_PRECISION));
+        segments.add(Lines.segmentFromPoints(Vector2D.of(2, 2), Vector2D.of(1, 3), TEST_PRECISION));
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        Assertions.assertEquals(2, paths.size());
+    }
+
+    @Test
+    void testConnectMaximized_1_oe() {
+        // arrange
+        final List<LineConvexSubset> segments = new ArrayList<>();
+        segments.add(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(2, 2), TEST_PRECISION));
+
+        segments.add(Lines.segmentFromPoints(Vector2D.of(2, 2), Vector2D.of(2, 4), TEST_PRECISION));
+        segments.add(Lines.segmentFromPoints(Vector2D.of(2, 2), Vector2D.of(1, 3), TEST_PRECISION));
+
+        // act
+        final List<LinePath> paths = InteriorAngleLinePathConnector.connectMaximized(segments);
+
+        // assert
+        Assertions.assertEquals(2, paths.size());
+    }
+
+    @Test
+    void testConnectMinimized_1_oe() {
+        // arrange
+        final List<LineConvexSubset> segments = new ArrayList<>();
+        segments.add(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(2, 2), TEST_PRECISION));
+
+        segments.add(Lines.segmentFromPoints(Vector2D.of(2, 2), Vector2D.of(2, 4), TEST_PRECISION));
+        segments.add(Lines.segmentFromPoints(Vector2D.of(2, 2), Vector2D.of(1, 3), TEST_PRECISION));
+
+        // act
+        final List<LinePath> paths = InteriorAngleLinePathConnector.connectMinimized(segments);
+
+        // assert
+        Assertions.assertEquals(2, paths.size());
+    }
 
 }

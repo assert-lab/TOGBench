@@ -281,5 +281,129 @@ class CReferenceTest_OE25Dev {
         assertBiOperation("pow", Complex::pow, 9);
     }
 
+    @Test
+    void testAcos_1_oe_1_oe() {
+                final String name0 = "acos";
+        final UnaryOperator<Complex> operation0 = Complex::acos;
+        final long maxUlps0 = 2;
+        final List<Complex[]> data0 = loadTestData(name0);
+                final long ulps0 = getTestUlps(maxUlps0);
+                for (final Complex[] pair0 : data0) {
+                    assertComplex(pair0[0], name0, operation0, pair0[1], ulps0);
+    }
+    }
+
+    @Test
+    void testAcosh_1_oe_1_oe() {
+                final String name0 = "acosh";
+        final UnaryOperator<Complex> operation0 = Complex::acosh;
+        final long maxUlps0 = 2;
+        final List<Complex[]> data0 = loadTestData(name0);
+                final long ulps0 = getTestUlps(maxUlps0);
+                for (final Complex[] pair0 : data0) {
+                    assertComplex(pair0[0], name0, operation0, pair0[1], ulps0);
+    }
+    }
+
+    @Test
+    void testAsinh_1_oe_1_oe() {
+        // Odd function: negative real cases defined by positive real cases
+                final String name0 = "asinh";
+        final UnaryOperator<Complex> operation0 = Complex::asinh;
+        final long maxUlps0 = 3;
+        final List<Complex[]> data0 = loadTestData(name0);
+                final long ulps0 = getTestUlps(maxUlps0);
+                for (final Complex[] pair0 : data0) {
+                    assertComplex(pair0[0], name0, operation0, pair0[1], ulps0);
+    }
+    }
+
+    @Test
+    void testAtanh_1_oe_1_oe() {
+        // Odd function: negative real cases defined by positive real cases
+                final String name0 = "atanh";
+        final UnaryOperator<Complex> operation0 = Complex::atanh;
+        final long maxUlps0 = 1;
+        final List<Complex[]> data0 = loadTestData(name0);
+                final long ulps0 = getTestUlps(maxUlps0);
+                for (final Complex[] pair0 : data0) {
+                    assertComplex(pair0[0], name0, operation0, pair0[1], ulps0);
+    }
+    }
+
+    @Test
+    void testCosh_1_oe_1_oe() {
+        // Even function: negative real cases defined by positive real cases
+                final String name0 = "cosh";
+        final UnaryOperator<Complex> operation0 = Complex::cosh;
+        final long maxUlps0 = 2;
+        final List<Complex[]> data0 = loadTestData(name0);
+                final long ulps0 = getTestUlps(maxUlps0);
+                for (final Complex[] pair0 : data0) {
+                    assertComplex(pair0[0], name0, operation0, pair0[1], ulps0);
+    }
+    }
+
+    @Test
+    void testSinh_1_oe_1_oe() {
+        // Odd function: negative real cases defined by positive real cases
+                final String name0 = "sinh";
+        final UnaryOperator<Complex> operation0 = Complex::sinh;
+        final long maxUlps0 = 2;
+        final List<Complex[]> data0 = loadTestData(name0);
+                final long ulps0 = getTestUlps(maxUlps0);
+                for (final Complex[] pair0 : data0) {
+                    assertComplex(pair0[0], name0, operation0, pair0[1], ulps0);
+    }
+    }
+
+    @Test
+    void testTanh_1_oe_1_oe() {
+        // Odd function: negative real cases defined by positive real cases
+                final String name0 = "tanh";
+        final UnaryOperator<Complex> operation0 = Complex::tanh;
+        final long maxUlps0 = 2;
+        final List<Complex[]> data0 = loadTestData(name0);
+                final long ulps0 = getTestUlps(maxUlps0);
+                for (final Complex[] pair0 : data0) {
+                    assertComplex(pair0[0], name0, operation0, pair0[1], ulps0);
+    }
+    }
+
+    @Test
+    void testExp_1_oe_1_oe() {
+                final String name0 = "exp";
+        final UnaryOperator<Complex> operation0 = Complex::exp;
+        final long maxUlps0 = 2;
+        final List<Complex[]> data0 = loadTestData(name0);
+                final long ulps0 = getTestUlps(maxUlps0);
+                for (final Complex[] pair0 : data0) {
+                    assertComplex(pair0[0], name0, operation0, pair0[1], ulps0);
+    }
+    }
+
+    @Test
+    void testLog_1_oe_1_oe() {
+                final String name0 = "log";
+        final UnaryOperator<Complex> operation0 = Complex::log;
+        final long maxUlps0 = 1;
+        final List<Complex[]> data0 = loadTestData(name0);
+                final long ulps0 = getTestUlps(maxUlps0);
+                for (final Complex[] pair0 : data0) {
+                    assertComplex(pair0[0], name0, operation0, pair0[1], ulps0);
+    }
+    }
+
+    @Test
+    void testSqrt_1_oe_1_oe() {
+                final String name0 = "sqrt";
+        final UnaryOperator<Complex> operation0 = Complex::sqrt;
+        final long maxUlps0 = 1;
+        final List<Complex[]> data0 = loadTestData(name0);
+                final long ulps0 = getTestUlps(maxUlps0);
+                for (final Complex[] pair0 : data0) {
+                    assertComplex(pair0[0], name0, operation0, pair0[1], ulps0);
+    }
+    }
 
 }

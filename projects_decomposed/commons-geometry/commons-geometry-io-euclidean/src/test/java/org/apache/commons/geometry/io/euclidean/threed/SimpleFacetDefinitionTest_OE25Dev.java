@@ -25,6 +25,8 @@ import org.apache.commons.geometry.euclidean.threed.Vector3D;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class SimpleFacetDefinitionTest_OE25Dev {
 
     private static final List<Vector3D> FACET_PTS = Arrays.asList(
@@ -71,6 +73,25 @@ class SimpleFacetDefinitionTest_OE25Dev {
     }
 
     @Test
+    void testProperties_verticesOnly_1_oe() {
+        // act
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS));
+
+        // assert
+        Assertions.assertEquals(FACET_PTS, f.getVertices());
+    }
+
+    @Test
+    void testProperties_verticesOnly_2_oe() {
+        // act
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS));
+
+        // assert
+        // removed other assertion
+        Assertions.assertNotSame(FACET_PTS, f.getVertices());
+    }
+
+    @Test
     void testProperties_verticesOnly_3_oe() {
         // act
         final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS));
@@ -83,9 +104,50 @@ class SimpleFacetDefinitionTest_OE25Dev {
         final Vector3D toAdd = FACET_PTS.get(0);
         try {
     vertices.add(toAdd);
-    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+    fail("UnsupportedOperationException");
 } catch (UnsupportedOperationException e) {
 }
+    }
+
+    @Test
+    void testProperties_verticesOnly_4_oe() {
+        // act
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final List<Vector3D> vertices = f.getVertices();
+        final Vector3D toAdd = FACET_PTS.get(0);
+        // removed other assertion
+
+        Assertions.assertNull(f.getNormal());
+    }
+
+    @Test
+    void testProperties_verticesAndNormal_1_oe() {
+        // arrange
+        final Vector3D normal = Vector3D.ZERO; // invalid normal is accepted
+
+        // act
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS), normal);
+
+        // assert
+        Assertions.assertEquals(FACET_PTS, f.getVertices());
+    }
+
+    @Test
+    void testProperties_verticesAndNormal_2_oe() {
+        // arrange
+        final Vector3D normal = Vector3D.ZERO; // invalid normal is accepted
+
+        // act
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS), normal);
+
+        // assert
+        // removed other assertion
+        Assertions.assertNotSame(FACET_PTS, f.getVertices());
     }
 
     @Test
@@ -104,9 +166,28 @@ class SimpleFacetDefinitionTest_OE25Dev {
         final Vector3D toAdd = FACET_PTS.get(0);
         try {
     vertices.add(toAdd);
-    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+    fail("UnsupportedOperationException");
 } catch (UnsupportedOperationException e) {
 }
+    }
+
+    @Test
+    void testProperties_verticesAndNormal_4_oe() {
+        // arrange
+        final Vector3D normal = Vector3D.ZERO; // invalid normal is accepted
+
+        // act
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS), normal);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final List<Vector3D> vertices = f.getVertices();
+        final Vector3D toAdd = FACET_PTS.get(0);
+        // removed other assertion
+
+        Assertions.assertSame(normal, f.getNormal());
     }
 
 }

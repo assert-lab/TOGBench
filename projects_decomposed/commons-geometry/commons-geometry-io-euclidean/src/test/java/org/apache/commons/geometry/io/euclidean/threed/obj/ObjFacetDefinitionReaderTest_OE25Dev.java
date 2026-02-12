@@ -72,5 +72,69 @@ class ObjFacetDefinitionReaderTest_OE25Dev {
         return new ObjFacetDefinitionReader(new StringReader(str));
     }
 
+    @Test
+    void testDefaults_1_oe() {
+        // arrange
+        final ObjFacetDefinitionReader reader = reader("");
+
+        // act/assert
+        Assertions.assertFalse(reader.isFailOnNonPolygonKeywords());
+    }
+
+    @Test
+    void testReadFacet_withNormal_1_oe() {
+        // arrange
+        final ObjFacetDefinitionReader reader = reader(
+                "o test\n\n" +
+                "v 0 0 0\r\n" +
+                "v 1 0 0\n" +
+                "v 1 1 0\r" +
+                "v 0 1 0\n" +
+                "vn 0 0 -1\n" +
+                "f 1//1 2//1 3//1 4//1\n" +
+                "curv non-polygon data\n");
+
+        // act
+        final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
+
+        // assert
+        Assertions.assertEquals(1, facets.size());
+    }
+
+    @Test
+    void testReadFacet_withoutNormal_1_oe() {
+        // arrange
+        final ObjFacetDefinitionReader reader = reader(
+                "o test\n\n" +
+                "v 0 0 0\r\n" +
+                "v 1 0 0\n" +
+                "v 1 1 0\r" +
+                "f 1 2 3\n");
+
+        // act
+        final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
+
+        // assert
+        Assertions.assertEquals(1, facets.size());
+    }
+
+    @Test
+    void testReadFacet_withoutNormal_3_oe() {
+        // arrange
+        final ObjFacetDefinitionReader reader = reader(
+                "o test\n\n" +
+                "v 0 0 0\r\n" +
+                "v 1 0 0\n" +
+                "v 1 1 0\r" +
+                "f 1 2 3\n");
+
+        // act
+        final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNull(facets.get(0).getNormal());
+    }
 
 }

@@ -35,5 +35,29 @@ public class SafelistExtensionTest_OE25Dev {
         }
     }
 
+    @Test public void canCustomizeSafeTests_1_oe() {
+        OpenSafelist openSafelist = new OpenSafelist(Safelist.relaxed());
+        Safelist safelist = Safelist.relaxed();
+
+        String html = "<p><opentag openattr>Hello</opentag></p>";
+
+        String openClean = Jsoup.clean(html, openSafelist);
+        String clean = Jsoup.clean(html, safelist);
+
+        assertEquals("<p><opentag openattr=\"\">Hello</opentag></p>", TextUtil.stripNewlines(openClean));
+        }
+
+    @Test public void canCustomizeSafeTests_2_oe() {
+        OpenSafelist openSafelist = new OpenSafelist(Safelist.relaxed());
+        Safelist safelist = Safelist.relaxed();
+
+        String html = "<p><opentag openattr>Hello</opentag></p>";
+
+        String openClean = Jsoup.clean(html, openSafelist);
+        String clean = Jsoup.clean(html, safelist);
+
+        // removed other assertion
+        assertEquals("<p>Hello</p>", clean);
+        }
 
 }

@@ -54,6 +54,8 @@ import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Unit tests MethodUtils
  */
@@ -486,6 +488,835 @@ public class MethodUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testConstructor_1_oe() throws Exception {
+        assertNotNull(MethodUtils.class.newInstance());
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_1_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        assertEquals("Byte...", TestBean.varOverload((byte) 1, (byte) 2));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_2_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        assertEquals("Short...", TestBean.varOverload((short) 1, (short) 2));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_3_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Integer...", TestBean.varOverload(1, 2));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_4_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Long...", TestBean.varOverload(1L, 2L));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_5_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Float...", TestBean.varOverload(1f, 2f));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_6_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Double...", TestBean.varOverload(1d, 2d));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_7_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Character...", TestBean.varOverload('a', 'b'));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_8_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("String...", TestBean.varOverload("a", "b"));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_9_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Boolean...", TestBean.varOverload(true, false));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_10_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("Object...", TestBean.varOverload(1, "s"));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_11_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals("Object...", TestBean.varOverload(1, true));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_12_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Object...", TestBean.varOverload(1.1, true));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_13_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Object...", TestBean.varOverload('c', true));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_14_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Number...", TestBean.varOverload(1, 1.1));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_15_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Number...", TestBean.varOverload(1, 1L));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_16_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Number...", TestBean.varOverload(1d, 1f));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_17_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Number...", TestBean.varOverload((short) 1, (byte) 1));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_18_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Object...", TestBean.varOverload(1, 'c'));
+    }
+
+    @Test
+    public void verifyJavaVarargsOverloadingResolution_19_oe() {
+        // This code is not a test of MethodUtils.
+        // Rather it makes explicit the behavior of the Java specification for
+        // various cases of overload resolution.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Object...", TestBean.varOverload('c', "s"));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_1_oe() throws Exception {
+        assertEquals("Byte...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",(byte)1,(byte)2));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_2_oe() throws Exception {
+        // removed other assertion
+        assertEquals("Short...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",(short)1,(short)2));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Integer...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1,2));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Long...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1L,2L));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Float...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1f,2f));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Double...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1d,2d));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_7_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Character...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",'a','b'));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_8_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("String...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload","a","b"));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_9_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Boolean...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",true,false));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_10_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("Object...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1,"s"));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_11_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals("Object...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1,true));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_12_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Object...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1.1,true));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_13_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Object...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",'c',true));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_14_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Number...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1,1.1));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_15_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Number...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1,1L));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_16_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Number...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1d,1f));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_17_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Number...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",(short)1,(byte)1));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_18_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Object...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",1,'c'));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_19_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Object...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",'c',"s"));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_20_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("Object...",MethodUtils.invokeStaticMethod(TestBean.class,"varOverload",(Object[])ArrayUtils.EMPTY_CLASS_ARRAY));
+    }
+
+    @Test
+    public void testInvokeJavaVarargsOverloadingResolution_21_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals("Number...",MethodUtils.invokeStaticMethod(TestBean.class,"numOverload",(Object[])ArrayUtils.EMPTY_CLASS_ARRAY));
+    }
+
+    @Test
+    public void testInvokeMethod_1_oe() throws Exception {
+        assertEquals("foo()",MethodUtils.invokeMethod(testBean,"foo",(Object[])ArrayUtils.EMPTY_CLASS_ARRAY));
+    }
+
+    @Test
+    public void testInvokeMethod_2_oe() throws Exception {
+        // removed other assertion
+        assertEquals("foo()", MethodUtils.invokeMethod(testBean, "foo"));
+    }
+
+    @Test
+    public void testInvokeMethod_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo()",MethodUtils.invokeMethod(testBean,"foo",(Object[])null));
+    }
+
+    @Test
+    public void testInvokeMethod_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo()",MethodUtils.invokeMethod(testBean,"foo",null,null));
+    }
+
+    @Test
+    public void testInvokeMethod_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo(String)",MethodUtils.invokeMethod(testBean,"foo",""));
+    }
+
+    @Test
+    public void testInvokeMethod_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo(Object)",MethodUtils.invokeMethod(testBean,"foo",new Object()));
+    }
+
+    @Test
+    public void testInvokeMethod_7_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo(Object)",MethodUtils.invokeMethod(testBean,"foo",Boolean.TRUE));
+    }
+
+    @Test
+    public void testInvokeMethod_8_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo(Integer)",MethodUtils.invokeMethod(testBean,"foo",NumberUtils.INTEGER_ONE));
+    }
+
+    @Test
+    public void testInvokeMethod_9_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo(int)",MethodUtils.invokeMethod(testBean,"foo",NumberUtils.BYTE_ONE));
+    }
+
+    @Test
+    public void testInvokeMethod_10_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo(long)",MethodUtils.invokeMethod(testBean,"foo",NumberUtils.LONG_ONE));
+    }
+
+    @Test
+    public void testInvokeMethod_11_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo(double)",MethodUtils.invokeMethod(testBean,"foo",NumberUtils.DOUBLE_ONE));
+    }
+
+    @Test
+    public void testInvokeMethod_12_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo(String...)",MethodUtils.invokeMethod(testBean,"foo","a","b","c"));
+    }
+
+    @Test
+    public void testInvokeMethod_13_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo(String...)",MethodUtils.invokeMethod(testBean,"foo","a","b","c"));
+    }
+
+    @Test
+    public void testInvokeMethod_15_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo(long...)",MethodUtils.invokeMethod(testBean,"foo",1L,2L));
+    }
+
+    @Test
     public void testInvokeMethod_16_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -505,9 +1336,99 @@ public class MethodUtilsTest_OE25Dev {
 
         try {
     MethodUtils.invokeMethod(testBean, "foo", 1, 2);
-    org.junit.jupiter.api.Assertions.fail("NoSuchMethodException");
+    fail("NoSuchMethodException");
 } catch (NoSuchMethodException e) {
 }
+    }
+
+    @Test
+    public void testInvokeMethod_VarArgsWithNullValues_1_oe() throws Exception {
+        assertEquals("String...",MethodUtils.invokeMethod(testBean,"varOverload","a",null,"c"));
+    }
+
+    @Test
+    public void testInvokeMethod_VarArgsWithNullValues_2_oe() throws Exception {
+        // removed other assertion
+        assertEquals("String...",MethodUtils.invokeMethod(testBean,"varOverload","a","b",null));
+    }
+
+    @Test
+    public void testInvokeMethod_VarArgsNotUniqueResolvable_1_oe() throws Exception {
+      assertEquals("Boolean...", MethodUtils.invokeMethod(testBean, "varOverload", new Object[] {null}));
+    }
+
+    @Test
+    public void testInvokeMethod_VarArgsNotUniqueResolvable_2_oe() throws Exception {
+      // removed other assertion
+      assertEquals("Object...",MethodUtils.invokeMethod(testBean,"varOverload",(Object[])null));
+    }
+
+    @Test
+    public void testInvokeExactMethod_1_oe() throws Exception {
+        assertEquals("foo()",MethodUtils.invokeExactMethod(testBean,"foo",(Object[])ArrayUtils.EMPTY_CLASS_ARRAY));
+    }
+
+    @Test
+    public void testInvokeExactMethod_2_oe() throws Exception {
+        // removed other assertion
+        assertEquals("foo()", MethodUtils.invokeExactMethod(testBean, "foo"));
+    }
+
+    @Test
+    public void testInvokeExactMethod_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo()",MethodUtils.invokeExactMethod(testBean,"foo",(Object[])null));
+    }
+
+    @Test
+    public void testInvokeExactMethod_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo()",MethodUtils.invokeExactMethod(testBean,"foo",null,null));
+    }
+
+    @Test
+    public void testInvokeExactMethod_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo(String)",MethodUtils.invokeExactMethod(testBean,"foo",""));
+    }
+
+    @Test
+    public void testInvokeExactMethod_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo(Object)",MethodUtils.invokeExactMethod(testBean,"foo",new Object()));
+    }
+
+    @Test
+    public void testInvokeExactMethod_7_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo(Integer)",MethodUtils.invokeExactMethod(testBean,"foo",NumberUtils.INTEGER_ONE));
+    }
+
+    @Test
+    public void testInvokeExactMethod_8_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo(double)", MethodUtils.invokeExactMethod(testBean, "foo", new Object[]{NumberUtils.DOUBLE_ONE}, new Class[]{Double.TYPE}));
     }
 
     @Test
@@ -523,7 +1444,7 @@ public class MethodUtilsTest_OE25Dev {
 
         try {
     MethodUtils.invokeExactMethod(testBean, "foo", NumberUtils.BYTE_ONE);
-    org.junit.jupiter.api.Assertions.fail("NoSuchMethodException");
+    fail("NoSuchMethodException");
 } catch (NoSuchMethodException e) {
 }
     }
@@ -543,7 +1464,7 @@ public class MethodUtilsTest_OE25Dev {
 
         try {
     MethodUtils.invokeExactMethod(testBean, "foo", NumberUtils.LONG_ONE);
-    org.junit.jupiter.api.Assertions.fail("NoSuchMethodException");
+    fail("NoSuchMethodException");
 } catch (NoSuchMethodException e) {
 }
     }
@@ -564,9 +1485,119 @@ public class MethodUtilsTest_OE25Dev {
         // removed other assertion
         try {
     MethodUtils.invokeExactMethod(testBean, "foo", Boolean.TRUE);
-    org.junit.jupiter.api.Assertions.fail("NoSuchMethodException");
+    fail("NoSuchMethodException");
 } catch (NoSuchMethodException e) {
 }
+    }
+
+    @Test
+    public void testInvokeStaticMethod_1_oe() throws Exception {
+        assertEquals("bar()",MethodUtils.invokeStaticMethod(TestBean.class,"bar",(Object[])ArrayUtils.EMPTY_CLASS_ARRAY));
+    }
+
+    @Test
+    public void testInvokeStaticMethod_2_oe() throws Exception {
+        // removed other assertion
+        assertEquals("bar()",MethodUtils.invokeStaticMethod(TestBean.class,"bar",(Object[])null));
+    }
+
+    @Test
+    public void testInvokeStaticMethod_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        assertEquals("bar()",MethodUtils.invokeStaticMethod(TestBean.class,"bar",null,null));
+    }
+
+    @Test
+    public void testInvokeStaticMethod_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("bar(String)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",""));
+    }
+
+    @Test
+    public void testInvokeStaticMethod_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("bar(Object)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",new Object()));
+    }
+
+    @Test
+    public void testInvokeStaticMethod_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("bar(Object)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",Boolean.TRUE));
+    }
+
+    @Test
+    public void testInvokeStaticMethod_7_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("bar(Integer)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",NumberUtils.INTEGER_ONE));
+    }
+
+    @Test
+    public void testInvokeStaticMethod_8_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("bar(int)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",NumberUtils.BYTE_ONE));
+    }
+
+    @Test
+    public void testInvokeStaticMethod_9_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("bar(double)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",NumberUtils.DOUBLE_ONE));
+    }
+
+    @Test
+    public void testInvokeStaticMethod_10_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("bar(String...)",MethodUtils.invokeStaticMethod(TestBean.class,"bar","a","b"));
+    }
+
+    @Test
+    public void testInvokeStaticMethod_11_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("bar(long...)",MethodUtils.invokeStaticMethod(TestBean.class,"bar",1L,2L));
     }
 
     @Test
@@ -595,9 +1626,65 @@ public class MethodUtilsTest_OE25Dev {
 
         try {
     MethodUtils.invokeStaticMethod(TestBean.class, "does_not_exist");
-    org.junit.jupiter.api.Assertions.fail("NoSuchMethodException");
+    fail("NoSuchMethodException");
 } catch (NoSuchMethodException e) {
 }
+    }
+
+    @Test
+    public void testInvokeExactStaticMethod_1_oe() throws Exception {
+        assertEquals("bar()",MethodUtils.invokeExactStaticMethod(TestBean.class,"bar",(Object[])ArrayUtils.EMPTY_CLASS_ARRAY));
+    }
+
+    @Test
+    public void testInvokeExactStaticMethod_2_oe() throws Exception {
+        // removed other assertion
+        assertEquals("bar()",MethodUtils.invokeExactStaticMethod(TestBean.class,"bar",(Object[])null));
+    }
+
+    @Test
+    public void testInvokeExactStaticMethod_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        assertEquals("bar()",MethodUtils.invokeExactStaticMethod(TestBean.class,"bar",null,null));
+    }
+
+    @Test
+    public void testInvokeExactStaticMethod_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("bar(String)",MethodUtils.invokeExactStaticMethod(TestBean.class,"bar",""));
+    }
+
+    @Test
+    public void testInvokeExactStaticMethod_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("bar(Object)",MethodUtils.invokeExactStaticMethod(TestBean.class,"bar",new Object()));
+    }
+
+    @Test
+    public void testInvokeExactStaticMethod_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("bar(Integer)",MethodUtils.invokeExactStaticMethod(TestBean.class,"bar",NumberUtils.INTEGER_ONE));
+    }
+
+    @Test
+    public void testInvokeExactStaticMethod_7_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("bar(double)", MethodUtils.invokeExactStaticMethod( TestBean.class, "bar", new Object[]{NumberUtils.DOUBLE_ONE}, new Class[]{Double.TYPE}));
     }
 
     @Test
@@ -612,7 +1699,7 @@ public class MethodUtilsTest_OE25Dev {
 
         try {
     MethodUtils.invokeExactStaticMethod(TestBean.class, "bar", NumberUtils.BYTE_ONE);
-    org.junit.jupiter.api.Assertions.fail("NoSuchMethodException");
+    fail("NoSuchMethodException");
 } catch (NoSuchMethodException e) {
 }
     }
@@ -630,7 +1717,7 @@ public class MethodUtilsTest_OE25Dev {
         // removed other assertion
         try {
     MethodUtils.invokeExactStaticMethod(TestBean.class, "bar", NumberUtils.LONG_ONE);
-    org.junit.jupiter.api.Assertions.fail("NoSuchMethodException");
+    fail("NoSuchMethodException");
 } catch (NoSuchMethodException e) {
 }
     }
@@ -649,16 +1736,760 @@ public class MethodUtilsTest_OE25Dev {
         // removed other assertion
         try {
     MethodUtils.invokeExactStaticMethod(TestBean.class, "bar", Boolean.TRUE);
-    org.junit.jupiter.api.Assertions.fail("NoSuchMethodException");
+    fail("NoSuchMethodException");
 } catch (NoSuchMethodException e) {
 }
+    }
+
+    @Test
+    public void testGetAccessibleInterfaceMethod_1_oe() throws Exception {
+        final Class<?>[][] p = {ArrayUtils.EMPTY_CLASS_ARRAY, null};
+        for (final Class<?>[] element : p) {
+            final Method method = TestMutable.class.getMethod("getValue", element);
+            final Method accessibleMethod = MethodUtils.getAccessibleMethod(method);
+            assertNotSame(accessibleMethod, method);
+    }
+    }
+
+    @Test
+    public void testGetAccessibleInterfaceMethod_2_oe() throws Exception {
+        final Class<?>[][] p = {ArrayUtils.EMPTY_CLASS_ARRAY, null};
+        for (final Class<?>[] element : p) {
+            final Method method = TestMutable.class.getMethod("getValue", element);
+            final Method accessibleMethod = MethodUtils.getAccessibleMethod(method);
+            // removed other assertion
+            assertSame(Mutable.class, accessibleMethod.getDeclaringClass());
+    }
+    }
+
+    @Test
+    public void testGetAccessibleMethodPrivateInterface_1_oe() throws Exception {
+        final Method expected = TestBeanWithInterfaces.class.getMethod("foo");
+        assertNotNull(expected);
+    }
+
+    @Test
+    public void testGetAccessibleMethodPrivateInterface_2_oe() throws Exception {
+        final Method expected = TestBeanWithInterfaces.class.getMethod("foo");
+        // removed other assertion
+        final Method actual = MethodUtils.getAccessibleMethod(TestBeanWithInterfaces.class, "foo");
+        assertNull(actual);
+    }
+
+    @Test
+    public void testGetAccessibleInterfaceMethodFromDescription_1_oe() {
+        final Class<?>[][] p = {ArrayUtils.EMPTY_CLASS_ARRAY, null};
+        for (final Class<?>[] element : p) {
+            final Method accessibleMethod = MethodUtils.getAccessibleMethod(
+                    TestMutable.class, "getValue", element);
+            assertSame(Mutable.class, accessibleMethod.getDeclaringClass());
+    }
+    }
+
+    @Test
+    public void testGetAccessiblePublicMethod_1_oe() throws Exception {
+        assertSame(MutableObject.class,MethodUtils.getAccessibleMethod(MutableObject.class.getMethod("getValue",ArrayUtils.EMPTY_CLASS_ARRAY)).getDeclaringClass());
+    }
+
+    @Test
+    public void testGetAccessiblePublicMethodFromDescription_1_oe() {
+        assertSame(MutableObject.class,MethodUtils.getAccessibleMethod(MutableObject.class,"getValue",ArrayUtils.EMPTY_CLASS_ARRAY).getDeclaringClass());
+    }
+
+    @Test
+    public void testGetAccessibleMethodInaccessible_1_oe() throws Exception {
+        final Method expected = TestBean.class.getDeclaredMethod("privateStuff");
+        final Method actual = MethodUtils.getAccessibleMethod(expected);
+        assertNull(actual);
+    }
+
+    @Test
+    public void testGetOverrideHierarchyIncludingInterfaces_1_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(StringParameterizedChild.class, "consume", String.class);
+        final Iterator<MethodDescriptor> expected =
+                Arrays.asList(new MethodDescriptor(StringParameterizedChild.class, "consume", String.class),
+                        new MethodDescriptor(GenericParent.class, "consume", GenericParent.class.getTypeParameters()[0]),
+                        new MethodDescriptor(GenericConsumer.class, "consume", GenericConsumer.class.getTypeParameters()[0]))
+                        .iterator();
+        for (final Method m : MethodUtils.getOverrideHierarchy(method, Interfaces.INCLUDE)) {
+            assertTrue(expected.hasNext());
+    }
+    }
+
+    @Test
+    public void testGetOverrideHierarchyIncludingInterfaces_2_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(StringParameterizedChild.class, "consume", String.class);
+        final Iterator<MethodDescriptor> expected =
+                Arrays.asList(new MethodDescriptor(StringParameterizedChild.class, "consume", String.class),
+                        new MethodDescriptor(GenericParent.class, "consume", GenericParent.class.getTypeParameters()[0]),
+                        new MethodDescriptor(GenericConsumer.class, "consume", GenericConsumer.class.getTypeParameters()[0]))
+                        .iterator();
+        for (final Method m : MethodUtils.getOverrideHierarchy(method, Interfaces.INCLUDE)) {
+            // removed other assertion
+            final MethodDescriptor md = expected.next();
+            assertEquals(md.declaringClass, m.getDeclaringClass());
+    }
+    }
+
+    @Test
+    public void testGetOverrideHierarchyIncludingInterfaces_3_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(StringParameterizedChild.class, "consume", String.class);
+        final Iterator<MethodDescriptor> expected =
+                Arrays.asList(new MethodDescriptor(StringParameterizedChild.class, "consume", String.class),
+                        new MethodDescriptor(GenericParent.class, "consume", GenericParent.class.getTypeParameters()[0]),
+                        new MethodDescriptor(GenericConsumer.class, "consume", GenericConsumer.class.getTypeParameters()[0]))
+                        .iterator();
+        for (final Method m : MethodUtils.getOverrideHierarchy(method, Interfaces.INCLUDE)) {
+            // removed other assertion
+            final MethodDescriptor md = expected.next();
+            // removed other assertion
+            assertEquals(md.name, m.getName());
+    }
+    }
+
+    @Test
+    public void testGetOverrideHierarchyIncludingInterfaces_4_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(StringParameterizedChild.class, "consume", String.class);
+        final Iterator<MethodDescriptor> expected =
+                Arrays.asList(new MethodDescriptor(StringParameterizedChild.class, "consume", String.class),
+                        new MethodDescriptor(GenericParent.class, "consume", GenericParent.class.getTypeParameters()[0]),
+                        new MethodDescriptor(GenericConsumer.class, "consume", GenericConsumer.class.getTypeParameters()[0]))
+                        .iterator();
+        for (final Method m : MethodUtils.getOverrideHierarchy(method, Interfaces.INCLUDE)) {
+            // removed other assertion
+            final MethodDescriptor md = expected.next();
+            // removed other assertion
+            // removed other assertion
+            assertEquals(md.parameterTypes.length, m.getParameterTypes().length);
+    }
+    }
+
+    @Test
+    public void testGetOverrideHierarchyIncludingInterfaces_5_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(StringParameterizedChild.class, "consume", String.class);
+        final Iterator<MethodDescriptor> expected =
+                Arrays.asList(new MethodDescriptor(StringParameterizedChild.class, "consume", String.class),
+                        new MethodDescriptor(GenericParent.class, "consume", GenericParent.class.getTypeParameters()[0]),
+                        new MethodDescriptor(GenericConsumer.class, "consume", GenericConsumer.class.getTypeParameters()[0]))
+                        .iterator();
+        for (final Method m : MethodUtils.getOverrideHierarchy(method, Interfaces.INCLUDE)) {
+            // removed other assertion
+            final MethodDescriptor md = expected.next();
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            for (int i = 0; i < md.parameterTypes.length; i++) {
+                assertTrue(TypeUtils.equals(md.parameterTypes[i], m.getGenericParameterTypes()[i]));
+    }
+    }
+    }
+
+    @Test
+    public void testGetOverrideHierarchyIncludingInterfaces_6_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(StringParameterizedChild.class, "consume", String.class);
+        final Iterator<MethodDescriptor> expected =
+                Arrays.asList(new MethodDescriptor(StringParameterizedChild.class, "consume", String.class),
+                        new MethodDescriptor(GenericParent.class, "consume", GenericParent.class.getTypeParameters()[0]),
+                        new MethodDescriptor(GenericConsumer.class, "consume", GenericConsumer.class.getTypeParameters()[0]))
+                        .iterator();
+        for (final Method m : MethodUtils.getOverrideHierarchy(method, Interfaces.INCLUDE)) {
+            // removed other assertion
+            final MethodDescriptor md = expected.next();
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            for (int i = 0; i < md.parameterTypes.length; i++) {
+                // removed other assertion
+            }
+        }
+        assertFalse(expected.hasNext());
+    }
+
+    @Test
+    public void testGetOverrideHierarchyExcludingInterfaces_1_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(StringParameterizedChild.class, "consume", String.class);
+        final Iterator<MethodDescriptor> expected =
+                Arrays.asList(new MethodDescriptor(StringParameterizedChild.class, "consume", String.class),
+                        new MethodDescriptor(GenericParent.class, "consume", GenericParent.class.getTypeParameters()[0]))
+                        .iterator();
+        for (final Method m : MethodUtils.getOverrideHierarchy(method, Interfaces.EXCLUDE)) {
+            assertTrue(expected.hasNext());
+    }
+    }
+
+    @Test
+    public void testGetOverrideHierarchyExcludingInterfaces_2_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(StringParameterizedChild.class, "consume", String.class);
+        final Iterator<MethodDescriptor> expected =
+                Arrays.asList(new MethodDescriptor(StringParameterizedChild.class, "consume", String.class),
+                        new MethodDescriptor(GenericParent.class, "consume", GenericParent.class.getTypeParameters()[0]))
+                        .iterator();
+        for (final Method m : MethodUtils.getOverrideHierarchy(method, Interfaces.EXCLUDE)) {
+            // removed other assertion
+            final MethodDescriptor md = expected.next();
+            assertEquals(md.declaringClass, m.getDeclaringClass());
+    }
+    }
+
+    @Test
+    public void testGetOverrideHierarchyExcludingInterfaces_3_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(StringParameterizedChild.class, "consume", String.class);
+        final Iterator<MethodDescriptor> expected =
+                Arrays.asList(new MethodDescriptor(StringParameterizedChild.class, "consume", String.class),
+                        new MethodDescriptor(GenericParent.class, "consume", GenericParent.class.getTypeParameters()[0]))
+                        .iterator();
+        for (final Method m : MethodUtils.getOverrideHierarchy(method, Interfaces.EXCLUDE)) {
+            // removed other assertion
+            final MethodDescriptor md = expected.next();
+            // removed other assertion
+            assertEquals(md.name, m.getName());
+    }
+    }
+
+    @Test
+    public void testGetOverrideHierarchyExcludingInterfaces_4_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(StringParameterizedChild.class, "consume", String.class);
+        final Iterator<MethodDescriptor> expected =
+                Arrays.asList(new MethodDescriptor(StringParameterizedChild.class, "consume", String.class),
+                        new MethodDescriptor(GenericParent.class, "consume", GenericParent.class.getTypeParameters()[0]))
+                        .iterator();
+        for (final Method m : MethodUtils.getOverrideHierarchy(method, Interfaces.EXCLUDE)) {
+            // removed other assertion
+            final MethodDescriptor md = expected.next();
+            // removed other assertion
+            // removed other assertion
+            assertEquals(md.parameterTypes.length, m.getParameterTypes().length);
+    }
+    }
+
+    @Test
+    public void testGetOverrideHierarchyExcludingInterfaces_5_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(StringParameterizedChild.class, "consume", String.class);
+        final Iterator<MethodDescriptor> expected =
+                Arrays.asList(new MethodDescriptor(StringParameterizedChild.class, "consume", String.class),
+                        new MethodDescriptor(GenericParent.class, "consume", GenericParent.class.getTypeParameters()[0]))
+                        .iterator();
+        for (final Method m : MethodUtils.getOverrideHierarchy(method, Interfaces.EXCLUDE)) {
+            // removed other assertion
+            final MethodDescriptor md = expected.next();
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            for (int i = 0; i < md.parameterTypes.length; i++) {
+                assertTrue(TypeUtils.equals(md.parameterTypes[i], m.getGenericParameterTypes()[i]));
+    }
+    }
+    }
+
+    @Test
+    public void testGetOverrideHierarchyExcludingInterfaces_6_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(StringParameterizedChild.class, "consume", String.class);
+        final Iterator<MethodDescriptor> expected =
+                Arrays.asList(new MethodDescriptor(StringParameterizedChild.class, "consume", String.class),
+                        new MethodDescriptor(GenericParent.class, "consume", GenericParent.class.getTypeParameters()[0]))
+                        .iterator();
+        for (final Method m : MethodUtils.getOverrideHierarchy(method, Interfaces.EXCLUDE)) {
+            // removed other assertion
+            final MethodDescriptor md = expected.next();
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            for (int i = 0; i < md.parameterTypes.length; i++) {
+                // removed other assertion
+            }
+        }
+        assertFalse(expected.hasNext());
+    }
+
+    @Test
+    @Annotated
+    public void testGetMethodsWithAnnotation_1_oe() throws NoSuchMethodException {
+        assertArrayEquals(new Method[0], MethodUtils.getMethodsWithAnnotation(Object.class, Annotated.class));
+    }
+
+    @Test
+    @Annotated
+    public void testGetMethodsWithAnnotation_2_oe() throws NoSuchMethodException {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(MethodUtilsTest.class, Annotated.class);
+        assertEquals(2, methodsWithAnnotation.length);
+    }
+
+    @Test
+    @Annotated
+    public void testGetMethodsWithAnnotation_3_oe() throws NoSuchMethodException {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(MethodUtilsTest.class, Annotated.class);
+        // removed other assertion
+        assertThat(methodsWithAnnotation, hasItemInArray(MethodUtilsTest.class.getMethod("testGetMethodsWithAnnotation")));
+    }
+
+    @Test
+    @Annotated
+    public void testGetMethodsWithAnnotation_4_oe() throws NoSuchMethodException {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(MethodUtilsTest.class, Annotated.class);
+        // removed other assertion
+        // removed other assertion
+        assertThat(methodsWithAnnotation, hasItemInArray(MethodUtilsTest.class.getMethod("testGetMethodsListWithAnnotation")));
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationSearchSupersAndIgnoreAccess_1_oe() {
+        assertArrayEquals(new Method[0],MethodUtils.getMethodsWithAnnotation(Object.class,Annotated.class,true,true));
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationSearchSupersAndIgnoreAccess_2_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                true, true);
+        assertEquals(4, methodsWithAnnotation.length);
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationSearchSupersAndIgnoreAccess_3_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                true, true);
+        // removed other assertion
+        assertEquals("PublicChild", methodsWithAnnotation[0].getDeclaringClass().getSimpleName());
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationSearchSupersAndIgnoreAccess_4_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                true, true);
+        // removed other assertion
+        // removed other assertion
+        assertEquals("PublicChild", methodsWithAnnotation[1].getDeclaringClass().getSimpleName());
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationSearchSupersAndIgnoreAccess_5_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                true, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(methodsWithAnnotation[0].getName().endsWith("AnnotatedMethod"));
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationSearchSupersAndIgnoreAccess_6_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                true, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(methodsWithAnnotation[1].getName().endsWith("AnnotatedMethod"));
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationSearchSupersAndIgnoreAccess_7_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                true, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Foo.doIt",methodsWithAnnotation[2].getDeclaringClass().getSimpleName()+ '.' + methodsWithAnnotation[2].getName());
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationSearchSupersAndIgnoreAccess_8_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                true, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Parent.parentProtectedAnnotatedMethod",methodsWithAnnotation[3].getDeclaringClass().getSimpleName()+ '.' + methodsWithAnnotation[3].getName());
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationNotSearchSupersButIgnoreAccess_1_oe() {
+        assertArrayEquals(new Method[0],MethodUtils.getMethodsWithAnnotation(Object.class,Annotated.class,false,true));
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationNotSearchSupersButIgnoreAccess_2_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                false, true);
+        assertEquals(2, methodsWithAnnotation.length);
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationNotSearchSupersButIgnoreAccess_3_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                false, true);
+        // removed other assertion
+        assertEquals("PublicChild", methodsWithAnnotation[0].getDeclaringClass().getSimpleName());
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationNotSearchSupersButIgnoreAccess_4_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                false, true);
+        // removed other assertion
+        // removed other assertion
+        assertEquals("PublicChild", methodsWithAnnotation[1].getDeclaringClass().getSimpleName());
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationNotSearchSupersButIgnoreAccess_5_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                false, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(methodsWithAnnotation[0].getName().endsWith("AnnotatedMethod"));
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationNotSearchSupersButIgnoreAccess_6_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                false, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(methodsWithAnnotation[1].getName().endsWith("AnnotatedMethod"));
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationSearchSupersButNotIgnoreAccess_1_oe() {
+        assertArrayEquals(new Method[0],MethodUtils.getMethodsWithAnnotation(Object.class,Annotated.class,true,false));
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationSearchSupersButNotIgnoreAccess_2_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                true, false);
+        assertEquals(2, methodsWithAnnotation.length);
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationSearchSupersButNotIgnoreAccess_3_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                true, false);
+        // removed other assertion
+        assertEquals("PublicChild.publicAnnotatedMethod",methodsWithAnnotation[0].getDeclaringClass().getSimpleName()+ '.' + methodsWithAnnotation[0].getName());
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationSearchSupersButNotIgnoreAccess_4_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                true, false);
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Foo.doIt",methodsWithAnnotation[1].getDeclaringClass().getSimpleName()+ '.' + methodsWithAnnotation[1].getName());
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationNotSearchSupersAndNotIgnoreAccess_1_oe() {
+        assertArrayEquals(new Method[0],MethodUtils.getMethodsWithAnnotation(Object.class,Annotated.class,false,false));
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationNotSearchSupersAndNotIgnoreAccess_2_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                false, false);
+        assertEquals(1, methodsWithAnnotation.length);
+    }
+
+    @Test
+    public void testGetMethodsWithAnnotationNotSearchSupersAndNotIgnoreAccess_3_oe() {
+        // removed other assertion
+
+        final Method[] methodsWithAnnotation = MethodUtils.getMethodsWithAnnotation(PublicChild.class, Annotated.class,
+                false, false);
+        // removed other assertion
+        assertEquals("PublicChild.publicAnnotatedMethod",methodsWithAnnotation[0].getDeclaringClass().getSimpleName()+ '.' + methodsWithAnnotation[0].getName());
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersAndIgnoreAccess_1_oe() throws NoSuchMethodException {
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentNotAnnotatedMethod"),Annotated.class,true,true));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersAndIgnoreAccess_2_oe() throws NoSuchMethodException {
+        // removed other assertion
+        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("doIt"),Annotated.class,true,true));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersAndIgnoreAccess_3_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentProtectedAnnotatedMethod"),Annotated.class,true,true));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersAndIgnoreAccess_4_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getDeclaredMethod("privateAnnotatedMethod"),Annotated.class,true,true));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersAndIgnoreAccess_5_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("publicAnnotatedMethod"),Annotated.class,true,true));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersAndIgnoreAccess_6_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("parentNotAnnotatedMethod",String.class),Annotated.class,true,true));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersAndIgnoreAccess_7_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertNotNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("parentProtectedAnnotatedMethod",String.class),Annotated.class,true,true));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersAndIgnoreAccess_8_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertNotNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getDeclaredMethod("privateAnnotatedMethod",String.class),Annotated.class,true,true));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersAndIgnoreAccess_9_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNotNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("publicAnnotatedMethod",String.class),Annotated.class,true,true));
+    }
+
+    @Test
+    public void testGetAnnotationNotSearchSupersButIgnoreAccess_1_oe() throws NoSuchMethodException {
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentNotAnnotatedMethod"),Annotated.class,false,true));
+    }
+
+    @Test
+    public void testGetAnnotationNotSearchSupersButIgnoreAccess_2_oe() throws NoSuchMethodException {
+        // removed other assertion
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("doIt"),Annotated.class,false,true));
+    }
+
+    @Test
+    public void testGetAnnotationNotSearchSupersButIgnoreAccess_3_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentProtectedAnnotatedMethod"),Annotated.class,false,true));
+    }
+
+    @Test
+    public void testGetAnnotationNotSearchSupersButIgnoreAccess_4_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getDeclaredMethod("privateAnnotatedMethod"),Annotated.class,false,true));
+    }
+
+    @Test
+    public void testGetAnnotationNotSearchSupersButIgnoreAccess_5_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("publicAnnotatedMethod"),Annotated.class,false,true));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersButNotIgnoreAccess_1_oe() throws NoSuchMethodException {
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentNotAnnotatedMethod"),Annotated.class,true,false));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersButNotIgnoreAccess_2_oe() throws NoSuchMethodException {
+        // removed other assertion
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("doIt"),Annotated.class,true,false));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersButNotIgnoreAccess_3_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentProtectedAnnotatedMethod"),Annotated.class,true,false));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersButNotIgnoreAccess_4_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getDeclaredMethod("privateAnnotatedMethod"),Annotated.class,true,false));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersButNotIgnoreAccess_5_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("publicAnnotatedMethod"),Annotated.class,true,false));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersButNotIgnoreAccess_6_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("parentNotAnnotatedMethod",String.class),Annotated.class,true,false));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersButNotIgnoreAccess_7_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("parentProtectedAnnotatedMethod",String.class),Annotated.class,true,false));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersButNotIgnoreAccess_8_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getDeclaredMethod("privateAnnotatedMethod",String.class),Annotated.class,true,false));
+    }
+
+    @Test
+    public void testGetAnnotationSearchSupersButNotIgnoreAccess_9_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNotNull(MethodUtils.getAnnotation(StringParameterizedChild.class.getMethod("publicAnnotatedMethod",String.class),Annotated.class,true,false));
+    }
+
+    @Test
+    public void testGetAnnotationNotSearchSupersAndNotIgnoreAccess_1_oe() throws NoSuchMethodException {
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentNotAnnotatedMethod"),Annotated.class,false,false));
+    }
+
+    @Test
+    public void testGetAnnotationNotSearchSupersAndNotIgnoreAccess_2_oe() throws NoSuchMethodException {
+        // removed other assertion
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("doIt"),Annotated.class,false,false));
+    }
+
+    @Test
+    public void testGetAnnotationNotSearchSupersAndNotIgnoreAccess_3_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("parentProtectedAnnotatedMethod"),Annotated.class,false,false));
+    }
+
+    @Test
+    public void testGetAnnotationNotSearchSupersAndNotIgnoreAccess_4_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNull(MethodUtils.getAnnotation(PublicChild.class.getDeclaredMethod("privateAnnotatedMethod"),Annotated.class,false,false));
+    }
+
+    @Test
+    public void testGetAnnotationNotSearchSupersAndNotIgnoreAccess_5_oe() throws NoSuchMethodException {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNotNull(MethodUtils.getAnnotation(PublicChild.class.getMethod("publicAnnotatedMethod"),Annotated.class,false,false));
     }
 
     @Test
     public void testGetMethodsWithAnnotationIllegalArgumentException1_1_oe() throws Exception {
         try {
     MethodUtils.getMethodsWithAnnotation(FieldUtilsTest.class, null);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
     }
@@ -667,7 +2498,7 @@ public class MethodUtilsTest_OE25Dev {
     public void testGetMethodsWithAnnotationIllegalArgumentException2_1_oe() throws Exception {
         try {
     MethodUtils.getMethodsWithAnnotation(null, Annotated.class);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
     }
@@ -676,16 +2507,41 @@ public class MethodUtilsTest_OE25Dev {
     public void testGetMethodsWithAnnotationIllegalArgumentException3_1_oe() throws Exception {
         try {
     MethodUtils.getMethodsWithAnnotation(null, null);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
+    }
+
+    @Test
+    @Annotated
+    public void testGetMethodsListWithAnnotation_1_oe() throws NoSuchMethodException {
+        assertEquals(0, MethodUtils.getMethodsListWithAnnotation(Object.class, Annotated.class).size());
+    }
+
+    @Test
+    @Annotated
+    public void testGetMethodsListWithAnnotation_2_oe() throws NoSuchMethodException {
+        // removed other assertion
+
+        final List<Method> methodWithAnnotation = MethodUtils.getMethodsListWithAnnotation(MethodUtilsTest.class, Annotated.class);
+        assertEquals(2, methodWithAnnotation.size());
+    }
+
+    @Test
+    @Annotated
+    public void testGetMethodsListWithAnnotation_3_oe() throws NoSuchMethodException {
+        // removed other assertion
+
+        final List<Method> methodWithAnnotation = MethodUtils.getMethodsListWithAnnotation(MethodUtilsTest.class, Annotated.class);
+        // removed other assertion
+        assertThat(methodWithAnnotation,hasItems(MethodUtilsTest.class.getMethod("testGetMethodsWithAnnotation"),MethodUtilsTest.class.getMethod("testGetMethodsListWithAnnotation")));
     }
 
     @Test
     public void testGetMethodsListWithAnnotationIllegalArgumentException1_1_oe() throws Exception {
         try {
     MethodUtils.getMethodsListWithAnnotation(FieldUtilsTest.class, null);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
     }
@@ -694,7 +2550,7 @@ public class MethodUtilsTest_OE25Dev {
     public void testGetMethodsListWithAnnotationIllegalArgumentException2_1_oe() throws Exception {
         try {
     MethodUtils.getMethodsListWithAnnotation(null, Annotated.class);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
     }
@@ -703,7 +2559,7 @@ public class MethodUtilsTest_OE25Dev {
     public void testGetMethodsListWithAnnotationIllegalArgumentException3_1_oe() throws Exception {
         try {
     MethodUtils.getMethodsListWithAnnotation(null, null);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
     }
@@ -712,7 +2568,7 @@ public class MethodUtilsTest_OE25Dev {
     public void testGetAnnotationIllegalArgumentException1_1_oe() throws Exception {
         try {
     MethodUtils.getAnnotation(FieldUtilsTest.class.getDeclaredMethods()[0], null, true, true);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
     }
@@ -721,7 +2577,7 @@ public class MethodUtilsTest_OE25Dev {
     public void testGetAnnotationIllegalArgumentException2_1_oe() throws Exception {
         try {
     MethodUtils.getAnnotation(null, Annotated.class, true, true);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
     }
@@ -730,9 +2586,117 @@ public class MethodUtilsTest_OE25Dev {
     public void testGetAnnotationIllegalArgumentException3_1_oe() throws Exception {
         try {
     MethodUtils.getAnnotation(null, null, true, true);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
+    }
+
+    @Test
+    public void testVarArgsUnboxing_1_oe() throws Exception {
+        final TestBean testBean = new TestBean();
+        final int[] actual = (int[]) MethodUtils.invokeMethod(testBean, "unboxing", Integer.valueOf(1), Integer.valueOf(2));
+        assertArrayEquals(new int[]{1, 2}, actual);
+    }
+
+    @Test
+    public void testInvokeMethodForceAccessNoArgs_1_oe() throws Exception {
+        assertEquals("privateStringStuff()", MethodUtils.invokeMethod(testBean, true, "privateStringStuff"));
+    }
+
+    @Test
+    public void testInvokeMethodForceAccessWithArgs_1_oe() throws Exception {
+        assertEquals("privateStringStuff(Integer)", MethodUtils.invokeMethod(testBean, true, "privateStringStuff", 5));
+    }
+
+    @Test
+    public void testInvokeMethodForceAccessWithArgs_2_oe() throws Exception {
+        // removed other assertion
+        assertEquals("privateStringStuff(double)", MethodUtils.invokeMethod(testBean, true, "privateStringStuff", 5.0d));
+    }
+
+    @Test
+    public void testInvokeMethodForceAccessWithArgs_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        assertEquals("privateStringStuff(String)", MethodUtils.invokeMethod(testBean, true, "privateStringStuff", "Hi There"));
+    }
+
+    @Test
+    public void testInvokeMethodForceAccessWithArgs_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("privateStringStuff(Object)", MethodUtils.invokeMethod(testBean, true, "privateStringStuff", new Date()));
+    }
+
+    @Test
+    public void testDistance_1_oe() throws Exception {
+        final Method distanceMethod = MethodUtils.getMatchingMethod(MethodUtils.class, "distance", Class[].class, Class[].class);
+        distanceMethod.setAccessible(true);
+
+        assertEquals(-1, distanceMethod.invoke(null, new Class[]{String.class}, new Class[]{Date.class}));
+    }
+
+    @Test
+    public void testDistance_2_oe() throws Exception {
+        final Method distanceMethod = MethodUtils.getMatchingMethod(MethodUtils.class, "distance", Class[].class, Class[].class);
+        distanceMethod.setAccessible(true);
+
+        // removed other assertion
+        assertEquals(0, distanceMethod.invoke(null, new Class[]{Date.class}, new Class[]{Date.class}));
+    }
+
+    @Test
+    public void testDistance_3_oe() throws Exception {
+        final Method distanceMethod = MethodUtils.getMatchingMethod(MethodUtils.class, "distance", Class[].class, Class[].class);
+        distanceMethod.setAccessible(true);
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, distanceMethod.invoke(null, new Class[]{Integer.class}, new Class[]{ClassUtils.wrapperToPrimitive(Integer.class)}));
+    }
+
+    @Test
+    public void testDistance_4_oe() throws Exception {
+        final Method distanceMethod = MethodUtils.getMatchingMethod(MethodUtils.class, "distance", Class[].class, Class[].class);
+        distanceMethod.setAccessible(true);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, distanceMethod.invoke(null, new Class[]{Integer.class}, new Class[]{Object.class}));
+    }
+
+    @Test
+    public void testGetMatchingMethod_1_oe() throws NoSuchMethodException {
+        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class,"testMethod"),GetMatchingMethodClass.class.getMethod("testMethod"));
+    }
+
+    @Test
+    public void testGetMatchingMethod_2_oe() throws NoSuchMethodException {
+        // removed other assertion
+
+        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class,"testMethod",Long.TYPE),GetMatchingMethodClass.class.getMethod("testMethod",Long.TYPE));
+    }
+
+    @Test
+    public void testGetMatchingMethod_3_oe() throws NoSuchMethodException {
+        // removed other assertion
+
+        // removed other assertion
+
+        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class,"testMethod",Long.class),GetMatchingMethodClass.class.getMethod("testMethod",Long.class));
+    }
+
+    @Test
+    public void testGetMatchingMethod_4_oe() throws NoSuchMethodException {
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class,"testMethod",(Class<?>)null),GetMatchingMethodClass.class.getMethod("testMethod",Long.class));
     }
 
     @Test
@@ -747,9 +2711,81 @@ public class MethodUtilsTest_OE25Dev {
 
         try {
     MethodUtils.getMatchingMethod(GetMatchingMethodClass.class, "testMethod2", (Class<?>) null);
-    org.junit.jupiter.api.Assertions.fail("IllegalStateException");
+    fail("IllegalStateException");
 } catch (IllegalStateException e) {
 }
+    }
+
+    @Test
+    public void testGetMatchingMethod_6_oe() throws NoSuchMethodException {
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class,"testMethod3",Long.TYPE,Long.class),GetMatchingMethodClass.class.getMethod("testMethod3",Long.TYPE,Long.class));
+    }
+
+    @Test
+    public void testGetMatchingMethod_7_oe() throws NoSuchMethodException {
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class,"testMethod3",Long.class,Long.TYPE),GetMatchingMethodClass.class.getMethod("testMethod3",Long.class,Long.TYPE));
+    }
+
+    @Test
+    public void testGetMatchingMethod_8_oe() throws NoSuchMethodException {
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class,"testMethod3",null,Long.TYPE),GetMatchingMethodClass.class.getMethod("testMethod3",Long.class,Long.TYPE));
+    }
+
+    @Test
+    public void testGetMatchingMethod_9_oe() throws NoSuchMethodException {
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        assertEquals(MethodUtils.getMatchingMethod(GetMatchingMethodClass.class,"testMethod3",Long.TYPE,null),GetMatchingMethodClass.class.getMethod("testMethod3",Long.TYPE,Long.class));
     }
 
     @Test
@@ -774,7 +2810,7 @@ public class MethodUtilsTest_OE25Dev {
 
         try {
     MethodUtils.getMatchingMethod(GetMatchingMethodClass.class, "testMethod4", null, null);
-    org.junit.jupiter.api.Assertions.fail("IllegalStateException");
+    fail("IllegalStateException");
 } catch (IllegalStateException e) {
 }
     }

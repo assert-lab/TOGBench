@@ -28,6 +28,8 @@ import org.apache.commons.rng.sampling.RandomAssert;
 import org.apache.commons.rng.sampling.UnitSphereSampler;
 import org.apache.commons.rng.simple.RandomSource;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test for {@link LineSampler}.
  */
@@ -344,7 +346,7 @@ class LineSamplerTest_OE25Dev {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         try {
     LineSampler.of(rng, new double[0], new double[0]);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -360,10 +362,20 @@ class LineSamplerTest_OE25Dev {
         }) {
             try {
     LineSampler.of(rng, c[0], c[1]);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: () -> String.format(\"Did not detect dimension mismatch: %d,%d\", c[0].length, c[1].length)");
+    fail("IllegalArgumentException: () -> String.format(\"Did not detect dimension mismatch: %d,%d\", c[0].length, c[1].length)");
 } catch (IllegalArgumentException e) {
 }
     }
+    }
+
+    @Test
+    void testNonFiniteVertexCoordinates_1_oe() {
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        // A valid line
+         double[][] c = new double[][] {
+            {0, 1, 2}, {-1, 2, 3}
+        };
+        Assertions.assertNotNull(LineSampler.of(rng, c[0],  c[1]));
     }
 
     @Test
@@ -384,7 +396,7 @@ class LineSamplerTest_OE25Dev {
                     c[i][j] = d;
                     try {
     LineSampler.of(rng, c[0], c[1]);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: () -> String.format(\"Did not detect non-finite coordinate: %d,%d = %s\", ii, jj, d)");
+    fail("IllegalArgumentException: () -> String.format(\"Did not detect non-finite coordinate: %d,%d = %s\", ii, jj, d)");
 } catch (IllegalArgumentException e) {
 }
     }

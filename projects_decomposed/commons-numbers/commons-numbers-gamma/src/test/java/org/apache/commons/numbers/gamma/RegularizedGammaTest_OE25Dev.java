@@ -19,6 +19,8 @@ package org.apache.commons.numbers.gamma;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Tests for {@link RegularizedGamma}.
  */
@@ -85,6 +87,14 @@ class RegularizedGammaTest_OE25Dev {
     }
 
     @Test
+    void testRegularizedGammaMaxIterationsExceededThrows_1_oe() {
+        final double a = 1.0;
+        final double x = 1.0;
+        // OK without
+        Assertions.assertEquals(0.632120558828558, RegularizedGamma.P.value(a, x), 1e-15);
+    }
+
+    @Test
     void testRegularizedGammaMaxIterationsExceededThrows_2_oe() {
         final double a = 1.0;
         final double x = 1.0;
@@ -94,7 +104,7 @@ class RegularizedGammaTest_OE25Dev {
         final int maxIterations = 3;
         try {
     RegularizedGamma.P.value(a, x, 1e-15, maxIterations);
-    org.junit.jupiter.api.Assertions.fail("ArithmeticException");
+    fail("ArithmeticException");
 } catch (ArithmeticException e) {
 }
     }

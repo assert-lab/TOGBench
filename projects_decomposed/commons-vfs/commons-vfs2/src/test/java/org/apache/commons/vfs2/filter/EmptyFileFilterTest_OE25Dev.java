@@ -116,6 +116,149 @@ public class EmptyFileFilterTest_OE25Dev extends BaseFilterTest {
 
     }
 
+    @Test
+    public void testAcceptEmpty_1_oe() throws FileSystemException {
+
+        final FileFilter testee = EmptyFileFilter.EMPTY;
+
+        Assert.assertFalse(testee.accept(notEmptyFileInfo));
+    }
+
+    @Test
+    public void testAcceptEmpty_2_oe() throws FileSystemException {
+
+        final FileFilter testee = EmptyFileFilter.EMPTY;
+
+        // removed other assertion
+        Assert.assertTrue(testee.accept(emptyFileInfo));
+    }
+
+    @Test
+    public void testAcceptEmpty_3_oe() throws FileSystemException {
+
+        final FileFilter testee = EmptyFileFilter.EMPTY;
+
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(testee.accept(notEmptyDirInfo));
+    }
+
+    @Test
+    public void testAcceptEmpty_4_oe() throws FileSystemException {
+
+        final FileFilter testee = EmptyFileFilter.EMPTY;
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(testee.accept(emptyDirInfo));
+    }
+
+    @Test
+    public void testAcceptEmpty_5_oe() throws FileSystemException {
+
+        final FileFilter testee = EmptyFileFilter.EMPTY;
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(testee.accept(notExistingFileInfo));
+    }
+
+    @Test
+    public void testAcceptNotEmpty_1_oe() throws FileSystemException {
+
+        final FileFilter testee = EmptyFileFilter.NOT_EMPTY;
+
+        Assert.assertTrue(testee.accept(notEmptyFileInfo));
+    }
+
+    @Test
+    public void testAcceptNotEmpty_2_oe() throws FileSystemException {
+
+        final FileFilter testee = EmptyFileFilter.NOT_EMPTY;
+
+        // removed other assertion
+        Assert.assertFalse(testee.accept(emptyFileInfo));
+    }
+
+    @Test
+    public void testAcceptNotEmpty_3_oe() throws FileSystemException {
+
+        final FileFilter testee = EmptyFileFilter.NOT_EMPTY;
+
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(testee.accept(notEmptyDirInfo));
+    }
+
+    @Test
+    public void testAcceptNotEmpty_4_oe() throws FileSystemException {
+
+        final FileFilter testee = EmptyFileFilter.NOT_EMPTY;
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(testee.accept(emptyDirInfo));
+    }
+
+    @Test
+    public void testAcceptNotEmpty_5_oe() throws FileSystemException {
+
+        final FileFilter testee = EmptyFileFilter.NOT_EMPTY;
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(testee.accept(notExistingFileInfo));
+    }
+
+    @Test
+    public void testZipFile_2_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(EmptyFileFilter.EMPTY));
+        // removed other assertion
+        Assert.assertEquals(1, files.length);
+    }
+
+    @Test
+    public void testZipFile_4_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(EmptyFileFilter.EMPTY));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(EmptyFileFilter.NOT_EMPTY));
+        // removed other assertion
+        Assert.assertEquals(2, files.length);
+    }
+
+    @Test
+    public void testZipFile_1_oe_1_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(EmptyFileFilter.EMPTY));
+                final FileObject[] fos0 = files;
+        final String string0 = emptyFile.getName();
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        return;
+                    }
+                }
+        
+                fail(string0 + " should be seen");
+    }
 
 }
 // CHECKSTYLE:ON

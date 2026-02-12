@@ -56,5 +56,61 @@ class SamplerBaseTest_OE25Dev {
         }
     }
 
+    @Test
+    void testNextMethods_1_oe() {
+         UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         SimpleSampler sampler = new SimpleSampler(rng2);
+         int n = 256;
+        for (int i = 0; i < 3; i++) {
+            Assertions.assertEquals(rng1.nextDouble(), sampler.nextDouble());
+    }
+    }
+
+    @Test
+    void testNextMethods_2_oe() {
+         UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         SimpleSampler sampler = new SimpleSampler(rng2);
+         int n = 256;
+        for (int i = 0; i < 3; i++) {
+            // removed other assertion
+            Assertions.assertEquals(rng1.nextInt(), sampler.nextInt());
+    }
+    }
+
+    @Test
+    void testNextMethods_3_oe() {
+         UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         SimpleSampler sampler = new SimpleSampler(rng2);
+         int n = 256;
+        for (int i = 0; i < 3; i++) {
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertEquals(rng1.nextInt(n), sampler.nextInt(n));
+    }
+    }
+
+    @Test
+    void testNextMethods_4_oe() {
+         UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         SimpleSampler sampler = new SimpleSampler(rng2);
+         int n = 256;
+        for (int i = 0; i < 3; i++) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertEquals(rng1.nextLong(), sampler.nextLong());
+    }
+    }
+
+    @Test
+    void testToString_1_oe() {
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+         SimpleSampler sampler = new SimpleSampler(rng);
+        Assertions.assertTrue(sampler.toString().contains("rng"));
+    }
 
 }

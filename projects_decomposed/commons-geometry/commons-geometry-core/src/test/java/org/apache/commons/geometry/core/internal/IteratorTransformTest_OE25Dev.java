@@ -26,6 +26,8 @@ import java.util.NoSuchElementException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class IteratorTransformTest_OE25Dev {
 
     private static <T> List<T> toList(final Iterator<T> it) {
@@ -66,6 +68,28 @@ class IteratorTransformTest_OE25Dev {
     }
 
     @Test
+    void testIteration_1_oe() {
+        // arrange
+        final List<Integer> input = Arrays.asList(1, 2, 3, 4, 12, 13);
+
+        // act
+        final List<String> result = toList(new EvenCharIterator(input.iterator()));
+
+        // assert
+        Assertions.assertEquals(Arrays.asList("2", "4", "1", "2"), result);
+    }
+
+    @Test
+    void testThrowsNoSuchElement_1_oe() {
+        // arrange
+        final List<Integer> input = Collections.emptyList();
+        final EvenCharIterator it = new EvenCharIterator(input.iterator());
+
+        // act/assert
+        Assertions.assertFalse(it.hasNext());
+    }
+
+    @Test
     void testThrowsNoSuchElement_2_oe() {
         // arrange
         final List<Integer> input = Collections.emptyList();
@@ -73,7 +97,11 @@ class IteratorTransformTest_OE25Dev {
 
         // act/assert
         // removed other assertion
-        Assertions.assertThrows(NoSuchElementException.class, it::next);
+        try {
+    it.next();
+    fail("NoSuchElementException");
+} catch (NoSuchElementException e) {
+}
     }
 
 }

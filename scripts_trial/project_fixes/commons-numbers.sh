@@ -236,3 +236,9 @@ PY
 sed -i 's/\bfinal[[:space:]]\+int[[:space:]]\+expectedNumerator0\b/final long expectedNumerator0/g' dataset/inputs.csv
 sed -i 's/\bfinal[[:space:]]\+int[[:space:]]\+expectedDenominator0\b/final long expectedDenominator0/g' dataset/inputs.csv
 
+
+perl -pi.bak -e '
+  s/\.(is(?:NaN|Infinite|Finite))0(\s*\()/.$1$2/g;
+  s/\.abs0(\s*\()/\.abs$1/g;
+  s/\bMath\s*\.\s*abs0(\s*\()/Math.abs$1/g;
+' dataset/inputs.csv

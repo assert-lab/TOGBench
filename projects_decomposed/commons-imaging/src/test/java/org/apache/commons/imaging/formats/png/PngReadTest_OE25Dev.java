@@ -34,6 +34,8 @@ import org.apache.commons.imaging.internal.Debug;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 public class PngReadTest_OE25Dev extends PngBaseTest {
 
     /**
@@ -66,7 +68,7 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
             if (isInvalidPNGTestFile(imageFile)) {
                 try {
     Imaging.getMetadata(imageFile);
-    org.junit.jupiter.api.Assertions.fail("Exception: Image read should have failed.");
+    fail("Exception: Image read should have failed.");
 } catch (Exception e) {
 }
     }
@@ -86,7 +88,7 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
 
                 try {
     Imaging.getImageInfo(imageFile);
-    org.junit.jupiter.api.Assertions.fail("Exception: Image read should have failed.");
+    fail("Exception: Image read should have failed.");
 } catch (Exception e) {
 }
     }
@@ -108,9 +110,81 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
 
                 try {
     Imaging.getBufferedImage(imageFile);
-    org.junit.jupiter.api.Assertions.fail("Exception: Image read should have failed.");
+    fail("Exception: Image read should have failed.");
 } catch (Exception e) {
 }
+    }
+    }
+    }
+
+    @Test
+    public void test_4_oe() throws Exception {
+        Debug.debug("start");
+
+        final List<File> images = getPngImages();
+        for (final File imageFile : images) {
+
+            Debug.debug("imageFile", imageFile);
+            if (isInvalidPNGTestFile(imageFile)) {
+                // removed other assertion
+
+                // removed other assertion
+
+                // removed other assertion
+            } else {
+                final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+                Assertions.assertFalse(metadata instanceof File);// Dummy check to avoid unused warning(it may be null);
+    }
+    }
+    }
+
+    @Test
+    public void test_5_oe() throws Exception {
+        Debug.debug("start");
+
+        final List<File> images = getPngImages();
+        for (final File imageFile : images) {
+
+            Debug.debug("imageFile", imageFile);
+            if (isInvalidPNGTestFile(imageFile)) {
+                // removed other assertion
+
+                // removed other assertion
+
+                // removed other assertion
+            } else {
+                final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+                // removed other assertion
+                final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+                assertNotNull(imageInfo);
+    }
+    }
+    }
+
+    @Test
+    public void test_6_oe() throws Exception {
+        Debug.debug("start");
+
+        final List<File> images = getPngImages();
+        for (final File imageFile : images) {
+
+            Debug.debug("imageFile", imageFile);
+            if (isInvalidPNGTestFile(imageFile)) {
+                // removed other assertion
+
+                // removed other assertion
+
+                // removed other assertion
+            } else {
+                final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+                // removed other assertion
+                final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+                // removed other assertion
+
+                Debug.debug("ICC profile", Imaging.getICCProfile(imageFile));
+
+                final BufferedImage image = Imaging.getBufferedImage(imageFile);
+                assertNotNull(image);
     }
     }
     }
@@ -122,7 +196,7 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
         final PngImageParser parser = new PngImageParser();
         try {
     parser.getBufferedImage(new ByteSourceFile(new File(file)), new PngImagingParameters());
-    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+    fail("ImageReadException");
 } catch (ImageReadException e) {
 }
     }
@@ -134,7 +208,7 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
         final PngImageParser parser = new PngImageParser();
         try {
     parser.getBufferedImage(new ByteSourceFile(new File(file)), new PngImagingParameters());
-    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+    fail("ImageReadException");
 } catch (ImageReadException e) {
 }
     }

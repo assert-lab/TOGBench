@@ -20,13 +20,15 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 public class ReflectionToStringBuilderTest_OE25Dev {
 
     @Test
     public void testConstructorWithNullObject_1_oe() throws Exception {
         try {
     new ReflectionToStringBuilder(null, ToStringStyle.DEFAULT_STYLE, new StringBuffer());
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
     }

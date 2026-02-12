@@ -117,5 +117,396 @@ public class RemoteCacheUnitTest_OE25Dev
      * @throws Exception
      */
 
+    public void testUpdate_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final long listenerId = 123;
+        listener.setListenerId( listenerId );
+
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final String cacheName = "testUpdate";
+
+        // DO WORK
+        final ICacheElement<String, String> element = new CacheElement<>( cacheName, "key", "value" );
+        remoteCache.update( element );
+
+        // VERIFY
+        assertTrue("The element should be in the serialized wrapper.",service.lastUpdate instanceof ICacheElementSerialized);
+    }
+
+    public void testUpdate_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final long listenerId = 123;
+        listener.setListenerId( listenerId );
+
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final String cacheName = "testUpdate";
+
+        // DO WORK
+        final ICacheElement<String, String> element = new CacheElement<>( cacheName, "key", "value" );
+        remoteCache.update( element );
+
+        // VERIFY
+        // removed other assertion
+        final ICacheElement<String, String> result = SerializationConversionUtil
+            .getDeSerializedCacheElement( (ICacheElementSerialized<String, String>) service.lastUpdate, remoteCache
+                .getElementSerializer() );
+        assertEquals( "Wrong element updated.", element.getVal(), result.getVal() );
+    }
+
+    public void testUpdate_3_oe()
+        throws Exception
+    {
+        // SETUP
+        final long listenerId = 123;
+        listener.setListenerId( listenerId );
+
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final String cacheName = "testUpdate";
+
+        // DO WORK
+        final ICacheElement<String, String> element = new CacheElement<>( cacheName, "key", "value" );
+        remoteCache.update( element );
+
+        // VERIFY
+        // removed other assertion
+        final ICacheElement<String, String> result = SerializationConversionUtil
+            .getDeSerializedCacheElement( (ICacheElementSerialized<String, String>) service.lastUpdate, remoteCache
+                .getElementSerializer() );
+        // removed other assertion
+        assertEquals( "Wrong listener id.", Long.valueOf( listenerId ), service.updateRequestIdList.get( 0 ) );
+    }
+
+    public void testUpdateZombieThenFix_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final ZombieCacheServiceNonLocal<String, String> zombie = new ZombieCacheServiceNonLocal<>( 10 );
+
+        // set the zombie
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, zombie, listener, monitor );
+
+        final String cacheName = "testUpdate";
+
+        // DO WORK
+        final ICacheElement<String, String> element = new CacheElement<>( cacheName, "key", "value" );
+        remoteCache.update( element );
+        // set the new service, this should call propagate
+        remoteCache.fixCache( service );
+
+        // VERIFY
+        assertTrue("The element should be in the serialized warapper.",service.lastUpdate instanceof ICacheElementSerialized);
+    }
+
+    public void testUpdateZombieThenFix_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final ZombieCacheServiceNonLocal<String, String> zombie = new ZombieCacheServiceNonLocal<>( 10 );
+
+        // set the zombie
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, zombie, listener, monitor );
+
+        final String cacheName = "testUpdate";
+
+        // DO WORK
+        final ICacheElement<String, String> element = new CacheElement<>( cacheName, "key", "value" );
+        remoteCache.update( element );
+        // set the new service, this should call propagate
+        remoteCache.fixCache( service );
+
+        // VERIFY
+        // removed other assertion
+        final ICacheElement<String, String> result = SerializationConversionUtil
+            .getDeSerializedCacheElement( (ICacheElementSerialized<String, String>) service.lastUpdate, remoteCache
+                .getElementSerializer() );
+        assertEquals( "Wrong element updated.", element.getVal(), result.getVal() );
+    }
+
+    public void testUpdate_simple_1_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        final ICacheElement<String, String> item = new CacheElement<>( "region", "key", "value" );
+
+        // DO WORK
+        remoteCache.update( item );
+
+        // VERIFY
+        assertEquals( "Start should have been called.", 1, cacheEventLogger.startICacheEventCalls );
+    }
+
+    public void testUpdate_simple_2_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        final ICacheElement<String, String> item = new CacheElement<>( "region", "key", "value" );
+
+        // DO WORK
+        remoteCache.update( item );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( "End should have been called.", 1, cacheEventLogger.endICacheEventCalls );
+    }
+
+    public void testGet_simple_1_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.get( "key" );
+
+        // VERIFY
+        assertEquals( "Start should have been called.", 1, cacheEventLogger.startICacheEventCalls );
+    }
+
+    public void testGet_simple_2_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.get( "key" );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( "End should have been called.", 1, cacheEventLogger.endICacheEventCalls );
+    }
+
+    public void testGetMultiple_simple_1_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.getMultiple( new HashSet<>() );
+
+        // VERIFY
+        assertEquals( "Start should have been called.", 1, cacheEventLogger.startICacheEventCalls );
+    }
+
+    public void testGetMultiple_simple_2_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.getMultiple( new HashSet<>() );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( "End should have been called.", 1, cacheEventLogger.endICacheEventCalls );
+    }
+
+    public void testRemove_simple_1_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.remove( "key" );
+
+        // VERIFY
+        assertEquals( "Start should have been called.", 1, cacheEventLogger.startICacheEventCalls );
+    }
+
+    public void testRemove_simple_2_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.remove( "key" );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( "End should have been called.", 1, cacheEventLogger.endICacheEventCalls );
+    }
+
+    public void testRemoveAll_simple_1_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.remove( "key" );
+
+        // VERIFY
+        assertEquals( "Start should have been called.", 1, cacheEventLogger.startICacheEventCalls );
+    }
+
+    public void testRemoveAll_simple_2_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.remove( "key" );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( "End should have been called.", 1, cacheEventLogger.endICacheEventCalls );
+    }
+
+    public void testGetMatching_simple_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final String pattern = "adsfasdfasd.?";
+
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        final Map<String, ICacheElement<String, String>> result = remoteCache.getMatching( pattern );
+
+        // VERIFY
+        assertNotNull( "Should have a map", result );
+    }
+
+    public void testGetMatching_simple_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final String pattern = "adsfasdfasd.?";
+
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        final Map<String, ICacheElement<String, String>> result = remoteCache.getMatching( pattern );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( "Start should have been called.", 1, cacheEventLogger.startICacheEventCalls );
+    }
+
+    public void testGetMatching_simple_3_oe()
+        throws Exception
+    {
+        // SETUP
+        final String pattern = "adsfasdfasd.?";
+
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        final Map<String, ICacheElement<String, String>> result = remoteCache.getMatching( pattern );
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        assertEquals( "End should have been called.", 1, cacheEventLogger.endICacheEventCalls );
+    }
+
+    public void testDispose_simple_1_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.dispose( );
+
+        // VERIFY
+        assertEquals( "Start should have been called.", 1, cacheEventLogger.startICacheEventCalls );
+    }
+
+    public void testDispose_simple_2_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.dispose( );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( "End should have been called.", 1, cacheEventLogger.endICacheEventCalls );
+    }
+
+    public void testDispose_nullListener_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, null, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.dispose( );
+
+        // VERIFY
+        assertEquals( "Start should have been called.", 1, cacheEventLogger.startICacheEventCalls );
+    }
+
+    public void testDispose_nullListener_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, null, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.dispose( );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( "End should have been called.", 1, cacheEventLogger.endICacheEventCalls );
+    }
 
 }

@@ -53,5 +53,31 @@ public class SystemPropertyUnitTest_OE25Dev
      *
      */
 
+    public void test1SystemPropertyInValueDelimiter_1_oe()
+        throws Exception
+    {
+
+        final int maxMemory = 1234;
+        System.getProperties().setProperty( "MY_SYSTEM_PROPERTY_DISK_DIR", "system_set" );
+        System.getProperties().setProperty( "MY_SYSTEM_PROPERTY_MAX_SIZE", String.valueOf( maxMemory ) );
+
+        JCS.setConfigFilename( "/TestSystemProperties.ccf" );
+
+        final CacheAccess<String, String> cache = JCS.getInstance( "test1" );
+        assertEquals("We should have used the system property for the memory size",maxMemory,cache .getCacheAttributes().getMaxObjects());
+    }
+
+    public void test2SystemPropertyMissingInValueDelimeter_1_oe()
+        throws Exception
+    {
+        System.getProperties().setProperty( "MY_SYSTEM_PROPERTY_DISK_DIR", "system_set" );
+
+        final CompositeCacheManager mgr = CompositeCacheManager.getUnconfiguredInstance();
+        mgr.configure( "/TestSystemProperties.ccf" );
+
+        final CacheAccess<String, String> cache = JCS.getInstance( "missing" );
+        // TODO check against the actual default def
+        assertEquals("We should have used the default property for the memory size",100,cache.getCacheAttributes().getMaxObjects());
+    }
 
 }

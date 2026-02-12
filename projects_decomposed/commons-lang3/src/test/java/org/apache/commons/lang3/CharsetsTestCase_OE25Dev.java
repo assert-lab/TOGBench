@@ -28,5 +28,51 @@ import org.junit.jupiter.api.Test;
  */
 public class CharsetsTestCase_OE25Dev {
 
+    @Test
+    public void testToCharset_Charset_1_oe() {
+        Assertions.assertEquals(Charset.defaultCharset(), Charsets.toCharset((Charset) null));
+    }
+
+    @Test
+    public void testToCharset_Charset_2_oe() {
+        // removed other assertion
+        Assertions.assertEquals(Charset.defaultCharset(), Charsets.toCharset(Charset.defaultCharset()));
+    }
+
+    @Test
+    public void testToCharset_Charset_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(StandardCharsets.UTF_8, Charsets.toCharset(StandardCharsets.UTF_8));
+    }
+
+    @Test
+    public void testToCharset_String_1_oe() {
+        Assertions.assertEquals(Charset.defaultCharset(), Charsets.toCharset((String) null));
+    }
+
+    @Test
+    public void testToCharset_String_2_oe() {
+        // removed other assertion
+        Assertions.assertEquals(Charset.defaultCharset(), Charsets.toCharset(Charset.defaultCharset().name()));
+    }
+
+    @Test
+    public void testToCharset_String_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(StandardCharsets.UTF_8, Charsets.toCharset("UTF-8"));
+    }
+
+    @Test
+    public void testToCharsetName_1_oe() {
+        Assertions.assertEquals(Charset.defaultCharset().name(), Charsets.toCharsetName((String) null));
+    }
+
+    @Test
+    public void testToCharsetName_2_oe() {
+        // removed other assertion
+        Assertions.assertEquals("UTF-8", Charsets.toCharsetName("UTF-8"));
+    }
 
 }

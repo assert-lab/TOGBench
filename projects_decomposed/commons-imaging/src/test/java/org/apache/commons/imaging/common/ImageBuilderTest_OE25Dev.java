@@ -94,5 +94,161 @@ public class ImageBuilderTest_OE25Dev {
 
 
 
+    @Test
+    public void testSubimageAccess_1_oe() {
+        final ImageBuilder imageBuilder = new ImageBuilder(100, 100, false );
+        populate(imageBuilder);
+        final BufferedImage bImage = imageBuilder.getSubimage(25, 25, 25, 25);
+        final int w = bImage.getWidth();
+        final int h = bImage.getHeight();
+        assertEquals(w, 25, "Width of subimage does not match");
+    }
+
+    @Test
+    public void testSubimageAccess_2_oe() {
+        final ImageBuilder imageBuilder = new ImageBuilder(100, 100, false );
+        populate(imageBuilder);
+        final BufferedImage bImage = imageBuilder.getSubimage(25, 25, 25, 25);
+        final int w = bImage.getWidth();
+        final int h = bImage.getHeight();
+        // removed other assertion
+        assertEquals(h, 25, "Height of subimage does not match");
+    }
+
+    @Test
+    public void testSubimageAccess_3_oe() {
+        final ImageBuilder imageBuilder = new ImageBuilder(100, 100, false );
+        populate(imageBuilder);
+        final BufferedImage bImage = imageBuilder.getSubimage(25, 25, 25, 25);
+        final int w = bImage.getWidth();
+        final int h = bImage.getHeight();
+        // removed other assertion
+        // removed other assertion
+
+        for(int x=25; x<50; x++){
+            for(int y=25; y<50; y++){
+                final int k = bImage.getRGB(x-25, y-25);
+                final int rgb = imageBuilder.getRGB(x, y);
+                assertEquals(k, rgb, "Invalid buffered image subpixel at "+x+", "+y);
+    }
+    }
+    }
+
+    @Test
+    public void testSubimageAccess_4_oe() {
+        final ImageBuilder imageBuilder = new ImageBuilder(100, 100, false );
+        populate(imageBuilder);
+        final BufferedImage bImage = imageBuilder.getSubimage(25, 25, 25, 25);
+        final int w = bImage.getWidth();
+        final int h = bImage.getHeight();
+        // removed other assertion
+        // removed other assertion
+
+        for(int x=25; x<50; x++){
+            for(int y=25; y<50; y++){
+                final int k = bImage.getRGB(x-25, y-25);
+                final int rgb = imageBuilder.getRGB(x, y);
+                // removed other assertion
+            }
+        }
+
+        final ImageBuilder testBuilder = imageBuilder.getSubset(25, 25, 25, 25);
+        for(int x=25; x<50; x++){
+            for(int y=25; y<50; y++){
+                final int k = testBuilder.getRGB(x-25, y-25);
+                final int rgb = imageBuilder.getRGB(x, y);
+                assertEquals(k, rgb, "Invalid image builder subpixel at "+x+", "+y);
+    }
+    }
+    }
+
+    @Test
+    void testImageColorModel_1_oe() {
+        ImageBuilder  imageBuilder;
+        BufferedImage bImage;
+        ColorModel    model;
+        imageBuilder = new ImageBuilder(100, 100, false );
+        bImage = imageBuilder.getBufferedImage();
+        model = bImage.getColorModel();
+        assertFalse(model.hasAlpha(), "Output image has alpha where not specified");
+    }
+
+    @Test
+    void testImageColorModel_2_oe() {
+        ImageBuilder  imageBuilder;
+        BufferedImage bImage;
+        ColorModel    model;
+        imageBuilder = new ImageBuilder(100, 100, false );
+        bImage = imageBuilder.getBufferedImage();
+        model = bImage.getColorModel();
+        // removed other assertion
+
+        imageBuilder = new ImageBuilder(100, 100, true, false);
+        bImage = imageBuilder.getBufferedImage();
+        model = bImage.getColorModel();
+        assertTrue(model.hasAlpha(), "Output image does not have alpha where specified");
+    }
+
+    @Test
+    void testImageColorModel_3_oe() {
+        ImageBuilder  imageBuilder;
+        BufferedImage bImage;
+        ColorModel    model;
+        imageBuilder = new ImageBuilder(100, 100, false );
+        bImage = imageBuilder.getBufferedImage();
+        model = bImage.getColorModel();
+        // removed other assertion
+
+        imageBuilder = new ImageBuilder(100, 100, true, false);
+        bImage = imageBuilder.getBufferedImage();
+        model = bImage.getColorModel();
+        // removed other assertion
+        assertFalse(model.isAlphaPremultiplied(), "Output image has alpha pre-multiplied where not specified");
+    }
+
+    @Test
+    void testImageColorModel_4_oe() {
+        ImageBuilder  imageBuilder;
+        BufferedImage bImage;
+        ColorModel    model;
+        imageBuilder = new ImageBuilder(100, 100, false );
+        bImage = imageBuilder.getBufferedImage();
+        model = bImage.getColorModel();
+        // removed other assertion
+
+        imageBuilder = new ImageBuilder(100, 100, true, false);
+        bImage = imageBuilder.getBufferedImage();
+        model = bImage.getColorModel();
+        // removed other assertion
+        // removed other assertion
+
+        imageBuilder = new ImageBuilder(100, 100, true, true);
+        bImage = imageBuilder.getBufferedImage();
+        model = bImage.getColorModel();
+        assertTrue(model.hasAlpha(), "Output image does not have alpha where specified");
+    }
+
+    @Test
+    void testImageColorModel_5_oe() {
+        ImageBuilder  imageBuilder;
+        BufferedImage bImage;
+        ColorModel    model;
+        imageBuilder = new ImageBuilder(100, 100, false );
+        bImage = imageBuilder.getBufferedImage();
+        model = bImage.getColorModel();
+        // removed other assertion
+
+        imageBuilder = new ImageBuilder(100, 100, true, false);
+        bImage = imageBuilder.getBufferedImage();
+        model = bImage.getColorModel();
+        // removed other assertion
+        // removed other assertion
+
+        imageBuilder = new ImageBuilder(100, 100, true, true);
+        bImage = imageBuilder.getBufferedImage();
+        model = bImage.getColorModel();
+        // removed other assertion
+        assertTrue(model.isAlphaPremultiplied(), "Output image does not have alpha pre-multiplied where specified");
+    }
 
 }

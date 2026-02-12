@@ -94,5 +94,424 @@ public class SerializationConversionUtilUnitTest_OE25Dev
         }
     }
 
+    public void testgGetSerializedCacheElement_null_1_oe()
+        throws IOException
+    {
+        // SETUP
+        final IElementSerializer elementSerializer = new StandardSerializer();
+        final ICacheElement<String, String> before = null;
+
+        // DO WORK
+        final ICacheElementSerialized<String, String> result =
+            SerializationConversionUtil.getSerializedCacheElement( before, elementSerializer );
+
+        // VERIFY
+        assertNull( "Should get null for null", result );
+    }
+
+    public void testgGetDeSerializedCacheElement_null_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final IElementSerializer elementSerializer = new StandardSerializer();
+        final ICacheElementSerialized<String, String> before = null;
+
+        // DO WORK
+        final ICacheElement<String, String> result =
+            SerializationConversionUtil.getDeSerializedCacheElement( before, elementSerializer );
+
+        // VERIFY
+        assertNull( "Should get null for null", result );
+    }
+
+    public void testSimpleConversion_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final ICacheElement<String, String> before = new CacheElement<>( cacheName, key, value );
+        before.setElementAttributes( attr );
+
+        // DO WORK
+        final ICacheElementSerialized<String, String> serialized =
+            SerializationConversionUtil.getSerializedCacheElement( before, elementSerializer );
+
+        // VERIFY
+        assertNotNull( "Should have a serialized object.", serialized );
+    }
+
+    public void testSimpleConversion_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final ICacheElement<String, String> before = new CacheElement<>( cacheName, key, value );
+        before.setElementAttributes( attr );
+
+        // DO WORK
+        final ICacheElementSerialized<String, String> serialized =
+            SerializationConversionUtil.getSerializedCacheElement( before, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+
+        // DO WORK
+        final ICacheElement<String, String> after =
+            SerializationConversionUtil.getDeSerializedCacheElement( serialized, elementSerializer );
+
+        // VERIFY
+        assertNotNull( "Should have a deserialized object.", after );
+    }
+
+    public void testSimpleConversion_3_oe()
+        throws Exception
+    {
+        // SETUP
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final ICacheElement<String, String> before = new CacheElement<>( cacheName, key, value );
+        before.setElementAttributes( attr );
+
+        // DO WORK
+        final ICacheElementSerialized<String, String> serialized =
+            SerializationConversionUtil.getSerializedCacheElement( before, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+
+        // DO WORK
+        final ICacheElement<String, String> after =
+            SerializationConversionUtil.getDeSerializedCacheElement( serialized, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( "Values should be the same.", before.getVal(), after.getVal() );
+    }
+
+    public void testSimpleConversion_4_oe()
+        throws Exception
+    {
+        // SETUP
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final ICacheElement<String, String> before = new CacheElement<>( cacheName, key, value );
+        before.setElementAttributes( attr );
+
+        // DO WORK
+        final ICacheElementSerialized<String, String> serialized =
+            SerializationConversionUtil.getSerializedCacheElement( before, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+
+        // DO WORK
+        final ICacheElement<String, String> after =
+            SerializationConversionUtil.getDeSerializedCacheElement( serialized, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Attributes should be the same.",before.getElementAttributes().getMaxLife(),after .getElementAttributes().getMaxLife());
+    }
+
+    public void testSimpleConversion_5_oe()
+        throws Exception
+    {
+        // SETUP
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final ICacheElement<String, String> before = new CacheElement<>( cacheName, key, value );
+        before.setElementAttributes( attr );
+
+        // DO WORK
+        final ICacheElementSerialized<String, String> serialized =
+            SerializationConversionUtil.getSerializedCacheElement( before, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+
+        // DO WORK
+        final ICacheElement<String, String> after =
+            SerializationConversionUtil.getDeSerializedCacheElement( serialized, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals( "Keys should be the same.", before.getKey(), after.getKey() );
+    }
+
+    public void testSimpleConversion_6_oe()
+        throws Exception
+    {
+        // SETUP
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final ICacheElement<String, String> before = new CacheElement<>( cacheName, key, value );
+        before.setElementAttributes( attr );
+
+        // DO WORK
+        final ICacheElementSerialized<String, String> serialized =
+            SerializationConversionUtil.getSerializedCacheElement( before, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+
+        // DO WORK
+        final ICacheElement<String, String> after =
+            SerializationConversionUtil.getDeSerializedCacheElement( serialized, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals( "Cache name should be the same.", before.getCacheName(), after.getCacheName() );
+    }
+
+    public void testAccidentalDoubleConversion_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final ICacheElement<String, String> before = new CacheElement<>( cacheName, key, value );
+        before.setElementAttributes( attr );
+
+        // DO WORK
+        final ICacheElementSerialized<String, String> alreadySerialized =
+            SerializationConversionUtil.getSerializedCacheElement( before, elementSerializer );
+        final ICacheElementSerialized<String, String> serialized =
+            SerializationConversionUtil.getSerializedCacheElement( alreadySerialized, elementSerializer );
+
+        // VERIFY
+        assertNotNull( "Should have a serialized object.", serialized );
+    }
+
+    public void testAccidentalDoubleConversion_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final ICacheElement<String, String> before = new CacheElement<>( cacheName, key, value );
+        before.setElementAttributes( attr );
+
+        // DO WORK
+        final ICacheElementSerialized<String, String> alreadySerialized =
+            SerializationConversionUtil.getSerializedCacheElement( before, elementSerializer );
+        final ICacheElementSerialized<String, String> serialized =
+            SerializationConversionUtil.getSerializedCacheElement( alreadySerialized, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+
+        // DO WORK
+        final ICacheElement<String, String> after =
+            SerializationConversionUtil.getDeSerializedCacheElement( serialized, elementSerializer );
+
+        // VERIFY
+        assertNotNull( "Should have a deserialized object.", after );
+    }
+
+    public void testAccidentalDoubleConversion_3_oe()
+        throws Exception
+    {
+        // SETUP
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final ICacheElement<String, String> before = new CacheElement<>( cacheName, key, value );
+        before.setElementAttributes( attr );
+
+        // DO WORK
+        final ICacheElementSerialized<String, String> alreadySerialized =
+            SerializationConversionUtil.getSerializedCacheElement( before, elementSerializer );
+        final ICacheElementSerialized<String, String> serialized =
+            SerializationConversionUtil.getSerializedCacheElement( alreadySerialized, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+
+        // DO WORK
+        final ICacheElement<String, String> after =
+            SerializationConversionUtil.getDeSerializedCacheElement( serialized, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( "Values should be the same.", before.getVal(), after.getVal() );
+    }
+
+    public void testAccidentalDoubleConversion_4_oe()
+        throws Exception
+    {
+        // SETUP
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final ICacheElement<String, String> before = new CacheElement<>( cacheName, key, value );
+        before.setElementAttributes( attr );
+
+        // DO WORK
+        final ICacheElementSerialized<String, String> alreadySerialized =
+            SerializationConversionUtil.getSerializedCacheElement( before, elementSerializer );
+        final ICacheElementSerialized<String, String> serialized =
+            SerializationConversionUtil.getSerializedCacheElement( alreadySerialized, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+
+        // DO WORK
+        final ICacheElement<String, String> after =
+            SerializationConversionUtil.getDeSerializedCacheElement( serialized, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Attributes should be the same.",before.getElementAttributes().getMaxLife(),after .getElementAttributes().getMaxLife());
+    }
+
+    public void testAccidentalDoubleConversion_5_oe()
+        throws Exception
+    {
+        // SETUP
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final ICacheElement<String, String> before = new CacheElement<>( cacheName, key, value );
+        before.setElementAttributes( attr );
+
+        // DO WORK
+        final ICacheElementSerialized<String, String> alreadySerialized =
+            SerializationConversionUtil.getSerializedCacheElement( before, elementSerializer );
+        final ICacheElementSerialized<String, String> serialized =
+            SerializationConversionUtil.getSerializedCacheElement( alreadySerialized, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+
+        // DO WORK
+        final ICacheElement<String, String> after =
+            SerializationConversionUtil.getDeSerializedCacheElement( serialized, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals( "Keys should be the same.", before.getKey(), after.getKey() );
+    }
+
+    public void testAccidentalDoubleConversion_6_oe()
+        throws Exception
+    {
+        // SETUP
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final ICacheElement<String, String> before = new CacheElement<>( cacheName, key, value );
+        before.setElementAttributes( attr );
+
+        // DO WORK
+        final ICacheElementSerialized<String, String> alreadySerialized =
+            SerializationConversionUtil.getSerializedCacheElement( before, elementSerializer );
+        final ICacheElementSerialized<String, String> serialized =
+            SerializationConversionUtil.getSerializedCacheElement( alreadySerialized, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+
+        // DO WORK
+        final ICacheElement<String, String> after =
+            SerializationConversionUtil.getDeSerializedCacheElement( serialized, elementSerializer );
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals( "Cache name should be the same.", before.getCacheName(), after.getCacheName() );
+    }
 
 }

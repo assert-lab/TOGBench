@@ -23,6 +23,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Provides unit test for the raster-data class.
  */
@@ -104,10 +106,190 @@ public class TiffRasterDataTest_OE25Dev {
      */
 
     @Test
+    public void testSetValue_1_oe() {
+        final TiffRasterData instance = new TiffRasterDataFloat(width, height);
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                final int index = y * width + height;
+                instance.setValue(x, y, index);
+                final int test = (int) instance.getValue(x, y);
+                assertEquals(index, test, "Set/get value test failed at (" + x + "," + y + ")");
+    }
+    }
+    }
+
+    @Test
+    public void testSetValue_2_oe() {
+        final TiffRasterData instance = new TiffRasterDataFloat(width, height);
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                final int index = y * width + height;
+                instance.setValue(x, y, index);
+                final int test = (int) instance.getValue(x, y);
+                // removed other assertion
+                instance.setIntValue(x, y, index);
+                final int iTest = instance.getIntValue(x, y);
+                assertEquals(index, iTest, "Get/set value test failed at (" + x + "," + y + ")");
+    }
+    }
+    }
+
+    @Test
+    public void testGetValue_1_oe() {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                final int index = y * width + x;
+                final int test = (int) raster.getValue(x, y);
+                assertEquals(index, test, "Get into source data test failed at (" + x + "," + y + ")");
+    }
+    }
+    }
+
+    @Test
+    public void testGetValue_2_oe() {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                final int index = y * width + x;
+                final int test = (int) raster.getValue(x, y);
+                // removed other assertion
+                final int iTest = raster.getIntValue(x, y);
+                assertEquals(index, iTest, "Get into source data test failed at (" + x + "," + y + ")");
+    }
+    }
+    }
+
+    @Test
+    public void testSetValue2_1_oe() {
+        final TiffRasterData instance = new TiffRasterDataFloat(width, height, 2);
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                final int index = y * width + height;
+                instance.setValue(x, y, 1, index);
+                final int test = (int) instance.getValue(x, y, 1);
+                assertEquals(index, test, "Set/get value test failed at (" + x + "," + y + ")");
+    }
+    }
+    }
+
+    @Test
+    public void testSetValue2_2_oe() {
+        final TiffRasterData instance = new TiffRasterDataFloat(width, height, 2);
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                final int index = y * width + height;
+                instance.setValue(x, y, 1, index);
+                final int test = (int) instance.getValue(x, y, 1);
+                // removed other assertion
+                instance.setIntValue(x, y, 1, index);
+                final int iTest = instance.getIntValue(x, y, 1);
+                assertEquals(index, iTest, "Get/set value test failed at (" + x + "," + y + ")");
+    }
+    }
+    }
+
+    @Test
+    public void testGetValue2_1_oe() {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                final int index = y * width + x;
+                final int test = (int) raster.getValue(x, y, 0);
+                assertEquals(index, test, "Get into source data test failed at (" + x + "," + y + ")");
+    }
+    }
+    }
+
+    @Test
+    public void testGetValue2_2_oe() {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                final int index = y * width + x;
+                final int test = (int) raster.getValue(x, y, 0);
+                // removed other assertion
+                final int iTest = raster.getIntValue(x, y, 0);
+                assertEquals(index, iTest, "Get into source data test failed at (" + x + "," + y + ")");
+    }
+    }
+    }
+
+    @Test
+    public void testGetSimpleStatistics_0args_1_oe() {
+
+        final TiffRasterStatistics result = raster.getSimpleStatistics();
+        assertEquals(0, result.getMinValue(), "Min value failure");
+    }
+
+    @Test
+    public void testGetSimpleStatistics_0args_2_oe() {
+
+        final TiffRasterStatistics result = raster.getSimpleStatistics();
+        // removed other assertion
+        assertEquals(width * height - 1, result.getMaxValue(), "Max value failure");
+    }
+
+    @Test
+    public void testGetSimpleStatistics_0args_3_oe() {
+
+        final TiffRasterStatistics result = raster.getSimpleStatistics();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(meanValue, result.getMeanValue(), "Mean value failure");
+    }
+
+    @Test
+    public void testGetSimpleStatistics_float_1_oe() {
+        // exclude the maximum value (width*height-1).  This will result
+        // in a max value of width*height-2
+        final TiffRasterStatistics result = raster.getSimpleStatistics(width * height - 1);
+        assertEquals(width * height - 2, result.getMaxValue(), "Max value failure");
+    }
+
+    @Test
+    public void testGetWidth_1_oe() {
+        assertEquals(width, raster.getWidth(), "Improper width stored");
+    }
+
+    @Test
+    public void testGetHeight_1_oe() {
+        assertEquals(width, raster.getWidth(), "Improper height stored");
+    }
+
+    @Test
+    public void testGetData_1_oe() {
+        final float[] result = raster.getData();
+        assertArrayEquals(data, result);
+    }
+
+    @Test
+    public void testGetData_2_oe() {
+        final float[] result = raster.getData();
+        // removed other assertion
+        int samplesPerPixel = raster.getSamplesPerPixel();
+        assertEquals(1, samplesPerPixel, "Incorrect number of samples per pixel");
+    }
+
+    @Test
+    public void testGetIntData_1_oe() {
+        final int[] result = raster.getIntData();
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                final int index = y * width + x;
+                final int test = (int) data[index];
+                assertEquals(index, test, "Integer array access test failed at (" + x + "," + y + ")");
+    }
+    }
+    }
+
+    @Test
+    public void testGetDataType_1_oe() {
+        TiffRasterDataType dataType = raster.getDataType();
+        assertTrue(dataType == TiffRasterDataType.FLOAT, "Unexpected data type "+dataType.name());
+    }
+
+    @Test
     public void testBadConstructor_1_oe() throws Exception {
         try {
     new TiffRasterDataFloat(-1, 10);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: Constructor did not detect bad width");
+    fail("IllegalArgumentException: Constructor did not detect bad width");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -117,7 +299,7 @@ public class TiffRasterDataTest_OE25Dev {
         // removed other assertion
         try {
     new TiffRasterDataFloat(10, -1);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: Constructor did not detect bad height");
+    fail("IllegalArgumentException: Constructor did not detect bad height");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -128,7 +310,7 @@ public class TiffRasterDataTest_OE25Dev {
         // removed other assertion
         try {
     new TiffRasterDataFloat(1, 1, 0);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: Constructor did not detect bad samplesPerPixel");
+    fail("IllegalArgumentException: Constructor did not detect bad samplesPerPixel");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -142,7 +324,7 @@ public class TiffRasterDataTest_OE25Dev {
         final float []f = new float[10];
         try {
     new TiffRasterDataFloat(2, 10, f);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: Constructor did not detect insufficient input array size");
+    fail("IllegalArgumentException: Constructor did not detect insufficient input array size");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -157,7 +339,7 @@ public class TiffRasterDataTest_OE25Dev {
         // removed other assertion
         try {
     new TiffRasterDataFloat(2, 3, 2, f);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: Constructor did not detect insufficient input array size");
+    fail("IllegalArgumentException: Constructor did not detect insufficient input array size");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -168,7 +350,7 @@ public class TiffRasterDataTest_OE25Dev {
         final TiffRasterData instance = new TiffRasterDataFloat(10, 10, 1, f);
         try {
     instance.getValue(11, 11);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: Access method getValue() did not detect bad coordinates");
+    fail("IllegalArgumentException: Access method getValue() did not detect bad coordinates");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -180,7 +362,7 @@ public class TiffRasterDataTest_OE25Dev {
         // removed other assertion
         try {
     instance.setValue(11, 11, 5.0f);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: Access method setValue() did not detect bad coordinates");
+    fail("IllegalArgumentException: Access method setValue() did not detect bad coordinates");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -193,7 +375,7 @@ public class TiffRasterDataTest_OE25Dev {
         // removed other assertion
         try {
     instance.getValue(1, 1, 2);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: Access method setValue() did not detect bad sample index");
+    fail("IllegalArgumentException: Access method setValue() did not detect bad sample index");
 } catch (IllegalArgumentException e) {
 }
     }

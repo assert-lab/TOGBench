@@ -246,5 +246,11 @@ class GuideTableDiscreteSamplerTest_OE25Dev {
         RandomAssert.assertProduceSameSequence(sampler1, sampler2);
     }
 
+    @Test
+    void testToString_1_oe() {
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create();
+         SharedStateDiscreteSampler sampler = GuideTableDiscreteSampler.of(rng, new double[] {0.5, 0.5}, 1.0);
+        Assertions.assertTrue(sampler.toString().toLowerCase().contains("guide table"));
+    }
 
 }

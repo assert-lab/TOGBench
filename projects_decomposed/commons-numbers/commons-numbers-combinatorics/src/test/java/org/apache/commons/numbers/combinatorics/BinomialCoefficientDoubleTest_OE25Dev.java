@@ -19,6 +19,8 @@ package org.apache.commons.numbers.combinatorics;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test cases for the {@link BinomialCoefficient} class.
  */
@@ -31,10 +33,46 @@ class BinomialCoefficientDoubleTest_OE25Dev {
      */
 
     @Test
+    void test0Choose0_1_oe() {
+        Assertions.assertEquals(1d, BinomialCoefficientDouble.value(0, 0));
+    }
+
+    @Test
+    void testBinomialCoefficient_1_oe() {
+        final long[] bcoef5 = {1, 5, 10, 10, 5, 1};
+        final long[] bcoef6 = {1, 6, 15, 20, 15, 6, 1};
+
+        for (int n = 1; n < 10; n++) {
+            for (int k = 0; k <= n; k++) {
+                Assertions.assertEquals(BinomialCoefficientTest.binomialCoefficient(n,k),BinomialCoefficientDouble.value(n,k),Double.MIN_VALUE,n + " choose " + k);
+    }
+    }
+    }
+
+    @Test
+    void testBinomialCoefficient_2_oe() {
+        final long[] bcoef5 = {1, 5, 10, 10, 5, 1};
+        final long[] bcoef6 = {1, 6, 15, 20, 15, 6, 1};
+
+        for (int n = 1; n < 10; n++) {
+            for (int k = 0; k <= n; k++) {
+                // removed other assertion
+            }
+        }
+
+        final int[] n = {34, 66, 100, 1500, 1500};
+        final int[] k = {17, 33, 10, 1500 - 4, 4};
+        for (int i = 0; i < n.length; i++) {
+            final long expected = BinomialCoefficientTest.binomialCoefficient(n[i], k[i]);
+            Assertions.assertEquals(expected,BinomialCoefficientDouble.value(n[i],k[i]),0.0,n[i] + " choose " + k[i]);
+    }
+    }
+
+    @Test
     void testBinomialCoefficientFail1_1_oe() {
         try {
     BinomialCoefficientDouble.value(4, 5);
-    org.junit.jupiter.api.Assertions.fail("CombinatoricsException");
+    fail("CombinatoricsException");
 } catch (CombinatoricsException e) {
 }
     }
@@ -43,9 +81,72 @@ class BinomialCoefficientDoubleTest_OE25Dev {
     void testBinomialCoefficientFail2_1_oe() {
         try {
     BinomialCoefficientDouble.value(-1, -2);
-    org.junit.jupiter.api.Assertions.fail("CombinatoricsException");
+    fail("CombinatoricsException");
 } catch (CombinatoricsException e) {
 }
+    }
+
+    @Test
+    void testBinomialCoefficientFail3_1_oe() {
+        final double x = BinomialCoefficientDouble.value(1030, 515);
+        Assertions.assertTrue(Double.isInfinite(x), "expecting infinite binomial coefficient");
+    }
+
+    @Test
+    void testBinomialCoefficientLarge_1_oe() throws Exception {
+        // This tests all legal and illegal values for n <= 200.
+        for (int n = 0; n <= 200; n++) {
+            for (int k = 0; k <= n; k++) {
+                long exactResult = -1;
+                boolean shouldThrow = false;
+                boolean didThrow = false;
+                try {
+                    BinomialCoefficient.value(n, k);
+                } catch (ArithmeticException ex) {
+                    didThrow = true;
+                }
+                try {
+                    exactResult = BinomialCoefficientTest.binomialCoefficient(n, k);
+                } catch (ArithmeticException ex) {
+                    shouldThrow = true;
+                }
+
+                if (!shouldThrow && exactResult > 1) {
+                    Assertions.assertEquals(1.,BinomialCoefficientDouble.value(n,k)/ exactResult,1e-10,n + " choose " + k);
+    }
+    }
+    }
+    }
+
+    @Test
+    void testBinomialCoefficientLarge_2_oe() throws Exception {
+        // This tests all legal and illegal values for n <= 200.
+        for (int n = 0; n <= 200; n++) {
+            for (int k = 0; k <= n; k++) {
+                long exactResult = -1;
+                boolean shouldThrow = false;
+                boolean didThrow = false;
+                try {
+                    BinomialCoefficient.value(n, k);
+                } catch (ArithmeticException ex) {
+                    didThrow = true;
+                }
+                try {
+                    exactResult = BinomialCoefficientTest.binomialCoefficient(n, k);
+                } catch (ArithmeticException ex) {
+                    shouldThrow = true;
+                }
+
+                if (!shouldThrow && exactResult > 1) {
+                    // removed other assertion
+                }
+            }
+        }
+
+        final int n = 10000;
+        final double actualOverExpected = BinomialCoefficientDouble.value(n, 3) /
+            BinomialCoefficientTest.binomialCoefficient(n, 3);
+        Assertions.assertEquals(1, actualOverExpected, 1e-10);
     }
 
 }

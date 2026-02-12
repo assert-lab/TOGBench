@@ -39,6 +39,8 @@ import org.apache.commons.rng.RestorableUniformRandomProvider;
 import org.apache.commons.rng.core.RandomProviderDefaultState;
 import org.apache.commons.rng.core.source64.SplitMix64;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Tests which all generators must pass.
  */
@@ -328,9 +330,52 @@ class ProvidersCommonParametricTest_OE25Dev {
          byte seed = 123;
         try {
     data.getSource().create(seed, data.getArgs());
-    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+    fail("UnsupportedOperationException");
 } catch (UnsupportedOperationException e) {
 }
+    }
+
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testFactoryCreateMethod_1_oe(ProvidersList.Data data) {
+         RandomSource originalSource = data.getSource();
+         Object originalSeed = data.getSeed();
+         Object[] originalArgs = data.getArgs();
+        // Cannot test providers that require arguments
+        Assumptions.assumeTrue(originalArgs == null);
+        @SuppressWarnings("deprecation")
+         UniformRandomProvider rng = RandomSource.create(data.getSource());
+         UniformRandomProvider generator = originalSource.create(originalSeed, originalArgs);
+        Assertions.assertEquals(generator.getClass(), rng.getClass());
+    }
+
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testFactoryCreateMethodWithSeed_1_oe(ProvidersList.Data data) {
+         RandomSource originalSource = data.getSource();
+         Object originalSeed = data.getSeed();
+         Object[] originalArgs = data.getArgs();
+         UniformRandomProvider generator = originalSource.create(originalSeed, originalArgs);
+        @SuppressWarnings("deprecation")
+         UniformRandomProvider rng1 = RandomSource.create(originalSource, originalSeed, originalArgs);
+        Assertions.assertEquals(rng1.getClass(), generator.getClass());
+    }
+
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testFactoryCreateMethodWithSeed_2_oe(ProvidersList.Data data) {
+         RandomSource originalSource = data.getSource();
+         Object originalSeed = data.getSeed();
+         Object[] originalArgs = data.getArgs();
+         UniformRandomProvider generator = originalSource.create(originalSeed, originalArgs);
+        @SuppressWarnings("deprecation")
+         UniformRandomProvider rng1 = RandomSource.create(originalSource, originalSeed, originalArgs);
+        // removed other assertion
+        // Check the output
+         UniformRandomProvider rng2 = originalSource.create(originalSeed, originalArgs);
+        for (int i = 0; i < 10; i++) {
+            Assertions.assertEquals(rng2.nextLong(), rng1.nextLong());
+    }
     }
 
     @ParameterizedTest
@@ -344,7 +389,7 @@ class ProvidersCommonParametricTest_OE25Dev {
             double arg2 = 456.0;
             try {
     originalSource.create(arg1, arg2);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: () -> \"Source does not require arguments: \" + originalSource");
+    fail("IllegalArgumentException: () -> \"Source does not require arguments: \" + originalSource");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -364,10 +409,142 @@ class ProvidersCommonParametricTest_OE25Dev {
             // Try no arguments for a provider that does require them
             try {
     originalSource.create();
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: () -> \"Source requires arguments: \" + originalSource");
+    fail("IllegalArgumentException: () -> \"Source requires arguments: \" + originalSource");
 } catch (IllegalArgumentException e) {
 }
     }
+    }
+
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testAllSeedTypes_1_oe(ProvidersList.Data data) {
+         RandomSource originalSource = data.getSource();
+         Object originalSeed = data.getSeed();
+         Object[] originalArgs = data.getArgs();
+         Integer intSeed = -12131415;
+         Long longSeed = -1213141516171819L;
+         int[] intArraySeed = new int[] {0, 11, -22, 33, -44, 55, -66, 77, -88, 99};
+         long[] longArraySeed = new long[] {11111L, -222222L, 3333333L, -44444444L};
+         byte[] byteArraySeed = new byte[] {-128, -91, -45, -32, -1, 0, 11, 23, 54, 88, 127};
+
+         Object[] seeds = new Object[] {null,
+                                             intSeed,
+                                             longSeed,
+                                             intArraySeed,
+                                             longArraySeed,
+                                             byteArraySeed};
+
+        int nonNativeSeedCount = 0;
+        int seedCount = 0;
+        for (Object s : seeds) {
+            ++seedCount;
+            if (originalSource.isNativeSeed(s)) {
+                Assertions.assertNotNull(s, "Identified native seed is null");
+    }
+    }
+    }
+
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testAllSeedTypes_2_oe(ProvidersList.Data data) {
+         RandomSource originalSource = data.getSource();
+         Object originalSeed = data.getSeed();
+         Object[] originalArgs = data.getArgs();
+         Integer intSeed = -12131415;
+         Long longSeed = -1213141516171819L;
+         int[] intArraySeed = new int[] {0, 11, -22, 33, -44, 55, -66, 77, -88, 99};
+         long[] longArraySeed = new long[] {11111L, -222222L, 3333333L, -44444444L};
+         byte[] byteArraySeed = new byte[] {-128, -91, -45, -32, -1, 0, 11, 23, 54, 88, 127};
+
+         Object[] seeds = new Object[] {null,
+                                             intSeed,
+                                             longSeed,
+                                             intArraySeed,
+                                             longArraySeed,
+                                             byteArraySeed};
+
+        int nonNativeSeedCount = 0;
+        int seedCount = 0;
+        for (Object s : seeds) {
+            ++seedCount;
+            if (originalSource.isNativeSeed(s)) {
+                // removed other assertion
+                Assertions.assertEquals(s.getClass(),originalSeed.getClass(),"Incorrect identification of native seed type");
+    }
+    }
+    }
+
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testAllSeedTypes_3_oe(ProvidersList.Data data) {
+         RandomSource originalSource = data.getSource();
+         Object originalSeed = data.getSeed();
+         Object[] originalArgs = data.getArgs();
+         Integer intSeed = -12131415;
+         Long longSeed = -1213141516171819L;
+         int[] intArraySeed = new int[] {0, 11, -22, 33, -44, 55, -66, 77, -88, 99};
+         long[] longArraySeed = new long[] {11111L, -222222L, 3333333L, -44444444L};
+         byte[] byteArraySeed = new byte[] {-128, -91, -45, -32, -1, 0, 11, 23, 54, 88, 127};
+
+         Object[] seeds = new Object[] {null,
+                                             intSeed,
+                                             longSeed,
+                                             intArraySeed,
+                                             longArraySeed,
+                                             byteArraySeed};
+
+        int nonNativeSeedCount = 0;
+        int seedCount = 0;
+        for (Object s : seeds) {
+            ++seedCount;
+            if (originalSource.isNativeSeed(s)) {
+                // removed other assertion
+                // removed other assertion
+            } else {
+                ++nonNativeSeedCount;
+            }
+
+            originalSource.create(s, originalArgs);
+        }
+
+        Assertions.assertEquals(6, seedCount);
+    }
+
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testAllSeedTypes_4_oe(ProvidersList.Data data) {
+         RandomSource originalSource = data.getSource();
+         Object originalSeed = data.getSeed();
+         Object[] originalArgs = data.getArgs();
+         Integer intSeed = -12131415;
+         Long longSeed = -1213141516171819L;
+         int[] intArraySeed = new int[] {0, 11, -22, 33, -44, 55, -66, 77, -88, 99};
+         long[] longArraySeed = new long[] {11111L, -222222L, 3333333L, -44444444L};
+         byte[] byteArraySeed = new byte[] {-128, -91, -45, -32, -1, 0, 11, 23, 54, 88, 127};
+
+         Object[] seeds = new Object[] {null,
+                                             intSeed,
+                                             longSeed,
+                                             intArraySeed,
+                                             longArraySeed,
+                                             byteArraySeed};
+
+        int nonNativeSeedCount = 0;
+        int seedCount = 0;
+        for (Object s : seeds) {
+            ++seedCount;
+            if (originalSource.isNativeSeed(s)) {
+                // removed other assertion
+                // removed other assertion
+            } else {
+                ++nonNativeSeedCount;
+            }
+
+            originalSource.create(s, originalArgs);
+        }
+
+        // removed other assertion
+        Assertions.assertEquals(5, nonNativeSeedCount);
     }
 
     @ParameterizedTest
@@ -388,9 +565,217 @@ class ProvidersCommonParametricTest_OE25Dev {
         // Cast must fail.
         try {
      RestorableUniformRandomProvider dummy = (RestorableUniformRandomProvider) rng2;
-    org.junit.jupiter.api.Assertions.fail("ClassCastException");
+    fail("ClassCastException");
 } catch (ClassCastException e) {
 }
+    }
+
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testSerializingState_1_oe(ProvidersList.Data data)
+        throws IOException,
+               ClassNotFoundException {
+         UniformRandomProvider generator = data.getSource().create(data.getSeed(), data.getArgs());
+
+        // Large "n" is not necessary here as we only test the serialization.
+         int n = 100;
+
+        // Cast is OK: all instances created by this library inherit from "BaseProvider".
+         RestorableUniformRandomProvider restorable = (RestorableUniformRandomProvider) generator;
+
+        // Save.
+         RandomProviderState stateOrig = restorable.saveState();
+        // Serialize.
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(bos);
+        oos.writeObject(((RandomProviderDefaultState) stateOrig).getState());
+
+        // Store some values.
+         List<Number> listOrig = makeList(n, generator);
+
+        // Discard a few more.
+         List<Number> listDiscard = makeList(n, generator);
+        Assertions.assertNotEquals(0, listDiscard.size());
+    }
+
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testSerializingState_2_oe(ProvidersList.Data data)
+        throws IOException,
+               ClassNotFoundException {
+         UniformRandomProvider generator = data.getSource().create(data.getSeed(), data.getArgs());
+
+        // Large "n" is not necessary here as we only test the serialization.
+         int n = 100;
+
+        // Cast is OK: all instances created by this library inherit from "BaseProvider".
+         RestorableUniformRandomProvider restorable = (RestorableUniformRandomProvider) generator;
+
+        // Save.
+         RandomProviderState stateOrig = restorable.saveState();
+        // Serialize.
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(bos);
+        oos.writeObject(((RandomProviderDefaultState) stateOrig).getState());
+
+        // Store some values.
+         List<Number> listOrig = makeList(n, generator);
+
+        // Discard a few more.
+         List<Number> listDiscard = makeList(n, generator);
+        // removed other assertion
+        Assertions.assertNotEquals(listOrig, listDiscard);
+    }
+
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testSerializingState_3_oe(ProvidersList.Data data)
+        throws IOException,
+               ClassNotFoundException {
+         UniformRandomProvider generator = data.getSource().create(data.getSeed(), data.getArgs());
+
+        // Large "n" is not necessary here as we only test the serialization.
+         int n = 100;
+
+        // Cast is OK: all instances created by this library inherit from "BaseProvider".
+         RestorableUniformRandomProvider restorable = (RestorableUniformRandomProvider) generator;
+
+        // Save.
+         RandomProviderState stateOrig = restorable.saveState();
+        // Serialize.
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(bos);
+        oos.writeObject(((RandomProviderDefaultState) stateOrig).getState());
+
+        // Store some values.
+         List<Number> listOrig = makeList(n, generator);
+
+        // Discard a few more.
+         List<Number> listDiscard = makeList(n, generator);
+        // removed other assertion
+        // removed other assertion
+
+        // Retrieve from serialized stream.
+        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+        ObjectInputStream ois = new ObjectInputStream(bis);
+         RandomProviderState stateNew = new RandomProviderDefaultState((byte[]) ois.readObject());
+
+        Assertions.assertNotSame(stateOrig, stateNew);
+    }
+
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testSerializingState_4_oe(ProvidersList.Data data)
+        throws IOException,
+               ClassNotFoundException {
+         UniformRandomProvider generator = data.getSource().create(data.getSeed(), data.getArgs());
+
+        // Large "n" is not necessary here as we only test the serialization.
+         int n = 100;
+
+        // Cast is OK: all instances created by this library inherit from "BaseProvider".
+         RestorableUniformRandomProvider restorable = (RestorableUniformRandomProvider) generator;
+
+        // Save.
+         RandomProviderState stateOrig = restorable.saveState();
+        // Serialize.
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(bos);
+        oos.writeObject(((RandomProviderDefaultState) stateOrig).getState());
+
+        // Store some values.
+         List<Number> listOrig = makeList(n, generator);
+
+        // Discard a few more.
+         List<Number> listDiscard = makeList(n, generator);
+        // removed other assertion
+        // removed other assertion
+
+        // Retrieve from serialized stream.
+        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+        ObjectInputStream ois = new ObjectInputStream(bis);
+         RandomProviderState stateNew = new RandomProviderDefaultState((byte[]) ois.readObject());
+
+        // removed other assertion
+
+        // Reset.
+        restorable.restoreState(stateNew);
+
+        // Replay.
+         List<Number> listReplay = makeList(n, generator);
+        Assertions.assertNotSame(listOrig, listReplay);
+    }
+
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testSerializingState_5_oe(ProvidersList.Data data)
+        throws IOException,
+               ClassNotFoundException {
+         UniformRandomProvider generator = data.getSource().create(data.getSeed(), data.getArgs());
+
+        // Large "n" is not necessary here as we only test the serialization.
+         int n = 100;
+
+        // Cast is OK: all instances created by this library inherit from "BaseProvider".
+         RestorableUniformRandomProvider restorable = (RestorableUniformRandomProvider) generator;
+
+        // Save.
+         RandomProviderState stateOrig = restorable.saveState();
+        // Serialize.
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(bos);
+        oos.writeObject(((RandomProviderDefaultState) stateOrig).getState());
+
+        // Store some values.
+         List<Number> listOrig = makeList(n, generator);
+
+        // Discard a few more.
+         List<Number> listDiscard = makeList(n, generator);
+        // removed other assertion
+        // removed other assertion
+
+        // Retrieve from serialized stream.
+        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+        ObjectInputStream ois = new ObjectInputStream(bis);
+         RandomProviderState stateNew = new RandomProviderDefaultState((byte[]) ois.readObject());
+
+        // removed other assertion
+
+        // Reset.
+        restorable.restoreState(stateNew);
+
+        // Replay.
+         List<Number> listReplay = makeList(n, generator);
+        // removed other assertion
+
+        // Check that the serialized data recreated the orginal state.
+        Assertions.assertEquals(listOrig, listReplay);
+    }
+
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testUnrestorableToString_1_oe(ProvidersList.Data data) {
+         UniformRandomProvider generator = data.getSource().create(data.getSeed(), data.getArgs());
+        Assertions.assertEquals(generator.toString(),RandomSource.unrestorable(generator).toString());
+    }
+
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testSupportedInterfaces_1_oe(ProvidersList.Data data) {
+         RandomSource originalSource = data.getSource();
+         Object[] originalArgs = data.getArgs();
+         UniformRandomProvider rng = originalSource.create(null, originalArgs);
+        Assertions.assertEquals(rng instanceof JumpableUniformRandomProvider,originalSource.isJumpable(),"isJumpable");
+    }
+
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testSupportedInterfaces_2_oe(ProvidersList.Data data) {
+         RandomSource originalSource = data.getSource();
+         Object[] originalArgs = data.getArgs();
+         UniformRandomProvider rng = originalSource.create(null, originalArgs);
+        // removed other assertion
+        Assertions.assertEquals(rng instanceof LongJumpableUniformRandomProvider,originalSource.isLongJumpable(),"isLongJumpable");
     }
 
 }

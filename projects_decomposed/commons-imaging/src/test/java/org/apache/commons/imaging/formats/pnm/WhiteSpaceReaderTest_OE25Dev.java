@@ -26,5 +26,25 @@ import org.junit.jupiter.api.Test;
 
 public class WhiteSpaceReaderTest_OE25Dev{
 
+  @Test
+  public void testReadLineReturningNonEmptyString_1_oe() throws IOException {
+      final byte[] byteArray = new byte[6];
+      byteArray[4] = (byte)13;
+      final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
+      final WhiteSpaceReader whiteSpaceReader = new WhiteSpaceReader(byteArrayInputStream);
+
+      assertEquals(6, byteArrayInputStream.available());
+  }
+
+  @Test
+  public void testReadLineReturningNonEmptyString_2_oe() throws IOException {
+      final byte[] byteArray = new byte[6];
+      byteArray[4] = (byte)13;
+      final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
+      final WhiteSpaceReader whiteSpaceReader = new WhiteSpaceReader(byteArrayInputStream);
+
+      // removed other assertion
+      assertEquals("[0, 0, 0, 0]", Arrays.toString( whiteSpaceReader.readLine().getBytes() ) );
+  }
 
 }

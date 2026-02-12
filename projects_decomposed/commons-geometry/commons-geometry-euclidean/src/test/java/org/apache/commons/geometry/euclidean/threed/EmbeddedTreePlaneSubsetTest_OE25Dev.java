@@ -37,6 +37,8 @@ import org.apache.commons.numbers.core.Precision;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class EmbeddedTreePlaneSubsetTest_OE25Dev {
 
     private static final double TEST_EPS = 1e-10;
@@ -129,6 +131,977 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
     }
 
     @Test
+    void testCtor_plane_1_oe() {
+        // act
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE);
+
+        // assert
+        Assertions.assertFalse(ps.isFull());
+    }
+
+    @Test
+    void testCtor_plane_2_oe() {
+        // act
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE);
+
+        // assert
+        // removed other assertion
+        Assertions.assertTrue(ps.isEmpty());
+    }
+
+    @Test
+    void testCtor_plane_3_oe() {
+        // act
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(0, ps.getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testCtor_plane_booleanFalse_1_oe() {
+        // act
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+
+        // assert
+        Assertions.assertFalse(ps.isFull());
+    }
+
+    @Test
+    void testCtor_plane_booleanFalse_2_oe() {
+        // act
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+
+        // assert
+        // removed other assertion
+        Assertions.assertTrue(ps.isEmpty());
+    }
+
+    @Test
+    void testCtor_plane_booleanFalse_3_oe() {
+        // act
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(0, ps.getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testCtor_plane_booleanTrue_1_oe() {
+        // act
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, true);
+
+        // assert
+        Assertions.assertTrue(ps.isFull());
+    }
+
+    @Test
+    void testCtor_plane_booleanTrue_2_oe() {
+        // act
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, true);
+
+        // assert
+        // removed other assertion
+        Assertions.assertFalse(ps.isEmpty());
+    }
+
+    @Test
+    void testToConvex_full_1_oe() {
+        // act
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, true);
+
+        // act
+        final List<PlaneConvexSubset> convex = ps.toConvex();
+
+        // assert
+        Assertions.assertEquals(1, convex.size());
+    }
+
+    @Test
+    void testToConvex_full_2_oe() {
+        // act
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, true);
+
+        // act
+        final List<PlaneConvexSubset> convex = ps.toConvex();
+
+        // assert
+        // removed other assertion
+        Assertions.assertTrue(convex.get(0).isFull());
+    }
+
+    @Test
+    void testToConvex_empty_1_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+
+        // act
+        final List<PlaneConvexSubset> convex = ps.toConvex();
+
+        // assert
+        Assertions.assertEquals(0, convex.size());
+    }
+
+    @Test
+    void testToConvex_nonConvexRegion_1_oe() {
+        // act
+        final ConvexArea a = ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.of(0, 0), Vector2D.of(1, 0),
+                    Vector2D.of(1, 1), Vector2D.of(0, 1)
+                ), TEST_PRECISION);
+        final ConvexArea b = ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.of(1, 0), Vector2D.of(2, 0),
+                    Vector2D.of(2, 1), Vector2D.of(1, 1)
+                ), TEST_PRECISION);
+
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.add(Planes.subsetFromConvexArea(XY_PLANE, a));
+        ps.add(Planes.subsetFromConvexArea(XY_PLANE, b));
+
+        // act
+        final List<PlaneConvexSubset> convex = ps.toConvex();
+
+        // assert
+        Assertions.assertEquals(2, convex.size());
+    }
+
+    @Test
+    void testToConvex_nonConvexRegion_2_oe() {
+        // act
+        final ConvexArea a = ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.of(0, 0), Vector2D.of(1, 0),
+                    Vector2D.of(1, 1), Vector2D.of(0, 1)
+                ), TEST_PRECISION);
+        final ConvexArea b = ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.of(1, 0), Vector2D.of(2, 0),
+                    Vector2D.of(2, 1), Vector2D.of(1, 1)
+                ), TEST_PRECISION);
+
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.add(Planes.subsetFromConvexArea(XY_PLANE, a));
+        ps.add(Planes.subsetFromConvexArea(XY_PLANE, b));
+
+        // act
+        final List<PlaneConvexSubset> convex = ps.toConvex();
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(1, convex.get(0).getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testToConvex_nonConvexRegion_3_oe() {
+        // act
+        final ConvexArea a = ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.of(0, 0), Vector2D.of(1, 0),
+                    Vector2D.of(1, 1), Vector2D.of(0, 1)
+                ), TEST_PRECISION);
+        final ConvexArea b = ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.of(1, 0), Vector2D.of(2, 0),
+                    Vector2D.of(2, 1), Vector2D.of(1, 1)
+                ), TEST_PRECISION);
+
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.add(Planes.subsetFromConvexArea(XY_PLANE, a));
+        ps.add(Planes.subsetFromConvexArea(XY_PLANE, b));
+
+        // act
+        final List<PlaneConvexSubset> convex = ps.toConvex();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(1, convex.get(1).getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testToTriangles_empty_1_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+
+        // act
+        final List<Triangle3D> tris = ps.toTriangles();
+
+        // assert
+        Assertions.assertEquals(0, tris.size());
+    }
+
+    @Test
+    void testToTriangles_finite_1_oe() {
+        // arrange
+        final Vector3D p1 = Vector3D.ZERO;
+        final Vector3D p2 = Vector3D.of(1, 0, 0);
+        final Vector3D p3 = Vector3D.of(2, 1, 0);
+        final Vector3D p4 = Vector3D.of(1.5, 1, 0);
+
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE);
+        ps.add(Planes.convexPolygonFromVertices(Arrays.asList(
+                    p1, p2, p3, p4
+                ), TEST_PRECISION));
+
+        // act
+        final List<Triangle3D> tris = ps.toTriangles();
+
+        // assert
+        Assertions.assertEquals(2, tris.size());
+    }
+
+    @Test
+    void testToTriangles_finite_disjoint_1_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE);
+        ps.add(Planes.convexPolygonFromVertices(Arrays.asList(
+                    Vector3D.ZERO, Vector3D.of(1, 0, 0),
+                    Vector3D.of(2, 1, 0), Vector3D.of(1.5, 1, 0)
+                ), TEST_PRECISION));
+
+        ps.add(Planes.convexPolygonFromVertices(Arrays.asList(
+                Vector3D.of(-1, -1, 0), Vector3D.of(0, -1, 0), Vector3D.of(-1, 0, 0)
+            ), TEST_PRECISION));
+
+        // act
+        final List<Triangle3D> tris = ps.toTriangles();
+
+        // assert
+        Assertions.assertEquals(3, tris.size());
+    }
+
+    @Test
+    void testGetBounds_noBounds_1_oe() {
+        // arrange
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
+                Vector3D.Unit.PLUS_Y, Vector3D.Unit.MINUS_X, TEST_PRECISION);
+
+        final EmbeddedTreePlaneSubset full = new EmbeddedTreePlaneSubset(plane, true);
+        final EmbeddedTreePlaneSubset empty = new EmbeddedTreePlaneSubset(plane, false);
+
+        final EmbeddedTreePlaneSubset halfPlane = new EmbeddedTreePlaneSubset(plane, false);
+        halfPlane.getSubspaceRegion().getRoot().insertCut(Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION));
+
+        // act/assert
+        Assertions.assertNull(full.getBounds());
+    }
+
+    @Test
+    void testGetBounds_noBounds_2_oe() {
+        // arrange
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
+                Vector3D.Unit.PLUS_Y, Vector3D.Unit.MINUS_X, TEST_PRECISION);
+
+        final EmbeddedTreePlaneSubset full = new EmbeddedTreePlaneSubset(plane, true);
+        final EmbeddedTreePlaneSubset empty = new EmbeddedTreePlaneSubset(plane, false);
+
+        final EmbeddedTreePlaneSubset halfPlane = new EmbeddedTreePlaneSubset(plane, false);
+        halfPlane.getSubspaceRegion().getRoot().insertCut(Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION));
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertNull(empty.getBounds());
+    }
+
+    @Test
+    void testGetBounds_noBounds_3_oe() {
+        // arrange
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
+                Vector3D.Unit.PLUS_Y, Vector3D.Unit.MINUS_X, TEST_PRECISION);
+
+        final EmbeddedTreePlaneSubset full = new EmbeddedTreePlaneSubset(plane, true);
+        final EmbeddedTreePlaneSubset empty = new EmbeddedTreePlaneSubset(plane, false);
+
+        final EmbeddedTreePlaneSubset halfPlane = new EmbeddedTreePlaneSubset(plane, false);
+        halfPlane.getSubspaceRegion().getRoot().insertCut(Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNull(halfPlane.getBounds());
+    }
+
+    @Test
+    void testSplit_empty_1_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+
+        final Plane splitter = Planes.fromNormal(Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
+    }
+
+    @Test
+    void testSplit_empty_2_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+
+        final Plane splitter = Planes.fromNormal(Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        Assertions.assertNull(split.getMinus());
+    }
+
+    @Test
+    void testSplit_empty_3_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+
+        final Plane splitter = Planes.fromNormal(Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(split.getPlus());
+    }
+
+    @Test
+    void testSplit_halfSpace_1_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().getRoot().cut(
+                Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION));
+
+        final Plane splitter = Planes.fromNormal(Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+    }
+
+    @Test
+    void testSplit_both_1_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().union(
+                Parallelogram.axisAligned(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION).toTree());
+
+        final Plane splitter = Planes.fromNormal(Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+    }
+
+    @Test
+    void testSplit_intersects_plusOnly_1_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().union(
+                Parallelogram.axisAligned(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION).toTree());
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.of(0.1, 0, 1), TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
+    }
+
+    @Test
+    void testSplit_intersects_plusOnly_2_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().union(
+                Parallelogram.axisAligned(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION).toTree());
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.of(0.1, 0, 1), TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        Assertions.assertSame(ps, split.getMinus());
+    }
+
+    @Test
+    void testSplit_intersects_plusOnly_3_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().union(
+                Parallelogram.axisAligned(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION).toTree());
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.of(0.1, 0, 1), TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(split.getPlus());
+    }
+
+    @Test
+    void testSplit_intersects_minusOnly_1_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().union(
+                Parallelogram.axisAligned(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION).toTree());
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.of(0.1, 0, -1), TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
+    }
+
+    @Test
+    void testSplit_intersects_minusOnly_2_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().union(
+                Parallelogram.axisAligned(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION).toTree());
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.of(0.1, 0, -1), TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        Assertions.assertNull(split.getMinus());
+    }
+
+    @Test
+    void testSplit_intersects_minusOnly_3_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().union(
+                Parallelogram.axisAligned(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION).toTree());
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.of(0.1, 0, -1), TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertSame(ps, split.getPlus());
+    }
+
+    @Test
+    void testSplit_parallel_plusOnly_1_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().union(
+                Parallelogram.axisAligned(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION).toTree());
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
+    }
+
+    @Test
+    void testSplit_parallel_plusOnly_2_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().union(
+                Parallelogram.axisAligned(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION).toTree());
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        Assertions.assertSame(ps, split.getMinus());
+    }
+
+    @Test
+    void testSplit_parallel_plusOnly_3_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().union(
+                Parallelogram.axisAligned(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION).toTree());
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(split.getPlus());
+    }
+
+    @Test
+    void testSplit_parallel_minusOnly_1_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().union(
+                Parallelogram.axisAligned(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION).toTree());
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.Unit.MINUS_Z, TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
+    }
+
+    @Test
+    void testSplit_parallel_minusOnly_2_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().union(
+                Parallelogram.axisAligned(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION).toTree());
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.Unit.MINUS_Z, TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        Assertions.assertNull(split.getMinus());
+    }
+
+    @Test
+    void testSplit_parallel_minusOnly_3_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().union(
+                Parallelogram.axisAligned(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION).toTree());
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.Unit.MINUS_Z, TEST_PRECISION);
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertSame(ps, split.getPlus());
+    }
+
+    @Test
+    void testSplit_coincident_1_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().union(
+                Parallelogram.axisAligned(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION).toTree());
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(ps.getPlane());
+
+        // assert
+        Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
+    }
+
+    @Test
+    void testSplit_coincident_2_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().union(
+                Parallelogram.axisAligned(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION).toTree());
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(ps.getPlane());
+
+        // assert
+        // removed other assertion
+
+        Assertions.assertNull(split.getMinus());
+    }
+
+    @Test
+    void testSplit_coincident_3_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+        ps.getSubspaceRegion().union(
+                Parallelogram.axisAligned(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION).toTree());
+
+        // act
+        final Split<EmbeddedTreePlaneSubset> split = ps.split(ps.getPlane());
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(split.getPlus());
+    }
+
+    @Test
+    void testTransform_empty_1_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.createTranslation(Vector3D.Unit.PLUS_Z);
+
+        // act
+        final EmbeddedTreePlaneSubset result = ps.transform(transform);
+
+        // assert
+        Assertions.assertNotSame(ps, result);
+    }
+
+    @Test
+    void testTransform_empty_4_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.createTranslation(Vector3D.Unit.PLUS_Z);
+
+        // act
+        final EmbeddedTreePlaneSubset result = ps.transform(transform);
+
+        // assert
+        // removed other assertion
+
+        final Plane resultPlane = result.getPlane();
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(result.isFull());
+    }
+
+    @Test
+    void testTransform_empty_5_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.createTranslation(Vector3D.Unit.PLUS_Z);
+
+        // act
+        final EmbeddedTreePlaneSubset result = ps.transform(transform);
+
+        // assert
+        // removed other assertion
+
+        final Plane resultPlane = result.getPlane();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertTrue(result.isEmpty());
+    }
+
+    @Test
+    void testTransform_full_1_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, true);
+
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.createTranslation(Vector3D.Unit.PLUS_Z);
+
+        // act
+        final EmbeddedTreePlaneSubset result = ps.transform(transform);
+
+        // assert
+        Assertions.assertNotSame(ps, result);
+    }
+
+    @Test
+    void testTransform_full_4_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, true);
+
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.createTranslation(Vector3D.Unit.PLUS_Z);
+
+        // act
+        final EmbeddedTreePlaneSubset result = ps.transform(transform);
+
+        // assert
+        // removed other assertion
+
+        final Plane resultPlane = result.getPlane();
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertTrue(result.isFull());
+    }
+
+    @Test
+    void testTransform_full_5_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, true);
+
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.createTranslation(Vector3D.Unit.PLUS_Z);
+
+        // act
+        final EmbeddedTreePlaneSubset result = ps.transform(transform);
+
+        // assert
+        // removed other assertion
+
+        final Plane resultPlane = result.getPlane();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(result.isEmpty());
+    }
+
+    @Test
+    void testTransform_1_oe() {
+        // arrange
+        final ConvexArea area = ConvexArea.convexPolygonFromVertices(
+                Arrays.asList(Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.Unit.PLUS_Y), TEST_PRECISION);
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1), Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(plane, area.toTree());
+
+        final Transform<Vector3D> transform = AffineTransformMatrix3D.identity()
+                .rotate(QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, Angle.PI_OVER_TWO))
+                .translate(Vector3D.of(1, 0, 0));
+
+        // act
+        final EmbeddedTreePlaneSubset result = ps.transform(transform);
+
+        // assert
+        Assertions.assertNotSame(ps, result);
+    }
+
+    @Test
+    void testTransform_reflection_1_oe() {
+        // arrange
+        final ConvexArea area = ConvexArea.convexPolygonFromVertices(
+                Arrays.asList(Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.Unit.PLUS_Y), TEST_PRECISION);
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1), Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(plane, area.toTree());
+
+        final Transform<Vector3D> transform = AffineTransformMatrix3D.createScale(-1, 1, 1);
+
+        // act
+        final EmbeddedTreePlaneSubset result = ps.transform(transform);
+
+        // assert
+        Assertions.assertNotSame(ps, result);
+    }
+
+    @Test
+    void testAddMethods_1_oe() {
+        // arrange
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(
+                Vector3D.of(0, 0, 1), Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(plane, false);
+
+        // act
+        ps.add(Planes.subsetFromConvexArea(plane, ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(0, 1)
+                ), TEST_PRECISION)));
+
+        final RegionBSPTree2D tree = RegionBSPTree2D.empty();
+        tree.add(ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.of(1, 0), Vector2D.of(1, 1), Vector2D.of(0, 1)
+                ), TEST_PRECISION));
+        ps.add(new EmbeddedTreePlaneSubset(plane, tree));
+
+        // assert
+        Assertions.assertFalse(ps.isFull());
+    }
+
+    @Test
+    void testAddMethods_2_oe() {
+        // arrange
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(
+                Vector3D.of(0, 0, 1), Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(plane, false);
+
+        // act
+        ps.add(Planes.subsetFromConvexArea(plane, ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(0, 1)
+                ), TEST_PRECISION)));
+
+        final RegionBSPTree2D tree = RegionBSPTree2D.empty();
+        tree.add(ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.of(1, 0), Vector2D.of(1, 1), Vector2D.of(0, 1)
+                ), TEST_PRECISION));
+        ps.add(new EmbeddedTreePlaneSubset(plane, tree));
+
+        // assert
+        // removed other assertion
+        Assertions.assertFalse(ps.isEmpty());
+    }
+
+    @Test
+    void testAddMethods_3_oe() {
+        // arrange
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(
+                Vector3D.of(0, 0, 1), Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(plane, false);
+
+        // act
+        ps.add(Planes.subsetFromConvexArea(plane, ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(0, 1)
+                ), TEST_PRECISION)));
+
+        final RegionBSPTree2D tree = RegionBSPTree2D.empty();
+        tree.add(ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.of(1, 0), Vector2D.of(1, 1), Vector2D.of(0, 1)
+                ), TEST_PRECISION));
+        ps.add(new EmbeddedTreePlaneSubset(plane, tree));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(ps.isFinite());
+    }
+
+    @Test
+    void testAddMethods_4_oe() {
+        // arrange
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(
+                Vector3D.of(0, 0, 1), Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(plane, false);
+
+        // act
+        ps.add(Planes.subsetFromConvexArea(plane, ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(0, 1)
+                ), TEST_PRECISION)));
+
+        final RegionBSPTree2D tree = RegionBSPTree2D.empty();
+        tree.add(ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.of(1, 0), Vector2D.of(1, 1), Vector2D.of(0, 1)
+                ), TEST_PRECISION));
+        ps.add(new EmbeddedTreePlaneSubset(plane, tree));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(ps.isInfinite());
+    }
+
+    @Test
+    void testAddMethods_5_oe() {
+        // arrange
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(
+                Vector3D.of(0, 0, 1), Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(plane, false);
+
+        // act
+        ps.add(Planes.subsetFromConvexArea(plane, ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(0, 1)
+                ), TEST_PRECISION)));
+
+        final RegionBSPTree2D tree = RegionBSPTree2D.empty();
+        tree.add(ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.of(1, 0), Vector2D.of(1, 1), Vector2D.of(0, 1)
+                ), TEST_PRECISION));
+        ps.add(new EmbeddedTreePlaneSubset(plane, tree));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(1, ps.getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testAddMethods_rotatesEquivalentPlanesWithDifferentUAndV_1_oe() {
+        // arrange
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(
+                Vector3D.of(0, 0, 1), Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(plane, false);
+
+        final EmbeddingPlane otherPlane1 = Planes.fromPointAndPlaneVectors(
+                Vector3D.of(0, 0, 1), Vector3D.of(1e-12, 1, 0), Vector3D.Unit.MINUS_X, TEST_PRECISION);
+
+        final EmbeddingPlane otherPlane2 = Planes.fromPointAndPlaneVectors(
+                Vector3D.of(0, 0, 1), Vector3D.of(0, -1, 1e-12), Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        final ConvexArea area = ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.of(0, -1), Vector2D.of(1, -1), Vector2D.of(1, 1), Vector2D.of(0, 1)
+                ), TEST_PRECISION);
+
+        // act
+        ps.add(Planes.subsetFromConvexArea(plane, area));
+        ps.add(new EmbeddedTreePlaneSubset(otherPlane1, area.toTree()));
+        ps.add(Planes.subsetFromConvexArea(otherPlane2, area));
+
+        // assert
+        Assertions.assertEquals(4, ps.getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testAddMethods_rotatesEquivalentPlanesWithDifferentUAndV_singleConvexArea_1_oe() {
+        // arrange
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(
+                Vector3D.of(0, 0, 1), Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(plane, false);
+
+        final EmbeddingPlane otherPlane1 = Planes.fromPointAndPlaneVectors(
+                Vector3D.of(0, 0, 1), Vector3D.of(1e-12, 1, 0), Vector3D.Unit.MINUS_X, TEST_PRECISION);
+
+        final ConvexArea area = ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(1, 2), Vector2D.of(0, 2)
+                ), TEST_PRECISION);
+
+        // act
+        ps.add(Planes.subsetFromConvexArea(otherPlane1, area));
+
+        // assert
+        Assertions.assertEquals(2, ps.getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testAddMethods_rotatesEquivalentPlanesWithDifferentUAndV_singleTree_1_oe() {
+        // arrange
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(
+                Vector3D.of(0, 0, 1), Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(plane, false);
+
+        final EmbeddingPlane otherPlane1 = Planes.fromPointAndPlaneVectors(
+                Vector3D.of(0, 0, 1), Vector3D.Unit.MINUS_X, Vector3D.Unit.MINUS_Y, TEST_PRECISION);
+
+        final ConvexArea area = ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(1, 2), Vector2D.of(0, 2)
+                ), TEST_PRECISION);
+
+        // act
+        ps.add(new EmbeddedTreePlaneSubset(otherPlane1, area.toTree()));
+
+        // assert
+        Assertions.assertEquals(2, ps.getSize(), TEST_EPS);
+    }
+
+    @Test
     void testAddMethods_validatesPlane_1_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
@@ -136,7 +1109,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         // act/assert
         try {
     ps.add(Planes.subsetFromConvexArea( Planes.fromPointAndPlaneVectors(Vector3D.ZERO, Vector3D.Unit.PLUS_X, Vector3D.Unit.MINUS_Z, TEST_PRECISION), ConvexArea.full()));
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -150,7 +1123,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         // removed other assertion
         try {
     ps.add(new EmbeddedTreePlaneSubset( Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, -1), Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION), false));
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }

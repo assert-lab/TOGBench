@@ -64,5 +64,267 @@ public class ProviderCacheStrategyTests_OE25Dev extends AbstractProviderTestCase
      * Test the on_resolve strategy
      */
 
+    @Test
+    public void testManualCache_1_oe_1_oe() throws Exception {
+        final FileObject scratchFolder = getWriteFolder();
+        if (FileObjectUtils.isInstanceOf(getBaseFolder(), RamFileObject.class)
+                || scratchFolder.getFileSystem() instanceof VirtualFileSystem) {
+            // cant check ram filesystem as every manager holds its own ram filesystem data
+            return;
+        }
+
+        scratchFolder.delete(Selectors.EXCLUDE_SELF);
+
+        final DefaultFileSystemManager fs = createManager();
+        fs.setCacheStrategy(CacheStrategy.MANUAL);
+        fs.init();
+        final FileObject foBase2 = getBaseTestFolder(fs);
+
+        final FileObject cachedFolder = foBase2.resolveFile(scratchFolder.getName().getPath());
+
+        FileObject[] fos = cachedFolder.getChildren();
+                final FileObject[] fos0 = fos;
+        final String string0 = "file1.txt";
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        fail(string0 + " should not be seen");
+    }
+    }
+    }
+
+    @Test
+    public void testManualCache_2_oe_1_oe() throws Exception {
+        final FileObject scratchFolder = getWriteFolder();
+        if (FileObjectUtils.isInstanceOf(getBaseFolder(), RamFileObject.class)
+                || scratchFolder.getFileSystem() instanceof VirtualFileSystem) {
+            // cant check ram filesystem as every manager holds its own ram filesystem data
+            return;
+        }
+
+        scratchFolder.delete(Selectors.EXCLUDE_SELF);
+
+        final DefaultFileSystemManager fs = createManager();
+        fs.setCacheStrategy(CacheStrategy.MANUAL);
+        fs.init();
+        final FileObject foBase2 = getBaseTestFolder(fs);
+
+        final FileObject cachedFolder = foBase2.resolveFile(scratchFolder.getName().getPath());
+
+        FileObject[] fos = cachedFolder.getChildren();
+        // removed other assertion
+
+        scratchFolder.resolveFile("file1.txt").createFile();
+
+        fos = cachedFolder.getChildren();
+                final FileObject[] fos0 = fos;
+        final String string0 = "file1.txt";
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        fail(string0 + " should not be seen");
+    }
+    }
+    }
+
+    @Test
+    public void testManualCache_3_oe_1_oe() throws Exception {
+        final FileObject scratchFolder = getWriteFolder();
+        if (FileObjectUtils.isInstanceOf(getBaseFolder(), RamFileObject.class)
+                || scratchFolder.getFileSystem() instanceof VirtualFileSystem) {
+            // cant check ram filesystem as every manager holds its own ram filesystem data
+            return;
+        }
+
+        scratchFolder.delete(Selectors.EXCLUDE_SELF);
+
+        final DefaultFileSystemManager fs = createManager();
+        fs.setCacheStrategy(CacheStrategy.MANUAL);
+        fs.init();
+        final FileObject foBase2 = getBaseTestFolder(fs);
+
+        final FileObject cachedFolder = foBase2.resolveFile(scratchFolder.getName().getPath());
+
+        FileObject[] fos = cachedFolder.getChildren();
+        // removed other assertion
+
+        scratchFolder.resolveFile("file1.txt").createFile();
+
+        fos = cachedFolder.getChildren();
+        // removed other assertion
+
+        cachedFolder.refresh();
+        fos = cachedFolder.getChildren();
+                final FileObject[] fos0 = fos;
+        final String string0 = "file1.txt";
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        return;
+                    }
+                }
+        
+                fail(string0 + " should be seen");
+    }
+
+    @Test
+    public void testOnCallCache_1_oe_1_oe() throws Exception {
+        final FileObject scratchFolder = getWriteFolder();
+        if (FileObjectUtils.isInstanceOf(getBaseFolder(), RamFileObject.class)
+                || scratchFolder.getFileSystem() instanceof VirtualFileSystem) {
+            // cant check ram filesystem as every manager holds its own ram filesystem data
+            return;
+        }
+
+        scratchFolder.delete(Selectors.EXCLUDE_SELF);
+
+        final DefaultFileSystemManager fs = createManager();
+        fs.setCacheStrategy(CacheStrategy.ON_CALL);
+        fs.init();
+        final FileObject foBase2 = getBaseTestFolder(fs);
+
+        final FileObject cachedFolder = foBase2.resolveFile(scratchFolder.getName().getPath());
+
+        FileObject[] fos = cachedFolder.getChildren();
+                final FileObject[] fos0 = fos;
+        final String string0 = "file1.txt";
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        fail(string0 + " should not be seen");
+    }
+    }
+    }
+
+    @Test
+    public void testOnCallCache_2_oe_1_oe() throws Exception {
+        final FileObject scratchFolder = getWriteFolder();
+        if (FileObjectUtils.isInstanceOf(getBaseFolder(), RamFileObject.class)
+                || scratchFolder.getFileSystem() instanceof VirtualFileSystem) {
+            // cant check ram filesystem as every manager holds its own ram filesystem data
+            return;
+        }
+
+        scratchFolder.delete(Selectors.EXCLUDE_SELF);
+
+        final DefaultFileSystemManager fs = createManager();
+        fs.setCacheStrategy(CacheStrategy.ON_CALL);
+        fs.init();
+        final FileObject foBase2 = getBaseTestFolder(fs);
+
+        final FileObject cachedFolder = foBase2.resolveFile(scratchFolder.getName().getPath());
+
+        FileObject[] fos = cachedFolder.getChildren();
+        // removed other assertion
+
+        scratchFolder.resolveFile("file1.txt").createFile();
+
+        fos = cachedFolder.getChildren();
+                final FileObject[] fos0 = fos;
+        final String string0 = "file1.txt";
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        return;
+                    }
+                }
+        
+                fail(string0 + " should be seen");
+    }
+
+    @Test
+    public void testOnResolveCache_1_oe_1_oe() throws Exception {
+        final FileObject scratchFolder = getWriteFolder();
+        if (FileObjectUtils.isInstanceOf(getBaseFolder(), RamFileObject.class)
+                || scratchFolder.getFileSystem() instanceof VirtualFileSystem) {
+            // cant check ram filesystem as every manager holds its own ram filesystem data
+            return;
+        }
+
+        scratchFolder.delete(Selectors.EXCLUDE_SELF);
+
+        final DefaultFileSystemManager fs = createManager();
+        fs.setCacheStrategy(CacheStrategy.ON_RESOLVE);
+        fs.init();
+        final FileObject foBase2 = getBaseTestFolder(fs);
+
+        FileObject cachedFolder = foBase2.resolveFile(scratchFolder.getName().getPath());
+
+        FileObject[] fos = cachedFolder.getChildren();
+                final FileObject[] fos0 = fos;
+        final String string0 = "file1.txt";
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        fail(string0 + " should not be seen");
+    }
+    }
+    }
+
+    @Test
+    public void testOnResolveCache_2_oe_1_oe() throws Exception {
+        final FileObject scratchFolder = getWriteFolder();
+        if (FileObjectUtils.isInstanceOf(getBaseFolder(), RamFileObject.class)
+                || scratchFolder.getFileSystem() instanceof VirtualFileSystem) {
+            // cant check ram filesystem as every manager holds its own ram filesystem data
+            return;
+        }
+
+        scratchFolder.delete(Selectors.EXCLUDE_SELF);
+
+        final DefaultFileSystemManager fs = createManager();
+        fs.setCacheStrategy(CacheStrategy.ON_RESOLVE);
+        fs.init();
+        final FileObject foBase2 = getBaseTestFolder(fs);
+
+        FileObject cachedFolder = foBase2.resolveFile(scratchFolder.getName().getPath());
+
+        FileObject[] fos = cachedFolder.getChildren();
+        // removed other assertion
+
+        scratchFolder.resolveFile("file1.txt").createFile();
+
+        fos = cachedFolder.getChildren();
+                final FileObject[] fos0 = fos;
+        final String string0 = "file1.txt";
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        fail(string0 + " should not be seen");
+    }
+    }
+    }
+
+    @Test
+    public void testOnResolveCache_3_oe_1_oe() throws Exception {
+        final FileObject scratchFolder = getWriteFolder();
+        if (FileObjectUtils.isInstanceOf(getBaseFolder(), RamFileObject.class)
+                || scratchFolder.getFileSystem() instanceof VirtualFileSystem) {
+            // cant check ram filesystem as every manager holds its own ram filesystem data
+            return;
+        }
+
+        scratchFolder.delete(Selectors.EXCLUDE_SELF);
+
+        final DefaultFileSystemManager fs = createManager();
+        fs.setCacheStrategy(CacheStrategy.ON_RESOLVE);
+        fs.init();
+        final FileObject foBase2 = getBaseTestFolder(fs);
+
+        FileObject cachedFolder = foBase2.resolveFile(scratchFolder.getName().getPath());
+
+        FileObject[] fos = cachedFolder.getChildren();
+        // removed other assertion
+
+        scratchFolder.resolveFile("file1.txt").createFile();
+
+        fos = cachedFolder.getChildren();
+        // removed other assertion
+
+        cachedFolder = foBase2.resolveFile(scratchFolder.getName().getPath());
+        fos = cachedFolder.getChildren();
+                final FileObject[] fos0 = fos;
+        final String string0 = "file1.txt";
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        return;
+                    }
+                }
+        
+                fail(string0 + " should be seen");
+    }
 
 }

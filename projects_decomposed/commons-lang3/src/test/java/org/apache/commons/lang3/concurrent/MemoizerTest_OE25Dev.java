@@ -25,6 +25,8 @@ import org.easymock.EasyMock;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 public class MemoizerTest_OE25Dev {
 
     private Computable<Integer, Integer> computable;
@@ -32,6 +34,27 @@ public class MemoizerTest_OE25Dev {
     @BeforeEach
     public void setUpComputableMock() {
         computable = EasyMock.mock(Computable.class);
+    }
+
+    @Test
+    public void testOnlyCallComputableOnceIfDoesNotThrowException_1_oe() throws Exception {
+        final Integer input = 1;
+        final Memoizer<Integer, Integer> memoizer = new Memoizer<>(computable);
+        expect(computable.compute(input)).andReturn(input);
+        replay(computable);
+
+        assertEquals(input, memoizer.compute(input), "Should call computable first time");
+    }
+
+    @Test
+    public void testOnlyCallComputableOnceIfDoesNotThrowException_2_oe() throws Exception {
+        final Integer input = 1;
+        final Memoizer<Integer, Integer> memoizer = new Memoizer<>(computable);
+        expect(computable.compute(input)).andReturn(input);
+        replay(computable);
+
+        // removed other assertion
+        assertEquals(input, memoizer.compute(input), "Should not call the computable the second time");
     }
 
     @Test
@@ -44,7 +67,7 @@ public class MemoizerTest_OE25Dev {
 
         try {
     memoizer.compute(input);
-    org.junit.jupiter.api.Assertions.fail("Throwable");
+    fail("Throwable");
 } catch (Throwable e) {
 }
     }
@@ -60,7 +83,7 @@ public class MemoizerTest_OE25Dev {
         // removed other assertion
         try {
     memoizer.compute(input);
-    org.junit.jupiter.api.Assertions.fail("IllegalStateException");
+    fail("IllegalStateException");
 } catch (IllegalStateException e) {
 }
     }
@@ -75,7 +98,7 @@ public class MemoizerTest_OE25Dev {
 
         try {
     memoizer.compute(input);
-    org.junit.jupiter.api.Assertions.fail("Throwable");
+    fail("Throwable");
 } catch (Throwable e) {
 }
     }
@@ -91,7 +114,7 @@ public class MemoizerTest_OE25Dev {
         // removed other assertion
         try {
     memoizer.compute(input);
-    org.junit.jupiter.api.Assertions.fail("IllegalStateException");
+    fail("IllegalStateException");
 } catch (IllegalStateException e) {
 }
     }
@@ -107,7 +130,7 @@ public class MemoizerTest_OE25Dev {
 
         try {
     memoizer.compute(input);
-    org.junit.jupiter.api.Assertions.fail("Throwable");
+    fail("Throwable");
 } catch (Throwable e) {
 }
     }
@@ -122,7 +145,7 @@ public class MemoizerTest_OE25Dev {
 
         try {
     memoizer.compute(input);
-    org.junit.jupiter.api.Assertions.fail("RuntimeException");
+    fail("RuntimeException");
 } catch (RuntimeException e) {
 }
     }
@@ -137,7 +160,7 @@ public class MemoizerTest_OE25Dev {
 
         try {
     memoizer.compute(input);
-    org.junit.jupiter.api.Assertions.fail("Error");
+    fail("Error");
 } catch (Error e) {
 }
     }

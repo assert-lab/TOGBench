@@ -27,6 +27,8 @@ import org.apache.commons.numbers.core.Precision;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class FacetDefinitionsTest_OE25Dev {
 
     private static final double TEST_EPS = 1e-10;
@@ -53,6 +55,141 @@ class FacetDefinitionsTest_OE25Dev {
     }
 
     @Test
+    void testToPolygon_noNormal_1_oe() {
+        // arrange
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS);
+
+        // act
+        final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
+
+        // assert
+        Assertions.assertSame(TEST_PRECISION, p.getPlane().getPrecision());
+    }
+
+    @Test
+    void testToPolygon_noNormal_3_oe() {
+        // arrange
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS);
+
+        // act
+        final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(4, p.getVertices().size());
+    }
+
+    @Test
+    void testToPolygon_noNormal_4_oe() {
+        // arrange
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS);
+
+        // act
+        final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(1.0, p.getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testToPolygon_withNormal_similarDirection_1_oe() {
+        // arrange
+        final Vector3D normal = Vector3D.of(0.1, 0.2, 0.3);
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, normal);
+
+        // act
+        final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
+
+        // assert
+        Assertions.assertSame(TEST_PRECISION, p.getPlane().getPrecision());
+    }
+
+    @Test
+    void testToPolygon_withNormal_similarDirection_3_oe() {
+        // arrange
+        final Vector3D normal = Vector3D.of(0.1, 0.2, 0.3);
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, normal);
+
+        // act
+        final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(4, p.getVertices().size());
+    }
+
+    @Test
+    void testToPolygon_withNormal_similarDirection_4_oe() {
+        // arrange
+        final Vector3D normal = Vector3D.of(0.1, 0.2, 0.3);
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, normal);
+
+        // act
+        final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(1.0, p.getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testToPolygon_withNormal_differentDirection_1_oe() {
+        // arrange
+        final Vector3D normal = Vector3D.of(0.1, 0.2, -0.3);
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, normal);
+
+        // act
+        final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
+
+        // assert
+        Assertions.assertSame(TEST_PRECISION, p.getPlane().getPrecision());
+    }
+
+    @Test
+    void testToPolygon_withNormal_differentDirection_3_oe() {
+        // arrange
+        final Vector3D normal = Vector3D.of(0.1, 0.2, -0.3);
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, normal);
+
+        // act
+        final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(4, p.getVertices().size());
+    }
+
+    @Test
+    void testToPolygon_withNormal_differentDirection_4_oe() {
+        // arrange
+        final Vector3D normal = Vector3D.of(0.1, 0.2, -0.3);
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, normal);
+
+        // act
+        final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(1.0, p.getSize(), TEST_EPS);
+    }
+
+    @Test
     void testToPolygon_failure_1_oe() {
         // arrange
         final SimpleFacetDefinition f = new SimpleFacetDefinition(Arrays.asList(
@@ -61,7 +198,7 @@ class FacetDefinitionsTest_OE25Dev {
         // act/assert
         try {
     FacetDefinitions.toPolygon(f, TEST_PRECISION);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }

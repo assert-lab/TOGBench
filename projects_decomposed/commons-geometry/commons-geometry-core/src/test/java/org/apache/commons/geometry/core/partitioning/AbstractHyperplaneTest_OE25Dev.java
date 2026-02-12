@@ -62,5 +62,144 @@ class AbstractHyperplaneTest_OE25Dev {
         }
     }
 
+    @Test
+    void testGetPrecision_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final StubHyperplane hyper = new StubHyperplane(precision);
+
+        // act/assert
+        Assertions.assertSame(precision, hyper.getPrecision());
+    }
+
+    @Test
+    void testClassify_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final StubHyperplane hyper = new StubHyperplane(precision);
+
+        // act/assert
+        Assertions.assertEquals(HyperplaneLocation.MINUS, hyper.classify(new TestPoint2D(1, 1)));
+    }
+
+    @Test
+    void testClassify_2_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final StubHyperplane hyper = new StubHyperplane(precision);
+
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertEquals(HyperplaneLocation.ON, hyper.classify(new TestPoint2D(1, 0.09)));
+    }
+
+    @Test
+    void testClassify_3_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final StubHyperplane hyper = new StubHyperplane(precision);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(HyperplaneLocation.ON, hyper.classify(new TestPoint2D(1, 0)));
+    }
+
+    @Test
+    void testClassify_4_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final StubHyperplane hyper = new StubHyperplane(precision);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(HyperplaneLocation.ON, hyper.classify(new TestPoint2D(1, -0.09)));
+    }
+
+    @Test
+    void testClassify_5_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final StubHyperplane hyper = new StubHyperplane(precision);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(HyperplaneLocation.PLUS, hyper.classify(new TestPoint2D(1, -1)));
+    }
+
+    @Test
+    void testContains_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final StubHyperplane hyper = new StubHyperplane(precision);
+
+        // act/assert
+        Assertions.assertFalse(hyper.contains(new TestPoint2D(1, 1)));
+    }
+
+    @Test
+    void testContains_2_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final StubHyperplane hyper = new StubHyperplane(precision);
+
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertTrue(hyper.contains(new TestPoint2D(1, 0.09)));
+    }
+
+    @Test
+    void testContains_3_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final StubHyperplane hyper = new StubHyperplane(precision);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertTrue(hyper.contains(new TestPoint2D(1, 0)));
+    }
+
+    @Test
+    void testContains_4_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final StubHyperplane hyper = new StubHyperplane(precision);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(hyper.contains(new TestPoint2D(1, -0.09)));
+    }
+
+    @Test
+    void testContains_5_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final StubHyperplane hyper = new StubHyperplane(precision);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(hyper.contains(new TestPoint2D(1, -1)));
+    }
 
 }

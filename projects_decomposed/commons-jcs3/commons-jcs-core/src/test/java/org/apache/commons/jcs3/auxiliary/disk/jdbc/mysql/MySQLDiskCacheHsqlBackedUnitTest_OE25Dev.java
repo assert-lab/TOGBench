@@ -152,5 +152,27 @@ public class MySQLDiskCacheHsqlBackedUnitTest_OE25Dev
      * @throws Exception
      */
 
+    @Test
+    public void testPutGetMatchingWithHSQL_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final int items = 200;
+        final String region = "testCache2";
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+//        System.out.println( "BEFORE PUT \n" + jcs.getStats() );
+
+        // DO WORK
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.put( i + ":key", region + " data " + i );
+        }
+        Thread.sleep( 1000 );
+
+        final Map<String, ICacheElement<String, String>> matchingResults = jcs.getMatchingCacheElements( "1.8.+" );
+
+        // VERIFY
+        assertEquals( "Wrong number returned", 10, matchingResults.size() );
+    }
 
 }

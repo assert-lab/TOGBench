@@ -41,5 +41,92 @@ public class HeaderExtractorTest_OE25Dev {
         });
     }
 
+    @Test
+    public void shouldExtractStandardHeader_1_oe() {
+        final String header = extractor.extract(request);
+        final String oauth = "OAuth ";
+        final String callback = "oauth_callback=\"http%3A%2F%2Fexample%2Fcallback\"";
+        final String signature = "oauth_signature=\"OAuth-Signature\"";
+        final String key = "oauth_consumer_key=\"AS%23%24%5E%2A%40%26\"";
+        final String timestamp = "oauth_timestamp=\"123456\"";
+
+        assertTrue(header.startsWith(oauth));
+    }
+
+    @Test
+    public void shouldExtractStandardHeader_2_oe() {
+        final String header = extractor.extract(request);
+        final String oauth = "OAuth ";
+        final String callback = "oauth_callback=\"http%3A%2F%2Fexample%2Fcallback\"";
+        final String signature = "oauth_signature=\"OAuth-Signature\"";
+        final String key = "oauth_consumer_key=\"AS%23%24%5E%2A%40%26\"";
+        final String timestamp = "oauth_timestamp=\"123456\"";
+
+        // removed other assertion
+        assertTrue(header.contains(callback));
+    }
+
+    @Test
+    public void shouldExtractStandardHeader_3_oe() {
+        final String header = extractor.extract(request);
+        final String oauth = "OAuth ";
+        final String callback = "oauth_callback=\"http%3A%2F%2Fexample%2Fcallback\"";
+        final String signature = "oauth_signature=\"OAuth-Signature\"";
+        final String key = "oauth_consumer_key=\"AS%23%24%5E%2A%40%26\"";
+        final String timestamp = "oauth_timestamp=\"123456\"";
+
+        // removed other assertion
+        // removed other assertion
+        assertTrue(header.contains(signature));
+    }
+
+    @Test
+    public void shouldExtractStandardHeader_4_oe() {
+        final String header = extractor.extract(request);
+        final String oauth = "OAuth ";
+        final String callback = "oauth_callback=\"http%3A%2F%2Fexample%2Fcallback\"";
+        final String signature = "oauth_signature=\"OAuth-Signature\"";
+        final String key = "oauth_consumer_key=\"AS%23%24%5E%2A%40%26\"";
+        final String timestamp = "oauth_timestamp=\"123456\"";
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(header.contains(key));
+    }
+
+    @Test
+    public void shouldExtractStandardHeader_5_oe() {
+        final String header = extractor.extract(request);
+        final String oauth = "OAuth ";
+        final String callback = "oauth_callback=\"http%3A%2F%2Fexample%2Fcallback\"";
+        final String signature = "oauth_signature=\"OAuth-Signature\"";
+        final String key = "oauth_consumer_key=\"AS%23%24%5E%2A%40%26\"";
+        final String timestamp = "oauth_timestamp=\"123456\"";
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(header.contains(timestamp));
+    }
+
+    @Test
+    public void shouldExtractStandardHeader_6_oe() {
+        final String header = extractor.extract(request);
+        final String oauth = "OAuth ";
+        final String callback = "oauth_callback=\"http%3A%2F%2Fexample%2Fcallback\"";
+        final String signature = "oauth_signature=\"OAuth-Signature\"";
+        final String key = "oauth_consumer_key=\"AS%23%24%5E%2A%40%26\"";
+        final String timestamp = "oauth_timestamp=\"123456\"";
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Assert that header only contains the checked elements above and nothing else
+        assertEquals(",,,",header.replaceFirst(oauth,"").replaceFirst(callback,"").replaceFirst(signature,"").replaceFirst(key,"").replaceFirst(timestamp,""));
+    }
 
 }

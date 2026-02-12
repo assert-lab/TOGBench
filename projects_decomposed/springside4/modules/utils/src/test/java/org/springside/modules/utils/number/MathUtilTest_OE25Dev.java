@@ -1,0 +1,776 @@
+package org.springside.modules.utils.number;
+
+import static org.assertj.core.api.Assertions.*;
+
+import java.math.RoundingMode;
+
+import org.junit.Test;
+
+public class MathUtilTest_OE25Dev {
+
+	@Test
+	public void power2_3_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			assertThat(e).isInstanceOf(IllegalArgumentException.class);
+	}
+	}
+
+	@Test
+	public void power2_4_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		assertThat(MathUtil.nextPowerOfTwo(5)).isEqualTo(8);
+	}
+
+	@Test
+	public void power2_5_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		assertThat(MathUtil.nextPowerOfTwo(99)).isEqualTo(128);
+	}
+
+	@Test
+	public void power2_6_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		assertThat(MathUtil.previousPowerOfTwo(5)).isEqualTo(4);
+	}
+
+	@Test
+	public void power2_7_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		assertThat(MathUtil.previousPowerOfTwo(99)).isEqualTo(64);
+	}
+
+	@Test
+	public void power2_8_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		assertThat(MathUtil.isPowerOfTwo(32)).isTrue();
+	}
+
+	@Test
+	public void power2_9_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		assertThat(MathUtil.isPowerOfTwo(31)).isFalse();
+	}
+
+	@Test
+	public void power2_10_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		assertThat(MathUtil.nextPowerOfTwo(5L)).isEqualTo(8L);
+	}
+
+	@Test
+	public void power2_11_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		assertThat(MathUtil.nextPowerOfTwo(99L)).isEqualTo(128L);
+	}
+
+	@Test
+	public void power2_12_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		assertThat(MathUtil.previousPowerOfTwo(5L)).isEqualTo(4L);
+	}
+
+	@Test
+	public void power2_13_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		assertThat(MathUtil.previousPowerOfTwo(99L)).isEqualTo(64L);
+	}
+
+	@Test
+	public void power2_14_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		assertThat(MathUtil.isPowerOfTwo(32L)).isTrue();
+	}
+
+	@Test
+	public void power2_15_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		assertThat(MathUtil.isPowerOfTwo(31L)).isFalse();
+	}
+
+	@Test
+	public void power2_16_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		assertThat(MathUtil.isPowerOfTwo(-2)).isFalse();
+	}
+
+	@Test
+	public void power2_17_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		assertThat(MathUtil.modByPowerOfTwo(0, 16)).isEqualTo(0);
+	}
+
+	@Test
+	public void power2_18_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		assertThat(MathUtil.modByPowerOfTwo(1, 16)).isEqualTo(1);
+	}
+
+	@Test
+	public void power2_19_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		assertThat(MathUtil.modByPowerOfTwo(31, 16)).isEqualTo(15);
+	}
+
+	@Test
+	public void power2_20_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		assertThat(MathUtil.modByPowerOfTwo(32, 16)).isEqualTo(0);
+	}
+
+	@Test
+	public void power2_21_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		assertThat(MathUtil.modByPowerOfTwo(65, 16)).isEqualTo(1);
+	}
+
+	@Test
+	public void power2_22_oe() {
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		assertThat(MathUtil.modByPowerOfTwo(-1, 16)).isEqualTo(15);
+	}
+
+	@Test
+	public void gcd_1_oe() {
+		assertThat(MathUtil.gcd(5, 6)).isEqualTo(1);
+	}
+
+	@Test
+	public void gcd_2_oe() {
+		// removed other assertion
+		assertThat(MathUtil.gcd(12, 18)).isEqualTo(6);
+	}
+
+	@Test
+	public void gcd_3_oe() {
+		// removed other assertion
+		// removed other assertion
+		assertThat(MathUtil.gcd(100, 1000)).isEqualTo(100);
+	}
+
+	@Test
+	public void gcd_4_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		assertThat(MathUtil.gcd(5L, 6L)).isEqualTo(1L);
+	}
+
+	@Test
+	public void gcd_5_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		assertThat(MathUtil.gcd(12L, 18L)).isEqualTo(6L);
+	}
+
+	@Test
+	public void gcd_6_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		assertThat(MathUtil.gcd(100L, 1000L)).isEqualTo(100L);
+	}
+
+	@Test
+	public void caculate_1_oe() {
+		assertThat(MathUtil.mod(15, 10)).isEqualTo(5);
+	}
+
+	@Test
+	public void caculate_2_oe() {
+		// removed other assertion
+		assertThat(MathUtil.mod(-15, 10)).isEqualTo(5);
+	}
+
+	@Test
+	public void caculate_3_oe() {
+		// removed other assertion
+		// removed other assertion
+		assertThat(MathUtil.mod(-5, 3)).isEqualTo(1);
+	}
+
+	@Test
+	public void caculate_4_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		assertThat(MathUtil.mod(15l, 10l)).isEqualTo(5);
+	}
+
+	@Test
+	public void caculate_5_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		assertThat(MathUtil.mod(-15l, 10l)).isEqualTo(5);
+	}
+
+	@Test
+	public void caculate_6_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		assertThat(MathUtil.mod(-5l, 3l)).isEqualTo(1);
+	}
+
+	@Test
+	public void caculate_7_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		assertThat(MathUtil.mod(15l, 10)).isEqualTo(5);
+	}
+
+	@Test
+	public void caculate_8_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		assertThat(MathUtil.mod(-15l, 10)).isEqualTo(5);
+	}
+
+	@Test
+	public void caculate_9_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		assertThat(MathUtil.mod(-5l, 3)).isEqualTo(1);
+	}
+
+	@Test
+	public void caculate_10_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		assertThat(MathUtil.pow(2, 3)).isEqualTo(8);
+	}
+
+	@Test
+	public void caculate_11_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		assertThat(MathUtil.pow(2, 0)).isEqualTo(1);
+	}
+
+	@Test
+	public void caculate_12_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		
+		assertThat(MathUtil.pow(2l, 3)).isEqualTo(8);
+	}
+
+	@Test
+	public void caculate_13_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		assertThat(MathUtil.pow(2l, 0)).isEqualTo(1);
+	}
+
+	@Test
+	public void caculate_14_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		
+		assertThat(MathUtil.sqrt(15, RoundingMode.HALF_UP)).isEqualTo(4);
+	}
+
+	@Test
+	public void caculate_15_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		assertThat(MathUtil.sqrt(16, RoundingMode.HALF_UP)).isEqualTo(4);
+	}
+
+	@Test
+	public void caculate_16_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		
+		// removed other assertion
+		// removed other assertion
+		assertThat(MathUtil.sqrt(10l, RoundingMode.HALF_UP)).isEqualTo(3);
+	}
+
+	@Test
+	public void divide_1_oe() {
+		assertThat(10 / 4).isEqualTo(2);
+	}
+
+	@Test
+	public void divide_2_oe() {
+		// removed other assertion
+		assertThat(MathUtil.divide(10, 4, RoundingMode.HALF_UP)).isEqualTo(3);
+	}
+
+	@Test
+	public void divide_3_oe() {
+		// removed other assertion
+		// removed other assertion
+		assertThat(MathUtil.divide(10L, 4L, RoundingMode.HALF_DOWN)).isEqualTo(2);
+	}
+
+}

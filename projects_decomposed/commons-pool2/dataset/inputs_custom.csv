@@ -1,12 +1,12 @@
 id,test_prefix,test_name
-pool_152_1,"    @Test
+pool_153_1,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testSetConfig_1_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
         assertConfiguration(expected,genericObjectPool);
     }
 ",TestGenericObjectPool::testSetConfig_1_oe
-pool_152_2,"    @Test
+pool_153_2,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testSetConfig_2_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
@@ -26,7 +26,7 @@ pool_152_2,"    @Test
         assertConfiguration(expected,genericObjectPool);
     }
 ",TestGenericObjectPool::testSetConfig_2_oe
-pool_164_1,"    @Test
+pool_165_1,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testDefaultConfiguration_1_oe() {
         assertConfiguration(new GenericObjectPoolConfig<>(),genericObjectPool);

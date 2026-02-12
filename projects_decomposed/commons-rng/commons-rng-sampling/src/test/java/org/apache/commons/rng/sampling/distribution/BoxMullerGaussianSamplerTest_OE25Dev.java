@@ -21,6 +21,8 @@ import org.apache.commons.rng.simple.RandomSource;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test for the {@link BoxMullerGaussianSampler}. The tests hit edge cases for the sampler.
  */
@@ -37,7 +39,7 @@ class BoxMullerGaussianSamplerTest_OE25Dev {
          double standardDeviation = 0;
         try {
     new BoxMullerGaussianSampler(rng, mean, standardDeviation);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }

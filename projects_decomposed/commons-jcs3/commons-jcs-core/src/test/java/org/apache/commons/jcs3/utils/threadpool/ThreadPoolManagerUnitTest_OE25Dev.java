@@ -49,5 +49,79 @@ public class ThreadPoolManagerUnitTest_OE25Dev
      *
      */
 
+    public void testDefaultConfig_1_oe()
+    {
+        final Properties props = PropertyLoader.loadProperties( "thread_pool.properties" );
+        ThreadPoolManager.setProps( props );
+        final ThreadPoolManager mgr = ThreadPoolManager.getInstance();
+        assertNotNull( mgr );
+    }
+
+    public void testDefaultConfig_2_oe()
+    {
+        final Properties props = PropertyLoader.loadProperties( "thread_pool.properties" );
+        ThreadPoolManager.setProps( props );
+        final ThreadPoolManager mgr = ThreadPoolManager.getInstance();
+        // removed other assertion
+
+        final ExecutorService pool = mgr.getExecutorService( "test1" );
+        assertNotNull( pool );
+    }
+
+    public void testSpecialConfig_1_oe()
+    {
+        final Properties props = PropertyLoader.loadProperties( "thread_pool.properties" );
+        ThreadPoolManager.setProps( props );
+        final ThreadPoolManager mgr = ThreadPoolManager.getInstance();
+        assertNotNull( mgr );
+    }
+
+    public void testSpecialConfig_2_oe()
+    {
+        final Properties props = PropertyLoader.loadProperties( "thread_pool.properties" );
+        ThreadPoolManager.setProps( props );
+        final ThreadPoolManager mgr = ThreadPoolManager.getInstance();
+        // removed other assertion
+
+        final ExecutorService pool = mgr.getExecutorService( "aborttest" );
+        assertNotNull( pool );
+    }
+
+    public void testGetPoolNames_1_oe()
+    {
+        final ThreadPoolManager mgr = ThreadPoolManager.getInstance();
+        assertNotNull( mgr );
+    }
+
+    public void testGetPoolNames_2_oe()
+    {
+        final ThreadPoolManager mgr = ThreadPoolManager.getInstance();
+        // removed other assertion
+
+        final String poolName1 = "testGetPoolNames1";
+        mgr.getExecutorService( poolName1 );
+
+        final String poolName2 = "testGetPoolNames2";
+        mgr.getExecutorService( poolName2 );
+
+        final Set<String> names = mgr.getPoolNames();
+        assertTrue( "Should have name in list.", names.contains( poolName1 ) );
+    }
+
+    public void testGetPoolNames_3_oe()
+    {
+        final ThreadPoolManager mgr = ThreadPoolManager.getInstance();
+        // removed other assertion
+
+        final String poolName1 = "testGetPoolNames1";
+        mgr.getExecutorService( poolName1 );
+
+        final String poolName2 = "testGetPoolNames2";
+        mgr.getExecutorService( poolName2 );
+
+        final Set<String> names = mgr.getPoolNames();
+        // removed other assertion
+        assertTrue( "Should have name in list.", names.contains( poolName2 ) );
+    }
 
 }

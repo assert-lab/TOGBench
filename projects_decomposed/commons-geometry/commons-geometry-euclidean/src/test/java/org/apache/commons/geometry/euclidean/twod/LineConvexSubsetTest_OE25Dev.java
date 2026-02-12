@@ -121,5 +121,1470 @@ class LineConvexSubsetTest_OE25Dev {
         Assertions.assertSame(precision, line.getPrecision());
     }
 
+    @Test
+    void testFromInterval_intervalArg_finite_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.of(-1, 2, intervalPrecision);
+
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final Segment segment = (Segment) Lines.subsetFromInterval(line, interval);
+
+        // assert
+        final double side = 1.0 / Math.sqrt(2);
+        checkFinite(segment, Vector2D.of(-side, -side), Vector2D.of(2 * side, 2 * side));
+
+        Assertions.assertSame(TEST_PRECISION, segment.getPrecision());
+    }
+
+    @Test
+    void testFromInterval_intervalArg_full_3_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final LineConvexSubset span = Lines.subsetFromInterval(line, Interval.full());
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertNull(span.getStartPoint());
+    }
+
+    @Test
+    void testFromInterval_intervalArg_full_4_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final LineConvexSubset span = Lines.subsetFromInterval(line, Interval.full());
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(span.getEndPoint());
+    }
+
+    @Test
+    void testFromInterval_intervalArg_full_5_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final LineConvexSubset span = Lines.subsetFromInterval(line, Interval.full());
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertSame(Interval.full(), span.getInterval());
+    }
+
+    @Test
+    void testFromInterval_intervalArg_full_6_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final LineConvexSubset span = Lines.subsetFromInterval(line, Interval.full());
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertSame(TEST_PRECISION, span.getPrecision());
+    }
+
+    @Test
+    void testFromInterval_intervalArg_positiveHalfSpace_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.min(-1, intervalPrecision);
+
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final Ray ray = (Ray) Lines.subsetFromInterval(line, interval);
+
+        // assert
+        Assertions.assertEquals(-1.0, ray.getSubspaceStart(), TEST_EPS);
+    }
+
+    @Test
+    void testFromInterval_intervalArg_positiveHalfSpace_4_oe() {
+        // arrange
+        final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.min(-1, intervalPrecision);
+
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final Ray ray = (Ray) Lines.subsetFromInterval(line, interval);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final double side = 1.0 / Math.sqrt(2);
+
+        // removed other assertion
+        Assertions.assertNull(ray.getEndPoint());
+    }
+
+    @Test
+    void testFromInterval_intervalArg_positiveHalfSpace_5_oe() {
+        // arrange
+        final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.min(-1, intervalPrecision);
+
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final Ray ray = (Ray) Lines.subsetFromInterval(line, interval);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final double side = 1.0 / Math.sqrt(2);
+
+        // removed other assertion
+        // removed other assertion
+
+        checkInterval(interval, ray.getInterval());
+        Assertions.assertSame(TEST_PRECISION, ray.getPrecision());
+    }
+
+    @Test
+    void testFromInterval_intervalArg_negativeHalfSpace_2_oe() {
+        // arrange
+        final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.max(2, intervalPrecision);
+
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final ReverseRay halfLine = (ReverseRay) Lines.subsetFromInterval(line, interval);
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(2, halfLine.getSubspaceEnd(), TEST_EPS);
+    }
+
+    @Test
+    void testFromInterval_intervalArg_negativeHalfSpace_3_oe() {
+        // arrange
+        final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.max(2, intervalPrecision);
+
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final ReverseRay halfLine = (ReverseRay) Lines.subsetFromInterval(line, interval);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final double side = 1.0 / Math.sqrt(2);
+
+        Assertions.assertNull(halfLine.getStartPoint());
+    }
+
+    @Test
+    void testFromInterval_intervalArg_negativeHalfSpace_5_oe() {
+        // arrange
+        final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.max(2, intervalPrecision);
+
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final ReverseRay halfLine = (ReverseRay) Lines.subsetFromInterval(line, interval);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final double side = 1.0 / Math.sqrt(2);
+
+        // removed other assertion
+        // removed other assertion
+
+        checkInterval(interval, halfLine.getInterval());
+        Assertions.assertSame(TEST_PRECISION, halfLine.getPrecision());
+    }
+
+    @Test
+    void testFromInterval_doubleArgs_finite_1_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final Segment segment = (Segment) Lines.subsetFromInterval(line, -1, 2);
+
+        // assert
+        final double side = 1.0 / Math.sqrt(2);
+        checkFinite(segment, Vector2D.of(-side, -side), Vector2D.of(2 * side, 2 * side));
+
+        Assertions.assertSame(TEST_PRECISION, segment.getPrecision());
+    }
+
+    @Test
+    void testFromInterval_doubleArgs_full_3_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final LineConvexSubset span = Lines.subsetFromInterval(line, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertNull(span.getStartPoint());
+    }
+
+    @Test
+    void testFromInterval_doubleArgs_full_4_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final LineConvexSubset span = Lines.subsetFromInterval(line, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(span.getEndPoint());
+    }
+
+    @Test
+    void testFromInterval_doubleArgs_full_5_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final LineConvexSubset span = Lines.subsetFromInterval(line, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertSame(TEST_PRECISION, span.getPrecision());
+    }
+
+    @Test
+    void testFromInterval_doubleArgs_positiveHalfSpace_1_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final Ray ray = (Ray) Lines.subsetFromInterval(line, -1, Double.POSITIVE_INFINITY);
+
+        // assert
+        Assertions.assertEquals(-1.0, ray.getSubspaceStart(), TEST_EPS);
+    }
+
+    @Test
+    void testFromInterval_doubleArgs_positiveHalfSpace_4_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final Ray ray = (Ray) Lines.subsetFromInterval(line, -1, Double.POSITIVE_INFINITY);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final double side = 1.0 / Math.sqrt(2);
+
+        // removed other assertion
+        Assertions.assertNull(ray.getEndPoint());
+    }
+
+    @Test
+    void testFromInterval_doubleArgs_positiveHalfSpace_5_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final Ray ray = (Ray) Lines.subsetFromInterval(line, -1, Double.POSITIVE_INFINITY);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final double side = 1.0 / Math.sqrt(2);
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertSame(TEST_PRECISION, ray.getPrecision());
+    }
+
+    @Test
+    void testFromInterval_doubleArgs_negativeHalfSpace_2_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final ReverseRay halfLine = (ReverseRay) Lines.subsetFromInterval(line, 2, Double.NEGATIVE_INFINITY);
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(2, halfLine.getSubspaceEnd(), TEST_EPS);
+    }
+
+    @Test
+    void testFromInterval_doubleArgs_negativeHalfSpace_3_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final ReverseRay halfLine = (ReverseRay) Lines.subsetFromInterval(line, 2, Double.NEGATIVE_INFINITY);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final double side = 1.0 / Math.sqrt(2);
+
+        Assertions.assertNull(halfLine.getStartPoint());
+    }
+
+    @Test
+    void testFromInterval_doubleArgs_negativeHalfSpace_5_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION);
+
+        // act
+        final ReverseRay halfLine = (ReverseRay) Lines.subsetFromInterval(line, 2, Double.NEGATIVE_INFINITY);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final double side = 1.0 / Math.sqrt(2);
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertSame(TEST_PRECISION, halfLine.getPrecision());
+    }
+
+    @Test
+    void testToConvex_1_oe() {
+        // arrange
+        final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(4, 5), TEST_PRECISION);
+        final LineConvexSubset sub = Lines.subsetFromInterval(line, 1, 2);
+
+        // act
+        final List<LineConvexSubset> segments = sub.toConvex();
+
+        // assert
+        Assertions.assertEquals(1, segments.size());
+    }
+
+    @Test
+    void testToConvex_2_oe() {
+        // arrange
+        final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(4, 5), TEST_PRECISION);
+        final LineConvexSubset sub = Lines.subsetFromInterval(line, 1, 2);
+
+        // act
+        final List<LineConvexSubset> segments = sub.toConvex();
+
+        // assert
+        // removed other assertion
+        Assertions.assertSame(sub, segments.get(0));
+    }
+
+    @Test
+    void testIntersection_line_1_oe() {
+        // arrange
+        final Segment aSeg = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(2, 0), TEST_PRECISION);
+        final Segment bSeg = Lines.segmentFromPoints(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION);
+
+        final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
+        final Line yAxis = Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION);
+        final Line angledLine = Lines.fromPoints(Vector2D.of(1, 1), Vector2D.of(2, 0), TEST_PRECISION);
+
+        // act/assert
+        Assertions.assertNull(aSeg.intersection(xAxis));
+    }
+
+    @Test
+    void testIntersection_line_2_oe() {
+        // arrange
+        final Segment aSeg = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(2, 0), TEST_PRECISION);
+        final Segment bSeg = Lines.segmentFromPoints(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION);
+
+        final Line xAxis = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
+        final Line yAxis = Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION);
+        final Line angledLine = Lines.fromPoints(Vector2D.of(1, 1), Vector2D.of(2, 0), TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertNull(aSeg.intersection(yAxis));
+    }
+
+    @Test
+    void testIntersection_lineSegment_1_oe() {
+        // arrange
+        final Segment a = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(2, 0), TEST_PRECISION);
+        final Segment b = Lines.segmentFromPoints(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION);
+        final Segment c = Lines.segmentFromPoints(Vector2D.of(-1, 0), Vector2D.ZERO, TEST_PRECISION);
+        final Segment d = Lines.segmentFromPoints(Vector2D.of(0, 3), Vector2D.of(3, 0), TEST_PRECISION);
+
+        // act/assert
+        Assertions.assertNull(a.intersection(a));
+    }
+
+    @Test
+    void testIntersection_lineSegment_2_oe() {
+        // arrange
+        final Segment a = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(2, 0), TEST_PRECISION);
+        final Segment b = Lines.segmentFromPoints(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION);
+        final Segment c = Lines.segmentFromPoints(Vector2D.of(-1, 0), Vector2D.ZERO, TEST_PRECISION);
+        final Segment d = Lines.segmentFromPoints(Vector2D.of(0, 3), Vector2D.of(3, 0), TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertNull(a.intersection(c));
+    }
+
+    @Test
+    void testIntersection_lineSegment_3_oe() {
+        // arrange
+        final Segment a = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(2, 0), TEST_PRECISION);
+        final Segment b = Lines.segmentFromPoints(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION);
+        final Segment c = Lines.segmentFromPoints(Vector2D.of(-1, 0), Vector2D.ZERO, TEST_PRECISION);
+        final Segment d = Lines.segmentFromPoints(Vector2D.of(0, 3), Vector2D.of(3, 0), TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNull(a.intersection(b));
+    }
+
+    @Test
+    void testIntersection_lineSegment_5_oe() {
+        // arrange
+        final Segment a = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(2, 0), TEST_PRECISION);
+        final Segment b = Lines.segmentFromPoints(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION);
+        final Segment c = Lines.segmentFromPoints(Vector2D.of(-1, 0), Vector2D.ZERO, TEST_PRECISION);
+        final Segment d = Lines.segmentFromPoints(Vector2D.of(0, 3), Vector2D.of(3, 0), TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        Assertions.assertNull(b.intersection(d));
+    }
+
+    @Test
+    void testIntersection_lineSegment_6_oe() {
+        // arrange
+        final Segment a = Lines.segmentFromPoints(Vector2D.of(1, 0), Vector2D.of(2, 0), TEST_PRECISION);
+        final Segment b = Lines.segmentFromPoints(Vector2D.of(-1, -1), Vector2D.of(1, 1), TEST_PRECISION);
+        final Segment c = Lines.segmentFromPoints(Vector2D.of(-1, 0), Vector2D.ZERO, TEST_PRECISION);
+        final Segment d = Lines.segmentFromPoints(Vector2D.of(0, 3), Vector2D.of(3, 0), TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(d.intersection(b));
+    }
+
+    @Test
+    void testSplit_finite_1_oe() {
+        // arrange
+        final Vector2D start = Vector2D.of(1, 1);
+        final Vector2D end = Vector2D.of(3, 2);
+        final Vector2D middle = start.lerp(end, 0.5);
+
+        final Segment sub = Lines.segmentFromPoints(start, end, TEST_PRECISION);
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, end);
+        checkFinite(both.getPlus(), start, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), start, middle);
+        checkFinite(bothReversed.getPlus(), middle, end);
+
+        final Split<LineConvexSubset> minusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(start, Vector2D.of(1, -2), TEST_PRECISION));
+        Assertions.assertSame(sub, minusOnlyOrthogonal.getMinus());
+    }
+
+    @Test
+    void testSplit_finite_2_oe() {
+        // arrange
+        final Vector2D start = Vector2D.of(1, 1);
+        final Vector2D end = Vector2D.of(3, 2);
+        final Vector2D middle = start.lerp(end, 0.5);
+
+        final Segment sub = Lines.segmentFromPoints(start, end, TEST_PRECISION);
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, end);
+        checkFinite(both.getPlus(), start, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), start, middle);
+        checkFinite(bothReversed.getPlus(), middle, end);
+
+        final Split<LineConvexSubset> minusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(start, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        Assertions.assertNull(minusOnlyOrthogonal.getPlus());
+    }
+
+    @Test
+    void testSplit_finite_3_oe() {
+        // arrange
+        final Vector2D start = Vector2D.of(1, 1);
+        final Vector2D end = Vector2D.of(3, 2);
+        final Vector2D middle = start.lerp(end, 0.5);
+
+        final Segment sub = Lines.segmentFromPoints(start, end, TEST_PRECISION);
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, end);
+        checkFinite(both.getPlus(), start, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), start, middle);
+        checkFinite(bothReversed.getPlus(), middle, end);
+
+        final Split<LineConvexSubset> minusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(start, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> minusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        Assertions.assertSame(sub, minusOnlyParallel.getMinus());
+    }
+
+    @Test
+    void testSplit_finite_4_oe() {
+        // arrange
+        final Vector2D start = Vector2D.of(1, 1);
+        final Vector2D end = Vector2D.of(3, 2);
+        final Vector2D middle = start.lerp(end, 0.5);
+
+        final Segment sub = Lines.segmentFromPoints(start, end, TEST_PRECISION);
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, end);
+        checkFinite(both.getPlus(), start, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), start, middle);
+        checkFinite(bothReversed.getPlus(), middle, end);
+
+        final Split<LineConvexSubset> minusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(start, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> minusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        Assertions.assertNull(minusOnlyParallel.getPlus());
+    }
+
+    @Test
+    void testSplit_finite_5_oe() {
+        // arrange
+        final Vector2D start = Vector2D.of(1, 1);
+        final Vector2D end = Vector2D.of(3, 2);
+        final Vector2D middle = start.lerp(end, 0.5);
+
+        final Segment sub = Lines.segmentFromPoints(start, end, TEST_PRECISION);
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, end);
+        checkFinite(both.getPlus(), start, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), start, middle);
+        checkFinite(bothReversed.getPlus(), middle, end);
+
+        final Split<LineConvexSubset> minusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(start, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> minusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(end, Vector2D.of(1, -2), TEST_PRECISION));
+        Assertions.assertNull(plusOnlyOrthogonal.getMinus());
+    }
+
+    @Test
+    void testSplit_finite_6_oe() {
+        // arrange
+        final Vector2D start = Vector2D.of(1, 1);
+        final Vector2D end = Vector2D.of(3, 2);
+        final Vector2D middle = start.lerp(end, 0.5);
+
+        final Segment sub = Lines.segmentFromPoints(start, end, TEST_PRECISION);
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, end);
+        checkFinite(both.getPlus(), start, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), start, middle);
+        checkFinite(bothReversed.getPlus(), middle, end);
+
+        final Split<LineConvexSubset> minusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(start, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> minusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(end, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        Assertions.assertSame(sub, plusOnlyOrthogonal.getPlus());
+    }
+
+    @Test
+    void testSplit_finite_7_oe() {
+        // arrange
+        final Vector2D start = Vector2D.of(1, 1);
+        final Vector2D end = Vector2D.of(3, 2);
+        final Vector2D middle = start.lerp(end, 0.5);
+
+        final Segment sub = Lines.segmentFromPoints(start, end, TEST_PRECISION);
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, end);
+        checkFinite(both.getPlus(), start, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), start, middle);
+        checkFinite(bothReversed.getPlus(), middle, end);
+
+        final Split<LineConvexSubset> minusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(start, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> minusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(end, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        Assertions.assertNull(plusOnlyParallel.getMinus());
+    }
+
+    @Test
+    void testSplit_finite_8_oe() {
+        // arrange
+        final Vector2D start = Vector2D.of(1, 1);
+        final Vector2D end = Vector2D.of(3, 2);
+        final Vector2D middle = start.lerp(end, 0.5);
+
+        final Segment sub = Lines.segmentFromPoints(start, end, TEST_PRECISION);
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, end);
+        checkFinite(both.getPlus(), start, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), start, middle);
+        checkFinite(bothReversed.getPlus(), middle, end);
+
+        final Split<LineConvexSubset> minusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(start, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> minusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(end, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        // removed other assertion
+        Assertions.assertSame(sub, plusOnlyParallel.getPlus());
+    }
+
+    @Test
+    void testSplit_finite_9_oe() {
+        // arrange
+        final Vector2D start = Vector2D.of(1, 1);
+        final Vector2D end = Vector2D.of(3, 2);
+        final Vector2D middle = start.lerp(end, 0.5);
+
+        final Segment sub = Lines.segmentFromPoints(start, end, TEST_PRECISION);
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, end);
+        checkFinite(both.getPlus(), start, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), start, middle);
+        checkFinite(bothReversed.getPlus(), middle, end);
+
+        final Split<LineConvexSubset> minusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(start, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> minusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(end, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> hyper = sub.split(Lines.fromPointAndDirection(start, Vector2D.of(2, 1), TEST_PRECISION));
+        Assertions.assertNull(hyper.getMinus());
+    }
+
+    @Test
+    void testSplit_finite_10_oe() {
+        // arrange
+        final Vector2D start = Vector2D.of(1, 1);
+        final Vector2D end = Vector2D.of(3, 2);
+        final Vector2D middle = start.lerp(end, 0.5);
+
+        final Segment sub = Lines.segmentFromPoints(start, end, TEST_PRECISION);
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, end);
+        checkFinite(both.getPlus(), start, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), start, middle);
+        checkFinite(bothReversed.getPlus(), middle, end);
+
+        final Split<LineConvexSubset> minusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(start, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> minusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(end, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> hyper = sub.split(Lines.fromPointAndDirection(start, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        Assertions.assertNull(hyper.getPlus());
+    }
+
+    @Test
+    void testSplit_full_1_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset seg = Lines.subsetFromInterval(line, Interval.full());
+
+        // act/assert
+        final Split<LineConvexSubset> both = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkInfinite(both.getMinus(), line,  middle, null);
+        checkInfinite(both.getPlus(), line, null, middle);
+
+        final Split<LineConvexSubset> bothReversed = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkInfinite(bothReversed.getMinus(), line,  null, middle);
+        checkInfinite(bothReversed.getPlus(), line, middle, null);
+
+        final Split<LineConvexSubset> minusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        Assertions.assertSame(seg, minusOnlyParallel.getMinus());
+    }
+
+    @Test
+    void testSplit_full_2_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset seg = Lines.subsetFromInterval(line, Interval.full());
+
+        // act/assert
+        final Split<LineConvexSubset> both = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkInfinite(both.getMinus(), line,  middle, null);
+        checkInfinite(both.getPlus(), line, null, middle);
+
+        final Split<LineConvexSubset> bothReversed = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkInfinite(bothReversed.getMinus(), line,  null, middle);
+        checkInfinite(bothReversed.getPlus(), line, middle, null);
+
+        final Split<LineConvexSubset> minusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        Assertions.assertNull(minusOnlyParallel.getPlus());
+    }
+
+    @Test
+    void testSplit_full_3_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset seg = Lines.subsetFromInterval(line, Interval.full());
+
+        // act/assert
+        final Split<LineConvexSubset> both = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkInfinite(both.getMinus(), line,  middle, null);
+        checkInfinite(both.getPlus(), line, null, middle);
+
+        final Split<LineConvexSubset> bothReversed = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkInfinite(bothReversed.getMinus(), line,  null, middle);
+        checkInfinite(bothReversed.getPlus(), line, middle, null);
+
+        final Split<LineConvexSubset> minusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        Assertions.assertNull(plusOnlyParallel.getMinus());
+    }
+
+    @Test
+    void testSplit_full_4_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset seg = Lines.subsetFromInterval(line, Interval.full());
+
+        // act/assert
+        final Split<LineConvexSubset> both = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkInfinite(both.getMinus(), line,  middle, null);
+        checkInfinite(both.getPlus(), line, null, middle);
+
+        final Split<LineConvexSubset> bothReversed = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkInfinite(bothReversed.getMinus(), line,  null, middle);
+        checkInfinite(bothReversed.getPlus(), line, middle, null);
+
+        final Split<LineConvexSubset> minusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        // removed other assertion
+        Assertions.assertSame(seg, plusOnlyParallel.getPlus());
+    }
+
+    @Test
+    void testSplit_full_5_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset seg = Lines.subsetFromInterval(line, Interval.full());
+
+        // act/assert
+        final Split<LineConvexSubset> both = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkInfinite(both.getMinus(), line,  middle, null);
+        checkInfinite(both.getPlus(), line, null, middle);
+
+        final Split<LineConvexSubset> bothReversed = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkInfinite(bothReversed.getMinus(), line,  null, middle);
+        checkInfinite(bothReversed.getPlus(), line, middle, null);
+
+        final Split<LineConvexSubset> minusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> hyper = seg.split(Lines.fromPointAndDirection(p1, Vector2D.of(2, 1), TEST_PRECISION));
+        Assertions.assertNull(hyper.getMinus());
+    }
+
+    @Test
+    void testSplit_full_6_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset seg = Lines.subsetFromInterval(line, Interval.full());
+
+        // act/assert
+        final Split<LineConvexSubset> both = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkInfinite(both.getMinus(), line,  middle, null);
+        checkInfinite(both.getPlus(), line, null, middle);
+
+        final Split<LineConvexSubset> bothReversed = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkInfinite(bothReversed.getMinus(), line,  null, middle);
+        checkInfinite(bothReversed.getPlus(), line, middle, null);
+
+        final Split<LineConvexSubset> minusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> hyper = seg.split(Lines.fromPointAndDirection(p1, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        Assertions.assertNull(hyper.getPlus());
+    }
+
+    @Test
+    void testSplit_positiveHalfSpace_1_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset sub = Lines.subsetFromInterval(line, Interval.min(line.toSubspace(p1).getX(), TEST_PRECISION));
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkInfinite(both.getMinus(), line,  middle, null);
+        checkFinite(both.getPlus(), p1, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), p1, middle);
+        checkInfinite(bothReversed.getPlus(), line, middle, null);
+
+        final Split<LineConvexSubset> minusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        Assertions.assertSame(sub, minusOnlyParallel.getMinus());
+    }
+
+    @Test
+    void testSplit_positiveHalfSpace_2_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset sub = Lines.subsetFromInterval(line, Interval.min(line.toSubspace(p1).getX(), TEST_PRECISION));
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkInfinite(both.getMinus(), line,  middle, null);
+        checkFinite(both.getPlus(), p1, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), p1, middle);
+        checkInfinite(bothReversed.getPlus(), line, middle, null);
+
+        final Split<LineConvexSubset> minusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        Assertions.assertNull(minusOnlyParallel.getPlus());
+    }
+
+    @Test
+    void testSplit_positiveHalfSpace_3_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset sub = Lines.subsetFromInterval(line, Interval.min(line.toSubspace(p1).getX(), TEST_PRECISION));
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkInfinite(both.getMinus(), line,  middle, null);
+        checkFinite(both.getPlus(), p1, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), p1, middle);
+        checkInfinite(bothReversed.getPlus(), line, middle, null);
+
+        final Split<LineConvexSubset> minusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> minusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(p1, Vector2D.of(1, -2), TEST_PRECISION));
+        Assertions.assertSame(sub, minusOnlyOrthogonal.getMinus());
+    }
+
+    @Test
+    void testSplit_positiveHalfSpace_4_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset sub = Lines.subsetFromInterval(line, Interval.min(line.toSubspace(p1).getX(), TEST_PRECISION));
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkInfinite(both.getMinus(), line,  middle, null);
+        checkFinite(both.getPlus(), p1, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), p1, middle);
+        checkInfinite(bothReversed.getPlus(), line, middle, null);
+
+        final Split<LineConvexSubset> minusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> minusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(p1, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        Assertions.assertNull(minusOnlyOrthogonal.getPlus());
+    }
+
+    @Test
+    void testSplit_positiveHalfSpace_5_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset sub = Lines.subsetFromInterval(line, Interval.min(line.toSubspace(p1).getX(), TEST_PRECISION));
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkInfinite(both.getMinus(), line,  middle, null);
+        checkFinite(both.getPlus(), p1, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), p1, middle);
+        checkInfinite(bothReversed.getPlus(), line, middle, null);
+
+        final Split<LineConvexSubset> minusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> minusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(p1, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        Assertions.assertNull(plusOnlyParallel.getMinus());
+    }
+
+    @Test
+    void testSplit_positiveHalfSpace_6_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset sub = Lines.subsetFromInterval(line, Interval.min(line.toSubspace(p1).getX(), TEST_PRECISION));
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkInfinite(both.getMinus(), line,  middle, null);
+        checkFinite(both.getPlus(), p1, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), p1, middle);
+        checkInfinite(bothReversed.getPlus(), line, middle, null);
+
+        final Split<LineConvexSubset> minusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> minusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(p1, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        // removed other assertion
+        Assertions.assertSame(sub, plusOnlyParallel.getPlus());
+    }
+
+    @Test
+    void testSplit_positiveHalfSpace_7_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset sub = Lines.subsetFromInterval(line, Interval.min(line.toSubspace(p1).getX(), TEST_PRECISION));
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkInfinite(both.getMinus(), line,  middle, null);
+        checkFinite(both.getPlus(), p1, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), p1, middle);
+        checkInfinite(bothReversed.getPlus(), line, middle, null);
+
+        final Split<LineConvexSubset> minusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> minusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(p1, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> hyper = sub.split(Lines.fromPointAndDirection(p1, Vector2D.of(2, 1), TEST_PRECISION));
+        Assertions.assertNull(hyper.getMinus());
+    }
+
+    @Test
+    void testSplit_positiveHalfSpace_8_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset sub = Lines.subsetFromInterval(line, Interval.min(line.toSubspace(p1).getX(), TEST_PRECISION));
+
+        // act/assert
+        final Split<LineConvexSubset> both = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkInfinite(both.getMinus(), line,  middle, null);
+        checkFinite(both.getPlus(), p1, middle);
+
+        final Split<LineConvexSubset> bothReversed = sub.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkFinite(bothReversed.getMinus(), p1, middle);
+        checkInfinite(bothReversed.getPlus(), line, middle, null);
+
+        final Split<LineConvexSubset> minusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> minusOnlyOrthogonal = sub.split(Lines.fromPointAndDirection(p1, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = sub.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> hyper = sub.split(Lines.fromPointAndDirection(p1, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        Assertions.assertNull(hyper.getPlus());
+    }
+
+    @Test
+    void testSplit_negativeHalfSpace_1_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset seg = Lines.subsetFromInterval(line, Interval.max(line.toSubspace(p2).getX(), TEST_PRECISION));
+
+        // act/assert
+        final Split<LineConvexSubset> both = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, p2);
+        checkInfinite(both.getPlus(), line, null, middle);
+
+        final Split<LineConvexSubset> bothReversed = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkInfinite(bothReversed.getMinus(), line, null, middle);
+        checkFinite(bothReversed.getPlus(), middle, p2);
+
+        final Split<LineConvexSubset> minusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        Assertions.assertSame(seg, minusOnlyParallel.getMinus());
+    }
+
+    @Test
+    void testSplit_negativeHalfSpace_2_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset seg = Lines.subsetFromInterval(line, Interval.max(line.toSubspace(p2).getX(), TEST_PRECISION));
+
+        // act/assert
+        final Split<LineConvexSubset> both = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, p2);
+        checkInfinite(both.getPlus(), line, null, middle);
+
+        final Split<LineConvexSubset> bothReversed = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkInfinite(bothReversed.getMinus(), line, null, middle);
+        checkFinite(bothReversed.getPlus(), middle, p2);
+
+        final Split<LineConvexSubset> minusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        Assertions.assertNull(minusOnlyParallel.getPlus());
+    }
+
+    @Test
+    void testSplit_negativeHalfSpace_3_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset seg = Lines.subsetFromInterval(line, Interval.max(line.toSubspace(p2).getX(), TEST_PRECISION));
+
+        // act/assert
+        final Split<LineConvexSubset> both = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, p2);
+        checkInfinite(both.getPlus(), line, null, middle);
+
+        final Split<LineConvexSubset> bothReversed = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkInfinite(bothReversed.getMinus(), line, null, middle);
+        checkFinite(bothReversed.getPlus(), middle, p2);
+
+        final Split<LineConvexSubset> minusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        Assertions.assertNull(plusOnlyParallel.getMinus());
+    }
+
+    @Test
+    void testSplit_negativeHalfSpace_4_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset seg = Lines.subsetFromInterval(line, Interval.max(line.toSubspace(p2).getX(), TEST_PRECISION));
+
+        // act/assert
+        final Split<LineConvexSubset> both = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, p2);
+        checkInfinite(both.getPlus(), line, null, middle);
+
+        final Split<LineConvexSubset> bothReversed = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkInfinite(bothReversed.getMinus(), line, null, middle);
+        checkFinite(bothReversed.getPlus(), middle, p2);
+
+        final Split<LineConvexSubset> minusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        // removed other assertion
+        Assertions.assertSame(seg, plusOnlyParallel.getPlus());
+    }
+
+    @Test
+    void testSplit_negativeHalfSpace_5_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset seg = Lines.subsetFromInterval(line, Interval.max(line.toSubspace(p2).getX(), TEST_PRECISION));
+
+        // act/assert
+        final Split<LineConvexSubset> both = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, p2);
+        checkInfinite(both.getPlus(), line, null, middle);
+
+        final Split<LineConvexSubset> bothReversed = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkInfinite(bothReversed.getMinus(), line, null, middle);
+        checkFinite(bothReversed.getPlus(), middle, p2);
+
+        final Split<LineConvexSubset> minusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyOrthogonal = seg.split(Lines.fromPointAndDirection(p2, Vector2D.of(1, -2), TEST_PRECISION));
+        Assertions.assertNull(plusOnlyOrthogonal.getMinus());
+    }
+
+    @Test
+    void testSplit_negativeHalfSpace_6_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset seg = Lines.subsetFromInterval(line, Interval.max(line.toSubspace(p2).getX(), TEST_PRECISION));
+
+        // act/assert
+        final Split<LineConvexSubset> both = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, p2);
+        checkInfinite(both.getPlus(), line, null, middle);
+
+        final Split<LineConvexSubset> bothReversed = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkInfinite(bothReversed.getMinus(), line, null, middle);
+        checkFinite(bothReversed.getPlus(), middle, p2);
+
+        final Split<LineConvexSubset> minusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyOrthogonal = seg.split(Lines.fromPointAndDirection(p2, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        Assertions.assertSame(seg, plusOnlyOrthogonal.getPlus());
+    }
+
+    @Test
+    void testSplit_negativeHalfSpace_7_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset seg = Lines.subsetFromInterval(line, Interval.max(line.toSubspace(p2).getX(), TEST_PRECISION));
+
+        // act/assert
+        final Split<LineConvexSubset> both = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, p2);
+        checkInfinite(both.getPlus(), line, null, middle);
+
+        final Split<LineConvexSubset> bothReversed = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkInfinite(bothReversed.getMinus(), line, null, middle);
+        checkFinite(bothReversed.getPlus(), middle, p2);
+
+        final Split<LineConvexSubset> minusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyOrthogonal = seg.split(Lines.fromPointAndDirection(p2, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> hyper = seg.split(Lines.fromPointAndDirection(p1, Vector2D.of(2, 1), TEST_PRECISION));
+        Assertions.assertNull(hyper.getMinus());
+    }
+
+    @Test
+    void testSplit_negativeHalfSpace_8_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(1, 1);
+        final Vector2D p2 = Vector2D.of(3, 2);
+        final Vector2D middle = p1.lerp(p2, 0.5);
+
+        final Line line = Lines.fromPoints(p1, p2, TEST_PRECISION);
+
+        final LineConvexSubset seg = Lines.subsetFromInterval(line, Interval.max(line.toSubspace(p2).getX(), TEST_PRECISION));
+
+        // act/assert
+        final Split<LineConvexSubset> both = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(1, -2), TEST_PRECISION));
+        checkFinite(both.getMinus(), middle, p2);
+        checkInfinite(both.getPlus(), line, null, middle);
+
+        final Split<LineConvexSubset> bothReversed = seg.split(Lines.fromPointAndDirection(middle, Vector2D.of(-1, 2), TEST_PRECISION));
+        checkInfinite(bothReversed.getMinus(), line, null, middle);
+        checkFinite(bothReversed.getPlus(), middle, p2);
+
+        final Split<LineConvexSubset> minusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyParallel = seg.split(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.of(-2, -1), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> plusOnlyOrthogonal = seg.split(Lines.fromPointAndDirection(p2, Vector2D.of(1, -2), TEST_PRECISION));
+        // removed other assertion
+        // removed other assertion
+
+        final Split<LineConvexSubset> hyper = seg.split(Lines.fromPointAndDirection(p1, Vector2D.of(2, 1), TEST_PRECISION));
+        // removed other assertion
+        Assertions.assertNull(hyper.getPlus());
+    }
 
 }

@@ -50,5 +50,175 @@ public class FileSystemOptionsTest_OE25Dev {
         }
     }
 
+    @Test
+    public void testEqualsHashCodeAndCompareTo_1_oe() {
+        final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
+        final FileSystemOptions expected = new FileSystemOptions();
+        builder.setId(expected, "Test");
+
+        final FileSystemOptions actual = new FileSystemOptions();
+        builder.setId(actual, "Test");
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testEqualsHashCodeAndCompareTo_2_oe() {
+        final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
+        final FileSystemOptions expected = new FileSystemOptions();
+        builder.setId(expected, "Test");
+
+        final FileSystemOptions actual = new FileSystemOptions();
+        builder.setId(actual, "Test");
+
+        // removed other assertion
+        Assert.assertEquals(0, actual.compareTo(expected));
+    }
+
+    @Test
+    public void testEqualsHashCodeAndCompareTo_3_oe() {
+        final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
+        final FileSystemOptions expected = new FileSystemOptions();
+        builder.setId(expected, "Test");
+
+        final FileSystemOptions actual = new FileSystemOptions();
+        builder.setId(actual, "Test");
+
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(expected.hashCode(), actual.hashCode());
+    }
+
+    @Test
+    public void testEqualsHashCodeAndCompareTo_4_oe() {
+        final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
+        final FileSystemOptions expected = new FileSystemOptions();
+        builder.setId(expected, "Test");
+
+        final FileSystemOptions actual = new FileSystemOptions();
+        builder.setId(actual, "Test");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.setNames(expected, new String[] { "A", "B", "C" });
+
+        Assert.assertNotEquals(expected, actual);
+    }
+
+    @Test
+    public void testEqualsHashCodeAndCompareTo_5_oe() {
+        final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
+        final FileSystemOptions expected = new FileSystemOptions();
+        builder.setId(expected, "Test");
+
+        final FileSystemOptions actual = new FileSystemOptions();
+        builder.setId(actual, "Test");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.setNames(expected, new String[] { "A", "B", "C" });
+
+        // removed other assertion
+        Assert.assertEquals(-1, actual.compareTo(expected));
+    }
+
+    @Test
+    public void testEqualsHashCodeAndCompareTo_6_oe() {
+        final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
+        final FileSystemOptions expected = new FileSystemOptions();
+        builder.setId(expected, "Test");
+
+        final FileSystemOptions actual = new FileSystemOptions();
+        builder.setId(actual, "Test");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.setNames(expected, new String[] { "A", "B", "C" });
+
+        // removed other assertion
+        // removed other assertion
+        Assert.assertNotEquals(expected.hashCode(), actual.hashCode());
+    }
+
+    @Test
+    public void testEqualsHashCodeAndCompareTo_7_oe() {
+        final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
+        final FileSystemOptions expected = new FileSystemOptions();
+        builder.setId(expected, "Test");
+
+        final FileSystemOptions actual = new FileSystemOptions();
+        builder.setId(actual, "Test");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.setNames(expected, new String[] { "A", "B", "C" });
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.setNames(actual, new String[] { "A", "B", "C" });
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testEqualsHashCodeAndCompareTo_8_oe() {
+        final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
+        final FileSystemOptions expected = new FileSystemOptions();
+        builder.setId(expected, "Test");
+
+        final FileSystemOptions actual = new FileSystemOptions();
+        builder.setId(actual, "Test");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.setNames(expected, new String[] { "A", "B", "C" });
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.setNames(actual, new String[] { "A", "B", "C" });
+
+        // removed other assertion
+        Assert.assertEquals(0, actual.compareTo(expected));
+    }
+
+    @Test
+    public void testEqualsHashCodeAndCompareTo_9_oe() {
+        final JUnitConfigBuilder builder = JUnitConfigBuilder.getInstance();
+        final FileSystemOptions expected = new FileSystemOptions();
+        builder.setId(expected, "Test");
+
+        final FileSystemOptions actual = new FileSystemOptions();
+        builder.setId(actual, "Test");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.setNames(expected, new String[] { "A", "B", "C" });
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.setNames(actual, new String[] { "A", "B", "C" });
+
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(expected.hashCode(), actual.hashCode());
+    }
 
 }

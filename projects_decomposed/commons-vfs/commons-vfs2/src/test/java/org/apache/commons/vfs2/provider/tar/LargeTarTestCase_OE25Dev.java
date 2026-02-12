@@ -175,5 +175,54 @@ public class LargeTarTestCase_OE25Dev {
         createLargeFile(largeFilePath, largeFileName);
     }
 
+    @Test
+    public void testLargeFile_1_oe() throws Exception {
+        final File realFile = new File(largeFilePath + largeFileName + ".tar.gz");
+
+        final FileObject file = manager.resolveFile("tgz:file://" + realFile.getCanonicalPath() + "!/");
+
+        assertNotNull(file);
+    }
+
+    @Test
+    public void testLargeFile_2_oe() throws Exception {
+        final File realFile = new File(largeFilePath + largeFileName + ".tar.gz");
+
+        final FileObject file = manager.resolveFile("tgz:file://" + realFile.getCanonicalPath() + "!/");
+
+        // removed other assertion
+        final List<FileObject> files = Arrays.asList(file.getChildren());
+
+        assertNotNull(files);
+    }
+
+    @Test
+    public void testLargeFile_3_oe() throws Exception {
+        final File realFile = new File(largeFilePath + largeFileName + ".tar.gz");
+
+        final FileObject file = manager.resolveFile("tgz:file://" + realFile.getCanonicalPath() + "!/");
+
+        // removed other assertion
+        final List<FileObject> files = Arrays.asList(file.getChildren());
+
+        // removed other assertion
+        assertEquals(1, files.size());
+    }
+
+    @Test
+    public void testLargeFile_4_oe() throws Exception {
+        final File realFile = new File(largeFilePath + largeFileName + ".tar.gz");
+
+        final FileObject file = manager.resolveFile("tgz:file://" + realFile.getCanonicalPath() + "!/");
+
+        // removed other assertion
+        final List<FileObject> files = Arrays.asList(file.getChildren());
+
+        // removed other assertion
+        // removed other assertion
+        final FileObject f = files.get(0);
+
+        assertEquals("Expected file not found: " + largeFileName + ".txt", f.getName().getBaseName(), largeFileName + ".txt");
+    }
 
 }

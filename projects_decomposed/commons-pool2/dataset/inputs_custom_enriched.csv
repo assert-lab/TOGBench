@@ -1,5 +1,5 @@
 id,test_prefix,test_name,custom_assert_name,custom_assert_method,custom_assert_file
-pool_152_1,"    @Test
+pool_153_1,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testSetConfig_1_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
@@ -27,7 +27,7 @@ pool_152_1,"    @Test
         assertEquals(expected.getTimeBetweenEvictionRuns(),actual.getTimeBetweenEvictionRuns(),""timeBetweenEvictionRuns"");
     }
 ",src/test/java/org/apache/commons/pool2/impl/TestGenericObjectPool.java
-pool_152_2,"    @Test
+pool_153_2,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testSetConfig_2_oe() throws Exception {
         final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
@@ -68,7 +68,7 @@ pool_152_2,"    @Test
         assertEquals(expected.getTimeBetweenEvictionRuns(),actual.getTimeBetweenEvictionRuns(),""timeBetweenEvictionRuns"");
     }
 ",src/test/java/org/apache/commons/pool2/impl/TestGenericObjectPool.java
-pool_164_1,"    @Test
+pool_165_1,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testDefaultConfiguration_1_oe() {
         assertConfiguration(new GenericObjectPoolConfig<>(),genericObjectPool);

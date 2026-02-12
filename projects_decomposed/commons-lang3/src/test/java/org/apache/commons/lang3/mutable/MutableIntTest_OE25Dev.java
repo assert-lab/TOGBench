@@ -22,6 +22,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * JUnit tests.
  *
@@ -57,11 +59,103 @@ public class MutableIntTest_OE25Dev {
     }
 
     @Test
+    public void testAddAndGetValueObject_1_oe() {
+        final MutableInt mutableInteger = new MutableInt(0);
+        final int result = mutableInteger.addAndGet(Integer.valueOf(1));
+
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void testAddAndGetValueObject_2_oe() {
+        final MutableInt mutableInteger = new MutableInt(0);
+        final int result = mutableInteger.addAndGet(Integer.valueOf(1));
+
+        // removed other assertion
+        assertEquals(1, mutableInteger.intValue());
+    }
+
+    @Test
+    public void testAddAndGetValuePrimitive_1_oe() {
+        final MutableInt mutableInteger = new MutableInt(0);
+        final int result = mutableInteger.addAndGet(1);
+
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void testAddAndGetValuePrimitive_2_oe() {
+        final MutableInt mutableInteger = new MutableInt(0);
+        final int result = mutableInteger.addAndGet(1);
+
+        // removed other assertion
+        assertEquals(1, mutableInteger.intValue());
+    }
+
+    @Test
+    public void testAddValueObject_1_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        mutNum.add(Integer.valueOf(1));
+
+        assertEquals(2, mutNum.intValue());
+    }
+
+    @Test
+    public void testAddValueObject_2_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        mutNum.add(Integer.valueOf(1));
+
+        // removed other assertion
+        assertEquals(2L, mutNum.longValue());
+    }
+
+    @Test
+    public void testAddValuePrimitive_1_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        mutNum.add(1);
+
+        assertEquals(2, mutNum.intValue());
+    }
+
+    @Test
+    public void testAddValuePrimitive_2_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        mutNum.add(1);
+
+        // removed other assertion
+        assertEquals(2L, mutNum.longValue());
+    }
+
+    @Test
+    public void testCompareTo_1_oe() {
+        final MutableInt mutNum = new MutableInt(0);
+
+        assertEquals(0, mutNum.compareTo(new MutableInt(0)));
+    }
+
+    @Test
+    public void testCompareTo_2_oe() {
+        final MutableInt mutNum = new MutableInt(0);
+
+        // removed other assertion
+        assertEquals(+1, mutNum.compareTo(new MutableInt(-1)));
+    }
+
+    @Test
+    public void testCompareTo_3_oe() {
+        final MutableInt mutNum = new MutableInt(0);
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(-1, mutNum.compareTo(new MutableInt(1)));
+    }
+
+    @Test
     public void testCompareToNull_1_oe() throws Exception {
         final MutableInt mutNum = new MutableInt(0);
         try {
     mutNum.compareTo(null);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
     }
@@ -70,9 +164,410 @@ public class MutableIntTest_OE25Dev {
     public void testConstructorNull_1_oe() throws Exception {
         try {
     new MutableInt((Number) null);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
+    }
+
+    @Test
+    public void testConstructors_1_oe() {
+        assertEquals(0, new MutableInt().intValue());
+    }
+
+    @Test
+    public void testConstructors_2_oe() {
+        // removed other assertion
+
+        assertEquals(1, new MutableInt(1).intValue());
+    }
+
+    @Test
+    public void testConstructors_3_oe() {
+        // removed other assertion
+
+        // removed other assertion
+
+        assertEquals(2, new MutableInt(Integer.valueOf(2)).intValue());
+    }
+
+    @Test
+    public void testConstructors_4_oe() {
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(3, new MutableInt(new MutableLong(3)).intValue());
+    }
+
+    @Test
+    public void testConstructors_5_oe() {
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(2, new MutableInt("2").intValue());
+    }
+
+    @Test
+    public void testDecrement_1_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        mutNum.decrement();
+
+        assertEquals(0, mutNum.intValue());
+    }
+
+    @Test
+    public void testDecrement_2_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        mutNum.decrement();
+
+        // removed other assertion
+        assertEquals(0L, mutNum.longValue());
+    }
+
+    @Test
+    public void testDecrementAndGet_1_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        final int result = mutNum.decrementAndGet();
+
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testDecrementAndGet_2_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        final int result = mutNum.decrementAndGet();
+
+        // removed other assertion
+        assertEquals(0, mutNum.intValue());
+    }
+
+    @Test
+    public void testDecrementAndGet_3_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        final int result = mutNum.decrementAndGet();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0L, mutNum.longValue());
+    }
+
+    @Test
+    public void testGetAndAddValueObject_1_oe() {
+        final MutableInt mutableInteger = new MutableInt(0);
+        final int result = mutableInteger.getAndAdd(Integer.valueOf(1));
+
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testGetAndAddValueObject_2_oe() {
+        final MutableInt mutableInteger = new MutableInt(0);
+        final int result = mutableInteger.getAndAdd(Integer.valueOf(1));
+
+        // removed other assertion
+        assertEquals(1, mutableInteger.intValue());
+    }
+
+    @Test
+    public void testGetAndAddValuePrimitive_1_oe() {
+        final MutableInt mutableInteger = new MutableInt(0);
+        final int result = mutableInteger.getAndAdd(1);
+
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void testGetAndAddValuePrimitive_2_oe() {
+        final MutableInt mutableInteger = new MutableInt(0);
+        final int result = mutableInteger.getAndAdd(1);
+
+        // removed other assertion
+        assertEquals(1, mutableInteger.intValue());
+    }
+
+    @Test
+    public void testGetAndDecrement_1_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        final int result = mutNum.getAndDecrement();
+
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void testGetAndDecrement_2_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        final int result = mutNum.getAndDecrement();
+
+        // removed other assertion
+        assertEquals(0, mutNum.intValue());
+    }
+
+    @Test
+    public void testGetAndDecrement_3_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        final int result = mutNum.getAndDecrement();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0L, mutNum.longValue());
+    }
+
+    @Test
+    public void testGetAndIncrement_1_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        final int result = mutNum.getAndIncrement();
+
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void testGetAndIncrement_2_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        final int result = mutNum.getAndIncrement();
+
+        // removed other assertion
+        assertEquals(2, mutNum.intValue());
+    }
+
+    @Test
+    public void testGetAndIncrement_3_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        final int result = mutNum.getAndIncrement();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2L, mutNum.longValue());
+    }
+
+    @Test
+    public void testGetSet_1_oe() {
+        final MutableInt mutNum = new MutableInt(0);
+        assertEquals(0, new MutableInt().intValue());
+    }
+
+    @Test
+    public void testGetSet_2_oe() {
+        final MutableInt mutNum = new MutableInt(0);
+        // removed other assertion
+        assertEquals(Integer.valueOf(0), new MutableInt().getValue());
+    }
+
+    @Test
+    public void testGetSet_3_oe() {
+        final MutableInt mutNum = new MutableInt(0);
+        // removed other assertion
+        // removed other assertion
+
+        mutNum.setValue(1);
+        assertEquals(1, mutNum.intValue());
+    }
+
+    @Test
+    public void testGetSet_4_oe() {
+        final MutableInt mutNum = new MutableInt(0);
+        // removed other assertion
+        // removed other assertion
+
+        mutNum.setValue(1);
+        // removed other assertion
+        assertEquals(Integer.valueOf(1), mutNum.getValue());
+    }
+
+    @Test
+    public void testGetSet_5_oe() {
+        final MutableInt mutNum = new MutableInt(0);
+        // removed other assertion
+        // removed other assertion
+
+        mutNum.setValue(1);
+        // removed other assertion
+        // removed other assertion
+
+        mutNum.setValue(Integer.valueOf(2));
+        assertEquals(2, mutNum.intValue());
+    }
+
+    @Test
+    public void testGetSet_6_oe() {
+        final MutableInt mutNum = new MutableInt(0);
+        // removed other assertion
+        // removed other assertion
+
+        mutNum.setValue(1);
+        // removed other assertion
+        // removed other assertion
+
+        mutNum.setValue(Integer.valueOf(2));
+        // removed other assertion
+        assertEquals(Integer.valueOf(2), mutNum.getValue());
+    }
+
+    @Test
+    public void testGetSet_7_oe() {
+        final MutableInt mutNum = new MutableInt(0);
+        // removed other assertion
+        // removed other assertion
+
+        mutNum.setValue(1);
+        // removed other assertion
+        // removed other assertion
+
+        mutNum.setValue(Integer.valueOf(2));
+        // removed other assertion
+        // removed other assertion
+
+        mutNum.setValue(new MutableLong(3));
+        assertEquals(3, mutNum.intValue());
+    }
+
+    @Test
+    public void testGetSet_8_oe() {
+        final MutableInt mutNum = new MutableInt(0);
+        // removed other assertion
+        // removed other assertion
+
+        mutNum.setValue(1);
+        // removed other assertion
+        // removed other assertion
+
+        mutNum.setValue(Integer.valueOf(2));
+        // removed other assertion
+        // removed other assertion
+
+        mutNum.setValue(new MutableLong(3));
+        // removed other assertion
+        assertEquals(Integer.valueOf(3), mutNum.getValue());
+    }
+
+    @Test
+    public void testHashCode_1_oe() {
+        final MutableInt mutNumA = new MutableInt(0);
+        final MutableInt mutNumB = new MutableInt(0);
+        final MutableInt mutNumC = new MutableInt(1);
+
+        assertEquals(mutNumA.hashCode(), mutNumA.hashCode());
+    }
+
+    @Test
+    public void testHashCode_2_oe() {
+        final MutableInt mutNumA = new MutableInt(0);
+        final MutableInt mutNumB = new MutableInt(0);
+        final MutableInt mutNumC = new MutableInt(1);
+
+        // removed other assertion
+        assertEquals(mutNumA.hashCode(), mutNumB.hashCode());
+    }
+
+    @Test
+    public void testHashCode_3_oe() {
+        final MutableInt mutNumA = new MutableInt(0);
+        final MutableInt mutNumB = new MutableInt(0);
+        final MutableInt mutNumC = new MutableInt(1);
+
+        // removed other assertion
+        // removed other assertion
+        assertNotEquals(mutNumA.hashCode(), mutNumC.hashCode());
+    }
+
+    @Test
+    public void testHashCode_4_oe() {
+        final MutableInt mutNumA = new MutableInt(0);
+        final MutableInt mutNumB = new MutableInt(0);
+        final MutableInt mutNumC = new MutableInt(1);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(mutNumA.hashCode(), Integer.valueOf(0).hashCode());
+    }
+
+    @Test
+    public void testIncrement_1_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        mutNum.increment();
+
+        assertEquals(2, mutNum.intValue());
+    }
+
+    @Test
+    public void testIncrement_2_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        mutNum.increment();
+
+        // removed other assertion
+        assertEquals(2L, mutNum.longValue());
+    }
+
+    @Test
+    public void testIncrementAndGet_1_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        final int result = mutNum.incrementAndGet();
+
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void testIncrementAndGet_2_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        final int result = mutNum.incrementAndGet();
+
+        // removed other assertion
+        assertEquals(2, mutNum.intValue());
+    }
+
+    @Test
+    public void testIncrementAndGet_3_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        final int result = mutNum.incrementAndGet();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2L, mutNum.longValue());
+    }
+
+    @Test
+    public void testPrimitiveValues_1_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        assertEquals( (byte) 1, mutNum.byteValue() );
+    }
+
+    @Test
+    public void testPrimitiveValues_2_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        // removed other assertion
+        assertEquals( (short) 1, mutNum.shortValue() );
+    }
+
+    @Test
+    public void testPrimitiveValues_3_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1.0F, mutNum.floatValue());
+    }
+
+    @Test
+    public void testPrimitiveValues_4_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1.0, mutNum.doubleValue());
+    }
+
+    @Test
+    public void testPrimitiveValues_5_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals( 1L, mutNum.longValue() );
     }
 
     @Test
@@ -80,9 +575,72 @@ public class MutableIntTest_OE25Dev {
         final MutableInt mutNum = new MutableInt(0);
         try {
     mutNum.setValue(null);
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
+    }
+
+    @Test
+    public void testSubtractValueObject_1_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        mutNum.subtract(Integer.valueOf(1));
+
+        assertEquals(0, mutNum.intValue());
+    }
+
+    @Test
+    public void testSubtractValueObject_2_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        mutNum.subtract(Integer.valueOf(1));
+
+        // removed other assertion
+        assertEquals(0L, mutNum.longValue());
+    }
+
+    @Test
+    public void testSubtractValuePrimitive_1_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        mutNum.subtract(1);
+
+        assertEquals(0, mutNum.intValue());
+    }
+
+    @Test
+    public void testSubtractValuePrimitive_2_oe() {
+        final MutableInt mutNum = new MutableInt(1);
+        mutNum.subtract(1);
+
+        // removed other assertion
+        assertEquals(0L, mutNum.longValue());
+    }
+
+    @Test
+    public void testToInteger_1_oe() {
+        assertEquals(Integer.valueOf(0), new MutableInt(0).toInteger());
+    }
+
+    @Test
+    public void testToInteger_2_oe() {
+        // removed other assertion
+        assertEquals(Integer.valueOf(123), new MutableInt(123).toInteger());
+    }
+
+    @Test
+    public void testToString_1_oe() {
+        assertEquals("0", new MutableInt(0).toString());
+    }
+
+    @Test
+    public void testToString_2_oe() {
+        // removed other assertion
+        assertEquals("10", new MutableInt(10).toString());
+    }
+
+    @Test
+    public void testToString_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals("-123", new MutableInt(-123).toString());
     }
 
 }

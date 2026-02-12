@@ -36,6 +36,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Tests CharSequenceUtils
  */
@@ -251,10 +253,156 @@ public class CharSequenceUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testConstructor_1_oe() {
+        assertNotNull(new CharSequenceUtils());
+    }
+
+    @Test
+    public void testConstructor_2_oe() {
+        // removed other assertion
+        final Constructor<?>[] cons = CharSequenceUtils.class.getDeclaredConstructors();
+        assertEquals(1, cons.length);
+    }
+
+    @Test
+    public void testConstructor_3_oe() {
+        // removed other assertion
+        final Constructor<?>[] cons = CharSequenceUtils.class.getDeclaredConstructors();
+        // removed other assertion
+        assertTrue(Modifier.isPublic(cons[0].getModifiers()));
+    }
+
+    @Test
+    public void testConstructor_4_oe() {
+        // removed other assertion
+        final Constructor<?>[] cons = CharSequenceUtils.class.getDeclaredConstructors();
+        // removed other assertion
+        // removed other assertion
+        assertTrue(Modifier.isPublic(CharSequenceUtils.class.getModifiers()));
+    }
+
+    @Test
+    public void testConstructor_5_oe() {
+        // removed other assertion
+        final Constructor<?>[] cons = CharSequenceUtils.class.getDeclaredConstructors();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(Modifier.isFinal(CharSequenceUtils.class.getModifiers()));
+    }
+
+    @Test
+    public void testSubSequence_1_oe() {
+        //
+        // null input
+        //
+        assertNull(CharSequenceUtils.subSequence(null, -1));
+    }
+
+    @Test
+    public void testSubSequence_2_oe() {
+        //
+        // null input
+        //
+        // removed other assertion
+        assertNull(CharSequenceUtils.subSequence(null, 0));
+    }
+
+    @Test
+    public void testSubSequence_3_oe() {
+        //
+        // null input
+        //
+        // removed other assertion
+        // removed other assertion
+        assertNull(CharSequenceUtils.subSequence(null, 1));
+    }
+
+    @Test
+    public void testSubSequence_4_oe() {
+        //
+        // null input
+        //
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        //
+        // non-null input
+        //
+        assertEquals(StringUtils.EMPTY, CharSequenceUtils.subSequence(StringUtils.EMPTY, 0));
+    }
+
+    @Test
+    public void testSubSequence_5_oe() {
+        //
+        // null input
+        //
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        //
+        // non-null input
+        //
+        // removed other assertion
+        assertEquals("012", CharSequenceUtils.subSequence("012", 0));
+    }
+
+    @Test
+    public void testSubSequence_6_oe() {
+        //
+        // null input
+        //
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        //
+        // non-null input
+        //
+        // removed other assertion
+        // removed other assertion
+        assertEquals("12", CharSequenceUtils.subSequence("012", 1));
+    }
+
+    @Test
+    public void testSubSequence_7_oe() {
+        //
+        // null input
+        //
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        //
+        // non-null input
+        //
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("2", CharSequenceUtils.subSequence("012", 2));
+    }
+
+    @Test
+    public void testSubSequence_8_oe() {
+        //
+        // null input
+        //
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        //
+        // non-null input
+        //
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(StringUtils.EMPTY, CharSequenceUtils.subSequence("012", 3));
+    }
+
+    @Test
     public void testSubSequenceNegativeStart_1_oe() throws Exception {
         try {
     CharSequenceUtils.subSequence(StringUtils.EMPTY, -1);
-    org.junit.jupiter.api.Assertions.fail("IndexOutOfBoundsException");
+    fail("IndexOutOfBoundsException");
 } catch (IndexOutOfBoundsException e) {
 }
     }
@@ -263,9 +411,40 @@ public class CharSequenceUtilsTest_OE25Dev {
     public void testSubSequenceTooLong_1_oe() throws Exception {
         try {
     CharSequenceUtils.subSequence(StringUtils.EMPTY, 1);
-    org.junit.jupiter.api.Assertions.fail("IndexOutOfBoundsException");
+    fail("IndexOutOfBoundsException");
 } catch (IndexOutOfBoundsException e) {
 }
+    }
+
+    @Test
+    public void testToCharArray_1_oe() {
+        final StringBuilder builder = new StringBuilder("abcdefg");
+        final char[] expected = builder.toString().toCharArray();
+        assertArrayEquals(expected, CharSequenceUtils.toCharArray(builder));
+    }
+
+    @Test
+    public void testToCharArray_2_oe() {
+        final StringBuilder builder = new StringBuilder("abcdefg");
+        final char[] expected = builder.toString().toCharArray();
+        // removed other assertion
+        assertArrayEquals(expected, CharSequenceUtils.toCharArray(builder.toString()));
+    }
+
+    @Test
+    public void testToCharArray_3_oe() {
+        final StringBuilder builder = new StringBuilder("abcdefg");
+        final char[] expected = builder.toString().toCharArray();
+        // removed other assertion
+        // removed other assertion
+        assertArrayEquals(ArrayUtils.EMPTY_CHAR_ARRAY, CharSequenceUtils.toCharArray(null));
+    }
+
+    @ParameterizedTest
+    @MethodSource("lastIndexWithStandardCharSequence")
+    public void testLastIndexOfWithDifferentCharSequences_1_oe(final CharSequence cs, final CharSequence search, final int start,
+                                                          final int expected) {
+        assertEquals(expected, CharSequenceUtils.lastIndexOf(cs, search, start));
     }
 
 }

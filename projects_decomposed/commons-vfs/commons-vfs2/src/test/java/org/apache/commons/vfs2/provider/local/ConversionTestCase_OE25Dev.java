@@ -38,5 +38,51 @@ import org.junit.Test;
  */
 public class ConversionTestCase_OE25Dev {
 
+    @Test
+    @Ignore
+    public void testFileNameWithCharacters_1_oe() throws URISyntaxException, IOException {
+        final File file = new File("target", "+# %&.txt");
+        final String fileURL = file.toURI().toURL().toExternalForm();
+        assertEquals(file.getAbsoluteFile(), new File(file.toURI().getPath()));
+    }
+
+    @Test
+    @Ignore
+    public void testFileNameWithCharacters_2_oe() throws URISyntaxException, IOException {
+        final File file = new File("target", "+# %&.txt");
+        final String fileURL = file.toURI().toURL().toExternalForm();
+        // removed other assertion
+        assertEquals(file.getAbsoluteFile(), new File(new URL(fileURL).toURI().getPath()));
+    }
+
+    @Test
+    @Ignore
+    public void testFileNameWithSpaces_1_oe() throws URISyntaxException, IOException {
+        final File file = new File("target", "a name.txt");
+        final String fileURL = file.toURI().toURL().toExternalForm();
+        assertEquals(file.getAbsoluteFile(), new File(file.toURI().getPath()));
+    }
+
+    @Test
+    @Ignore
+    public void testFileNameWithSpaces_2_oe() throws URISyntaxException, IOException {
+        final File file = new File("target", "a name.txt");
+        final String fileURL = file.toURI().toURL().toExternalForm();
+        // removed other assertion
+        assertEquals(file.getAbsoluteFile(), new File(new URL(fileURL).toURI().getPath()));
+    }
+
+    @Test
+    @Ignore
+    public void testFileNameWithSpaces_3_oe() throws URISyntaxException, IOException {
+        final File file = new File("target", "a name.txt");
+        final String fileURL = file.toURI().toURL().toExternalForm();
+        // removed other assertion
+        // removed other assertion
+
+        final FileSystemManager manager = VFS.getManager();
+        final FileObject fo = manager.resolveFile(fileURL);
+        assertEquals(file.getAbsoluteFile(), new File(new URL(fo.getURL().toExternalForm()).toURI().getPath()));
+    }
 
 }

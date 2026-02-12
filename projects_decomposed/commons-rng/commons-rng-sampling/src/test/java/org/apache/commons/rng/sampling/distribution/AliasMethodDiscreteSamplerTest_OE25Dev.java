@@ -27,6 +27,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test for the {@link AliasMethodDiscreteSampler}.
  */
@@ -245,7 +247,7 @@ class AliasMethodDiscreteSamplerTest_OE25Dev {
     void testConstructorThrowsWithNullProbabilites_1_oe() {
         try {
     createSampler(null);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -254,7 +256,7 @@ class AliasMethodDiscreteSamplerTest_OE25Dev {
     void testConstructorThrowsWithZeroLengthProbabilites_1_oe() {
         try {
     createSampler(new double[0]);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -263,7 +265,7 @@ class AliasMethodDiscreteSamplerTest_OE25Dev {
     void testConstructorThrowsWithNegativeProbabilites_1_oe() {
         try {
     createSampler(new double[] {-1, 0.1, 0.2});
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -272,7 +274,7 @@ class AliasMethodDiscreteSamplerTest_OE25Dev {
     void testConstructorThrowsWithNaNProbabilites_1_oe() {
         try {
     createSampler(new double[] {0.1, Double.NaN, 0.2});
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -281,7 +283,7 @@ class AliasMethodDiscreteSamplerTest_OE25Dev {
     void testConstructorThrowsWithInfiniteProbabilites_1_oe() {
         try {
     createSampler(new double[] {0.1, Double.POSITIVE_INFINITY, 0.2});
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -290,7 +292,7 @@ class AliasMethodDiscreteSamplerTest_OE25Dev {
     void testConstructorThrowsWithInfiniteSumProbabilites_1_oe() {
         try {
     createSampler(new double[] {Double.MAX_VALUE, Double.MAX_VALUE});
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -299,9 +301,15 @@ class AliasMethodDiscreteSamplerTest_OE25Dev {
     void testConstructorThrowsWithZeroSumProbabilites_1_oe() {
         try {
     createSampler(new double[4]);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testToString_1_oe() {
+         SharedStateDiscreteSampler sampler = createSampler(new double[] {0.5, 0.5});
+        Assertions.assertTrue(sampler.toString().toLowerCase().contains("alias method"));
     }
 
 }

@@ -24,6 +24,8 @@ import org.apache.commons.rng.simple.RandomSource;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test for the {@link GaussianSampler}. The tests hit edge cases for the sampler.
  */
@@ -103,7 +105,7 @@ class GaussianSamplerTest_OE25Dev {
          double standardDeviation = 0;
         try {
     GaussianSampler.of(gauss, mean, standardDeviation);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -117,7 +119,7 @@ class GaussianSamplerTest_OE25Dev {
          double standardDeviation = Double.POSITIVE_INFINITY;
         try {
     GaussianSampler.of(gauss, mean, standardDeviation);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -131,7 +133,7 @@ class GaussianSamplerTest_OE25Dev {
          double standardDeviation = Double.NaN;
         try {
     GaussianSampler.of(gauss, mean, standardDeviation);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -145,7 +147,7 @@ class GaussianSamplerTest_OE25Dev {
          double standardDeviation = 1;
         try {
     GaussianSampler.of(gauss, mean, standardDeviation);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -159,7 +161,7 @@ class GaussianSamplerTest_OE25Dev {
          double standardDeviation = 1;
         try {
     GaussianSampler.of(gauss, mean, standardDeviation);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -179,7 +181,7 @@ class GaussianSamplerTest_OE25Dev {
             GaussianSampler.of(gauss, mean, standardDeviation);
         try {
     sampler1.withUniformRandomProvider(rng2);
-    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+    fail("UnsupportedOperationException");
 } catch (UnsupportedOperationException e) {
 }
     }
@@ -194,7 +196,7 @@ class GaussianSamplerTest_OE25Dev {
             GaussianSampler.of(gauss, mean, standardDeviation);
         try {
     sampler1.withUniformRandomProvider(rng2);
-    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+    fail("UnsupportedOperationException");
 } catch (UnsupportedOperationException e) {
 }
     }

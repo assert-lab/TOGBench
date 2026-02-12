@@ -23,6 +23,8 @@ import org.apache.commons.rng.simple.RandomSource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test for the {@link KempSmallMeanPoissonSampler}. The tests hit edge cases for the
  * sampler and tests it functions at the supported upper bound on the mean.
@@ -168,7 +170,7 @@ class KempSmallMeanPoissonSamplerTest_OE25Dev {
          double mean = SUPPORTED_UPPER_BOUND + 1;
         try {
     KempSmallMeanPoissonSampler.of(dummyRng, mean);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -178,7 +180,7 @@ class KempSmallMeanPoissonSamplerTest_OE25Dev {
          double mean = 0;
         try {
     KempSmallMeanPoissonSampler.of(dummyRng, mean);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -188,7 +190,7 @@ class KempSmallMeanPoissonSamplerTest_OE25Dev {
          double mean = -1;
         try {
     KempSmallMeanPoissonSampler.of(dummyRng, mean);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -198,9 +200,67 @@ class KempSmallMeanPoissonSamplerTest_OE25Dev {
          double mean = Double.NaN;
         try {
     KempSmallMeanPoissonSampler.of(dummyRng, mean);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testSummationFrom1AtUpperBound_1_oe() {
+         double mean = SUPPORTED_UPPER_BOUND;
+        double u = 1;
+        int x = 0;
+        double p = Math.exp(-mean);
+        while (u > p && p != 0) {
+            u -= p;
+            x = x + 1;
+            p = p * mean / x;
+        }
+        Assertions.assertEquals(0, u, 1e-3, "Summation is not zero");
+    }
+
+    @Test
+    void testSummationFrom1AtUpperBound_2_oe() {
+         double mean = SUPPORTED_UPPER_BOUND;
+        double u = 1;
+        int x = 0;
+        double p = Math.exp(-mean);
+        while (u > p && p != 0) {
+            u -= p;
+            x = x + 1;
+            p = p * mean / x;
+        }
+        // removed other assertion
+        Assertions.assertTrue(u > 0, "Summation is not greater than zero");
+    }
+
+    @Test
+    void testSummationTo1AtUpperBound_1_oe() {
+         double mean = SUPPORTED_UPPER_BOUND;
+        double u = 0;
+        int x = 0;
+        double p = Math.exp(-mean);
+        while (p != 0) {
+            u += p;
+            x = x + 1;
+            p = p * mean / x;
+        }
+        Assertions.assertEquals(1, u, 1e-3, "Summation is not one");
+    }
+
+    @Test
+    void testSummationTo1AtUpperBound_2_oe() {
+         double mean = SUPPORTED_UPPER_BOUND;
+        double u = 0;
+        int x = 0;
+        double p = Math.exp(-mean);
+        while (p != 0) {
+            u += p;
+            x = x + 1;
+            p = p * mean / x;
+        }
+        // removed other assertion
+        Assertions.assertTrue(u < 1, "Summation is not less than one");
     }
 
 }

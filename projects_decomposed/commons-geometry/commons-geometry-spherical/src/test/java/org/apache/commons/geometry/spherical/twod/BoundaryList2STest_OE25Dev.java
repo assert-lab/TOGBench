@@ -30,5 +30,67 @@ class BoundaryList2STest_OE25Dev {
     private static final Precision.DoubleEquivalence TEST_PRECISION =
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
+    @Test
+    void testCtor_1_oe() {
+        // arrange
+        final List<GreatArc> boundaries = Collections.singletonList(
+                GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION)
+        );
+
+        // act
+        final BoundaryList2S list = new BoundaryList2S(boundaries);
+
+        // assert
+        Assertions.assertNotSame(boundaries, list.getBoundaries());
+    }
+
+    @Test
+    void testCtor_2_oe() {
+        // arrange
+        final List<GreatArc> boundaries = Collections.singletonList(
+                GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION)
+        );
+
+        // act
+        final BoundaryList2S list = new BoundaryList2S(boundaries);
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(boundaries, list.getBoundaries());
+    }
+
+    @Test
+    void testCtor_3_oe() {
+        // arrange
+        final List<GreatArc> boundaries = Collections.singletonList(
+                GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION)
+        );
+
+        // act
+        final BoundaryList2S list = new BoundaryList2S(boundaries);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(1, list.count());
+    }
+
+    @Test
+    void testToList_1_oe() {
+        // arrange
+        final BoundaryList2S list = new BoundaryList2S(Collections.emptyList());
+
+        // act/assert
+        Assertions.assertSame(list, list.toList());
+    }
+
+    @Test
+    void testToString_1_oe() {
+        // arrange
+        final BoundaryList2S list = new BoundaryList2S(Collections.emptyList());
+
+        // act
+        Assertions.assertEquals("BoundaryList2S[count= 0]", list.toString());
+    }
 
 }

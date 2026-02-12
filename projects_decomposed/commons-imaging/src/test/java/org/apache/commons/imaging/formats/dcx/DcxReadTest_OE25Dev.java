@@ -49,5 +49,11 @@ public class DcxReadTest_OE25Dev extends DcxBaseTest {
         Imaging.getImageInfo(imageFile);
     }
 
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testBufferedImage_1_oe(final File imageFile) throws Exception {
+        final BufferedImage image = Imaging.getBufferedImage(imageFile);
+        assertNotNull(image);
+    }
 
 }

@@ -99,6 +99,667 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
 
     }
 
+    @Test
+    public void testSizeFileFilterLong_1_oe() throws FileSystemException {
+
+        final SizeFileFilter testee = new SizeFileFilter(4);
+        Assert.assertFalse(testee.accept(minFileInfo));
+    }
+
+    @Test
+    public void testSizeFileFilterLong_2_oe() throws FileSystemException {
+
+        final SizeFileFilter testee = new SizeFileFilter(4);
+        // removed other assertion
+        Assert.assertTrue(testee.accept(optFileInfo));
+    }
+
+    @Test
+    public void testSizeFileFilterLong_3_oe() throws FileSystemException {
+
+        final SizeFileFilter testee = new SizeFileFilter(4);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(testee.accept(maxFileInfo));
+    }
+
+    @Test
+    public void testSizeFileFilterLongBoolean_1_oe() throws FileSystemException {
+
+        SizeFileFilter testee;
+
+        testee = new SizeFileFilter(4, true);
+        Assert.assertFalse(testee.accept(minFileInfo));
+    }
+
+    @Test
+    public void testSizeFileFilterLongBoolean_2_oe() throws FileSystemException {
+
+        SizeFileFilter testee;
+
+        testee = new SizeFileFilter(4, true);
+        // removed other assertion
+        Assert.assertTrue(testee.accept(optFileInfo));
+    }
+
+    @Test
+    public void testSizeFileFilterLongBoolean_3_oe() throws FileSystemException {
+
+        SizeFileFilter testee;
+
+        testee = new SizeFileFilter(4, true);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(testee.accept(maxFileInfo));
+    }
+
+    @Test
+    public void testSizeFileFilterLongBoolean_4_oe() throws FileSystemException {
+
+        SizeFileFilter testee;
+
+        testee = new SizeFileFilter(4, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeFileFilter(4, false);
+        Assert.assertTrue(testee.accept(minFileInfo));
+    }
+
+    @Test
+    public void testSizeFileFilterLongBoolean_5_oe() throws FileSystemException {
+
+        SizeFileFilter testee;
+
+        testee = new SizeFileFilter(4, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeFileFilter(4, false);
+        // removed other assertion
+        Assert.assertFalse(testee.accept(optFileInfo));
+    }
+
+    @Test
+    public void testSizeFileFilterLongBoolean_6_oe() throws FileSystemException {
+
+        SizeFileFilter testee;
+
+        testee = new SizeFileFilter(4, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeFileFilter(4, false);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(testee.accept(maxFileInfo));
+    }
+
+    @Test
+    public void testSizeFileFilterZipDir_2_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        Assert.assertEquals(2, files.length);
+    }
+
+    @Test
+    public void testSizeFileFilterZipDir_4_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        Assert.assertEquals(1, files.length);
+    }
+
+    @Test
+    public void testSizeFileFilterZipDir_6_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        Assert.assertEquals(3, files.length);
+    }
+
+    @Test
+    public void testSizeFileFilterZipDir_8_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        // removed other assertion
+        Assert.assertEquals(2, files.length);
+    }
+
+    @Test
+    public void testSizeFileFilterZipDir_10_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 5)));
+        // removed other assertion
+        Assert.assertEquals(2, files.length);
+    }
+
+    @Test
+    public void testSizeFileFilterZipDir_12_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 5)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 5)));
+        // removed other assertion
+        Assert.assertEquals(1, files.length);
+    }
+
+    @Test
+    public void testSizeFileFilterZipDir_14_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 5)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 5)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(4, 4)));
+        // removed other assertion
+        Assert.assertEquals(1, files.length);
+    }
+
+    @Test
+    public void testSizeRangeFileFilter_1_oe() throws FileSystemException {
+
+        SizeRangeFileFilter testee;
+
+        testee = new SizeRangeFileFilter(2, 6);
+        Assert.assertTrue(testee.accept(minFileInfo));
+    }
+
+    @Test
+    public void testSizeRangeFileFilter_2_oe() throws FileSystemException {
+
+        SizeRangeFileFilter testee;
+
+        testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        Assert.assertTrue(testee.accept(optFileInfo));
+    }
+
+    @Test
+    public void testSizeRangeFileFilter_3_oe() throws FileSystemException {
+
+        SizeRangeFileFilter testee;
+
+        testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(testee.accept(maxFileInfo));
+    }
+
+    @Test
+    public void testSizeRangeFileFilter_4_oe() throws FileSystemException {
+
+        SizeRangeFileFilter testee;
+
+        testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 6);
+        Assert.assertFalse(testee.accept(minFileInfo));
+    }
+
+    @Test
+    public void testSizeRangeFileFilter_5_oe() throws FileSystemException {
+
+        SizeRangeFileFilter testee;
+
+        testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        Assert.assertTrue(testee.accept(optFileInfo));
+    }
+
+    @Test
+    public void testSizeRangeFileFilter_6_oe() throws FileSystemException {
+
+        SizeRangeFileFilter testee;
+
+        testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(testee.accept(maxFileInfo));
+    }
+
+    @Test
+    public void testSizeRangeFileFilter_7_oe() throws FileSystemException {
+
+        SizeRangeFileFilter testee;
+
+        testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(2, 5);
+        Assert.assertTrue(testee.accept(minFileInfo));
+    }
+
+    @Test
+    public void testSizeRangeFileFilter_8_oe() throws FileSystemException {
+
+        SizeRangeFileFilter testee;
+
+        testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(2, 5);
+        // removed other assertion
+        Assert.assertTrue(testee.accept(optFileInfo));
+    }
+
+    @Test
+    public void testSizeRangeFileFilter_9_oe() throws FileSystemException {
+
+        SizeRangeFileFilter testee;
+
+        testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(2, 5);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(testee.accept(maxFileInfo));
+    }
+
+    @Test
+    public void testSizeRangeFileFilter_10_oe() throws FileSystemException {
+
+        SizeRangeFileFilter testee;
+
+        testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(2, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 5);
+        Assert.assertFalse(testee.accept(minFileInfo));
+    }
+
+    @Test
+    public void testSizeRangeFileFilter_11_oe() throws FileSystemException {
+
+        SizeRangeFileFilter testee;
+
+        testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(2, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 5);
+        // removed other assertion
+        Assert.assertTrue(testee.accept(optFileInfo));
+    }
+
+    @Test
+    public void testSizeRangeFileFilter_12_oe() throws FileSystemException {
+
+        SizeRangeFileFilter testee;
+
+        testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(2, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 5);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(testee.accept(maxFileInfo));
+    }
+
+    @Test
+    public void testSizeRangeFileFilter_13_oe() throws FileSystemException {
+
+        SizeRangeFileFilter testee;
+
+        testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(2, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(4, 4);
+        Assert.assertFalse(testee.accept(minFileInfo));
+    }
+
+    @Test
+    public void testSizeRangeFileFilter_14_oe() throws FileSystemException {
+
+        SizeRangeFileFilter testee;
+
+        testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(2, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(4, 4);
+        // removed other assertion
+        Assert.assertTrue(testee.accept(optFileInfo));
+    }
+
+    @Test
+    public void testSizeRangeFileFilter_15_oe() throws FileSystemException {
+
+        SizeRangeFileFilter testee;
+
+        testee = new SizeRangeFileFilter(2, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(2, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(3, 5);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new SizeRangeFileFilter(4, 4);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(testee.accept(maxFileInfo));
+    }
+
+    @Test
+    public void testSizeFileFilterZipDir_3_oe_1_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+                final FileObject[] fos0 = files;
+        final String string0 = minFile.getName();
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        return;
+                    }
+                }
+        
+                fail(string0 + " should be seen");
+    }
+
+    @Test
+    public void testSizeFileFilterZipDir_11_oe_1_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 5)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 5)));
+                final FileObject[] fos0 = files;
+        final String string0 = optFile.getName();
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        return;
+                    }
+                }
+        
+                fail(string0 + " should be seen");
+    }
+
+    @Test
+    public void testSizeFileFilterZipDir_13_oe_1_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 5)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 5)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(4, 4)));
+                final FileObject[] fos0 = files;
+        final String string0 = optFile.getName();
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        return;
+                    }
+                }
+        
+                fail(string0 + " should be seen");
+    }
 
 }
 // CHECKSTYLE:ON

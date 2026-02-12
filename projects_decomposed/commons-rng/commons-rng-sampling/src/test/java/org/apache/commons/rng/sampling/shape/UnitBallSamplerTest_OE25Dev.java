@@ -28,6 +28,8 @@ import org.apache.commons.rng.core.source64.SplitMix64;
 import org.apache.commons.rng.sampling.RandomAssert;
 import org.apache.commons.rng.simple.RandomSource;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test for {@link UnitBallSampler}.
  */
@@ -325,9 +327,21 @@ class UnitBallSamplerTest_OE25Dev {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         try {
     UnitBallSampler.of(rng, 0);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void checkVolumeFunctions_1_oe() {
+         double[] radii = {0, 0.1, 0.25, 0.5, 0.75, 1.0};
+        for (int n = 1; n <= 6; n++) {
+             DoubleUnaryOperator volume = createVolumeFunction(n);
+             DoubleUnaryOperator radius = createRadiusFunction(n);
+            for ( double r : radii) {
+                Assertions.assertEquals(r, radius.applyAsDouble(volume.applyAsDouble(r)), 1e-10);
+    }
+    }
     }
 
 }

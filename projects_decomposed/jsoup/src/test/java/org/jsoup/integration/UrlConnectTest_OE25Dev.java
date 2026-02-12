@@ -481,5 +481,42 @@ public class UrlConnectTest_OE25Dev {
         assertTrue(doc.title().contains("Räksmörgås.josefßon.org"));
     }
 
+    @Test
+    public void fetchBaidu_1_oe() throws IOException {
+        Connection.Response res = Jsoup.connect("http://www.baidu.com/").timeout(10*1000).execute();
+        Document doc = res.parse();
+
+        assertEquals("GBK", doc.outputSettings().charset().displayName());
+    }
+
+    @Test
+    public void fetchBaidu_2_oe() throws IOException {
+        Connection.Response res = Jsoup.connect("http://www.baidu.com/").timeout(10*1000).execute();
+        Document doc = res.parse();
+
+        // removed other assertion
+        assertEquals("GBK", res.charset());
+    }
+
+    @Test
+    public void fetchBaidu_3_oe() throws IOException {
+        Connection.Response res = Jsoup.connect("http://www.baidu.com/").timeout(10*1000).execute();
+        Document doc = res.parse();
+
+        // removed other assertion
+        // removed other assertion
+        assert(res.hasCookie("BAIDUID"));
+    }
+
+    @Test
+    public void fetchBaidu_4_oe() throws IOException {
+        Connection.Response res = Jsoup.connect("http://www.baidu.com/").timeout(10*1000).execute();
+        Document doc = res.parse();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("text/html;charset=gbk", res.contentType());
+    }
 
 }

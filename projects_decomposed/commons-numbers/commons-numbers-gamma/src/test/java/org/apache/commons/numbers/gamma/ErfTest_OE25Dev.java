@@ -87,5 +87,190 @@ class ErfTest_OE25Dev {
         }
     }
 
+    @Test
+    void testLargeValues_1_oe() {
+        for (int i = 1; i < 200; i *= 10) {
+            double result = Erf.value(i);
+            Assertions.assertFalse(Double.isNaN(result));
+    }
+    }
+
+    @Test
+    void testLargeValues_2_oe() {
+        for (int i = 1; i < 200; i *= 10) {
+            double result = Erf.value(i);
+            // removed other assertion
+            Assertions.assertTrue(result > 0 && result <= 1);
+    }
+    }
+
+    @Test
+    void testLargeValues_3_oe() {
+        for (int i = 1; i < 200; i *= 10) {
+            double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
+            result = Erf.value(-i);
+            Assertions.assertFalse(Double.isNaN(result));
+    }
+    }
+
+    @Test
+    void testLargeValues_4_oe() {
+        for (int i = 1; i < 200; i *= 10) {
+            double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
+            result = Erf.value(-i);
+            // removed other assertion
+            Assertions.assertTrue(result >= -1 && result < 0);
+    }
+    }
+
+    @Test
+    void testLargeValues_5_oe() {
+        for (int i = 1; i < 200; i *= 10) {
+            double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
+            result = Erf.value(-i);
+            // removed other assertion
+            // removed other assertion
+            result = Erfc.value(i);
+            Assertions.assertFalse(Double.isNaN(result));
+    }
+    }
+
+    @Test
+    void testLargeValues_6_oe() {
+        for (int i = 1; i < 200; i *= 10) {
+            double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
+            result = Erf.value(-i);
+            // removed other assertion
+            // removed other assertion
+            result = Erfc.value(i);
+            // removed other assertion
+            Assertions.assertTrue(result >= 0 && result < 1);
+    }
+    }
+
+    @Test
+    void testLargeValues_7_oe() {
+        for (int i = 1; i < 200; i *= 10) {
+            double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
+            result = Erf.value(-i);
+            // removed other assertion
+            // removed other assertion
+            result = Erfc.value(i);
+            // removed other assertion
+            // removed other assertion
+            result = Erfc.value(-i);
+            Assertions.assertFalse(Double.isNaN(result));
+    }
+    }
+
+    @Test
+    void testLargeValues_8_oe() {
+        for (int i = 1; i < 200; i *= 10) {
+            double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
+            result = Erf.value(-i);
+            // removed other assertion
+            // removed other assertion
+            result = Erfc.value(i);
+            // removed other assertion
+            // removed other assertion
+            result = Erfc.value(-i);
+            // removed other assertion
+            Assertions.assertTrue(result >= 1 && result <= 2);
+    }
+    }
+
+    @Test
+    void testLargeValues_9_oe() {
+        for (int i = 1; i < 200; i *= 10) {
+            double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
+            result = Erf.value(-i);
+            // removed other assertion
+            // removed other assertion
+            result = Erfc.value(i);
+            // removed other assertion
+            // removed other assertion
+            result = Erfc.value(-i);
+            // removed other assertion
+            // removed other assertion
+        }
+        Assertions.assertEquals(-1, Erf.value(Double.NEGATIVE_INFINITY));
+    }
+
+    @Test
+    void testLargeValues_10_oe() {
+        for (int i = 1; i < 200; i *= 10) {
+            double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
+            result = Erf.value(-i);
+            // removed other assertion
+            // removed other assertion
+            result = Erfc.value(i);
+            // removed other assertion
+            // removed other assertion
+            result = Erfc.value(-i);
+            // removed other assertion
+            // removed other assertion
+        }
+        // removed other assertion
+        Assertions.assertEquals(1, Erf.value(Double.POSITIVE_INFINITY));
+    }
+
+    @Test
+    void testLargeValues_11_oe() {
+        for (int i = 1; i < 200; i *= 10) {
+            double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
+            result = Erf.value(-i);
+            // removed other assertion
+            // removed other assertion
+            result = Erfc.value(i);
+            // removed other assertion
+            // removed other assertion
+            result = Erfc.value(-i);
+            // removed other assertion
+            // removed other assertion
+        }
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(2, Erfc.value(Double.NEGATIVE_INFINITY));
+    }
+
+    @Test
+    void testLargeValues_12_oe() {
+        for (int i = 1; i < 200; i *= 10) {
+            double result = Erf.value(i);
+            // removed other assertion
+            // removed other assertion
+            result = Erf.value(-i);
+            // removed other assertion
+            // removed other assertion
+            result = Erfc.value(i);
+            // removed other assertion
+            // removed other assertion
+            result = Erfc.value(-i);
+            // removed other assertion
+            // removed other assertion
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(0, Erfc.value(Double.POSITIVE_INFINITY));
+    }
 
 }

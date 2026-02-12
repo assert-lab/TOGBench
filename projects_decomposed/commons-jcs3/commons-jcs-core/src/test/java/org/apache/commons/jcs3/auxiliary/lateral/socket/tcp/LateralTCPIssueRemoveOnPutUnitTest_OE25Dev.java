@@ -185,5 +185,41 @@ public class LateralTCPIssueRemoveOnPutUnitTest_OE25Dev
         }
     }
 
+    public void testStandardPut_1_oe()
+        throws Exception
+    {
+        final String region = "region1";
+
+        final CacheAccess<String, String> cache = JCS.getInstance( region );
+
+        Thread.sleep( 100 );
+
+        final TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
+        lattr2.setTcpListenerPort( 1102 );
+        lattr2.setTransmissionType(LateralCacheAttributes.Type.TCP);
+        lattr2.setTcpServer( "localhost:" + serverPort );
+        lattr2.setIssueRemoveOnPut( false );
+        // should still try to remove
+        // lattr2.setAllowPut( false );
+
+        // Using the lateral, this service will put to and remove from
+        // the cache instance above.
+        // The cache thinks it is different since the listenerid is different
+        final LateralTCPService<String, String> service =
+                new LateralTCPService<>(lattr2,  new StandardSerializer());
+        service.setListenerId( 123456 );
+
+        final String keyToBeRemovedOnPut = "test1_notremoved";
+
+        final ICacheElement<String, String> element1 = new CacheElement<>( region, keyToBeRemovedOnPut, region
+            + ":data-this shouldn't get removed, it should get to the cache." );
+        service.update( element1 );
+
+        Thread.sleep( 1000 );
+
+        final Object testObj = cache.get( keyToBeRemovedOnPut );
+        p( "testStandardPut, test object = " + testObj );
+        assertNotNull( "The test object should not have been removed by a put.", testObj );
+    }
 
 }

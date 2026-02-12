@@ -32,6 +32,8 @@ import org.apache.commons.imaging.ImagingConstants;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Tests for {@link PngChunkIccp}.
  */
@@ -80,7 +82,7 @@ public class PngChunkIccpTest_OE25Dev {
         final byte[] data = ImagingConstants.EMPTY_BYTE_ARRAY;
         try {
     new PngChunkIccp(0, chunkType, 0, data);
-    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+    fail("ImageReadException");
 } catch (ImageReadException e) {
 }
     }

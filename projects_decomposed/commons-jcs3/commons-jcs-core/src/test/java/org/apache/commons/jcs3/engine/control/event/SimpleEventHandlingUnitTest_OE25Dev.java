@@ -220,5 +220,133 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         }
     }
 
+    public void testSpoolEvent_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( "WithDisk" );
+        // this should add the event handler to all items as they are created.
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        attributes.addElementEventHandler( meh );
+        jcs.setDefaultElementAttributes( attributes );
+
+        // DO WORK
+        // put them in
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+        // wait a bit for it to finish
+        Thread.sleep( items / 20 );
+
+        // VERIFY
+        // test to see if the count is right
+        assertTrue("The number of ELEMENT_EVENT_SPOOLED_DISK_AVAILABLE events [" + meh.getSpoolCount()+ "] does not equal the number expected [" + items + "]",meh.getSpoolCount()>= items);
+    }
+
+    public void testSpoolNoDiskEvent_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( "NoDisk" );
+
+        // this should add the event handler to all items as they are created.
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        attributes.addElementEventHandler( meh );
+        jcs.setDefaultElementAttributes( attributes );
+
+        // put them in
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+
+        // wait a bit for it to finish
+        Thread.sleep( items / 20 );
+
+        // test to see if the count is right
+        assertTrue("The number of ELEMENT_EVENT_SPOOLED_DISK_NOT_AVAILABLE events [" + meh.getSpoolNoDiskCount()+ "] does not equal the number expected.",meh.getSpoolNoDiskCount()>= items);
+    }
+
+    public void testSpoolNotAllowedEvent_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( "DiskButNotAllowed" );
+        // this should add the event handler to all items as they are created.
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        attributes.addElementEventHandler( meh );
+        jcs.setDefaultElementAttributes( attributes );
+
+        // put them in
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+
+        // wait a bit for it to finish
+        Thread.sleep( items / 20 );
+
+        // test to see if the count is right
+        assertTrue("The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [" + meh.getSpoolNotAllowedCount()+ "] does not equal the number expected.",meh.getSpoolNotAllowedCount()>= items);
+    }
+
+    public void testSpoolNotAllowedEventOnItem_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( "DiskButNotAllowed" );
+        // this should add the event handler to all items as they are created.
+        //IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        //attributes.addElementEventHandler( meh );
+        //jcs.setDefaultElementAttributes( attributes );
+
+        // put them in
+        for ( int i = 0; i < items; i++ )
+        {
+            final IElementAttributes attributes = jcs.getDefaultElementAttributes();
+            attributes.addElementEventHandler( meh );
+            jcs.put( i + ":key", "data" + i, attributes );
+        }
+
+        // wait a bit for it to finish
+        Thread.sleep( items / 20 );
+
+        // test to see if the count is right
+        assertTrue("The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [" + meh.getSpoolNotAllowedCount()+ "] does not equal the number expected.",meh.getSpoolNotAllowedCount()>= items);
+    }
+
+    public void testExceededIdletimeOnrequestEvent_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( "Idletime" );
+        // this should add the event handler to all items as they are created.
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        attributes.addElementEventHandler( meh );
+        jcs.setDefaultElementAttributes( attributes );
+
+        // put them in
+        for ( int i = 0; i < 200; i++ )
+        {
+            jcs.put( i + ":key", "data" + i);
+        }
+
+        // update access time
+        for ( int i = 0; i < 200; i++ )
+        {
+            final String value = jcs.get( i + ":key");
+            assertNotNull("Item should not be null for key " + i + ":key", value);
+    }
+    }
+
+    public void testElementAttributesCreationTime_1_oe()
+        throws Exception
+    {
+    	final ElementAttributes elem1 = new ElementAttributes();
+    	final long ctime1 = elem1.getCreateTime();
+
+    	Thread.sleep(10);
+
+    	final IElementAttributes elem2 = elem1.clone();
+    	final long ctime2 = elem2.getCreateTime();
+
+    	assertFalse("Creation times should be different", ctime1 == ctime2);
+    }
 
 }

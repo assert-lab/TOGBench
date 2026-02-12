@@ -30,5 +30,67 @@ class BoundaryList3DTest_OE25Dev {
     private static final Precision.DoubleEquivalence TEST_PRECISION =
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
+    @Test
+    void testCtor_1_oe() {
+        // arrange
+        final List<PlaneConvexSubset> boundaries = Collections.singletonList(
+                Planes.fromNormal(Vector3D.Unit.PLUS_X, TEST_PRECISION).span()
+        );
+
+        // act
+        final BoundaryList3D list = new BoundaryList3D(boundaries);
+
+        // assert
+        Assertions.assertNotSame(boundaries, list.getBoundaries());
+    }
+
+    @Test
+    void testCtor_2_oe() {
+        // arrange
+        final List<PlaneConvexSubset> boundaries = Collections.singletonList(
+                Planes.fromNormal(Vector3D.Unit.PLUS_X, TEST_PRECISION).span()
+        );
+
+        // act
+        final BoundaryList3D list = new BoundaryList3D(boundaries);
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(boundaries, list.getBoundaries());
+    }
+
+    @Test
+    void testCtor_3_oe() {
+        // arrange
+        final List<PlaneConvexSubset> boundaries = Collections.singletonList(
+                Planes.fromNormal(Vector3D.Unit.PLUS_X, TEST_PRECISION).span()
+        );
+
+        // act
+        final BoundaryList3D list = new BoundaryList3D(boundaries);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(1, list.count());
+    }
+
+    @Test
+    void testToList_1_oe() {
+        // arrange
+        final BoundaryList3D list = new BoundaryList3D(Collections.emptyList());
+
+        // act/assert
+        Assertions.assertSame(list, list.toList());
+    }
+
+    @Test
+    void testToString_1_oe() {
+        // arrange
+        final BoundaryList3D list = new BoundaryList3D(Collections.emptyList());
+
+        // act
+        Assertions.assertEquals("BoundaryList3D[count= 0]", list.toString());
+    }
 
 }

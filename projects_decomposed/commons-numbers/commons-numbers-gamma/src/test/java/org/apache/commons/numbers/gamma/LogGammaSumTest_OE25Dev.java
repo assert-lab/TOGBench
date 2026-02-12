@@ -19,6 +19,8 @@ package org.apache.commons.numbers.gamma;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Tests for {@link LogGammaSum}.
  */
@@ -129,10 +131,26 @@ class LogGammaSumTest_OE25Dev {
     };
 
     @Test
+    void testLogGammaSum_1_oe() {
+        final int ulps = 2;
+        for (int i = 0; i < LOG_GAMMA_SUM_REF.length; i++) {
+            final double[] ref = LOG_GAMMA_SUM_REF[i];
+            final double a = ref[0];
+            final double b = ref[1];
+            final double expected = ref[2];
+            final double actual = LogGammaSum.value(a, b);
+            final double tol = ulps * Math.ulp(expected);
+            final StringBuilder builder = new StringBuilder();
+            builder.append(a).append(", ").append(b);
+            Assertions.assertEquals(expected, actual, tol, builder.toString());
+    }
+    }
+
+    @Test
     void testLogGammaSumPrecondition1_1_oe() {
         try {
     LogGammaSum.value(0, 1);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -141,7 +159,7 @@ class LogGammaSumTest_OE25Dev {
     void testLogGammaSumPrecondition2_1_oe() {
         try {
     LogGammaSum.value(3, 1);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -150,7 +168,7 @@ class LogGammaSumTest_OE25Dev {
     void testLogGammaSumPrecondition3_1_oe() {
         try {
     LogGammaSum.value(1, 0);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -159,7 +177,7 @@ class LogGammaSumTest_OE25Dev {
     void testLogGammaSumPrecondition4_1_oe() {
         try {
     LogGammaSum.value(1, 3);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }

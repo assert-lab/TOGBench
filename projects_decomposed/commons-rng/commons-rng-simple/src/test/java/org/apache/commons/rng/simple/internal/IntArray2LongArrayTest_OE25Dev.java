@@ -24,5 +24,18 @@ import org.junit.jupiter.api.Test;
  */
 class IntArray2LongArrayTest_OE25Dev {
 
+    @Test
+    void testSeedSizeIsMultipleOfLongSize_1_oe() {
+         int[] seed = new int[12];
+         long[] out = new IntArray2LongArray().convert(seed);
+        Assertions.assertEquals(6, out.length);
+    }
+
+    @Test
+    void testSeedSizeIsNotMultipleOfLongSize_1_oe() {
+         int[] seed = new int[13];
+         long[] out = new IntArray2LongArray().convert(seed);
+        Assertions.assertEquals(7, out.length);
+    }
 
 }

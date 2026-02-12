@@ -33,6 +33,8 @@ import java.util.concurrent.TimeUnit;
 import org.easymock.EasyMock;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test class for {@link ConcurrentUtils}.
  */
@@ -247,7 +249,7 @@ public class ConcurrentUtilsTest_OE25Dev {
     public void testConcurrentExceptionCauseUnchecked_1_oe() throws Exception {
         try {
     new ConcurrentException(new RuntimeException());
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -256,7 +258,7 @@ public class ConcurrentUtilsTest_OE25Dev {
     public void testConcurrentExceptionCauseError_1_oe() throws Exception {
         try {
     new ConcurrentException("An error", new Error());
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -265,7 +267,7 @@ public class ConcurrentUtilsTest_OE25Dev {
     public void testConcurrentExceptionCauseNull_1_oe() throws Exception {
         try {
     new ConcurrentException(null);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -274,7 +276,7 @@ public class ConcurrentUtilsTest_OE25Dev {
     public void testConcurrentRuntimeExceptionCauseUnchecked_1_oe() throws Exception {
         try {
     new ConcurrentRuntimeException(new RuntimeException());
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -283,7 +285,7 @@ public class ConcurrentUtilsTest_OE25Dev {
     public void testConcurrentRuntimeExceptionCauseError_1_oe() throws Exception {
         try {
     new ConcurrentRuntimeException("An error", new Error());
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -292,9 +294,19 @@ public class ConcurrentUtilsTest_OE25Dev {
     public void testConcurrentRuntimeExceptionCauseNull_1_oe() throws Exception {
         try {
     new ConcurrentRuntimeException(null);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    public void testExtractCauseNull_1_oe() {
+        assertNull(ConcurrentUtils.extractCause(null), "Non null result");
+    }
+
+    @Test
+    public void testExtractCauseNullCause_1_oe() {
+        assertNull(ConcurrentUtils.extractCause(new ExecutionException("Test", null)), "Non null result");
     }
 
     @Test
@@ -309,9 +321,27 @@ public class ConcurrentUtilsTest_OE25Dev {
         final RuntimeException rex = new RuntimeException("Test");
         try {
     ConcurrentUtils.extractCause(new ExecutionException(rex));
-    org.junit.jupiter.api.Assertions.fail("RuntimeException");
+    fail("RuntimeException");
 } catch (RuntimeException e) {
 }
+    }
+
+    @Test
+    public void testExtractCauseChecked_1_oe() {
+        final Exception ex = new Exception("Test");
+        final ConcurrentException cex = ConcurrentUtils
+                .extractCause(new ExecutionException(ex));
+        assertSame(ex, cex.getCause(), "Wrong cause");
+    }
+
+    @Test
+    public void testExtractCauseUncheckedNull_1_oe() {
+        assertNull(ConcurrentUtils.extractCauseUnchecked(null), "Non null result");
+    }
+
+    @Test
+    public void testExtractCauseUncheckedNullCause_1_oe() {
+        assertNull(ConcurrentUtils.extractCauseUnchecked(new ExecutionException("Test", null)), "Non null result");
     }
 
     @Test
@@ -325,6 +355,14 @@ public class ConcurrentUtilsTest_OE25Dev {
         final RuntimeException rex = new RuntimeException("Test");
         final RuntimeException r =
                 assertThrows(RuntimeException.class, () -> ConcurrentUtils.extractCauseUnchecked(new ExecutionException(rex)));
+    }
+
+    @Test
+    public void testExtractCauseUncheckedChecked_1_oe() {
+        final Exception ex = new Exception("Test");
+        final ConcurrentRuntimeException cex = ConcurrentUtils
+                .extractCauseUnchecked(new ExecutionException(ex));
+        assertSame(ex, cex.getCause(), "Wrong cause");
     }
 
     @Test
@@ -368,6 +406,45 @@ public class ConcurrentUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testInitializeNull_1_oe() throws ConcurrentException {
+        assertNull(ConcurrentUtils.initialize(null), "Got a result");
+    }
+
+    @Test
+    public void testInitialize_1_oe() throws ConcurrentException {
+        @SuppressWarnings("unchecked")
+        final
+        ConcurrentInitializer<Object> init = EasyMock
+                .createMock(ConcurrentInitializer.class);
+        final Object result = new Object();
+        EasyMock.expect(init.get()).andReturn(result);
+        EasyMock.replay(init);
+        assertSame(result, ConcurrentUtils.initialize(init), "Wrong result object");
+    }
+
+    @Test
+    public void testInitializeUncheckedNull_1_oe() {
+        assertNull(ConcurrentUtils.initializeUnchecked(null), "Got a result");
+    }
+
+    @Test
+    public void testUninitializedConcurrentRuntimeException_1_oe() {
+        assertNotNull(new ConcurrentRuntimeException(), "Error creating empty ConcurrentRuntimeException");
+    }
+
+    @Test
+    public void testInitializeUnchecked_1_oe() throws ConcurrentException {
+        @SuppressWarnings("unchecked")
+        final
+        ConcurrentInitializer<Object> init = EasyMock
+                .createMock(ConcurrentInitializer.class);
+        final Object result = new Object();
+        EasyMock.expect(init.get()).andReturn(result);
+        EasyMock.replay(init);
+        assertSame(result, ConcurrentUtils.initializeUnchecked(init), "Wrong result object");
+    }
+
+    @Test
     public void testInitializeUncheckedEx_1_oe() throws ConcurrentException {
         @SuppressWarnings("unchecked")
         final
@@ -378,6 +455,258 @@ public class ConcurrentUtilsTest_OE25Dev {
         EasyMock.replay(init);
         final ConcurrentRuntimeException crex =
                 assertThrows(ConcurrentRuntimeException.class, () -> ConcurrentUtils.initializeUnchecked(init));
+    }
+
+    @Test
+    public void testConstantFuture_Integer_1_oe() throws Exception {
+        final Integer value = Integer.valueOf(5);
+        final Future<Integer> test = ConcurrentUtils.constantFuture(value);
+        assertTrue(test.isDone());
+    }
+
+    @Test
+    public void testConstantFuture_Integer_2_oe() throws Exception {
+        final Integer value = Integer.valueOf(5);
+        final Future<Integer> test = ConcurrentUtils.constantFuture(value);
+        // removed other assertion
+        assertSame(value, test.get());
+    }
+
+    @Test
+    public void testConstantFuture_Integer_3_oe() throws Exception {
+        final Integer value = Integer.valueOf(5);
+        final Future<Integer> test = ConcurrentUtils.constantFuture(value);
+        // removed other assertion
+        // removed other assertion
+        assertSame(value, test.get(1000, TimeUnit.SECONDS));
+    }
+
+    @Test
+    public void testConstantFuture_Integer_4_oe() throws Exception {
+        final Integer value = Integer.valueOf(5);
+        final Future<Integer> test = ConcurrentUtils.constantFuture(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertSame(value, test.get(1000, null));
+    }
+
+    @Test
+    public void testConstantFuture_Integer_5_oe() throws Exception {
+        final Integer value = Integer.valueOf(5);
+        final Future<Integer> test = ConcurrentUtils.constantFuture(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(test.isCancelled());
+    }
+
+    @Test
+    public void testConstantFuture_Integer_6_oe() throws Exception {
+        final Integer value = Integer.valueOf(5);
+        final Future<Integer> test = ConcurrentUtils.constantFuture(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(test.cancel(true));
+    }
+
+    @Test
+    public void testConstantFuture_Integer_7_oe() throws Exception {
+        final Integer value = Integer.valueOf(5);
+        final Future<Integer> test = ConcurrentUtils.constantFuture(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(test.cancel(false));
+    }
+
+    @Test
+    public void testConstantFuture_null_1_oe() throws Exception {
+        final Integer value = null;
+        final Future<Integer> test = ConcurrentUtils.constantFuture(value);
+        assertTrue(test.isDone());
+    }
+
+    @Test
+    public void testConstantFuture_null_2_oe() throws Exception {
+        final Integer value = null;
+        final Future<Integer> test = ConcurrentUtils.constantFuture(value);
+        // removed other assertion
+        assertSame(value, test.get());
+    }
+
+    @Test
+    public void testConstantFuture_null_3_oe() throws Exception {
+        final Integer value = null;
+        final Future<Integer> test = ConcurrentUtils.constantFuture(value);
+        // removed other assertion
+        // removed other assertion
+        assertSame(value, test.get(1000, TimeUnit.SECONDS));
+    }
+
+    @Test
+    public void testConstantFuture_null_4_oe() throws Exception {
+        final Integer value = null;
+        final Future<Integer> test = ConcurrentUtils.constantFuture(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertSame(value, test.get(1000, null));
+    }
+
+    @Test
+    public void testConstantFuture_null_5_oe() throws Exception {
+        final Integer value = null;
+        final Future<Integer> test = ConcurrentUtils.constantFuture(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(test.isCancelled());
+    }
+
+    @Test
+    public void testConstantFuture_null_6_oe() throws Exception {
+        final Integer value = null;
+        final Future<Integer> test = ConcurrentUtils.constantFuture(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(test.cancel(true));
+    }
+
+    @Test
+    public void testConstantFuture_null_7_oe() throws Exception {
+        final Integer value = null;
+        final Future<Integer> test = ConcurrentUtils.constantFuture(value);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(test.cancel(false));
+    }
+
+    @Test
+    public void testPutIfAbsentKeyPresent_1_oe() {
+        final String key = "testKey";
+        final Integer value = 42;
+        final ConcurrentMap<String, Integer> map = new ConcurrentHashMap<>();
+        map.put(key, value);
+        assertEquals(value, ConcurrentUtils.putIfAbsent(map, key, 0), "Wrong result");
+    }
+
+    @Test
+    public void testPutIfAbsentKeyPresent_2_oe() {
+        final String key = "testKey";
+        final Integer value = 42;
+        final ConcurrentMap<String, Integer> map = new ConcurrentHashMap<>();
+        map.put(key, value);
+        // removed other assertion
+        assertEquals(value, map.get(key), "Wrong value in map");
+    }
+
+    @Test
+    public void testPutIfAbsentKeyNotPresent_1_oe() {
+        final String key = "testKey";
+        final Integer value = 42;
+        final ConcurrentMap<String, Integer> map = new ConcurrentHashMap<>();
+        assertEquals(value, ConcurrentUtils.putIfAbsent(map, key, value), "Wrong result");
+    }
+
+    @Test
+    public void testPutIfAbsentNullMap_1_oe() {
+        assertNull(ConcurrentUtils.putIfAbsent(null, "test", 100), "Wrong result");
+    }
+
+    @Test
+    public void testCreateIfAbsentKeyPresent_1_oe() throws ConcurrentException {
+        @SuppressWarnings("unchecked")
+        final
+        ConcurrentInitializer<Integer> init = EasyMock
+                .createMock(ConcurrentInitializer.class);
+        EasyMock.replay(init);
+        final String key = "testKey";
+        final Integer value = 42;
+        final ConcurrentMap<String, Integer> map = new ConcurrentHashMap<>();
+        map.put(key, value);
+        assertEquals(value, ConcurrentUtils.createIfAbsent(map, key, init), "Wrong result");
+    }
+
+    @Test
+    public void testCreateIfAbsentKeyPresent_2_oe() throws ConcurrentException {
+        @SuppressWarnings("unchecked")
+        final
+        ConcurrentInitializer<Integer> init = EasyMock
+                .createMock(ConcurrentInitializer.class);
+        EasyMock.replay(init);
+        final String key = "testKey";
+        final Integer value = 42;
+        final ConcurrentMap<String, Integer> map = new ConcurrentHashMap<>();
+        map.put(key, value);
+        // removed other assertion
+        assertEquals(value, map.get(key), "Wrong value in map");
+    }
+
+    @Test
+    public void testCreateIfAbsentKeyNotPresent_1_oe() throws ConcurrentException {
+        @SuppressWarnings("unchecked")
+        final
+        ConcurrentInitializer<Integer> init = EasyMock
+                .createMock(ConcurrentInitializer.class);
+        final String key = "testKey";
+        final Integer value = 42;
+        EasyMock.expect(init.get()).andReturn(value);
+        EasyMock.replay(init);
+        final ConcurrentMap<String, Integer> map = new ConcurrentHashMap<>();
+        assertEquals(value, ConcurrentUtils.createIfAbsent(map, key, init), "Wrong result");
+    }
+
+    @Test
+    public void testCreateIfAbsentNullMap_1_oe() throws ConcurrentException {
+        @SuppressWarnings("unchecked")
+        final
+        ConcurrentInitializer<Integer> init = EasyMock
+                .createMock(ConcurrentInitializer.class);
+        EasyMock.replay(init);
+        assertNull(ConcurrentUtils.createIfAbsent(null, "test", init), "Wrong result");
+    }
+
+    @Test
+    public void testCreateIfAbsentNullInit_1_oe() throws ConcurrentException {
+        final ConcurrentMap<String, Integer> map = new ConcurrentHashMap<>();
+        final String key = "testKey";
+        final Integer value = 42;
+        map.put(key, value);
+        assertNull(ConcurrentUtils.createIfAbsent(map, key, null), "Wrong result");
+    }
+
+    @Test
+    public void testCreateIfAbsentNullInit_2_oe() throws ConcurrentException {
+        final ConcurrentMap<String, Integer> map = new ConcurrentHashMap<>();
+        final String key = "testKey";
+        final Integer value = 42;
+        map.put(key, value);
+        // removed other assertion
+        assertEquals(value, map.get(key), "Map was changed");
+    }
+
+    @Test
+    public void testCreateIfAbsentUncheckedSuccess_1_oe() {
+        final String key = "testKey";
+        final Integer value = 42;
+        final ConcurrentMap<String, Integer> map = new ConcurrentHashMap<>();
+        assertEquals(value,ConcurrentUtils.createIfAbsentUnchecked(map,key,new ConstantInitializer<>(value)),"Wrong result");
     }
 
     @Test

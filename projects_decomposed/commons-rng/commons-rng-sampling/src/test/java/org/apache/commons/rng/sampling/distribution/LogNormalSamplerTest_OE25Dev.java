@@ -24,6 +24,8 @@ import org.apache.commons.rng.simple.RandomSource;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test for the {@link LogNormalSampler}. The tests hit edge cases for the sampler.
  */
@@ -91,7 +93,7 @@ class LogNormalSamplerTest_OE25Dev {
          double shape = 1;
         try {
     LogNormalSampler.of(gauss, scale, shape);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -105,7 +107,7 @@ class LogNormalSamplerTest_OE25Dev {
          double shape = 0;
         try {
     LogNormalSampler.of(gauss, scale, shape);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -125,7 +127,7 @@ class LogNormalSamplerTest_OE25Dev {
             LogNormalSampler.of(gauss, scale, shape);
         try {
     sampler1.withUniformRandomProvider(rng2);
-    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+    fail("UnsupportedOperationException");
 } catch (UnsupportedOperationException e) {
 }
     }
@@ -140,7 +142,7 @@ class LogNormalSamplerTest_OE25Dev {
             LogNormalSampler.of(gauss, scale, shape);
         try {
     sampler1.withUniformRandomProvider(rng2);
-    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+    fail("UnsupportedOperationException");
 } catch (UnsupportedOperationException e) {
 }
     }

@@ -40,5 +40,46 @@ public class EntityArraysTest_OE25Dev  {
    // LANG-658 - check arrays for duplicate entries
 
 
+    @Test
+    public void testHTML40_EXTENDED_ESCAPE_1_oe() {
+        final Set<String> col0 = new HashSet<>();
+        final Set<String> col1 = new HashSet<>();
+        final String [][] sa = EntityArrays.HTML40_EXTENDED_ESCAPE();
+        for (int i =0; i <sa.length; i++) {
+            assertTrue(col0.add(sa[i][0]), "Already added entry 0: "+i+" "+sa[i][0]);
+    }
+    }
+
+    @Test
+    public void testHTML40_EXTENDED_ESCAPE_2_oe() {
+        final Set<String> col0 = new HashSet<>();
+        final Set<String> col1 = new HashSet<>();
+        final String [][] sa = EntityArrays.HTML40_EXTENDED_ESCAPE();
+        for (int i =0; i <sa.length; i++) {
+            // removed other assertion
+            assertTrue(col1.add(sa[i][1]), "Already added entry 1: "+i+" "+sa[i][1]);
+    }
+    }
+
+    @Test
+    public void testISO8859_1_ESCAPE_1_oe() {
+        final Set<String> col0 = new HashSet<>();
+        final Set<String> col1 = new HashSet<>();
+        final String [][] sa = EntityArrays.ISO8859_1_ESCAPE();
+        boolean success = true;
+        for (int i =0; i <sa.length; i++) {
+            final boolean add0 = col0.add(sa[i][0]);
+            final boolean add1 = col1.add(sa[i][1]);
+            if (!add0) {
+                success = false;
+                System.out.println("Already added entry 0: "+i+" "+sa[i][0]+" "+sa[i][1]);
+            }
+            if (!add1) {
+                success = false;
+                System.out.println("Already added entry 1: "+i+" "+sa[i][0]+" "+sa[i][1]);
+            }
+        }
+        assertTrue(success, "One or more errors detected");
+    }
 
 }

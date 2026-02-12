@@ -25,6 +25,8 @@ import org.junit.jupiter.api.Test;
 import org.apache.commons.rng.UniformRandomProvider;
 import org.apache.commons.rng.simple.RandomSource;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Tests for {@link CollectionSampler}.
  */
@@ -45,11 +47,30 @@ class CollectionSamplerTest_OE25Dev {
     }
 
     @Test
+    void testSampleTrivial_1_oe() {
+         ArrayList<String> list = new ArrayList<>();
+        list.add("Apache");
+        list.add("Commons");
+        list.add("RNG");
+
+         CollectionSampler<String> sampler =
+            new CollectionSampler<>(RandomSource.MWC_256.create(),
+                                          list);
+         String word = sampler.sample();
+        for (String w : list) {
+            if (word.equals(w)) {
+                return;
+            }
+        }
+        Assertions.fail(word + " not in list");
+    }
+
+    @Test
     void testSamplePrecondition_1_oe() {
         // Must fail for empty collection.
         try {
     new CollectionSampler<>(RandomSource.SPLIT_MIX_64.create(0L), new ArrayList<>());
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }

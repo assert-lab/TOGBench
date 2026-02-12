@@ -44,5 +44,161 @@ public class FIFOMemoryCacheUnitTest_OE25Dev
      * @throws IOException
      */
 
+    public void testExpirationPolicy_oneExtra_1_oe()
+        throws IOException
+    {
+        // SETUP
+        final int maxObjects = 10;
+        final String cacheName = "testExpirationPolicy_oneExtra";
+
+        final ICompositeCacheAttributes attributes = new CompositeCacheAttributes();
+        attributes.setCacheName(cacheName);
+        attributes.setMaxObjects( maxObjects );
+        attributes.setSpoolChunkSize( 1 );
+
+        final FIFOMemoryCache<String, String> cache = new FIFOMemoryCache<>();
+        cache.initialize( new CompositeCache<>( attributes, new ElementAttributes() ) );
+
+        for ( int i = 0; i <= maxObjects; i++ )
+        {
+            final CacheElement<String, String> element = new CacheElement<>( cacheName, "key" + i, "value" + i );
+            cache.update( element );
+        }
+
+        final CacheElement<String, String> oneMoreElement = new CacheElement<>( cacheName, "onemore", "onemore" );
+
+        // DO WORK
+        cache.update( oneMoreElement );
+
+        // VERIFY
+        assertEquals( "Should have max elements", maxObjects, cache.getSize() );
+    }
+
+    public void testExpirationPolicy_oneExtra_2_oe()
+        throws IOException
+    {
+        // SETUP
+        final int maxObjects = 10;
+        final String cacheName = "testExpirationPolicy_oneExtra";
+
+        final ICompositeCacheAttributes attributes = new CompositeCacheAttributes();
+        attributes.setCacheName(cacheName);
+        attributes.setMaxObjects( maxObjects );
+        attributes.setSpoolChunkSize( 1 );
+
+        final FIFOMemoryCache<String, String> cache = new FIFOMemoryCache<>();
+        cache.initialize( new CompositeCache<>( attributes, new ElementAttributes() ) );
+
+        for ( int i = 0; i <= maxObjects; i++ )
+        {
+            final CacheElement<String, String> element = new CacheElement<>( cacheName, "key" + i, "value" + i );
+            cache.update( element );
+        }
+
+        final CacheElement<String, String> oneMoreElement = new CacheElement<>( cacheName, "onemore", "onemore" );
+
+        // DO WORK
+        cache.update( oneMoreElement );
+
+        // VERIFY
+        // removed other assertion
+        System.out.println(cache.getKeySet());
+        for ( int i = maxObjects; i > 1; i-- )
+        {
+            assertNotNull( "Should have element " + i, cache.get( "key" + i ) );
+    }
+    }
+
+    public void testExpirationPolicy_oneExtra_3_oe()
+        throws IOException
+    {
+        // SETUP
+        final int maxObjects = 10;
+        final String cacheName = "testExpirationPolicy_oneExtra";
+
+        final ICompositeCacheAttributes attributes = new CompositeCacheAttributes();
+        attributes.setCacheName(cacheName);
+        attributes.setMaxObjects( maxObjects );
+        attributes.setSpoolChunkSize( 1 );
+
+        final FIFOMemoryCache<String, String> cache = new FIFOMemoryCache<>();
+        cache.initialize( new CompositeCache<>( attributes, new ElementAttributes() ) );
+
+        for ( int i = 0; i <= maxObjects; i++ )
+        {
+            final CacheElement<String, String> element = new CacheElement<>( cacheName, "key" + i, "value" + i );
+            cache.update( element );
+        }
+
+        final CacheElement<String, String> oneMoreElement = new CacheElement<>( cacheName, "onemore", "onemore" );
+
+        // DO WORK
+        cache.update( oneMoreElement );
+
+        // VERIFY
+        // removed other assertion
+        System.out.println(cache.getKeySet());
+        for ( int i = maxObjects; i > 1; i-- )
+        {
+            // removed other assertion
+        }
+        assertNotNull( "Should have oneMoreElement", cache.get( "onemore" ) );
+    }
+
+    public void testExpirationPolicy_doubleOver_1_oe()
+        throws IOException
+    {
+        // SETUP
+        final int maxObjects = 10;
+        final String cacheName = "testExpirationPolicy_oneExtra";
+
+        final ICompositeCacheAttributes attributes = new CompositeCacheAttributes();
+        attributes.setCacheName(cacheName);
+        attributes.setMaxObjects( maxObjects );
+        attributes.setSpoolChunkSize( 1 );
+
+        final FIFOMemoryCache<String, String> cache = new FIFOMemoryCache<>();
+        cache.initialize( new CompositeCache<>( attributes, new ElementAttributes() ) );
+
+        // DO WORK
+        for ( int i = 0; i <= (maxObjects * 2); i++ )
+        {
+            final CacheElement<String, String> element = new CacheElement<>( cacheName, "key" + i, "value" + i );
+            cache.update( element );
+        }
+
+        // VERIFY
+        assertEquals( "Should have max elements", maxObjects, cache.getSize() );
+    }
+
+    public void testExpirationPolicy_doubleOver_2_oe()
+        throws IOException
+    {
+        // SETUP
+        final int maxObjects = 10;
+        final String cacheName = "testExpirationPolicy_oneExtra";
+
+        final ICompositeCacheAttributes attributes = new CompositeCacheAttributes();
+        attributes.setCacheName(cacheName);
+        attributes.setMaxObjects( maxObjects );
+        attributes.setSpoolChunkSize( 1 );
+
+        final FIFOMemoryCache<String, String> cache = new FIFOMemoryCache<>();
+        cache.initialize( new CompositeCache<>( attributes, new ElementAttributes() ) );
+
+        // DO WORK
+        for ( int i = 0; i <= (maxObjects * 2); i++ )
+        {
+            final CacheElement<String, String> element = new CacheElement<>( cacheName, "key" + i, "value" + i );
+            cache.update( element );
+        }
+
+        // VERIFY
+        // removed other assertion
+        for ( int i = (maxObjects * 2); i > maxObjects; i-- )
+        {
+            assertNotNull( "Shjould have elemnt " + i, cache.get( "key" + i ) );
+    }
+    }
 
 }

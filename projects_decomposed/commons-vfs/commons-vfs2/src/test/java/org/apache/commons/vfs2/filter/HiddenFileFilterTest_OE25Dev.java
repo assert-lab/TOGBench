@@ -96,6 +96,104 @@ public class HiddenFileFilterTest_OE25Dev extends BaseFilterTest {
 
     }
 
+    @Test
+    public void testAcceptHidden_1_oe() throws FileSystemException {
+
+        final FileFilter testee = HiddenFileFilter.HIDDEN;
+
+        Assert.assertFalse(testee.accept(visibleFileInfo));
+    }
+
+    @Test
+    public void testAcceptHidden_2_oe() throws FileSystemException {
+
+        final FileFilter testee = HiddenFileFilter.HIDDEN;
+
+        // removed other assertion
+        // TODO xxx In Java 6 there is no way to hide a file
+        // assertThat(testee.accept(hiddenFileInfo));
+        Assert.assertFalse(testee.accept(notExistingFileInfo));
+    }
+
+    @Test
+    public void testAcceptVisible_1_oe() throws FileSystemException {
+
+        final FileFilter testee = HiddenFileFilter.VISIBLE;
+
+        Assert.assertTrue(testee.accept(visibleFileInfo));
+    }
+
+    @Test
+    public void testAcceptVisible_2_oe() throws FileSystemException {
+
+        final FileFilter testee = HiddenFileFilter.VISIBLE;
+
+        // removed other assertion
+        // TODO xxx In Java 6 there is no way to hide a file
+        // assertThat(testee.accept(hiddenFileInfo));
+        Assert.assertTrue(testee.accept(notExistingFileInfo));
+    }
+
+    @Test
+    public void testZipFile_2_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        final FileObject[] files;
+
+        // TODO xxx In Java 6 there is no way to hide a file
+        // files = zipFileObj.findFiles(new
+        // FileFilterSelector(HiddenFileFilter.HIDDEN));
+        // assertContains(files, hiddenFile.getName());
+        // assertThat(files).hasSize(1);
+
+        files = zipFileObj.findFiles(new FileFilterSelector(HiddenFileFilter.VISIBLE));
+        // removed other assertion
+        Assert.assertEquals(1, files.length);
+    }
+
+    @Test
+    public void testZipFile_1_oe_1_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        final FileObject[] files;
+
+        // TODO xxx In Java 6 there is no way to hide a file
+        // files = zipFileObj.findFiles(new
+        // FileFilterSelector(HiddenFileFilter.HIDDEN));
+        //         final FileObject[] fos0 = files;
+        final String string0 = hiddenFile.getName();
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        return;
+                    }
+                }
+        
+                fail(string0 + " should be seen");
+    }
+
+    @Test
+    public void testZipFile_1_oe_2_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        final FileObject[] files;
+
+        // TODO xxx In Java 6 there is no way to hide a file
+        // files = zipFileObj.findFiles(new
+        // FileFilterSelector(HiddenFileFilter.HIDDEN));
+        //         final FileObject[] fos0 = files;
+        final String string0 = hiddenFile.getName();
+        for (final FileObject fo0 : fos0) {
+                    if (string0.equals(fo0.getName().getBaseName())) {
+                        return;
+                    }
+                }
+        
+                // removed other assertion
+        // assertThat(files).hasSize(1);
+
+        files = zipFileObj.findFiles(new FileFilterSelector(HiddenFileFilter.VISIBLE));
+        assertContains(files, visibleFile.getName());
+    }
 
 }
 // CHECKSTYLE:ON

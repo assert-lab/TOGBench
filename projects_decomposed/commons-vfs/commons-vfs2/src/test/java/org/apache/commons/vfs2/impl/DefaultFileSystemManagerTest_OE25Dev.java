@@ -150,5 +150,16 @@ public class DefaultFileSystemManagerTest_OE25Dev {
         VFS.getManager().resolveFile((File) null, "relativePath");
     }
 
+    @Test
+    public void testFileCacheEmptyAfterManagerClose_1_oe() throws FileSystemException {
+        final FileSystemManager manager = VFS.getManager();
+        Assert.assertNotNull(manager);
+    }
+
+    @Test
+    public void testFileCacheEmptyAfterVFSClose_1_oe() throws FileSystemException {
+        final FileSystemManager manager = VFS.getManager();
+        Assert.assertNotNull(manager);
+    }
 
 }

@@ -49,5 +49,48 @@ public class JCSLightLoadUnitTest_OE25Dev
      * @throws Exception Description of the Exception
      */
 
+    public void testSimpleLoad_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( "testCache1" );
+        //        ICompositeCacheAttributes cattr = jcs.getCacheAttributes();
+        //        cattr.setMaxObjects( 20002 );
+        //        jcs.setCacheAttributes( cattr );
+
+        for ( int i = 1; i <= items; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+
+        for ( int i = items; i > 0; i-- )
+        {
+            final String res = jcs.get( i + ":key" );
+            assertNotNull( "[" + i + ":key] should not be null", res );
+    }
+    }
+
+    public void testSimpleLoad_2_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( "testCache1" );
+        //        ICompositeCacheAttributes cattr = jcs.getCacheAttributes();
+        //        cattr.setMaxObjects( 20002 );
+        //        jcs.setCacheAttributes( cattr );
+
+        for ( int i = 1; i <= items; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+
+        for ( int i = items; i > 0; i-- )
+        {
+            final String res = jcs.get( i + ":key" );
+            // removed other assertion
+        }
+
+        // test removal
+        jcs.remove( "300:key" );
+        assertNull( jcs.get( "300:key" ) );
+    }
 
 }

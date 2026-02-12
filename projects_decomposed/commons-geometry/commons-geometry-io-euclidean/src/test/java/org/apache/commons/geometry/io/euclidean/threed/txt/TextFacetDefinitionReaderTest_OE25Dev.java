@@ -121,5 +121,130 @@ class TextFacetDefinitionReaderTest_OE25Dev {
         return new TextFacetDefinitionReader(new StringReader(content));
     }
 
+    @Test
+    void testPropertyDefaults_1_oe() {
+        // arrange
+        TextFacetDefinitionReader reader = facetReader("");
+
+        // act/assert
+        Assertions.assertEquals("#", reader.getCommentToken());
+    }
+
+    @Test
+    void testReadFacet_empty_1_oe() {
+        // arrange
+        TextFacetDefinitionReader reader = facetReader("");
+
+        // act
+        List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
+
+        // assert
+        Assertions.assertEquals(0, facets.size());
+    }
+
+    @Test
+    void testReadFacet_singleFacet_1_oe() {
+        // arrange
+        TextFacetDefinitionReader reader = facetReader(
+                "1.0 2.0 3.0 40 50 60 7.0e-2 8e-2 9E-02 1.01e+1 -11.02 +12");
+
+        // act
+        List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
+
+        // assert
+        Assertions.assertEquals(1, facets.size());
+    }
+
+    @Test
+    void testReadFacet_multipleFacets_1_oe() {
+        // arrange
+        TextFacetDefinitionReader reader = facetReader(
+                "1,2,3    4,5,6 7,8,9    10,11,12\r" +
+                "1 1 1;2 2 2;3 3 3;4 4 4;5 5 5\r\n" +
+                "6 6 6 6 6 6 6 6 6");
+
+        // act
+        List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
+
+        // assert
+        Assertions.assertEquals(3, facets.size());
+    }
+
+    @Test
+    void testReadFacet_blankLinesAndComments_1_oe() {
+        // arrange
+        TextFacetDefinitionReader reader = facetReader(
+                "# some ignored numbers: 1 2 3 4 5 6\n" +
+                "\n" +
+                " \n" +
+                "1 2 3 4 5 6 7 8 9 # end of line comment\n" +
+                "1 1 1 2 2 2 3 3 3\n" +
+                "\t\n" +
+                "#line comment\n" +
+                "5 5 5 5 5 5 5 5 5\n\n  \n");
+
+        // act
+        List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
+
+        // assert
+        Assertions.assertEquals(3, facets.size());
+    }
+
+    @Test
+    void testReadFacet_nonDefaultCommentToken_1_oe() {
+        // arrange
+        TextFacetDefinitionReader reader = facetReader(
+                "5$ some ignored numbers: 1 2 3 4 5 6\n" +
+                "\n" +
+                " \n" +
+                "1 2 3 4 5 6 7 8 9 5$ end of line comment\n" +
+                "1 1 1 2 2 2 3 3 3\n" +
+                "\t\n" +
+                "5$line comment\n" +
+                "5 5 5 5 5 5 5 5 5\n");
+
+        reader.setCommentToken("5$");
+
+        // act
+        List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
+
+        // assert
+        Assertions.assertEquals(3, facets.size());
+    }
+
+    @Test
+    void testReadFacet_longCommentToken_1_oe() {
+        // arrange
+        TextFacetDefinitionReader reader = facetReader(
+                "this_is-a-comment some ignored numbers: 1 2 3 4 5 6\n" +
+                "\n" +
+                " \n" +
+                "1 2 3 4 5 6 7 8 9 this_is-a-comment end of line comment\n" +
+                "1 1 1 2 2 2 3 3 3\n" +
+                "\t\n" +
+                "this_is-a-commentline comment\n" +
+                "5 5 5 5 5 5 5 5 5\n");
+
+        reader.setCommentToken("this_is-a-comment");
+
+        // act
+        List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
+
+        // assert
+        Assertions.assertEquals(3, facets.size());
+    }
+
+    @Test
+    void testClose_1_oe() {
+        // arrange
+        final CloseCountReader countReader = new CloseCountReader(new StringReader(""));
+        final TextFacetDefinitionReader reader = new TextFacetDefinitionReader(countReader);
+
+        // act
+        reader.close();
+
+        // assert
+        Assertions.assertEquals(1, countReader.getCloseCount());
+    }
 
 }

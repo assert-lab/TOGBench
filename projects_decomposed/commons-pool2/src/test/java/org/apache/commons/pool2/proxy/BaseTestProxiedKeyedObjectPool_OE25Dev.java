@@ -36,6 +36,8 @@ import org.apache.commons.pool2.impl.GenericKeyedObjectPoolConfig;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 
 
 public abstract class BaseTestProxiedKeyedObjectPool_OE25Dev {
@@ -114,6 +116,36 @@ public abstract class BaseTestProxiedKeyedObjectPool_OE25Dev {
     }
 
     @Test
+    public void testAccessAfterInvalidate_1_oe() throws Exception {
+        final TestObject obj = pool.borrowObject(KEY1);
+        assertNotNull(obj);
+    }
+
+    @Test
+    public void testAccessAfterInvalidate_2_oe() throws Exception {
+        final TestObject obj = pool.borrowObject(KEY1);
+        // removed other assertion
+
+        // Make sure proxied methods are working
+        obj.setData(DATA1);
+        assertEquals(DATA1, obj.getData());
+    }
+
+    @Test
+    public void testAccessAfterInvalidate_3_oe() throws Exception {
+        final TestObject obj = pool.borrowObject(KEY1);
+        // removed other assertion
+
+        // Make sure proxied methods are working
+        obj.setData(DATA1);
+        // removed other assertion
+
+        pool.invalidateObject(KEY1, obj);
+
+        assertNotNull(obj);
+    }
+
+    @Test
     public void testAccessAfterInvalidate_4_oe() throws Exception {
         final TestObject obj = pool.borrowObject(KEY1);
         // removed other assertion
@@ -126,7 +158,41 @@ public abstract class BaseTestProxiedKeyedObjectPool_OE25Dev {
 
         // removed other assertion
 
-        assertThrows(IllegalStateException.class, obj::getData);
+        try {
+    obj.getData();
+    fail("IllegalStateException");
+} catch (IllegalStateException e) {
+}
+    }
+
+    @Test
+    public void testAccessAfterReturn_1_oe() throws Exception {
+        final TestObject obj = pool.borrowObject(KEY1);
+        assertNotNull(obj);
+    }
+
+    @Test
+    public void testAccessAfterReturn_2_oe() throws Exception {
+        final TestObject obj = pool.borrowObject(KEY1);
+        // removed other assertion
+
+        // Make sure proxied methods are working
+        obj.setData(DATA1);
+        assertEquals(DATA1, obj.getData());
+    }
+
+    @Test
+    public void testAccessAfterReturn_3_oe() throws Exception {
+        final TestObject obj = pool.borrowObject(KEY1);
+        // removed other assertion
+
+        // Make sure proxied methods are working
+        obj.setData(DATA1);
+        // removed other assertion
+
+        pool.returnObject(KEY1, obj);
+
+        assertNotNull(obj);
     }
 
     @Test
@@ -141,7 +207,90 @@ public abstract class BaseTestProxiedKeyedObjectPool_OE25Dev {
         pool.returnObject(KEY1, obj);
 
         // removed other assertion
-        assertThrows(IllegalStateException.class, obj::getData);
+        try {
+    obj.getData();
+    fail("IllegalStateException");
+} catch (IllegalStateException e) {
+}
+    }
+
+    @Test
+    public void testBorrowObject_1_oe() throws Exception {
+        final TestObject obj = pool.borrowObject(KEY1);
+        assertNotNull(obj);
+    }
+
+    @Test
+    public void testBorrowObject_2_oe() throws Exception {
+        final TestObject obj = pool.borrowObject(KEY1);
+        // removed other assertion
+
+        // Make sure proxied methods are working
+        obj.setData(DATA1);
+        assertEquals(DATA1, obj.getData());
+    }
+
+    @Test
+    public void testPassThroughMethods01_1_oe() throws Exception {
+        assertEquals(0, pool.getNumActive());
+    }
+
+    @Test
+    public void testPassThroughMethods01_2_oe() throws Exception {
+        // removed other assertion
+        assertEquals(0, pool.getNumIdle());
+    }
+
+    @Test
+    public void testPassThroughMethods01_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+
+        pool.addObject(KEY1);
+
+        assertEquals(0, pool.getNumActive());
+    }
+
+    @Test
+    public void testPassThroughMethods01_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+
+        pool.addObject(KEY1);
+
+        // removed other assertion
+        assertEquals(1, pool.getNumIdle());
+    }
+
+    @Test
+    public void testPassThroughMethods01_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+
+        pool.addObject(KEY1);
+
+        // removed other assertion
+        // removed other assertion
+
+        pool.clear();
+
+        assertEquals(0, pool.getNumActive());
+    }
+
+    @Test
+    public void testPassThroughMethods01_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+
+        pool.addObject(KEY1);
+
+        // removed other assertion
+        // removed other assertion
+
+        pool.clear();
+
+        // removed other assertion
+        assertEquals(0, pool.getNumIdle());
     }
 
     @Test
@@ -149,9 +298,54 @@ public abstract class BaseTestProxiedKeyedObjectPool_OE25Dev {
         pool.close();
         try {
     pool.addObject(KEY1);
-    org.junit.jupiter.api.Assertions.fail("IllegalStateException");
+    fail("IllegalStateException");
 } catch (IllegalStateException e) {
 }
+    }
+
+    @Test
+    public void testUsageTracking_1_oe() throws Exception {
+        final TestObject obj = pool.borrowObject(KEY1);
+        assertNotNull(obj);
+    }
+
+    @Test
+    public void testUsageTracking_2_oe() throws Exception {
+        final TestObject obj = pool.borrowObject(KEY1);
+        // removed other assertion
+
+        // Use the object to trigger collection of last used stack trace
+        obj.setData(DATA1);
+
+        // Sleep long enough for the object to be considered abandoned
+        Thread.sleep(ABANDONED_TIMEOUT_SECS.plusSeconds(2).toMillis());
+
+        // Borrow another object to trigger the abandoned object processing
+        pool.borrowObject(KEY1);
+
+        final String logOutput = log.getBuffer().toString();
+
+        assertTrue(logOutput.contains("Pooled object created"));
+    }
+
+    @Test
+    public void testUsageTracking_3_oe() throws Exception {
+        final TestObject obj = pool.borrowObject(KEY1);
+        // removed other assertion
+
+        // Use the object to trigger collection of last used stack trace
+        obj.setData(DATA1);
+
+        // Sleep long enough for the object to be considered abandoned
+        Thread.sleep(ABANDONED_TIMEOUT_SECS.plusSeconds(2).toMillis());
+
+        // Borrow another object to trigger the abandoned object processing
+        pool.borrowObject(KEY1);
+
+        final String logOutput = log.getBuffer().toString();
+
+        // removed other assertion
+        assertTrue(logOutput.contains("The last code to use this object was"));
     }
 
 }

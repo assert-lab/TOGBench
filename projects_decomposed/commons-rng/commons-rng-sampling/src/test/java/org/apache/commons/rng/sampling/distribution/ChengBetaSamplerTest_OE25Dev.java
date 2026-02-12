@@ -23,6 +23,8 @@ import org.apache.commons.rng.simple.RandomSource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test for the {@link ChengBetaSampler}. The tests hit edge cases for the sampler.
  */
@@ -96,7 +98,7 @@ class ChengBetaSamplerTest_OE25Dev {
          double beta = 1;
         try {
     ChengBetaSampler.of(rng, alpha, beta);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -109,9 +111,15 @@ class ChengBetaSamplerTest_OE25Dev {
          double beta = 0;
         try {
     ChengBetaSampler.of(rng, alpha, beta);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testToString_1_oe() {
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertTrue(new ChengBetaSampler(rng,1.0,2.0).toString().toLowerCase().contains("beta"));
     }
 
 }

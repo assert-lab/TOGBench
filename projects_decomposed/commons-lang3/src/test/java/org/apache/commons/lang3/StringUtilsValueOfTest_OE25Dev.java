@@ -26,5 +26,19 @@ import org.junit.jupiter.api.Test;
  */
 public class StringUtilsValueOfTest_OE25Dev {
 
+    @Test
+    public void testValueOfChar_1_oe() {
+        Assertions.assertEquals("ABC", StringUtils.valueOf(new char[] {'A', 'B', 'C' }));
+    }
+
+    @Test
+    public void testValueOfCharEmpty_1_oe() {
+        Assertions.assertEquals(StringUtils.EMPTY, StringUtils.valueOf(ArrayUtils.EMPTY_CHAR_ARRAY));
+    }
+
+    @Test
+    public void testValueOfCharNull_1_oe() {
+        Assertions.assertNull(StringUtils.valueOf(null));
+    }
 
 }

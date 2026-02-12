@@ -33,5 +33,51 @@ import org.junit.jupiter.api.Test;
 
 public class NegSizeSegmentTest_OE25Dev {
 
+    @Test
+    public void testCreatesNegSizeSegment_2_oe() throws IOException {
+        final byte[] bytes = new byte[8];
+        bytes[0] = (byte) 0xff;
+        bytes[1] = (byte) 0xd8;
+        bytes[2] = (byte) 0xe1;
+        bytes[3] = (byte) 0xff;
+        bytes[4] = (byte) 0x01;
+        bytes[5] = (byte) 0x00;
+        bytes[6] = (byte) 0x00;
+        bytes[7] = (byte) 0x00;
+
+        try {
+            final InputStream inputStream = new ByteArrayInputStream(bytes);
+            final ByteSource bs = new ByteSourceInputStream(inputStream, "NegSizeSegment");
+            final JpegImageParser p = new JpegImageParser();
+            p.getBufferedImage(bs, new JpegImagingParameters());
+            // removed other assertion
+        } catch (final ImageReadException e) {
+            assertEquals("Invalid segment size", e.getMessage());
+    }
+    }
+
+    @Test
+    public void testCreatesNegSizeSegment_3_oe() throws IOException {
+        final byte[] bytes = new byte[8];
+        bytes[0] = (byte) 0xff;
+        bytes[1] = (byte) 0xd8;
+        bytes[2] = (byte) 0xe1;
+        bytes[3] = (byte) 0xff;
+        bytes[4] = (byte) 0x01;
+        bytes[5] = (byte) 0x00;
+        bytes[6] = (byte) 0x00;
+        bytes[7] = (byte) 0x00;
+
+        try {
+            final InputStream inputStream = new ByteArrayInputStream(bytes);
+            final ByteSource bs = new ByteSourceInputStream(inputStream, "NegSizeSegment");
+            final JpegImageParser p = new JpegImageParser();
+            p.getBufferedImage(bs, new JpegImagingParameters());
+            // removed other assertion
+        } catch (final ImageReadException e) {
+            // removed other assertion
+            assertEquals(JpegUtils.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }
 
 }

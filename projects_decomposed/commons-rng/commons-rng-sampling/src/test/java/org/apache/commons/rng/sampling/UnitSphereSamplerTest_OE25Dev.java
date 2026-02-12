@@ -24,6 +24,8 @@ import org.apache.commons.math3.stat.inference.ChiSquareTest;
 import org.apache.commons.rng.UniformRandomProvider;
 import org.apache.commons.rng.core.source64.SplitMix64;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test for {@link UnitSphereSampler}.
  */
@@ -524,7 +526,7 @@ class UnitSphereSamplerTest_OE25Dev {
         // Use instance constructor not factory constructor to exercise 1.X public API
         try {
     new UnitSphereSampler(0, null);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -533,7 +535,7 @@ class UnitSphereSamplerTest_OE25Dev {
     void testInvalidDimensionThrowsWithFactoryConstructor_1_oe() {
         try {
     UnitSphereSampler.of(null, 0);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -542,7 +544,7 @@ class UnitSphereSamplerTest_OE25Dev {
     void testBadProvider2D_1_oe() {
         try {
     testBadProvider(2);
-    org.junit.jupiter.api.Assertions.fail("StackOverflowError");
+    fail("StackOverflowError");
 } catch (StackOverflowError e) {
 }
     }
@@ -551,7 +553,7 @@ class UnitSphereSamplerTest_OE25Dev {
     void testBadProvider3D_1_oe() {
         try {
     testBadProvider(3);
-    org.junit.jupiter.api.Assertions.fail("StackOverflowError");
+    fail("StackOverflowError");
 } catch (StackOverflowError e) {
 }
     }
@@ -560,9 +562,20 @@ class UnitSphereSamplerTest_OE25Dev {
     void testBadProvider4D_1_oe() {
         try {
     testBadProvider(4);
-    org.junit.jupiter.api.Assertions.fail("StackOverflowError");
+    fail("StackOverflowError");
 } catch (StackOverflowError e) {
 }
+    }
+
+    @Test
+    void testNextNormSquaredAfterZeroIsValid_1_oe() {
+        // The sampler explicitly handles length == 0 using recursion.
+        // Anything above zero should be valid.
+         double normSq = Math.nextUp(0.0);
+        // Map to the scaling factor
+         double f = 1 / Math.sqrt(normSq);
+        // As long as this is finite positive then the sampler is valid
+        Assertions.assertTrue(f > 0 && f <= Double.MAX_VALUE);
     }
 
 }

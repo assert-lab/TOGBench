@@ -643,6 +643,12 @@ bcel_64_1,"    public void testBCEL243_1_oe() {
         assertEquals(""Type.getType"", expectedValue, actualValue);
     }
 ",TypeTestCase::testBCEL243_1_oe
+bcel_65_1,"    @Test(expected=ClassGenException.class)
+    public void testsetInstructionNull_1_oe() {
+        final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
+        Assert.assertNotNull(ih);
+    }
+",InstructionHandleTestCase::testsetInstructionNull_1_oe
 bcel_65_2,"    @Test(expected=ClassGenException.class)
     public void testsetInstructionNull_2_oe() {
         final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
@@ -665,6 +671,12 @@ bcel_66_2,"    @Test
         Assert.assertNotNull(ih);
     }
 ",InstructionHandleTestCase::testsetInstructionI_2_oe
+bcel_67_1,"    @Test(expected=ClassGenException.class)
+    public void testsetInstructionnotI_1_oe() {
+        final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
+        Assert.assertNotNull(ih);
+    }
+",InstructionHandleTestCase::testsetInstructionnotI_1_oe
 bcel_67_2,"    @Test(expected=ClassGenException.class)
     public void testsetInstructionnotI_2_oe() {
         final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
@@ -1592,6 +1604,12 @@ bcel_80_1,"    public void testFieldAnnotationModification_1_oe()
         assertTrue(""Should be 2 AnnotationEntrys on this field, but there are "" + f.getAnnotationEntries().length, f.getAnnotationEntries().length == 2);
     }
 ",FieldAnnotationsTestCase::testFieldAnnotationModification_1_oe
+bcel_81_1,"    @Test(expected=ClassGenException.class)
+    public void testsetInstructionNull_1_oe() {
+        final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
+        Assert.assertNotNull(bh);
+    }
+",BranchHandleTestCase::testsetInstructionNull_1_oe
 bcel_81_2,"    @Test(expected=ClassGenException.class)
     public void testsetInstructionNull_2_oe() {
         final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
@@ -1614,6 +1632,12 @@ bcel_82_2,"    @Test
         Assert.assertNotNull(bh);
     }
 ",BranchHandleTestCase::testsetInstructionBI_2_oe
+bcel_83_1,"    @Test(expected=ClassGenException.class)
+    public void testsetInstructionnotBI_1_oe() {
+        final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
+        Assert.assertNotNull(bh);
+    }
+",BranchHandleTestCase::testsetInstructionnotBI_1_oe
 bcel_83_2,"    @Test(expected=ClassGenException.class)
     public void testsetInstructionnotBI_2_oe() {
         final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI

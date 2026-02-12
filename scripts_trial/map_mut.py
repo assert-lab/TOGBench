@@ -152,7 +152,7 @@ def map_row(test_code: str, by_name, by_name_and_simple_class):
     return None
 
 def update_inputs(proj: Path):
-    inputs_path = proj / "dataset" / "inputs_filtered_no_comments.csv"
+    inputs_path = proj / "dataset" / "inputs.csv"
     if not inputs_path.exists():
         return (0, 0)
 

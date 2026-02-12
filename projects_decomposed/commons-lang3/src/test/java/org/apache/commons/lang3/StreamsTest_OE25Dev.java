@@ -144,10 +144,111 @@ public class StreamsTest_OE25Dev {
     }
 
     @Test
+    public void testSimpleStreamMap_1_oe() {
+        final List<String> input = Arrays.asList("1", "2", "3", "4", "5", "6");
+        final List<Integer> output = Functions.stream(input).map(Integer::valueOf).collect(Collectors.toList());
+        assertEquals(6, output.size());
+    }
+
+    @Test
+    public void testSimpleStreamMap_2_oe() {
+        final List<String> input = Arrays.asList("1", "2", "3", "4", "5", "6");
+        final List<Integer> output = Functions.stream(input).map(Integer::valueOf).collect(Collectors.toList());
+        // removed other assertion
+        for (int i = 0;  i < 6;  i++) {
+            assertEquals(i+1, output.get(i).intValue());
+    }
+    }
+
+    @Test
     public void testSimpleStreamMapFailing_1_oe() {
         final List<String> input = Arrays.asList("1", "2", "3", "4 ", "5", "6");
         final Executable testMethod = () -> Functions.stream(input).map(Integer::valueOf).collect(Collectors.toList());
         final NumberFormatException thrown = assertThrows(NumberFormatException.class, testMethod);
+    }
+
+    @Test
+    public void testSimpleStreamForEach_1_oe() {
+        final List<String> input = Arrays.asList("1", "2", "3", "4", "5", "6");
+        final List<Integer> output = new ArrayList<>();
+        Functions.stream(input).forEach(s -> output.add(Integer.valueOf(s)));
+        assertEquals(6, output.size());
+    }
+
+    @Test
+    public void testSimpleStreamForEach_2_oe() {
+        final List<String> input = Arrays.asList("1", "2", "3", "4", "5", "6");
+        final List<Integer> output = new ArrayList<>();
+        Functions.stream(input).forEach(s -> output.add(Integer.valueOf(s)));
+        // removed other assertion
+        for (int i = 0;  i < 6;  i++) {
+            assertEquals(i+1, output.get(i).intValue());
+    }
+    }
+
+    @Test
+    public void testToArray_1_oe() {
+        final String[] array = Arrays.asList("2", "3", "1").stream().collect(Streams.toArray(String.class));
+        assertNotNull(array);
+    }
+
+    @Test
+    public void testToArray_2_oe() {
+        final String[] array = Arrays.asList("2", "3", "1").stream().collect(Streams.toArray(String.class));
+        // removed other assertion
+        assertEquals(3, array.length);
+    }
+
+    @Test
+    public void testToArray_3_oe() {
+        final String[] array = Arrays.asList("2", "3", "1").stream().collect(Streams.toArray(String.class));
+        // removed other assertion
+        // removed other assertion
+        assertEquals("2", array[0]);
+    }
+
+    @Test
+    public void testToArray_4_oe() {
+        final String[] array = Arrays.asList("2", "3", "1").stream().collect(Streams.toArray(String.class));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3", array[1]);
+    }
+
+    @Test
+    public void testToArray_5_oe() {
+        final String[] array = Arrays.asList("2", "3", "1").stream().collect(Streams.toArray(String.class));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("1", array[2]);
+    }
+
+    @Test
+    public void testSimpleStreamFilter_1_oe_1_oe() {
+        final List<String> input = Arrays.asList("1", "2", "3", "4", "5", "6");
+        final List<Integer> output = Functions.stream(input)
+                .map(Integer::valueOf)
+                .filter(i -> (i.intValue() %2 == 0))
+                .collect(Collectors.toList());
+                final List<Integer> output0 = output;
+        assertEquals(3, output0.size());
+    }
+
+    @Test
+    public void testSimpleStreamFilter_1_oe_2_oe() {
+        final List<String> input = Arrays.asList("1", "2", "3", "4", "5", "6");
+        final List<Integer> output = Functions.stream(input)
+                .map(Integer::valueOf)
+                .filter(i -> (i.intValue() %2 == 0))
+                .collect(Collectors.toList());
+                final List<Integer> output0 = output;
+        // removed other assertion
+                for (int i0 = 0;  i0 < 3;  i0++) {
+                    assertEquals((i0+1)*2, output0.get(i0).intValue());
+    }
     }
 
 }

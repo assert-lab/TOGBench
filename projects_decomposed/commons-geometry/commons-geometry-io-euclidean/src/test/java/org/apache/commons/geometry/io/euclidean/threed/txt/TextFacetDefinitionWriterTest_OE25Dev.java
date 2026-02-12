@@ -246,5 +246,161 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         Assertions.assertEquals("0.0 0.0 0.0;0.0 0.0 -0.5;0.0 -0.5 0.0\n" + "0.0 0.0 0.0;1.0 0.0 0.0;1.0 1.0 0.0;0.0 1.0 0.0\n",writer.toString());
     }
 
+    @Test
+    void testPropertyDefaults_1_oe() {
+        // act/assert
+        Assertions.assertEquals("\n", fdWriter.getLineSeparator());
+    }
+
+    @Test
+    void testPropertyDefaults_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertNotNull(fdWriter.getDoubleFormat());
+    }
+
+    @Test
+    void testPropertyDefaults_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(" ", fdWriter.getVertexComponentSeparator());
+    }
+
+    @Test
+    void testPropertyDefaults_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals("; ", fdWriter.getVertexSeparator());
+    }
+
+    @Test
+    void testPropertyDefaults_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(-1, fdWriter.getFacetVertexCount());
+    }
+
+    @Test
+    void testPropertyDefaults_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals("# ", fdWriter.getCommentToken());
+    }
+
+    @Test
+    void testSetFacetVertexCount_normalizesToMinusOne_1_oe() {
+        // act
+        fdWriter.setFacetVertexCount(-10);
+
+        // assert
+        Assertions.assertEquals(-1, fdWriter.getFacetVertexCount());
+    }
+
+    @Test
+    void testWriteBlankLine_1_oe() {
+        // act
+        fdWriter.writeBlankLine();
+        fdWriter.setLineSeparator("\r");
+        fdWriter.writeBlankLine();
+
+        // assert
+        Assertions.assertEquals("\n\r", writer.toString());
+    }
+
+    @Test
+    void testWriteBoundarySource_empty_1_oe() {
+        // act
+        fdWriter.write(BoundarySource3D.of(Collections.emptyList()));
+
+        // assert
+        Assertions.assertEquals("", writer.toString());
+    }
+
+    @Test
+    void testWriteBoundarySource_alternativeFormatting_1_oe() {
+        // arrange
+        final DecimalFormat fmt =
+                new DecimalFormat("0.0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+        final ConvexPolygon3D poly1 = Planes.convexPolygonFromVertices(Arrays.asList(
+                Vector3D.ZERO, Vector3D.of(0, 0, -0.5901), Vector3D.of(0, -0.501, 0)
+            ), TEST_PRECISION);
+        final ConvexPolygon3D poly2 = Planes.convexPolygonFromVertices(Arrays.asList(
+                Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(1, 1, 0), Vector3D.of(0, 1, 0)
+            ), TEST_PRECISION);
+
+        fdWriter.setDoubleFormat(fmt::format);
+
+        fdWriter.setFacetVertexCount(3);
+        fdWriter.setLineSeparator("\r\n");
+        fdWriter.setVertexComponentSeparator(",");
+        fdWriter.setVertexSeparator(" | ");
+
+        // act
+        fdWriter.writeComment("Test boundary source");
+        fdWriter.writeBlankLine();
+        fdWriter.write(BoundarySource3D.of(poly1, poly2));
+
+        // assert
+        Assertions.assertEquals("# Test boundary source\r\n" + "\r\n" + "0.0,0.0,0.0 | 0.0,0.0,-0.6 | 0.0,-0.5,0.0\r\n" + "0.0,0.0,0.0 | 1.0,0.0,0.0 | 1.0,1.0,0.0\r\n" + "0.0,0.0,0.0 | 1.0,1.0,0.0 | 0.0,1.0,0.0\r\n",writer.toString());
+    }
+
+    @Test
+    void testCsvFormat_1_oe() {
+        // arrange
+        final ConvexPolygon3D poly1 = Planes.convexPolygonFromVertices(Arrays.asList(
+                Vector3D.ZERO, Vector3D.of(0, 0, -0.5901), Vector3D.of(0, -0.501, 0)
+            ), TEST_PRECISION);
+        final ConvexPolygon3D poly2 = Planes.convexPolygonFromVertices(Arrays.asList(
+                Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(1, 1, 0), Vector3D.of(0, 1, 0)
+            ), TEST_PRECISION);
+
+        final TextFacetDefinitionWriter csvWriter = TextFacetDefinitionWriter.csvFormat(writer);
+
+        // act
+        csvWriter.write(BoundarySource3D.of(poly1, poly2));
+
+        // assert
+        Assertions.assertEquals("0.0,0.0,0.0,0.0,0.0,-0.5901,0.0,-0.501,0.0\n" + "0.0,0.0,0.0,1.0,0.0,0.0,1.0,1.0,0.0\n" + "0.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,0.0\n",writer.toString());
+    }
+
+    @Test
+    void testCsvFormat_properties_1_oe() {
+        // act
+        final TextFacetDefinitionWriter csvWriter = TextFacetDefinitionWriter.csvFormat(writer);
+
+        // act/assert
+        Assertions.assertEquals(",", csvWriter.getVertexComponentSeparator());
+    }
+
+    @Test
+    void testCsvFormat_properties_2_oe() {
+        // act
+        final TextFacetDefinitionWriter csvWriter = TextFacetDefinitionWriter.csvFormat(writer);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertEquals(",", csvWriter.getVertexSeparator());
+    }
+
+    @Test
+    void testCsvFormat_properties_3_oe() {
+        // act
+        final TextFacetDefinitionWriter csvWriter = TextFacetDefinitionWriter.csvFormat(writer);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNull(csvWriter.getCommentToken());
+    }
 
 }

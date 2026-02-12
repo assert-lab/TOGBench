@@ -103,5 +103,145 @@ public class FileExtensionSelectorTest_OE25Dev {
      * @throws Exception
      */
 
+    @Test
+    public void testEmpty_1_oe() throws Exception {
+        final FileSelector selector = new FileExtensionSelector();
+        final FileObject[] foList = BaseFolder.findFiles(selector);
+        Assert.assertEquals(0, foList.length);
+    }
+
+    @Test
+    public void testManyExtensions_1_oe() throws Exception {
+        final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
+        Assert.assertTrue(foArray.length > 0);
+    }
+
+    @Test
+    public void testManyExtensions_2_oe() throws Exception {
+        final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
+        // removed other assertion
+        // gather file extensions.
+        final Set<String> extensionSet = new HashSet<>();
+        for (final FileObject fo : foArray) {
+            extensionSet.add(fo.getName().getExtension());
+        }
+        final String message = String.format("Extensions: %s; files: %s", extensionSet.toString(),
+                Arrays.asList(foArray).toString());
+        Assert.assertFalse(message, extensionSet.isEmpty());
+    }
+
+    @Test
+    public void testManyExtensions_3_oe() throws Exception {
+        final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
+        // removed other assertion
+        // gather file extensions.
+        final Set<String> extensionSet = new HashSet<>();
+        for (final FileObject fo : foArray) {
+            extensionSet.add(fo.getName().getExtension());
+        }
+        final String message = String.format("Extensions: %s; files: %s", extensionSet.toString(),
+                Arrays.asList(foArray).toString());
+        // removed other assertion
+        Assert.assertEquals(message, ExtensionCount, extensionSet.size());
+    }
+
+    @Test
+    public void testManyExtensions_4_oe() throws Exception {
+        final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
+        // removed other assertion
+        // gather file extensions.
+        final Set<String> extensionSet = new HashSet<>();
+        for (final FileObject fo : foArray) {
+            extensionSet.add(fo.getName().getExtension());
+        }
+        final String message = String.format("Extensions: %s; files: %s", extensionSet.toString(),
+                Arrays.asList(foArray).toString());
+        // removed other assertion
+        // removed other assertion
+        // check all unique extensions
+        final FileSelector selector = new FileExtensionSelector(extensionSet);
+        final FileObject[] list = BaseFolder.findFiles(selector);
+        Assert.assertEquals(FileCount, list.length);
+    }
+
+    @Test
+    public void testNullCollection_1_oe() throws Exception {
+        final FileSelector selector0 = new FileExtensionSelector((Collection<String>) null);
+        final FileObject[] foList = BaseFolder.findFiles(selector0);
+        Assert.assertEquals(0, foList.length);
+    }
+
+    @Test
+    public void testNullString_1_oe() throws Exception {
+        final FileSelector selector0 = new FileExtensionSelector((String) null);
+        final FileObject[] foList = BaseFolder.findFiles(selector0);
+        Assert.assertEquals(0, foList.length);
+    }
+
+    @Test
+    public void testOneExtension_1_oe() throws Exception {
+        final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
+        Assert.assertTrue(foArray.length > 0);
+    }
+
+    @Test
+    public void testOneExtension_2_oe() throws Exception {
+        final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
+        // removed other assertion
+        // gather file extensions.
+        final Set<String> extensionSet = new HashSet<>();
+        for (final FileObject fo : foArray) {
+            extensionSet.add(fo.getName().getExtension());
+        }
+        final String message = String.format("Extensions: %s; files: %s", extensionSet.toString(),
+                Arrays.asList(foArray).toString());
+        Assert.assertEquals(message, ExtensionCount, extensionSet.size());
+    }
+
+    @Test
+    public void testOneExtension_3_oe() throws Exception {
+        final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
+        // removed other assertion
+        // gather file extensions.
+        final Set<String> extensionSet = new HashSet<>();
+        for (final FileObject fo : foArray) {
+            extensionSet.add(fo.getName().getExtension());
+        }
+        final String message = String.format("Extensions: %s; files: %s", extensionSet.toString(),
+                Arrays.asList(foArray).toString());
+        // removed other assertion
+        // check each extension
+        for (final String extension : extensionSet) {
+            final FileSelector selector = new FileExtensionSelector(extension);
+            final FileObject[] list = BaseFolder.findFiles(selector);
+            Assert.assertEquals(FilesPerExtensionCount, list.length);
+    }
+    }
+
+    @Test
+    public void testOneExtension_4_oe() throws Exception {
+        final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
+        // removed other assertion
+        // gather file extensions.
+        final Set<String> extensionSet = new HashSet<>();
+        for (final FileObject fo : foArray) {
+            extensionSet.add(fo.getName().getExtension());
+        }
+        final String message = String.format("Extensions: %s; files: %s", extensionSet.toString(),
+                Arrays.asList(foArray).toString());
+        // removed other assertion
+        // check each extension
+        for (final String extension : extensionSet) {
+            final FileSelector selector = new FileExtensionSelector(extension);
+            final FileObject[] list = BaseFolder.findFiles(selector);
+            // removed other assertion
+        }
+        // check each file against itself
+        for (final FileObject fo : foArray) {
+            final FileSelector selector = new FileExtensionSelector(fo.getName().getExtension());
+            final FileObject[] list = BaseFolder.findFiles(selector);
+            Assert.assertEquals(FilesPerExtensionCount, list.length);
+    }
+    }
 
 }

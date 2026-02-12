@@ -35,5 +35,35 @@ public class ColorXyzTest_OE25Dev {
         colorCopy = new ColorXyz(1.0, 2.0, 3.0);
     }
 
+    @Test
+    public void testXAssignment_1_oe() {
+        assertEquals(1.0, color.X, 0.0);
+    }
+
+    @Test
+    public void testYAssignment_1_oe() {
+        assertEquals(2.0, color.Y, 0.0);
+    }
+
+    @Test
+    public void testZAssignment_1_oe() {
+        assertEquals(3.0, color.Z, 0.0);
+    }
+
+    @Test
+    public void testToString_1_oe() {
+        assertEquals("{X: 1.0, Y: 2.0, Z: 3.0}", color.toString());
+    }
+
+    @Test
+    public void testHashCodeAndEquals_1_oe() {
+        assertTrue(color.equals(colorCopy) && colorCopy.equals(color));
+    }
+
+    @Test
+    public void testHashCodeAndEquals_2_oe() {
+        // removed other assertion
+        assertThat(color.hashCode(), is(colorCopy.hashCode()));
+    }
 
 }

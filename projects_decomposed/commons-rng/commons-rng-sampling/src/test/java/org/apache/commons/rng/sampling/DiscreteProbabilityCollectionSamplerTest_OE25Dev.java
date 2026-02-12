@@ -29,6 +29,8 @@ import org.junit.jupiter.api.Test;
 import org.apache.commons.rng.UniformRandomProvider;
 import org.apache.commons.rng.simple.RandomSource;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test class for {@link DiscreteProbabilityCollectionSampler}.
  */
@@ -63,7 +65,7 @@ class DiscreteProbabilityCollectionSamplerTest_OE25Dev {
         // Size mismatch
         try {
     new DiscreteProbabilityCollectionSampler<>(rng, Arrays.asList(1d, 2d), new double[] {0d});
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -73,7 +75,7 @@ class DiscreteProbabilityCollectionSamplerTest_OE25Dev {
         // Negative probability
         try {
     new DiscreteProbabilityCollectionSampler<>(rng, Arrays.asList(1d, 2d), new double[] {0d, -1d});
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -83,7 +85,7 @@ class DiscreteProbabilityCollectionSamplerTest_OE25Dev {
         // Probabilities do not sum above 0
         try {
     new DiscreteProbabilityCollectionSampler<>(rng, Arrays.asList(1d, 2d), new double[] {0d, 0d});
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -93,7 +95,7 @@ class DiscreteProbabilityCollectionSamplerTest_OE25Dev {
         // NaN probability
         try {
     new DiscreteProbabilityCollectionSampler<>(rng, Arrays.asList(1d, 2d), new double[] {0d, Double.NaN});
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -103,7 +105,7 @@ class DiscreteProbabilityCollectionSamplerTest_OE25Dev {
         // Infinite probability
         try {
     new DiscreteProbabilityCollectionSampler<>(rng, Arrays.asList(1d, 2d), new double[] {0d, Double.POSITIVE_INFINITY});
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -113,7 +115,7 @@ class DiscreteProbabilityCollectionSamplerTest_OE25Dev {
         // Empty Map<T, Double> not allowed
         try {
     new DiscreteProbabilityCollectionSampler<>(rng, new HashMap<>());
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -123,9 +125,174 @@ class DiscreteProbabilityCollectionSamplerTest_OE25Dev {
         // Empty List<T> not allowed
         try {
     new DiscreteProbabilityCollectionSampler<>(rng, Collections.<Double>emptyList(), new double[0]);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testSample_1_oe() {
+         DiscreteProbabilityCollectionSampler<Double> sampler =
+            new DiscreteProbabilityCollectionSampler<>(rng,
+                                                       Arrays.asList(3d, -1d, 3d, 7d, -2d, 8d),
+                                                       new double[] {0.2, 0.2, 0.3, 0.3, 0, 0});
+         double expectedMean = 3.4;
+         double expectedVariance = 7.84;
+
+         int n = 100000000;
+        double sum = 0;
+        double sumOfSquares = 0;
+        for (int i = 0; i < n; i++) {
+             double rand = sampler.sample();
+            sum += rand;
+            sumOfSquares += rand * rand;
+        }
+
+         double mean = sum / n;
+        Assertions.assertEquals(expectedMean, mean, 1e-3);
+    }
+
+    @Test
+    void testSample_2_oe() {
+         DiscreteProbabilityCollectionSampler<Double> sampler =
+            new DiscreteProbabilityCollectionSampler<>(rng,
+                                                       Arrays.asList(3d, -1d, 3d, 7d, -2d, 8d),
+                                                       new double[] {0.2, 0.2, 0.3, 0.3, 0, 0});
+         double expectedMean = 3.4;
+         double expectedVariance = 7.84;
+
+         int n = 100000000;
+        double sum = 0;
+        double sumOfSquares = 0;
+        for (int i = 0; i < n; i++) {
+             double rand = sampler.sample();
+            sum += rand;
+            sumOfSquares += rand * rand;
+        }
+
+         double mean = sum / n;
+        // removed other assertion
+         double variance = sumOfSquares / n - mean * mean;
+        Assertions.assertEquals(expectedVariance, variance, 2e-3);
+    }
+
+    @Test
+    void testSampleUsingMap_1_oe() {
+         UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         List<Integer> items = Arrays.asList(1, 3, 4, 6, 9);
+         double[] probabilities = {0.1, 0.2, 0.3, 0.4, 0.5};
+         DiscreteProbabilityCollectionSampler<Integer> sampler1 =
+            new DiscreteProbabilityCollectionSampler<>(rng1, items, probabilities);
+
+        // Create a map version. The map iterator must be ordered so use a TreeMap.
+         Map<Integer, Double> map = new TreeMap<>();
+        for (int i = 0; i < probabilities.length; i++) {
+            map.put(items.get(i), probabilities[i]);
+        }
+         DiscreteProbabilityCollectionSampler<Integer> sampler2 =
+            new DiscreteProbabilityCollectionSampler<>(rng2, map);
+
+        for (int i = 0; i < 50; i++) {
+            Assertions.assertEquals(sampler1.sample(), sampler2.sample());
+    }
+    }
+
+    @Test
+    void testSampleWithProbabilityAtLastItem_1_oe() {
+        // Ensure the samples pick probability 0 (the first item) and then
+        // a probability (for the second item) that hits an edge case.
+         UniformRandomProvider dummyRng = new UniformRandomProvider() {
+            private int count;
+            // CHECKSTYLE: stop all
+            public long nextLong(long n) { return 0; }
+            public long nextLong() { return 0; }
+            public int nextInt(int n) { return 0; }
+            public int nextInt() { return 0; }
+            public float nextFloat() { return 0; }
+            // Return 0 then the given probability
+            public double nextDouble() { return (count++ == 0) ? 0 : 1.0; }
+            public void nextBytes(byte[] bytes, int start, int len) {}
+            public void nextBytes(byte[] bytes) {}
+            public boolean nextBoolean() { return false; }
+            // CHECKSTYLE: resume all
+        };
+
+         List<Double> items = Arrays.asList(1d, 2d);
+         DiscreteProbabilityCollectionSampler<Double> sampler =
+            new DiscreteProbabilityCollectionSampler<>(dummyRng,
+                                                       items,
+                                                       new double[] {0.5, 0.5});
+         Double item1 = sampler.sample();
+         Double item2 = sampler.sample();
+        // Check they are in the list
+        Assertions.assertTrue(items.contains(item1), "Sample item1 is not from the list");
+    }
+
+    @Test
+    void testSampleWithProbabilityAtLastItem_2_oe() {
+        // Ensure the samples pick probability 0 (the first item) and then
+        // a probability (for the second item) that hits an edge case.
+         UniformRandomProvider dummyRng = new UniformRandomProvider() {
+            private int count;
+            // CHECKSTYLE: stop all
+            public long nextLong(long n) { return 0; }
+            public long nextLong() { return 0; }
+            public int nextInt(int n) { return 0; }
+            public int nextInt() { return 0; }
+            public float nextFloat() { return 0; }
+            // Return 0 then the given probability
+            public double nextDouble() { return (count++ == 0) ? 0 : 1.0; }
+            public void nextBytes(byte[] bytes, int start, int len) {}
+            public void nextBytes(byte[] bytes) {}
+            public boolean nextBoolean() { return false; }
+            // CHECKSTYLE: resume all
+        };
+
+         List<Double> items = Arrays.asList(1d, 2d);
+         DiscreteProbabilityCollectionSampler<Double> sampler =
+            new DiscreteProbabilityCollectionSampler<>(dummyRng,
+                                                       items,
+                                                       new double[] {0.5, 0.5});
+         Double item1 = sampler.sample();
+         Double item2 = sampler.sample();
+        // Check they are in the list
+        // removed other assertion
+        Assertions.assertTrue(items.contains(item2), "Sample item2 is not from the list");
+    }
+
+    @Test
+    void testSampleWithProbabilityAtLastItem_3_oe() {
+        // Ensure the samples pick probability 0 (the first item) and then
+        // a probability (for the second item) that hits an edge case.
+         UniformRandomProvider dummyRng = new UniformRandomProvider() {
+            private int count;
+            // CHECKSTYLE: stop all
+            public long nextLong(long n) { return 0; }
+            public long nextLong() { return 0; }
+            public int nextInt(int n) { return 0; }
+            public int nextInt() { return 0; }
+            public float nextFloat() { return 0; }
+            // Return 0 then the given probability
+            public double nextDouble() { return (count++ == 0) ? 0 : 1.0; }
+            public void nextBytes(byte[] bytes, int start, int len) {}
+            public void nextBytes(byte[] bytes) {}
+            public boolean nextBoolean() { return false; }
+            // CHECKSTYLE: resume all
+        };
+
+         List<Double> items = Arrays.asList(1d, 2d);
+         DiscreteProbabilityCollectionSampler<Double> sampler =
+            new DiscreteProbabilityCollectionSampler<>(dummyRng,
+                                                       items,
+                                                       new double[] {0.5, 0.5});
+         Double item1 = sampler.sample();
+         Double item2 = sampler.sample();
+        // Check they are in the list
+        // removed other assertion
+        // removed other assertion
+        // Test the two samples are different items
+        Assertions.assertNotSame(item1, item2, "Item1 and 2 should be different");
     }
 
 }

@@ -109,5 +109,31 @@ public class CDIJCacheHelperTest_OE25Dev
     {
     }
 
+    @Test
+    public void proxyCacheDefaults_1_oe()
+    {
+        final CDIJCacheHelper helper = new CDIJCacheHelper();
+
+        final MyParent child1 = MyParent.class.cast(Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
+                new Class<?>[]{MyChild1.class}, (proxy, method, args) -> null));
+        final CDIJCacheHelper.MethodMeta meta1 = helper.findMeta(newContext(child1));
+        assertEquals("child", meta1.getCacheResultCacheName());
+    }
+
+    @Test
+    public void proxyCacheDefaults_2_oe()
+    {
+        final CDIJCacheHelper helper = new CDIJCacheHelper();
+
+        final MyParent child1 = MyParent.class.cast(Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
+                new Class<?>[]{MyChild1.class}, (proxy, method, args) -> null));
+        final CDIJCacheHelper.MethodMeta meta1 = helper.findMeta(newContext(child1));
+        // removed other assertion
+
+        final MyParent child2 = MyParent.class.cast(Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
+                new Class<?>[]{MyChild2.class}, (proxy, method, args) -> null));
+        final CDIJCacheHelper.MethodMeta meta2 = helper.findMeta(newContext(child2));
+        assertEquals("child2", meta2.getCacheResultCacheName());
+    }
 
 }

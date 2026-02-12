@@ -21,5 +21,17 @@ import org.junit.jupiter.api.Test;
 
 class GeometryInternalErrorTest_OE25Dev {
 
+    @Test
+    void testMessage_1_oe() {
+        // act
+        final GeometryInternalError err = new GeometryInternalError();
+
+        // assert
+        final String msg = "An internal geometry error occurred. This most often indicates an " +
+                "error in the algorithm implementation than in the calling code or data. Please file a bug report " +
+                "with the developers.";
+
+        Assertions.assertEquals(msg, err.getMessage());
+    }
 
 }

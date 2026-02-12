@@ -22,6 +22,8 @@ import org.apache.commons.rng.UniformRandomProvider;
 import org.apache.commons.rng.sampling.RandomAssert;
 import org.apache.commons.rng.simple.RandomSource;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test for {@link ZigguratNormalizedGaussianSampler}.
  */
@@ -62,7 +64,7 @@ class ZigguratNormalizedGaussianSamplerTest_OE25Dev {
         // Infinite loop (in v1.1).
         try {
     new ZigguratNormalizedGaussianSampler(bad).sample();
-    org.junit.jupiter.api.Assertions.fail("StackOverflowError");
+    fail("StackOverflowError");
 } catch (StackOverflowError e) {
 }
     }

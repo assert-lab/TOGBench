@@ -34,5 +34,11 @@ public class TempFileTests_OE25Dev extends AbstractProviderTestCase {
      * https://issues.apache.org/jira/browse/VFS-790
      */
 
+    @Test
+    public void testLocalFile_1_oe() throws Exception {
+        final String prefix = "\u0074\u0065\u0074";
+        final File file = File.createTempFile(prefix + "-", "-" + prefix);
+        assertTrue(file.exists());
+    }
 
 }

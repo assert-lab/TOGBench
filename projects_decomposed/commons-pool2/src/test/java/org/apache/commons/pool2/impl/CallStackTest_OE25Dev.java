@@ -42,5 +42,23 @@ public class CallStackTest_OE25Dev {
 
     private final StringWriter writer = new StringWriter();
 
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testPrintClearedStackTraceIsNoOp_1_oe(final CallStack stack) {
+        stack.fillInStackTrace();
+        stack.clear();
+        stack.printStackTrace(new PrintWriter(writer));
+        final String stackTrace = writer.toString();
+        assertEquals("", stackTrace);
+    }
+
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testPrintFilledStackTrace_1_oe(final CallStack stack) {
+        stack.fillInStackTrace();
+        stack.printStackTrace(new PrintWriter(writer));
+        final String stackTrace = writer.toString();
+        assertTrue(stackTrace.contains(getClass().getName()));
+    }
 
 }

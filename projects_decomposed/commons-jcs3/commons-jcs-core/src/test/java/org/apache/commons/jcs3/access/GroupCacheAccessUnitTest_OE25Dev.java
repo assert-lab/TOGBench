@@ -65,5 +65,690 @@ public class GroupCacheAccessUnitTest_OE25Dev
      * @throws Exception
      */
 
+    public void testPutAndGet_1_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        assertNotNull( "We should have an access class", access );
+    }
+
+    public void testPutAndGet_2_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        // removed other assertion
+
+        final String key = "mykey";
+        final String group = "mygroup";
+        final String value = "myvalue";
+
+        access.putInGroup(key, group, value);
+
+        final String returnedValue1 = access.getFromGroup(key, group);
+        assertEquals( "Wrong value returned.", value, returnedValue1 );
+    }
+
+    public void testPutNullKey_1_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        assertNotNull( "We should have an access class", access );
+    }
+
+    public void testPutNullKey_3_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        // removed other assertion
+
+        final String key = null;
+        final String group = "mygroup";
+        final String value = "myvalue";
+
+        try
+        {
+            access.putInGroup(key, group, value);
+            // removed other assertion
+        }
+        catch ( final CacheException e )
+        {
+            assertTrue( "Should have the word null in the error message.", e.getMessage().indexOf( "null" ) != -1 );
+    }
+    }
+
+    public void testPutNullValue_1_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        assertNotNull( "We should have an access class", access );
+    }
+
+    public void testPutNullValue_3_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        // removed other assertion
+
+        final String key = "myKey";
+        final String group = "mygroup";
+        final String value = null;
+
+        try
+        {
+            access.putInGroup(key, group, value);
+            // removed other assertion
+        }
+        catch ( final CacheException e )
+        {
+            assertTrue( "Should have the word null in the error message.", e.getMessage().indexOf( "null" ) != -1 );
+    }
+    }
+
+    public void testRemove_1_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        assertNotNull( "We should have an access class", access );
+    }
+
+    public void testRemove_2_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        // removed other assertion
+
+        final String key = "mykey";
+        final String group = "mygroup";
+        final String value = "myvalue";
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group, value + i);
+        }
+
+        // Make sure cache contains some data
+        for (int i = 0; i < 10; i++)
+        {
+            final String returnedValue1 = access.getFromGroup(key + i, group);
+            assertEquals( "Wrong value returned.", value + i, returnedValue1 );
+    }
+    }
+
+    public void testRemove_3_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        // removed other assertion
+
+        final String key = "mykey";
+        final String group = "mygroup";
+        final String value = "myvalue";
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group, value + i);
+        }
+
+        // Make sure cache contains some data
+        for (int i = 0; i < 10; i++)
+        {
+            final String returnedValue1 = access.getFromGroup(key + i, group);
+            // removed other assertion
+        }
+
+        access.removeFromGroup(key + 0, group);
+
+        assertNull("Should not be in cache", access.getFromGroup(key + 0, group));
+    }
+
+    public void testRemove_4_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        // removed other assertion
+
+        final String key = "mykey";
+        final String group = "mygroup";
+        final String value = "myvalue";
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group, value + i);
+        }
+
+        // Make sure cache contains some data
+        for (int i = 0; i < 10; i++)
+        {
+            final String returnedValue1 = access.getFromGroup(key + i, group);
+            // removed other assertion
+        }
+
+        access.removeFromGroup(key + 0, group);
+
+        // removed other assertion
+
+        for (int i = 1; i < 10; i++)
+        {
+            final String returnedValue1 = access.getFromGroup(key + i, group);
+            assertEquals( "Wrong value returned.", value + i, returnedValue1 );
+    }
+    }
+
+    public void testInvalidate_1_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        assertNotNull( "We should have an access class", access );
+    }
+
+    public void testInvalidate_2_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        // removed other assertion
+
+        final String key = "mykey";
+        final String group = "mygroup";
+        final String value = "myvalue";
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group + 0, value + i);
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group + 1, value + i);
+        }
+
+        // Make sure cache contains some data
+        for (int i = 0; i < 10; i++)
+        {
+            final String returnedValue1 = access.getFromGroup(key + i, group + 0);
+            assertEquals( "Wrong value returned.", value + i, returnedValue1 );
+    }
+    }
+
+    public void testInvalidate_3_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        // removed other assertion
+
+        final String key = "mykey";
+        final String group = "mygroup";
+        final String value = "myvalue";
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group + 0, value + i);
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group + 1, value + i);
+        }
+
+        // Make sure cache contains some data
+        for (int i = 0; i < 10; i++)
+        {
+            final String returnedValue1 = access.getFromGroup(key + i, group + 0);
+            // removed other assertion
+            final String returnedValue2 = access.getFromGroup(key + i, group + 1);
+            assertEquals( "Wrong value returned.", value + i, returnedValue2 );
+    }
+    }
+
+    public void testInvalidate_4_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        // removed other assertion
+
+        final String key = "mykey";
+        final String group = "mygroup";
+        final String value = "myvalue";
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group + 0, value + i);
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group + 1, value + i);
+        }
+
+        // Make sure cache contains some data
+        for (int i = 0; i < 10; i++)
+        {
+            final String returnedValue1 = access.getFromGroup(key + i, group + 0);
+            // removed other assertion
+            final String returnedValue2 = access.getFromGroup(key + i, group + 1);
+            // removed other assertion
+        }
+
+        access.invalidateGroup(group + 0);
+
+        for (int i = 0; i < 10; i++)
+        {
+            assertNull("Should not be in cache", access.getFromGroup(key + i, group + 0));
+    }
+    }
+
+    public void testInvalidate_5_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( "test" );
+        // removed other assertion
+
+        final String key = "mykey";
+        final String group = "mygroup";
+        final String value = "myvalue";
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group + 0, value + i);
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group + 1, value + i);
+        }
+
+        // Make sure cache contains some data
+        for (int i = 0; i < 10; i++)
+        {
+            final String returnedValue1 = access.getFromGroup(key + i, group + 0);
+            // removed other assertion
+            final String returnedValue2 = access.getFromGroup(key + i, group + 1);
+            // removed other assertion
+        }
+
+        access.invalidateGroup(group + 0);
+
+        for (int i = 0; i < 10; i++)
+        {
+            // removed other assertion
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            final String returnedValue1 = access.getFromGroup(key + i, group + 1);
+            assertEquals( "Wrong value returned.", value + i, returnedValue1 );
+    }
+    }
+
+    public void testGroupCache_1_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( "testGroup" );
+        final String groupName1 = "testgroup1";
+        final String groupName2 = "testgroup2";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        assertNotNull(keys1);
+    }
+
+    public void testGroupCache_2_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( "testGroup" );
+        final String groupName1 = "testgroup1";
+        final String groupName2 = "testgroup2";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        assertEquals(0, keys1.size());
+    }
+
+    public void testGroupCache_3_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( "testGroup" );
+        final String groupName1 = "testgroup1";
+        final String groupName2 = "testgroup2";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
+
+        Set<String> keys2 = access.getGroupKeys( groupName2 );
+        assertNotNull(keys2);
+    }
+
+    public void testGroupCache_4_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( "testGroup" );
+        final String groupName1 = "testgroup1";
+        final String groupName2 = "testgroup2";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
+
+        Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        assertEquals(0, keys2.size());
+    }
+
+    public void testGroupCache_5_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( "testGroup" );
+        final String groupName1 = "testgroup1";
+        final String groupName2 = "testgroup2";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
+
+        Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // DO WORK
+        final int numToInsertGroup1 = 10;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup1; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName1, Integer.valueOf( i ) );
+        }
+
+        final int numToInsertGroup2 = 50;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup2; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName2, Integer.valueOf( i + 1 ) );
+        }
+
+        keys1 = access.getGroupKeys( groupName1 ); // Test for JCS-102
+        assertNotNull(keys1);
+    }
+
+    public void testGroupCache_6_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( "testGroup" );
+        final String groupName1 = "testgroup1";
+        final String groupName2 = "testgroup2";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
+
+        Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // DO WORK
+        final int numToInsertGroup1 = 10;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup1; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName1, Integer.valueOf( i ) );
+        }
+
+        final int numToInsertGroup2 = 50;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup2; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName2, Integer.valueOf( i + 1 ) );
+        }
+
+        keys1 = access.getGroupKeys( groupName1 ); // Test for JCS-102
+        // removed other assertion
+        assertEquals("Wrong number returned 1:", 10, keys1.size());
+    }
+
+    public void testGroupCache_7_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( "testGroup" );
+        final String groupName1 = "testgroup1";
+        final String groupName2 = "testgroup2";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
+
+        Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // DO WORK
+        final int numToInsertGroup1 = 10;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup1; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName1, Integer.valueOf( i ) );
+        }
+
+        final int numToInsertGroup2 = 50;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup2; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName2, Integer.valueOf( i + 1 ) );
+        }
+
+        keys1 = access.getGroupKeys( groupName1 ); // Test for JCS-102
+        // removed other assertion
+        // removed other assertion
+
+        keys2 = access.getGroupKeys( groupName2 );
+        assertNotNull(keys2);
+    }
+
+    public void testGroupCache_8_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( "testGroup" );
+        final String groupName1 = "testgroup1";
+        final String groupName2 = "testgroup2";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
+
+        Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // DO WORK
+        final int numToInsertGroup1 = 10;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup1; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName1, Integer.valueOf( i ) );
+        }
+
+        final int numToInsertGroup2 = 50;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup2; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName2, Integer.valueOf( i + 1 ) );
+        }
+
+        keys1 = access.getGroupKeys( groupName1 ); // Test for JCS-102
+        // removed other assertion
+        // removed other assertion
+
+        keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        assertEquals("Wrong number returned 2:", 50, keys2.size());
+    }
+
+    public void testGroupCache_9_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( "testGroup" );
+        final String groupName1 = "testgroup1";
+        final String groupName2 = "testgroup2";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
+
+        Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // DO WORK
+        final int numToInsertGroup1 = 10;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup1; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName1, Integer.valueOf( i ) );
+        }
+
+        final int numToInsertGroup2 = 50;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup2; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName2, Integer.valueOf( i + 1 ) );
+        }
+
+        keys1 = access.getGroupKeys( groupName1 ); // Test for JCS-102
+        // removed other assertion
+        // removed other assertion
+
+        keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(Integer.valueOf(5), access.getFromGroup("5", groupName1));
+    }
+
+    public void testGroupCache_10_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( "testGroup" );
+        final String groupName1 = "testgroup1";
+        final String groupName2 = "testgroup2";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
+
+        Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // DO WORK
+        final int numToInsertGroup1 = 10;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup1; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName1, Integer.valueOf( i ) );
+        }
+
+        final int numToInsertGroup2 = 50;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup2; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName2, Integer.valueOf( i + 1 ) );
+        }
+
+        keys1 = access.getGroupKeys( groupName1 ); // Test for JCS-102
+        // removed other assertion
+        // removed other assertion
+
+        keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(Integer.valueOf(6), access.getFromGroup("5", groupName2));
+    }
+
+    public void testGroupCache_11_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( "testGroup" );
+        final String groupName1 = "testgroup1";
+        final String groupName2 = "testgroup2";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
+
+        Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // DO WORK
+        final int numToInsertGroup1 = 10;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup1; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName1, Integer.valueOf( i ) );
+        }
+
+        final int numToInsertGroup2 = 50;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup2; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName2, Integer.valueOf( i + 1 ) );
+        }
+
+        keys1 = access.getGroupKeys( groupName1 ); // Test for JCS-102
+        // removed other assertion
+        // removed other assertion
+
+        keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        assertTrue(access.getGroupNames().contains(groupName1));
+    }
+
+    public void testGroupCache_12_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( "testGroup" );
+        final String groupName1 = "testgroup1";
+        final String groupName2 = "testgroup2";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
+
+        Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // DO WORK
+        final int numToInsertGroup1 = 10;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup1; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName1, Integer.valueOf( i ) );
+        }
+
+        final int numToInsertGroup2 = 50;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup2; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName2, Integer.valueOf( i + 1 ) );
+        }
+
+        keys1 = access.getGroupKeys( groupName1 ); // Test for JCS-102
+        // removed other assertion
+        // removed other assertion
+
+        keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertTrue(access.getGroupNames().contains(groupName2));
+    }
 
 }

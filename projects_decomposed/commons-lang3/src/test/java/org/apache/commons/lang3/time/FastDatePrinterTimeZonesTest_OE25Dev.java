@@ -35,5 +35,16 @@ public class FastDatePrinterTimeZonesTest_OE25Dev {
         return Arrays.stream(TimeZone.getAvailableIDs()).map(TimeZone::getTimeZone);
     }
 
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testCalendarTimezoneRespected_1_oe(final TimeZone timeZone) {
+        final Calendar cal = Calendar.getInstance(timeZone);
+
+        final SimpleDateFormat sdf = new SimpleDateFormat(PATTERN);
+        sdf.setTimeZone(timeZone);
+        final String expectedValue = sdf.format(cal.getTime());
+        final String actualValue = FastDateFormat.getInstance(PATTERN, timeZone).format(cal);
+        assertEquals(expectedValue, actualValue);
+    }
 
 }

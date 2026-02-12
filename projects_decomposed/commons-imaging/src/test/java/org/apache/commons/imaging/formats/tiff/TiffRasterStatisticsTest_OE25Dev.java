@@ -84,5 +84,86 @@ public class TiffRasterStatisticsTest_OE25Dev {
      * Test of getExcludedValue method, of class TiffRasterStatistics.
      */
 
+    @Test
+    public void testGetCountOfSamples_1_oe() {
+        assertEquals(width * height - 1, stat0.getCountOfSamples());
+    }
+
+    @Test
+    public void testGetCountOfSamples_2_oe() {
+        // removed other assertion
+        assertEquals(width * height - 2, stat1.getCountOfSamples());
+    }
+
+    @Test
+    public void testGetCountOfNulls_1_oe() {
+        assertEquals(1, stat0.getCountOfNulls());
+    }
+
+    @Test
+    public void testGetCountOfNulls_2_oe() {
+        // removed other assertion
+        assertEquals(1, stat1.getCountOfNulls());
+    }
+
+    @Test
+    public void testGetMinValue_1_oe() {
+        assertEquals(0, stat0.getMinValue());
+    }
+
+    @Test
+    public void testGetMinValue_2_oe() {
+        // removed other assertion
+        assertEquals(0, stat1.getMinValue());
+    }
+
+    @Test
+    public void testGetMaxValue_1_oe() {
+        assertEquals(width * height - 1, stat0.getMaxValue());
+    }
+
+    @Test
+    public void testGetMaxValue_2_oe() {
+        // removed other assertion
+        assertEquals(width * height - 2, stat1.getMaxValue());
+    }
+
+    @Test
+    public void testGetMeanValue_1_oe() {
+        assertNotEquals(0, stat0.getMeanValue());
+    }
+
+    @Test
+    public void testGetMeanValue_2_oe() {
+        // removed other assertion
+
+        final float[] zero = new float[100];
+        Arrays.fill(zero, 10);
+        final TiffRasterData zeroData = new TiffRasterDataFloat(10, 10, zero);
+        final TiffRasterStatistics zeroStat = zeroData.getSimpleStatistics(10);
+        assertEquals(0.0f,zeroStat.getMeanValue(),"Invalid mean data for excluded value");
+    }
+
+    @Test
+    public void testIsAnExcludedValueSet_1_oe() {
+        assertFalse(stat0.isAnExcludedValueSet());
+    }
+
+    @Test
+    public void testIsAnExcludedValueSet_2_oe() {
+        // removed other assertion
+        assertTrue(stat1.isAnExcludedValueSet());
+    }
+
+    @Test
+    public void testGetExcludedValue_1_oe() {
+        assertTrue(Float.isNaN(stat0.getExcludedValue()));
+    }
+
+    @Test
+    public void testGetExcludedValue_2_oe() {
+        // removed other assertion
+        assertEquals(width * height - 1, stat1.getExcludedValue());
+    }
 
 }

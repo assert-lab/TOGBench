@@ -59,5 +59,402 @@ class Transform1STest_OE25Dev {
         }
     }
 
+    @Test
+    void testIdentity_1_oe() {
+        // act
+        final Transform1S t = Transform1S.identity();
+
+        // assert
+        Assertions.assertTrue(t.preservesOrientation());
+    }
+
+    @Test
+    void testIdentity_2_oe() {
+        // act
+        final Transform1S t = Transform1S.identity();
+
+        // assert
+        // removed other assertion
+        Assertions.assertFalse(t.isNegation());
+    }
+
+    @Test
+    void testIdentity_3_oe() {
+        // act
+        final Transform1S t = Transform1S.identity();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(0, t.getRotation(), TEST_EPS);
+    }
+
+    @Test
+    void testRotate_positive_1_oe() {
+        // arrange
+        final Transform1S t = Transform1S.createRotation(Angle.PI_OVER_TWO);
+
+        // act/assert
+        Assertions.assertTrue(t.preservesOrientation());
+    }
+
+    @Test
+    void testRotate_positive_2_oe() {
+        // arrange
+        final Transform1S t = Transform1S.createRotation(Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertFalse(t.isNegation());
+    }
+
+    @Test
+    void testRotate_positive_3_oe() {
+        // arrange
+        final Transform1S t = Transform1S.createRotation(Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(Angle.PI_OVER_TWO, t.getRotation(), TEST_EPS);
+    }
+
+    @Test
+    void testRotate_negative_1_oe() {
+        // arrange
+        final Transform1S t = Transform1S.createRotation(-Angle.PI_OVER_TWO);
+
+        // act/assert
+        Assertions.assertTrue(t.preservesOrientation());
+    }
+
+    @Test
+    void testRotate_negative_2_oe() {
+        // arrange
+        final Transform1S t = Transform1S.createRotation(-Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertFalse(t.isNegation());
+    }
+
+    @Test
+    void testRotate_negative_3_oe() {
+        // arrange
+        final Transform1S t = Transform1S.createRotation(-Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(-Angle.PI_OVER_TWO, t.getRotation(), TEST_EPS);
+    }
+
+    @Test
+    void testNegate_1_oe() {
+        // arrange
+        final Transform1S t = Transform1S.createNegation();
+
+        // act/assert
+        Assertions.assertFalse(t.preservesOrientation());
+    }
+
+    @Test
+    void testNegate_2_oe() {
+        // arrange
+        final Transform1S t = Transform1S.createNegation();
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertTrue(t.isNegation());
+    }
+
+    @Test
+    void testNegate_3_oe() {
+        // arrange
+        final Transform1S t = Transform1S.createNegation();
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(0, t.getRotation(), TEST_EPS);
+    }
+
+    @Test
+    void testNegateThenRotate_1_oe() {
+        // arrange
+        final Transform1S t = Transform1S.createNegation().rotate(Angle.PI_OVER_TWO);
+
+        // act/assert
+        Assertions.assertFalse(t.preservesOrientation());
+    }
+
+    @Test
+    void testNegateThenRotate_2_oe() {
+        // arrange
+        final Transform1S t = Transform1S.createNegation().rotate(Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertTrue(t.isNegation());
+    }
+
+    @Test
+    void testNegateThenRotate_3_oe() {
+        // arrange
+        final Transform1S t = Transform1S.createNegation().rotate(Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(Angle.PI_OVER_TWO, t.getRotation(), TEST_EPS);
+    }
+
+    @Test
+    void testRotateThenNegate_1_oe() {
+        // arrange
+        final Transform1S t = Transform1S.createRotation(Angle.PI_OVER_TWO).negate();
+
+        // act/assert
+        Assertions.assertFalse(t.preservesOrientation());
+    }
+
+    @Test
+    void testRotateThenNegate_2_oe() {
+        // arrange
+        final Transform1S t = Transform1S.createRotation(Angle.PI_OVER_TWO).negate();
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertTrue(t.isNegation());
+    }
+
+    @Test
+    void testRotateThenNegate_3_oe() {
+        // arrange
+        final Transform1S t = Transform1S.createRotation(Angle.PI_OVER_TWO).negate();
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(-Angle.PI_OVER_TWO, t.getRotation(), TEST_EPS);
+    }
+
+    @Test
+    void testMultiply_1_oe() {
+        // arrange
+        final Transform1S neg = Transform1S.identity().negate();
+        final Transform1S rot = Transform1S.identity().rotate(Angle.PI_OVER_TWO);
+
+        // act
+        final Transform1S t = rot.multiply(neg);
+
+        // assert
+        Assertions.assertFalse(t.preservesOrientation());
+    }
+
+    @Test
+    void testMultiply_2_oe() {
+        // arrange
+        final Transform1S neg = Transform1S.identity().negate();
+        final Transform1S rot = Transform1S.identity().rotate(Angle.PI_OVER_TWO);
+
+        // act
+        final Transform1S t = rot.multiply(neg);
+
+        // assert
+        // removed other assertion
+        Assertions.assertTrue(t.isNegation());
+    }
+
+    @Test
+    void testMultiply_3_oe() {
+        // arrange
+        final Transform1S neg = Transform1S.identity().negate();
+        final Transform1S rot = Transform1S.identity().rotate(Angle.PI_OVER_TWO);
+
+        // act
+        final Transform1S t = rot.multiply(neg);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(Angle.PI_OVER_TWO, t.getRotation(), TEST_EPS);
+    }
+
+    @Test
+    void testPreultiply_1_oe() {
+        // arrange
+        final Transform1S neg = Transform1S.identity().negate();
+        final Transform1S rot = Transform1S.identity().rotate(Angle.PI_OVER_TWO);
+
+        // act
+        final Transform1S t = neg.premultiply(rot);
+
+        // assert
+        Assertions.assertFalse(t.preservesOrientation());
+    }
+
+    @Test
+    void testPreultiply_2_oe() {
+        // arrange
+        final Transform1S neg = Transform1S.identity().negate();
+        final Transform1S rot = Transform1S.identity().rotate(Angle.PI_OVER_TWO);
+
+        // act
+        final Transform1S t = neg.premultiply(rot);
+
+        // assert
+        // removed other assertion
+        Assertions.assertTrue(t.isNegation());
+    }
+
+    @Test
+    void testPreultiply_3_oe() {
+        // arrange
+        final Transform1S neg = Transform1S.identity().negate();
+        final Transform1S rot = Transform1S.identity().rotate(Angle.PI_OVER_TWO);
+
+        // act
+        final Transform1S t = neg.premultiply(rot);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(Angle.PI_OVER_TWO, t.getRotation(), TEST_EPS);
+    }
+
+    @Test
+    void testHashCode_1_oe() {
+        // arrange
+        final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+        final Transform1S b = Transform1S.identity().rotate(Angle.PI_OVER_TWO);
+        final Transform1S c = Transform1S.identity().negate().rotate(-Angle.PI_OVER_TWO);
+        final Transform1S d = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+
+        // act
+        final int hash = a.hashCode();
+
+        // assert
+        Assertions.assertEquals(hash, a.hashCode());
+    }
+
+    @Test
+    void testHashCode_2_oe() {
+        // arrange
+        final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+        final Transform1S b = Transform1S.identity().rotate(Angle.PI_OVER_TWO);
+        final Transform1S c = Transform1S.identity().negate().rotate(-Angle.PI_OVER_TWO);
+        final Transform1S d = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+
+        // act
+        final int hash = a.hashCode();
+
+        // assert
+        // removed other assertion
+
+        Assertions.assertNotEquals(hash, b.hashCode());
+    }
+
+    @Test
+    void testHashCode_3_oe() {
+        // arrange
+        final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+        final Transform1S b = Transform1S.identity().rotate(Angle.PI_OVER_TWO);
+        final Transform1S c = Transform1S.identity().negate().rotate(-Angle.PI_OVER_TWO);
+        final Transform1S d = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+
+        // act
+        final int hash = a.hashCode();
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNotEquals(hash, c.hashCode());
+    }
+
+    @Test
+    void testHashCode_4_oe() {
+        // arrange
+        final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+        final Transform1S b = Transform1S.identity().rotate(Angle.PI_OVER_TWO);
+        final Transform1S c = Transform1S.identity().negate().rotate(-Angle.PI_OVER_TWO);
+        final Transform1S d = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+
+        // act
+        final int hash = a.hashCode();
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(hash, d.hashCode());
+    }
+
+    @Test
+    void testEquals_2_oe() {
+        // arrange
+        final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+        final Transform1S b = Transform1S.identity().rotate(Angle.PI_OVER_TWO);
+        final Transform1S c = Transform1S.identity().negate().rotate(-Angle.PI_OVER_TWO);
+        final Transform1S d = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertNotEquals(a, b);
+    }
+
+    @Test
+    void testEquals_3_oe() {
+        // arrange
+        final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+        final Transform1S b = Transform1S.identity().rotate(Angle.PI_OVER_TWO);
+        final Transform1S c = Transform1S.identity().negate().rotate(-Angle.PI_OVER_TWO);
+        final Transform1S d = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNotEquals(a, c);
+    }
+
+    @Test
+    void testEquals_4_oe() {
+        // arrange
+        final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+        final Transform1S b = Transform1S.identity().rotate(Angle.PI_OVER_TWO);
+        final Transform1S c = Transform1S.identity().negate().rotate(-Angle.PI_OVER_TWO);
+        final Transform1S d = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(a, d);
+    }
+
+    @Test
+    void testEquals_5_oe() {
+        // arrange
+        final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+        final Transform1S b = Transform1S.identity().rotate(Angle.PI_OVER_TWO);
+        final Transform1S c = Transform1S.identity().negate().rotate(-Angle.PI_OVER_TWO);
+        final Transform1S d = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(d, a);
+    }
 
 }

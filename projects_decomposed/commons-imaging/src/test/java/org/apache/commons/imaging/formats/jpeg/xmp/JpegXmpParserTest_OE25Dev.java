@@ -23,5 +23,31 @@ import org.junit.jupiter.api.Test;
 
 public class JpegXmpParserTest_OE25Dev{
 
+    @Test
+    public void testCreatesJpegXmpParserAndCallsParseXmpJpegSegment_2_oe() {
+        final JpegXmpParser jpegXmpParser = new JpegXmpParser();
+        final byte[] byteArray = new byte[1];
+
+        try {
+            jpegXmpParser.parseXmpJpegSegment(byteArray);
+            // removed other assertion
+        } catch(final Exception e) {
+            assertEquals("Invalid JPEG XMP Segment.",e.getMessage());
+    }
+    }
+
+    @Test
+    public void testCreatesJpegXmpParserAndCallsParseXmpJpegSegment_3_oe() {
+        final JpegXmpParser jpegXmpParser = new JpegXmpParser();
+        final byte[] byteArray = new byte[1];
+
+        try {
+            jpegXmpParser.parseXmpJpegSegment(byteArray);
+            // removed other assertion
+        } catch(final Exception e) {
+            // removed other assertion
+            assertEquals(JpegXmpParser.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }
 
 }

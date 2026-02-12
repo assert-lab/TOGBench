@@ -25,6 +25,8 @@ import org.junit.jupiter.params.provider.EnumSource;
 import java.util.EnumMap;
 import java.util.function.Supplier;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Tests for the {@link ProviderBuilder.RandomSourceInternal} seed conversions. This test
  * ensures that all random sources can create a seed or convert any supported seed to the
@@ -150,14 +152,200 @@ class RandomSourceInternalParametricTest_OE25Dev {
 
     @ParameterizedTest
     @EnumSource
+    void testCreateSeed_1_oe(RandomSourceInternal randomSourceInternal) {
+         Class<?> type = getType(randomSourceInternal);
+         Object seed = randomSourceInternal.createSeed();
+        Assertions.assertNotNull(seed);
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testCreateSeed_2_oe(RandomSourceInternal randomSourceInternal) {
+         Class<?> type = getType(randomSourceInternal);
+         Object seed = randomSourceInternal.createSeed();
+        // removed other assertion
+        Assertions.assertEquals(type, seed.getClass(), "Seed was not the correct class");
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testCreateSeed_3_oe(RandomSourceInternal randomSourceInternal) {
+         Class<?> type = getType(randomSourceInternal);
+         Object seed = randomSourceInternal.createSeed();
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(randomSourceInternal.isNativeSeed(seed), "Seed was not identified as the native type");
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testConvertSupportedSeed_1_oe(RandomSourceInternal randomSourceInternal) {
+         Class<?> type = getType(randomSourceInternal);
+        for ( Object input : SUPPORTED_SEEDS) {
+             Object seed = randomSourceInternal.convertSeed(input);
+             Supplier<String> msg = () -> input.getClass() + " input seed was not converted";
+            Assertions.assertNotNull(seed, msg);
+    }
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testConvertSupportedSeed_2_oe(RandomSourceInternal randomSourceInternal) {
+         Class<?> type = getType(randomSourceInternal);
+        for ( Object input : SUPPORTED_SEEDS) {
+             Object seed = randomSourceInternal.convertSeed(input);
+             Supplier<String> msg = () -> input.getClass() + " input seed was not converted";
+            // removed other assertion
+            Assertions.assertEquals(type, seed.getClass(), msg);
+    }
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testConvertSupportedSeed_3_oe(RandomSourceInternal randomSourceInternal) {
+         Class<?> type = getType(randomSourceInternal);
+        for ( Object input : SUPPORTED_SEEDS) {
+             Object seed = randomSourceInternal.convertSeed(input);
+             Supplier<String> msg = () -> input.getClass() + " input seed was not converted";
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertTrue(randomSourceInternal.isNativeSeed(seed), msg);
+    }
+    }
+
+    @ParameterizedTest
+    @EnumSource
     void testCannotConvertUnsupportedSeed_1_oe(RandomSourceInternal randomSourceInternal) {
         for ( Object input : UNSUPPORTED_SEEDS) {
             try {
     randomSourceInternal.convertSeed(input);
-    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException: () -> input.getClass() + \" input seed was not rejected as unsupported\"");
+    fail("UnsupportedOperationException: () -> input.getClass() + \" input seed was not rejected as unsupported\"");
 } catch (UnsupportedOperationException e) {
 }
     }
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testCreateSeedBytesSizeIsPositiveAndMultipleOf4Or8_1_oe(RandomSourceInternal randomSourceInternal) {
+        // This should be the full length seed
+         byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+
+         int size = seed.length;
+        Assertions.assertNotEquals(0, size, "Seed is empty");
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testCreateSeedBytesSizeIsPositiveAndMultipleOf4Or8_2_oe(RandomSourceInternal randomSourceInternal) {
+        // This should be the full length seed
+         byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+
+         int size = seed.length;
+        // removed other assertion
+
+        if (randomSourceInternal.isNativeSeed(Integer.valueOf(0))) {
+            Assertions.assertEquals(4, size, "Expect 4 bytes for Integer");
+    }
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testCreateSeedBytesSizeIsPositiveAndMultipleOf4Or8_3_oe(RandomSourceInternal randomSourceInternal) {
+        // This should be the full length seed
+         byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+
+         int size = seed.length;
+        // removed other assertion
+
+        if (randomSourceInternal.isNativeSeed(Integer.valueOf(0))) {
+            // removed other assertion
+        } else if (randomSourceInternal.isNativeSeed(Long.valueOf(0))) {
+            Assertions.assertEquals(8, size, "Expect 8 bytes for Long");
+    }
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testCreateSeedBytesSizeIsPositiveAndMultipleOf4Or8_4_oe(RandomSourceInternal randomSourceInternal) {
+        // This should be the full length seed
+         byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+
+         int size = seed.length;
+        // removed other assertion
+
+        if (randomSourceInternal.isNativeSeed(Integer.valueOf(0))) {
+            // removed other assertion
+        } else if (randomSourceInternal.isNativeSeed(Long.valueOf(0))) {
+            // removed other assertion
+        } else if (randomSourceInternal.isNativeSeed(new int[0])) {
+            Assertions.assertEquals(0, size % 4, "Expect 4n bytes for int[]");
+    }
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testCreateSeedBytesSizeIsPositiveAndMultipleOf4Or8_5_oe(RandomSourceInternal randomSourceInternal) {
+        // This should be the full length seed
+         byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+
+         int size = seed.length;
+        // removed other assertion
+
+        if (randomSourceInternal.isNativeSeed(Integer.valueOf(0))) {
+            // removed other assertion
+        } else if (randomSourceInternal.isNativeSeed(Long.valueOf(0))) {
+            // removed other assertion
+        } else if (randomSourceInternal.isNativeSeed(new int[0])) {
+            // removed other assertion
+        } else if (randomSourceInternal.isNativeSeed(new long[0])) {
+            Assertions.assertEquals(0, size % 8, "Expect 8n bytes for long[]");
+    }
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testCreateSeedBytesSizeIsPositiveAndMultipleOf4Or8_6_oe(RandomSourceInternal randomSourceInternal) {
+        // This should be the full length seed
+         byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+
+         int size = seed.length;
+        // removed other assertion
+
+        if (randomSourceInternal.isNativeSeed(Integer.valueOf(0))) {
+            // removed other assertion
+        } else if (randomSourceInternal.isNativeSeed(Long.valueOf(0))) {
+            // removed other assertion
+        } else if (randomSourceInternal.isNativeSeed(new int[0])) {
+            // removed other assertion
+        } else if (randomSourceInternal.isNativeSeed(new long[0])) {
+            // removed other assertion
+        } else {
+            Assertions.fail("Unknown native seed type");
+    }
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testCreateSeedBytes_1_oe(RandomSourceInternal randomSourceInternal) {
+        // This should be the full length seed
+         byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+         int size = seed.length;
+
+         Integer expected = EXPECTED_SEED_BYTES.get(randomSourceInternal);
+        Assertions.assertNotNull(expected, () -> "Missing expected seed byte size: " + randomSourceInternal);
+    }
+
+    @ParameterizedTest
+    @EnumSource
+    void testCreateSeedBytes_2_oe(RandomSourceInternal randomSourceInternal) {
+        // This should be the full length seed
+         byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+         int size = seed.length;
+
+         Integer expected = EXPECTED_SEED_BYTES.get(randomSourceInternal);
+        // removed other assertion
+        Assertions.assertEquals(expected.intValue(), size, () -> randomSourceInternal.toString());
     }
 
 }

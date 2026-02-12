@@ -144,5 +144,54 @@ public class FileLockTestCase_OE25Dev {
         assertDelete();
     }
 
+    @Test
+    public void testResolveAndOpenCloseContent_1_oe_1_oe() throws Exception {
+        resolveAndOpenCloseContent();
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertTrue("Could not delete file", newZipFile.delete());
+    }
+
+    @Test
+    public void testResolveAndOpenCloseContent3_1_oe_1_oe() throws Exception {
+        resolveAndOpenCloseContent();
+        resolveAndOpenCloseContent();
+        resolveAndOpenCloseContent();
+
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertTrue("Could not delete file", newZipFile.delete());
+    }
+
+    @Test
+    public void testResolveAndOpenCloseInputStream_1_oe_1_oe() throws Exception {
+        resolveAndOpenCloseInputStream();
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertTrue("Could not delete file", newZipFile.delete());
+    }
+
+    @Test
+    public void testResolveAndOpenCloseInputStream3_1_oe_1_oe() throws Exception {
+        resolveAndOpenCloseInputStream();
+        resolveAndOpenCloseInputStream();
+        resolveAndOpenCloseInputStream();
+
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertTrue("Could not delete file", newZipFile.delete());
+    }
+
+    @Test
+    public void testResolveAndOpenReadCloseInputStream_1_oe_1_oe() throws Exception {
+        resolveAndOpenReadCloseInputStream();
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertTrue("Could not delete file", newZipFile.delete());
+    }
+
+    @Test
+    public void testResolveAndOpenReadCloseInputStream3_1_oe_1_oe() throws Exception {
+        resolveAndOpenReadCloseInputStream();
+        resolveAndOpenReadCloseInputStream();
+        resolveAndOpenReadCloseInputStream();
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertTrue("Could not delete file", newZipFile.delete());
+    }
 
 }

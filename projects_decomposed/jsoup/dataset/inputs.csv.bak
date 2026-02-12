@@ -7137,11 +7137,423 @@ jsoup_158_3,"    @Test public void consume_3_oe() {
         assertEquals('o', r.consume());
         }
 ",CharacterReaderTest::consume_3_oe
+jsoup_158_4,"    @Test public void consume_4_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, r.pos());
+        }
+",CharacterReaderTest::consume_4_oe
+jsoup_158_5,"    @Test public void consume_5_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals('n', r.current());
+        }
+",CharacterReaderTest::consume_5_oe
+jsoup_158_6,"    @Test public void consume_6_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, r.pos());
+        }
+",CharacterReaderTest::consume_6_oe
+jsoup_158_7,"    @Test public void consume_7_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals('n', r.consume());
+        }
+",CharacterReaderTest::consume_7_oe
+jsoup_158_8,"    @Test public void consume_8_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals('e', r.consume());
+        }
+",CharacterReaderTest::consume_8_oe
+jsoup_158_9,"    @Test public void consume_9_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(r.isEmpty());
+        }
+",CharacterReaderTest::consume_9_oe
+jsoup_158_10,"    @Test public void consume_10_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(CharacterReader.EOF, r.consume());
+        }
+",CharacterReaderTest::consume_10_oe
+jsoup_158_11,"    @Test public void consume_11_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(r.isEmpty());
+        }
+",CharacterReaderTest::consume_11_oe
+jsoup_158_12,"    @Test public void consume_12_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(CharacterReader.EOF, r.consume());
+        }
+",CharacterReaderTest::consume_12_oe
 jsoup_159_1,"    @Test public void unconsume_1_oe() {
         CharacterReader r = new CharacterReader(""one"");
         assertEquals('o', r.consume());
         }
 ",CharacterReaderTest::unconsume_1_oe
+jsoup_159_2,"    @Test public void unconsume_2_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        assertEquals('n', r.current());
+        }
+",CharacterReaderTest::unconsume_2_oe
+jsoup_159_3,"    @Test public void unconsume_3_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        assertEquals('o', r.current());
+        }
+",CharacterReaderTest::unconsume_3_oe
+jsoup_159_4,"    @Test public void unconsume_4_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        assertEquals('o', r.consume());
+        }
+",CharacterReaderTest::unconsume_4_oe
+jsoup_159_5,"    @Test public void unconsume_5_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals('n', r.consume());
+        }
+",CharacterReaderTest::unconsume_5_oe
+jsoup_159_6,"    @Test public void unconsume_6_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals('e', r.consume());
+        }
+",CharacterReaderTest::unconsume_6_oe
+jsoup_159_7,"    @Test public void unconsume_7_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(r.isEmpty());
+        }
+",CharacterReaderTest::unconsume_7_oe
+jsoup_159_8,"    @Test public void unconsume_8_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        assertFalse(r.isEmpty());
+        }
+",CharacterReaderTest::unconsume_8_oe
+jsoup_159_9,"    @Test public void unconsume_9_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+        assertEquals('e', r.current());
+        }
+",CharacterReaderTest::unconsume_9_oe
+jsoup_159_10,"    @Test public void unconsume_10_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+        // removed other assertion
+        assertEquals('e', r.consume());
+        }
+",CharacterReaderTest::unconsume_10_oe
+jsoup_159_11,"    @Test public void unconsume_11_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(r.isEmpty());
+        }
+",CharacterReaderTest::unconsume_11_oe
+jsoup_159_12,"    @Test public void unconsume_12_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(CharacterReader.EOF, r.consume());
+        }
+",CharacterReaderTest::unconsume_12_oe
+jsoup_159_13,"    @Test public void unconsume_13_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        r.unconsume(); // read past, so have to eat again
+        assertTrue(r.isEmpty());
+        }
+",CharacterReaderTest::unconsume_13_oe
+jsoup_159_14,"    @Test public void unconsume_14_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        r.unconsume(); // read past, so have to eat again
+        // removed other assertion
+        r.unconsume();
+        assertFalse(r.isEmpty());
+        }
+",CharacterReaderTest::unconsume_14_oe
+jsoup_159_15,"    @Test public void unconsume_15_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        r.unconsume(); // read past, so have to eat again
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        assertEquals('e', r.consume());
+        }
+",CharacterReaderTest::unconsume_15_oe
+jsoup_159_16,"    @Test public void unconsume_16_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        r.unconsume(); // read past, so have to eat again
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        assertTrue(r.isEmpty());
+        }
+",CharacterReaderTest::unconsume_16_oe
+jsoup_159_17,"    @Test public void unconsume_17_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        r.unconsume(); // read past, so have to eat again
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(CharacterReader.EOF, r.consume());
+        }
+",CharacterReaderTest::unconsume_17_oe
+jsoup_159_18,"    @Test public void unconsume_18_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        r.unconsume(); // read past, so have to eat again
+        // removed other assertion
+        r.unconsume();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertTrue(r.isEmpty());
+        }
+",CharacterReaderTest::unconsume_18_oe
 jsoup_160_1,"    @Test public void mark_1_oe() {
         CharacterReader r = new CharacterReader(""one"");
         r.consume();
@@ -7157,6 +7569,25 @@ jsoup_160_2,"    @Test public void mark_2_oe() {
         assertEquals('n', r.consume());
         }
 ",CharacterReaderTest::mark_2_oe
+jsoup_160_3,"    @Test public void mark_3_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        r.consume();
+        r.mark();
+        // removed other assertion
+        // removed other assertion
+        assertEquals('e', r.consume());
+        }
+",CharacterReaderTest::mark_3_oe
+jsoup_160_4,"    @Test public void mark_4_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        r.consume();
+        r.mark();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(r.isEmpty());
+        }
+",CharacterReaderTest::mark_4_oe
 jsoup_160_5,"    @Test public void mark_5_oe() {
         CharacterReader r = new CharacterReader(""one"");
         r.consume();
@@ -7196,6 +7627,21 @@ jsoup_160_7,"    @Test public void mark_7_oe() {
         assertFalse(r.isEmpty());
         }
 ",CharacterReaderTest::mark_7_oe
+jsoup_160_8,"    @Test public void mark_8_oe() {
+        CharacterReader r = new CharacterReader(""one"");
+        r.consume();
+        r.mark();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        r.rewindToMark();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, r.pos());
+        }
+",CharacterReaderTest::mark_8_oe
 jsoup_161_1,"    @Test public void consumeToEnd_1_oe() {
         String in = ""one two three"";
         CharacterReader r = new CharacterReader(in);
@@ -7299,6 +7745,39 @@ jsoup_163_3,"    @Test public void nextIndexOfString_3_oe() {
         assertEquals(""One Two "", r.consumeTo(""something""));
         }
 ",CharacterReaderTest::nextIndexOfString_3_oe
+jsoup_163_4,"    @Test public void nextIndexOfString_4_oe() {
+        String in = ""One Two something Two Three Four"";
+        CharacterReader r = new CharacterReader(in);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(10, r.nextIndexOf(""Two""));
+        }
+",CharacterReaderTest::nextIndexOfString_4_oe
+jsoup_163_5,"    @Test public void nextIndexOfString_5_oe() {
+        String in = ""One Two something Two Three Four"";
+        CharacterReader r = new CharacterReader(in);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""something Two Three Four"", r.consumeToEnd());
+        }
+",CharacterReaderTest::nextIndexOfString_5_oe
+jsoup_163_6,"    @Test public void nextIndexOfString_6_oe() {
+        String in = ""One Two something Two Three Four"";
+        CharacterReader r = new CharacterReader(in);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(-1, r.nextIndexOf(""Two""));
+        }
+",CharacterReaderTest::nextIndexOfString_6_oe
 jsoup_164_1,"    @Test public void nextIndexOfUnmatched_1_oe() {
         CharacterReader r = new CharacterReader(""<[[one]]"");
         assertEquals(-1, r.nextIndexOf(""]]>""));
@@ -7309,31 +7788,199 @@ jsoup_165_1,"    @Test public void consumeToChar_1_oe() {
         assertEquals(""One "", r.consumeTo('T'));
         }
 ",CharacterReaderTest::consumeToChar_1_oe
+jsoup_165_2,"    @Test public void consumeToChar_2_oe() {
+        CharacterReader r = new CharacterReader(""One Two Three"");
+        // removed other assertion
+        assertEquals("""",r.consumeTo('T'));// on Two assertEquals('T',r.consume());
+        }
+",CharacterReaderTest::consumeToChar_2_oe
+jsoup_165_3,"    @Test public void consumeToChar_3_oe() {
+        CharacterReader r = new CharacterReader(""One Two Three"");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""wo "", r.consumeTo('T'));
+        }
+",CharacterReaderTest::consumeToChar_3_oe
+jsoup_165_4,"    @Test public void consumeToChar_4_oe() {
+        CharacterReader r = new CharacterReader(""One Two Three"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals('T', r.consume());
+        }
+",CharacterReaderTest::consumeToChar_4_oe
+jsoup_165_5,"    @Test public void consumeToChar_5_oe() {
+        CharacterReader r = new CharacterReader(""One Two Three"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""hree"", r.consumeTo('T')); // consume to end;
+        }
+",CharacterReaderTest::consumeToChar_5_oe
 jsoup_166_1,"    @Test public void consumeToString_1_oe() {
         CharacterReader r = new CharacterReader(""One Two Two Four"");
         assertEquals(""One "", r.consumeTo(""Two""));
         }
 ",CharacterReaderTest::consumeToString_1_oe
+jsoup_166_2,"    @Test public void consumeToString_2_oe() {
+        CharacterReader r = new CharacterReader(""One Two Two Four"");
+        // removed other assertion
+        assertEquals('T', r.consume());
+        }
+",CharacterReaderTest::consumeToString_2_oe
+jsoup_166_3,"    @Test public void consumeToString_3_oe() {
+        CharacterReader r = new CharacterReader(""One Two Two Four"");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""wo "", r.consumeTo(""Two""));
+        }
+",CharacterReaderTest::consumeToString_3_oe
+jsoup_166_4,"    @Test public void consumeToString_4_oe() {
+        CharacterReader r = new CharacterReader(""One Two Two Four"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals('T', r.consume());
+        }
+",CharacterReaderTest::consumeToString_4_oe
+jsoup_166_5,"    @Test public void consumeToString_5_oe() {
+        CharacterReader r = new CharacterReader(""One Two Two Four"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // To handle strings straddling across buffers, consumeTo() may return the
+        // data in multiple pieces near EOF.
+        StringBuilder builder = new StringBuilder();
+        String part;
+        do {
+            part = r.consumeTo(""Qux"");
+            builder.append(part);
+        } while (!part.isEmpty());
+        assertEquals(""wo Four"", builder.toString());
+        }
+",CharacterReaderTest::consumeToString_5_oe
 jsoup_167_1,"    @Test public void advance_1_oe() {
         CharacterReader r = new CharacterReader(""One Two Three"");
         assertEquals('O', r.consume());
         }
 ",CharacterReaderTest::advance_1_oe
+jsoup_167_2,"    @Test public void advance_2_oe() {
+        CharacterReader r = new CharacterReader(""One Two Three"");
+        // removed other assertion
+        r.advance();
+        assertEquals('e', r.consume());
+        }
+",CharacterReaderTest::advance_2_oe
 jsoup_168_1,"    @Test public void consumeToAny_1_oe() {
         CharacterReader r = new CharacterReader(""One &bar; qux"");
         assertEquals(""One "", r.consumeToAny('&', ';'));
         }
 ",CharacterReaderTest::consumeToAny_1_oe
+jsoup_168_2,"    @Test public void consumeToAny_2_oe() {
+        CharacterReader r = new CharacterReader(""One &bar; qux"");
+        // removed other assertion
+        assertTrue(r.matches('&'));
+        }
+",CharacterReaderTest::consumeToAny_2_oe
+jsoup_168_3,"    @Test public void consumeToAny_3_oe() {
+        CharacterReader r = new CharacterReader(""One &bar; qux"");
+        // removed other assertion
+        // removed other assertion
+        assertTrue(r.matches(""&bar;""));
+        }
+",CharacterReaderTest::consumeToAny_3_oe
+jsoup_168_4,"    @Test public void consumeToAny_4_oe() {
+        CharacterReader r = new CharacterReader(""One &bar; qux"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals('&', r.consume());
+        }
+",CharacterReaderTest::consumeToAny_4_oe
+jsoup_168_5,"    @Test public void consumeToAny_5_oe() {
+        CharacterReader r = new CharacterReader(""One &bar; qux"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""bar"", r.consumeToAny('&', ';'));
+        }
+",CharacterReaderTest::consumeToAny_5_oe
+jsoup_168_6,"    @Test public void consumeToAny_6_oe() {
+        CharacterReader r = new CharacterReader(""One &bar; qux"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(';', r.consume());
+        }
+",CharacterReaderTest::consumeToAny_6_oe
+jsoup_168_7,"    @Test public void consumeToAny_7_oe() {
+        CharacterReader r = new CharacterReader(""One &bar; qux"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("" qux"", r.consumeToAny('&', ';'));
+        }
+",CharacterReaderTest::consumeToAny_7_oe
 jsoup_169_1,"    @Test public void consumeLetterSequence_1_oe() {
         CharacterReader r = new CharacterReader(""One &bar; qux"");
         assertEquals(""One"", r.consumeLetterSequence());
         }
 ",CharacterReaderTest::consumeLetterSequence_1_oe
+jsoup_169_2,"    @Test public void consumeLetterSequence_2_oe() {
+        CharacterReader r = new CharacterReader(""One &bar; qux"");
+        // removed other assertion
+        assertEquals("" &"", r.consumeTo(""bar;""));
+        }
+",CharacterReaderTest::consumeLetterSequence_2_oe
+jsoup_169_3,"    @Test public void consumeLetterSequence_3_oe() {
+        CharacterReader r = new CharacterReader(""One &bar; qux"");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""bar"", r.consumeLetterSequence());
+        }
+",CharacterReaderTest::consumeLetterSequence_3_oe
+jsoup_169_4,"    @Test public void consumeLetterSequence_4_oe() {
+        CharacterReader r = new CharacterReader(""One &bar; qux"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""; qux"", r.consumeToEnd());
+        }
+",CharacterReaderTest::consumeLetterSequence_4_oe
 jsoup_170_1,"    @Test public void consumeLetterThenDigitSequence_1_oe() {
         CharacterReader r = new CharacterReader(""One12 Two &bar; qux"");
         assertEquals(""One12"", r.consumeLetterThenDigitSequence());
         }
 ",CharacterReaderTest::consumeLetterThenDigitSequence_1_oe
+jsoup_170_2,"    @Test public void consumeLetterThenDigitSequence_2_oe() {
+        CharacterReader r = new CharacterReader(""One12 Two &bar; qux"");
+        // removed other assertion
+        assertEquals(' ', r.consume());
+        }
+",CharacterReaderTest::consumeLetterThenDigitSequence_2_oe
+jsoup_170_3,"    @Test public void consumeLetterThenDigitSequence_3_oe() {
+        CharacterReader r = new CharacterReader(""One12 Two &bar; qux"");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Two"", r.consumeLetterThenDigitSequence());
+        }
+",CharacterReaderTest::consumeLetterThenDigitSequence_3_oe
+jsoup_170_4,"    @Test public void consumeLetterThenDigitSequence_4_oe() {
+        CharacterReader r = new CharacterReader(""One12 Two &bar; qux"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("" &bar; qux"", r.consumeToEnd());
+        }
+",CharacterReaderTest::consumeLetterThenDigitSequence_4_oe
 jsoup_171_1,"    @Test public void matches_1_oe() {
         CharacterReader r = new CharacterReader(""One Two Three"");
         assertTrue(r.matches('O'));
@@ -7369,6 +8016,27 @@ jsoup_171_5,"    @Test public void matches_5_oe() {
         assertEquals('O', r.consume());
         }
 ",CharacterReaderTest::matches_5_oe
+jsoup_171_6,"    @Test public void matches_6_oe() {
+        CharacterReader r = new CharacterReader(""One Two Three"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(r.matches(""One""));
+        }
+",CharacterReaderTest::matches_6_oe
+jsoup_171_7,"    @Test public void matches_7_oe() {
+        CharacterReader r = new CharacterReader(""One Two Three"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(r.matches(""ne Two Three""));
+        }
+",CharacterReaderTest::matches_7_oe
 jsoup_171_8,"    @Test public void matches_8_oe() {
         CharacterReader r = new CharacterReader(""One Two Three"");
         // removed other assertion
@@ -7381,6 +8049,19 @@ jsoup_171_8,"    @Test public void matches_8_oe() {
         assertFalse(r.matches(""ne Two Three Four""));
         }
 ",CharacterReaderTest::matches_8_oe
+jsoup_171_9,"    @Test public void matches_9_oe() {
+        CharacterReader r = new CharacterReader(""One Two Three"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""ne Two Three"", r.consumeToEnd());
+        }
+",CharacterReaderTest::matches_9_oe
 jsoup_171_10,"    @Test public void matches_10_oe() {
         CharacterReader r = new CharacterReader(""One Two Three"");
         // removed other assertion
@@ -7395,6 +8076,21 @@ jsoup_171_10,"    @Test public void matches_10_oe() {
         assertFalse(r.matches(""ne""));
         }
 ",CharacterReaderTest::matches_10_oe
+jsoup_171_11,"    @Test public void matches_11_oe() {
+        CharacterReader r = new CharacterReader(""One Two Three"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(r.isEmpty());
+        }
+",CharacterReaderTest::matches_11_oe
 jsoup_172_1,"    @Test
     public void matchesIgnoreCase_1_oe() {
         CharacterReader r = new CharacterReader(""One Two Three"");
@@ -7485,6 +8181,37 @@ jsoup_172_9,"    @Test
         assertEquals('O', r.consume());
     }
 ",CharacterReaderTest::matchesIgnoreCase_9_oe
+jsoup_172_10,"    @Test
+    public void matchesIgnoreCase_10_oe() {
+        CharacterReader r = new CharacterReader(""One Two Three"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(r.matchesIgnoreCase(""One""));
+    }
+",CharacterReaderTest::matchesIgnoreCase_10_oe
+jsoup_172_11,"    @Test
+    public void matchesIgnoreCase_11_oe() {
+        CharacterReader r = new CharacterReader(""One Two Three"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(r.matchesIgnoreCase(""NE Two Three""));
+    }
+",CharacterReaderTest::matchesIgnoreCase_11_oe
 jsoup_172_12,"    @Test
     public void matchesIgnoreCase_12_oe() {
         CharacterReader r = new CharacterReader(""One Two Three"");
@@ -7502,6 +8229,24 @@ jsoup_172_12,"    @Test
         assertFalse(r.matchesIgnoreCase(""ne Two Three Four""));
     }
 ",CharacterReaderTest::matchesIgnoreCase_12_oe
+jsoup_172_13,"    @Test
+    public void matchesIgnoreCase_13_oe() {
+        CharacterReader r = new CharacterReader(""One Two Three"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""ne Two Three"", r.consumeToEnd());
+    }
+",CharacterReaderTest::matchesIgnoreCase_13_oe
 jsoup_172_14,"    @Test
     public void matchesIgnoreCase_14_oe() {
         CharacterReader r = new CharacterReader(""One Two Three"");
@@ -7723,6 +8468,57 @@ jsoup_174_12,"    @Test void containsIgnoreCaseBuffer_12_oe() {
         assertFalse(r.matches(""<foo>""));// buffer underrun r.consumeTo(""<foo>"");
         }
 ",CharacterReaderTest::containsIgnoreCaseBuffer_12_oe
+jsoup_174_13,"    @Test void containsIgnoreCaseBuffer_13_oe() {
+        String html = ""<p><p><p></title><p></TITLE><p>"" + BufferBuster(""Foo Bar Qux "") + ""<foo><bar></title>"";
+        CharacterReader r = new CharacterReader(html);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        r.consumeTo(""</title>"");
+        // removed other assertion
+        r.consumeTo(""<p>"");
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        r.consumeTo(""</TITLE>"");
+        r.consumeTo(""<p>"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(r.matches(""<foo>""));// cross the buffer assertTrue(r.containsIgnoreCase(""</TITLE>""));
+        }
+",CharacterReaderTest::containsIgnoreCaseBuffer_13_oe
+jsoup_174_14,"    @Test void containsIgnoreCaseBuffer_14_oe() {
+        String html = ""<p><p><p></title><p></TITLE><p>"" + BufferBuster(""Foo Bar Qux "") + ""<foo><bar></title>"";
+        CharacterReader r = new CharacterReader(html);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        r.consumeTo(""</title>"");
+        // removed other assertion
+        r.consumeTo(""<p>"");
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        r.consumeTo(""</TITLE>"");
+        r.consumeTo(""<p>"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(r.containsIgnoreCase(""</title>""));
+        }
+",CharacterReaderTest::containsIgnoreCaseBuffer_14_oe
 jsoup_175_1,"    @Test public void matchesAny_1_oe() {
         char[] scan = {' ', '\n', '\t'};
         CharacterReader r = new CharacterReader(""One\nTwo\tThree"");
@@ -7736,6 +8532,23 @@ jsoup_175_2,"    @Test public void matchesAny_2_oe() {
         assertEquals(""One"", r.consumeToAny(scan));
         }
 ",CharacterReaderTest::matchesAny_2_oe
+jsoup_175_3,"    @Test public void matchesAny_3_oe() {
+        char[] scan = {' ', '\n', '\t'};
+        CharacterReader r = new CharacterReader(""One\nTwo\tThree"");
+        // removed other assertion
+        // removed other assertion
+        assertTrue(r.matchesAny(scan));
+        }
+",CharacterReaderTest::matchesAny_3_oe
+jsoup_175_4,"    @Test public void matchesAny_4_oe() {
+        char[] scan = {' ', '\n', '\t'};
+        CharacterReader r = new CharacterReader(""One\nTwo\tThree"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals('\n', r.consume());
+        }
+",CharacterReaderTest::matchesAny_4_oe
 jsoup_175_5,"    @Test public void matchesAny_5_oe() {
         char[] scan = {' ', '\n', '\t'};
         CharacterReader r = new CharacterReader(""One\nTwo\tThree"");
@@ -8025,6 +8838,13 @@ jsoup_178_1,"    @Test
         assertTrue(r.matchConsume(""One""));
     }
 ",CharacterReaderTest::empty_1_oe
+jsoup_178_2,"    @Test
+    public void empty_2_oe() {
+        CharacterReader r = new CharacterReader(""One"");
+        // removed other assertion
+        assertTrue(r.isEmpty());
+    }
+",CharacterReaderTest::empty_2_oe
 jsoup_178_3,"    @Test
     public void empty_3_oe() {
         CharacterReader r = new CharacterReader(""One"");
@@ -8042,6 +8862,23 @@ jsoup_179_1,"    @Test
         assertTrue(r.matchConsume(""<!""));
     }
 ",CharacterReaderTest::consumeToNonexistentEndWhenAtAnd_1_oe
+jsoup_179_2,"    @Test
+    public void consumeToNonexistentEndWhenAtAnd_2_oe() {
+        CharacterReader r = new CharacterReader(""<!"");
+        // removed other assertion
+        assertTrue(r.isEmpty());
+    }
+",CharacterReaderTest::consumeToNonexistentEndWhenAtAnd_2_oe
+jsoup_179_3,"    @Test
+    public void consumeToNonexistentEndWhenAtAnd_3_oe() {
+        CharacterReader r = new CharacterReader(""<!"");
+        // removed other assertion
+        // removed other assertion
+
+        String after = r.consumeTo('>');
+        assertEquals("""", after);
+    }
+",CharacterReaderTest::consumeToNonexistentEndWhenAtAnd_3_oe
 jsoup_179_4,"    @Test
     public void consumeToNonexistentEndWhenAtAnd_4_oe() {
         CharacterReader r = new CharacterReader(""<!"");
@@ -8067,6 +8904,15 @@ jsoup_180_2,"    @Test
         assertFalse(r.isEmpty(), ""Should not be empty"");
     }
 ",CharacterReaderTest::notEmptyAtBufferSplitPoint_2_oe
+jsoup_180_3,"    @Test
+    public void notEmptyAtBufferSplitPoint_3_oe() {
+        CharacterReader r = new CharacterReader(new StringReader(""How about now""), 3);
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(' ', r.consume());
+    }
+",CharacterReaderTest::notEmptyAtBufferSplitPoint_3_oe
 jsoup_180_4,"    @Test
     public void notEmptyAtBufferSplitPoint_4_oe() {
         CharacterReader r = new CharacterReader(new StringReader(""How about now""), 3);
@@ -8077,6 +8923,223 @@ jsoup_180_4,"    @Test
         assertFalse(r.isEmpty());
     }
 ",CharacterReaderTest::notEmptyAtBufferSplitPoint_4_oe
+jsoup_180_5,"    @Test
+    public void notEmptyAtBufferSplitPoint_5_oe() {
+        CharacterReader r = new CharacterReader(new StringReader(""How about now""), 3);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(4, r.pos());
+    }
+",CharacterReaderTest::notEmptyAtBufferSplitPoint_5_oe
+jsoup_180_6,"    @Test
+    public void notEmptyAtBufferSplitPoint_6_oe() {
+        CharacterReader r = new CharacterReader(new StringReader(""How about now""), 3);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals('a', r.consume());
+    }
+",CharacterReaderTest::notEmptyAtBufferSplitPoint_6_oe
+jsoup_180_7,"    @Test
+    public void notEmptyAtBufferSplitPoint_7_oe() {
+        CharacterReader r = new CharacterReader(new StringReader(""How about now""), 3);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(5, r.pos());
+    }
+",CharacterReaderTest::notEmptyAtBufferSplitPoint_7_oe
+jsoup_180_8,"    @Test
+    public void notEmptyAtBufferSplitPoint_8_oe() {
+        CharacterReader r = new CharacterReader(new StringReader(""How about now""), 3);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals('b', r.consume());
+    }
+",CharacterReaderTest::notEmptyAtBufferSplitPoint_8_oe
+jsoup_180_9,"    @Test
+    public void notEmptyAtBufferSplitPoint_9_oe() {
+        CharacterReader r = new CharacterReader(new StringReader(""How about now""), 3);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals('o', r.consume());
+    }
+",CharacterReaderTest::notEmptyAtBufferSplitPoint_9_oe
+jsoup_180_10,"    @Test
+    public void notEmptyAtBufferSplitPoint_10_oe() {
+        CharacterReader r = new CharacterReader(new StringReader(""How about now""), 3);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals('u', r.consume());
+    }
+",CharacterReaderTest::notEmptyAtBufferSplitPoint_10_oe
+jsoup_180_11,"    @Test
+    public void notEmptyAtBufferSplitPoint_11_oe() {
+        CharacterReader r = new CharacterReader(new StringReader(""How about now""), 3);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals('t', r.consume());
+    }
+",CharacterReaderTest::notEmptyAtBufferSplitPoint_11_oe
+jsoup_180_12,"    @Test
+    public void notEmptyAtBufferSplitPoint_12_oe() {
+        CharacterReader r = new CharacterReader(new StringReader(""How about now""), 3);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(' ', r.consume());
+    }
+",CharacterReaderTest::notEmptyAtBufferSplitPoint_12_oe
+jsoup_180_13,"    @Test
+    public void notEmptyAtBufferSplitPoint_13_oe() {
+        CharacterReader r = new CharacterReader(new StringReader(""How about now""), 3);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals('n', r.consume());
+    }
+",CharacterReaderTest::notEmptyAtBufferSplitPoint_13_oe
+jsoup_180_14,"    @Test
+    public void notEmptyAtBufferSplitPoint_14_oe() {
+        CharacterReader r = new CharacterReader(new StringReader(""How about now""), 3);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals('o', r.consume());
+    }
+",CharacterReaderTest::notEmptyAtBufferSplitPoint_14_oe
+jsoup_180_15,"    @Test
+    public void notEmptyAtBufferSplitPoint_15_oe() {
+        CharacterReader r = new CharacterReader(new StringReader(""How about now""), 3);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals('w', r.consume());
+    }
+",CharacterReaderTest::notEmptyAtBufferSplitPoint_15_oe
+jsoup_180_16,"    @Test
+    public void notEmptyAtBufferSplitPoint_16_oe() {
+        CharacterReader r = new CharacterReader(new StringReader(""How about now""), 3);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(r.isEmpty());
+    }
+",CharacterReaderTest::notEmptyAtBufferSplitPoint_16_oe
+jsoup_181_1,"    @Test public void bufferUp_1_oe() {
+        String note = ""HelloThere""; // + ! = 11 chars
+        int loopCount = 64;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < loopCount; i++) {
+            sb.append(note);
+            sb.append(""!"");
+        }
+
+        String s = sb.toString();
+        BufferedReader br = new BufferedReader(new StringReader(s));
+
+        CharacterReader r = new CharacterReader(br);
+        for (int i = 0; i < loopCount; i++) {
+            String pull = r.consumeTo('!');
+            assertEquals(note, pull);
+        }
+        }
+",CharacterReaderTest::bufferUp_1_oe
 jsoup_181_2,"    @Test public void bufferUp_2_oe() {
         String note = ""HelloThere""; // + ! = 11 chars
         int loopCount = 64;
@@ -8810,6 +9873,207 @@ jsoup_183_22,"    @Test public void canTrackNewlines_22_oe() {
         assertEquals(2, track.lineNumber());
         }
 ",CharacterReaderTest::canTrackNewlines_22_oe
+jsoup_183_23,"    @Test public void canTrackNewlines_23_oe() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(""<foo>\n<bar>\n<qux>\n"");
+        while (builder.length() < maxBufferLen)
+            builder.append(""Lorem ipsum dolor sit amet, consectetur adipiscing elit."");
+        builder.append(""[foo]\n[bar]"");
+        String content = builder.toString();
+
+        CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
+        CharacterReader track = new CharacterReader(content);
+        track.trackNewlines(true);
+        // removed other assertion
+
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        noTrack.consumeTo(""<qux>"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
+        while (!noTrack.matches(""[foo]""))
+            noTrack.consumeTo(""[foo]"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // and the line numbers: ""<foo>\n<bar>\n<qux>\n""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
+        track.consume();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(6, track.columnNumber());
+        }
+",CharacterReaderTest::canTrackNewlines_23_oe
+jsoup_183_24,"    @Test public void canTrackNewlines_24_oe() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(""<foo>\n<bar>\n<qux>\n"");
+        while (builder.length() < maxBufferLen)
+            builder.append(""Lorem ipsum dolor sit amet, consectetur adipiscing elit."");
+        builder.append(""[foo]\n[bar]"");
+        String content = builder.toString();
+
+        CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
+        CharacterReader track = new CharacterReader(content);
+        track.trackNewlines(true);
+        // removed other assertion
+
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        noTrack.consumeTo(""<qux>"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
+        while (!noTrack.matches(""[foo]""))
+            noTrack.consumeTo(""[foo]"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // and the line numbers: ""<foo>\n<bar>\n<qux>\n""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
+        track.consume();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(""\n"", track.consumeTo(""<qux>""));
+        }
+",CharacterReaderTest::canTrackNewlines_24_oe
+jsoup_183_25,"    @Test public void canTrackNewlines_25_oe() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(""<foo>\n<bar>\n<qux>\n"");
+        while (builder.length() < maxBufferLen)
+            builder.append(""Lorem ipsum dolor sit amet, consectetur adipiscing elit."");
+        builder.append(""[foo]\n[bar]"");
+        String content = builder.toString();
+
+        CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
+        CharacterReader track = new CharacterReader(content);
+        track.trackNewlines(true);
+        // removed other assertion
+
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        noTrack.consumeTo(""<qux>"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
+        while (!noTrack.matches(""[foo]""))
+            noTrack.consumeTo(""[foo]"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // and the line numbers: ""<foo>\n<bar>\n<qux>\n""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
+        track.consume();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(12, track.pos());
+        }
+",CharacterReaderTest::canTrackNewlines_25_oe
+jsoup_183_26,"    @Test public void canTrackNewlines_26_oe() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(""<foo>\n<bar>\n<qux>\n"");
+        while (builder.length() < maxBufferLen)
+            builder.append(""Lorem ipsum dolor sit amet, consectetur adipiscing elit."");
+        builder.append(""[foo]\n[bar]"");
+        String content = builder.toString();
+
+        CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
+        CharacterReader track = new CharacterReader(content);
+        track.trackNewlines(true);
+        // removed other assertion
+
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        noTrack.consumeTo(""<qux>"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
+        while (!noTrack.matches(""[foo]""))
+            noTrack.consumeTo(""[foo]"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // and the line numbers: ""<foo>\n<bar>\n<qux>\n""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
+        track.consume();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(3, track.lineNumber());
+        }
+",CharacterReaderTest::canTrackNewlines_26_oe
 jsoup_183_27,"    @Test public void canTrackNewlines_27_oe() {
         StringBuilder builder = new StringBuilder();
         builder.append(""<foo>\n<bar>\n<qux>\n"");
@@ -8863,6 +10127,171 @@ jsoup_183_27,"    @Test public void canTrackNewlines_27_oe() {
         assertEquals(1, track.columnNumber());
         }
 ",CharacterReaderTest::canTrackNewlines_27_oe
+jsoup_183_28,"    @Test public void canTrackNewlines_28_oe() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(""<foo>\n<bar>\n<qux>\n"");
+        while (builder.length() < maxBufferLen)
+            builder.append(""Lorem ipsum dolor sit amet, consectetur adipiscing elit."");
+        builder.append(""[foo]\n[bar]"");
+        String content = builder.toString();
+
+        CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
+        CharacterReader track = new CharacterReader(content);
+        track.trackNewlines(true);
+        // removed other assertion
+
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        noTrack.consumeTo(""<qux>"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
+        while (!noTrack.matches(""[foo]""))
+            noTrack.consumeTo(""[foo]"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // and the line numbers: ""<foo>\n<bar>\n<qux>\n""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
+        track.consume();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""3:1"", track.cursorPos());
+        }
+",CharacterReaderTest::canTrackNewlines_28_oe
+jsoup_183_29,"    @Test public void canTrackNewlines_29_oe() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(""<foo>\n<bar>\n<qux>\n"");
+        while (builder.length() < maxBufferLen)
+            builder.append(""Lorem ipsum dolor sit amet, consectetur adipiscing elit."");
+        builder.append(""[foo]\n[bar]"");
+        String content = builder.toString();
+
+        CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
+        CharacterReader track = new CharacterReader(content);
+        track.trackNewlines(true);
+        // removed other assertion
+
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        noTrack.consumeTo(""<qux>"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
+        while (!noTrack.matches(""[foo]""))
+            noTrack.consumeTo(""[foo]"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // and the line numbers: ""<foo>\n<bar>\n<qux>\n""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
+        track.consume();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""<qux>"", track.consumeTo('\n'));
+        }
+",CharacterReaderTest::canTrackNewlines_29_oe
+jsoup_183_30,"    @Test public void canTrackNewlines_30_oe() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(""<foo>\n<bar>\n<qux>\n"");
+        while (builder.length() < maxBufferLen)
+            builder.append(""Lorem ipsum dolor sit amet, consectetur adipiscing elit."");
+        builder.append(""[foo]\n[bar]"");
+        String content = builder.toString();
+
+        CharacterReader noTrack = new CharacterReader(content);
+        // removed other assertion
+        CharacterReader track = new CharacterReader(content);
+        track.trackNewlines(true);
+        // removed other assertion
+
+        // check that no tracking works as expected (pos is 0 indexed, line number stays at 1, col is pos+1)
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        noTrack.consumeTo(""<qux>"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // get over the buffer
+        while (!noTrack.matches(""[foo]""))
+            noTrack.consumeTo(""[foo]"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // and the line numbers: ""<foo>\n<bar>\n<qux>\n""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        track.consumeTo('\n');
+        // removed other assertion
+        // removed other assertion
+        track.consume();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""3:6"", track.cursorPos());
+        }
+",CharacterReaderTest::canTrackNewlines_30_oe
 jsoup_183_31,"    @Test public void canTrackNewlines_31_oe() {
         StringBuilder builder = new StringBuilder();
         builder.append(""<foo>\n<bar>\n<qux>\n"");
@@ -9529,6 +10958,38 @@ jsoup_187_1,"    @Test public void ensureTagSearchesAreKnownTags_1_oe() {
         }
         }
 ",HtmlTreeBuilderStateTest::ensureTagSearchesAreKnownTags_1_oe
+jsoup_188_1,"    @Test
+    public void nestedAnchorElements01_1_oe() {
+        String html = ""<html>\n"" +
+            ""  <body>\n"" +
+            ""    <a href='#1'>\n"" +
+            ""        <div>\n"" +
+            ""          <a href='#2'>child</a>\n"" +
+            ""        </div>\n"" +
+            ""    </a>\n"" +
+            ""  </body>\n"" +
+            ""</html>"";
+        String s = Jsoup.parse(html).toString();
+        assertEquals(""<html>\n"" + "" <head></head>\n"" + "" <body><a href=\""#1\""> </a>\n"" + "" <div>\n"" + "" <a href=\""#1\""> </a><a href=\""#2\"">child</a>\n"" + "" </div>\n"" + "" </body>\n"" + ""</html>"",s);
+    }
+",HtmlTreeBuilderStateTest::nestedAnchorElements01_1_oe
+jsoup_189_1,"    @Test
+    public void nestedAnchorElements02_1_oe() {
+        String html = ""<html>\n"" +
+            ""  <body>\n"" +
+            ""    <a href='#1'>\n"" +
+            ""      <div>\n"" +
+            ""        <div>\n"" +
+            ""          <a href='#2'>child</a>\n"" +
+            ""        </div>\n"" +
+            ""      </div>\n"" +
+            ""    </a>\n"" +
+            ""  </body>\n"" +
+            ""</html>"";
+        String s = Jsoup.parse(html).toString();
+        assertEquals(""<html>\n"" + "" <head></head>\n"" + "" <body><a href=\""#1\""> </a>\n"" + "" <div>\n"" + "" <a href=\""#1\""> </a>\n"" + "" <div>\n"" + "" <a href=\""#1\""> </a><a href=\""#2\"">child</a>\n"" + "" </div>\n"" + "" </div>\n"" + "" </body>\n"" + ""</html>"",s);
+    }
+",HtmlTreeBuilderStateTest::nestedAnchorElements02_1_oe
 jsoup_190_1,"    @Test
     public void ensureSearchArraysAreSorted_1_oe() {
         char[][] arrays = {
@@ -11811,6 +13272,16 @@ jsoup_308_1,"    @Test public void handlesCommentsInTable_1_oe() {
         assertEquals(""<html><head></head><body><table><tbody><tr><td>text</td><!-- Comment --></tr></tbody></table></body></html>"", TextUtil.stripNewlines(node.outerHtml()));
         }
 ",HtmlParserTest::handlesCommentsInTable_1_oe
+jsoup_309_1,"    @Test public void handlesQuotesInCommentsInScripts_1_oe() {
+        String html = ""<script>\n"" +
+            ""  <!--\n"" +
+            ""    document.write('</scr' + 'ipt>');\n"" +
+            ""  // -->\n"" +
+            ""</script>"";
+        Document node = Jsoup.parseBodyFragment(html);
+        assertEquals(""<script>\n"" + "" <!--\n"" + "" document.write('</scr' + 'ipt>');\n"" + "" // -->\n"" + ""</script>"",node.body().html());
+        }
+",HtmlParserTest::handlesQuotesInCommentsInScripts_1_oe
 jsoup_310_1,"    @Test public void handleNullContextInParseFragment_1_oe() {
         String html = ""<ol><li>One</li></ol><p>Two</p>"";
         List<Node> nodes = Parser.parseFragment(html, null, ""http://example.com/"");
@@ -12371,6 +13842,13 @@ jsoup_344_2,"    @Test public void preSkipsFirstNewline_2_oe() {
         assertEquals(""\nOne\nTwo\n"", pre.wholeText());
         }
 ",HtmlParserTest::preSkipsFirstNewline_2_oe
+jsoup_345_1,"    @Test public void handlesXmlDeclAndCommentsBeforeDoctype_1_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/comments.html"");
+        Document doc = Jsoup.parse(in, ""UTF-8"");
+
+        assertEquals(""<!--?xml version=\""1.0\"" encoding=\""utf-8\""?--><!-- so --> <!DOCTYPE html PUBLIC \""-//W3C//DTD XHTML 1.0 Transitional//EN\"" \""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\""><!-- what --> <html xml:lang=\""en\"" lang=\""en\"" xmlns=\""http://www.w3.org/1999/xhtml\""><!-- now --> <head><!-- then --> <meta http-equiv=\""Content-type\"" content=\""text/html;charset=utf-8\""> <title>A Certain Kind of Test</title> </head> <body> <h1>Hello</h1>h1&gt;(There is a UTF8 hidden BOM at the top of this file.)</body> </html>"",StringUtil.normaliseWhitespace(doc.html()));
+        }
+",HtmlParserTest::handlesXmlDeclAndCommentsBeforeDoctype_1_oe
 jsoup_345_2,"    @Test public void handlesXmlDeclAndCommentsBeforeDoctype_2_oe() throws IOException {
         File in = ParseTest.getFile(""/htmltests/comments.html"");
         Document doc = Jsoup.parse(in, ""UTF-8"");
@@ -12696,6 +14174,21 @@ jsoup_361_3,"    @Test public void preservesTabs_3_oe() {
         assertEquals(""<pre>One\tTwo</pre><span> Three Four</span>"",doc.body().html());// html output provides normalized space,incl tab in pre but not in span doc.outputSettings().prettyPrint(false);
         }
 ",HtmlParserTest::preservesTabs_3_oe
+jsoup_361_4,"    @Test public void preservesTabs_4_oe() {
+        // testcase to demonstrate tab retention - https://github.com/jhy/jsoup/issues/1240
+        String html = ""<pre>One\tTwo</pre><span>\tThree\tFour</span>"";
+        Document doc = Jsoup.parse(html);
+
+        Element pre = doc.selectFirst(""pre"");
+        Element span = doc.selectFirst(""span"");
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(html, doc.body().html()); // disabling pretty-printing - round-trips the tab throughout, as no normalization occurs;
+        }
+",HtmlParserTest::preservesTabs_4_oe
 jsoup_362_1,"    @Test void wholeTextTreatsBRasNewline_1_oe() {
         String html = ""<div>\nOne<br>Two <p>Three<br>Four</div>"";
         Document doc = Jsoup.parse(html);
@@ -13472,6 +14965,20 @@ jsoup_405_2,"    @Test
         assertNotEquals(htmlDoc, xmlDoc);
     }
 ",XmlTreeBuilderTest::testSupplyParserToConnection_2_oe
+jsoup_405_3,"    @Test
+    public void testSupplyParserToConnection_3_oe() throws IOException {
+        String xmlUrl = ""http://direct.infohound.net/tools/jsoup-xml-test.xml"";
+
+        // parse with both xml and html parser, ensure different
+        Document xmlDoc = Jsoup.connect(xmlUrl).parser(Parser.xmlParser()).get();
+        Document htmlDoc = Jsoup.connect(xmlUrl).parser(Parser.htmlParser()).get();
+        Document autoXmlDoc = Jsoup.connect(xmlUrl).get(); // check connection auto detects xml, uses xml parser
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(xmlDoc, autoXmlDoc);
+    }
+",XmlTreeBuilderTest::testSupplyParserToConnection_3_oe
 jsoup_405_4,"    @Test
     public void testSupplyParserToConnection_4_oe() throws IOException {
         String xmlUrl = ""http://direct.infohound.net/tools/jsoup-xml-test.xml"";
@@ -14454,6 +15961,13 @@ jsoup_443_1,"    @Test public void cp1252EntitiesProduceError_1_oe() {
         assertEquals(""\u20ac"", parser.parseInput(""<html><body>&#0128;</body></html>"", """").text());
         }
 ",TokeniserTest::cp1252EntitiesProduceError_1_oe
+jsoup_443_2,"    @Test public void cp1252EntitiesProduceError_2_oe() {
+        Parser parser = new Parser(new HtmlTreeBuilder());
+        parser.setTrackErrors(10);
+        // removed other assertion
+        assertEquals(1, parser.getErrors().size());
+        }
+",TokeniserTest::cp1252EntitiesProduceError_2_oe
 jsoup_444_1,"    @Test public void cp1252SubstitutionTable_1_oe() {
         for (int i = 0; i < Tokeniser.win1252Extensions.length; i++) {
             String s = new String(new byte[]{ (byte) (i + Tokeniser.win1252ExtensionsStart) }, Charset.forName(""Windows-1252""));
@@ -15242,6 +16756,14 @@ jsoup_490_4,"    @Test public void padding_4_oe() {
         assertEquals(""               "", StringUtil.padding(15));
         }
 ",StringUtilTest::padding_4_oe
+jsoup_490_5,"    @Test public void padding_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("" "",StringUtil.padding(45));// we default to tap out at 30 assertEquals("""",StringUtil.padding(0,-1));
+        }
+",StringUtilTest::padding_5_oe
 jsoup_490_6,"    @Test public void padding_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -17682,6 +19204,43 @@ jsoup_520_1,"    @Test
         assertTrue(iterator.hasNext());
     }
 ",AttributesTest::testIterator_1_oe
+jsoup_520_2,"    @Test
+    public void testIterator_2_oe() {
+        Attributes a = new Attributes();
+        String[][] datas = {{""Tot"", ""raul""},
+            {""Hello"", ""pismuth""},
+            {""data-name"", ""Jsoup""}};
+        for (String[] atts : datas) {
+            a.put(atts[0], atts[1]);
+        }
+
+        Iterator<Attribute> iterator = a.iterator();
+        // removed other assertion
+        int i = 0;
+        for (Attribute attribute : a) {
+            assertEquals(datas[i][0], attribute.getKey());
+    }
+    }
+",AttributesTest::testIterator_2_oe
+jsoup_520_3,"    @Test
+    public void testIterator_3_oe() {
+        Attributes a = new Attributes();
+        String[][] datas = {{""Tot"", ""raul""},
+            {""Hello"", ""pismuth""},
+            {""data-name"", ""Jsoup""}};
+        for (String[] atts : datas) {
+            a.put(atts[0], atts[1]);
+        }
+
+        Iterator<Attribute> iterator = a.iterator();
+        // removed other assertion
+        int i = 0;
+        for (Attribute attribute : a) {
+            // removed other assertion
+            assertEquals(datas[i][1], attribute.getValue());
+    }
+    }
+",AttributesTest::testIterator_3_oe
 jsoup_520_4,"    @Test
     public void testIterator_4_oe() {
         Attributes a = new Attributes();
@@ -17742,6 +19301,37 @@ jsoup_521_3,"    @Test
         assertTrue(it.hasNext());
     }
 ",AttributesTest::testIteratorSkipsInternal_3_oe
+jsoup_521_4,"    @Test
+    public void testIteratorSkipsInternal_4_oe() {
+        Attributes a = new Attributes();
+        a.put(""One"", ""One"");
+        a.put(Attributes.internalKey(""baseUri""), ""example.com"");
+        a.put(""Two"", ""Two"");
+        a.put(Attributes.internalKey(""another""), ""example.com"");
+
+        Iterator<Attribute> it = a.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Two"", it.next().getKey());
+    }
+",AttributesTest::testIteratorSkipsInternal_4_oe
+jsoup_521_5,"    @Test
+    public void testIteratorSkipsInternal_5_oe() {
+        Attributes a = new Attributes();
+        a.put(""One"", ""One"");
+        a.put(Attributes.internalKey(""baseUri""), ""example.com"");
+        a.put(""Two"", ""Two"");
+        a.put(Attributes.internalKey(""another""), ""example.com"");
+
+        Iterator<Attribute> it = a.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(it.hasNext());
+    }
+",AttributesTest::testIteratorSkipsInternal_5_oe
 jsoup_521_6,"    @Test
     public void testIteratorSkipsInternal_6_oe() {
         Attributes a = new Attributes();
@@ -21207,6 +22797,22 @@ jsoup_604_1,"    @Test void testIndentLevel_1_oe() {
         assertEquals(defaultMax, settings.maxPaddingWidth());
         }
 ",ElementTest::testIndentLevel_1_oe
+jsoup_604_2,"    @Test void testIndentLevel_2_oe() {
+        // deep to test default and extended max
+        StringBuilder divs = new StringBuilder();
+        for (int i = 0; i < 40; i++) {
+            divs.append(""<div>"");
+        }
+        divs.append(""Foo"");
+        Document doc = Jsoup.parse(divs.toString());
+        Document.OutputSettings settings = doc.outputSettings();
+
+        int defaultMax = 30;
+        // removed other assertion
+        String html = doc.html();
+        assertTrue(html.contains("" <div>\n"" + "" Foo\n"" + "" </div>""));
+        }
+",ElementTest::testIndentLevel_2_oe
 jsoup_604_3,"    @Test void testIndentLevel_3_oe() {
         // deep to test default and extended max
         StringBuilder divs = new StringBuilder();
@@ -21226,6 +22832,27 @@ jsoup_604_3,"    @Test void testIndentLevel_3_oe() {
         assertEquals(32, settings.maxPaddingWidth());
         }
 ",ElementTest::testIndentLevel_3_oe
+jsoup_604_4,"    @Test void testIndentLevel_4_oe() {
+        // deep to test default and extended max
+        StringBuilder divs = new StringBuilder();
+        for (int i = 0; i < 40; i++) {
+            divs.append(""<div>"");
+        }
+        divs.append(""Foo"");
+        Document doc = Jsoup.parse(divs.toString());
+        Document.OutputSettings settings = doc.outputSettings();
+
+        int defaultMax = 30;
+        // removed other assertion
+        String html = doc.html();
+        // removed other assertion
+
+        settings.maxPaddingWidth(32);
+        // removed other assertion
+        html = doc.html();
+        assertTrue(html.contains("" <div>\n"" + "" Foo\n"" + "" </div>""));
+        }
+",ElementTest::testIndentLevel_4_oe
 jsoup_604_5,"    @Test void testIndentLevel_5_oe() {
         // deep to test default and extended max
         StringBuilder divs = new StringBuilder();
@@ -21250,6 +22877,32 @@ jsoup_604_5,"    @Test void testIndentLevel_5_oe() {
         assertEquals(-1, settings.maxPaddingWidth());
         }
 ",ElementTest::testIndentLevel_5_oe
+jsoup_604_6,"    @Test void testIndentLevel_6_oe() {
+        // deep to test default and extended max
+        StringBuilder divs = new StringBuilder();
+        for (int i = 0; i < 40; i++) {
+            divs.append(""<div>"");
+        }
+        divs.append(""Foo"");
+        Document doc = Jsoup.parse(divs.toString());
+        Document.OutputSettings settings = doc.outputSettings();
+
+        int defaultMax = 30;
+        // removed other assertion
+        String html = doc.html();
+        // removed other assertion
+
+        settings.maxPaddingWidth(32);
+        // removed other assertion
+        html = doc.html();
+        // removed other assertion
+
+        settings.maxPaddingWidth(-1);
+        // removed other assertion
+        html = doc.html();
+        assertTrue(html.contains("" <div>\n"" + "" Foo\n"" + "" </div>""));
+        }
+",ElementTest::testIndentLevel_6_oe
 jsoup_605_1,"    @Test
     public void testNotPretty_1_oe() {
         Document doc = Jsoup.parse(""<div>   \n<p>Hello\n there\n</p></div>"");
@@ -21293,6 +22946,13 @@ jsoup_608_1,"    @Test
         assertEquals(""<div>\n <span>1:15</span>\n –\n <span>2:15</span>\n &nbsp;p.m.\n</div>"", document.body().html());
     }
 ",ElementTest::testPrettyAndOutlineWithEnDashBody_1_oe
+jsoup_609_1,"    @Test
+    public void testBasicFormats_1_oe() {
+        String html = ""<span>0</span>.<div><span>1</span>-<span>2</span><p><span>3</span>-<span>4</span><div>5</div>"";
+        Document doc = Jsoup.parse(html);
+        assertEquals(""<span>0</span>.\n"" + ""<div>\n"" + "" <span>1</span>-<span>2</span>\n"" + "" <p><span>3</span>-<span>4</span></p>\n"" + "" <div>\n"" + "" 5\n"" + "" </div>\n"" + ""</div>"",doc.body().html());
+    }
+",ElementTest::testBasicFormats_1_oe
 jsoup_610_1,"    @Test
     public void testEmptyElementFormatHtml_1_oe() {
         // don't put newlines into empty blocks
@@ -22328,6 +23988,26 @@ jsoup_639_7,"    @Test
         assertEquals(""<div><p>One</p><p><span>Two</span></p></div>"",TextUtil.stripNewlines(doc.body().html()));// not modified doc.body().appendChild(clone);// adopt assertNotNull(clone.parent());
     }
 ",ElementTest::testClone_7_oe
+jsoup_639_8,"    @Test
+    public void testClone_8_oe() {
+        Document doc = Jsoup.parse(""<div><p>One<p><span>Two</div>"");
+
+        Element p = doc.select(""p"").get(1);
+        Element clone = p.clone();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        clone.append(""<span>Three"");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""<div><p>One</p><p><span>Two</span></p></div><p><span>Two</span><span>Three</span></p>"", TextUtil.stripNewlines(doc.body().html()));
+    }
+",ElementTest::testClone_8_oe
 jsoup_640_1,"    @Test
     public void testClonesClassnames_1_oe() {
         Document doc = Jsoup.parse(""<div class='one two'></div>"");
@@ -28533,6 +30213,112 @@ jsoup_723_2,"    @Test
         assertEquals(rows,childNodes.size());// child nodes is a wrapper,so still there assertEquals(0,doc.body().childNodes().size());// but on a fresh look,all gone doc.body().empty().appendChild(wrapper);
     }
 ",ElementIT::testFastReparent_2_oe
+jsoup_723_3,"    @Test
+    public void testFastReparent_3_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(0, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        Element wrapperAcutal = doc.body().children().get(0);
+        assertEquals(wrapper, wrapperAcutal);
+    }
+",ElementIT::testFastReparent_3_oe
+jsoup_723_4,"    @Test
+    public void testFastReparent_4_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(0, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        Element wrapperAcutal = doc.body().children().get(0);
+        // removed other assertion
+        assertEquals(""El-1"", wrapperAcutal.children().get(0).text());
+    }
+",ElementIT::testFastReparent_4_oe
+jsoup_723_5,"    @Test
+    public void testFastReparent_5_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(0, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        Element wrapperAcutal = doc.body().children().get(0);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""El-"" + rows, wrapperAcutal.children().get(rows - 1).text());
+    }
+",ElementIT::testFastReparent_5_oe
+jsoup_723_6,"    @Test
+    public void testFastReparent_6_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(0, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        Element wrapperAcutal = doc.body().children().get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(runtime <= 10000);
+    }
+",ElementIT::testFastReparent_6_oe
 jsoup_724_1,"    @Test
     public void testFastReparentExistingContent_1_oe() {
         StringBuilder htmlBuf = new StringBuilder();
@@ -28606,6 +30392,199 @@ jsoup_724_3,"    @Test
         assertEquals(rows,childNodes.size());// child nodes is a wrapper,so still there assertEquals(0,doc.body().childNodes().size());// but on a fresh look,all gone doc.body().empty().appendChild(wrapper);
     }
 ",ElementIT::testFastReparentExistingContent_3_oe
+jsoup_724_4,"    @Test
+    public void testFastReparentExistingContent_4_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        wrapper.append(""<p>Prior Content</p>"");
+        wrapper.append(""<p>End Content</p>"");
+        // removed other assertion
+
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(1, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        Element wrapperAcutal = doc.body().children().get(0);
+        assertEquals(wrapper, wrapperAcutal);
+    }
+",ElementIT::testFastReparentExistingContent_4_oe
+jsoup_724_5,"    @Test
+    public void testFastReparentExistingContent_5_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        wrapper.append(""<p>Prior Content</p>"");
+        wrapper.append(""<p>End Content</p>"");
+        // removed other assertion
+
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(1, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        Element wrapperAcutal = doc.body().children().get(0);
+        // removed other assertion
+        assertEquals(""Prior Content"", wrapperAcutal.children().get(0).text());
+    }
+",ElementIT::testFastReparentExistingContent_5_oe
+jsoup_724_6,"    @Test
+    public void testFastReparentExistingContent_6_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        wrapper.append(""<p>Prior Content</p>"");
+        wrapper.append(""<p>End Content</p>"");
+        // removed other assertion
+
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(1, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        Element wrapperAcutal = doc.body().children().get(0);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""El-1"", wrapperAcutal.children().get(1).text());
+    }
+",ElementIT::testFastReparentExistingContent_6_oe
+jsoup_724_7,"    @Test
+    public void testFastReparentExistingContent_7_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        wrapper.append(""<p>Prior Content</p>"");
+        wrapper.append(""<p>End Content</p>"");
+        // removed other assertion
+
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(1, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        Element wrapperAcutal = doc.body().children().get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(""El-"" + rows, wrapperAcutal.children().get(rows).text());
+    }
+",ElementIT::testFastReparentExistingContent_7_oe
+jsoup_724_8,"    @Test
+    public void testFastReparentExistingContent_8_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        wrapper.append(""<p>Prior Content</p>"");
+        wrapper.append(""<p>End Content</p>"");
+        // removed other assertion
+
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(1, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        Element wrapperAcutal = doc.body().children().get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(""End Content"", wrapperAcutal.children().get(rows + 1).text());
+    }
+",ElementIT::testFastReparentExistingContent_8_oe
+jsoup_724_9,"    @Test
+    public void testFastReparentExistingContent_9_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        wrapper.append(""<p>Prior Content</p>"");
+        wrapper.append(""<p>End Content</p>"");
+        // removed other assertion
+
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(1, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        Element wrapperAcutal = doc.body().children().get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        assertTrue(runtime <= 10000);
+    }
+",ElementIT::testFastReparentExistingContent_9_oe
 jsoup_725_1,"    @Test public void setTextPreservesDocumentStructure_1_oe() {
         Document doc = Jsoup.parse(""<p>Hello</p>"");
         doc.text(""Replaced"");
@@ -28993,6 +30972,25 @@ jsoup_736_1,"    @Test public void testLocationFromString_1_oe() {
         assertEquals("""", doc.location());
         }
 ",DocumentTest::testLocationFromString_1_oe
+jsoup_737_1,"    @Test public void testHtmlAndXmlSyntax_1_oe() {
+        String h = ""<!DOCTYPE html><body><img async checked='checked' src='&<>\""'>&lt;&gt;&amp;&quot;<foo />bar"";
+        Document doc = Jsoup.parse(h);
+
+        doc.outputSettings().syntax(Syntax.html);
+        assertEquals(""<!doctype html>\n"" + ""<html>\n"" + "" <head></head>\n"" + "" <body>\n"" + "" <img async checked src=\""&amp;<>&quot;\"">&lt;&gt;&amp;\""<foo />bar\n"" + "" </body>\n"" + ""</html>"",doc.html());
+        }
+",DocumentTest::testHtmlAndXmlSyntax_1_oe
+jsoup_737_2,"    @Test public void testHtmlAndXmlSyntax_2_oe() {
+        String h = ""<!DOCTYPE html><body><img async checked='checked' src='&<>\""'>&lt;&gt;&amp;&quot;<foo />bar"";
+        Document doc = Jsoup.parse(h);
+
+        doc.outputSettings().syntax(Syntax.html);
+        // removed other assertion
+
+        doc.outputSettings().syntax(Document.OutputSettings.Syntax.xml);
+        assertEquals(""<!DOCTYPE html>\n"" + ""<html>\n"" + "" <head></head>\n"" + "" <body>\n"" + "" <img async=\""\"" checked=\""checked\"" src=\""&amp;&lt;>&quot;\"" />&lt;&gt;&amp;\""<foo />bar\n"" + "" </body>\n"" + ""</html>"",doc.html());
+        }
+",DocumentTest::testHtmlAndXmlSyntax_2_oe
 jsoup_738_1,"    @Test public void htmlParseDefaultsToHtmlOutputSyntax_1_oe() {
         Document doc = Jsoup.parse(""x"");
         assertEquals(Syntax.html, doc.outputSettings().syntax());
@@ -29873,6 +31871,30 @@ jsoup_759_8,"    @Test public void framesetSupportsBodyMethod_8_oe() {
         assertNull(doc.selectFirst(""body""));// did not vivify a body element;
         }
 ",DocumentTest::framesetSupportsBodyMethod_8_oe
+jsoup_759_9,"    @Test public void framesetSupportsBodyMethod_9_oe() {
+        String html = ""<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>"";
+        Document doc = Jsoup.parse(html);
+        Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
+
+        // Frameset docs per html5 spec have no body element - but instead a frameset elelemt
+        // removed other assertion
+        Element frameset = doc.selectFirst(""frameset"");
+        // removed other assertion
+
+        // the body() method returns body or frameset and does not otherwise modify the document
+        // doing it in body() vs parse keeps the html close to original for round-trip option
+        Element body = doc.body();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        String expected = ""<html>\n"" + "" <head>\n"" + "" <title>Frame Test</title>\n"" + "" </head>\n"" + "" <frameset id=\""id\"">\n"" + "" <frame src=\""foo.html\"">\n"" + "" </frameset>\n"" + ""</html>"";
+        assertEquals(expected, doc.html());
+        }
+",DocumentTest::framesetSupportsBodyMethod_9_oe
 jsoup_760_1,"    @Test public void testBlank_1_oe() {
         TextNode one = new TextNode("""");
         TextNode two = new TextNode(""     "");
@@ -32797,6 +34819,11 @@ jsoup_796_3,"    @Test public void strictUnescape_3_oe() { // for attributes, en
         assertEquals(""Hello &= &"", Entities.unescape(text, false));
         }
 ",EntitiesTest::strictUnescape_3_oe
+jsoup_797_1,"    @Test public void caseSensitive_1_oe() {
+        String unescaped = ""Ü ü & &"";
+        assertEquals(""&Uuml;&uuml;&amp;&amp;"",Entities.escape(unescaped,new OutputSettings().charset(""ascii"").escapeMode(extended)));
+        }
+",EntitiesTest::caseSensitive_1_oe
 jsoup_797_2,"    @Test public void caseSensitive_2_oe() {
         String unescaped = ""Ü ü & &"";
         // removed other assertion
@@ -32952,6 +34979,18 @@ jsoup_807_1,"    @Test
         assertTrue(doc.title().contains(""Environment Variables""));
     }
 ",ConnectTest::fetchURIWithWhitespace_1_oe
+jsoup_808_1,"    @Test
+    public void exceptOnUnsupportedProtocol_1_oe() {
+        String url = ""file://etc/passwd"";
+        boolean threw = false;
+        try {
+            Document doc = Jsoup.connect(url).get();
+        } catch (MalformedURLException e) {
+            threw = true;
+            assertEquals(""java.net.MalformedURLException: Only http & https protocols supported"", e.toString());
+    }
+    }
+",ConnectTest::exceptOnUnsupportedProtocol_1_oe
 jsoup_808_2,"    @Test
     public void exceptOnUnsupportedProtocol_2_oe() {
         String url = ""file://etc/passwd"";
@@ -32966,6 +35005,69 @@ jsoup_808_2,"    @Test
         assertTrue(threw);
     }
 ",ConnectTest::exceptOnUnsupportedProtocol_2_oe
+jsoup_809_1,"    @Test
+    public void throwsExceptionOn404_1_oe() {
+        String url = EchoServlet.Url;
+        Connection con = Jsoup.connect(url).header(EchoServlet.CodeParam, ""404"");
+
+        boolean threw = false;
+        try {
+            Document doc = con.get();
+        } catch (HttpStatusException e) {
+            threw = true;
+            assertEquals(""org.jsoup.HttpStatusException: HTTP error fetching URL. Status=404, URL=["" + e.getUrl() + ""]"", e.toString());
+    }
+    }
+",ConnectTest::throwsExceptionOn404_1_oe
+jsoup_809_2,"    @Test
+    public void throwsExceptionOn404_2_oe() {
+        String url = EchoServlet.Url;
+        Connection con = Jsoup.connect(url).header(EchoServlet.CodeParam, ""404"");
+
+        boolean threw = false;
+        try {
+            Document doc = con.get();
+        } catch (HttpStatusException e) {
+            threw = true;
+            // removed other assertion
+            assertTrue(e.getUrl().startsWith(url));
+    }
+    }
+",ConnectTest::throwsExceptionOn404_2_oe
+jsoup_809_3,"    @Test
+    public void throwsExceptionOn404_3_oe() {
+        String url = EchoServlet.Url;
+        Connection con = Jsoup.connect(url).header(EchoServlet.CodeParam, ""404"");
+
+        boolean threw = false;
+        try {
+            Document doc = con.get();
+        } catch (HttpStatusException e) {
+            threw = true;
+            // removed other assertion
+            // removed other assertion
+            assertEquals(404, e.getStatusCode());
+    }
+    }
+",ConnectTest::throwsExceptionOn404_3_oe
+jsoup_809_4,"    @Test
+    public void throwsExceptionOn404_4_oe() {
+        String url = EchoServlet.Url;
+        Connection con = Jsoup.connect(url).header(EchoServlet.CodeParam, ""404"");
+
+        boolean threw = false;
+        try {
+            Document doc = con.get();
+        } catch (HttpStatusException e) {
+            threw = true;
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (IOException e) {
+        }
+        assertTrue(threw);
+    }
+",ConnectTest::throwsExceptionOn404_4_oe
 jsoup_810_1,"    @Test
     public void ignoresExceptionIfSoConfigured_1_oe() throws IOException {
         String url = EchoServlet.Url;
@@ -34604,6 +36706,29 @@ jsoup_847_5,"    @Test
         assertEquals(""<title>百度一下，你就知道      </title>"", doc.select(""title"").outerHtml());
     }
 ",ParseTest::testBaidu_5_oe
+jsoup_847_6,"    @Test
+    public void testBaidu_6_oe() throws IOException {
+        // tests <meta http-equiv=""Content-Type"" content=""text/html;charset=gb2312"">
+        File in = getFile(""/htmltests/baidu-cn-home.html"");
+        Document doc = Jsoup.parse(in, null,
+                ""http://www.baidu.com/""); // http charset is gb2312, but NOT specifying it, to test http-equiv parse
+        Element submit = doc.select(""#su"").first();
+        // removed other assertion
+
+        // test from attribute match
+        submit = doc.select(""input[value=百度一下]"").first();
+        // removed other assertion
+        Element newsLink = doc.select(""a:contains(新)"").first();
+        // removed other assertion
+
+        // check auto-detect from meta
+        // removed other assertion
+        // removed other assertion
+
+        doc.outputSettings().charset(""ascii"");
+        assertEquals(""<title>&#x767e;&#x5ea6;&#x4e00;&#x4e0b;&#xff0c;&#x4f60;&#x5c31;&#x77e5;&#x9053;</title>"",doc.select(""title"").outerHtml());
+    }
+",ParseTest::testBaidu_6_oe
 jsoup_848_1,"    @Test
     public void testBaiduVariant_1_oe() throws IOException {
         // tests <meta charset> when preceded by another <meta>

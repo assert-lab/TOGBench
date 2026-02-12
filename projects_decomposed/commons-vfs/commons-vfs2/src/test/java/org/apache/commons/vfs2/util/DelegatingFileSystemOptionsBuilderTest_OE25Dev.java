@@ -59,5 +59,172 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
         }
     }
 
+    @Test
+    public void testConfiguration_1_oe() throws Exception {
+        for (final String scheme : schemes) {
+            assertTrue("Missing " + scheme + " provider", fsm.hasProvider(scheme));
+    }
+    }
+
+    @Test
+    public void testDelegatingBad_2_oe() throws Throwable {
+        final FileSystemOptions opts = new FileSystemOptions();
+        final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
+
+        try {
+            delgate.setConfigString(opts, "http", "proxyPort", "wrong_port");
+            // removed other assertion
+        } catch (final FileSystemException e) {
+            assertSame(e.getCause().getClass(), InvocationTargetException.class);
+    }
+    }
+
+    @Test
+    public void testDelegatingBad_3_oe() throws Throwable {
+        final FileSystemOptions opts = new FileSystemOptions();
+        final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
+
+        try {
+            delgate.setConfigString(opts, "http", "proxyPort", "wrong_port");
+            // removed other assertion
+        } catch (final FileSystemException e) {
+            // removed other assertion
+            assertSame(((InvocationTargetException)e.getCause()).getTargetException().getClass(),NumberFormatException.class);
+    }
+    }
+
+    @Test
+    public void testDelegatingBad_5_oe() throws Throwable {
+        final FileSystemOptions opts = new FileSystemOptions();
+        final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
+
+        try {
+            delgate.setConfigString(opts, "http", "proxyPort", "wrong_port");
+            // removed other assertion
+        } catch (final FileSystemException e) {
+            // removed other assertion
+            // removed other assertion
+        }
+
+        try {
+            delgate.setConfigClass(opts, "sftp", "userinfo", String.class);
+            // removed other assertion
+        } catch (final FileSystemException e) {
+            assertEquals(e.getCode(), "vfs.provider/config-value-invalid.error");
+    }
+    }
+
+    @Test
+    public void testDelegatingGood_1_oe() throws Throwable {
+        final String[] identityPaths = new String[] { "/file1", "/file2", };
+
+        final FileSystemOptions opts = new FileSystemOptions();
+        final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
+
+        delgate.setConfigString(opts, "http", "proxyHost", "proxy");
+        delgate.setConfigString(opts, "http", "proxyPort", "8080");
+        delgate.setConfigClass(opts, "sftp", "userinfo", TrustEveryoneUserInfo.class);
+        delgate.setConfigStrings(opts, "sftp", "identities", identityPaths);
+
+        assertEquals("http.proxyHost", HttpFileSystemConfigBuilder.getInstance().getProxyHost(opts), "proxy");
+    }
+
+    @Test
+    public void testDelegatingGood_2_oe() throws Throwable {
+        final String[] identityPaths = new String[] { "/file1", "/file2", };
+
+        final FileSystemOptions opts = new FileSystemOptions();
+        final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
+
+        delgate.setConfigString(opts, "http", "proxyHost", "proxy");
+        delgate.setConfigString(opts, "http", "proxyPort", "8080");
+        delgate.setConfigClass(opts, "sftp", "userinfo", TrustEveryoneUserInfo.class);
+        delgate.setConfigStrings(opts, "sftp", "identities", identityPaths);
+
+        // removed other assertion
+        assertEquals("http.proxyPort", HttpFileSystemConfigBuilder.getInstance().getProxyPort(opts), 8080);
+    }
+
+    @Test
+    public void testDelegatingGood_3_oe() throws Throwable {
+        final String[] identityPaths = new String[] { "/file1", "/file2", };
+
+        final FileSystemOptions opts = new FileSystemOptions();
+        final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
+
+        delgate.setConfigString(opts, "http", "proxyHost", "proxy");
+        delgate.setConfigString(opts, "http", "proxyPort", "8080");
+        delgate.setConfigClass(opts, "sftp", "userinfo", TrustEveryoneUserInfo.class);
+        delgate.setConfigStrings(opts, "sftp", "identities", identityPaths);
+
+        // removed other assertion
+        // removed other assertion
+        assertSame("sftp.userInfo",SftpFileSystemConfigBuilder.getInstance().getUserInfo(opts).getClass(),TrustEveryoneUserInfo.class);
+    }
+
+    @Test
+    public void testDelegatingGood_4_oe() throws Throwable {
+        final String[] identityPaths = new String[] { "/file1", "/file2", };
+
+        final FileSystemOptions opts = new FileSystemOptions();
+        final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
+
+        delgate.setConfigString(opts, "http", "proxyHost", "proxy");
+        delgate.setConfigString(opts, "http", "proxyPort", "8080");
+        delgate.setConfigClass(opts, "sftp", "userinfo", TrustEveryoneUserInfo.class);
+        delgate.setConfigStrings(opts, "sftp", "identities", identityPaths);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final File[] identities = SftpFileSystemConfigBuilder.getInstance().getIdentities(opts);
+        assertNotNull("sftp.identities", identities);
+    }
+
+    @Test
+    public void testDelegatingGood_5_oe() throws Throwable {
+        final String[] identityPaths = new String[] { "/file1", "/file2", };
+
+        final FileSystemOptions opts = new FileSystemOptions();
+        final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
+
+        delgate.setConfigString(opts, "http", "proxyHost", "proxy");
+        delgate.setConfigString(opts, "http", "proxyPort", "8080");
+        delgate.setConfigClass(opts, "sftp", "userinfo", TrustEveryoneUserInfo.class);
+        delgate.setConfigStrings(opts, "sftp", "identities", identityPaths);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final File[] identities = SftpFileSystemConfigBuilder.getInstance().getIdentities(opts);
+        // removed other assertion
+        assertEquals("sftp.identities size", identities.length, identityPaths.length);
+    }
+
+    @Test
+    public void testDelegatingGood_6_oe() throws Throwable {
+        final String[] identityPaths = new String[] { "/file1", "/file2", };
+
+        final FileSystemOptions opts = new FileSystemOptions();
+        final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
+
+        delgate.setConfigString(opts, "http", "proxyHost", "proxy");
+        delgate.setConfigString(opts, "http", "proxyPort", "8080");
+        delgate.setConfigClass(opts, "sftp", "userinfo", TrustEveryoneUserInfo.class);
+        delgate.setConfigStrings(opts, "sftp", "identities", identityPaths);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final File[] identities = SftpFileSystemConfigBuilder.getInstance().getIdentities(opts);
+        // removed other assertion
+        // removed other assertion
+        for (int iterIdentities = 0; iterIdentities < identities.length; iterIdentities++) {
+            assertEquals("sftp.identities #" + iterIdentities,identities[iterIdentities].getAbsolutePath(),new File(identityPaths[iterIdentities]).getAbsolutePath());
+    }
+    }
 
 }

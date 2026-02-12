@@ -36,5 +36,159 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AsciiFieldTest_OE25Dev extends ExifBaseTest {
 
+    @Test
+    public void testSingleImage_1_oe() throws Exception {
+        final File imageFile = getTestImageByName("Canon Powershot SD750 - 2007.12.26.n.IMG_3704.JPG");
+
+        final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+        assertNotNull(metadata);
+    }
+
+    @Test
+    public void testSingleImage_2_oe() throws Exception {
+        final File imageFile = getTestImageByName("Canon Powershot SD750 - 2007.12.26.n.IMG_3704.JPG");
+
+        final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+        // removed other assertion
+        final JpegImageMetadata jpegMetadata = (JpegImageMetadata) metadata;
+
+        // note that exif might be null if no Exif metadata is found.
+        final TiffImageMetadata exif = jpegMetadata.getExif();
+        final List<TiffField> fields = exif.getAllFields();
+        final Map<Integer,TiffField> fieldMap = new HashMap<>();
+        // Build a simplified field tag -> field map, ignoring directory
+        // structures.
+        // Good enough for our purposes, since the image in question is known.
+        for (final TiffField field : fields) {
+            fieldMap.put(field.getTag(), field);
+        }
+
+        final Map<Integer,Object> expectedFieldValues = new HashMap<>();
+        expectedFieldValues.put(
+                TiffTagConstants.TIFF_TAG_MAKE.tag, "Canon");
+        expectedFieldValues.put(
+                TiffTagConstants.TIFF_TAG_MODEL.tag,
+                "Canon PowerShot SD750");
+        expectedFieldValues.put(
+                TiffTagConstants.TIFF_TAG_DATE_TIME.tag,
+                "2007:12:25 13:34:39");
+
+        for (final Map.Entry<Integer, Object> tag : expectedFieldValues.entrySet()) {
+            assertTrue(fieldMap.containsKey(tag.getKey()));
+    }
+    }
+
+    @Test
+    public void testSingleImage_3_oe() throws Exception {
+        final File imageFile = getTestImageByName("Canon Powershot SD750 - 2007.12.26.n.IMG_3704.JPG");
+
+        final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+        // removed other assertion
+        final JpegImageMetadata jpegMetadata = (JpegImageMetadata) metadata;
+
+        // note that exif might be null if no Exif metadata is found.
+        final TiffImageMetadata exif = jpegMetadata.getExif();
+        final List<TiffField> fields = exif.getAllFields();
+        final Map<Integer,TiffField> fieldMap = new HashMap<>();
+        // Build a simplified field tag -> field map, ignoring directory
+        // structures.
+        // Good enough for our purposes, since the image in question is known.
+        for (final TiffField field : fields) {
+            fieldMap.put(field.getTag(), field);
+        }
+
+        final Map<Integer,Object> expectedFieldValues = new HashMap<>();
+        expectedFieldValues.put(
+                TiffTagConstants.TIFF_TAG_MAKE.tag, "Canon");
+        expectedFieldValues.put(
+                TiffTagConstants.TIFF_TAG_MODEL.tag,
+                "Canon PowerShot SD750");
+        expectedFieldValues.put(
+                TiffTagConstants.TIFF_TAG_DATE_TIME.tag,
+                "2007:12:25 13:34:39");
+
+        for (final Map.Entry<Integer, Object> tag : expectedFieldValues.entrySet()) {
+            // removed other assertion
+            final TiffField field = fieldMap.get(tag.getKey());
+            assertNotNull(field);
+    }
+    }
+
+    @Test
+    public void testSingleImage_4_oe() throws Exception {
+        final File imageFile = getTestImageByName("Canon Powershot SD750 - 2007.12.26.n.IMG_3704.JPG");
+
+        final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+        // removed other assertion
+        final JpegImageMetadata jpegMetadata = (JpegImageMetadata) metadata;
+
+        // note that exif might be null if no Exif metadata is found.
+        final TiffImageMetadata exif = jpegMetadata.getExif();
+        final List<TiffField> fields = exif.getAllFields();
+        final Map<Integer,TiffField> fieldMap = new HashMap<>();
+        // Build a simplified field tag -> field map, ignoring directory
+        // structures.
+        // Good enough for our purposes, since the image in question is known.
+        for (final TiffField field : fields) {
+            fieldMap.put(field.getTag(), field);
+        }
+
+        final Map<Integer,Object> expectedFieldValues = new HashMap<>();
+        expectedFieldValues.put(
+                TiffTagConstants.TIFF_TAG_MAKE.tag, "Canon");
+        expectedFieldValues.put(
+                TiffTagConstants.TIFF_TAG_MODEL.tag,
+                "Canon PowerShot SD750");
+        expectedFieldValues.put(
+                TiffTagConstants.TIFF_TAG_DATE_TIME.tag,
+                "2007:12:25 13:34:39");
+
+        for (final Map.Entry<Integer, Object> tag : expectedFieldValues.entrySet()) {
+            // removed other assertion
+            final TiffField field = fieldMap.get(tag.getKey());
+            // removed other assertion
+            final Object value = field.getValue();
+            assertNotNull(value);
+    }
+    }
+
+    @Test
+    public void testSingleImage_5_oe() throws Exception {
+        final File imageFile = getTestImageByName("Canon Powershot SD750 - 2007.12.26.n.IMG_3704.JPG");
+
+        final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+        // removed other assertion
+        final JpegImageMetadata jpegMetadata = (JpegImageMetadata) metadata;
+
+        // note that exif might be null if no Exif metadata is found.
+        final TiffImageMetadata exif = jpegMetadata.getExif();
+        final List<TiffField> fields = exif.getAllFields();
+        final Map<Integer,TiffField> fieldMap = new HashMap<>();
+        // Build a simplified field tag -> field map, ignoring directory
+        // structures.
+        // Good enough for our purposes, since the image in question is known.
+        for (final TiffField field : fields) {
+            fieldMap.put(field.getTag(), field);
+        }
+
+        final Map<Integer,Object> expectedFieldValues = new HashMap<>();
+        expectedFieldValues.put(
+                TiffTagConstants.TIFF_TAG_MAKE.tag, "Canon");
+        expectedFieldValues.put(
+                TiffTagConstants.TIFF_TAG_MODEL.tag,
+                "Canon PowerShot SD750");
+        expectedFieldValues.put(
+                TiffTagConstants.TIFF_TAG_DATE_TIME.tag,
+                "2007:12:25 13:34:39");
+
+        for (final Map.Entry<Integer, Object> tag : expectedFieldValues.entrySet()) {
+            // removed other assertion
+            final TiffField field = fieldMap.get(tag.getKey());
+            // removed other assertion
+            final Object value = field.getValue();
+            // removed other assertion
+            assertEquals(value, tag.getValue());
+    }
+    }
 
 }

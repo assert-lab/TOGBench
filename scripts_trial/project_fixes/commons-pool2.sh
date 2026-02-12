@@ -108,6 +108,7 @@ fail_list = [
 "TestGenericObjectPool.testSettersAndGetters_9_oe",
 "TestGenericObjectPool.testSetConfig_2_serial_7_oe_1_oe",
 
+"TestSoftRefOutOfMemory.*",
 
 ]
 

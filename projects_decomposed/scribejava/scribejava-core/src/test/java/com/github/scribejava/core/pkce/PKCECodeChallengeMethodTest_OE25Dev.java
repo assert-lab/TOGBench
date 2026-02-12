@@ -14,5 +14,28 @@ public class PKCECodeChallengeMethodTest_OE25Dev {
         (byte) 224, 37, 79, (byte) 250, 96, 125, (byte) 216, (byte) 173, (byte) 187, (byte) 186, 22, (byte) 212, 37, 77,
         105, (byte) 214, (byte) 191, (byte) 240, 91, 88, 5, 88, 83, (byte) 132, (byte) 141, 121};
 
+    @Test
+    public void testGeneratingPKCE_1_oe() {
+        final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
+
+        assertEquals(PKCECodeChallengeMethod.S256, pkce.getCodeChallengeMethod());
+    }
+
+    @Test
+    public void testGeneratingPKCE_2_oe() {
+        final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
+
+        // removed other assertion
+        assertEquals("dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk", pkce.getCodeVerifier());
+    }
+
+    @Test
+    public void testGeneratingPKCE_3_oe() {
+        final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM", pkce.getCodeChallenge());
+    }
 
 }

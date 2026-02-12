@@ -25,13 +25,58 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 public class TypeLiteralTest_OE25Dev {
+
+    @Test
+    public void testBasic_1_oe() {
+        assertTrue(TypeUtils.equals(String.class, new TypeLiteral<String>() {}.value));
+    }
+
+    @Test
+    public void testBasic_2_oe() {
+        // removed other assertion
+        assertTrue(TypeUtils.equals(TypeUtils.parameterize(List.class, String.class), new TypeLiteral<List<String>>() {}.value));
+    }
+
+    @Test
+    public void testTyped_1_oe() {
+        final Typed<String> stringType = new TypeLiteral<String>() {};
+        assertTrue(TypeUtils.equals(String.class, stringType.getType()));
+    }
+
+    @Test
+    public void testTyped_2_oe() {
+        final Typed<String> stringType = new TypeLiteral<String>() {};
+        // removed other assertion
+        final Typed<List<String>> listOfStringType = new TypeLiteral<List<String>>() {};
+        assertTrue(TypeUtils.equals(TypeUtils.parameterize(List.class, String.class), listOfStringType.getType()));
+    }
+
+    @Test
+    public void testEquals_1_oe() {
+        assertEquals(new TypeLiteral<String>() {}, new TypeLiteral<String>() {});
+    }
+
+    @Test
+    public void testEquals_2_oe() {
+        // removed other assertion
+        assertEquals(new TypeLiteral<List<String>>() {}, new TypeLiteral<List<String>>() {});
+    }
+
+    @Test
+    public void testEquals_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertNotEquals(new TypeLiteral<String>() {}, new TypeLiteral<List<String>>() {});
+    }
 
     @Test
     public void testRaw_1_oe() throws Exception {
         try {
     new TypeLiteral() {};
-    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+    fail("NullPointerException");
 } catch (NullPointerException e) {
 }
     }

@@ -66,5 +66,14 @@ public class ImagingGuessFormatTest_OE25Dev extends ImagingTest {
         ).stream();
     }
 
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testGuessFormat_1_oe(final ImageFormats expectedFormat, final String pathToFile) throws Exception {
+        final String imagePath = FilenameUtils.separatorsToSystem(pathToFile);
+        final File imageFile = new File(ImagingTestConstants.TEST_IMAGE_FOLDER, imagePath);
+
+        final ImageFormat guessedFormat = Imaging.guessFormat(imageFile);
+        assertEquals(expectedFormat, guessedFormat);
+    }
 
 }

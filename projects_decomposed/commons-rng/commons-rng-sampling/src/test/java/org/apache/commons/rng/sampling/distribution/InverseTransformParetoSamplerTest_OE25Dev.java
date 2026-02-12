@@ -23,6 +23,8 @@ import org.apache.commons.rng.simple.RandomSource;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test for the {@link InverseTransformParetoSampler}. The tests hit edge cases for the sampler.
  */
@@ -58,7 +60,7 @@ class InverseTransformParetoSamplerTest_OE25Dev {
          double shape = 1;
         try {
     InverseTransformParetoSampler.of(rng, scale, shape);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -71,7 +73,7 @@ class InverseTransformParetoSamplerTest_OE25Dev {
          double shape = 0;
         try {
     InverseTransformParetoSampler.of(rng, scale, shape);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }

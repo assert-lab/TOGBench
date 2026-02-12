@@ -31,6 +31,8 @@ import org.apache.commons.numbers.core.Precision;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class Rotation2DTest_OE25Dev {
 
     private static final double TEST_EPS = 1e-10;
@@ -181,6 +183,88 @@ class Rotation2DTest_OE25Dev {
     }
 
     @Test
+    void testIdentity_1_oe() {
+        // act
+        final Rotation2D r = Rotation2D.identity();
+
+        // assert
+        Assertions.assertEquals(0.0, r.getAngle(), 0.0);
+    }
+
+    @Test
+    void testIdentity_2_oe() {
+        // act
+        final Rotation2D r = Rotation2D.identity();
+
+        // assert
+        // removed other assertion
+        Assertions.assertTrue(r.preservesOrientation());
+    }
+
+    @Test
+    void testProperties_1_oe() {
+        // act
+        final Rotation2D r = Rotation2D.of(100.0);
+
+        // assert
+        Assertions.assertEquals(100.0, r.getAngle(), 0.0);
+    }
+
+    @Test
+    void testProperties_2_oe() {
+        // act
+        final Rotation2D r = Rotation2D.of(100.0);
+
+        // assert
+        // removed other assertion
+        Assertions.assertTrue(r.preservesOrientation());
+    }
+
+    @Test
+    void testInverse_properties_1_oe() {
+        // arrange
+        final Rotation2D orig = Rotation2D.of(100.0);
+
+        // act
+        final Rotation2D r = orig.inverse();
+
+        // assert
+        Assertions.assertEquals(-100.0, r.getAngle(), 0.0);
+    }
+
+    @Test
+    void testInverse_properties_2_oe() {
+        // arrange
+        final Rotation2D orig = Rotation2D.of(100.0);
+
+        // act
+        final Rotation2D r = orig.inverse();
+
+        // assert
+        // removed other assertion
+        Assertions.assertTrue(r.preservesOrientation());
+    }
+
+    @Test
+    void testToMatrix_1_oe() {
+        // arrange
+        final double angle = 0.1 * Math.PI;
+
+        // act
+        final AffineTransformMatrix2D m = Rotation2D.of(angle).toMatrix();
+
+        // assert
+        final double sin = Math.sin(angle);
+        final double cos = Math.cos(angle);
+
+        final double[] expected = {
+            cos, -sin, 0,
+            sin, cos, 0
+        };
+        Assertions.assertArrayEquals(expected, m.toArray(), 0.0);
+    }
+
+    @Test
     void testCreateRotationVector_invalidVectors_1_oe() {
         // arrange
         final Vector2D vec = Vector2D.of(1, 1);
@@ -193,7 +277,7 @@ class Rotation2DTest_OE25Dev {
         // act/assert
         try {
     Rotation2D.createVectorRotation(zero, vec);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -212,7 +296,7 @@ class Rotation2DTest_OE25Dev {
         // removed other assertion
         try {
     Rotation2D.createVectorRotation(vec, zero);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -232,7 +316,7 @@ class Rotation2DTest_OE25Dev {
         // removed other assertion
         try {
     Rotation2D.createVectorRotation(nan, vec);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -253,7 +337,7 @@ class Rotation2DTest_OE25Dev {
         // removed other assertion
         try {
     Rotation2D.createVectorRotation(vec, nan);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -275,7 +359,7 @@ class Rotation2DTest_OE25Dev {
         // removed other assertion
         try {
     Rotation2D.createVectorRotation(posInf, vec);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -298,7 +382,7 @@ class Rotation2DTest_OE25Dev {
         // removed other assertion
         try {
     Rotation2D.createVectorRotation(vec, negInf);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -322,7 +406,7 @@ class Rotation2DTest_OE25Dev {
         // removed other assertion
         try {
     Rotation2D.createVectorRotation(zero, nan);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -347,9 +431,151 @@ class Rotation2DTest_OE25Dev {
         // removed other assertion
         try {
     Rotation2D.createVectorRotation(negInf, posInf);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testHashCode_1_oe() {
+        // arrange
+        final Rotation2D a = Rotation2D.of(1.0);
+        final Rotation2D b = Rotation2D.of(0.0);
+        final Rotation2D c = Rotation2D.of(-1.0);
+        final Rotation2D d = Rotation2D.of(1.0);
+
+        final int hash = a.hashCode();
+
+        // act/assert
+        Assertions.assertEquals(hash, a.hashCode());
+    }
+
+    @Test
+    void testHashCode_2_oe() {
+        // arrange
+        final Rotation2D a = Rotation2D.of(1.0);
+        final Rotation2D b = Rotation2D.of(0.0);
+        final Rotation2D c = Rotation2D.of(-1.0);
+        final Rotation2D d = Rotation2D.of(1.0);
+
+        final int hash = a.hashCode();
+
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertNotEquals(hash, b.hashCode());
+    }
+
+    @Test
+    void testHashCode_3_oe() {
+        // arrange
+        final Rotation2D a = Rotation2D.of(1.0);
+        final Rotation2D b = Rotation2D.of(0.0);
+        final Rotation2D c = Rotation2D.of(-1.0);
+        final Rotation2D d = Rotation2D.of(1.0);
+
+        final int hash = a.hashCode();
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNotEquals(hash, c.hashCode());
+    }
+
+    @Test
+    void testHashCode_4_oe() {
+        // arrange
+        final Rotation2D a = Rotation2D.of(1.0);
+        final Rotation2D b = Rotation2D.of(0.0);
+        final Rotation2D c = Rotation2D.of(-1.0);
+        final Rotation2D d = Rotation2D.of(1.0);
+
+        final int hash = a.hashCode();
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(hash, d.hashCode());
+    }
+
+    @Test
+    void testEquals_2_oe() {
+        // arrange
+        final Rotation2D a = Rotation2D.of(1.0);
+        final Rotation2D b = Rotation2D.of(0.0);
+        final Rotation2D c = Rotation2D.of(-1.0);
+        final Rotation2D d = Rotation2D.of(1.0);
+
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertNotEquals(a, b);
+    }
+
+    @Test
+    void testEquals_3_oe() {
+        // arrange
+        final Rotation2D a = Rotation2D.of(1.0);
+        final Rotation2D b = Rotation2D.of(0.0);
+        final Rotation2D c = Rotation2D.of(-1.0);
+        final Rotation2D d = Rotation2D.of(1.0);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNotEquals(a, c);
+    }
+
+    @Test
+    void testEquals_4_oe() {
+        // arrange
+        final Rotation2D a = Rotation2D.of(1.0);
+        final Rotation2D b = Rotation2D.of(0.0);
+        final Rotation2D c = Rotation2D.of(-1.0);
+        final Rotation2D d = Rotation2D.of(1.0);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(a, d);
+    }
+
+    @Test
+    void testEquals_5_oe() {
+        // arrange
+        final Rotation2D a = Rotation2D.of(1.0);
+        final Rotation2D b = Rotation2D.of(0.0);
+        final Rotation2D c = Rotation2D.of(-1.0);
+        final Rotation2D d = Rotation2D.of(1.0);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(d, a);
+    }
+
+    @Test
+    void testToString_1_oe() {
+        // arrange
+        final Rotation2D r = Rotation2D.of(1.0);
+
+        // act
+        final String str = r.toString();
+
+        // assert
+        Assertions.assertEquals("Rotation2D[angle=1.0]", str);
     }
 
 }

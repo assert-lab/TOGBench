@@ -255,5 +255,160 @@ public class JCSThrashTest_OE25Dev
         return Integer.parseInt( result );
     }
 
+    public void testPut_1_oe()
+        throws Exception
+    {
+        final String value = "value";
+        final String key = "key";
+
+        // Make sure the element is not found
+        assertEquals( 0, getListSize() );
+    }
+
+    public void testPut_2_oe()
+        throws Exception
+    {
+        final String value = "value";
+        final String key = "key";
+
+        // Make sure the element is not found
+        // removed other assertion
+
+        assertNull( jcs.get( key ) );
+    }
+
+    public void testPut_3_oe()
+        throws Exception
+    {
+        final String value = "value";
+        final String key = "key";
+
+        // Make sure the element is not found
+        // removed other assertion
+
+        // removed other assertion
+
+        jcs.put( key, value );
+
+        // Get the element
+        LOG.info( "jcs.getStats(): " + jcs.getStatistics() );
+        assertEquals( 1, getListSize() );
+    }
+
+    public void testPut_4_oe()
+        throws Exception
+    {
+        final String value = "value";
+        final String key = "key";
+
+        // Make sure the element is not found
+        // removed other assertion
+
+        // removed other assertion
+
+        jcs.put( key, value );
+
+        // Get the element
+        LOG.info( "jcs.getStats(): " + jcs.getStatistics() );
+        // removed other assertion
+        assertNotNull( jcs.get( key ) );
+    }
+
+    public void testPut_5_oe()
+        throws Exception
+    {
+        final String value = "value";
+        final String key = "key";
+
+        // Make sure the element is not found
+        // removed other assertion
+
+        // removed other assertion
+
+        jcs.put( key, value );
+
+        // Get the element
+        LOG.info( "jcs.getStats(): " + jcs.getStatistics() );
+        // removed other assertion
+        // removed other assertion
+        assertEquals( value, jcs.get( key ) );
+    }
+
+    public void testRemove_1_oe()
+        throws Exception
+    {
+        jcs.put( "key1", "value1" );
+        assertEquals( 1, getListSize() );
+    }
+
+    public void testRemove_2_oe()
+        throws Exception
+    {
+        jcs.put( "key1", "value1" );
+        // removed other assertion
+
+        jcs.remove( "key1" );
+        assertEquals( 0, getListSize() );
+    }
+
+    public void testRemove_3_oe()
+        throws Exception
+    {
+        jcs.put( "key1", "value1" );
+        // removed other assertion
+
+        jcs.remove( "key1" );
+        // removed other assertion
+
+        jcs.put( "key2", "value2" );
+        jcs.put( "key3", "value3" );
+        assertEquals( 2, getListSize() );
+    }
+
+    public void testRemove_4_oe()
+        throws Exception
+    {
+        jcs.put( "key1", "value1" );
+        // removed other assertion
+
+        jcs.remove( "key1" );
+        // removed other assertion
+
+        jcs.put( "key2", "value2" );
+        jcs.put( "key3", "value3" );
+        // removed other assertion
+
+        jcs.remove( "key2" );
+        assertEquals( 1, getListSize() );
+    }
+
+    public void testRemove_5_oe()
+        throws Exception
+    {
+        jcs.put( "key1", "value1" );
+        // removed other assertion
+
+        jcs.remove( "key1" );
+        // removed other assertion
+
+        jcs.put( "key2", "value2" );
+        jcs.put( "key3", "value3" );
+        // removed other assertion
+
+        jcs.remove( "key2" );
+        // removed other assertion
+
+        // Try to remove an object that is not there in the store
+        jcs.remove( "key4" );
+        assertEquals( 1, getListSize() );
+    }
+
+    public void testForMemoryLeaks_1_oe()
+        throws Exception
+    {
+        final long differenceMemoryCache = thrashCache();
+        LOG.info( "Memory Difference is: " + differenceMemoryCache );
+        assertTrue( differenceMemoryCache < 500000 );
+    }
 
 }

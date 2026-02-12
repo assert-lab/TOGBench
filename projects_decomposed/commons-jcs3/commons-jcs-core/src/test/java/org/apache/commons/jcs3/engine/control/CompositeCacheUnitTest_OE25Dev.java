@@ -75,5 +75,213 @@ public class CompositeCacheUnitTest_OE25Dev
      * @throws IOException
      */
 
+    public void testShutdownMemoryFlush_1_oe()
+        throws IOException
+    {
+        // SETUP
+        final String cacheName = "testCacheName";
+        final String mockMemoryCacheClassName = "org.apache.commons.jcs3.engine.memory.MockMemoryCache";
+        final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
+        cattr.setMemoryCacheName( mockMemoryCacheClassName );
+
+        final IElementAttributes attr = new ElementAttributes();
+
+        final CompositeCache<String, Integer> cache = new CompositeCache<>( cattr, attr );
+
+        final MockAuxiliaryCache<String, Integer> diskMock = new MockAuxiliaryCache<>();
+        diskMock.cacheType = CacheType.DISK_CACHE;
+        cache.setAuxCaches(Arrays.asList(diskMock));
+
+        // DO WORK
+        final int numToInsert = 10;
+        for ( int i = 0; i < numToInsert; i++ )
+        {
+            final ICacheElement<String, Integer> element = new CacheElement<>( cacheName, String.valueOf( i ), Integer.valueOf( i ) );
+            cache.update( element, false );
+        }
+
+        cache.dispose();
+
+        // VERIFY
+        final MockMemoryCache<String, Integer> memoryCache = (MockMemoryCache<String, Integer>) cache.getMemoryCache();
+        assertEquals( "Wrong number freed.", numToInsert, memoryCache.lastNumberOfFreedElements );
+    }
+
+    public void testShutdownMemoryFlush_noDisk_1_oe()
+        throws IOException
+    {
+        // SETUP
+        final String cacheName = "testCacheName";
+        final String mockMemoryCacheClassName = "org.apache.commons.jcs3.engine.memory.MockMemoryCache";
+        final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
+        cattr.setMemoryCacheName( mockMemoryCacheClassName );
+
+        final IElementAttributes attr = new ElementAttributes();
+
+        final CompositeCache<String, Integer> cache = new CompositeCache<>( cattr, attr );
+
+        final MockAuxiliaryCache<String, Integer> diskMock = new MockAuxiliaryCache<>();
+        diskMock.cacheType = CacheType.REMOTE_CACHE;
+        cache.setAuxCaches(Arrays.asList(diskMock));
+
+        // DO WORK
+        final int numToInsert = 10;
+        for ( int i = 0; i < numToInsert; i++ )
+        {
+            final ICacheElement<String, Integer> element = new CacheElement<>( cacheName, String.valueOf( i ), Integer.valueOf( i ) );
+            cache.update( element, false );
+        }
+
+        cache.dispose();
+
+        // VERIFY
+        final MockMemoryCache<String, Integer> memoryCache = (MockMemoryCache<String, Integer>) cache.getMemoryCache();
+        assertEquals( "Wrong number freed.", 0, memoryCache.lastNumberOfFreedElements );
+    }
+
+    public void testGetMatching_Normal_1_oe()
+        throws IOException
+    {
+        // SETUP
+        final int maxMemorySize = 1000;
+        final String keyprefix1 = "MyPrefix1";
+        final String keyprefix2 = "MyPrefix2";
+        final String cacheName = "testGetMatching_Normal";
+        final String memoryCacheClassName = "org.apache.commons.jcs3.engine.memory.lru.LRUMemoryCache";
+        final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
+        cattr.setMemoryCacheName( memoryCacheClassName );
+        cattr.setMaxObjects( maxMemorySize );
+
+        final IElementAttributes attr = new ElementAttributes();
+
+        final CompositeCache<String, Integer> cache = new CompositeCache<>( cattr, attr );
+
+        final MockAuxiliaryCache<String, Integer> diskMock = new MockAuxiliaryCache<>();
+        diskMock.cacheType = CacheType.DISK_CACHE;
+        cache.setAuxCaches(Arrays.asList(diskMock));
+
+        // DO WORK
+        final int numToInsertPrefix1 = 10;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertPrefix1; i++ )
+        {
+            final ICacheElement<String, Integer> element = new CacheElement<>( cacheName, keyprefix1 + String.valueOf( i ), Integer.valueOf( i ) );
+            cache.update( element, false );
+        }
+
+        final int numToInsertPrefix2 = 50;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertPrefix2; i++ )
+        {
+            final ICacheElement<String, Integer> element = new CacheElement<>( cacheName, keyprefix2 + String.valueOf( i ), Integer.valueOf( i ) );
+            cache.update( element, false );
+        }
+
+        final Map<?, ?> result1 = cache.getMatching( keyprefix1 + "\\S+" );
+        final Map<?, ?> result2 = cache.getMatching( keyprefix2 + "\\S+" );
+
+        // VERIFY
+        assertEquals( "Wrong number returned 1:", numToInsertPrefix1, result1.size() );
+    }
+
+    public void testGetMatching_Normal_2_oe()
+        throws IOException
+    {
+        // SETUP
+        final int maxMemorySize = 1000;
+        final String keyprefix1 = "MyPrefix1";
+        final String keyprefix2 = "MyPrefix2";
+        final String cacheName = "testGetMatching_Normal";
+        final String memoryCacheClassName = "org.apache.commons.jcs3.engine.memory.lru.LRUMemoryCache";
+        final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
+        cattr.setMemoryCacheName( memoryCacheClassName );
+        cattr.setMaxObjects( maxMemorySize );
+
+        final IElementAttributes attr = new ElementAttributes();
+
+        final CompositeCache<String, Integer> cache = new CompositeCache<>( cattr, attr );
+
+        final MockAuxiliaryCache<String, Integer> diskMock = new MockAuxiliaryCache<>();
+        diskMock.cacheType = CacheType.DISK_CACHE;
+        cache.setAuxCaches(Arrays.asList(diskMock));
+
+        // DO WORK
+        final int numToInsertPrefix1 = 10;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertPrefix1; i++ )
+        {
+            final ICacheElement<String, Integer> element = new CacheElement<>( cacheName, keyprefix1 + String.valueOf( i ), Integer.valueOf( i ) );
+            cache.update( element, false );
+        }
+
+        final int numToInsertPrefix2 = 50;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertPrefix2; i++ )
+        {
+            final ICacheElement<String, Integer> element = new CacheElement<>( cacheName, keyprefix2 + String.valueOf( i ), Integer.valueOf( i ) );
+            cache.update( element, false );
+        }
+
+        final Map<?, ?> result1 = cache.getMatching( keyprefix1 + "\\S+" );
+        final Map<?, ?> result2 = cache.getMatching( keyprefix2 + "\\S+" );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( "Wrong number returned 2:", numToInsertPrefix2, result2.size() );
+    }
+
+    public void testGetMatching_NotOnDisk_1_oe()
+        throws IOException
+    {
+        // SETUP
+        final int maxMemorySize = 0;
+        final String cacheName = "testGetMatching_NotOnDisk";
+        final String memoryCacheClassName = "org.apache.commons.jcs3.engine.memory.lru.LRUMemoryCache";
+        final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
+        cattr.setCacheName(cacheName);
+        cattr.setMemoryCacheName( memoryCacheClassName );
+        cattr.setMaxObjects( maxMemorySize );
+
+        final IElementAttributes attr = new ElementAttributes();
+
+        final CompositeCache<String, Integer> cache = new CompositeCache<>( cattr, attr );
+
+        final MockAuxiliaryCache<String, Integer> diskMock = new MockAuxiliaryCache<>();
+        diskMock.cacheType = CacheType.DISK_CACHE;
+        cache.setAuxCaches(Arrays.asList(diskMock));
+
+        // DO WORK
+        cache.getMatching( "junk" );
+
+        // VERIFY
+        assertEquals( "Wrong number of calls", 1, diskMock.getMatchingCallCount );
+    }
+
+    public void testGetMatching_NotOnRemote_1_oe()
+        throws IOException
+    {
+        // SETUP
+        final int maxMemorySize = 0;
+        final String cacheName = "testGetMatching_NotOnDisk";
+        final String memoryCacheClassName = "org.apache.commons.jcs3.engine.memory.lru.LRUMemoryCache";
+        final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
+        cattr.setCacheName(cacheName);
+        cattr.setMemoryCacheName( memoryCacheClassName );
+        cattr.setMaxObjects( maxMemorySize );
+
+        final IElementAttributes attr = new ElementAttributes();
+
+        final CompositeCache<String, Integer> cache = new CompositeCache<>( cattr, attr );
+
+        final MockAuxiliaryCache<String, Integer> diskMock = new MockAuxiliaryCache<>();
+        diskMock.cacheType = CacheType.REMOTE_CACHE;
+        cache.setAuxCaches(Arrays.asList(diskMock));
+
+        // DO WORK
+        cache.getMatching( "junk" );
+
+        // VERIFY
+        assertEquals( "Wrong number of calls", 1, diskMock.getMatchingCallCount );
+    }
 
 }

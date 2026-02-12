@@ -272,7 +272,7 @@ public class TestPoolUtils_OE25Dev {
     public void testCheckMinIdleKeyedObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.checkMinIdle(null, new Object(), 1, 1);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.checkMinIdle(KeyedObjectPool,Object,int,long) must not allow null pool.");
+    fail("IllegalArgumentException: PoolUtils.checkMinIdle(KeyedObjectPool,Object,int,long) must not allow null pool.");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -281,16 +281,67 @@ public class TestPoolUtils_OE25Dev {
     public void testCheckMinIdleObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.checkMinIdle(null, 1, 1);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.checkMinIdle(ObjectPool,,) must not allow null pool.");
+    fail("IllegalArgumentException: PoolUtils.checkMinIdle(ObjectPool,,) must not allow null pool.");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    public void testCheckRethrow_1_oe() {
+        try {
+            PoolUtils.checkRethrow(new Exception());
+        } catch (final Throwable t) {
+            fail("PoolUtils.checkRethrow(Throwable) must rethrow only ThreadDeath and VirtualMachineError.");
+    }
+    }
+
+    @Test
+    public void testCheckRethrow_3_oe() {
+        try {
+            PoolUtils.checkRethrow(new Exception());
+        } catch (final Throwable t) {
+            // removed other assertion
+        }
+        try {
+            PoolUtils.checkRethrow(new ThreadDeath());
+            // removed other assertion
+        } catch (final ThreadDeath td) {
+            // expected
+        } catch (final Throwable t) {
+            fail("PoolUtils.checkRethrow(Throwable) must rethrow only ThreadDeath and VirtualMachineError.");
+    }
+    }
+
+    @Test
+    public void testCheckRethrow_5_oe() {
+        try {
+            PoolUtils.checkRethrow(new Exception());
+        } catch (final Throwable t) {
+            // removed other assertion
+        }
+        try {
+            PoolUtils.checkRethrow(new ThreadDeath());
+            // removed other assertion
+        } catch (final ThreadDeath td) {
+            // expected
+        } catch (final Throwable t) {
+            // removed other assertion
+        }
+        try {
+            PoolUtils.checkRethrow(new InternalError()); // InternalError extends VirtualMachineError
+            // removed other assertion
+        } catch (final VirtualMachineError td) {
+            // expected
+        } catch (final Throwable t) {
+            fail("PoolUtils.checkRethrow(Throwable) must rethrow only ThreadDeath and VirtualMachineError.");
+    }
     }
 
     @Test
     public void testErodingPerKeyKeyedObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null, 1f, true);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool) must not allow a null pool.");
+    fail("IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool) must not allow a null pool.");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -301,7 +352,7 @@ public class TestPoolUtils_OE25Dev {
 
         try {
     PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null, 0f, true);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float, boolean) must not allow a non-positive factor.");
+    fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float, boolean) must not allow a non-positive factor.");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -314,7 +365,7 @@ public class TestPoolUtils_OE25Dev {
 
         try {
     PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null, 1f, true);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool, float, boolean) must not allow a null pool.");
+    fail("IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool, float, boolean) must not allow a null pool.");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -323,7 +374,7 @@ public class TestPoolUtils_OE25Dev {
     public void testErodingPoolKeyedObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool) must not allow a null pool.");
+    fail("IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool) must not allow a null pool.");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -334,7 +385,7 @@ public class TestPoolUtils_OE25Dev {
 
         try {
     PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null, 1f);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool, float) must not allow a null pool.");
+    fail("IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool, float) must not allow a null pool.");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -347,7 +398,7 @@ public class TestPoolUtils_OE25Dev {
 
         try {
     PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null, 1f, true);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool, float, boolean) must not allow a null pool.");
+    fail("IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool, float, boolean) must not allow a null pool.");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -375,7 +426,7 @@ public class TestPoolUtils_OE25Dev {
 
         try {
     PoolUtils.erodingPool(createProxy(KeyedObjectPool.class, handler), 0f);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float) must not allow a non-positive factor.");
+    fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float) must not allow a non-positive factor.");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -405,7 +456,7 @@ public class TestPoolUtils_OE25Dev {
 
         try {
     PoolUtils.erodingPool(createProxy(KeyedObjectPool.class, handler), 0f, false);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float, boolean) must not allow a non-positive factor.");
+    fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float, boolean) must not allow a non-positive factor.");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -414,7 +465,7 @@ public class TestPoolUtils_OE25Dev {
     public void testErodingPoolObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.erodingPool((ObjectPool<Object>) null);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool) must not allow a null pool.");
+    fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool) must not allow a null pool.");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -425,7 +476,7 @@ public class TestPoolUtils_OE25Dev {
 
         try {
     PoolUtils.erodingPool((ObjectPool<Object>) null, 1f);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float) must not allow a null pool.");
+    fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float) must not allow a null pool.");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -451,16 +502,21 @@ public class TestPoolUtils_OE25Dev {
 
         try {
     PoolUtils.erodingPool(createProxy(ObjectPool.class, handler), -1f);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float) must not allow a non-positive factor.");
+    fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float) must not allow a non-positive factor.");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    public void testJavaBeanInstantiation_1_oe() {
+        assertNotNull(new PoolUtils());
     }
 
     @Test
     public void testPrefillKeyedObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.prefill(null, new Object(), 1);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.prefill(KeyedObjectPool,Object,int) must not accept null pool.");
+    fail("IllegalArgumentException: PoolUtils.prefill(KeyedObjectPool,Object,int) must not accept null pool.");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -469,7 +525,7 @@ public class TestPoolUtils_OE25Dev {
     public void testPrefillObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.prefill(null, 1);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.prefill(ObjectPool,int) must not allow null pool.");
+    fail("IllegalArgumentException: PoolUtils.prefill(ObjectPool,int) must not allow null pool.");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -478,25 +534,51 @@ public class TestPoolUtils_OE25Dev {
     public void testSynchronizedPoolableFactoryKeyedPoolableObjectFactory_1_oe() throws Exception {
         try {
     PoolUtils.synchronizedKeyedPooledFactory((KeyedPooledObjectFactory<Object, Object>) null);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.synchronizedPoolableFactory(KeyedPoolableObjectFactory) must not allow a null factory.");
+    fail("IllegalArgumentException: PoolUtils.synchronizedPoolableFactory(KeyedPoolableObjectFactory) must not allow a null factory.");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    public void testSynchronizedPoolableFactoryKeyedPoolableObjectFactory_2_oe() throws Exception {
+        // removed other assertion
+
+        final List<String> calledMethods = new ArrayList<>();
+        @SuppressWarnings("unchecked")
+        final KeyedPooledObjectFactory<Object, Object> kpof = createProxy(KeyedPooledObjectFactory.class, calledMethods);
+
+        final KeyedPooledObjectFactory<Object, Object> skpof = PoolUtils.synchronizedKeyedPooledFactory(kpof);
+        final List<String> expectedMethods = invokeEveryMethod(skpof);
+        assertEquals(expectedMethods, calledMethods);
     }
 
     @Test
     public void testSynchronizedPoolableFactoryPoolableObjectFactory_1_oe() throws Exception {
         try {
     PoolUtils.synchronizedPooledFactory((PooledObjectFactory<Object>) null);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.synchronizedPoolableFactory(PoolableObjectFactory) must not allow a null factory.");
+    fail("IllegalArgumentException: PoolUtils.synchronizedPoolableFactory(PoolableObjectFactory) must not allow a null factory.");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    public void testSynchronizedPoolableFactoryPoolableObjectFactory_2_oe() throws Exception {
+        // removed other assertion
+
+        final List<String> calledMethods = new ArrayList<>();
+        @SuppressWarnings("unchecked")
+        final PooledObjectFactory<Object> pof = createProxy(PooledObjectFactory.class, calledMethods);
+
+        final PooledObjectFactory<Object> spof = PoolUtils.synchronizedPooledFactory(pof);
+        final List<String> expectedMethods = invokeEveryMethod(spof);
+        assertEquals(expectedMethods, calledMethods);
     }
 
     @Test
     public void testSynchronizedPoolKeyedObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.synchronizedPool((KeyedObjectPool<Object, Object>) null);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.synchronizedPool(KeyedObjectPool) must not allow a null pool.");
+    fail("IllegalArgumentException: PoolUtils.synchronizedPool(KeyedObjectPool) must not allow a null pool.");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -505,9 +587,22 @@ public class TestPoolUtils_OE25Dev {
     public void testSynchronizedPoolObjectPool_1_oe() throws Exception {
         try {
     PoolUtils.synchronizedPool((ObjectPool<Object>) null);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: PoolUtils.synchronizedPool(ObjectPool) must not allow a null pool.");
+    fail("IllegalArgumentException: PoolUtils.synchronizedPool(ObjectPool) must not allow a null pool.");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    public void testTimerHolder_1_oe() {
+        final PoolUtils.TimerHolder h = new PoolUtils.TimerHolder();
+        assertNotNull(h);
+    }
+
+    @Test
+    public void testTimerHolder_2_oe() {
+        final PoolUtils.TimerHolder h = new PoolUtils.TimerHolder();
+        // removed other assertion
+        assertNotNull(PoolUtils.TimerHolder.MIN_IDLE_TIMER);
     }
 
 }

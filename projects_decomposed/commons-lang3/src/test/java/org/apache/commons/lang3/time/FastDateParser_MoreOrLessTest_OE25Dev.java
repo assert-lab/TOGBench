@@ -32,5 +32,171 @@ public class FastDateParser_MoreOrLessTest_OE25Dev {
 
     private static final TimeZone NEW_YORK = TimeZone.getTimeZone("America/New_York");
 
+    @Test
+    public void testInputHasLessCharacters_1_oe() {
+        final FastDateParser parser = new FastDateParser("MM/dd/yyy", TimeZone.getDefault(), Locale.getDefault());
+        final ParsePosition parsePosition = new ParsePosition(0);
+        assertNull(parser.parse("03/23", parsePosition));
+    }
+
+    @Test
+    public void testInputHasMoreCharacters_1_oe() {
+        final FastDateParser parser = new FastDateParser("MM/dd", TimeZone.getDefault(), Locale.getDefault());
+        final ParsePosition parsePosition = new ParsePosition(0);
+        final Date date = parser.parse("3/23/61", parsePosition);
+        assertEquals(4, parsePosition.getIndex());
+    }
+
+    @Test
+    public void testInputHasMoreCharacters_2_oe() {
+        final FastDateParser parser = new FastDateParser("MM/dd", TimeZone.getDefault(), Locale.getDefault());
+        final ParsePosition parsePosition = new ParsePosition(0);
+        final Date date = parser.parse("3/23/61", parsePosition);
+        // removed other assertion
+
+        final Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        assertEquals(2, calendar.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testInputHasMoreCharacters_3_oe() {
+        final FastDateParser parser = new FastDateParser("MM/dd", TimeZone.getDefault(), Locale.getDefault());
+        final ParsePosition parsePosition = new ParsePosition(0);
+        final Date date = parser.parse("3/23/61", parsePosition);
+        // removed other assertion
+
+        final Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        // removed other assertion
+        assertEquals(23, calendar.get(Calendar.DATE));
+    }
+
+    @Test
+    public void testInputHasPrecedingCharacters_1_oe() {
+        final FastDateParser parser = new FastDateParser("MM/dd", TimeZone.getDefault(), Locale.getDefault());
+        final ParsePosition parsePosition = new ParsePosition(0);
+        final Date date = parser.parse("A 3/23/61", parsePosition);
+        assertNull(date);
+    }
+
+    @Test
+    public void testInputHasPrecedingCharacters_2_oe() {
+        final FastDateParser parser = new FastDateParser("MM/dd", TimeZone.getDefault(), Locale.getDefault());
+        final ParsePosition parsePosition = new ParsePosition(0);
+        final Date date = parser.parse("A 3/23/61", parsePosition);
+        // removed other assertion
+        assertEquals(0, parsePosition.getIndex());
+    }
+
+    @Test
+    public void testInputHasPrecedingCharacters_3_oe() {
+        final FastDateParser parser = new FastDateParser("MM/dd", TimeZone.getDefault(), Locale.getDefault());
+        final ParsePosition parsePosition = new ParsePosition(0);
+        final Date date = parser.parse("A 3/23/61", parsePosition);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, parsePosition.getErrorIndex());
+    }
+
+    @Test
+    public void testInputHasWhitespace_1_oe() {
+        final FastDateParser parser = new FastDateParser("M/d/y", TimeZone.getDefault(), Locale.getDefault());
+        //SimpleDateFormat parser = new SimpleDateFormat("M/d/y");
+        final ParsePosition parsePosition = new ParsePosition(0);
+        final Date date = parser.parse(" 3/ 23/ 1961", parsePosition);
+        assertEquals(12, parsePosition.getIndex());
+    }
+
+    @Test
+    public void testInputHasWhitespace_2_oe() {
+        final FastDateParser parser = new FastDateParser("M/d/y", TimeZone.getDefault(), Locale.getDefault());
+        //SimpleDateFormat parser = new SimpleDateFormat("M/d/y");
+        final ParsePosition parsePosition = new ParsePosition(0);
+        final Date date = parser.parse(" 3/ 23/ 1961", parsePosition);
+        // removed other assertion
+
+        final Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        assertEquals(1961, calendar.get(Calendar.YEAR));
+    }
+
+    @Test
+    public void testInputHasWhitespace_3_oe() {
+        final FastDateParser parser = new FastDateParser("M/d/y", TimeZone.getDefault(), Locale.getDefault());
+        //SimpleDateFormat parser = new SimpleDateFormat("M/d/y");
+        final ParsePosition parsePosition = new ParsePosition(0);
+        final Date date = parser.parse(" 3/ 23/ 1961", parsePosition);
+        // removed other assertion
+
+        final Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        // removed other assertion
+        assertEquals(2, calendar.get(Calendar.MONTH));
+    }
+
+    @Test
+    public void testInputHasWhitespace_4_oe() {
+        final FastDateParser parser = new FastDateParser("M/d/y", TimeZone.getDefault(), Locale.getDefault());
+        //SimpleDateFormat parser = new SimpleDateFormat("M/d/y");
+        final ParsePosition parsePosition = new ParsePosition(0);
+        final Date date = parser.parse(" 3/ 23/ 1961", parsePosition);
+        // removed other assertion
+
+        final Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(23, calendar.get(Calendar.DATE));
+    }
+
+    @Test
+    public void testInputHasWrongCharacters_1_oe() {
+        final FastDateParser parser = new FastDateParser("MM-dd-yyy", TimeZone.getDefault(), Locale.getDefault());
+        final ParsePosition parsePosition = new ParsePosition(0);
+        assertNull(parser.parse("03/23/1961", parsePosition));
+    }
+
+    @Test
+    public void testInputHasWrongDay_1_oe() {
+        final FastDateParser parser = new FastDateParser("EEEE, MM/dd/yyy", NEW_YORK, Locale.US);
+        final String input = "Thursday, 03/23/61";
+        final ParsePosition parsePosition = new ParsePosition(0);
+        assertNotNull(parser.parse(input, parsePosition));
+    }
+
+    @Test
+    public void testInputHasWrongDay_3_oe() {
+        final FastDateParser parser = new FastDateParser("EEEE, MM/dd/yyy", NEW_YORK, Locale.US);
+        final String input = "Thursday, 03/23/61";
+        final ParsePosition parsePosition = new ParsePosition(0);
+        // removed other assertion
+        // removed other assertion
+
+        parsePosition.setIndex(0);
+        assertNull(parser.parse( "Thorsday, 03/23/61", parsePosition));
+    }
+
+    @Test
+    public void testInputHasWrongTimeZone_1_oe() {
+        final FastDateParser parser = new FastDateParser("mm:ss z", NEW_YORK, Locale.US);
+
+        final String input = "11:23 Pacific Standard Time";
+        final ParsePosition parsePosition = new ParsePosition(0);
+        assertNotNull(parser.parse(input, parsePosition));
+    }
+
+    @Test
+    public void testInputHasWrongTimeZone_3_oe() {
+        final FastDateParser parser = new FastDateParser("mm:ss z", NEW_YORK, Locale.US);
+
+        final String input = "11:23 Pacific Standard Time";
+        final ParsePosition parsePosition = new ParsePosition(0);
+        // removed other assertion
+        // removed other assertion
+
+        parsePosition.setIndex(0);
+        assertNull(parser.parse( "11:23 Pacific Standard ", parsePosition));
+    }
 
 }

@@ -29,5 +29,17 @@ import static org.junit.Assert.assertNotNull;
 public class CachingProviderTest_OE25Dev
 {
 
+    @Test
+    public void findProvider_1_oe()
+    {
+        assertNotNull(Caching.getCachingProvider());
+    }
+
+    @Test
+    public void createCacheMgr_1_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        assertNotNull(cachingProvider.getCacheManager());
+    }
 
 }

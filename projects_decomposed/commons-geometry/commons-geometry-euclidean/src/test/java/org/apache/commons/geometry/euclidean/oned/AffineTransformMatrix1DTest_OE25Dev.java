@@ -23,6 +23,8 @@ import org.apache.commons.geometry.euclidean.EuclideanTestUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class AffineTransformMatrix1DTest_OE25Dev {
 
     private static final double EPS = 1e-12;
@@ -479,13 +481,277 @@ class AffineTransformMatrix1DTest_OE25Dev {
     }
 
     @Test
+    void testOf_1_oe() {
+        // act
+        final AffineTransformMatrix1D transform = AffineTransformMatrix1D.of(1, 2);
+
+        // assert
+        Assertions.assertTrue(transform.preservesOrientation());
+    }
+
+    @Test
+    void testOf_2_oe() {
+        // act
+        final AffineTransformMatrix1D transform = AffineTransformMatrix1D.of(1, 2);
+
+        // assert
+        // removed other assertion
+
+        final double[] result = transform.toArray();
+        Assertions.assertArrayEquals(new double[] {1, 2}, result, 0.0);
+    }
+
+    @Test
+    void testFrom_1_oe() {
+        // act/assert
+        Assertions.assertArrayEquals(new double[] {1, 0}, AffineTransformMatrix1D.from(UnaryOperator.identity()).toArray(), EPS);
+    }
+
+    @Test
+    void testFrom_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertArrayEquals(new double[] {1, 2}, AffineTransformMatrix1D.from(v -> v.add(Vector1D.of(2))).toArray(), EPS);
+    }
+
+    @Test
+    void testFrom_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertArrayEquals(new double[] {3, 0}, AffineTransformMatrix1D.from(v -> v.multiply(3)).toArray(), EPS);
+    }
+
+    @Test
+    void testFrom_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertArrayEquals(new double[] {3, 6}, AffineTransformMatrix1D.from(v -> v.add(Vector1D.of(2)).multiply(3)).toArray(), EPS);
+    }
+
+    @Test
     void testFrom_invalidFunction_1_oe() {
         // act/assert
         try {
     AffineTransformMatrix1D.from(v -> v.multiply(0));
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testIdentity_1_oe() {
+        // act
+        final AffineTransformMatrix1D transform = AffineTransformMatrix1D.identity();
+
+        // assert
+        Assertions.assertTrue(transform.preservesOrientation());
+    }
+
+    @Test
+    void testIdentity_2_oe() {
+        // act
+        final AffineTransformMatrix1D transform = AffineTransformMatrix1D.identity();
+
+        // assert
+        // removed other assertion
+
+        final double[] expected = {1, 0};
+        Assertions.assertArrayEquals(expected, transform.toArray(), 0.0);
+    }
+
+    @Test
+    void testCreateTranslation_value_1_oe() {
+        // act
+        final AffineTransformMatrix1D transform = AffineTransformMatrix1D.createTranslation(2);
+
+        // assert
+        Assertions.assertTrue(transform.preservesOrientation());
+    }
+
+    @Test
+    void testCreateTranslation_value_2_oe() {
+        // act
+        final AffineTransformMatrix1D transform = AffineTransformMatrix1D.createTranslation(2);
+
+        // assert
+        // removed other assertion
+
+        final double[] expected = {1, 2};
+        Assertions.assertArrayEquals(expected, transform.toArray(), 0.0);
+    }
+
+    @Test
+    void testCreateTranslation_vector_1_oe() {
+        // act
+        final AffineTransformMatrix1D transform = AffineTransformMatrix1D.createTranslation(Vector1D.of(5));
+
+        // assert
+        Assertions.assertTrue(transform.preservesOrientation());
+    }
+
+    @Test
+    void testCreateTranslation_vector_2_oe() {
+        // act
+        final AffineTransformMatrix1D transform = AffineTransformMatrix1D.createTranslation(Vector1D.of(5));
+
+        // assert
+        // removed other assertion
+
+        final double[] expected = {1, 5};
+        Assertions.assertArrayEquals(expected, transform.toArray(), 0.0);
+    }
+
+    @Test
+    void testTranslate_value_1_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(2, 10);
+
+        // act
+        final AffineTransformMatrix1D result = a.translate(4);
+
+        // assert
+        Assertions.assertTrue(result.preservesOrientation());
+    }
+
+    @Test
+    void testTranslate_value_2_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(2, 10);
+
+        // act
+        final AffineTransformMatrix1D result = a.translate(4);
+
+        // assert
+        // removed other assertion
+
+        final double[] expected = {2, 14};
+        Assertions.assertArrayEquals(expected, result.toArray(), 0.0);
+    }
+
+    @Test
+    void testTranslate_vector_1_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(2, 10);
+
+        // act
+        final AffineTransformMatrix1D result = a.translate(Vector1D.of(7));
+
+        // assert
+        Assertions.assertTrue(result.preservesOrientation());
+    }
+
+    @Test
+    void testTranslate_vector_2_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(2, 10);
+
+        // act
+        final AffineTransformMatrix1D result = a.translate(Vector1D.of(7));
+
+        // assert
+        // removed other assertion
+
+        final double[] expected = {2, 17};
+        Assertions.assertArrayEquals(expected, result.toArray(), 0.0);
+    }
+
+    @Test
+    void testCreateScale_vector_1_oe() {
+        // act
+        final AffineTransformMatrix1D transform = AffineTransformMatrix1D.createScale(Vector1D.of(4));
+
+        // assert
+        Assertions.assertTrue(transform.preservesOrientation());
+    }
+
+    @Test
+    void testCreateScale_vector_2_oe() {
+        // act
+        final AffineTransformMatrix1D transform = AffineTransformMatrix1D.createScale(Vector1D.of(4));
+
+        // assert
+        // removed other assertion
+
+        final double[] expected = {4, 0};
+        Assertions.assertArrayEquals(expected, transform.toArray(), 0.0);
+    }
+
+    @Test
+    void testCreateScale_value_1_oe() {
+        // act
+        final AffineTransformMatrix1D transform = AffineTransformMatrix1D.createScale(7);
+
+        // assert
+        Assertions.assertTrue(transform.preservesOrientation());
+    }
+
+    @Test
+    void testCreateScale_value_2_oe() {
+        // act
+        final AffineTransformMatrix1D transform = AffineTransformMatrix1D.createScale(7);
+
+        // assert
+        // removed other assertion
+
+        final double[] expected = {7, 0};
+        Assertions.assertArrayEquals(expected, transform.toArray(), 0.0);
+    }
+
+    @Test
+    void testScale_value_1_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(2, 10);
+
+        // act
+        final AffineTransformMatrix1D result = a.scale(4);
+
+        // assert
+        Assertions.assertTrue(result.preservesOrientation());
+    }
+
+    @Test
+    void testScale_value_2_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(2, 10);
+
+        // act
+        final AffineTransformMatrix1D result = a.scale(4);
+
+        // assert
+        // removed other assertion
+
+        final double[] expected = {8, 40};
+        Assertions.assertArrayEquals(expected, result.toArray(), 0.0);
+    }
+
+    @Test
+    void testScale_vector_1_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(2, 10);
+
+        // act
+        final AffineTransformMatrix1D result = a.scale(Vector1D.of(7));
+
+        // assert
+        Assertions.assertTrue(result.preservesOrientation());
+    }
+
+    @Test
+    void testScale_vector_2_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(2, 10);
+
+        // act
+        final AffineTransformMatrix1D result = a.scale(Vector1D.of(7));
+
+        // assert
+        // removed other assertion
+
+        final double[] expected = {14, 70};
+        Assertions.assertArrayEquals(expected, result.toArray(), 0.0);
     }
 
     @Test
@@ -493,7 +759,7 @@ class AffineTransformMatrix1DTest_OE25Dev {
         // act/assert
         try {
     AffineTransformMatrix1D.createScale(0).applyDirection(Vector1D.Unit.PLUS);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -504,9 +770,103 @@ class AffineTransformMatrix1DTest_OE25Dev {
         // removed other assertion
         try {
     AffineTransformMatrix1D.createScale(2).applyDirection(Vector1D.ZERO);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testDeterminant_1_oe() {
+        // act/assert
+        Assertions.assertEquals(0.0, AffineTransformMatrix1D.of(0, 1).determinant(), EPS);
+    }
+
+    @Test
+    void testDeterminant_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertEquals(1.0, AffineTransformMatrix1D.of(1, 0).determinant(), EPS);
+    }
+
+    @Test
+    void testDeterminant_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(-1.0, AffineTransformMatrix1D.of(-1, 2).determinant(), EPS);
+    }
+
+    @Test
+    void testPreservesOrientation_1_oe() {
+        // act/assert
+        Assertions.assertFalse(AffineTransformMatrix1D.of(0, 1).preservesOrientation());
+    }
+
+    @Test
+    void testPreservesOrientation_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertTrue(AffineTransformMatrix1D.of(1, 0).preservesOrientation());
+    }
+
+    @Test
+    void testPreservesOrientation_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(AffineTransformMatrix1D.of(-1, 2).preservesOrientation());
+    }
+
+    @Test
+    void testMultiply_1_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(2, 3);
+        final AffineTransformMatrix1D b = AffineTransformMatrix1D.of(13, 14);
+
+        // act
+        final AffineTransformMatrix1D result = a.multiply(b);
+
+        // assert
+        final double[] arr = result.toArray();
+        Assertions.assertArrayEquals(new double[] {26, 31}, arr, EPS);
+    }
+
+    @Test
+    void testPremultiply_1_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(2, 3);
+        final AffineTransformMatrix1D b = AffineTransformMatrix1D.of(13, 14);
+
+        // act
+        final AffineTransformMatrix1D result = b.premultiply(a);
+
+        // assert
+        final double[] arr = result.toArray();
+        Assertions.assertArrayEquals(new double[] {26, 31}, arr, EPS);
+    }
+
+    @Test
+    void testLinear_1_oe() {
+        // arrange
+        final AffineTransformMatrix1D mat = AffineTransformMatrix1D.of(2, 3);
+
+        // act
+        final AffineTransformMatrix1D result = mat.linear();
+
+        // assert
+        Assertions.assertArrayEquals(new double[] {2, 0}, result.toArray(), 0.0);
+    }
+
+    @Test
+    void testLinearTranspose_1_oe() {
+        // arrange
+        final AffineTransformMatrix1D mat = AffineTransformMatrix1D.of(2, 3);
+
+        // act
+        final AffineTransformMatrix1D result = mat.linearTranspose();
+
+        // assert
+        Assertions.assertArrayEquals(new double[] {2, 0}, result.toArray(), 0.0);
     }
 
     @Test
@@ -514,9 +874,206 @@ class AffineTransformMatrix1DTest_OE25Dev {
         // act/assert
         try {
     AffineTransformMatrix1D.createScale(0).normalTransform();
-    org.junit.jupiter.api.Assertions.fail("IllegalStateException");
+    fail("IllegalStateException");
 } catch (IllegalStateException e) {
 }
+    }
+
+    @Test
+    void testInverse_identity_1_oe() {
+        // act
+        final AffineTransformMatrix1D inverse = AffineTransformMatrix1D.identity().inverse();
+
+        // assert
+        final double[] expected = {1, 0};
+        Assertions.assertArrayEquals(expected, inverse.toArray(), 0.0);
+    }
+
+    @Test
+    void testInverse_multiplyByInverse_producesIdentity_1_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(1, 3);
+
+        final AffineTransformMatrix1D inv = a.inverse();
+
+        // act
+        final AffineTransformMatrix1D result = inv.multiply(a);
+
+        // assert
+        final double[] expected = {1, 0};
+        Assertions.assertArrayEquals(expected, result.toArray(), EPS);
+    }
+
+    @Test
+    void testInverse_translate_1_oe() {
+        // arrange
+        final AffineTransformMatrix1D transform = AffineTransformMatrix1D.createTranslation(3);
+
+        // act
+        final AffineTransformMatrix1D inverse = transform.inverse();
+
+        // assert
+        final double[] expected = {1, -3};
+        Assertions.assertArrayEquals(expected, inverse.toArray(), 0.0);
+    }
+
+    @Test
+    void testInverse_scale_1_oe() {
+        // arrange
+        final AffineTransformMatrix1D transform = AffineTransformMatrix1D.createScale(10);
+
+        // act
+        final AffineTransformMatrix1D inverse = transform.inverse();
+
+        // assert
+        final double[] expected = {0.1, 0};
+        Assertions.assertArrayEquals(expected, inverse.toArray(), 0.0);
+    }
+
+    @Test
+    void testHashCode_1_oe() {
+        // act
+        final int orig = AffineTransformMatrix1D.of(1, 2).hashCode();
+        final int same = AffineTransformMatrix1D.of(1, 2).hashCode();
+
+        // assert
+        Assertions.assertEquals(orig, same);
+    }
+
+    @Test
+    void testHashCode_2_oe() {
+        // act
+        final int orig = AffineTransformMatrix1D.of(1, 2).hashCode();
+        final int same = AffineTransformMatrix1D.of(1, 2).hashCode();
+
+        // assert
+        // removed other assertion
+
+        Assertions.assertNotEquals(orig, AffineTransformMatrix1D.of(0, 2).hashCode());
+    }
+
+    @Test
+    void testHashCode_3_oe() {
+        // act
+        final int orig = AffineTransformMatrix1D.of(1, 2).hashCode();
+        final int same = AffineTransformMatrix1D.of(1, 2).hashCode();
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNotEquals(orig, AffineTransformMatrix1D.of(1, 0).hashCode());
+    }
+
+    @Test
+    void testEquals_2_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertNotEquals(a, AffineTransformMatrix1D.of(0, 2));
+    }
+
+    @Test
+    void testEquals_3_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNotEquals(a, AffineTransformMatrix1D.of(1, 0));
+    }
+
+    @Test
+    void testEqualsAndHashCode_signedZeroConsistency_1_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(0.0, -0.0);
+        final AffineTransformMatrix1D b = AffineTransformMatrix1D.of(-0.0, 0.0);
+        final AffineTransformMatrix1D c = AffineTransformMatrix1D.of(0.0, -0.0);
+        final AffineTransformMatrix1D d = AffineTransformMatrix1D.of(-0.0, 0.0);
+
+        // act/assert
+        Assertions.assertFalse(a.equals(b));
+    }
+
+    @Test
+    void testEqualsAndHashCode_signedZeroConsistency_2_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(0.0, -0.0);
+        final AffineTransformMatrix1D b = AffineTransformMatrix1D.of(-0.0, 0.0);
+        final AffineTransformMatrix1D c = AffineTransformMatrix1D.of(0.0, -0.0);
+        final AffineTransformMatrix1D d = AffineTransformMatrix1D.of(-0.0, 0.0);
+
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertTrue(a.equals(c));
+    }
+
+    @Test
+    void testEqualsAndHashCode_signedZeroConsistency_3_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(0.0, -0.0);
+        final AffineTransformMatrix1D b = AffineTransformMatrix1D.of(-0.0, 0.0);
+        final AffineTransformMatrix1D c = AffineTransformMatrix1D.of(0.0, -0.0);
+        final AffineTransformMatrix1D d = AffineTransformMatrix1D.of(-0.0, 0.0);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(a.hashCode(), c.hashCode());
+    }
+
+    @Test
+    void testEqualsAndHashCode_signedZeroConsistency_4_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(0.0, -0.0);
+        final AffineTransformMatrix1D b = AffineTransformMatrix1D.of(-0.0, 0.0);
+        final AffineTransformMatrix1D c = AffineTransformMatrix1D.of(0.0, -0.0);
+        final AffineTransformMatrix1D d = AffineTransformMatrix1D.of(-0.0, 0.0);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertTrue(b.equals(d));
+    }
+
+    @Test
+    void testEqualsAndHashCode_signedZeroConsistency_5_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(0.0, -0.0);
+        final AffineTransformMatrix1D b = AffineTransformMatrix1D.of(-0.0, 0.0);
+        final AffineTransformMatrix1D c = AffineTransformMatrix1D.of(0.0, -0.0);
+        final AffineTransformMatrix1D d = AffineTransformMatrix1D.of(-0.0, 0.0);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(b.hashCode(), d.hashCode());
+    }
+
+    @Test
+    void testToString_1_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(1, 2);
+
+        // act
+        final String result = a.toString();
+
+        // assert
+        Assertions.assertEquals("[ 1.0, 2.0 ]", result);
     }
 
 }

@@ -27,6 +27,8 @@ import org.apache.commons.rng.UniformRandomProvider;
 import org.apache.commons.rng.sampling.RandomAssert;
 import org.apache.commons.rng.simple.RandomSource;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test for {@link TetrahedronSampler}.
  */
@@ -321,10 +323,20 @@ class TetrahedronSamplerTest_OE25Dev {
             c[i] = bad;
             try {
     TetrahedronSampler.of(rng, c[0], c[1], c[2], c[3]);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: () -> String.format(\"Did not detect invalid dimension for vertex: %d\", ii)");
+    fail("IllegalArgumentException: () -> String.format(\"Did not detect invalid dimension for vertex: %d\", ii)");
 } catch (IllegalArgumentException e) {
 }
     }
+    }
+
+    @Test
+    void testNonFiniteVertexCoordinates_1_oe() {
+         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        // A valid tetrahedron
+         double[][] c = new double[][] {
+            {1, 1, 1}, {1, -1, 1}, {-1, 1, 1}, {1, 1, -1}
+        };
+        Assertions.assertNotNull(TetrahedronSampler.of(rng, c[0], c[1], c[2], c[3]));
     }
 
     @Test
@@ -345,12 +357,851 @@ class TetrahedronSamplerTest_OE25Dev {
                     c[i][j] = d;
                     try {
     TetrahedronSampler.of(rng, c[0], c[1], c[2], c[3]);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: () -> String.format(\"Did not detect non-finite coordinate: %d,%d = %s\", ii, jj, d)");
+    fail("IllegalArgumentException: () -> String.format(\"Did not detect non-finite coordinate: %d,%d = %s\", ii, jj, d)");
 } catch (IllegalArgumentException e) {
 }
     }
     }
     }
+    }
+
+    @Test
+    void testExtremeValueCoordinates_1_oe() {
+        // Object seed so use Long not long
+         Long seed = 876543L;
+        // Create a valid tetrahedron that can be scaled
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         double[][] c2 = new double[4][3];
+        // Extremely large value for scaling. Use a power of 2 for exact scaling.
+         double scale = 0x1.0p1023;
+        for (int i = 0; i < c1.length; i++) {
+            // Scale the second tetrahedron
+            for (int j = 0; j < 3; j++) {
+                c2[i][j] = c1[i][j] * scale;
+            }
+        }
+        // Show the tetrahedron is too big to compute vectors between points.
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY,c2[2][0] - c2[0][0],"Expect vector c - a to be infinite in the x dimension");
+    }
+
+    @Test
+    void testExtremeValueCoordinates_2_oe() {
+        // Object seed so use Long not long
+         Long seed = 876543L;
+        // Create a valid tetrahedron that can be scaled
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         double[][] c2 = new double[4][3];
+        // Extremely large value for scaling. Use a power of 2 for exact scaling.
+         double scale = 0x1.0p1023;
+        for (int i = 0; i < c1.length; i++) {
+            // Scale the second tetrahedron
+            for (int j = 0; j < 3; j++) {
+                c2[i][j] = c1[i][j] * scale;
+            }
+        }
+        // Show the tetrahedron is too big to compute vectors between points.
+        // removed other assertion
+        Assertions.assertEquals(Double.NEGATIVE_INFINITY,c2[2][1] - c2[3][1],"Expect vector c - d to be infinite in the y dimension");
+    }
+
+    @Test
+    void testExtremeValueCoordinates_3_oe() {
+        // Object seed so use Long not long
+         Long seed = 876543L;
+        // Create a valid tetrahedron that can be scaled
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         double[][] c2 = new double[4][3];
+        // Extremely large value for scaling. Use a power of 2 for exact scaling.
+         double scale = 0x1.0p1023;
+        for (int i = 0; i < c1.length; i++) {
+            // Scale the second tetrahedron
+            for (int j = 0; j < 3; j++) {
+                c2[i][j] = c1[i][j] * scale;
+            }
+        }
+        // Show the tetrahedron is too big to compute vectors between points.
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,c2[2][2] - c2[1][2],"Expect vector c - b to be infinite in the z dimension");
+    }
+
+    @Test
+    void testExtremeValueCoordinates_4_oe() {
+        // Object seed so use Long not long
+         Long seed = 876543L;
+        // Create a valid tetrahedron that can be scaled
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         double[][] c2 = new double[4][3];
+        // Extremely large value for scaling. Use a power of 2 for exact scaling.
+         double scale = 0x1.0p1023;
+        for (int i = 0; i < c1.length; i++) {
+            // Scale the second tetrahedron
+            for (int j = 0; j < 3; j++) {
+                c2[i][j] = c1[i][j] * scale;
+            }
+        }
+        // Show the tetrahedron is too big to compute vectors between points.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+         TetrahedronSampler sampler1 = TetrahedronSampler.of(
+                RandomSource.XO_RO_SHI_RO_128_PP.create(seed), c1[0], c1[1], c1[2], c1[3]);
+         TetrahedronSampler sampler2 = TetrahedronSampler.of(
+                RandomSource.XO_RO_SHI_RO_128_PP.create(seed), c2[0], c2[1], c2[2], c2[3]);
+
+        for (int n = 0; n < 10; n++) {
+             double[] a = sampler1.sample();
+             double[] b = sampler2.sample();
+            for (int i = 0; i < a.length; i++) {
+                a[i] *= scale;
+            }
+            Assertions.assertArrayEquals(a, b);
+    }
+    }
+
+    @Test
+    void testDistribution_1_oe() {
+        // Create the lower and upper limits of the box
+         double lx = -1;
+         double ly = -2;
+         double lz = 1;
+         double ux = 3;
+         double uy = 4;
+         double uz = 5;
+        // Create vertices abcd and efgh for the lower and upper rectangles
+        // (in the XY plane) of the box
+         double[] a = {lx, ly, lz};
+         double[] b = {ux, ly, lz};
+         double[] c = {ux, uy, lz};
+         double[] d = {lx, uy, lz};
+         double[] e = {lx, ly, uz};
+         double[] f = {ux, ly, uz};
+         double[] g = {ux, uy, uz};
+         double[] h = {lx, uy, uz};
+
+        // Assign bins
+         int bins = 10;
+        // Samples should be a multiple of 6 (due to combining 6 equal volume tetrahedra)
+         int samplesPerBin = 12;
+        // Scale factors to assign x,y,z to a bin
+         double sx = bins / (ux - lx);
+         double sy = bins / (uy - ly);
+         double sz = bins / (uz - lz);
+
+        // Compute factor to allocate bin index:
+        // index = x + y * binsX + z * binsX * binsY
+         int binsXy = bins * bins;
+
+        // Expect a uniform distribution (this is rescaled by the ChiSquareTest)
+         double[] expected = new double[binsXy * bins];
+        Arrays.fill(expected, 1);
+
+        // Increase the loops and use a null seed (i.e. randomly generated) to verify robustness
+         UniformRandomProvider rng = RandomSource.XO_SHI_RO_512_PP.create(0xaabbccddeeffL);
+
+        // Cut the box into 6 equal volume tetrahedra by cutting the box in half three times,
+        // cutting diagonally through each of the three pairs of opposing faces. In this way,
+        // the tetrahedra all share one of the main diagonals of the box (d-f).
+        // See the cuts used for the marching tetrahedra algorithm:
+        // https://en.wikipedia.org/wiki/Marching_tetrahedra
+         TetrahedronSampler[] samplers = {TetrahedronSampler.of(rng, d, f, b, c),
+                                               TetrahedronSampler.of(rng, d, f, c, g),
+                                               TetrahedronSampler.of(rng, d, f, g, h),
+                                               TetrahedronSampler.of(rng, d, f, h, e),
+                                               TetrahedronSampler.of(rng, d, f, e, a),
+                                               TetrahedronSampler.of(rng, d, f, a, b)};
+        // To determine the sample is inside the correct tetrahedron it is projected to the
+        // 4 faces of the tetrahedron along the face normals. The distance should be negative
+        // when the face normals are orientated outwards.
+         Tetrahedron[] tetrahedrons = {new Tetrahedron(d, f, b, c),
+                                            new Tetrahedron(d, f, c, g),
+                                            new Tetrahedron(d, f, g, h),
+                                            new Tetrahedron(d, f, h, e),
+                                            new Tetrahedron(d, f, e, a),
+                                            new Tetrahedron(d, f, a, b)};
+
+         int samples = expected.length * samplesPerBin;
+        for (int n = 0; n < 1; n++) {
+            // Assign each coordinate to a region inside the combined box
+             long[] observed = new long[expected.length];
+            // Equal volume tetrahedra so sample from each one
+            for (int i = 0; i < samples; i += 6) {
+                for (int j = 0; j < 6; j++) {
+                    addObservation(samplers[j].sample(), observed, bins, binsXy,
+                                   lx, ly, lz, sx, sy, sz, tetrahedrons[j]);
+                }
+            }
+             double p = new ChiSquareTest().chiSquareTest(expected, observed);
+            Assertions.assertFalse(p < 0.001, () -> "p-value too small: " + p);
+    }
+    }
+
+    @Test
+    void testChangedInputCoordinates_1_oe() {
+         UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         double[] c1 = createCoordinate(1);
+         double[] c2 = createCoordinate(2);
+         double[] c3 = createCoordinate(-3);
+         double[] c4 = createCoordinate(-4);
+         TetrahedronSampler sampler1 = TetrahedronSampler.of(rng1, c1, c2, c3, c4);
+        // Check the input vectors are copied and not used by reference.
+        // Change them in place and create a new sampler. It should have different output
+        // translated by the offset.
+         double offset = 10;
+        for (int i = 0; i < 3; i++) {
+            c1[i] += offset;
+            c2[i] += offset;
+            c3[i] += offset;
+            c4[i] += offset;
+        }
+         TetrahedronSampler sampler2 = TetrahedronSampler.of(rng2, c1, c2, c3, c4);
+        for (int n = 0; n < 5; n++) {
+             double[] s1 = sampler1.sample();
+             double[] s2 = sampler2.sample();
+            Assertions.assertEquals(3, s1.length);
+    }
+    }
+
+    @Test
+    void testChangedInputCoordinates_2_oe() {
+         UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         double[] c1 = createCoordinate(1);
+         double[] c2 = createCoordinate(2);
+         double[] c3 = createCoordinate(-3);
+         double[] c4 = createCoordinate(-4);
+         TetrahedronSampler sampler1 = TetrahedronSampler.of(rng1, c1, c2, c3, c4);
+        // Check the input vectors are copied and not used by reference.
+        // Change them in place and create a new sampler. It should have different output
+        // translated by the offset.
+         double offset = 10;
+        for (int i = 0; i < 3; i++) {
+            c1[i] += offset;
+            c2[i] += offset;
+            c3[i] += offset;
+            c4[i] += offset;
+        }
+         TetrahedronSampler sampler2 = TetrahedronSampler.of(rng2, c1, c2, c3, c4);
+        for (int n = 0; n < 5; n++) {
+             double[] s1 = sampler1.sample();
+             double[] s2 = sampler2.sample();
+            // removed other assertion
+            Assertions.assertEquals(3, s2.length);
+    }
+    }
+
+    @Test
+    void testChangedInputCoordinates_3_oe() {
+         UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+         UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+         double[] c1 = createCoordinate(1);
+         double[] c2 = createCoordinate(2);
+         double[] c3 = createCoordinate(-3);
+         double[] c4 = createCoordinate(-4);
+         TetrahedronSampler sampler1 = TetrahedronSampler.of(rng1, c1, c2, c3, c4);
+        // Check the input vectors are copied and not used by reference.
+        // Change them in place and create a new sampler. It should have different output
+        // translated by the offset.
+         double offset = 10;
+        for (int i = 0; i < 3; i++) {
+            c1[i] += offset;
+            c2[i] += offset;
+            c3[i] += offset;
+            c4[i] += offset;
+        }
+         TetrahedronSampler sampler2 = TetrahedronSampler.of(rng2, c1, c2, c3, c4);
+        for (int n = 0; n < 5; n++) {
+             double[] s1 = sampler1.sample();
+             double[] s2 = sampler2.sample();
+            // removed other assertion
+            // removed other assertion
+            for (int i = 0; i < 3; i++) {
+                Assertions.assertEquals(s1[i] + offset, s2[i], 1e-10);
+    }
+    }
+    }
+
+    @Test
+    void testTetrahedronContains_1_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            Assertions.assertTrue(tetrahedron.contains(c1[i], epsilon));
+    }
+    }
+
+    @Test
+    void testTetrahedronContains_2_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        Assertions.assertTrue(tetrahedron.contains(new double[] {1, 0, 0}, epsilon));
+    }
+
+    @Test
+    void testTetrahedronContains_3_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        Assertions.assertTrue(tetrahedron.contains(new double[] {0.5, 0.5, 1}, epsilon));
+    }
+
+    @Test
+    void testTetrahedronContains_4_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        Assertions.assertTrue(tetrahedron.contains(new double[] {1 - 1e-10, 0, 0}));
+    }
+
+    @Test
+    void testTetrahedronContains_5_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        // removed other assertion
+        Assertions.assertTrue(tetrahedron.contains(new double[] {0.5, 0.5, 1 - 1e-10}));
+    }
+
+    @Test
+    void testTetrahedronContains_6_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        // removed other assertion
+        // removed other assertion
+        // Just outside the edge
+        Assertions.assertFalse(tetrahedron.contains(new double[] {1, 0, 1e-10}, epsilon));
+    }
+
+    @Test
+    void testTetrahedronContains_7_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        // removed other assertion
+        // removed other assertion
+        // Just outside the edge
+        // removed other assertion
+        Assertions.assertFalse(tetrahedron.contains(new double[] {0.5, 0.5 + 1e-10, 1}, epsilon));
+    }
+
+    @Test
+    void testTetrahedronContains_8_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        // removed other assertion
+        // removed other assertion
+        // Just outside the edge
+        // removed other assertion
+        // removed other assertion
+        // Face
+        double x = 1.0 / 3;
+        Assertions.assertTrue(tetrahedron.contains(new double[] {x, -x, x}, epsilon));
+    }
+
+    @Test
+    void testTetrahedronContains_9_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        // removed other assertion
+        // removed other assertion
+        // Just outside the edge
+        // removed other assertion
+        // removed other assertion
+        // Face
+        double x = 1.0 / 3;
+        // removed other assertion
+        Assertions.assertTrue(tetrahedron.contains(new double[] {-x, -x, -x}, epsilon));
+    }
+
+    @Test
+    void testTetrahedronContains_10_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        // removed other assertion
+        // removed other assertion
+        // Just outside the edge
+        // removed other assertion
+        // removed other assertion
+        // Face
+        double x = 1.0 / 3;
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(tetrahedron.contains(new double[] {x, x, -x}, epsilon));
+    }
+
+    @Test
+    void testTetrahedronContains_11_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        // removed other assertion
+        // removed other assertion
+        // Just outside the edge
+        // removed other assertion
+        // removed other assertion
+        // Face
+        double x = 1.0 / 3;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(tetrahedron.contains(new double[] {-x, x, x}, epsilon));
+    }
+
+    @Test
+    void testTetrahedronContains_12_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        // removed other assertion
+        // removed other assertion
+        // Just outside the edge
+        // removed other assertion
+        // removed other assertion
+        // Face
+        double x = 1.0 / 3;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Just outside the face
+        x += 1e-10;
+        Assertions.assertFalse(tetrahedron.contains(new double[] {x, -x, x}, epsilon));
+    }
+
+    @Test
+    void testTetrahedronContains_13_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        // removed other assertion
+        // removed other assertion
+        // Just outside the edge
+        // removed other assertion
+        // removed other assertion
+        // Face
+        double x = 1.0 / 3;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Just outside the face
+        x += 1e-10;
+        // removed other assertion
+        Assertions.assertFalse(tetrahedron.contains(new double[] {-x, -x, -x}, epsilon));
+    }
+
+    @Test
+    void testTetrahedronContains_14_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        // removed other assertion
+        // removed other assertion
+        // Just outside the edge
+        // removed other assertion
+        // removed other assertion
+        // Face
+        double x = 1.0 / 3;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Just outside the face
+        x += 1e-10;
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(tetrahedron.contains(new double[] {x, x, -x}, epsilon));
+    }
+
+    @Test
+    void testTetrahedronContains_15_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        // removed other assertion
+        // removed other assertion
+        // Just outside the edge
+        // removed other assertion
+        // removed other assertion
+        // Face
+        double x = 1.0 / 3;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Just outside the face
+        x += 1e-10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(tetrahedron.contains(new double[] {-x, x, x}, epsilon));
+    }
+
+    @Test
+    void testTetrahedronContains_16_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        // removed other assertion
+        // removed other assertion
+        // Just outside the edge
+        // removed other assertion
+        // removed other assertion
+        // Face
+        double x = 1.0 / 3;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Just outside the face
+        x += 1e-10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Inside
+        Assertions.assertTrue(tetrahedron.contains(new double[] {0, 0, 0}));
+    }
+
+    @Test
+    void testTetrahedronContains_17_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        // removed other assertion
+        // removed other assertion
+        // Just outside the edge
+        // removed other assertion
+        // removed other assertion
+        // Face
+        double x = 1.0 / 3;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Just outside the face
+        x += 1e-10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Inside
+        // removed other assertion
+        Assertions.assertTrue(tetrahedron.contains(new double[] {0.5, 0.25, -0.1}));
+    }
+
+    @Test
+    void testTetrahedronContains_18_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        // removed other assertion
+        // removed other assertion
+        // Just outside the edge
+        // removed other assertion
+        // removed other assertion
+        // Face
+        double x = 1.0 / 3;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Just outside the face
+        x += 1e-10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Inside
+        // removed other assertion
+        // removed other assertion
+        // Outside
+        Assertions.assertFalse(tetrahedron.contains(new double[] {0, 20, 0}));
+    }
+
+    @Test
+    void testTetrahedronContains_19_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        // removed other assertion
+        // removed other assertion
+        // Just outside the edge
+        // removed other assertion
+        // removed other assertion
+        // Face
+        double x = 1.0 / 3;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Just outside the face
+        x += 1e-10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Inside
+        // removed other assertion
+        // removed other assertion
+        // Outside
+        // removed other assertion
+        Assertions.assertFalse(tetrahedron.contains(new double[] {-20, 0, 0}));
+    }
+
+    @Test
+    void testTetrahedronContains_20_oe() {
+         double[][] c1 = new double[][] {
+            {1, 1, 1}, {1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}
+        };
+         Tetrahedron tetrahedron = new Tetrahedron(c1[0], c1[1], c1[2], c1[3]);
+        // Testing points on the vertices, edges or faces are subject to floating point error
+         double epsilon = 1e-14;
+        // Vertices
+        for (int i = 0; i < 4; i++) {
+            // removed other assertion
+        }
+        // Edge
+        // removed other assertion
+        // removed other assertion
+        // Just inside the edge
+        // removed other assertion
+        // removed other assertion
+        // Just outside the edge
+        // removed other assertion
+        // removed other assertion
+        // Face
+        double x = 1.0 / 3;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Just outside the face
+        x += 1e-10;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Inside
+        // removed other assertion
+        // removed other assertion
+        // Outside
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(tetrahedron.contains(new double[] {6, 6, 4}));
     }
 
 }

@@ -33,5 +33,520 @@ public class NotImplementedExceptionTest_OE25Dev {
         assertEquals(code, nie.getCode(), assertMessage + ": Code not equal");
     }
 
+    @Test
+    public void testConstructors_1_oe_1_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+                final String assertMessage0 = "Issue in (String)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = message;
+        final Throwable nested0 = null;
+        final String code0 = null;
+        assertNotNull(nie0, assertMessage0 + ": target is null");
+    }
+
+    @Test
+    public void testConstructors_1_oe_2_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+                final String assertMessage0 = "Issue in (String)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = message;
+        final Throwable nested0 = null;
+        final String code0 = null;
+        // removed other assertion
+                assertEquals(message0, nie0.getMessage(), assertMessage0 + ": Message not equal");
+    }
+
+    @Test
+    public void testConstructors_1_oe_3_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+                final String assertMessage0 = "Issue in (String)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = message;
+        final Throwable nested0 = null;
+        final String code0 = null;
+        // removed other assertion
+                // removed other assertion
+                assertEquals(nested0, nie0.getCause(), assertMessage0 + ": Nested throwable not equal");
+    }
+
+    @Test
+    public void testConstructors_1_oe_4_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+                final String assertMessage0 = "Issue in (String)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = message;
+        final Throwable nested0 = null;
+        final String code0 = null;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(code0, nie0.getCode(), assertMessage0 + ": Code not equal");
+    }
+
+    @Test
+    public void testConstructors_2_oe_1_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+                final String assertMessage0 = "Issue in (Throwable)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = nested.toString();
+        final Throwable nested0 = nested;
+        final String code0 = null;
+        assertNotNull(nie0, assertMessage0 + ": target is null");
+    }
+
+    @Test
+    public void testConstructors_2_oe_2_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+                final String assertMessage0 = "Issue in (Throwable)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = nested.toString();
+        final Throwable nested0 = nested;
+        final String code0 = null;
+        // removed other assertion
+                assertEquals(message0, nie0.getMessage(), assertMessage0 + ": Message not equal");
+    }
+
+    @Test
+    public void testConstructors_2_oe_3_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+                final String assertMessage0 = "Issue in (Throwable)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = nested.toString();
+        final Throwable nested0 = nested;
+        final String code0 = null;
+        // removed other assertion
+                // removed other assertion
+                assertEquals(nested0, nie0.getCause(), assertMessage0 + ": Nested throwable not equal");
+    }
+
+    @Test
+    public void testConstructors_2_oe_4_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+                final String assertMessage0 = "Issue in (Throwable)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = nested.toString();
+        final Throwable nested0 = nested;
+        final String code0 = null;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(code0, nie0.getCode(), assertMessage0 + ": Code not equal");
+    }
+
+    @Test
+    public void testConstructors_3_oe_1_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+                final String assertMessage0 = "Issue in (String, Throwable)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = message;
+        final Throwable nested0 = nested;
+        final String code0 = null;
+        assertNotNull(nie0, assertMessage0 + ": target is null");
+    }
+
+    @Test
+    public void testConstructors_3_oe_2_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+                final String assertMessage0 = "Issue in (String, Throwable)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = message;
+        final Throwable nested0 = nested;
+        final String code0 = null;
+        // removed other assertion
+                assertEquals(message0, nie0.getMessage(), assertMessage0 + ": Message not equal");
+    }
+
+    @Test
+    public void testConstructors_3_oe_3_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+                final String assertMessage0 = "Issue in (String, Throwable)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = message;
+        final Throwable nested0 = nested;
+        final String code0 = null;
+        // removed other assertion
+                // removed other assertion
+                assertEquals(nested0, nie0.getCause(), assertMessage0 + ": Nested throwable not equal");
+    }
+
+    @Test
+    public void testConstructors_3_oe_4_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+                final String assertMessage0 = "Issue in (String, Throwable)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = message;
+        final Throwable nested0 = nested;
+        final String code0 = null;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(code0, nie0.getCode(), assertMessage0 + ": Code not equal");
+    }
+
+    @Test
+    public void testConstructors_4_oe_1_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, code);
+                final String assertMessage0 = "Issue in (String, String)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = message;
+        final Throwable nested0 = null;
+        final String code0 = code;
+        assertNotNull(nie0, assertMessage0 + ": target is null");
+    }
+
+    @Test
+    public void testConstructors_4_oe_2_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, code);
+                final String assertMessage0 = "Issue in (String, String)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = message;
+        final Throwable nested0 = null;
+        final String code0 = code;
+        // removed other assertion
+                assertEquals(message0, nie0.getMessage(), assertMessage0 + ": Message not equal");
+    }
+
+    @Test
+    public void testConstructors_4_oe_3_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, code);
+                final String assertMessage0 = "Issue in (String, String)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = message;
+        final Throwable nested0 = null;
+        final String code0 = code;
+        // removed other assertion
+                // removed other assertion
+                assertEquals(nested0, nie0.getCause(), assertMessage0 + ": Nested throwable not equal");
+    }
+
+    @Test
+    public void testConstructors_4_oe_4_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, code);
+                final String assertMessage0 = "Issue in (String, String)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = message;
+        final Throwable nested0 = null;
+        final String code0 = code;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(code0, nie0.getCode(), assertMessage0 + ": Code not equal");
+    }
+
+    @Test
+    public void testConstructors_5_oe_1_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, code);
+        // removed other assertion
+        nie = new NotImplementedException(nested, code);
+                final String assertMessage0 = "Issue in (Throwable, String)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = nested.toString();
+        final Throwable nested0 = nested;
+        final String code0 = code;
+        assertNotNull(nie0, assertMessage0 + ": target is null");
+    }
+
+    @Test
+    public void testConstructors_5_oe_2_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, code);
+        // removed other assertion
+        nie = new NotImplementedException(nested, code);
+                final String assertMessage0 = "Issue in (Throwable, String)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = nested.toString();
+        final Throwable nested0 = nested;
+        final String code0 = code;
+        // removed other assertion
+                assertEquals(message0, nie0.getMessage(), assertMessage0 + ": Message not equal");
+    }
+
+    @Test
+    public void testConstructors_5_oe_3_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, code);
+        // removed other assertion
+        nie = new NotImplementedException(nested, code);
+                final String assertMessage0 = "Issue in (Throwable, String)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = nested.toString();
+        final Throwable nested0 = nested;
+        final String code0 = code;
+        // removed other assertion
+                // removed other assertion
+                assertEquals(nested0, nie0.getCause(), assertMessage0 + ": Nested throwable not equal");
+    }
+
+    @Test
+    public void testConstructors_5_oe_4_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, code);
+        // removed other assertion
+        nie = new NotImplementedException(nested, code);
+                final String assertMessage0 = "Issue in (Throwable, String)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = nested.toString();
+        final Throwable nested0 = nested;
+        final String code0 = code;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(code0, nie0.getCode(), assertMessage0 + ": Code not equal");
+    }
+
+    @Test
+    public void testConstructors_6_oe_1_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, code);
+        // removed other assertion
+        nie = new NotImplementedException(nested, code);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested, code);
+                final String assertMessage0 = "Issue in (String, Throwable, String)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = message;
+        final Throwable nested0 = nested;
+        final String code0 = code;
+        assertNotNull(nie0, assertMessage0 + ": target is null");
+    }
+
+    @Test
+    public void testConstructors_6_oe_2_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, code);
+        // removed other assertion
+        nie = new NotImplementedException(nested, code);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested, code);
+                final String assertMessage0 = "Issue in (String, Throwable, String)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = message;
+        final Throwable nested0 = nested;
+        final String code0 = code;
+        // removed other assertion
+                assertEquals(message0, nie0.getMessage(), assertMessage0 + ": Message not equal");
+    }
+
+    @Test
+    public void testConstructors_6_oe_3_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, code);
+        // removed other assertion
+        nie = new NotImplementedException(nested, code);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested, code);
+                final String assertMessage0 = "Issue in (String, Throwable, String)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = message;
+        final Throwable nested0 = nested;
+        final String code0 = code;
+        // removed other assertion
+                // removed other assertion
+                assertEquals(nested0, nie0.getCause(), assertMessage0 + ": Nested throwable not equal");
+    }
+
+    @Test
+    public void testConstructors_6_oe_4_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = "Not Implemented";
+        final String code = "CODE";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, code);
+        // removed other assertion
+        nie = new NotImplementedException(nested, code);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested, code);
+                final String assertMessage0 = "Issue in (String, Throwable, String)";
+        final NotImplementedException nie0 = nie;
+        final String message0 = message;
+        final Throwable nested0 = nested;
+        final String code0 = code;
+        // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(code0, nie0.getCode(), assertMessage0 + ": Code not equal");
+    }
 
 }

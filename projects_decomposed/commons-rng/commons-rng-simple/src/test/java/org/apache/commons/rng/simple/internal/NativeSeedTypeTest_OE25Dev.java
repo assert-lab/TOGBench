@@ -19,6 +19,8 @@ package org.apache.commons.rng.simple.internal;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Tests for the {@link NativeSeedType} factory seed conversions.
  */
@@ -37,9 +39,15 @@ class NativeSeedTypeTest_OE25Dev {
     void testConvertSeedToBytesUsingNullThrows_1_oe() {
         try {
     NativeSeedType.convertSeedToBytes(null);
-    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+    fail("UnsupportedOperationException");
 } catch (UnsupportedOperationException e) {
 }
+    }
+
+    @Test
+    void testConvertSeedToBytesUsingByteArray_1_oe() {
+         byte[] seed = {42, 78, 99};
+        Assertions.assertSame(seed, NativeSeedType.convertSeedToBytes(seed));
     }
 
 }

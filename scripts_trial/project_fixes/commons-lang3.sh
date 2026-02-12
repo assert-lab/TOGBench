@@ -487,6 +487,8 @@ fail_list = [
 "ToStringBuilderTest.testConstructToStringBuilder_4_oe",
 "ToStringBuilderTest.testConstructToStringBuilder_5_oe",
 
+"StringUtilsTest.testAbbreviate_StringStringIntInt_5_oe",
+
 
 
 "ArrayUtilsAddTest.*",

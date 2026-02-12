@@ -160,5 +160,917 @@ public class CustomRamProviderTest_OE25Dev {
      * the (Windows) LocalFileProvider.
      */
 
+    @Test
+    public void testFSOptions_1_oe() throws Exception {
+        // Default FS
+        final FileObject fo1 = manager.resolveFile("ram:/");
+        final FileObject fo2 = manager.resolveFile("ram:/");
+        assertSame("Both files should exist in the same fs instance.", fo1.getFileSystem(), fo2.getFileSystem());
+    }
+
+    @Test
+    public void testFSOptions_2_oe() throws Exception {
+        // Default FS
+        final FileObject fo1 = manager.resolveFile("ram:/");
+        final FileObject fo2 = manager.resolveFile("ram:/");
+        // removed other assertion
+
+        FileSystemOptions fsOptions = fo1.getFileSystem().getFileSystemOptions();
+        long maxFilesystemSize = RamFileSystemConfigBuilder.getInstance().getLongMaxSize(fsOptions);
+        assertEquals("Filesystem option maxSize must be unlimited", Long.MAX_VALUE, maxFilesystemSize);
+    }
+
+    @Test
+    public void testFSOptions_3_oe() throws Exception {
+        // Default FS
+        final FileObject fo1 = manager.resolveFile("ram:/");
+        final FileObject fo2 = manager.resolveFile("ram:/");
+        // removed other assertion
+
+        FileSystemOptions fsOptions = fo1.getFileSystem().getFileSystemOptions();
+        long maxFilesystemSize = RamFileSystemConfigBuilder.getInstance().getLongMaxSize(fsOptions);
+        // removed other assertion
+
+        // Small FS
+        final FileObject fo3 = manager.resolveFile("ram:/fo3", smallSizedFso);
+        final FileObject fo4 = manager.resolveFile("ram:/", smallSizedFso);
+        assertSame("Both files should exist in the same FileSystem instance.", fo3.getFileSystem(), fo4.getFileSystem());
+    }
+
+    @Test
+    public void testFSOptions_4_oe() throws Exception {
+        // Default FS
+        final FileObject fo1 = manager.resolveFile("ram:/");
+        final FileObject fo2 = manager.resolveFile("ram:/");
+        // removed other assertion
+
+        FileSystemOptions fsOptions = fo1.getFileSystem().getFileSystemOptions();
+        long maxFilesystemSize = RamFileSystemConfigBuilder.getInstance().getLongMaxSize(fsOptions);
+        // removed other assertion
+
+        // Small FS
+        final FileObject fo3 = manager.resolveFile("ram:/fo3", smallSizedFso);
+        final FileObject fo4 = manager.resolveFile("ram:/", smallSizedFso);
+        // removed other assertion
+        assertNotSame("Both files should exist in different FileSystem instance.", fo1.getFileSystem(), fo3.getFileSystem());
+    }
+
+    @Test
+    public void testFSOptions_5_oe() throws Exception {
+        // Default FS
+        final FileObject fo1 = manager.resolveFile("ram:/");
+        final FileObject fo2 = manager.resolveFile("ram:/");
+        // removed other assertion
+
+        FileSystemOptions fsOptions = fo1.getFileSystem().getFileSystemOptions();
+        long maxFilesystemSize = RamFileSystemConfigBuilder.getInstance().getLongMaxSize(fsOptions);
+        // removed other assertion
+
+        // Small FS
+        final FileObject fo3 = manager.resolveFile("ram:/fo3", smallSizedFso);
+        final FileObject fo4 = manager.resolveFile("ram:/", smallSizedFso);
+        // removed other assertion
+        // removed other assertion
+
+        fsOptions = fo3.getFileSystem().getFileSystemOptions();
+        maxFilesystemSize = RamFileSystemConfigBuilder.getInstance().getLongMaxSize(fsOptions);
+        assertEquals("Filesystem option maxSize must be set", 10, maxFilesystemSize);
+    }
+
+    @Test
+    public void testMoveFile_1_oe() throws FileSystemException {
+        final FileObject fileSource = manager.resolveFile("ram://virtual/source");
+        fileSource.createFile();
+        final FileObject fileDest = manager.resolveFile("ram://virtual/dest");
+        Assert.assertTrue(fileSource.canRenameTo(fileDest));
+    }
+
+    @Test
+    public void testReadEmptyFileByteByByte_1_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createEmptyFile();
+        assertEquals("Empty file didnt return EOF -1", -1, input.read());
+    }
+
+    @Test
+    public void testReadEmptyFileIntoBuffer_1_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createEmptyFile();
+
+        final byte[] buffer = new byte[100];
+        assertEquals("Empty file didnt return when filling buffer", -1, input.read(buffer));
+    }
+
+    @Test
+    public void testReadEmptyFileIntoBuffer_2_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createEmptyFile();
+
+        final byte[] buffer = new byte[100];
+        // removed other assertion
+        assertArrayEquals("Buffer was written too", new byte[100], buffer);
+    }
+
+    @Test
+    public void testReadEmptyFileIntoBufferWithOffsetAndLength_1_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createEmptyFile();
+        final byte[] buffer = new byte[100];
+        assertEquals("Empty file didnt return when filling buffer", -1, input.read(buffer, 10, 90));
+    }
+
+    @Test
+    public void testReadEmptyFileIntoBufferWithOffsetAndLength_2_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createEmptyFile();
+        final byte[] buffer = new byte[100];
+        // removed other assertion
+        assertArrayEquals("Buffer was written too", new byte[100], buffer);
+    }
+
+    @Test
+    public void testReadNonEmptyFileByteByByte_1_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createNonEmptyFile();
+
+        assertEquals("Read 1st byte failed", 1, input.read());
+    }
+
+    @Test
+    public void testReadNonEmptyFileByteByByte_2_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createNonEmptyFile();
+
+        // removed other assertion
+        assertEquals("Rread 2st byte failed", 2, input.read());
+    }
+
+    @Test
+    public void testReadNonEmptyFileByteByByte_3_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createNonEmptyFile();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Read 3st byte failed", 3, input.read());
+    }
+
+    @Test
+    public void testReadNonEmptyFileByteByByte_4_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createNonEmptyFile();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("File should be empty", -1, input.read());
+    }
+
+    @Test
+    public void testReadNonEmptyFileIntoBuffer_1_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createNonEmptyFile();
+
+        final byte[] buffer = new byte[100];
+        assertEquals("Filling buffer failed when file is not empty", NON_EMPTY_FILE_CONTENT.length, input.read(buffer));
+    }
+
+    @Test
+    public void testReadNonEmptyFileIntoBuffer_2_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createNonEmptyFile();
+
+        final byte[] buffer = new byte[100];
+        // removed other assertion
+
+        final byte[] expectedBuffer = new byte[100];
+        System.arraycopy(NON_EMPTY_FILE_CONTENT, 0, expectedBuffer, 0, NON_EMPTY_FILE_CONTENT.length);
+        assertArrayEquals("Buffer not filled", expectedBuffer, buffer);
+    }
+
+    @Test
+    public void testReadNonEmptyFileIntoBuffer_3_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createNonEmptyFile();
+
+        final byte[] buffer = new byte[100];
+        // removed other assertion
+
+        final byte[] expectedBuffer = new byte[100];
+        System.arraycopy(NON_EMPTY_FILE_CONTENT, 0, expectedBuffer, 0, NON_EMPTY_FILE_CONTENT.length);
+        // removed other assertion
+
+        Arrays.fill(buffer, (byte) 0);
+        Arrays.fill(expectedBuffer, (byte) 0);
+
+        assertEquals("File should be empty after filling buffer", -1, input.read(buffer));
+    }
+
+    @Test
+    public void testReadNonEmptyFileIntoBuffer_4_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createNonEmptyFile();
+
+        final byte[] buffer = new byte[100];
+        // removed other assertion
+
+        final byte[] expectedBuffer = new byte[100];
+        System.arraycopy(NON_EMPTY_FILE_CONTENT, 0, expectedBuffer, 0, NON_EMPTY_FILE_CONTENT.length);
+        // removed other assertion
+
+        Arrays.fill(buffer, (byte) 0);
+        Arrays.fill(expectedBuffer, (byte) 0);
+
+        // removed other assertion
+        assertArrayEquals("Buffer was written when empty", expectedBuffer, buffer);
+    }
+
+    @Test
+    public void testReadNonEmptyFileIntoBufferWithOffsetAndLength_1_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createNonEmptyFile();
+
+        final byte[] buffer = new byte[100];
+        final int offset = 10;
+        assertEquals("Filling buffer failed when file is not empty",NON_EMPTY_FILE_CONTENT.length,input.read(buffer,offset,100 - offset));
+    }
+
+    @Test
+    public void testReadNonEmptyFileIntoBufferWithOffsetAndLength_2_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createNonEmptyFile();
+
+        final byte[] buffer = new byte[100];
+        final int offset = 10;
+        // removed other assertion
+
+        final byte[] expectedBuffer = new byte[100];
+        System.arraycopy(NON_EMPTY_FILE_CONTENT, 0, expectedBuffer, offset, NON_EMPTY_FILE_CONTENT.length);
+        assertArrayEquals("Buffer not filled", expectedBuffer, buffer);
+    }
+
+    @Test
+    public void testReadNonEmptyFileIntoBufferWithOffsetAndLength_3_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createNonEmptyFile();
+
+        final byte[] buffer = new byte[100];
+        final int offset = 10;
+        // removed other assertion
+
+        final byte[] expectedBuffer = new byte[100];
+        System.arraycopy(NON_EMPTY_FILE_CONTENT, 0, expectedBuffer, offset, NON_EMPTY_FILE_CONTENT.length);
+        // removed other assertion
+
+        Arrays.fill(buffer, (byte) 0);
+        Arrays.fill(expectedBuffer, (byte) 0);
+        assertEquals("File should be empty after filling buffer", -1, input.read(buffer, 10, 90));
+    }
+
+    @Test
+    public void testReadNonEmptyFileIntoBufferWithOffsetAndLength_4_oe() throws FileSystemException, IOException {
+        final InputStream input = this.createNonEmptyFile();
+
+        final byte[] buffer = new byte[100];
+        final int offset = 10;
+        // removed other assertion
+
+        final byte[] expectedBuffer = new byte[100];
+        System.arraycopy(NON_EMPTY_FILE_CONTENT, 0, expectedBuffer, offset, NON_EMPTY_FILE_CONTENT.length);
+        // removed other assertion
+
+        Arrays.fill(buffer, (byte) 0);
+        Arrays.fill(expectedBuffer, (byte) 0);
+        // removed other assertion
+        assertArrayEquals("Buffer was written when empty", expectedBuffer, buffer);
+    }
+
+    @Test
+    public void testRootFolderExists_1_oe() throws FileSystemException {
+        final FileObject root = manager.resolveFile("ram:///", defaultRamFso);
+        assertTrue(root.getType().hasChildren());
+    }
+
+    @Test
+    public void testSchemePrefix_1_oe() throws FileSystemException
+    {
+        // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
+        final String KNOWN_SCHEME = manager.getSchemes()[0]; // typically "ram"
+
+        // we test with this file name
+        final String testDir = "/prefixtest/";
+        final String testFileName = KNOWN_SCHEME + ":test:txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // verify we can list dir
+
+        // if not it throws:
+        // Caused by: org.apache.commons.vfs2.FileSystemException: Invalid descendent file name "ram:data:test.txt".
+        //   at org.apache.commons.vfs2.impl.DefaultFileSystemManager.resolveName
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.getChildren
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.traverse
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.findFiles
+
+        // test methods to get the child:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(testFileName);
+
+        // validate findFiles returns expected result
+        assertEquals("Unexpected result findFiles: " + Arrays.toString(findFilesResult), 2, findFilesResult.length);
+    }
+
+    @Test
+    public void testSchemePrefix_2_oe() throws FileSystemException
+    {
+        // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
+        final String KNOWN_SCHEME = manager.getSchemes()[0]; // typically "ram"
+
+        // we test with this file name
+        final String testDir = "/prefixtest/";
+        final String testFileName = KNOWN_SCHEME + ":test:txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // verify we can list dir
+
+        // if not it throws:
+        // Caused by: org.apache.commons.vfs2.FileSystemException: Invalid descendent file name "ram:data:test.txt".
+        //   at org.apache.commons.vfs2.impl.DefaultFileSystemManager.resolveName
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.getChildren
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.traverse
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.findFiles
+
+        // test methods to get the child:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(testFileName);
+
+        // validate findFiles returns expected result
+        // removed other assertion
+        String resultName = findFilesResult[0].getName().getPathDecoded();
+        assertEquals("findFiles Child name does not match", expectedName, resultName);
+    }
+
+    @Test
+    public void testSchemePrefix_3_oe() throws FileSystemException
+    {
+        // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
+        final String KNOWN_SCHEME = manager.getSchemes()[0]; // typically "ram"
+
+        // we test with this file name
+        final String testDir = "/prefixtest/";
+        final String testFileName = KNOWN_SCHEME + ":test:txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // verify we can list dir
+
+        // if not it throws:
+        // Caused by: org.apache.commons.vfs2.FileSystemException: Invalid descendent file name "ram:data:test.txt".
+        //   at org.apache.commons.vfs2.impl.DefaultFileSystemManager.resolveName
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.getChildren
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.traverse
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.findFiles
+
+        // test methods to get the child:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(testFileName);
+
+        // validate findFiles returns expected result
+        // removed other assertion
+        String resultName = findFilesResult[0].getName().getPathDecoded();
+        // removed other assertion
+        assertEquals("Did findFiles but child was no file", FileType.FILE, findFilesResult[0].getType());
+    }
+
+    @Test
+    public void testSchemePrefix_4_oe() throws FileSystemException
+    {
+        // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
+        final String KNOWN_SCHEME = manager.getSchemes()[0]; // typically "ram"
+
+        // we test with this file name
+        final String testDir = "/prefixtest/";
+        final String testFileName = KNOWN_SCHEME + ":test:txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // verify we can list dir
+
+        // if not it throws:
+        // Caused by: org.apache.commons.vfs2.FileSystemException: Invalid descendent file name "ram:data:test.txt".
+        //   at org.apache.commons.vfs2.impl.DefaultFileSystemManager.resolveName
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.getChildren
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.traverse
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.findFiles
+
+        // test methods to get the child:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(testFileName);
+
+        // validate findFiles returns expected result
+        // removed other assertion
+        String resultName = findFilesResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChildren returns expected result
+        assertEquals("Unexpected result getChildren: " + Arrays.toString(getChildrenResult), 1, getChildrenResult.length);
+    }
+
+    @Test
+    public void testSchemePrefix_5_oe() throws FileSystemException
+    {
+        // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
+        final String KNOWN_SCHEME = manager.getSchemes()[0]; // typically "ram"
+
+        // we test with this file name
+        final String testDir = "/prefixtest/";
+        final String testFileName = KNOWN_SCHEME + ":test:txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // verify we can list dir
+
+        // if not it throws:
+        // Caused by: org.apache.commons.vfs2.FileSystemException: Invalid descendent file name "ram:data:test.txt".
+        //   at org.apache.commons.vfs2.impl.DefaultFileSystemManager.resolveName
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.getChildren
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.traverse
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.findFiles
+
+        // test methods to get the child:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(testFileName);
+
+        // validate findFiles returns expected result
+        // removed other assertion
+        String resultName = findFilesResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChildren returns expected result
+        // removed other assertion
+        resultName = getChildrenResult[0].getName().getPathDecoded();
+        assertEquals("getChildren Child name does not match", expectedName, resultName);
+    }
+
+    @Test
+    public void testSchemePrefix_6_oe() throws FileSystemException
+    {
+        // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
+        final String KNOWN_SCHEME = manager.getSchemes()[0]; // typically "ram"
+
+        // we test with this file name
+        final String testDir = "/prefixtest/";
+        final String testFileName = KNOWN_SCHEME + ":test:txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // verify we can list dir
+
+        // if not it throws:
+        // Caused by: org.apache.commons.vfs2.FileSystemException: Invalid descendent file name "ram:data:test.txt".
+        //   at org.apache.commons.vfs2.impl.DefaultFileSystemManager.resolveName
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.getChildren
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.traverse
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.findFiles
+
+        // test methods to get the child:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(testFileName);
+
+        // validate findFiles returns expected result
+        // removed other assertion
+        String resultName = findFilesResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChildren returns expected result
+        // removed other assertion
+        resultName = getChildrenResult[0].getName().getPathDecoded();
+        // removed other assertion
+        assertEquals("Did getChildren but child was no file", FileType.FILE, getChildrenResult[0].getType());
+    }
+
+    @Test
+    public void testSchemePrefix_7_oe() throws FileSystemException
+    {
+        // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
+        final String KNOWN_SCHEME = manager.getSchemes()[0]; // typically "ram"
+
+        // we test with this file name
+        final String testDir = "/prefixtest/";
+        final String testFileName = KNOWN_SCHEME + ":test:txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // verify we can list dir
+
+        // if not it throws:
+        // Caused by: org.apache.commons.vfs2.FileSystemException: Invalid descendent file name "ram:data:test.txt".
+        //   at org.apache.commons.vfs2.impl.DefaultFileSystemManager.resolveName
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.getChildren
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.traverse
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.findFiles
+
+        // test methods to get the child:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(testFileName);
+
+        // validate findFiles returns expected result
+        // removed other assertion
+        String resultName = findFilesResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChildren returns expected result
+        // removed other assertion
+        resultName = getChildrenResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChild returns expected child
+        assertNotNull("Did not find direct child", getChildResult);
+    }
+
+    @Test
+    public void testSchemePrefix_8_oe() throws FileSystemException
+    {
+        // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
+        final String KNOWN_SCHEME = manager.getSchemes()[0]; // typically "ram"
+
+        // we test with this file name
+        final String testDir = "/prefixtest/";
+        final String testFileName = KNOWN_SCHEME + ":test:txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // verify we can list dir
+
+        // if not it throws:
+        // Caused by: org.apache.commons.vfs2.FileSystemException: Invalid descendent file name "ram:data:test.txt".
+        //   at org.apache.commons.vfs2.impl.DefaultFileSystemManager.resolveName
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.getChildren
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.traverse
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.findFiles
+
+        // test methods to get the child:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(testFileName);
+
+        // validate findFiles returns expected result
+        // removed other assertion
+        String resultName = findFilesResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChildren returns expected result
+        // removed other assertion
+        resultName = getChildrenResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChild returns expected child
+        // removed other assertion
+        resultName = getChildResult.getName().getPathDecoded();
+        assertEquals("getChild name does not match", expectedName, resultName);
+    }
+
+    @Test
+    public void testSchemePrefix_9_oe() throws FileSystemException
+    {
+        // use a :-prefix with a known scheme (unknown scheme works since VFS-398)
+        final String KNOWN_SCHEME = manager.getSchemes()[0]; // typically "ram"
+
+        // we test with this file name
+        final String testDir = "/prefixtest/";
+        final String testFileName = KNOWN_SCHEME + ":test:txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // verify we can list dir
+
+        // if not it throws:
+        // Caused by: org.apache.commons.vfs2.FileSystemException: Invalid descendent file name "ram:data:test.txt".
+        //   at org.apache.commons.vfs2.impl.DefaultFileSystemManager.resolveName
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.getChildren
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.traverse
+        //   at org.apache.commons.vfs2.provider.AbstractFileObject.findFiles
+
+        // test methods to get the child:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(testFileName);
+
+        // validate findFiles returns expected result
+        // removed other assertion
+        String resultName = findFilesResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChildren returns expected result
+        // removed other assertion
+        resultName = getChildrenResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChild returns expected child
+        // removed other assertion
+        resultName = getChildResult.getName().getPathDecoded();
+        // removed other assertion
+        assertEquals("getChild was no file", FileType.FILE, getChildResult.getType());
+    }
+
+    @Test
+    public void testSmallFS_1_oe() throws Exception {
+        // Small FS
+        final FileObject fo3 = manager.resolveFile("ram:/fo3", smallSizedFso);
+        fo3.createFile();
+        try {
+            final OutputStream os = fo3.getContent().getOutputStream();
+            os.write(new byte[10]);
+            os.close();
+        } catch (final FileSystemException e) {
+            fail("Test should be able to save such a small file");
+    }
+    }
+
+    @Test
+    public void testSpecialName_1_oe() throws FileSystemException
+    {
+        // we test with this file name
+        // does not work with '!'
+        final String testDir = "/spacialtest/";
+        final String testFileName = "test:+-_ \"()<>%#.txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // DO: verify you can list it:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(UriParser.encode(testFileName, ENC));
+
+
+        // validate findFiles returns expected result
+        assertEquals("Unexpected result findFiles: " + Arrays.toString(findFilesResult), 2, findFilesResult.length);
+    }
+
+    @Test
+    public void testSpecialName_2_oe() throws FileSystemException
+    {
+        // we test with this file name
+        // does not work with '!'
+        final String testDir = "/spacialtest/";
+        final String testFileName = "test:+-_ \"()<>%#.txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // DO: verify you can list it:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(UriParser.encode(testFileName, ENC));
+
+
+        // validate findFiles returns expected result
+        // removed other assertion
+        String resultName = findFilesResult[0].getName().getPathDecoded();
+        assertEquals("findFiles Child name does not match", expectedName, resultName);
+    }
+
+    @Test
+    public void testSpecialName_3_oe() throws FileSystemException
+    {
+        // we test with this file name
+        // does not work with '!'
+        final String testDir = "/spacialtest/";
+        final String testFileName = "test:+-_ \"()<>%#.txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // DO: verify you can list it:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(UriParser.encode(testFileName, ENC));
+
+
+        // validate findFiles returns expected result
+        // removed other assertion
+        String resultName = findFilesResult[0].getName().getPathDecoded();
+        // removed other assertion
+        assertEquals("Did findFiles but child was no file", FileType.FILE, findFilesResult[0].getType());
+    }
+
+    @Test
+    public void testSpecialName_4_oe() throws FileSystemException
+    {
+        // we test with this file name
+        // does not work with '!'
+        final String testDir = "/spacialtest/";
+        final String testFileName = "test:+-_ \"()<>%#.txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // DO: verify you can list it:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(UriParser.encode(testFileName, ENC));
+
+
+        // validate findFiles returns expected result
+        // removed other assertion
+        String resultName = findFilesResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChildren returns expected result
+        assertEquals("Unexpected result getChildren: " + Arrays.toString(getChildrenResult), 1, getChildrenResult.length);
+    }
+
+    @Test
+    public void testSpecialName_5_oe() throws FileSystemException
+    {
+        // we test with this file name
+        // does not work with '!'
+        final String testDir = "/spacialtest/";
+        final String testFileName = "test:+-_ \"()<>%#.txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // DO: verify you can list it:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(UriParser.encode(testFileName, ENC));
+
+
+        // validate findFiles returns expected result
+        // removed other assertion
+        String resultName = findFilesResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChildren returns expected result
+        // removed other assertion
+        resultName = getChildrenResult[0].getName().getPathDecoded();
+        assertEquals("getChildren Child name does not match", expectedName, resultName);
+    }
+
+    @Test
+    public void testSpecialName_6_oe() throws FileSystemException
+    {
+        // we test with this file name
+        // does not work with '!'
+        final String testDir = "/spacialtest/";
+        final String testFileName = "test:+-_ \"()<>%#.txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // DO: verify you can list it:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(UriParser.encode(testFileName, ENC));
+
+
+        // validate findFiles returns expected result
+        // removed other assertion
+        String resultName = findFilesResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChildren returns expected result
+        // removed other assertion
+        resultName = getChildrenResult[0].getName().getPathDecoded();
+        // removed other assertion
+        assertEquals("Did getChildren but child was no file", FileType.FILE, getChildrenResult[0].getType());
+    }
+
+    @Test
+    public void testSpecialName_7_oe() throws FileSystemException
+    {
+        // we test with this file name
+        // does not work with '!'
+        final String testDir = "/spacialtest/";
+        final String testFileName = "test:+-_ \"()<>%#.txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // DO: verify you can list it:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(UriParser.encode(testFileName, ENC));
+
+
+        // validate findFiles returns expected result
+        // removed other assertion
+        String resultName = findFilesResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChildren returns expected result
+        // removed other assertion
+        resultName = getChildrenResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChild returns expected child
+        assertNotNull("Did not find direct child", getChildResult);
+    }
+
+    @Test
+    public void testSpecialName_8_oe() throws FileSystemException
+    {
+        // we test with this file name
+        // does not work with '!'
+        final String testDir = "/spacialtest/";
+        final String testFileName = "test:+-_ \"()<>%#.txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // DO: verify you can list it:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(UriParser.encode(testFileName, ENC));
+
+
+        // validate findFiles returns expected result
+        // removed other assertion
+        String resultName = findFilesResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChildren returns expected result
+        // removed other assertion
+        resultName = getChildrenResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChild returns expected child
+        // removed other assertion
+        resultName = getChildResult.getName().getPathDecoded();
+        assertEquals("getChild name does not match", expectedName, resultName);
+    }
+
+    @Test
+    public void testSpecialName_9_oe() throws FileSystemException
+    {
+        // we test with this file name
+        // does not work with '!'
+        final String testDir = "/spacialtest/";
+        final String testFileName = "test:+-_ \"()<>%#.txt";
+        final String expectedName = testDir + testFileName;
+
+        final FileObject dir = prepareSpecialFile(testDir, testFileName);
+
+
+        // DO: verify you can list it:
+        final FileObject[] findFilesResult = dir.findFiles(new AllFileSelector()); // includes dir
+        final FileObject[] getChildrenResult = dir.getChildren();
+        final FileObject getChildResult = dir.getChild(UriParser.encode(testFileName, ENC));
+
+
+        // validate findFiles returns expected result
+        // removed other assertion
+        String resultName = findFilesResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChildren returns expected result
+        // removed other assertion
+        resultName = getChildrenResult[0].getName().getPathDecoded();
+        // removed other assertion
+        // removed other assertion
+
+        // validate getChild returns expected child
+        // removed other assertion
+        resultName = getChildResult.getName().getPathDecoded();
+        // removed other assertion
+        assertEquals("getChild was no file", FileType.FILE, getChildResult.getType());
+    }
 
 }

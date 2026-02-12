@@ -22,5 +22,12 @@ import org.junit.jupiter.api.Test;
 
 public class HuffmanTreeExceptionTest_OE25Dev{
 
+    @Test
+    public void testCreatesHuffmanTreeExceptionTakingString_1_oe() {
+        final HuffmanTreeException huffmanTreeException = new HuffmanTreeException("");
+        final HuffmanTreeException huffmanTreeExceptionTwo = new HuffmanTreeException("", huffmanTreeException);
+
+        assertNotEquals(huffmanTreeExceptionTwo, huffmanTreeException);
+    }
 
 }

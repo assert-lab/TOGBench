@@ -24,6 +24,8 @@ import org.apache.commons.imaging.common.bytesource.ByteSourceFile;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Tests for the JpegDecoder.
  */
@@ -42,7 +44,7 @@ public class JpegDecoderTest_OE25Dev {
         final ByteSourceFile byteSourceFile = new ByteSourceFile(inputFile);
         try {
     new JpegDecoder().decode(byteSourceFile);
-    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+    fail("ImageReadException");
 } catch (ImageReadException e) {
 }
     }

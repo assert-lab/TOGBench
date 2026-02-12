@@ -125,7 +125,6 @@ spark_83_2,spark,ServiceTest,testSecure_thenReturnNewSslStores_2_oe,src/test/jav
 spark_83_3,spark,ServiceTest,testSecure_thenReturnNewSslStores_3_oe,src/test/java/spark/ServiceTest.java,,,,assert,unknown,standard,assertEquals
 spark_83_4,spark,ServiceTest,testSecure_thenReturnNewSslStores_4_oe,src/test/java/spark/ServiceTest.java,,,,assert,unknown,standard,assertEquals
 spark_83_5,spark,ServiceTest,testSecure_thenReturnNewSslStores_5_oe,src/test/java/spark/ServiceTest.java,,,,assert,unknown,standard,assertEquals
-spark_84_1,spark,ServiceTest,awaitStopBlocksUntilExtinguished_1_oe,src/test/java/spark/ServiceTest.java,,,,assert,unknown,standard,assertFalse
 spark_85_2,spark,SessionTest,testSession_whenHttpSessionIsNull_thenThrowException_2_oe,src/test/java/spark/SessionTest.java,,,,assert,unknown,standard,assertEquals
 spark_86_2,spark,SessionTest,testSession_whenRequestIsNull_thenThrowException_2_oe,src/test/java/spark/SessionTest.java,,,,assert,unknown,standard,assertEquals
 spark_87_1,spark,SessionTest,testSession_1_oe,src/test/java/spark/SessionTest.java,,,,assert,unknown,standard,assertEquals
@@ -301,8 +300,6 @@ spark_176_1,spark,ServletTest,testStaticWelcomeResource_1_oe,src/test/java/spark
 spark_176_2,spark,ServletTest,testStaticWelcomeResource_2_oe,src/test/java/spark/servlet/ServletTest.java,,,,assert,unknown,standard,assertTrue
 spark_177_1,spark,ServletTest,testExternalStaticFile_1_oe,src/test/java/spark/servlet/ServletTest.java,,,,assert,unknown,standard,assertEquals
 spark_177_2,spark,ServletTest,testExternalStaticFile_2_oe,src/test/java/spark/servlet/ServletTest.java,,,,assert,unknown,standard,assertEquals
-spark_178_1,spark,EmbeddedServersTest,testAddAndCreate_whenCreate_createsCustomServer_1_oe,src/test/java/spark/embeddedserver/EmbeddedServersTest.java,,,,assert,unknown,standard,assertNotNull
-spark_178_2,spark,EmbeddedServersTest,testAddAndCreate_whenCreate_createsCustomServer_2_oe,src/test/java/spark/embeddedserver/EmbeddedServersTest.java,,,,assert,unknown,standard,assertTrue
 spark_179_1,spark,EmbeddedServersTest,testAdd_whenConfigureRoutes_createsCustomServer_1_oe,src/test/java/spark/embeddedserver/EmbeddedServersTest.java,,,,assert,unknown,standard,assertTrue
 spark_180_2,spark,SocketConnectorFactoryTest,testCreateSocketConnector_whenServerIsNull_thenThrowException_2_oe,src/test/java/spark/embeddedserver/jetty/SocketConnectorFactoryTest.java,,,,assert,unknown,standard,assertEquals
 spark_181_2,spark,SocketConnectorFactoryTest,testCreateSocketConnector_whenHostIsNull_thenThrowException_2_oe,src/test/java/spark/embeddedserver/jetty/SocketConnectorFactoryTest.java,,,,assert,unknown,standard,assertEquals
@@ -317,8 +314,6 @@ spark_186_2,spark,SocketConnectorFactoryTest,testCreateSecureSocketConnector_2_o
 spark_186_3,spark,SocketConnectorFactoryTest,testCreateSecureSocketConnector_3_oe,src/test/java/spark/embeddedserver/jetty/SocketConnectorFactoryTest.java,,,,assert,unknown,standard,assertTrue
 spark_186_4,spark,SocketConnectorFactoryTest,testCreateSecureSocketConnector_4_oe,src/test/java/spark/embeddedserver/jetty/SocketConnectorFactoryTest.java,,,,assert,unknown,standard,assertEquals
 spark_186_5,spark,SocketConnectorFactoryTest,testCreateSecureSocketConnector_5_oe,src/test/java/spark/embeddedserver/jetty/SocketConnectorFactoryTest.java,,,,assert,unknown,standard,assertEquals
-spark_187_1,spark,EmbeddedJettyFactoryTest,create_1_oe,src/test/java/spark/embeddedserver/jetty/EmbeddedJettyFactoryTest.java,,,,assert,unknown,standard,assertTrue
-spark_188_1,spark,EmbeddedJettyFactoryTest,create_withoutHttpOnly_1_oe,src/test/java/spark/embeddedserver/jetty/EmbeddedJettyFactoryTest.java,,,,assert,unknown,standard,assertFalse
 spark_189_1,spark,JettyServerTest,testCreateServer_useDefaults_1_oe,src/test/java/spark/embeddedserver/jetty/JettyServerTest.java,,,,assert,unknown,standard,assertEquals
 spark_189_2,spark,JettyServerTest,testCreateServer_useDefaults_2_oe,src/test/java/spark/embeddedserver/jetty/JettyServerTest.java,,,,assert,unknown,standard,assertEquals
 spark_189_3,spark,JettyServerTest,testCreateServer_useDefaults_3_oe,src/test/java/spark/embeddedserver/jetty/JettyServerTest.java,,,,assert,unknown,standard,assertEquals

@@ -31,5 +31,40 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PngMultipleRoundtripTest_OE25Dev extends PngBaseTest {
 
+    @Test
+    public void test_1_oe() throws Exception {
+        final String imagesFolderPath = FilenameUtils.separatorsToSystem(
+                "src\\test\\data\\images\\png\\3");
+        final File imagesFolder = new File(imagesFolderPath);
+        assertTrue(imagesFolder.exists() && imagesFolder.isDirectory());
+    }
+
+    @Test
+    public void test_2_oe() throws Exception {
+        final String imagesFolderPath = FilenameUtils.separatorsToSystem(
+                "src\\test\\data\\images\\png\\3");
+        final File imagesFolder = new File(imagesFolderPath);
+        // removed other assertion
+
+        final File[] files = imagesFolder.listFiles();
+        for (final File file : files) {
+            final File imageFile = file;
+            if (!imageFile.isFile()) {
+                continue;
+            }
+            if (!imageFile.getName().toLowerCase().endsWith(".png")) {
+                continue;
+            }
+
+            Debug.debug();
+            Debug.debug("imageFile", imageFile);
+
+            File lastFile = imageFile;
+            for (int j = 0; j < 10; j++) {
+                final BufferedImage image = Imaging.getBufferedImage(lastFile);
+                assertNotNull(image);
+    }
+    }
+    }
 
 }

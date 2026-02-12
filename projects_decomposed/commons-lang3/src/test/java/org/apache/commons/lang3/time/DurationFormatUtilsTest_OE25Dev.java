@@ -32,6 +32,8 @@ import java.util.TimeZone;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * TestCase for DurationFormatUtils.
  */
@@ -229,10 +231,1877 @@ public class DurationFormatUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testConstructor_1_oe() {
+        assertNotNull(new DurationFormatUtils());
+    }
+
+    @Test
+    public void testConstructor_2_oe() {
+        // removed other assertion
+        final Constructor<?>[] cons = DurationFormatUtils.class.getDeclaredConstructors();
+        assertEquals(1, cons.length);
+    }
+
+    @Test
+    public void testConstructor_3_oe() {
+        // removed other assertion
+        final Constructor<?>[] cons = DurationFormatUtils.class.getDeclaredConstructors();
+        // removed other assertion
+        assertTrue(Modifier.isPublic(cons[0].getModifiers()));
+    }
+
+    @Test
+    public void testConstructor_4_oe() {
+        // removed other assertion
+        final Constructor<?>[] cons = DurationFormatUtils.class.getDeclaredConstructors();
+        // removed other assertion
+        // removed other assertion
+        assertTrue(Modifier.isPublic(DurationFormatUtils.class.getModifiers()));
+    }
+
+    @Test
+    public void testConstructor_5_oe() {
+        // removed other assertion
+        final Constructor<?>[] cons = DurationFormatUtils.class.getDeclaredConstructors();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(Modifier.isFinal(DurationFormatUtils.class.getModifiers()));
+    }
+
+    @Test
+    public void testFormatDuration_1_oe() {
+        long duration = 0;
+        assertEquals("0", DurationFormatUtils.formatDuration(duration, "y"));
+    }
+
+    @Test
+    public void testFormatDuration_2_oe() {
+        long duration = 0;
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatDuration(duration, "M"));
+    }
+
+    @Test
+    public void testFormatDuration_3_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatDuration(duration, "d"));
+    }
+
+    @Test
+    public void testFormatDuration_4_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatDuration(duration, "H"));
+    }
+
+    @Test
+    public void testFormatDuration_5_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatDuration(duration, "m"));
+    }
+
+    @Test
+    public void testFormatDuration_6_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatDuration(duration, "s"));
+    }
+
+    @Test
+    public void testFormatDuration_7_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatDuration(duration, "S"));
+    }
+
+    @Test
+    public void testFormatDuration_8_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0000", DurationFormatUtils.formatDuration(duration, "SSSS"));
+    }
+
+    @Test
+    public void testFormatDuration_9_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0000", DurationFormatUtils.formatDuration(duration, "yyyy"));
+    }
+
+    @Test
+    public void testFormatDuration_10_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0000", DurationFormatUtils.formatDuration(duration, "yyMM"));
+    }
+
+    @Test
+    public void testFormatDuration_11_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        duration = 60 * 1000;
+        assertEquals("0", DurationFormatUtils.formatDuration(duration, "y"));
+    }
+
+    @Test
+    public void testFormatDuration_12_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        duration = 60 * 1000;
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatDuration(duration, "M"));
+    }
+
+    @Test
+    public void testFormatDuration_13_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        duration = 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatDuration(duration, "d"));
+    }
+
+    @Test
+    public void testFormatDuration_14_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        duration = 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatDuration(duration, "H"));
+    }
+
+    @Test
+    public void testFormatDuration_15_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        duration = 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("1", DurationFormatUtils.formatDuration(duration, "m"));
+    }
+
+    @Test
+    public void testFormatDuration_16_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        duration = 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("60", DurationFormatUtils.formatDuration(duration, "s"));
+    }
+
+    @Test
+    public void testFormatDuration_17_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        duration = 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("60000", DurationFormatUtils.formatDuration(duration, "S"));
+    }
+
+    @Test
+    public void testFormatDuration_18_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        duration = 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("01:00", DurationFormatUtils.formatDuration(duration, "mm:ss"));
+    }
+
+    @Test
+    public void testFormatDuration_19_oe() {
+        long duration = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        duration = 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Calendar base = Calendar.getInstance();
+        base.set(2000, Calendar.JANUARY, 1, 0, 0, 0);
+        base.set(Calendar.MILLISECOND, 0);
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(2003, Calendar.FEBRUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        duration = cal.getTime().getTime() - base.getTime().getTime(); // duration from 2000-01-01 to cal
+        // don't use 1970 in test as time zones were less reliable in 1970 than now
+        // remember that duration formatting ignores time zones, working on strict hour lengths
+        final int days = 366 + 365 + 365 + 31;
+        assertEquals("0 0 " + days, DurationFormatUtils.formatDuration(duration, "y M d"));
+    }
+
+    @Test
+    public void testFormatDurationHMS_1_oe() {
+        long time = 0;
+        assertEquals("00:00:00.000", DurationFormatUtils.formatDurationHMS(time));
+    }
+
+    @Test
+    public void testFormatDurationHMS_2_oe() {
+        long time = 0;
+        // removed other assertion
+
+        time = 1;
+        assertEquals("00:00:00.001", DurationFormatUtils.formatDurationHMS(time));
+    }
+
+    @Test
+    public void testFormatDurationHMS_3_oe() {
+        long time = 0;
+        // removed other assertion
+
+        time = 1;
+        // removed other assertion
+
+        time = 15;
+        assertEquals("00:00:00.015", DurationFormatUtils.formatDurationHMS(time));
+    }
+
+    @Test
+    public void testFormatDurationHMS_4_oe() {
+        long time = 0;
+        // removed other assertion
+
+        time = 1;
+        // removed other assertion
+
+        time = 15;
+        // removed other assertion
+
+        time = 165;
+        assertEquals("00:00:00.165", DurationFormatUtils.formatDurationHMS(time));
+    }
+
+    @Test
+    public void testFormatDurationHMS_5_oe() {
+        long time = 0;
+        // removed other assertion
+
+        time = 1;
+        // removed other assertion
+
+        time = 15;
+        // removed other assertion
+
+        time = 165;
+        // removed other assertion
+
+        time = 1675;
+        assertEquals("00:00:01.675", DurationFormatUtils.formatDurationHMS(time));
+    }
+
+    @Test
+    public void testFormatDurationHMS_6_oe() {
+        long time = 0;
+        // removed other assertion
+
+        time = 1;
+        // removed other assertion
+
+        time = 15;
+        // removed other assertion
+
+        time = 165;
+        // removed other assertion
+
+        time = 1675;
+        // removed other assertion
+
+        time = 13465;
+        assertEquals("00:00:13.465", DurationFormatUtils.formatDurationHMS(time));
+    }
+
+    @Test
+    public void testFormatDurationHMS_7_oe() {
+        long time = 0;
+        // removed other assertion
+
+        time = 1;
+        // removed other assertion
+
+        time = 15;
+        // removed other assertion
+
+        time = 165;
+        // removed other assertion
+
+        time = 1675;
+        // removed other assertion
+
+        time = 13465;
+        // removed other assertion
+
+        time = 72789;
+        assertEquals("00:01:12.789", DurationFormatUtils.formatDurationHMS(time));
+    }
+
+    @Test
+    public void testFormatDurationHMS_8_oe() {
+        long time = 0;
+        // removed other assertion
+
+        time = 1;
+        // removed other assertion
+
+        time = 15;
+        // removed other assertion
+
+        time = 165;
+        // removed other assertion
+
+        time = 1675;
+        // removed other assertion
+
+        time = 13465;
+        // removed other assertion
+
+        time = 72789;
+        // removed other assertion
+
+        time = 12789 + 32 * 60000;
+        assertEquals("00:32:12.789", DurationFormatUtils.formatDurationHMS(time));
+    }
+
+    @Test
+    public void testFormatDurationHMS_9_oe() {
+        long time = 0;
+        // removed other assertion
+
+        time = 1;
+        // removed other assertion
+
+        time = 15;
+        // removed other assertion
+
+        time = 165;
+        // removed other assertion
+
+        time = 1675;
+        // removed other assertion
+
+        time = 13465;
+        // removed other assertion
+
+        time = 72789;
+        // removed other assertion
+
+        time = 12789 + 32 * 60000;
+        // removed other assertion
+
+        time = 12789 + 62 * 60000;
+        assertEquals("01:02:12.789", DurationFormatUtils.formatDurationHMS(time));
+    }
+
+    @Test
+    public void testFormatDurationISO_1_oe() {
+        assertEquals("P0Y0M0DT0H0M0.000S", DurationFormatUtils.formatDurationISO(0L));
+    }
+
+    @Test
+    public void testFormatDurationISO_2_oe() {
+        // removed other assertion
+        assertEquals("P0Y0M0DT0H0M0.001S", DurationFormatUtils.formatDurationISO(1L));
+    }
+
+    @Test
+    public void testFormatDurationISO_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals("P0Y0M0DT0H0M0.010S", DurationFormatUtils.formatDurationISO(10L));
+    }
+
+    @Test
+    public void testFormatDurationISO_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("P0Y0M0DT0H0M0.100S", DurationFormatUtils.formatDurationISO(100L));
+    }
+
+    @Test
+    public void testFormatDurationISO_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("P0Y0M0DT0H1M15.321S", DurationFormatUtils.formatDurationISO(75321L));
+    }
+
+    @Test
+    public void testFormatDurationPluralWords_1_oe() {
+        final long oneSecond = 1000;
+        final long oneMinute = oneSecond * 60;
+        final long oneHour = oneMinute * 60;
+        final long oneDay = oneHour * 24;
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(oneSecond, false, false);
+        assertEquals("0 days 0 hours 0 minutes 1 second", text);
+    }
+
+    @Test
+    public void testFormatDurationPluralWords_2_oe() {
+        final long oneSecond = 1000;
+        final long oneMinute = oneSecond * 60;
+        final long oneHour = oneMinute * 60;
+        final long oneDay = oneHour * 24;
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(oneSecond, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 2, false, false);
+        assertEquals("0 days 0 hours 0 minutes 2 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationPluralWords_3_oe() {
+        final long oneSecond = 1000;
+        final long oneMinute = oneSecond * 60;
+        final long oneHour = oneMinute * 60;
+        final long oneDay = oneHour * 24;
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(oneSecond, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 11, false, false);
+        assertEquals("0 days 0 hours 0 minutes 11 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationPluralWords_4_oe() {
+        final long oneSecond = 1000;
+        final long oneMinute = oneSecond * 60;
+        final long oneHour = oneMinute * 60;
+        final long oneDay = oneHour * 24;
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(oneSecond, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 11, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneMinute, false, false);
+        assertEquals("0 days 0 hours 1 minute 0 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationPluralWords_5_oe() {
+        final long oneSecond = 1000;
+        final long oneMinute = oneSecond * 60;
+        final long oneHour = oneMinute * 60;
+        final long oneDay = oneHour * 24;
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(oneSecond, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 11, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneMinute, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 2, false, false);
+        assertEquals("0 days 0 hours 2 minutes 0 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationPluralWords_6_oe() {
+        final long oneSecond = 1000;
+        final long oneMinute = oneSecond * 60;
+        final long oneHour = oneMinute * 60;
+        final long oneDay = oneHour * 24;
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(oneSecond, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 11, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneMinute, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 11, false, false);
+        assertEquals("0 days 0 hours 11 minutes 0 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationPluralWords_7_oe() {
+        final long oneSecond = 1000;
+        final long oneMinute = oneSecond * 60;
+        final long oneHour = oneMinute * 60;
+        final long oneDay = oneHour * 24;
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(oneSecond, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 11, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneMinute, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 11, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute + oneSecond, false, false);
+        assertEquals("0 days 0 hours 1 minute 1 second", text);
+    }
+
+    @Test
+    public void testFormatDurationPluralWords_8_oe() {
+        final long oneSecond = 1000;
+        final long oneMinute = oneSecond * 60;
+        final long oneHour = oneMinute * 60;
+        final long oneDay = oneHour * 24;
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(oneSecond, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 11, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneMinute, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 11, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute + oneSecond, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneHour, false, false);
+        assertEquals("0 days 1 hour 0 minutes 0 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationPluralWords_9_oe() {
+        final long oneSecond = 1000;
+        final long oneMinute = oneSecond * 60;
+        final long oneHour = oneMinute * 60;
+        final long oneDay = oneHour * 24;
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(oneSecond, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 11, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneMinute, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 11, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute + oneSecond, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneHour, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour * 2, false, false);
+        assertEquals("0 days 2 hours 0 minutes 0 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationPluralWords_10_oe() {
+        final long oneSecond = 1000;
+        final long oneMinute = oneSecond * 60;
+        final long oneHour = oneMinute * 60;
+        final long oneDay = oneHour * 24;
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(oneSecond, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 11, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneMinute, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 11, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute + oneSecond, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneHour, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour * 11, false, false);
+        assertEquals("0 days 11 hours 0 minutes 0 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationPluralWords_11_oe() {
+        final long oneSecond = 1000;
+        final long oneMinute = oneSecond * 60;
+        final long oneHour = oneMinute * 60;
+        final long oneDay = oneHour * 24;
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(oneSecond, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 11, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneMinute, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 11, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute + oneSecond, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneHour, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour * 11, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour + oneMinute + oneSecond, false, false);
+        assertEquals("0 days 1 hour 1 minute 1 second", text);
+    }
+
+    @Test
+    public void testFormatDurationPluralWords_12_oe() {
+        final long oneSecond = 1000;
+        final long oneMinute = oneSecond * 60;
+        final long oneHour = oneMinute * 60;
+        final long oneDay = oneHour * 24;
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(oneSecond, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 11, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneMinute, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 11, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute + oneSecond, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneHour, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour * 11, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour + oneMinute + oneSecond, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneDay, false, false);
+        assertEquals("1 day 0 hours 0 minutes 0 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationPluralWords_13_oe() {
+        final long oneSecond = 1000;
+        final long oneMinute = oneSecond * 60;
+        final long oneHour = oneMinute * 60;
+        final long oneDay = oneHour * 24;
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(oneSecond, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 11, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneMinute, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 11, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute + oneSecond, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneHour, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour * 11, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour + oneMinute + oneSecond, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneDay, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneDay * 2, false, false);
+        assertEquals("2 days 0 hours 0 minutes 0 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationPluralWords_14_oe() {
+        final long oneSecond = 1000;
+        final long oneMinute = oneSecond * 60;
+        final long oneHour = oneMinute * 60;
+        final long oneDay = oneHour * 24;
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(oneSecond, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 11, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneMinute, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 11, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute + oneSecond, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneHour, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour * 11, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour + oneMinute + oneSecond, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneDay, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneDay * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneDay * 11, false, false);
+        assertEquals("11 days 0 hours 0 minutes 0 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationPluralWords_15_oe() {
+        final long oneSecond = 1000;
+        final long oneMinute = oneSecond * 60;
+        final long oneHour = oneMinute * 60;
+        final long oneDay = oneHour * 24;
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(oneSecond, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneSecond * 11, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneMinute, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute * 11, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneMinute + oneSecond, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneHour, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour * 11, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneHour + oneMinute + oneSecond, false, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(oneDay, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneDay * 2, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneDay * 11, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(oneDay + oneHour + oneMinute + oneSecond, false, false);
+        assertEquals("1 day 1 hour 1 minute 1 second", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_1_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        assertEquals("50 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_2_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        assertEquals("1 minute 5 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_3_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        assertEquals("2 minutes 0 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_4_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        assertEquals("2 minutes 1 second", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_5_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        assertEquals("1 hour 12 minutes 0 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_6_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        assertEquals("1 day 0 hours 0 minutes 0 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_7_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        assertEquals("50 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_8_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        assertEquals("1 minute 5 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_9_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        assertEquals("2 minutes", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_10_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        assertEquals("2 minutes 1 second", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_11_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, true);
+        assertEquals("1 hour 12 minutes", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_12_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, true);
+        assertEquals("1 day", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_13_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, true);
+        assertEquals("0 days 0 hours 0 minutes 50 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_14_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, true);
+        assertEquals("0 days 0 hours 1 minute 5 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_15_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, true);
+        assertEquals("0 days 0 hours 2 minutes", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_16_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, false, true);
+        assertEquals("0 days 0 hours 2 minutes 1 second", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_17_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, false, true);
+        assertEquals("0 days 1 hour 12 minutes", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_18_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, false, true);
+        assertEquals("1 day", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_19_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, false, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, false);
+        assertEquals("0 days 0 hours 0 minutes 50 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_20_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, false, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, false);
+        assertEquals("0 days 0 hours 1 minute 5 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_21_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, false, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, false);
+        assertEquals("0 days 0 hours 2 minutes 0 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_22_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, false, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, false, false);
+        assertEquals("0 days 0 hours 2 minutes 1 second", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_23_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, false, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, false, false);
+        assertEquals("0 days 1 hour 12 minutes 0 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_24_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, false, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000 + 72 * 60 * 1000, false, false);
+        assertEquals("1 day 1 hour 12 minutes 0 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_25_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, false, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000 + 72 * 60 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(2 * 24 * 60 * 60 * 1000 + 72 * 60 * 1000, false, false);
+        assertEquals("2 days 1 hour 12 minutes 0 seconds", text);
+    }
+
+    @Test
+    public void testFormatDurationWords_26_oe() {
+        String text;
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, false);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, true, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, true, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, false, true);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000, false, true);
+        // removed other assertion
+
+        text = DurationFormatUtils.formatDurationWords(50 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(65 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(120 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(121 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(72 * 60 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(24 * 60 * 60 * 1000 + 72 * 60 * 1000, false, false);
+        // removed other assertion
+        text = DurationFormatUtils.formatDurationWords(2 * 24 * 60 * 60 * 1000 + 72 * 60 * 1000, false, false);
+        // removed other assertion
+        for (int i = 2; i < 31; i++) {
+            text = DurationFormatUtils.formatDurationWords(i * 24 * 60 * 60 * 1000L, false, false);
+            assertEquals(i + " days 0 hours 0 minutes 0 seconds", text);
+    }
+    }
+
+    @Test
     public void testFormatNegativeDuration_1_oe() throws Exception {
         try {
     DurationFormatUtils.formatDuration(-5000, "S", true);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -241,7 +2110,7 @@ public class DurationFormatUtilsTest_OE25Dev {
     public void testFormatNegativeDurationHMS_1_oe() throws Exception {
         try {
     DurationFormatUtils.formatDurationHMS(-5000);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -250,7 +2119,7 @@ public class DurationFormatUtilsTest_OE25Dev {
     public void testFormatNegativeDurationISO_1_oe() throws Exception {
         try {
     DurationFormatUtils.formatDurationISO(-5000);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -259,36 +2128,1219 @@ public class DurationFormatUtilsTest_OE25Dev {
     public void testFormatNegativeDurationWords_1_oe() throws Exception {
         try {
     DurationFormatUtils.formatDurationWords(-5000, true, true);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    public void testFormatPeriod_1_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        assertEquals("0", DurationFormatUtils.formatPeriod(time1970, time1970, "y"));
+    }
+
+    @Test
+    public void testFormatPeriod_2_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatPeriod(time1970, time1970, "M"));
+    }
+
+    @Test
+    public void testFormatPeriod_3_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatPeriod(time1970, time1970, "d"));
+    }
+
+    @Test
+    public void testFormatPeriod_4_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatPeriod(time1970, time1970, "H"));
+    }
+
+    @Test
+    public void testFormatPeriod_5_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatPeriod(time1970, time1970, "m"));
+    }
+
+    @Test
+    public void testFormatPeriod_6_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatPeriod(time1970, time1970, "s"));
+    }
+
+    @Test
+    public void testFormatPeriod_7_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatPeriod(time1970, time1970, "S"));
+    }
+
+    @Test
+    public void testFormatPeriod_8_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0000", DurationFormatUtils.formatPeriod(time1970, time1970, "SSSS"));
+    }
+
+    @Test
+    public void testFormatPeriod_9_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0000", DurationFormatUtils.formatPeriod(time1970, time1970, "yyyy"));
+    }
+
+    @Test
+    public void testFormatPeriod_10_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0000", DurationFormatUtils.formatPeriod(time1970, time1970, "yyMM"));
+    }
+
+    @Test
+    public void testFormatPeriod_11_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        assertEquals("0", DurationFormatUtils.formatPeriod(time1970, time, "y"));
+    }
+
+    @Test
+    public void testFormatPeriod_12_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatPeriod(time1970, time, "M"));
+    }
+
+    @Test
+    public void testFormatPeriod_13_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatPeriod(time1970, time, "d"));
+    }
+
+    @Test
+    public void testFormatPeriod_14_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0", DurationFormatUtils.formatPeriod(time1970, time, "H"));
+    }
+
+    @Test
+    public void testFormatPeriod_15_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("1", DurationFormatUtils.formatPeriod(time1970, time, "m"));
+    }
+
+    @Test
+    public void testFormatPeriod_16_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("60", DurationFormatUtils.formatPeriod(time1970, time, "s"));
+    }
+
+    @Test
+    public void testFormatPeriod_17_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("60000", DurationFormatUtils.formatPeriod(time1970, time, "S"));
+    }
+
+    @Test
+    public void testFormatPeriod_18_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("01:00", DurationFormatUtils.formatPeriod(time1970, time, "mm:ss"));
+    }
+
+    @Test
+    public void testFormatPeriod_19_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(1973, Calendar.JULY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        assertEquals("36", DurationFormatUtils.formatPeriod(time1970, time, "yM"));
+    }
+
+    @Test
+    public void testFormatPeriod_20_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(1973, Calendar.JULY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        assertEquals("3 years 6 months", DurationFormatUtils.formatPeriod(time1970, time, "y' years 'M' months'"));
+    }
+
+    @Test
+    public void testFormatPeriod_21_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(1973, Calendar.JULY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("03/06", DurationFormatUtils.formatPeriod(time1970, time, "yy/MM"));
+    }
+
+    @Test
+    public void testFormatPeriod_22_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(1973, Calendar.JULY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        cal.set(1973, Calendar.NOVEMBER, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        assertEquals("310", DurationFormatUtils.formatPeriod(time1970, time, "yM"));
+    }
+
+    @Test
+    public void testFormatPeriod_23_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(1973, Calendar.JULY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        cal.set(1973, Calendar.NOVEMBER, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        assertEquals("3 years 10 months", DurationFormatUtils.formatPeriod(time1970, time, "y' years 'M' months'"));
+    }
+
+    @Test
+    public void testFormatPeriod_24_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(1973, Calendar.JULY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        cal.set(1973, Calendar.NOVEMBER, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("03/10", DurationFormatUtils.formatPeriod(time1970, time, "yy/MM"));
+    }
+
+    @Test
+    public void testFormatPeriod_25_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(1973, Calendar.JULY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        cal.set(1973, Calendar.NOVEMBER, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        cal.set(1974, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        assertEquals("40", DurationFormatUtils.formatPeriod(time1970, time, "yM"));
+    }
+
+    @Test
+    public void testFormatPeriod_26_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(1973, Calendar.JULY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        cal.set(1973, Calendar.NOVEMBER, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        cal.set(1974, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        assertEquals("4 years 0 months", DurationFormatUtils.formatPeriod(time1970, time, "y' years 'M' months'"));
+    }
+
+    @Test
+    public void testFormatPeriod_27_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(1973, Calendar.JULY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        cal.set(1973, Calendar.NOVEMBER, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        cal.set(1974, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("04/00", DurationFormatUtils.formatPeriod(time1970, time, "yy/MM"));
+    }
+
+    @Test
+    public void testFormatPeriod_28_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(1973, Calendar.JULY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        cal.set(1973, Calendar.NOVEMBER, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        cal.set(1974, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("48", DurationFormatUtils.formatPeriod(time1970, time, "M"));
+    }
+
+    @Test
+    public void testFormatPeriod_29_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(1973, Calendar.JULY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        cal.set(1973, Calendar.NOVEMBER, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        cal.set(1974, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("48", DurationFormatUtils.formatPeriod(time1970, time, "MM"));
+    }
+
+    @Test
+    public void testFormatPeriod_30_oe() {
+        final Calendar cal1970 = Calendar.getInstance();
+        cal1970.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        cal1970.set(Calendar.MILLISECOND, 0);
+        final long time1970 = cal1970.getTime().getTime();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        long time = time1970 + 60 * 1000;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(1973, Calendar.JULY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        cal.set(1973, Calendar.NOVEMBER, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        cal.set(1974, Calendar.JANUARY, 1, 0, 0, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        time = cal.getTime().getTime();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("048", DurationFormatUtils.formatPeriod(time1970, time, "MMM"));
     }
 
     @Test
     public void testFormatPeriodeStartGreaterEnd_1_oe() throws Exception {
         try {
     DurationFormatUtils.formatPeriod(5000, 2500, "yy/MM");
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    public void testFormatPeriodISO_1_oe() {
+        final TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
+        final Calendar base = Calendar.getInstance(timeZone);
+        base.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        base.set(Calendar.MILLISECOND, 0);
+
+        final Calendar cal = Calendar.getInstance(timeZone);
+        cal.set(2002, Calendar.FEBRUARY, 23, 9, 11, 12);
+        cal.set(Calendar.MILLISECOND, 1);
+        String text;
+        // repeat a test from testDateTimeISO to compare extended and not extended.
+        text = DateFormatUtils.format(cal, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), timeZone);
+        assertEquals("2002-02-23T09:11:12-03:00", text);
+    }
+
+    @Test
+    public void testFormatPeriodISO_2_oe() {
+        final TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
+        final Calendar base = Calendar.getInstance(timeZone);
+        base.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        base.set(Calendar.MILLISECOND, 0);
+
+        final Calendar cal = Calendar.getInstance(timeZone);
+        cal.set(2002, Calendar.FEBRUARY, 23, 9, 11, 12);
+        cal.set(Calendar.MILLISECOND, 1);
+        String text;
+        // repeat a test from testDateTimeISO to compare extended and not extended.
+        text = DateFormatUtils.format(cal, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), timeZone);
+        // removed other assertion
+        // test fixture is the same as above, but now with extended format.
+        text = DurationFormatUtils.formatPeriod(base.getTime().getTime(), cal.getTime().getTime(),
+                DurationFormatUtils.ISO_EXTENDED_FORMAT_PATTERN, false, timeZone);
+        assertEquals("P32Y1M22DT9H11M12.001S", text);
+    }
+
+    @Test
+    public void testFormatPeriodISO_3_oe() {
+        final TimeZone timeZone = TimeZone.getTimeZone("GMT-3");
+        final Calendar base = Calendar.getInstance(timeZone);
+        base.set(1970, Calendar.JANUARY, 1, 0, 0, 0);
+        base.set(Calendar.MILLISECOND, 0);
+
+        final Calendar cal = Calendar.getInstance(timeZone);
+        cal.set(2002, Calendar.FEBRUARY, 23, 9, 11, 12);
+        cal.set(Calendar.MILLISECOND, 1);
+        String text;
+        // repeat a test from testDateTimeISO to compare extended and not extended.
+        text = DateFormatUtils.format(cal, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern(), timeZone);
+        // removed other assertion
+        // test fixture is the same as above, but now with extended format.
+        text = DurationFormatUtils.formatPeriod(base.getTime().getTime(), cal.getTime().getTime(),
+                DurationFormatUtils.ISO_EXTENDED_FORMAT_PATTERN, false, timeZone);
+        // removed other assertion
+        // test fixture from example in http://www.w3.org/TR/xmlschema-2/#duration
+        cal.set(1971, Calendar.FEBRUARY, 3, 10, 30, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        text = DurationFormatUtils.formatPeriod(base.getTime().getTime(), cal.getTime().getTime(),
+                DurationFormatUtils.ISO_EXTENDED_FORMAT_PATTERN, false, timeZone);
+        assertEquals("P1Y1M2DT10H30M0.000S", text);
+    }
+
+    @Test
+    public void testFormatPeriodISOMethod_1_oe() {
+        assertEquals("P0Y0M0DT0H0M0.000S", DurationFormatUtils.formatPeriodISO(0L, 0L));
+    }
+
+    @Test
+    public void testFormatPeriodISOMethod_2_oe() {
+        // removed other assertion
+        assertEquals("P0Y0M0DT0H0M1.000S", DurationFormatUtils.formatPeriodISO(0L, 1000L));
+    }
+
+    @Test
+    public void testFormatPeriodISOMethod_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals("P0Y0M0DT0H1M1.000S", DurationFormatUtils.formatPeriodISO(0L, 61000L));
     }
 
     @Test
     public void testFormatPeriodISOStartGreaterEnd_1_oe() throws Exception {
         try {
     DurationFormatUtils.formatPeriodISO(5000, 2000);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    public void testLANG815_1_oe() {
+        final Calendar calendar = Calendar.getInstance();
+        calendar.set(2012, Calendar.JULY, 30, 0, 0, 0);
+        final long startMillis = calendar.getTimeInMillis();
+
+        calendar.set(2012, Calendar.SEPTEMBER, 8);
+        final long endMillis = calendar.getTimeInMillis();
+
+        assertEquals("1 9", DurationFormatUtils.formatPeriod(startMillis, endMillis, "M d"));
     }
 
     @Test
     public void testLANG981_1_oe() throws Exception { // unmatched quote char in lexx
         try {
     DurationFormatUtils.lexx("'yMdHms''S");
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    public void testLANG982_1_oe() { // More than 3 millisecond digits following a second
+        assertEquals("61.999", DurationFormatUtils.formatDuration(61999, "s.S"));
+    }
+
+    @Test
+    public void testLANG982_2_oe() { // More than 3 millisecond digits following a second
+        // removed other assertion
+        assertEquals("1 1999", DurationFormatUtils.formatDuration(61999, "m S"));
+    }
+
+    @Test
+    public void testLANG982_3_oe() { // More than 3 millisecond digits following a second
+        // removed other assertion
+        // removed other assertion
+        assertEquals("61.999", DurationFormatUtils.formatDuration(61999, "s.SSS"));
+    }
+
+    @Test
+    public void testLANG982_4_oe() { // More than 3 millisecond digits following a second
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("1 1999", DurationFormatUtils.formatDuration(61999, "m SSS"));
+    }
+
+    @Test
+    public void testLANG982_5_oe() { // More than 3 millisecond digits following a second
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("61.0999", DurationFormatUtils.formatDuration(61999, "s.SSSS"));
+    }
+
+    @Test
+    public void testLANG982_6_oe() { // More than 3 millisecond digits following a second
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("1 1999", DurationFormatUtils.formatDuration(61999, "m SSSS"));
+    }
+
+    @Test
+    public void testLANG982_7_oe() { // More than 3 millisecond digits following a second
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("61.00999", DurationFormatUtils.formatDuration(61999, "s.SSSSS"));
+    }
+
+    @Test
+    public void testLANG982_8_oe() { // More than 3 millisecond digits following a second
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("1 01999", DurationFormatUtils.formatDuration(61999, "m SSSSS"));
+    }
+
+    @Test
+    public void testLANG984_1_oe() { // Long durations
+        assertEquals("0", DurationFormatUtils.formatDuration(0, "S"));
+    }
+
+    @Test
+    public void testLANG984_2_oe() { // Long durations
+        // removed other assertion
+        assertEquals(Integer.toString(Integer.MAX_VALUE), DurationFormatUtils.formatDuration(Integer.MAX_VALUE, "S"));
+    }
+
+    @Test
+    public void testLANG984_3_oe() { // Long durations
+        // removed other assertion
+        // removed other assertion
+        long maxIntPlus=Integer.MAX_VALUE;
+        maxIntPlus++;
+        assertEquals(Long.toString(maxIntPlus), DurationFormatUtils.formatDuration(maxIntPlus, "S"));
+    }
+
+    @Test
+    public void testLANG984_4_oe() { // Long durations
+        // removed other assertion
+        // removed other assertion
+        long maxIntPlus=Integer.MAX_VALUE;
+        maxIntPlus++;
+        // removed other assertion
+        assertEquals(Long.toString(Long.MAX_VALUE), DurationFormatUtils.formatDuration(Long.MAX_VALUE, "S"));
+    }
+
+    @Test
+    public void testLexx_1_oe() {
+        // tests each constant
+        assertArrayEquals(new DurationFormatUtils.Token[]{ new DurationFormatUtils.Token(DurationFormatUtils.y, 1), new DurationFormatUtils.Token(DurationFormatUtils.M, 1), new DurationFormatUtils.Token(DurationFormatUtils.d, 1), new DurationFormatUtils.Token(DurationFormatUtils.H, 1), new DurationFormatUtils.Token(DurationFormatUtils.m, 1), new DurationFormatUtils.Token(DurationFormatUtils.s, 1), new DurationFormatUtils.Token(DurationFormatUtils.S, 1)}, DurationFormatUtils.lexx("yMdHmsS"));
+    }
+
+    @Test
+    public void testLexx_2_oe() {
+        // tests each constant
+        // removed other assertion
+
+        // tests the ISO 8601-like
+        assertArrayEquals(new DurationFormatUtils.Token[]{ new DurationFormatUtils.Token(DurationFormatUtils.H, 2), new DurationFormatUtils.Token(new StringBuilder(":"), 1), new DurationFormatUtils.Token(DurationFormatUtils.m, 2), new DurationFormatUtils.Token(new StringBuilder(":"), 1), new DurationFormatUtils.Token(DurationFormatUtils.s, 2), new DurationFormatUtils.Token(new StringBuilder("."), 1), new DurationFormatUtils.Token(DurationFormatUtils.S, 3)}, DurationFormatUtils.lexx("HH:mm:ss.SSS"));
+    }
+
+    @Test
+    public void testLexx_3_oe() {
+        // tests each constant
+        // removed other assertion
+
+        // tests the ISO 8601-like
+        // removed other assertion
+
+        // test the iso extended format
+        assertArrayEquals(new DurationFormatUtils.Token[]{ new DurationFormatUtils.Token(new StringBuilder("P"), 1), new DurationFormatUtils.Token(DurationFormatUtils.y, 4), new DurationFormatUtils.Token(new StringBuilder("Y"), 1), new DurationFormatUtils.Token(DurationFormatUtils.M, 1), new DurationFormatUtils.Token(new StringBuilder("M"), 1), new DurationFormatUtils.Token(DurationFormatUtils.d, 1), new DurationFormatUtils.Token(new StringBuilder("DT"), 1), new DurationFormatUtils.Token(DurationFormatUtils.H, 1), new DurationFormatUtils.Token(new StringBuilder("H"), 1), new DurationFormatUtils.Token(DurationFormatUtils.m, 1), new DurationFormatUtils.Token(new StringBuilder("M"), 1), new DurationFormatUtils.Token(DurationFormatUtils.s, 1), new DurationFormatUtils.Token(new StringBuilder("."), 1), new DurationFormatUtils.Token(DurationFormatUtils.S, 3), new DurationFormatUtils.Token(new StringBuilder("S"), 1)}, DurationFormatUtils .lexx(DurationFormatUtils.ISO_EXTENDED_FORMAT_PATTERN));
+    }
+
+    @Test
+    public void testLexx_4_oe() {
+        // tests each constant
+        // removed other assertion
+
+        // tests the ISO 8601-like
+        // removed other assertion
+
+        // test the iso extended format
+        // removed other assertion
+
+        // test failures in equals
+        final DurationFormatUtils.Token token = new DurationFormatUtils.Token(DurationFormatUtils.y, 4);
+        assertNotEquals(token, new Object(), "Token equal to non-Token class. ");
+    }
+
+    @Test
+    public void testLexx_5_oe() {
+        // tests each constant
+        // removed other assertion
+
+        // tests the ISO 8601-like
+        // removed other assertion
+
+        // test the iso extended format
+        // removed other assertion
+
+        // test failures in equals
+        final DurationFormatUtils.Token token = new DurationFormatUtils.Token(DurationFormatUtils.y, 4);
+        // removed other assertion
+        assertNotEquals(token, new DurationFormatUtils.Token(new Object()), "Token equal to Token with wrong value class. ");
+    }
+
+    @Test
+    public void testLexx_6_oe() {
+        // tests each constant
+        // removed other assertion
+
+        // tests the ISO 8601-like
+        // removed other assertion
+
+        // test the iso extended format
+        // removed other assertion
+
+        // test failures in equals
+        final DurationFormatUtils.Token token = new DurationFormatUtils.Token(DurationFormatUtils.y, 4);
+        // removed other assertion
+        // removed other assertion
+        assertNotEquals(token, new DurationFormatUtils.Token(DurationFormatUtils.y, 1), "Token equal to Token with different count. ");
+    }
+
+    @Test
+    public void testLexx_7_oe() {
+        // tests each constant
+        // removed other assertion
+
+        // tests the ISO 8601-like
+        // removed other assertion
+
+        // test the iso extended format
+        // removed other assertion
+
+        // test failures in equals
+        final DurationFormatUtils.Token token = new DurationFormatUtils.Token(DurationFormatUtils.y, 4);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final DurationFormatUtils.Token numToken = new DurationFormatUtils.Token(Integer.valueOf(1), 4);
+        assertEquals(numToken, numToken, "Token with Number value not equal to itself. ");
     }
 
 }

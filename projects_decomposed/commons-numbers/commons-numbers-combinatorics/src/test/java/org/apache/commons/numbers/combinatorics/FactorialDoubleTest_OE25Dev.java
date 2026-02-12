@@ -19,6 +19,8 @@ package org.apache.commons.numbers.combinatorics;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Test cases for the {@link FactorialDouble} class.
  */
@@ -36,10 +38,34 @@ class FactorialDoubleTest_OE25Dev {
     }
 
     @Test
+    void testFactorialZero_1_oe() {
+        Assertions.assertEquals(1, FactorialDouble.create().value(0), "0!");
+    }
+
+    @Test
+    void testFactorialDirect_1_oe() {
+        for (int i = 1; i < 21; i++) {
+            Assertions.assertEquals(factorialDirect(i),FactorialDouble.create().value(i),i + "!");
+    }
+    }
+
+    @Test
+    void testLargestFactorialDouble_1_oe() {
+        final int n = 170;
+        Assertions.assertNotEquals(Double.POSITIVE_INFINITY,FactorialDouble.create().value(n),()-> n + "!");
+    }
+
+    @Test
+    void testFactorialDoubleTooLarge_1_oe() {
+        final int n = 171;
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,FactorialDouble.create().value(n),()-> n + "!");
+    }
+
+    @Test
     void testNonPositiveArgumentWithCache_1_oe() {
         try {
     FactorialDouble.create().withCache(-1);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -48,9 +74,74 @@ class FactorialDoubleTest_OE25Dev {
     void testNonPositiveArgument_1_oe() {
         try {
     FactorialDouble.create().value(-1);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testCompareDirectWithoutCache_1_oe() {
+        // This test shows that delegating to the "Gamma" class will also lead to a
+        // less accurate result.
+
+        final int max = 100;
+        final FactorialDouble f = FactorialDouble.create();
+
+        for (int i = 0; i < max; i++) {
+            final double expected = factorialDirect(i);
+            Assertions.assertEquals(expected,f.value(i),100 * Math.ulp(expected),i + "! ");
+    }
+    }
+
+    @Test
+    void testCompareDirectWithCache_1_oe() {
+        final int max = 100;
+        final FactorialDouble f = FactorialDouble.create().withCache(max);
+
+        for (int i = 0; i < max; i++) {
+            final double expected = factorialDirect(i);
+            Assertions.assertEquals(expected,f.value(i),100 * Math.ulp(expected),i + "! ");
+    }
+    }
+
+    @Test
+    void testCacheIncrease_1_oe() {
+        final int max = 100;
+        final FactorialDouble f1 = FactorialDouble.create().withCache(max);
+        final FactorialDouble f2 = f1.withCache(2 * max);
+
+        final int val = max + max / 2;
+        Assertions.assertEquals(f1.value(val), f2.value(val));
+    }
+
+    @Test
+    void testZeroCache_1_oe() {
+        // Ensure that no exception is thrown.
+        final FactorialDouble f = FactorialDouble.create().withCache(0);
+        Assertions.assertEquals(1, f.value(0));
+    }
+
+    @Test
+    void testZeroCache_2_oe() {
+        // Ensure that no exception is thrown.
+        final FactorialDouble f = FactorialDouble.create().withCache(0);
+        // removed other assertion
+        Assertions.assertEquals(1, f.value(1));
+    }
+
+    @Test
+    void testUselessCache_1_oe() {
+        Assertions.assertDoesNotThrow(() -> { LogFactorial.create().withCache(1); LogFactorial.create().withCache(2); });
+    }
+
+    @Test
+    void testCacheDecrease_1_oe() {
+        final int max = 100;
+        final FactorialDouble f1 = FactorialDouble.create().withCache(max);
+        final FactorialDouble f2 = f1.withCache(max / 2);
+
+        final int val = max / 4;
+        Assertions.assertEquals(f1.value(val), f2.value(val));
     }
 
 }

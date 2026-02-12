@@ -30,5 +30,23 @@ import org.junit.jupiter.api.Test;
 public class PngCrcTest_OE25Dev{
 
 
+    @Test
+    public void testCrc_1_oe() {
+
+        final PngCrc pngCrc = new PngCrc();
+        final byte[] byteArray = new byte[4];
+
+        assertEquals(558161692, pngCrc.crc(byteArray, (byte)32));
+    }
+
+    @Test
+    public void testCrc_2_oe() {
+
+        final PngCrc pngCrc = new PngCrc();
+        final byte[] byteArray = new byte[4];
+
+        // removed other assertion
+        assertEquals(3736805603L, pngCrc.start_partial_crc(byteArray, 0));
+    }
 
 }

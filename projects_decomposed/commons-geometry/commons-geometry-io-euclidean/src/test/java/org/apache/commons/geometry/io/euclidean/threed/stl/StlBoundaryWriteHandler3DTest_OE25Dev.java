@@ -145,5 +145,82 @@ class StlBoundaryWriteHandler3DTest_OE25Dev {
             .collect(Collectors.toList());
     }
 
+    @Test
+    void testProperties_1_oe() {
+        // assert
+        Assertions.assertEquals(GeometryFormat3D.STL, handler.getFormat());
+    }
+
+    @Test
+    void testProperties_2_oe() {
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(51200, handler.getinitialBufferSize());
+    }
+
+    @Test
+    void testSetInitialBufferSize_1_oe() {
+        // act
+        handler.setInitialBufferSize(10);
+
+        // assert
+        Assertions.assertEquals(10, handler.getinitialBufferSize());
+    }
+
+    @Test
+    void testWrite_boundarySource_empty_1_oe() {
+        // arrange
+        final BoundarySource3D src = BoundarySource3D.of();
+
+        // act
+        handler.write(src, new StreamGeometryOutput(out));
+
+        // assert
+        Assertions.assertEquals(0, readOutput().count());
+    }
+
+    @Test
+    void testWrite_triangleMesh_empty_1_oe() {
+        // arrange
+        final TriangleMesh mesh = SimpleTriangleMesh.builder(TEST_PRECISION)
+                .build();
+
+        // act
+        handler.write(mesh, new StreamGeometryOutput(out));
+
+        // assert
+        Assertions.assertEquals(0, readOutput().count());
+    }
+
+    @Test
+    void testWriteFacets_list_empty_1_oe() {
+        // act
+        handler.writeFacets(Collections.emptyList(), new StreamGeometryOutput(out));
+
+        // assert
+        Assertions.assertEquals(0, readOutput().count());
+    }
+
+    @Test
+    void testWriteFacets_includesStlFacetAttribute_3_oe() {
+        // arrange
+        final List<Vector3D> vertices = Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0));
+        final Vector3D normal = Vector3D.Unit.PLUS_Z;
+        final int attr = 12;
+
+        final BinaryStlFacetDefinition facet = new BinaryStlFacetDefinition(vertices, normal, attr);
+
+        // act
+        handler.writeFacets(Collections.singletonList(facet), new StreamGeometryOutput(out));
+
+        // assert
+        BinaryStlFacetDefinitionReader reader =
+                new BinaryStlFacetDefinitionReader(new ByteArrayInputStream(out.toByteArray()));
+        BinaryStlFacetDefinition result = reader.readFacet();
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(attr, result.getAttributeValue());
+    }
 
 }

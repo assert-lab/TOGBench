@@ -105,6 +105,1781 @@ public class RandomStringUtilsTest_OE25Dev {
      */
 
     @Test
+    public void testConstructor_1_oe() {
+        assertNotNull(new RandomStringUtils());
+    }
+
+    @Test
+    public void testConstructor_2_oe() {
+        // removed other assertion
+        final Constructor<?>[] cons = RandomStringUtils.class.getDeclaredConstructors();
+        assertEquals(1, cons.length);
+    }
+
+    @Test
+    public void testConstructor_3_oe() {
+        // removed other assertion
+        final Constructor<?>[] cons = RandomStringUtils.class.getDeclaredConstructors();
+        // removed other assertion
+        assertTrue(Modifier.isPublic(cons[0].getModifiers()));
+    }
+
+    @Test
+    public void testConstructor_4_oe() {
+        // removed other assertion
+        final Constructor<?>[] cons = RandomStringUtils.class.getDeclaredConstructors();
+        // removed other assertion
+        // removed other assertion
+        assertTrue(Modifier.isPublic(RandomStringUtils.class.getModifiers()));
+    }
+
+    @Test
+    public void testConstructor_5_oe() {
+        // removed other assertion
+        final Constructor<?>[] cons = RandomStringUtils.class.getDeclaredConstructors();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(Modifier.isFinal(RandomStringUtils.class.getModifiers()));
+    }
+
+    @Test
+    public void testRandomStringUtils_1_oe() {
+        String r1 = RandomStringUtils.random(50);
+        assertEquals(50, r1.length(), "random(50) length");
+    }
+
+    @Test
+    public void testRandomStringUtils_2_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        assertEquals(50, r2.length(), "random(50) length");
+    }
+
+    @Test
+    public void testRandomStringUtils_3_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        assertTrue(!r1.equals(r2), "!r1.equals(r2)");
+    }
+
+    @Test
+    public void testRandomStringUtils_4_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        assertEquals(50, r1.length(), "randomAscii(50) length");
+    }
+
+    @Test
+    public void testRandomStringUtils_5_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            assertTrue(r1.charAt(i) >= 32 && r1.charAt(i) <= 127, "char between 32 and 127");
+    }
+    }
+
+    @Test
+    public void testRandomStringUtils_6_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        assertTrue(!r1.equals(r2), "!r1.equals(r2)");
+    }
+
+    @Test
+    public void testRandomStringUtils_7_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        assertEquals(50, r1.length(), "randomAlphabetic(50)");
+    }
+
+    @Test
+    public void testRandomStringUtils_8_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            assertTrue(Character.isLetter(r1.charAt(i)) && !Character.isDigit(r1.charAt(i)), "r1 contains alphabetic");
+    }
+    }
+
+    @Test
+    public void testRandomStringUtils_9_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        assertTrue(!r1.equals(r2), "!r1.equals(r2)");
+    }
+
+    @Test
+    public void testRandomStringUtils_10_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        assertEquals(50, r1.length(), "randomAlphanumeric(50)");
+    }
+
+    @Test
+    public void testRandomStringUtils_11_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            assertTrue(Character.isLetterOrDigit(r1.charAt(i)), "r1 contains alphanumeric");
+    }
+    }
+
+    @Test
+    public void testRandomStringUtils_12_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        assertTrue(!r1.equals(r2), "!r1.equals(r2)");
+    }
+
+    @Test
+    public void testRandomStringUtils_13_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        assertEquals(50, r1.length(), "randomGraph(50) length");
+    }
+
+    @Test
+    public void testRandomStringUtils_14_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            assertTrue(r1.charAt(i) >= 33 && r1.charAt(i) <= 126, "char between 33 and 126");
+    }
+    }
+
+    @Test
+    public void testRandomStringUtils_15_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        assertTrue(!r1.equals(r2), "!r1.equals(r2)");
+    }
+
+    @Test
+    public void testRandomStringUtils_16_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        assertEquals(50, r1.length(), "randomNumeric(50)");
+    }
+
+    @Test
+    public void testRandomStringUtils_17_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            assertTrue(Character.isDigit(r1.charAt(i)) && !Character.isLetter(r1.charAt(i)), "r1 contains numeric");
+    }
+    }
+
+    @Test
+    public void testRandomStringUtils_18_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        assertTrue(!r1.equals(r2), "!r1.equals(r2)");
+    }
+
+    @Test
+    public void testRandomStringUtils_19_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        assertEquals(50, r1.length(), "randomPrint(50) length");
+    }
+
+    @Test
+    public void testRandomStringUtils_20_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            assertTrue(r1.charAt(i) >= 32 && r1.charAt(i) <= 126, "char between 32 and 126");
+    }
+    }
+
+    @Test
+    public void testRandomStringUtils_21_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomPrint(50);
+        assertTrue(!r1.equals(r2), "!r1.equals(r2)");
+    }
+
+    @Test
+    public void testRandomStringUtils_22_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+
+        String set = "abcdefg";
+        r1 = RandomStringUtils.random(50, set);
+        assertEquals(50, r1.length(), "random(50, \"abcdefg\")");
+    }
+
+    @Test
+    public void testRandomStringUtils_23_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+
+        String set = "abcdefg";
+        r1 = RandomStringUtils.random(50, set);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            assertTrue(set.indexOf(r1.charAt(i)) > -1, "random char in set");
+    }
+    }
+
+    @Test
+    public void testRandomStringUtils_24_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+
+        String set = "abcdefg";
+        r1 = RandomStringUtils.random(50, set);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        assertTrue(!r1.equals(r2), "!r1.equals(r2)");
+    }
+
+    @Test
+    public void testRandomStringUtils_25_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+
+        String set = "abcdefg";
+        r1 = RandomStringUtils.random(50, set);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(50, (String) null);
+        assertEquals(50, r1.length(), "random(50) length");
+    }
+
+    @Test
+    public void testRandomStringUtils_26_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+
+        String set = "abcdefg";
+        r1 = RandomStringUtils.random(50, set);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        r2 = RandomStringUtils.random(50, (String) null);
+        assertEquals(50, r2.length(), "random(50) length");
+    }
+
+    @Test
+    public void testRandomStringUtils_27_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+
+        String set = "abcdefg";
+        r1 = RandomStringUtils.random(50, set);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        r2 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        assertTrue(!r1.equals(r2), "!r1.equals(r2)");
+    }
+
+    @Test
+    public void testRandomStringUtils_28_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+
+        String set = "abcdefg";
+        r1 = RandomStringUtils.random(50, set);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        r2 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        // removed other assertion
+
+        set = "stuvwxyz";
+        r1 = RandomStringUtils.random(50, set.toCharArray());
+        assertEquals(50, r1.length(), "random(50, \"stuvwxyz\")");
+    }
+
+    @Test
+    public void testRandomStringUtils_29_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+
+        String set = "abcdefg";
+        r1 = RandomStringUtils.random(50, set);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        r2 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        // removed other assertion
+
+        set = "stuvwxyz";
+        r1 = RandomStringUtils.random(50, set.toCharArray());
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            assertTrue(set.indexOf(r1.charAt(i)) > -1, "random char in set");
+    }
+    }
+
+    @Test
+    public void testRandomStringUtils_30_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+
+        String set = "abcdefg";
+        r1 = RandomStringUtils.random(50, set);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        r2 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        // removed other assertion
+
+        set = "stuvwxyz";
+        r1 = RandomStringUtils.random(50, set.toCharArray());
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        assertTrue(!r1.equals(r2), "!r1.equals(r2)");
+    }
+
+    @Test
+    public void testRandomStringUtils_31_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+
+        String set = "abcdefg";
+        r1 = RandomStringUtils.random(50, set);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        r2 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        // removed other assertion
+
+        set = "stuvwxyz";
+        r1 = RandomStringUtils.random(50, set.toCharArray());
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(50, (char[]) null);
+        assertEquals(50, r1.length(), "random(50) length");
+    }
+
+    @Test
+    public void testRandomStringUtils_32_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+
+        String set = "abcdefg";
+        r1 = RandomStringUtils.random(50, set);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        r2 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        // removed other assertion
+
+        set = "stuvwxyz";
+        r1 = RandomStringUtils.random(50, set.toCharArray());
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(50, (char[]) null);
+        // removed other assertion
+        r2 = RandomStringUtils.random(50, (char[]) null);
+        assertEquals(50, r2.length(), "random(50) length");
+    }
+
+    @Test
+    public void testRandomStringUtils_33_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+
+        String set = "abcdefg";
+        r1 = RandomStringUtils.random(50, set);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        r2 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        // removed other assertion
+
+        set = "stuvwxyz";
+        r1 = RandomStringUtils.random(50, set.toCharArray());
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(50, (char[]) null);
+        // removed other assertion
+        r2 = RandomStringUtils.random(50, (char[]) null);
+        // removed other assertion
+        assertTrue(!r1.equals(r2), "!r1.equals(r2)");
+    }
+
+    @Test
+    public void testRandomStringUtils_34_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+
+        String set = "abcdefg";
+        r1 = RandomStringUtils.random(50, set);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        r2 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        // removed other assertion
+
+        set = "stuvwxyz";
+        r1 = RandomStringUtils.random(50, set.toCharArray());
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(50, (char[]) null);
+        // removed other assertion
+        r2 = RandomStringUtils.random(50, (char[]) null);
+        // removed other assertion
+        // removed other assertion
+
+        final long seedMillis = System.currentTimeMillis();
+        r1 = RandomStringUtils.random(50, 0, 0, true, true, null, new Random(seedMillis));
+        r2 = RandomStringUtils.random(50, 0, 0, true, true, null, new Random(seedMillis));
+        assertEquals(r1, r2, "r1.equals(r2)");
+    }
+
+    @Test
+    public void testRandomStringUtils_35_oe() {
+        String r1 = RandomStringUtils.random(50);
+        // removed other assertion
+        String r2 = RandomStringUtils.random(50);
+        // removed other assertion
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAscii(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomAlphanumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomAlphabetic(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomGraph(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomNumeric(50);
+        // removed other assertion
+
+        r1 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.randomPrint(50);
+        // removed other assertion
+
+        String set = "abcdefg";
+        r1 = RandomStringUtils.random(50, set);
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        r2 = RandomStringUtils.random(50, (String) null);
+        // removed other assertion
+        // removed other assertion
+
+        set = "stuvwxyz";
+        r1 = RandomStringUtils.random(50, set.toCharArray());
+        // removed other assertion
+        for (int i = 0; i < r1.length(); i++) {
+            // removed other assertion
+        }
+        r2 = RandomStringUtils.random(50, set);
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(50, (char[]) null);
+        // removed other assertion
+        r2 = RandomStringUtils.random(50, (char[]) null);
+        // removed other assertion
+        // removed other assertion
+
+        final long seedMillis = System.currentTimeMillis();
+        r1 = RandomStringUtils.random(50, 0, 0, true, true, null, new Random(seedMillis));
+        r2 = RandomStringUtils.random(50, 0, 0, true, true, null, new Random(seedMillis));
+        // removed other assertion
+
+        r1 = RandomStringUtils.random(0);
+        assertEquals("", r1, "random(0).equals(\"\")");
+    }
+
+    @Test
+    public void testLANG805_1_oe() {
+        final long seedMillis = System.currentTimeMillis();
+        assertEquals("aaa", RandomStringUtils.random(3, 0, 0, false, false, new char[]{'a'}, new Random(seedMillis)));
+    }
+
+    @Test
     public void testLANG807_1_oe() {
         final IllegalArgumentException ex =
                 assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(3, 5, 5, false, false));
@@ -115,7 +1890,7 @@ public class RandomStringUtilsTest_OE25Dev {
         final char[] DUMMY = new char[]{'a'}; // valid char array
         try {
     RandomStringUtils.random(-1);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -126,7 +1901,7 @@ public class RandomStringUtilsTest_OE25Dev {
         // removed other assertion
         try {
     RandomStringUtils.random(-1, true, true);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -138,7 +1913,7 @@ public class RandomStringUtilsTest_OE25Dev {
         // removed other assertion
         try {
     RandomStringUtils.random(-1, DUMMY);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -151,7 +1926,7 @@ public class RandomStringUtilsTest_OE25Dev {
         // removed other assertion
         try {
     RandomStringUtils.random(1, new char[0]);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -165,7 +1940,7 @@ public class RandomStringUtilsTest_OE25Dev {
         // removed other assertion
         try {
     RandomStringUtils.random(-1, "");
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -180,7 +1955,7 @@ public class RandomStringUtilsTest_OE25Dev {
         // removed other assertion
         try {
     RandomStringUtils.random(-1, (String) null);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -196,7 +1971,7 @@ public class RandomStringUtilsTest_OE25Dev {
         // removed other assertion
         try {
     RandomStringUtils.random(-1, 'a', 'z', false, false);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -213,7 +1988,7 @@ public class RandomStringUtilsTest_OE25Dev {
         // removed other assertion
         try {
     RandomStringUtils.random(-1, 'a', 'z', false, false, DUMMY);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -231,7 +2006,7 @@ public class RandomStringUtilsTest_OE25Dev {
         // removed other assertion
         try {
     RandomStringUtils.random(-1, 'a', 'z', false, false, DUMMY, new Random());
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -250,7 +2025,7 @@ public class RandomStringUtilsTest_OE25Dev {
         // removed other assertion
         try {
     RandomStringUtils.random(8, 32, 48, false, true);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -270,9 +2045,683 @@ public class RandomStringUtilsTest_OE25Dev {
         // removed other assertion
         try {
     RandomStringUtils.random(8, 32, 65, true, false);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    public void testRandomAlphaNumeric_1_oe() {
+        final char[] testChars = {'a', 'z', 'A', 'Z', '0', '9'};
+        final boolean[] found = {false, false, false, false, false, false};
+        for (int i = 0; i < 100; i++) {
+            final String randString = RandomStringUtils.randomAlphanumeric(10);
+            for (int j = 0; j < testChars.length; j++) {
+                if (randString.indexOf(testChars[j]) > 0) {
+                    found[j] = true;
+                }
+            }
+        }
+        for (int i = 0; i < testChars.length; i++) {
+            assertTrue(found[i],"alphanumeric character not generated in 1000 attempts: " + testChars[i] + " -- repeated failures indicate a problem ");
+    }
+    }
+
+    @Test
+    public void testRandomNumeric_1_oe() {
+        final char[] testChars = {'0', '9'};
+        final boolean[] found = {false, false};
+        for (int i = 0; i < 100; i++) {
+            final String randString = RandomStringUtils.randomNumeric(10);
+            for (int j = 0; j < testChars.length; j++) {
+                if (randString.indexOf(testChars[j]) > 0) {
+                    found[j] = true;
+                }
+            }
+        }
+        for (int i = 0; i < testChars.length; i++) {
+            assertTrue(found[i],"digit not generated in 1000 attempts: " + testChars[i] + " -- repeated failures indicate a problem ");
+    }
+    }
+
+    @Test
+    public void testRandomAlphabetic_1_oe() {
+        final char[] testChars = {'a', 'z', 'A', 'Z'};
+        final boolean[] found = {false, false, false, false};
+        for (int i = 0; i < 100; i++) {
+            final String randString = RandomStringUtils.randomAlphabetic(10);
+            for (int j = 0; j < testChars.length; j++) {
+                if (randString.indexOf(testChars[j]) > 0) {
+                    found[j] = true;
+                }
+            }
+        }
+        for (int i = 0; i < testChars.length; i++) {
+            assertTrue(found[i],"alphanumeric character not generated in 1000 attempts: " + testChars[i] + " -- repeated failures indicate a problem ");
+    }
+    }
+
+    @Test
+    public void testRandomAscii_1_oe() {
+        final char[] testChars = {(char) 32, (char) 126};
+        final boolean[] found = {false, false};
+        for (int i = 0; i < 100; i++) {
+            final String randString = RandomStringUtils.randomAscii(10);
+            for (int j = 0; j < testChars.length; j++) {
+                if (randString.indexOf(testChars[j]) > 0) {
+                    found[j] = true;
+                }
+            }
+        }
+        for (int i = 0; i < testChars.length; i++) {
+            assertTrue(found[i],"ascii character not generated in 1000 attempts: " +(int)testChars[i] + " -- repeated failures indicate a problem");
+    }
+    }
+
+    @Test
+    public void testRandomAsciiRange_1_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{ASCII}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomAscii(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            assertThat("within range", s.length(), allOf(greaterThanOrEqualTo(expectedMinLengthInclusive), lessThanOrEqualTo(expectedMaxLengthExclusive - 1)));
+    }
+    }
+
+    @Test
+    public void testRandomAsciiRange_2_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{ASCII}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomAscii(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            assertTrue(s.matches(pattern), s);
+    }
+    }
+
+    @Test
+    public void testRandomAsciiRange_3_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{ASCII}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomAscii(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            // removed other assertion
+
+            if (s.length() < minCreatedLength) {
+                minCreatedLength = s.length();
+            }
+
+            if (s.length() > maxCreatedLength) {
+                maxCreatedLength = s.length();
+            }
+        }
+        assertThat("min generated, may fail randomly rarely", minCreatedLength, is(expectedMinLengthInclusive));
+    }
+
+    @Test
+    public void testRandomAsciiRange_4_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{ASCII}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomAscii(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            // removed other assertion
+
+            if (s.length() < minCreatedLength) {
+                minCreatedLength = s.length();
+            }
+
+            if (s.length() > maxCreatedLength) {
+                maxCreatedLength = s.length();
+            }
+        }
+        // removed other assertion
+        assertThat("max generated, may fail randomly rarely", maxCreatedLength, is(expectedMaxLengthExclusive - 1));
+    }
+
+    @Test
+    public void testRandomAlphabeticRange_1_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Alpha}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomAlphabetic(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            assertThat("within range", s.length(), allOf(greaterThanOrEqualTo(expectedMinLengthInclusive), lessThanOrEqualTo(expectedMaxLengthExclusive - 1)));
+    }
+    }
+
+    @Test
+    public void testRandomAlphabeticRange_2_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Alpha}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomAlphabetic(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            assertTrue(s.matches(pattern), s);
+    }
+    }
+
+    @Test
+    public void testRandomAlphabeticRange_3_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Alpha}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomAlphabetic(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            // removed other assertion
+
+            if (s.length() < minCreatedLength) {
+                minCreatedLength = s.length();
+            }
+
+            if (s.length() > maxCreatedLength) {
+                maxCreatedLength = s.length();
+            }
+        }
+        assertThat("min generated, may fail randomly rarely", minCreatedLength, is(expectedMinLengthInclusive));
+    }
+
+    @Test
+    public void testRandomAlphabeticRange_4_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Alpha}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomAlphabetic(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            // removed other assertion
+
+            if (s.length() < minCreatedLength) {
+                minCreatedLength = s.length();
+            }
+
+            if (s.length() > maxCreatedLength) {
+                maxCreatedLength = s.length();
+            }
+        }
+        // removed other assertion
+        assertThat("max generated, may fail randomly rarely", maxCreatedLength, is(expectedMaxLengthExclusive - 1));
+    }
+
+    @Test
+    public void testRandomAlphanumericRange_1_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Alnum}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomAlphanumeric(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            assertThat("within range", s.length(), allOf(greaterThanOrEqualTo(expectedMinLengthInclusive), lessThanOrEqualTo(expectedMaxLengthExclusive - 1)));
+    }
+    }
+
+    @Test
+    public void testRandomAlphanumericRange_2_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Alnum}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomAlphanumeric(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            assertTrue(s.matches(pattern), s);
+    }
+    }
+
+    @Test
+    public void testRandomAlphanumericRange_3_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Alnum}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomAlphanumeric(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            // removed other assertion
+
+            if (s.length() < minCreatedLength) {
+                minCreatedLength = s.length();
+            }
+
+            if (s.length() > maxCreatedLength) {
+                maxCreatedLength = s.length();
+            }
+        }
+        assertThat("min generated, may fail randomly rarely", minCreatedLength, is(expectedMinLengthInclusive));
+    }
+
+    @Test
+    public void testRandomAlphanumericRange_4_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Alnum}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomAlphanumeric(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            // removed other assertion
+
+            if (s.length() < minCreatedLength) {
+                minCreatedLength = s.length();
+            }
+
+            if (s.length() > maxCreatedLength) {
+                maxCreatedLength = s.length();
+            }
+        }
+        // removed other assertion
+        assertThat("max generated, may fail randomly rarely", maxCreatedLength, is(expectedMaxLengthExclusive - 1));
+    }
+
+    @Test
+    public void testRandomGraphRange_1_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Graph}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomGraph(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            assertThat("within range", s.length(), allOf(greaterThanOrEqualTo(expectedMinLengthInclusive), lessThanOrEqualTo(expectedMaxLengthExclusive - 1)));
+    }
+    }
+
+    @Test
+    public void testRandomGraphRange_2_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Graph}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomGraph(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            assertTrue(s.matches(pattern), s);
+    }
+    }
+
+    @Test
+    public void testRandomGraphRange_3_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Graph}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomGraph(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            // removed other assertion
+
+            if (s.length() < minCreatedLength) {
+                minCreatedLength = s.length();
+            }
+
+            if (s.length() > maxCreatedLength) {
+                maxCreatedLength = s.length();
+            }
+        }
+        assertThat("min generated, may fail randomly rarely", minCreatedLength, is(expectedMinLengthInclusive));
+    }
+
+    @Test
+    public void testRandomGraphRange_4_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Graph}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomGraph(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            // removed other assertion
+
+            if (s.length() < minCreatedLength) {
+                minCreatedLength = s.length();
+            }
+
+            if (s.length() > maxCreatedLength) {
+                maxCreatedLength = s.length();
+            }
+        }
+        // removed other assertion
+        assertThat("max generated, may fail randomly rarely", maxCreatedLength, is(expectedMaxLengthExclusive - 1));
+    }
+
+    @Test
+    public void testRandomNumericRange_1_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Digit}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomNumeric(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            assertThat("within range", s.length(), allOf(greaterThanOrEqualTo(expectedMinLengthInclusive), lessThanOrEqualTo(expectedMaxLengthExclusive - 1)));
+    }
+    }
+
+    @Test
+    public void testRandomNumericRange_2_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Digit}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomNumeric(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            assertTrue(s.matches(pattern), s);
+    }
+    }
+
+    @Test
+    public void testRandomNumericRange_3_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Digit}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomNumeric(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            // removed other assertion
+
+            if (s.length() < minCreatedLength) {
+                minCreatedLength = s.length();
+            }
+
+            if (s.length() > maxCreatedLength) {
+                maxCreatedLength = s.length();
+            }
+        }
+        assertThat("min generated, may fail randomly rarely", minCreatedLength, is(expectedMinLengthInclusive));
+    }
+
+    @Test
+    public void testRandomNumericRange_4_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Digit}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomNumeric(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            // removed other assertion
+
+            if (s.length() < minCreatedLength) {
+                minCreatedLength = s.length();
+            }
+
+            if (s.length() > maxCreatedLength) {
+                maxCreatedLength = s.length();
+            }
+        }
+        // removed other assertion
+        assertThat("max generated, may fail randomly rarely", maxCreatedLength, is(expectedMaxLengthExclusive - 1));
+    }
+
+    @Test
+    public void testRandomPrintRange_1_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Print}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomPrint(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            assertThat("within range", s.length(), allOf(greaterThanOrEqualTo(expectedMinLengthInclusive), lessThanOrEqualTo(expectedMaxLengthExclusive - 1)));
+    }
+    }
+
+    @Test
+    public void testRandomPrintRange_2_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Print}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomPrint(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            assertTrue(s.matches(pattern), s);
+    }
+    }
+
+    @Test
+    public void testRandomPrintRange_3_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Print}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomPrint(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            // removed other assertion
+
+            if (s.length() < minCreatedLength) {
+                minCreatedLength = s.length();
+            }
+
+            if (s.length() > maxCreatedLength) {
+                maxCreatedLength = s.length();
+            }
+        }
+        assertThat("min generated, may fail randomly rarely", minCreatedLength, is(expectedMinLengthInclusive));
+    }
+
+    @Test
+    public void testRandomPrintRange_4_oe() {
+        final int expectedMinLengthInclusive = 1;
+        final int expectedMaxLengthExclusive = 11;
+        final String pattern = "^\\p{Print}{" + expectedMinLengthInclusive + ',' + expectedMaxLengthExclusive + "}$";
+
+        int maxCreatedLength = expectedMinLengthInclusive;
+        int minCreatedLength = expectedMaxLengthExclusive - 1;
+        for (int i = 0; i < 1000; i++) {
+            final String s = RandomStringUtils.randomPrint(expectedMinLengthInclusive, expectedMaxLengthExclusive);
+            // removed other assertion
+            // removed other assertion
+
+            if (s.length() < minCreatedLength) {
+                minCreatedLength = s.length();
+            }
+
+            if (s.length() > maxCreatedLength) {
+                maxCreatedLength = s.length();
+            }
+        }
+        // removed other assertion
+        assertThat("max generated, may fail randomly rarely", maxCreatedLength, is(expectedMaxLengthExclusive - 1));
+    }
+
+    @Test
+    public void testRandomStringUtilsHomog_1_oe() {
+        final String set = "abc";
+        final char[] chars = set.toCharArray();
+        String gen = "";
+        final int[] counts = {0, 0, 0};
+        final int[] expected = {200, 200, 200};
+        for (int i = 0; i< 100; i++) {
+            gen = RandomStringUtils.random(6, chars);
+            for (int j = 0; j < 6; j++) {
+                switch (gen.charAt(j)) {
+                    case 'a': {
+                        counts[0]++;
+                        break;
+                    }
+                    case 'b': {
+                        counts[1]++;
+                        break;
+                    }
+                    case 'c': {
+                        counts[2]++;
+                        break;
+                    }
+                    default: {
+                        fail("generated character not in set");
+    }
+    }
+    }
+    }
+    }
+
+    @Test
+    public void testRandomStringUtilsHomog_2_oe() {
+        final String set = "abc";
+        final char[] chars = set.toCharArray();
+        String gen = "";
+        final int[] counts = {0, 0, 0};
+        final int[] expected = {200, 200, 200};
+        for (int i = 0; i< 100; i++) {
+            gen = RandomStringUtils.random(6, chars);
+            for (int j = 0; j < 6; j++) {
+                switch (gen.charAt(j)) {
+                    case 'a': {
+                        counts[0]++;
+                        break;
+                    }
+                    case 'b': {
+                        counts[1]++;
+                        break;
+                    }
+                    case 'c': {
+                        counts[2]++;
+                        break;
+                    }
+                    default: {
+                        // removed other assertion
+                    }
+                }
+            }
+        }
+        // Perform chi-square test with df = 3-1 = 2, testing at .001 level
+        assertTrue(chiSquare(expected, counts) < 13.82, "test homogeneity -- will fail about 1 in 1000 times");
+    }
+
+    @Test
+    public void testLang100_1_oe() {
+        final int size = 5000;
+        final Charset charset = StandardCharsets.UTF_8;
+        final String orig = RandomStringUtils.random(size);
+        final byte[] bytes = orig.getBytes(charset);
+        final String copy = new String(bytes, charset);
+
+        // for a verbose compare:
+        for (int i=0; i < orig.length() && i < copy.length(); i++) {
+            final char o = orig.charAt(i);
+            final char c = copy.charAt(i);
+            assertEquals(o,c,"differs at " + i + "(" + Integer.toHexString(Character.valueOf(o).hashCode())+ "," + Integer.toHexString(Character.valueOf(c).hashCode())+ ")");
+    }
+    }
+
+    @Test
+    public void testLang100_2_oe() {
+        final int size = 5000;
+        final Charset charset = StandardCharsets.UTF_8;
+        final String orig = RandomStringUtils.random(size);
+        final byte[] bytes = orig.getBytes(charset);
+        final String copy = new String(bytes, charset);
+
+        // for a verbose compare:
+        for (int i=0; i < orig.length() && i < copy.length(); i++) {
+            final char o = orig.charAt(i);
+            final char c = copy.charAt(i);
+            // removed other assertion
+        }
+        // compare length also
+        assertEquals(orig.length(), copy.length());
+    }
+
+    @Test
+    public void testLang100_3_oe() {
+        final int size = 5000;
+        final Charset charset = StandardCharsets.UTF_8;
+        final String orig = RandomStringUtils.random(size);
+        final byte[] bytes = orig.getBytes(charset);
+        final String copy = new String(bytes, charset);
+
+        // for a verbose compare:
+        for (int i=0; i < orig.length() && i < copy.length(); i++) {
+            final char o = orig.charAt(i);
+            final char c = copy.charAt(i);
+            // removed other assertion
+        }
+        // compare length also
+        // removed other assertion
+        // just to be complete
+        assertEquals(orig, copy);
+    }
+
+    @Test
+    public void testCharOverflow_1_oe() {
+        final int start = Character.MAX_VALUE;
+        final int end = Integer.MAX_VALUE;
+
+        @SuppressWarnings("serial")
+        final
+        Random fixedRandom = new Random() {
+            @Override
+            public int nextInt(final int n) {
+                // Prevents selection of 'start' as the character
+                return super.nextInt(n - 1) + 1;
+            }
+        };
+
+        final String result = RandomStringUtils.random(2, start, end, false, false, null, fixedRandom);
+        final int c = result.codePointAt(0);
+        assertTrue(c >= start && c < end, String.format("Character '%d' not in range [%d,%d).", c, start, end));
     }
 
 }

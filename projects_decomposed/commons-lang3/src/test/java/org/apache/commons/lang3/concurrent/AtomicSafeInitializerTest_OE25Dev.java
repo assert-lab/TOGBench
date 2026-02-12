@@ -70,5 +70,11 @@ public class AtomicSafeInitializerTest_OE25Dev extends
         }
     }
 
+    @Test
+    public void testNumberOfInitializeInvocations_1_oe() throws ConcurrentException,
+            InterruptedException {
+        testGetConcurrent();
+        assertEquals(1, initializer.initCounter.get(), "Wrong number of invocations");
+    }
 
 }

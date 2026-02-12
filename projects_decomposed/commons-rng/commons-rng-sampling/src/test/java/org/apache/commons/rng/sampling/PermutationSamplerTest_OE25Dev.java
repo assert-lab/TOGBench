@@ -26,6 +26,8 @@ import org.apache.commons.math3.stat.inference.ChiSquareTest;
 import org.apache.commons.rng.UniformRandomProvider;
 import org.apache.commons.rng.simple.RandomSource;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Tests for {@link PermutationSampler}.
  */
@@ -104,11 +106,45 @@ class PermutationSamplerTest_OE25Dev {
     }
 
     @Test
+    void testSampleTrivial_1_oe() {
+         int n = 6;
+         int k = 3;
+         PermutationSampler sampler = new PermutationSampler(RandomSource.KISS.create(),
+                                                                  n, k);
+         int[] random = sampler.sample();
+        SAMPLE: for (int s : random) {
+            for (int i = 0; i < n; i++) {
+                if (i == s) {
+                    continue SAMPLE;
+                }
+            }
+            Assertions.fail("number " + s + " not in array");
+    }
+    }
+
+    @Test
+    void testSampleBoundaryCase_1_oe() {
+        // Check size = 1 boundary case.
+         PermutationSampler sampler = new PermutationSampler(rng, 1, 1);
+         int[] perm = sampler.sample();
+        Assertions.assertEquals(1, perm.length);
+    }
+
+    @Test
+    void testSampleBoundaryCase_2_oe() {
+        // Check size = 1 boundary case.
+         PermutationSampler sampler = new PermutationSampler(rng, 1, 1);
+         int[] perm = sampler.sample();
+        // removed other assertion
+        Assertions.assertEquals(0, perm[0]);
+    }
+
+    @Test
     void testSamplePrecondition1_1_oe() {
         // Must fail for k > n.
         try {
     new PermutationSampler(rng, 2, 3);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -118,7 +154,7 @@ class PermutationSamplerTest_OE25Dev {
         // Must fail for n = 0.
         try {
     new PermutationSampler(rng, 0, 0);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -128,7 +164,7 @@ class PermutationSamplerTest_OE25Dev {
         // Must fail for k < n < 0.
         try {
     new PermutationSampler(rng, -1, 0);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -138,9 +174,115 @@ class PermutationSamplerTest_OE25Dev {
         // Must fail for k < n < 0.
         try {
     new PermutationSampler(rng, 1, -1);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testNatural_1_oe() {
+         int n = 4;
+         int[] expected = {0, 1, 2, 3};
+
+         int[] natural = PermutationSampler.natural(n);
+        for (int i = 0; i < n; i++) {
+            Assertions.assertEquals(expected[i], natural[i]);
+    }
+    }
+
+    @Test
+    void testNaturalZero_1_oe() {
+         int[] natural = PermutationSampler.natural(0);
+        Assertions.assertEquals(0, natural.length);
+    }
+
+    @Test
+    void testShuffleNoDuplicates_1_oe() {
+         int n = 100;
+         int[] orig = PermutationSampler.natural(n);
+        PermutationSampler.shuffle(rng, orig);
+
+        // Test that all (unique) entries exist in the shuffled array.
+         int[] count = new int[n];
+        for (int i = 0; i < n; i++) {
+            count[orig[i]] += 1;
+        }
+
+        for (int i = 0; i < n; i++) {
+            Assertions.assertEquals(1, count[i]);
+    }
+    }
+
+    @Test
+    void testShuffleTail_1_oe() {
+         int[] orig = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+         int[] list = orig.clone();
+         int start = 4;
+        PermutationSampler.shuffle(rng, list, start, false);
+
+        // Ensure that all entries below index "start" did not move.
+        for (int i = 0; i < start; i++) {
+            Assertions.assertEquals(orig[i], list[i]);
+    }
+    }
+
+    @Test
+    void testShuffleTail_2_oe() {
+         int[] orig = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+         int[] list = orig.clone();
+         int start = 4;
+        PermutationSampler.shuffle(rng, list, start, false);
+
+        // Ensure that all entries below index "start" did not move.
+        for (int i = 0; i < start; i++) {
+            // removed other assertion
+        }
+
+        // Ensure that at least one entry has moved.
+        boolean ok = false;
+        for (int i = start; i < orig.length - 1; i++) {
+            if (orig[i] != list[i]) {
+                ok = true;
+                break;
+            }
+        }
+        Assertions.assertTrue(ok);
+    }
+
+    @Test
+    void testShuffleHead_1_oe() {
+         int[] orig = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+         int[] list = orig.clone();
+         int start = 4;
+        PermutationSampler.shuffle(rng, list, start, true);
+
+        // Ensure that all entries above index "start" did not move.
+        for (int i = start + 1; i < orig.length; i++) {
+            Assertions.assertEquals(orig[i], list[i]);
+    }
+    }
+
+    @Test
+    void testShuffleHead_2_oe() {
+         int[] orig = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+         int[] list = orig.clone();
+         int start = 4;
+        PermutationSampler.shuffle(rng, list, start, true);
+
+        // Ensure that all entries above index "start" did not move.
+        for (int i = start + 1; i < orig.length; i++) {
+            // removed other assertion
+        }
+
+        // Ensure that at least one entry has moved.
+        boolean ok = false;
+        for (int i = 0; i <= start; i++) {
+            if (orig[i] != list[i]) {
+                ok = true;
+                break;
+            }
+        }
+        Assertions.assertTrue(ok);
     }
 
 }

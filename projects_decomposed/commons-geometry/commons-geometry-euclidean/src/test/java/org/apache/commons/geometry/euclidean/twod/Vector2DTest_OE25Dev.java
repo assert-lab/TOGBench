@@ -30,6 +30,8 @@ import org.apache.commons.numbers.core.Precision;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class Vector2DTest_OE25Dev {
 
     private static final double EPS = Math.ulp(1d);
@@ -576,14 +578,22 @@ class Vector2DTest_OE25Dev {
     @Test
     void testConstants_normalize_1_oe() {
         // act/assert
-        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.ZERO::normalize);
+        try {
+    Vector2D.ZERO.normalize();
+    fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testConstants_normalize_2_oe() {
         // act/assert
         // removed other assertion
-        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.NaN::normalize);
+        try {
+    Vector2D.NaN.normalize();
+    fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -591,7 +601,11 @@ class Vector2DTest_OE25Dev {
         // act/assert
         // removed other assertion
         // removed other assertion
-        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.POSITIVE_INFINITY::normalize);
+        try {
+    Vector2D.POSITIVE_INFINITY.normalize();
+    fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -600,7 +614,666 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.NEGATIVE_INFINITY::normalize);
+        try {
+    Vector2D.NEGATIVE_INFINITY.normalize();
+    fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    void testConstants_normalize_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertSame(Vector2D.Unit.PLUS_X, Vector2D.Unit.PLUS_X.normalize());
+    }
+
+    @Test
+    void testConstants_normalize_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertSame(Vector2D.Unit.MINUS_X, Vector2D.Unit.MINUS_X.normalize());
+    }
+
+    @Test
+    void testConstants_normalize_7_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertSame(Vector2D.Unit.PLUS_Y, Vector2D.Unit.PLUS_Y.normalize());
+    }
+
+    @Test
+    void testConstants_normalize_8_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertSame(Vector2D.Unit.MINUS_Y, Vector2D.Unit.MINUS_Y.normalize());
+    }
+
+    @Test
+    void testCoordinateAscendingOrder_1_oe() {
+        // arrange
+        final Comparator<Vector2D> cmp = Vector2D.COORDINATE_ASCENDING_ORDER;
+
+        // act/assert
+        Assertions.assertEquals(0, cmp.compare(Vector2D.of(1, 2), Vector2D.of(1, 2)));
+    }
+
+    @Test
+    void testCoordinateAscendingOrder_2_oe() {
+        // arrange
+        final Comparator<Vector2D> cmp = Vector2D.COORDINATE_ASCENDING_ORDER;
+
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertEquals(-1, cmp.compare(Vector2D.of(0, 2), Vector2D.of(1, 2)));
+    }
+
+    @Test
+    void testCoordinateAscendingOrder_3_oe() {
+        // arrange
+        final Comparator<Vector2D> cmp = Vector2D.COORDINATE_ASCENDING_ORDER;
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(-1, cmp.compare(Vector2D.of(1, 1), Vector2D.of(1, 2)));
+    }
+
+    @Test
+    void testCoordinateAscendingOrder_4_oe() {
+        // arrange
+        final Comparator<Vector2D> cmp = Vector2D.COORDINATE_ASCENDING_ORDER;
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(1, cmp.compare(Vector2D.of(2, 2), Vector2D.of(1, 2)));
+    }
+
+    @Test
+    void testCoordinateAscendingOrder_5_oe() {
+        // arrange
+        final Comparator<Vector2D> cmp = Vector2D.COORDINATE_ASCENDING_ORDER;
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(1, cmp.compare(Vector2D.of(1, 3), Vector2D.of(1, 2)));
+    }
+
+    @Test
+    void testCoordinateAscendingOrder_6_oe() {
+        // arrange
+        final Comparator<Vector2D> cmp = Vector2D.COORDINATE_ASCENDING_ORDER;
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(-1, cmp.compare(Vector2D.of(1, 3), null));
+    }
+
+    @Test
+    void testCoordinateAscendingOrder_7_oe() {
+        // arrange
+        final Comparator<Vector2D> cmp = Vector2D.COORDINATE_ASCENDING_ORDER;
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(1, cmp.compare(null, Vector2D.of(1, 2)));
+    }
+
+    @Test
+    void testCoordinateAscendingOrder_8_oe() {
+        // arrange
+        final Comparator<Vector2D> cmp = Vector2D.COORDINATE_ASCENDING_ORDER;
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(0, cmp.compare(null, null));
+    }
+
+    @Test
+    void testCoordinates_1_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1, 2);
+
+        // act/assert
+        Assertions.assertEquals(1.0, v.getX(), EPS);
+    }
+
+    @Test
+    void testCoordinates_2_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertEquals(2.0, v.getY(), EPS);
+    }
+
+    @Test
+    void testToArray_1_oe() {
+        // arrange
+        final Vector2D oneTwo = Vector2D.of(1, 2);
+
+        // act
+        final double[] array = oneTwo.toArray();
+
+        // assert
+        Assertions.assertEquals(2, array.length);
+    }
+
+    @Test
+    void testToArray_2_oe() {
+        // arrange
+        final Vector2D oneTwo = Vector2D.of(1, 2);
+
+        // act
+        final double[] array = oneTwo.toArray();
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(1.0, array[0], EPS);
+    }
+
+    @Test
+    void testToArray_3_oe() {
+        // arrange
+        final Vector2D oneTwo = Vector2D.of(1, 2);
+
+        // act
+        final double[] array = oneTwo.toArray();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(2.0, array[1], EPS);
+    }
+
+    @Test
+    void testDimension_1_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1, 2);
+
+        // act/assert
+        Assertions.assertEquals(2, v.getDimension());
+    }
+
+    @Test
+    void testNaN_1_oe() {
+        // act/assert
+        Assertions.assertTrue(Vector2D.of(0, Double.NaN).isNaN());
+    }
+
+    @Test
+    void testNaN_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertTrue(Vector2D.of(Double.NaN, 0).isNaN());
+    }
+
+    @Test
+    void testNaN_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(Vector2D.of(1, 1).isNaN());
+    }
+
+    @Test
+    void testNaN_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(1, Double.NEGATIVE_INFINITY).isNaN());
+    }
+
+    @Test
+    void testNaN_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(Double.POSITIVE_INFINITY, 1).isNaN());
+    }
+
+    @Test
+    void testInfinite_1_oe() {
+        // act/assert
+        Assertions.assertTrue(Vector2D.of(0, Double.NEGATIVE_INFINITY).isInfinite());
+    }
+
+    @Test
+    void testInfinite_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertTrue(Vector2D.of(Double.NEGATIVE_INFINITY, 0).isInfinite());
+    }
+
+    @Test
+    void testInfinite_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(Vector2D.of(0, Double.POSITIVE_INFINITY).isInfinite());
+    }
+
+    @Test
+    void testInfinite_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(Vector2D.of(Double.POSITIVE_INFINITY, 0).isInfinite());
+    }
+
+    @Test
+    void testInfinite_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(Vector2D.of(1, 1).isInfinite());
+    }
+
+    @Test
+    void testInfinite_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(0, Double.NaN).isInfinite());
+    }
+
+    @Test
+    void testInfinite_7_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(Double.NEGATIVE_INFINITY, Double.NaN).isInfinite());
+    }
+
+    @Test
+    void testInfinite_8_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(Double.NaN, Double.NEGATIVE_INFINITY).isInfinite());
+    }
+
+    @Test
+    void testInfinite_9_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(Double.POSITIVE_INFINITY, Double.NaN).isInfinite());
+    }
+
+    @Test
+    void testInfinite_10_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(Double.NaN, Double.POSITIVE_INFINITY).isInfinite());
+    }
+
+    @Test
+    void testFinite_1_oe() {
+        // act/assert
+        Assertions.assertTrue(Vector2D.ZERO.isFinite());
+    }
+
+    @Test
+    void testFinite_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertTrue(Vector2D.of(1, 1).isFinite());
+    }
+
+    @Test
+    void testFinite_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(Vector2D.of(0, Double.NEGATIVE_INFINITY).isFinite());
+    }
+
+    @Test
+    void testFinite_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(Double.NEGATIVE_INFINITY, 0).isFinite());
+    }
+
+    @Test
+    void testFinite_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(0, Double.POSITIVE_INFINITY).isFinite());
+    }
+
+    @Test
+    void testFinite_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(Double.POSITIVE_INFINITY, 0).isFinite());
+    }
+
+    @Test
+    void testFinite_7_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(Vector2D.of(0, Double.NaN).isFinite());
+    }
+
+    @Test
+    void testFinite_8_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(Double.NEGATIVE_INFINITY, Double.NaN).isFinite());
+    }
+
+    @Test
+    void testFinite_9_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(Double.NaN, Double.NEGATIVE_INFINITY).isFinite());
+    }
+
+    @Test
+    void testFinite_10_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(Double.POSITIVE_INFINITY, Double.NaN).isFinite());
+    }
+
+    @Test
+    void testFinite_11_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(Double.NaN, Double.POSITIVE_INFINITY).isFinite());
+    }
+
+    @Test
+    void testNorm_1_oe() {
+        // act/assert
+        Assertions.assertEquals(0.0, Vector2D.of(0, 0).norm(), EPS);
+    }
+
+    @Test
+    void testNorm_2_oe() {
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertEquals(5.0, Vector2D.of(3, 4).norm(), EPS);
+    }
+
+    @Test
+    void testNorm_3_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(5.0, Vector2D.of(3, -4).norm(), EPS);
+    }
+
+    @Test
+    void testNorm_4_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(5.0, Vector2D.of(-3, 4).norm(), EPS);
+    }
+
+    @Test
+    void testNorm_5_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(5.0, Vector2D.of(-3, -4).norm(), EPS);
+    }
+
+    @Test
+    void testNorm_6_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(Math.sqrt(5.0), Vector2D.of(-1, -2).norm(), EPS);
+    }
+
+    @Test
+    void testNorm_unitVectors_1_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(2.0, 3.0).normalize();
+
+        // act/assert
+        Assertions.assertEquals(1.0, v.norm(), 0.0);
+    }
+
+    @Test
+    void testNormSq_1_oe() {
+        // act/assert
+        Assertions.assertEquals(0.0, Vector2D.of(0, 0).normSq(), EPS);
+    }
+
+    @Test
+    void testNormSq_2_oe() {
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertEquals(25.0, Vector2D.of(3, 4).normSq(), EPS);
+    }
+
+    @Test
+    void testNormSq_3_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(25.0, Vector2D.of(3, -4).normSq(), EPS);
+    }
+
+    @Test
+    void testNormSq_4_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(25.0, Vector2D.of(-3, 4).normSq(), EPS);
+    }
+
+    @Test
+    void testNormSq_5_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(25.0, Vector2D.of(-3, -4).normSq(), EPS);
+    }
+
+    @Test
+    void testNormSq_6_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(5.0, Vector2D.of(-1, -2).normSq(), EPS);
+    }
+
+    @Test
+    void testNormSq_unitVectors_1_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(2.0, 3.0).normalize();
+
+        // act/assert
+        Assertions.assertEquals(1.0, v.normSq(), 0.0);
     }
 
     @Test
@@ -608,7 +1281,7 @@ class Vector2DTest_OE25Dev {
         // act/assert
         try {
     Vector2D.ZERO.withNorm(2.0);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -619,7 +1292,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.NaN.withNorm(2.0);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -631,7 +1304,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.POSITIVE_INFINITY.withNorm(2.0);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -644,22 +1317,532 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.NEGATIVE_INFINITY.withNorm(2.0);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
 
     @Test
+    void testWithNorm_unitVectors_1_oe() {
+        // arrange
+        final double eps = 1e-14;
+        final Vector2D v = Vector2D.of(2.0, -3.0).normalize();
+
+        // act/assert
+        checkVector(Vector2D.Unit.PLUS_X.withNorm(2.5), 2.5, 0.0);
+        checkVector(Vector2D.Unit.MINUS_Y.withNorm(3.14), 0.0, -3.14);
+
+        for (int i = -10; i <= 10; i++) {
+            Assertions.assertEquals(Math.abs((double) i), v.withNorm(i).norm(), eps);
+    }
+    }
+
+    @Test
+    void testNormalize_isIdempotent_1_oe() {
+        // arrange
+        final double invSqrt2 = 1.0 / Math.sqrt(2);
+        final Vector2D v = Vector2D.of(2, 2).normalize();
+
+        // act/assert
+        Assertions.assertSame(v, v.normalize());
+    }
+
+    @Test
+    void testNormalizeOrNull_1_oe() {
+        // arrange
+        final double invSqrt2 = 1 / Math.sqrt(2);
+
+        // act/assert
+        checkVector(Vector2D.of(100, 0).normalizeOrNull(), 1, 0);
+        checkVector(Vector2D.of(-100, 0).normalizeOrNull(), -1, 0);
+
+        checkVector(Vector2D.of(2, 2).normalizeOrNull(), invSqrt2, invSqrt2);
+        checkVector(Vector2D.of(-2, -2).normalizeOrNull(), -invSqrt2, -invSqrt2);
+
+        checkVector(Vector2D.of(Double.MIN_VALUE, 0).normalizeOrNull(), 1, 0);
+        checkVector(Vector2D.of(0, Double.MIN_VALUE).normalizeOrNull(), 0, 1);
+
+        checkVector(Vector2D.of(-Double.MIN_VALUE, -Double.MIN_VALUE).normalizeOrNull(), -invSqrt2, -invSqrt2);
+
+        checkVector(Vector2D.of(Double.MIN_NORMAL, -Double.MIN_NORMAL).normalizeOrNull(), invSqrt2, -invSqrt2);
+
+        checkVector(Vector2D.of(Double.MAX_VALUE, -Double.MAX_VALUE).normalizeOrNull(), invSqrt2, -invSqrt2);
+
+        Assertions.assertNull(Vector2D.ZERO.normalizeOrNull());
+    }
+
+    @Test
+    void testNormalizeOrNull_2_oe() {
+        // arrange
+        final double invSqrt2 = 1 / Math.sqrt(2);
+
+        // act/assert
+        checkVector(Vector2D.of(100, 0).normalizeOrNull(), 1, 0);
+        checkVector(Vector2D.of(-100, 0).normalizeOrNull(), -1, 0);
+
+        checkVector(Vector2D.of(2, 2).normalizeOrNull(), invSqrt2, invSqrt2);
+        checkVector(Vector2D.of(-2, -2).normalizeOrNull(), -invSqrt2, -invSqrt2);
+
+        checkVector(Vector2D.of(Double.MIN_VALUE, 0).normalizeOrNull(), 1, 0);
+        checkVector(Vector2D.of(0, Double.MIN_VALUE).normalizeOrNull(), 0, 1);
+
+        checkVector(Vector2D.of(-Double.MIN_VALUE, -Double.MIN_VALUE).normalizeOrNull(), -invSqrt2, -invSqrt2);
+
+        checkVector(Vector2D.of(Double.MIN_NORMAL, -Double.MIN_NORMAL).normalizeOrNull(), invSqrt2, -invSqrt2);
+
+        checkVector(Vector2D.of(Double.MAX_VALUE, -Double.MAX_VALUE).normalizeOrNull(), invSqrt2, -invSqrt2);
+
+        // removed other assertion
+        Assertions.assertNull(Vector2D.NaN.normalizeOrNull());
+    }
+
+    @Test
+    void testNormalizeOrNull_3_oe() {
+        // arrange
+        final double invSqrt2 = 1 / Math.sqrt(2);
+
+        // act/assert
+        checkVector(Vector2D.of(100, 0).normalizeOrNull(), 1, 0);
+        checkVector(Vector2D.of(-100, 0).normalizeOrNull(), -1, 0);
+
+        checkVector(Vector2D.of(2, 2).normalizeOrNull(), invSqrt2, invSqrt2);
+        checkVector(Vector2D.of(-2, -2).normalizeOrNull(), -invSqrt2, -invSqrt2);
+
+        checkVector(Vector2D.of(Double.MIN_VALUE, 0).normalizeOrNull(), 1, 0);
+        checkVector(Vector2D.of(0, Double.MIN_VALUE).normalizeOrNull(), 0, 1);
+
+        checkVector(Vector2D.of(-Double.MIN_VALUE, -Double.MIN_VALUE).normalizeOrNull(), -invSqrt2, -invSqrt2);
+
+        checkVector(Vector2D.of(Double.MIN_NORMAL, -Double.MIN_NORMAL).normalizeOrNull(), invSqrt2, -invSqrt2);
+
+        checkVector(Vector2D.of(Double.MAX_VALUE, -Double.MAX_VALUE).normalizeOrNull(), invSqrt2, -invSqrt2);
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNull(Vector2D.POSITIVE_INFINITY.normalizeOrNull());
+    }
+
+    @Test
+    void testNormalizeOrNull_4_oe() {
+        // arrange
+        final double invSqrt2 = 1 / Math.sqrt(2);
+
+        // act/assert
+        checkVector(Vector2D.of(100, 0).normalizeOrNull(), 1, 0);
+        checkVector(Vector2D.of(-100, 0).normalizeOrNull(), -1, 0);
+
+        checkVector(Vector2D.of(2, 2).normalizeOrNull(), invSqrt2, invSqrt2);
+        checkVector(Vector2D.of(-2, -2).normalizeOrNull(), -invSqrt2, -invSqrt2);
+
+        checkVector(Vector2D.of(Double.MIN_VALUE, 0).normalizeOrNull(), 1, 0);
+        checkVector(Vector2D.of(0, Double.MIN_VALUE).normalizeOrNull(), 0, 1);
+
+        checkVector(Vector2D.of(-Double.MIN_VALUE, -Double.MIN_VALUE).normalizeOrNull(), -invSqrt2, -invSqrt2);
+
+        checkVector(Vector2D.of(Double.MIN_NORMAL, -Double.MIN_NORMAL).normalizeOrNull(), invSqrt2, -invSqrt2);
+
+        checkVector(Vector2D.of(Double.MAX_VALUE, -Double.MAX_VALUE).normalizeOrNull(), invSqrt2, -invSqrt2);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNull(Vector2D.NEGATIVE_INFINITY.normalizeOrNull());
+    }
+
+    @Test
+    void testNormalizeOrNull_isIdempotent_1_oe() {
+        // arrange
+        final double invSqrt2 = 1 / Math.sqrt(2);
+        final Vector2D v = Vector2D.of(2, 2).normalizeOrNull();
+
+        // act/assert
+        Assertions.assertSame(v, v.normalizeOrNull());
+    }
+
+    @Test
+    void testDistance_1_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        Assertions.assertEquals(0, v1.distance(v1), EPS);
+    }
+
+    @Test
+    void testDistance_2_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertEquals(5, v1.distance(v2), EPS);
+    }
+
+    @Test
+    void testDistance_3_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(5, v2.distance(v1), EPS);
+    }
+
+    @Test
+    void testDistance_4_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(Math.sqrt(5), v1.distance(v3), EPS);
+    }
+
+    @Test
+    void testDistance_5_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(Math.sqrt(5), v3.distance(v1), EPS);
+    }
+
+    @Test
+    void testDistanceSq_1_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        Assertions.assertEquals(0, v1.distanceSq(v1), EPS);
+    }
+
+    @Test
+    void testDistanceSq_2_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertEquals(25, v1.distanceSq(v2), EPS);
+    }
+
+    @Test
+    void testDistanceSq_3_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(25, v2.distanceSq(v1), EPS);
+    }
+
+    @Test
+    void testDistanceSq_4_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(5, v1.distanceSq(v3), EPS);
+    }
+
+    @Test
+    void testDistanceSq_5_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(5, v3.distanceSq(v1), EPS);
+    }
+
+    @Test
+    void testDotProduct_1_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        Assertions.assertEquals(2, v1.dot(v1), EPS);
+    }
+
+    @Test
+    void testDotProduct_2_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertEquals(41, v2.dot(v2), EPS);
+    }
+
+    @Test
+    void testDotProduct_3_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(1, v3.dot(v3), EPS);
+    }
+
+    @Test
+    void testDotProduct_4_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(9, v1.dot(v2), EPS);
+    }
+
+    @Test
+    void testDotProduct_5_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(9, v2.dot(v1), EPS);
+    }
+
+    @Test
+    void testDotProduct_6_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(-1, v1.dot(v3), EPS);
+    }
+
+    @Test
+    void testDotProduct_7_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(-1, v3.dot(v1), EPS);
+    }
+
+    @Test
+    void testDotProduct_8_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(1, Vector2D.Unit.PLUS_X.dot(Vector2D.Unit.PLUS_X), EPS);
+    }
+
+    @Test
+    void testDotProduct_9_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(0, Vector2D.Unit.PLUS_X.dot(Vector2D.Unit.PLUS_Y), EPS);
+    }
+
+    @Test
+    void testDotProduct_10_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(-1, Vector2D.Unit.PLUS_X.dot(Vector2D.Unit.MINUS_X), EPS);
+    }
+
+    @Test
+    void testDotProduct_11_oe() {
+        // arrange
+        final Vector2D v1 = Vector2D.of(1, 1);
+        final Vector2D v2 = Vector2D.of(4, 5);
+        final Vector2D v3 = Vector2D.of(-1, 0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(0, Vector2D.Unit.PLUS_X.dot(Vector2D.Unit.MINUS_Y), EPS);
+    }
+
+    @Test
+    void testOrthogonal_fullCircle_1_oe() {
+        for (double az = 0.0; az <= Angle.TWO_PI; az += 0.25) {
+            // arrange
+            final Vector2D v = PolarCoordinates.toCartesian(Math.PI, az);
+
+            //act
+            final Vector2D ortho = v.orthogonal();
+
+            // assert
+            Assertions.assertEquals(1.0, ortho.norm(), EPS);
+    }
+    }
+
+    @Test
+    void testOrthogonal_fullCircle_2_oe() {
+        for (double az = 0.0; az <= Angle.TWO_PI; az += 0.25) {
+            // arrange
+            final Vector2D v = PolarCoordinates.toCartesian(Math.PI, az);
+
+            //act
+            final Vector2D ortho = v.orthogonal();
+
+            // assert
+            // removed other assertion
+            Assertions.assertEquals(0.0, v.dot(ortho), EPS);
+    }
+    }
+
+    @Test
     void testOrthogonal_illegalNorm_1_oe() {
         // act/assert
-        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.ZERO::orthogonal);
+        try {
+    Vector2D.ZERO.orthogonal();
+    fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testOrthogonal_illegalNorm_2_oe() {
         // act/assert
         // removed other assertion
-        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.NaN::orthogonal);
+        try {
+    Vector2D.NaN.orthogonal();
+    fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -667,7 +1850,11 @@ class Vector2DTest_OE25Dev {
         // act/assert
         // removed other assertion
         // removed other assertion
-        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.POSITIVE_INFINITY::orthogonal);
+        try {
+    Vector2D.POSITIVE_INFINITY.orthogonal();
+    fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -676,7 +1863,11 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.NEGATIVE_INFINITY::orthogonal);
+        try {
+    Vector2D.NEGATIVE_INFINITY.orthogonal();
+    fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -684,7 +1875,7 @@ class Vector2DTest_OE25Dev {
         // act/assert
         try {
     Vector2D.ZERO.orthogonal(Vector2D.Unit.PLUS_X);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -695,7 +1886,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.NaN.orthogonal(Vector2D.Unit.PLUS_X);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -707,7 +1898,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.POSITIVE_INFINITY.orthogonal(Vector2D.Unit.PLUS_X);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -720,7 +1911,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.NEGATIVE_INFINITY.orthogonal(Vector2D.Unit.PLUS_X);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -734,7 +1925,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.Unit.PLUS_X.orthogonal(Vector2D.ZERO);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -749,7 +1940,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.Unit.PLUS_X.orthogonal(Vector2D.NaN);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -765,7 +1956,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.Unit.PLUS_X.orthogonal(Vector2D.POSITIVE_INFINITY);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -782,7 +1973,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.Unit.PLUS_X.orthogonal(Vector2D.NEGATIVE_INFINITY);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -792,7 +1983,7 @@ class Vector2DTest_OE25Dev {
         // act/assert
         try {
     Vector2D.Unit.PLUS_X.orthogonal(Vector2D.Unit.PLUS_X);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -803,7 +1994,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.Unit.PLUS_X.orthogonal(Vector2D.Unit.MINUS_X);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -815,7 +2006,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.of(1.0, 1.0).orthogonal(Vector2D.of(2.0, 2.0));
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -828,9 +2019,82 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.of(-1.01, -1.01).orthogonal(Vector2D.of(20.1, 20.1));
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testAngle_1_oe() {
+        // act/assert
+        Assertions.assertEquals(0, Vector2D.Unit.PLUS_X.angle(Vector2D.Unit.PLUS_X), EPS);
+    }
+
+    @Test
+    void testAngle_2_oe() {
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertEquals(Math.PI, Vector2D.Unit.PLUS_X.angle(Vector2D.Unit.MINUS_X), EPS);
+    }
+
+    @Test
+    void testAngle_3_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(Angle.PI_OVER_TWO, Vector2D.Unit.PLUS_X.angle(Vector2D.Unit.PLUS_Y), EPS);
+    }
+
+    @Test
+    void testAngle_4_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(Angle.PI_OVER_TWO, Vector2D.Unit.PLUS_X.angle(Vector2D.Unit.MINUS_Y), EPS);
+    }
+
+    @Test
+    void testAngle_5_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(Math.PI / 4, Vector2D.of(1, 1).angle(Vector2D.of(1, 0)), EPS);
+    }
+
+    @Test
+    void testAngle_6_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(Math.PI / 4, Vector2D.of(1, 0).angle(Vector2D.of(1, 1)), EPS);
+    }
+
+    @Test
+    void testAngle_7_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(0.004999958333958323, Vector2D.of(20.0, 0.0).angle(Vector2D.of(20.0, 0.1)), EPS);
     }
 
     @Test
@@ -841,7 +2105,7 @@ class Vector2DTest_OE25Dev {
         // act/assert
         try {
     Vector2D.ZERO.angle(v);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -855,7 +2119,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.NaN.angle(v);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -870,7 +2134,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.POSITIVE_INFINITY.angle(v);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -886,7 +2150,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.NEGATIVE_INFINITY.angle(v);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -903,7 +2167,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     v.angle(Vector2D.ZERO);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -921,7 +2185,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     v.angle(Vector2D.NaN);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -940,7 +2204,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     v.angle(Vector2D.POSITIVE_INFINITY);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -960,9 +2224,255 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     v.angle(Vector2D.NEGATIVE_INFINITY);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testSignedArea_1_oe() {
+        // arrange
+        final double eps = 1e-10;
+
+        final Vector2D a = Vector2D.Unit.PLUS_X;
+        final Vector2D b = Vector2D.Unit.PLUS_Y;
+        final Vector2D c = Vector2D.of(1, 1).withNorm(2.0);
+        final Vector2D d = Vector2D.of(-1, 1).withNorm(3.0);
+
+        // act/assert
+        Assertions.assertEquals(1.0, a.signedArea(b), eps);
+    }
+
+    @Test
+    void testSignedArea_2_oe() {
+        // arrange
+        final double eps = 1e-10;
+
+        final Vector2D a = Vector2D.Unit.PLUS_X;
+        final Vector2D b = Vector2D.Unit.PLUS_Y;
+        final Vector2D c = Vector2D.of(1, 1).withNorm(2.0);
+        final Vector2D d = Vector2D.of(-1, 1).withNorm(3.0);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertEquals(-1.0, b.signedArea(a), eps);
+    }
+
+    @Test
+    void testSignedArea_3_oe() {
+        // arrange
+        final double eps = 1e-10;
+
+        final Vector2D a = Vector2D.Unit.PLUS_X;
+        final Vector2D b = Vector2D.Unit.PLUS_Y;
+        final Vector2D c = Vector2D.of(1, 1).withNorm(2.0);
+        final Vector2D d = Vector2D.of(-1, 1).withNorm(3.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        final double xAxisAndCArea = 2 * Math.cos(0.25 * Math.PI);
+        Assertions.assertEquals(xAxisAndCArea, a.signedArea(c), eps);
+    }
+
+    @Test
+    void testSignedArea_4_oe() {
+        // arrange
+        final double eps = 1e-10;
+
+        final Vector2D a = Vector2D.Unit.PLUS_X;
+        final Vector2D b = Vector2D.Unit.PLUS_Y;
+        final Vector2D c = Vector2D.of(1, 1).withNorm(2.0);
+        final Vector2D d = Vector2D.of(-1, 1).withNorm(3.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        final double xAxisAndCArea = 2 * Math.cos(0.25 * Math.PI);
+        // removed other assertion
+        Assertions.assertEquals(-xAxisAndCArea, c.signedArea(a), eps);
+    }
+
+    @Test
+    void testSignedArea_5_oe() {
+        // arrange
+        final double eps = 1e-10;
+
+        final Vector2D a = Vector2D.Unit.PLUS_X;
+        final Vector2D b = Vector2D.Unit.PLUS_Y;
+        final Vector2D c = Vector2D.of(1, 1).withNorm(2.0);
+        final Vector2D d = Vector2D.of(-1, 1).withNorm(3.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        final double xAxisAndCArea = 2 * Math.cos(0.25 * Math.PI);
+        // removed other assertion
+        // removed other assertion
+
+        final double xAxisAndDArea = 3 * Math.cos(0.25 * Math.PI);
+        Assertions.assertEquals(xAxisAndDArea, a.signedArea(d), eps);
+    }
+
+    @Test
+    void testSignedArea_6_oe() {
+        // arrange
+        final double eps = 1e-10;
+
+        final Vector2D a = Vector2D.Unit.PLUS_X;
+        final Vector2D b = Vector2D.Unit.PLUS_Y;
+        final Vector2D c = Vector2D.of(1, 1).withNorm(2.0);
+        final Vector2D d = Vector2D.of(-1, 1).withNorm(3.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        final double xAxisAndCArea = 2 * Math.cos(0.25 * Math.PI);
+        // removed other assertion
+        // removed other assertion
+
+        final double xAxisAndDArea = 3 * Math.cos(0.25 * Math.PI);
+        // removed other assertion
+        Assertions.assertEquals(-xAxisAndDArea, d.signedArea(a), eps);
+    }
+
+    @Test
+    void testSignedArea_7_oe() {
+        // arrange
+        final double eps = 1e-10;
+
+        final Vector2D a = Vector2D.Unit.PLUS_X;
+        final Vector2D b = Vector2D.Unit.PLUS_Y;
+        final Vector2D c = Vector2D.of(1, 1).withNorm(2.0);
+        final Vector2D d = Vector2D.of(-1, 1).withNorm(3.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        final double xAxisAndCArea = 2 * Math.cos(0.25 * Math.PI);
+        // removed other assertion
+        // removed other assertion
+
+        final double xAxisAndDArea = 3 * Math.cos(0.25 * Math.PI);
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(6.0, c.signedArea(d), eps);
+    }
+
+    @Test
+    void testSignedArea_8_oe() {
+        // arrange
+        final double eps = 1e-10;
+
+        final Vector2D a = Vector2D.Unit.PLUS_X;
+        final Vector2D b = Vector2D.Unit.PLUS_Y;
+        final Vector2D c = Vector2D.of(1, 1).withNorm(2.0);
+        final Vector2D d = Vector2D.of(-1, 1).withNorm(3.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        final double xAxisAndCArea = 2 * Math.cos(0.25 * Math.PI);
+        // removed other assertion
+        // removed other assertion
+
+        final double xAxisAndDArea = 3 * Math.cos(0.25 * Math.PI);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(-6.0, d.signedArea(c), eps);
+    }
+
+    @Test
+    void testSignedArea_collinear_1_oe() {
+        // arrange
+        final Vector2D a = Vector2D.Unit.PLUS_X;
+        final Vector2D b = Vector2D.Unit.PLUS_Y;
+        final Vector2D c = Vector2D.of(-3, 8);
+
+        // act/assert
+        Assertions.assertEquals(0.0, a.signedArea(a), EPS);
+    }
+
+    @Test
+    void testSignedArea_collinear_2_oe() {
+        // arrange
+        final Vector2D a = Vector2D.Unit.PLUS_X;
+        final Vector2D b = Vector2D.Unit.PLUS_Y;
+        final Vector2D c = Vector2D.of(-3, 8);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertEquals(0.0, b.signedArea(b), EPS);
+    }
+
+    @Test
+    void testSignedArea_collinear_3_oe() {
+        // arrange
+        final Vector2D a = Vector2D.Unit.PLUS_X;
+        final Vector2D b = Vector2D.Unit.PLUS_Y;
+        final Vector2D c = Vector2D.of(-3, 8);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(0.0, c.signedArea(c), EPS);
+    }
+
+    @Test
+    void testSignedArea_collinear_4_oe() {
+        // arrange
+        final Vector2D a = Vector2D.Unit.PLUS_X;
+        final Vector2D b = Vector2D.Unit.PLUS_Y;
+        final Vector2D c = Vector2D.of(-3, 8);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(0.0, a.signedArea(a.multiply(100.0)), EPS);
+    }
+
+    @Test
+    void testSignedArea_collinear_5_oe() {
+        // arrange
+        final Vector2D a = Vector2D.Unit.PLUS_X;
+        final Vector2D b = Vector2D.Unit.PLUS_Y;
+        final Vector2D c = Vector2D.of(-3, 8);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(0.0, b.signedArea(b.negate()), EPS);
+    }
+
+    @Test
+    void testSignedArea_collinear_6_oe() {
+        // arrange
+        final Vector2D a = Vector2D.Unit.PLUS_X;
+        final Vector2D b = Vector2D.Unit.PLUS_Y;
+        final Vector2D c = Vector2D.of(-3, 8);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(0.0, c.signedArea(c.multiply(-0.03)), EPS);
     }
 
     @Test
@@ -973,7 +2483,7 @@ class Vector2DTest_OE25Dev {
         // act/assert
         try {
     v.project(Vector2D.ZERO);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -987,7 +2497,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     v.project(Vector2D.NaN);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -1002,7 +2512,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     v.project(Vector2D.POSITIVE_INFINITY);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -1018,7 +2528,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     v.project(Vector2D.NEGATIVE_INFINITY);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -1031,7 +2541,7 @@ class Vector2DTest_OE25Dev {
         // act/assert
         try {
     v.reject(Vector2D.ZERO);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -1045,7 +2555,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     v.reject(Vector2D.NaN);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -1060,7 +2570,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     v.reject(Vector2D.POSITIVE_INFINITY);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -1076,7 +2586,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     v.reject(Vector2D.NEGATIVE_INFINITY);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -1089,7 +2599,7 @@ class Vector2DTest_OE25Dev {
         // act/assert
         try {
     Vector2D.ZERO.directionTo(Vector2D.ZERO);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -1103,7 +2613,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     p.directionTo(p);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -1118,7 +2628,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     p.directionTo(Vector2D.NaN);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -1134,7 +2644,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.NEGATIVE_INFINITY.directionTo(p);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -1151,9 +2661,761 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     p.directionTo(Vector2D.POSITIVE_INFINITY);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testPrecisionEquals_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final Vector2D vec = Vector2D.of(1, -2);
+
+        // act/assert
+        Assertions.assertTrue(vec.eq(vec, smallEps));
+    }
+
+    @Test
+    void testPrecisionEquals_2_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final Vector2D vec = Vector2D.of(1, -2);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertTrue(vec.eq(vec, largeEps));
+    }
+
+    @Test
+    void testPrecisionEquals_3_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final Vector2D vec = Vector2D.of(1, -2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertTrue(vec.eq(Vector2D.of(1.0000007, -2.0000009), smallEps));
+    }
+
+    @Test
+    void testPrecisionEquals_4_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final Vector2D vec = Vector2D.of(1, -2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertTrue(vec.eq(Vector2D.of(1.0000007, -2.0000009), largeEps));
+    }
+
+    @Test
+    void testPrecisionEquals_5_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final Vector2D vec = Vector2D.of(1, -2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(vec.eq(Vector2D.of(1.004, -2), smallEps));
+    }
+
+    @Test
+    void testPrecisionEquals_6_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final Vector2D vec = Vector2D.of(1, -2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(vec.eq(Vector2D.of(1, -2.004), smallEps));
+    }
+
+    @Test
+    void testPrecisionEquals_7_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final Vector2D vec = Vector2D.of(1, -2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(vec.eq(Vector2D.of(1.004, -2.004), largeEps));
+    }
+
+    @Test
+    void testPrecisionEquals_8_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final Vector2D vec = Vector2D.of(1, -2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(vec.eq(Vector2D.of(1, -3), smallEps));
+    }
+
+    @Test
+    void testPrecisionEquals_9_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final Vector2D vec = Vector2D.of(1, -2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(vec.eq(Vector2D.of(2, -2), smallEps));
+    }
+
+    @Test
+    void testPrecisionEquals_10_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final Vector2D vec = Vector2D.of(1, -2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(vec.eq(Vector2D.of(1, -3), largeEps));
+    }
+
+    @Test
+    void testPrecisionEquals_11_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final Vector2D vec = Vector2D.of(1, -2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(vec.eq(Vector2D.of(2, -2), largeEps));
+    }
+
+    @Test
+    void testIsZero_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        // act/assert
+        Assertions.assertTrue(Vector2D.of(0.0, -0.0).isZero(smallEps));
+    }
+
+    @Test
+    void testIsZero_2_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertTrue(Vector2D.of(-0.0, 0.0).isZero(largeEps));
+    }
+
+    @Test
+    void testIsZero_3_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertTrue(Vector2D.of(-1e-7, 1e-7).isZero(smallEps));
+    }
+
+    @Test
+    void testIsZero_4_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertTrue(Vector2D.of(1e-7, 1e-7).isZero(largeEps));
+    }
+
+    @Test
+    void testIsZero_5_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(Vector2D.of(1e-2, 0.0).isZero(smallEps));
+    }
+
+    @Test
+    void testIsZero_6_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(0.0, 1e-2).isZero(smallEps));
+    }
+
+    @Test
+    void testIsZero_7_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(Vector2D.of(1e-2, -1e-2).isZero(largeEps));
+    }
+
+    @Test
+    void testIsZero_8_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(Vector2D.of(0.2, 0.0).isZero(smallEps));
+    }
+
+    @Test
+    void testIsZero_9_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(0.0, 0.2).isZero(smallEps));
+    }
+
+    @Test
+    void testIsZero_10_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(0.2, 0.2).isZero(smallEps));
+    }
+
+    @Test
+    void testIsZero_11_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(-0.2, 0.0).isZero(largeEps));
+    }
+
+    @Test
+    void testIsZero_12_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(0.0, -0.2).isZero(largeEps));
+    }
+
+    @Test
+    void testIsZero_13_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallEps = Precision.doubleEquivalenceOfEpsilon(1e-6);
+        final Precision.DoubleEquivalence largeEps = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(Vector2D.of(-0.2, -0.2).isZero(largeEps));
+    }
+
+    @Test
+    void testHashCode_1_oe() {
+        // arrange
+        final Vector2D u = Vector2D.of(1, 1);
+        final Vector2D v = Vector2D.of(1 + 10 * Precision.EPSILON, 1 + 10 * Precision.EPSILON);
+        final Vector2D w = Vector2D.of(1, 1);
+
+        // act/assert
+        Assertions.assertTrue(u.hashCode() != v.hashCode());
+    }
+
+    @Test
+    void testHashCode_2_oe() {
+        // arrange
+        final Vector2D u = Vector2D.of(1, 1);
+        final Vector2D v = Vector2D.of(1 + 10 * Precision.EPSILON, 1 + 10 * Precision.EPSILON);
+        final Vector2D w = Vector2D.of(1, 1);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertEquals(u.hashCode(), w.hashCode());
+    }
+
+    @Test
+    void testHashCode_3_oe() {
+        // arrange
+        final Vector2D u = Vector2D.of(1, 1);
+        final Vector2D v = Vector2D.of(1 + 10 * Precision.EPSILON, 1 + 10 * Precision.EPSILON);
+        final Vector2D w = Vector2D.of(1, 1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(Vector2D.of(0, Double.NaN).hashCode(), Vector2D.NaN.hashCode());
+    }
+
+    @Test
+    void testHashCode_4_oe() {
+        // arrange
+        final Vector2D u = Vector2D.of(1, 1);
+        final Vector2D v = Vector2D.of(1 + 10 * Precision.EPSILON, 1 + 10 * Precision.EPSILON);
+        final Vector2D w = Vector2D.of(1, 1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(Vector2D.of(Double.NaN, 0).hashCode(), Vector2D.NaN.hashCode());
+    }
+
+    @Test
+    void testHashCode_5_oe() {
+        // arrange
+        final Vector2D u = Vector2D.of(1, 1);
+        final Vector2D v = Vector2D.of(1 + 10 * Precision.EPSILON, 1 + 10 * Precision.EPSILON);
+        final Vector2D w = Vector2D.of(1, 1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(Vector2D.of(0, Double.NaN).hashCode(), Vector2D.of(Double.NaN, 0).hashCode());
+    }
+
+    @Test
+    void testEquals_2_oe() {
+        // arrange
+        final Vector2D u1 = Vector2D.of(1, 2);
+        final Vector2D u2 = Vector2D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertEquals(u1, u2);
+    }
+
+    @Test
+    void testEquals_3_oe() {
+        // arrange
+        final Vector2D u1 = Vector2D.of(1, 2);
+        final Vector2D u2 = Vector2D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertNotEquals(u1, Vector2D.of(-1, -2));
+    }
+
+    @Test
+    void testEquals_4_oe() {
+        // arrange
+        final Vector2D u1 = Vector2D.of(1, 2);
+        final Vector2D u2 = Vector2D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNotEquals(u1, Vector2D.of(1 + 10 * Precision.EPSILON, 2));
+    }
+
+    @Test
+    void testEquals_5_oe() {
+        // arrange
+        final Vector2D u1 = Vector2D.of(1, 2);
+        final Vector2D u2 = Vector2D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(u1, Vector2D.of(1, 2 + 10 * Precision.EPSILON));
+    }
+
+    @Test
+    void testEquals_6_oe() {
+        // arrange
+        final Vector2D u1 = Vector2D.of(1, 2);
+        final Vector2D u2 = Vector2D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(Vector2D.of(0, Double.NaN), Vector2D.of(Double.NaN, 0));
+    }
+
+    @Test
+    void testEquals_7_oe() {
+        // arrange
+        final Vector2D u1 = Vector2D.of(1, 2);
+        final Vector2D u2 = Vector2D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        Assertions.assertEquals(Vector2D.of(0, Double.POSITIVE_INFINITY), Vector2D.of(0, Double.POSITIVE_INFINITY));
+    }
+
+    @Test
+    void testEquals_8_oe() {
+        // arrange
+        final Vector2D u1 = Vector2D.of(1, 2);
+        final Vector2D u2 = Vector2D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNotEquals(Vector2D.of(Double.POSITIVE_INFINITY, 0), Vector2D.of(0, Double.POSITIVE_INFINITY));
+    }
+
+    @Test
+    void testEquals_9_oe() {
+        // arrange
+        final Vector2D u1 = Vector2D.of(1, 2);
+        final Vector2D u2 = Vector2D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(Vector2D.of(Double.NEGATIVE_INFINITY, 0), Vector2D.of(Double.NEGATIVE_INFINITY, 0));
+    }
+
+    @Test
+    void testEquals_10_oe() {
+        // arrange
+        final Vector2D u1 = Vector2D.of(1, 2);
+        final Vector2D u2 = Vector2D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNotEquals(Vector2D.of(0, Double.NEGATIVE_INFINITY), Vector2D.of(Double.NEGATIVE_INFINITY, 0));
+    }
+
+    @Test
+    void testEqualsAndHashCode_signedZeroConsistency_1_oe() {
+        // arrange
+        final Vector2D a = Vector2D.of(0.0, 0.0);
+        final Vector2D b = Vector2D.of(-0.0, -0.0);
+        final Vector2D c = Vector2D.of(0.0, 0.0);
+        final Vector2D d = Vector2D.of(-0.0, -0.0);
+
+        // act/assert
+        Assertions.assertFalse(a.equals(b));
+    }
+
+    @Test
+    void testEqualsAndHashCode_signedZeroConsistency_2_oe() {
+        // arrange
+        final Vector2D a = Vector2D.of(0.0, 0.0);
+        final Vector2D b = Vector2D.of(-0.0, -0.0);
+        final Vector2D c = Vector2D.of(0.0, 0.0);
+        final Vector2D d = Vector2D.of(-0.0, -0.0);
+
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertTrue(a.equals(c));
+    }
+
+    @Test
+    void testEqualsAndHashCode_signedZeroConsistency_3_oe() {
+        // arrange
+        final Vector2D a = Vector2D.of(0.0, 0.0);
+        final Vector2D b = Vector2D.of(-0.0, -0.0);
+        final Vector2D c = Vector2D.of(0.0, 0.0);
+        final Vector2D d = Vector2D.of(-0.0, -0.0);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(a.hashCode(), c.hashCode());
+    }
+
+    @Test
+    void testEqualsAndHashCode_signedZeroConsistency_4_oe() {
+        // arrange
+        final Vector2D a = Vector2D.of(0.0, 0.0);
+        final Vector2D b = Vector2D.of(-0.0, -0.0);
+        final Vector2D c = Vector2D.of(0.0, 0.0);
+        final Vector2D d = Vector2D.of(-0.0, -0.0);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertTrue(b.equals(d));
+    }
+
+    @Test
+    void testEqualsAndHashCode_signedZeroConsistency_5_oe() {
+        // arrange
+        final Vector2D a = Vector2D.of(0.0, 0.0);
+        final Vector2D b = Vector2D.of(-0.0, -0.0);
+        final Vector2D c = Vector2D.of(0.0, 0.0);
+        final Vector2D d = Vector2D.of(-0.0, -0.0);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(b.hashCode(), d.hashCode());
+    }
+
+    @Test
+    void testToString_1_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1, 2);
+        final Pattern pattern = Pattern.compile("\\(1.{0,2}, 2.{0,2}\\)");
+
+        // act
+        final String str = v.toString();
+
+        // assert
+        Assertions.assertTrue(pattern.matcher(str).matches(), "Expected string " + str + " to match regex " + pattern);
     }
 
     @Test
@@ -1161,7 +3423,7 @@ class Vector2DTest_OE25Dev {
         // act/assert
         try {
     Vector2D.parse("abc");
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -1171,9 +3433,21 @@ class Vector2DTest_OE25Dev {
         // act/assert
         try {
     Vector2D.of(new double[] {0.0});
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testUnitFrom_vector_1_oe() {
+        // arrange
+        final double invSqrt2 = 1.0 / Math.sqrt(2.0);
+        final Vector2D vec = Vector2D.of(2.0, -2.0);
+        final Vector2D.Unit unitVec = Vector2D.Unit.from(2.0, -2.0);
+
+        // act/assert
+        checkVector(Vector2D.Unit.from(vec), invSqrt2, -invSqrt2);
+        Assertions.assertSame(unitVec, Vector2D.Unit.from(unitVec));
     }
 
     @Test
@@ -1181,7 +3455,7 @@ class Vector2DTest_OE25Dev {
 
         try {
     Vector2D.Unit.from(0.0, 0.0);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -1192,7 +3466,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.Unit.from(Double.NaN, 1.0);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -1204,7 +3478,7 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.Unit.from(1.0, Double.NEGATIVE_INFINITY);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
     }
@@ -1217,9 +3491,16 @@ class Vector2DTest_OE25Dev {
         // removed other assertion
         try {
     Vector2D.Unit.from(1.0, Double.POSITIVE_INFINITY);
-    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+    fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+    @Test
+    void testUnitFactoryOptimization_1_oe() {
+        // An already normalized vector will avoid unnecessary creation.
+        final Vector2D v = Vector2D.of(4, 5).normalize();
+        Assertions.assertSame(v, v.normalize());
     }
 
 }

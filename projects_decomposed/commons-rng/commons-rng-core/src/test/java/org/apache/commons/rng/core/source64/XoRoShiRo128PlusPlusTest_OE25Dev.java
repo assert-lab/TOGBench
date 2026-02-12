@@ -20,6 +20,8 @@ import org.apache.commons.rng.core.RandomAssert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class XoRoShiRo128PlusPlusTest_OE25Dev {
     /** The size of the array SEED. */
     private static final int SEED_SIZE = 2;
@@ -113,10 +115,15 @@ class XoRoShiRo128PlusPlusTest_OE25Dev {
      */
 
     @Test
+    void testReferenceCode_1_oe() {
+        RandomAssert.assertEquals(EXPECTED_SEQUENCE, new XoRoShiRo128PlusPlus(SEED));
+    }
+
+    @Test
     void testNextOutputThrows_1_oe() {
         try {
     new XoRoShiRo128PlusPlus(SEED).nextOutput();
-    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+    fail("UnsupportedOperationException");
 } catch (UnsupportedOperationException e) {
 }
     }

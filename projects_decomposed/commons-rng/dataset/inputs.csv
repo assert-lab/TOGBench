@@ -1,7 +1,11 @@
 id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
 rng_1_1,"    @Test
     void testCurrentThrowsForNullRandomSource_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ThreadLocalRandomSource.current(null));
+        try {
+    ThreadLocalRandomSource.current(null);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",ThreadLocalRandomSourceTest::testCurrentThrowsForNullRandomSource_1_oe,org.apache.commons.rng.simple.ThreadLocalRandomSource,current(RandomSource source),"/**
      * Returns the current thread's copy of the given {@code source}. If there is no
@@ -37,7 +41,11 @@ rng_1_1,"    @Test
     }"
 rng_2_1,"    @Test
     void testCurrentThrowsForRandomSourceWithDataArguments_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ThreadLocalRandomSource.current(RandomSource.TWO_CMRES_SELECT));
+        try {
+    ThreadLocalRandomSource.current(RandomSource.TWO_CMRES_SELECT);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",ThreadLocalRandomSourceTest::testCurrentThrowsForRandomSourceWithDataArguments_1_oe,org.apache.commons.rng.simple.ThreadLocalRandomSource,current(RandomSource source),"/**
      * Returns the current thread's copy of the given {@code source}. If there is no
@@ -215,7 +223,11 @@ rng_4_1,"    @Test
 rng_5_1,"    @Test
     void testNextLongInRangeThrows_1_oe() {
          UniformRandomProvider rng1 = new JDKRandomWrapper(new Random(5675767L));
-        Assertions.assertThrows(IllegalArgumentException.class, () -> rng1.nextLong(0));
+        try {
+    rng1.nextLong(0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",JDKRandomWrapperTest::testNextLongInRangeThrows_1_oe,org.apache.commons.rng.UniformRandomProvider,nextLong(),"/**
      * Generates a {@code long} value.
@@ -226,7 +238,11 @@ rng_6_1,"    @ParameterizedTest
     @MethodSource(""getProvidersTestData"")
     void testUnsupportedSeedType_1_oe(ProvidersList.Data data) {
          byte seed = 123;
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> data.getSource().create(seed, data.getArgs()));
+        try {
+    data.getSource().create(seed, data.getArgs());
+    fail(""UnsupportedOperationException"");
+} catch (UnsupportedOperationException e) {
+}
     }
 ",ProvidersCommonParametricTest::testUnsupportedSeedType_1_oe,org.apache.commons.rng.simple.internal.ProviderBuilder.RandomSourceInternal,getArgs(),"/**
          * Gets the parameter types of the data needed to build the generator.
@@ -337,7 +353,11 @@ rng_9_1,"    @ParameterizedTest
             // Try passing arguments to a provider that does not require them
             int arg1 = 123;
             double arg2 = 456.0;
-            Assertions.assertThrows(IllegalArgumentException.class, () -> originalSource.create(arg1, arg2), () -> ""Source does not require arguments: "" + originalSource);
+            try {
+    originalSource.create(arg1, arg2);
+    fail(""IllegalArgumentException: () -> \""Source does not require arguments: \"" + originalSource"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
 ",ProvidersCommonParametricTest::testCreateMethodThrowsWithIncorrectArguments_1_oe,org.apache.commons.rng.simple.RandomSource,create(),"/**
@@ -376,7 +396,11 @@ rng_9_2,"    @ParameterizedTest
             // removed other assertion
         } else {
             // Try no arguments for a provider that does require them
-            Assertions.assertThrows(IllegalArgumentException.class, () -> originalSource.create(), () -> ""Source requires arguments: "" + originalSource);
+            try {
+    originalSource.create();
+    fail(""IllegalArgumentException: () -> \""Source requires arguments: \"" + originalSource"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
 ",ProvidersCommonParametricTest::testCreateMethodThrowsWithIncorrectArguments_2_oe,org.apache.commons.rng.simple.RandomSource,create(),"/**
@@ -615,7 +639,11 @@ rng_11_2,"    @ParameterizedTest
         // Cast must work.
          RestorableUniformRandomProvider restorable = (RestorableUniformRandomProvider) rng1;
         // Cast must fail.
-        Assertions.assertThrows(ClassCastException.class, () -> { RestorableUniformRandomProvider dummy = (RestorableUniformRandomProvider) rng2; });
+        try {
+     RestorableUniformRandomProvider dummy = (RestorableUniformRandomProvider) rng2;
+    fail(""ClassCastException"");
+} catch (ClassCastException e) {
+}
     }
 ",ProvidersCommonParametricTest::testUnrestorable_2_oe,org.apache.commons.rng.simple.RandomSource,create(),"/**
      * Creates a random number generator with a random seed.
@@ -1708,7 +1736,11 @@ rng_28_1,"    @ParameterizedTest
     void testCannotConvertUnsupportedSeed_1_oe(NativeSeedType nativeSeedType) {
          int size = 3;
         for ( Object input : UNSUPPORTED_SEEDS) {
-            Assertions.assertThrows(UnsupportedOperationException.class, () -> nativeSeedType.convertSeed(input, size));
+            try {
+    nativeSeedType.convertSeed(input, size);
+    fail(""UnsupportedOperationException"");
+} catch (UnsupportedOperationException e) {
+}
     }
     }
 ",NativeSeedTypeParametricTest::testCannotConvertUnsupportedSeed_1_oe,org.apache.commons.rng.simple.internal.ProviderBuilder.RandomSourceInternal,convertSeed(Object seed),,"@Override
@@ -1724,7 +1756,11 @@ rng_28_1,"    @ParameterizedTest
             }"
 rng_29_1,"    @Test
     void testConvertSeedToBytesUsingNullThrows_1_oe() {
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> NativeSeedType.convertSeedToBytes(null));
+        try {
+    NativeSeedType.convertSeedToBytes(null);
+    fail(""UnsupportedOperationException"");
+} catch (UnsupportedOperationException e) {
+}
     }
 ",NativeSeedTypeTest::testConvertSeedToBytesUsingNullThrows_1_oe,org.apache.commons.rng.simple.internal.NativeSeedType,convertSeedToBytes(Object seed),"/**
      * Converts the input seed from any of the supported seed types to bytes.
@@ -1916,7 +1952,11 @@ rng_33_1,"    @ParameterizedTest
     @EnumSource
     void testCannotConvertUnsupportedSeed_1_oe(RandomSourceInternal randomSourceInternal) {
         for ( Object input : UNSUPPORTED_SEEDS) {
-            Assertions.assertThrows(UnsupportedOperationException.class, () -> randomSourceInternal.convertSeed(input), () -> input.getClass() + "" input seed was not rejected as unsupported"");
+            try {
+    randomSourceInternal.convertSeed(input);
+    fail(""UnsupportedOperationException: () -> input.getClass() + \"" input seed was not rejected as unsupported\"""");
+} catch (UnsupportedOperationException e) {
+}
     }
     }
 ",RandomSourceInternalParametricTest::testCannotConvertUnsupportedSeed_1_oe,org.apache.commons.rng.simple.internal.ProviderBuilder.RandomSourceInternal,convertSeed(Object seed),,"@Override
@@ -2690,7 +2730,11 @@ rng_67_1,"    @Test
          int size = dummy.getStateSize();
         Assumptions.assumeTrue(size > 0);
          RandomProviderDefaultState state = new RandomProviderDefaultState(new byte[size - 1]);
-        Assertions.assertThrows(IllegalStateException.class, () -> dummy.restoreState(state));
+        try {
+    dummy.restoreState(state);
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",BaseProviderTest::testStateSizeTooSmall_1_oe,org.apache.commons.rng.core.BaseProvider,void restoreState(RandomProviderState state),/** {@inheritDoc} */,"@Override
     public void restoreState(RandomProviderState state) {
@@ -2705,7 +2749,11 @@ rng_68_1,"    @Test
          DummyGenerator dummy = new DummyGenerator();
          int size = dummy.getStateSize();
          RandomProviderDefaultState state = new RandomProviderDefaultState(new byte[size + 1]);
-        Assertions.assertThrows(IllegalStateException.class, () -> dummy.restoreState(state));
+        try {
+    dummy.restoreState(state);
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",BaseProviderTest::testStateSizeTooLarge_1_oe,org.apache.commons.rng.core.BaseProvider,void restoreState(RandomProviderState state),/** {@inheritDoc} */,"@Override
     public void restoreState(RandomProviderState state) {
@@ -2920,7 +2968,11 @@ rng_70_3,"    @Test
 rng_71_1,"    @ParameterizedTest
     @MethodSource(""getList"")
     void testPreconditionNextInt_1_oe(UniformRandomProvider generator) {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.nextInt(-1));
+        try {
+    generator.nextInt(-1);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",ProvidersCommonParametricTest::testPreconditionNextInt_1_oe,org.apache.commons.rng.simple.JDKRandomWrapper,nextInt(),/** {@inheritDoc} */,"@Override
     public int nextInt() {
@@ -2930,7 +2982,11 @@ rng_71_2,"    @ParameterizedTest
     @MethodSource(""getList"")
     void testPreconditionNextInt_2_oe(UniformRandomProvider generator) {
         // removed other assertion
-        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.nextInt(0));
+        try {
+    generator.nextInt(0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",ProvidersCommonParametricTest::testPreconditionNextInt_2_oe,org.apache.commons.rng.simple.JDKRandomWrapper,nextInt(),/** {@inheritDoc} */,"@Override
     public int nextInt() {
@@ -2939,7 +2995,11 @@ rng_71_2,"    @ParameterizedTest
 rng_72_1,"    @ParameterizedTest
     @MethodSource(""getList"")
     void testPreconditionNextLong_1_oe(UniformRandomProvider generator) {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.nextLong(-1));
+        try {
+    generator.nextLong(-1);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",ProvidersCommonParametricTest::testPreconditionNextLong_1_oe,org.apache.commons.rng.simple.JDKRandomWrapper,nextLong(),/** {@inheritDoc} */,"@Override
     public long nextLong() {
@@ -2949,7 +3009,11 @@ rng_72_2,"    @ParameterizedTest
     @MethodSource(""getList"")
     void testPreconditionNextLong_2_oe(UniformRandomProvider generator) {
         // removed other assertion
-        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.nextLong(0));
+        try {
+    generator.nextLong(0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",ProvidersCommonParametricTest::testPreconditionNextLong_2_oe,org.apache.commons.rng.simple.JDKRandomWrapper,nextLong(),/** {@inheritDoc} */,"@Override
     public long nextLong() {
@@ -2961,7 +3025,11 @@ rng_73_1,"    @ParameterizedTest
          int size = 10;
          int num = 1;
          byte[] buf = new byte[size];
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> generator.nextBytes(buf, -1, num));
+        try {
+    generator.nextBytes(buf, -1, num);
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
     }
 ",ProvidersCommonParametricTest::testPreconditionNextBytes_1_oe,org.apache.commons.rng.simple.JDKRandomWrapper,void nextBytes(byte[] bytes),/** {@inheritDoc} */,"@Override
     public void nextBytes(byte[] bytes) {
@@ -2974,7 +3042,11 @@ rng_73_2,"    @ParameterizedTest
          int num = 1;
          byte[] buf = new byte[size];
         // removed other assertion
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> generator.nextBytes(buf, size, 0));
+        try {
+    generator.nextBytes(buf, size, 0);
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
     }
 ",ProvidersCommonParametricTest::testPreconditionNextBytes_2_oe,org.apache.commons.rng.simple.JDKRandomWrapper,void nextBytes(byte[] bytes),/** {@inheritDoc} */,"@Override
     public void nextBytes(byte[] bytes) {
@@ -2989,7 +3061,11 @@ rng_73_3,"    @ParameterizedTest
         // removed other assertion
         // removed other assertion
          int offset = 2;
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> generator.nextBytes(buf, offset, size - offset + 1));
+        try {
+    generator.nextBytes(buf, offset, size - offset + 1);
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
     }
 ",ProvidersCommonParametricTest::testPreconditionNextBytes_3_oe,org.apache.commons.rng.simple.JDKRandomWrapper,void nextBytes(byte[] bytes),/** {@inheritDoc} */,"@Override
     public void nextBytes(byte[] bytes) {
@@ -3005,7 +3081,11 @@ rng_73_4,"    @ParameterizedTest
         // removed other assertion
          int offset = 2;
         // removed other assertion
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> generator.nextBytes(buf, offset, -1));
+        try {
+    generator.nextBytes(buf, offset, -1);
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
     }
 ",ProvidersCommonParametricTest::testPreconditionNextBytes_4_oe,org.apache.commons.rng.simple.JDKRandomWrapper,void nextBytes(byte[] bytes),/** {@inheritDoc} */,"@Override
     public void nextBytes(byte[] bytes) {
@@ -3193,7 +3273,11 @@ rng_77_1,"    @ParameterizedTest
     void testStateWrongSize_1_oe(RestorableUniformRandomProvider generator) {
          RandomProviderState state = new DummyGenerator().saveState();
         // Try to restore with an invalid state (wrong size).
-        Assertions.assertThrows(IllegalStateException.class, () -> generator.restoreState(state));
+        try {
+    generator.restoreState(state);
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",ProvidersCommonParametricTest::testStateWrongSize_1_oe,org.apache.commons.rng.core.BaseProvider,void restoreState(RandomProviderState state),/** {@inheritDoc} */,"@Override
     public void restoreState(RandomProviderState state) {
@@ -5011,7 +5095,11 @@ rng_159_1,"    @Test
 ",XoRoShiRo128PlusPlusTest::testReferenceCode_1_oe,,,,
 rng_166_1,"    @Test
     void testNextOutputThrows_1_oe() {
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> new XoRoShiRo128PlusPlus(SEED).nextOutput());
+        try {
+    new XoRoShiRo128PlusPlus(SEED).nextOutput();
+    fail(""UnsupportedOperationException"");
+} catch (UnsupportedOperationException e) {
+}
     }
 ",XoRoShiRo128PlusPlusTest::testNextOutputThrows_1_oe,org.apache.commons.rng.core.source32.XoShiRo128PlusPlus,nextOutput(),/** {@inheritDoc} */,"@Override
     protected int nextOutput() {
@@ -5234,7 +5322,11 @@ rng_228_1,"    @Test
          int max = TwoCmres.numberOfSubcycleGenerators();
         for (int i = 0; i < max; i++) {
              int subCycle = i;
-            Assertions.assertThrows(IllegalArgumentException.class, () -> new TwoCmres(-97845, subCycle, subCycle));
+            try {
+    new TwoCmres(-97845, subCycle, subCycle);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
 ",TwoCmresTest::testSubcycleGeneratorsMustBeDifferent_1_oe,org.apache.commons.rng.core.source64.TwoCmres,numberOfSubcycleGenerators(),"/**
@@ -5259,7 +5351,11 @@ rng_229_1,"    @Test
         }
 
         for (int wrongIndex : new int[] {-1, max}) {
-            Assertions.assertThrows(IndexOutOfBoundsException.class, () -> new TwoCmres(seed, wrongIndex, 1), () -> ""Exception expected for index i = "" + wrongIndex);
+            try {
+    new TwoCmres(seed, wrongIndex, 1);
+    fail(""IndexOutOfBoundsException: () -> \""Exception expected for index i = \"" + wrongIndex"");
+} catch (IndexOutOfBoundsException e) {
+}
     }
     }
 ",TwoCmresTest::testSubcycleGeneratorsIndex_1_oe,org.apache.commons.rng.core.source64.TwoCmres,numberOfSubcycleGenerators(),"/**
@@ -5285,7 +5381,11 @@ rng_229_2,"    @Test
 
         for (int wrongIndex : new int[] {-1, max}) {
             // removed other assertion
-            Assertions.assertThrows(IndexOutOfBoundsException.class, () -> new TwoCmres(seed, 1, wrongIndex), () -> ""Exception expected for index j = "" + wrongIndex);
+            try {
+    new TwoCmres(seed, 1, wrongIndex);
+    fail(""IndexOutOfBoundsException: () -> \""Exception expected for index j = \"" + wrongIndex"");
+} catch (IndexOutOfBoundsException e) {
+}
     }
     }
 ",TwoCmresTest::testSubcycleGeneratorsIndex_2_oe,org.apache.commons.rng.core.source64.TwoCmres,numberOfSubcycleGenerators(),"/**
@@ -5332,7 +5432,11 @@ rng_230_2,"    @Test
 
         list.add(new Cmres(nextMultiply, rotate, start));
         // This should throw as the list now contains the multiply value
-        Assertions.assertThrows(IllegalStateException.class, () -> Cmres.Factory.checkUnique(list, nextMultiply));
+        try {
+    Cmres.Factory.checkUnique(list, nextMultiply);
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",TwoCmresTest::testCmresFactoryThrowsWithDuplicateMultiplier_2_oe,org.apache.commons.rng.core.source64.TwoCmres.Cmres.Factory,"void checkUnique(List<Cmres> table, long multiply)","/**
              * Check the multiply parameter is unique (not contained in any entry in the provided
@@ -6123,7 +6227,11 @@ rng_269_1,"    @Test
         for (int i = 0; i <= 10; i++) {
              byte[] bytes = new byte[i];
             if (i != INT_SIZE) {
-                Assertions.assertThrows(IllegalArgumentException.class, () -> NumberFactory.makeInt(bytes));
+                try {
+    NumberFactory.makeInt(bytes);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
     }
@@ -6171,7 +6279,11 @@ rng_270_1,"    @Test
         for (int i = 0; i <= 20; i++) {
              byte[] bytes = new byte[i];
             if (i != 0 && i % INT_SIZE != 0) {
-                Assertions.assertThrows(IllegalArgumentException.class, () -> NumberFactory.makeIntArray(bytes));
+                try {
+    NumberFactory.makeIntArray(bytes);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
     }
@@ -6233,7 +6345,11 @@ rng_271_1,"    @Test
         for (int i = 0; i <= 10; i++) {
              byte[] bytes = new byte[i];
             if (i != LONG_SIZE) {
-                Assertions.assertThrows(IllegalArgumentException.class, () -> NumberFactory.makeLong(bytes));
+                try {
+    NumberFactory.makeLong(bytes);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
     }
@@ -6275,7 +6391,11 @@ rng_272_1,"    @Test
         for (int i = 0; i <= 20; i++) {
              byte[] bytes = new byte[i];
             if (i != 0 && i % LONG_SIZE != 0) {
-                Assertions.assertThrows(IllegalArgumentException.class, () -> NumberFactory.makeLongArray(bytes));
+                try {
+    NumberFactory.makeLongArray(bytes);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
     }
@@ -6469,7 +6589,11 @@ rng_277_2,"    @Test
     }"
 rng_280_1,"    @Test
     void testHexThrowsWithOddNumberOfCharacters_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> Hex.decodeHex(""0""));
+        try {
+    Hex.decodeHex(""0"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",HexTest::testHexThrowsWithOddNumberOfCharacters_1_oe,org.apache.commons.rng.examples.stress.Hex,decodeHex(final CharSequence data),"/**
      * Converts an array of characters representing hexadecimal values into an array
@@ -6501,7 +6625,11 @@ rng_280_1,"    @Test
     }"
 rng_281_1,"    @Test
     void testHexThrowsWithIllegalHexCharacters_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> Hex.decodeHex(""0g""));
+        try {
+    Hex.decodeHex(""0g"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",HexTest::testHexThrowsWithIllegalHexCharacters_1_oe,org.apache.commons.rng.examples.stress.Hex,decodeHex(final CharSequence data),"/**
      * Converts an array of characters representing hexadecimal values into an array
@@ -6589,25 +6717,41 @@ rng_289_2,"    @Test
 rng_290_1,"    @Test
     void testSamplePrecondition1_1_oe() {
         // Must fail for k > n.
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new PermutationSampler(rng, 2, 3));
+        try {
+    new PermutationSampler(rng, 2, 3);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",PermutationSamplerTest::testSamplePrecondition1_1_oe,,,,
 rng_291_1,"    @Test
     void testSamplePrecondition2_1_oe() {
         // Must fail for n = 0.
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new PermutationSampler(rng, 0, 0));
+        try {
+    new PermutationSampler(rng, 0, 0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",PermutationSamplerTest::testSamplePrecondition2_1_oe,,,,
 rng_292_1,"    @Test
     void testSamplePrecondition3_1_oe() {
         // Must fail for k < n < 0.
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new PermutationSampler(rng, -1, 0));
+        try {
+    new PermutationSampler(rng, -1, 0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",PermutationSamplerTest::testSamplePrecondition3_1_oe,,,,
 rng_293_1,"    @Test
     void testSamplePrecondition4_1_oe() {
         // Must fail for k < n < 0.
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new PermutationSampler(rng, 1, -1));
+        try {
+    new PermutationSampler(rng, 1, -1);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",PermutationSamplerTest::testSamplePrecondition4_1_oe,,,,
 rng_294_1,"    @Test
@@ -6798,43 +6942,71 @@ rng_298_2,"    @Test
 rng_300_1,"    @Test
     void testPrecondition1_1_oe() {
         // Size mismatch
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new DiscreteProbabilityCollectionSampler<>(rng, Arrays.asList(1d, 2d), new double[] {0d}));
+        try {
+    new DiscreteProbabilityCollectionSampler<>(rng, Arrays.asList(1d, 2d), new double[] {0d});
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",DiscreteProbabilityCollectionSamplerTest::testPrecondition1_1_oe,,,,
 rng_301_1,"    @Test
     void testPrecondition2_1_oe() {
         // Negative probability
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new DiscreteProbabilityCollectionSampler<>(rng, Arrays.asList(1d, 2d), new double[] {0d, -1d}));
+        try {
+    new DiscreteProbabilityCollectionSampler<>(rng, Arrays.asList(1d, 2d), new double[] {0d, -1d});
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",DiscreteProbabilityCollectionSamplerTest::testPrecondition2_1_oe,,,,
 rng_302_1,"    @Test
     void testPrecondition3_1_oe() {
         // Probabilities do not sum above 0
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new DiscreteProbabilityCollectionSampler<>(rng, Arrays.asList(1d, 2d), new double[] {0d, 0d}));
+        try {
+    new DiscreteProbabilityCollectionSampler<>(rng, Arrays.asList(1d, 2d), new double[] {0d, 0d});
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",DiscreteProbabilityCollectionSamplerTest::testPrecondition3_1_oe,,,,
 rng_303_1,"    @Test
     void testPrecondition4_1_oe() {
         // NaN probability
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new DiscreteProbabilityCollectionSampler<>(rng, Arrays.asList(1d, 2d), new double[] {0d, Double.NaN}));
+        try {
+    new DiscreteProbabilityCollectionSampler<>(rng, Arrays.asList(1d, 2d), new double[] {0d, Double.NaN});
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",DiscreteProbabilityCollectionSamplerTest::testPrecondition4_1_oe,,,,
 rng_304_1,"    @Test
     void testPrecondition5_1_oe() {
         // Infinite probability
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new DiscreteProbabilityCollectionSampler<>(rng, Arrays.asList(1d, 2d), new double[] {0d, Double.POSITIVE_INFINITY}));
+        try {
+    new DiscreteProbabilityCollectionSampler<>(rng, Arrays.asList(1d, 2d), new double[] {0d, Double.POSITIVE_INFINITY});
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",DiscreteProbabilityCollectionSamplerTest::testPrecondition5_1_oe,,,,
 rng_305_1,"    @Test
     void testPrecondition6_1_oe() {
         // Empty Map<T, Double> not allowed
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new DiscreteProbabilityCollectionSampler<>(rng, new HashMap<>()));
+        try {
+    new DiscreteProbabilityCollectionSampler<>(rng, new HashMap<>());
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",DiscreteProbabilityCollectionSamplerTest::testPrecondition6_1_oe,,,,
 rng_306_1,"    @Test
     void testPrecondition7_1_oe() {
         // Empty List<T> not allowed
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new DiscreteProbabilityCollectionSampler<>(rng, Collections.<Double>emptyList(), new double[0]));
+        try {
+    new DiscreteProbabilityCollectionSampler<>(rng, Collections.<Double>emptyList(), new double[0]);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",DiscreteProbabilityCollectionSamplerTest::testPrecondition7_1_oe,,,,
 rng_307_1,"    @Test
@@ -7098,7 +7270,11 @@ rng_315_1,"    @Test
         // Must fail for k > n.
          int n = 2;
          int k = 3;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new CombinationSampler(rng, n, k));
+        try {
+    new CombinationSampler(rng, n, k);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",CombinationSamplerTest::testKgreaterThanNThrows_1_oe,,,,
 rng_316_1,"    @Test
@@ -7106,7 +7282,11 @@ rng_316_1,"    @Test
         // Must fail for n = 0.
          int n = 0;
          int k = 3;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new CombinationSampler(rng, n, k));
+        try {
+    new CombinationSampler(rng, n, k);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",CombinationSamplerTest::testNequalsZeroThrows_1_oe,,,,
 rng_317_1,"    @Test
@@ -7114,7 +7294,11 @@ rng_317_1,"    @Test
         // Must fail for k = 0.
          int n = 2;
          int k = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new CombinationSampler(rng, n, k));
+        try {
+    new CombinationSampler(rng, n, k);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",CombinationSamplerTest::testKequalsZeroThrows_1_oe,,,,
 rng_318_1,"    @Test
@@ -7122,7 +7306,11 @@ rng_318_1,"    @Test
         // Must fail for n <= 0.
          int n = -1;
          int k = 3;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new CombinationSampler(rng, n, k));
+        try {
+    new CombinationSampler(rng, n, k);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",CombinationSamplerTest::testNisNegativeThrows_1_oe,,,,
 rng_319_1,"    @Test
@@ -7130,18 +7318,30 @@ rng_319_1,"    @Test
         // Must fail for k <= 0.
          int n = 0;
          int k = -1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new CombinationSampler(rng, n, k));
+        try {
+    new CombinationSampler(rng, n, k);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",CombinationSamplerTest::testKisNegativeThrows_1_oe,,,,
 rng_321_1,"    @Test
     void testInvalidDimensionThrows_1_oe() {
         // Use instance constructor not factory constructor to exercise 1.X public API
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new UnitSphereSampler(0, null));
+        try {
+    new UnitSphereSampler(0, null);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",UnitSphereSamplerTest::testInvalidDimensionThrows_1_oe,,,,
 rng_322_1,"    @Test
     void testInvalidDimensionThrowsWithFactoryConstructor_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> UnitSphereSampler.of(null, 0));
+        try {
+    UnitSphereSampler.of(null, 0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",UnitSphereSamplerTest::testInvalidDimensionThrowsWithFactoryConstructor_1_oe,org.apache.commons.rng.sampling.UnitSphereSampler,"of(UniformRandomProvider rng,
                                        int dimension)","/**
@@ -7169,17 +7369,29 @@ rng_322_1,"    @Test
     }"
 rng_323_1,"    @Test
     void testBadProvider2D_1_oe() {
-        Assertions.assertThrows(StackOverflowError.class, () -> testBadProvider(2));
+        try {
+    testBadProvider(2);
+    fail(""StackOverflowError"");
+} catch (StackOverflowError e) {
+}
     }
 ",UnitSphereSamplerTest::testBadProvider2D_1_oe,,,,
 rng_324_1,"    @Test
     void testBadProvider3D_1_oe() {
-        Assertions.assertThrows(StackOverflowError.class, () -> testBadProvider(3));
+        try {
+    testBadProvider(3);
+    fail(""StackOverflowError"");
+} catch (StackOverflowError e) {
+}
     }
 ",UnitSphereSamplerTest::testBadProvider3D_1_oe,,,,
 rng_325_1,"    @Test
     void testBadProvider4D_1_oe() {
-        Assertions.assertThrows(StackOverflowError.class, () -> testBadProvider(4));
+        try {
+    testBadProvider(4);
+    fail(""StackOverflowError"");
+} catch (StackOverflowError e) {
+}
     }
 ",UnitSphereSamplerTest::testBadProvider4D_1_oe,,,,
 rng_326_1,"    @Test
@@ -7224,7 +7436,11 @@ rng_327_1,"    @Test
 rng_328_1,"    @Test
     void testSamplePrecondition_1_oe() {
         // Must fail for empty collection.
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new CollectionSampler<>(RandomSource.SPLIT_MIX_64.create(0L), new ArrayList<>()));
+        try {
+    new CollectionSampler<>(RandomSource.SPLIT_MIX_64.create(0L), new ArrayList<>());
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",CollectionSamplerTest::testSamplePrecondition_1_oe,org.apache.commons.rng.simple.RandomSource,create(),"/**
      * Creates a random number generator with a random seed.
@@ -7289,7 +7505,11 @@ rng_331_2,"    @Test
          Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
         // removed other assertion
-        Assertions.assertThrows(IllegalStateException.class, () -> builder.build(rng));
+        try {
+    builder.build(rng);
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",CompositeSamplersTest::testEmptyBuilderThrows_2_oe,org.apache.commons.rng.sampling.CompositeSamplers.Builder,build(UniformRandomProvider rng),"/**
          * Builds the composite sampler. The {@code rng} is the source of randomness for selecting
@@ -7308,7 +7528,11 @@ rng_332_1,"    @Test
     void testNullSharedStateObjectSamplerThrows_1_oe() {
          Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
-        Assertions.assertThrows(NullPointerException.class, () -> builder.add(null, 1.0));
+        try {
+    builder.add(null, 1.0);
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
     }
 ",CompositeSamplersTest::testNullSharedStateObjectSamplerThrows_1_oe,org.apache.commons.rng.core.source64.TwoCmres.Cmres.Factory,"void add(long multiply,
                                     int rotate,
@@ -7372,7 +7596,11 @@ rng_333_3,"    @Test
 
          double[] bad = {-1, Double.NaN, Double.POSITIVE_INFINITY};
         for ( double weight : bad) {
-            Assertions.assertThrows(IllegalArgumentException.class, () -> builder.add(sampler, weight), () -> ""Did not detect invalid weight: "" + weight);
+            try {
+    builder.add(sampler, weight);
+    fail(""IllegalArgumentException: () -> \""Did not detect invalid weight: \"" + weight"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
 ",CompositeSamplersTest::testInvalidWeights_3_oe,org.apache.commons.rng.core.source64.TwoCmres.Cmres.Factory,"void add(long multiply,
@@ -7756,7 +7984,11 @@ rng_350_1,"    @Test
         // Must fail for sample size > collection size.
          List<String> list = new ArrayList<>();
         list.add(""one"");
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ListSampler.sample(rng, list, 2));
+        try {
+    ListSampler.sample(rng, list, 2);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",ListSamplerTest::testSamplePrecondition1_1_oe,org.apache.commons.rng.sampling.ListSampler,"sample(UniformRandomProvider rng,
                                      List<T> collection,
@@ -7799,7 +8031,11 @@ rng_351_1,"    @Test
     void testSamplePrecondition2_1_oe() {
         // Must fail for empty collection.
          List<String> list = new ArrayList<>();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ListSampler.sample(rng, list, 1));
+        try {
+    ListSampler.sample(rng, list, 1);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",ListSamplerTest::testSamplePrecondition2_1_oe,org.apache.commons.rng.sampling.ListSampler,"sample(UniformRandomProvider rng,
                                      List<T> collection,
@@ -8092,7 +8328,11 @@ rng_369_1,"    @Test
 rng_370_1,"    @Test
     void testDistributionThrowsWithInvalidNumberOfCategories_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.of(rng, 1.0));
+        try {
+    DirichletSampler.of(rng, 1.0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",DirichletSamplerTest::testDistributionThrowsWithInvalidNumberOfCategories_1_oe,org.apache.commons.rng.sampling.distribution.DirichletSampler,"of(UniformRandomProvider rng,
                                       double... alpha)","/**
@@ -8115,7 +8355,11 @@ rng_370_1,"    @Test
 rng_371_1,"    @Test
     void testDistributionThrowsWithZeroConcentration_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.of(rng, 1.0, 0.0));
+        try {
+    DirichletSampler.of(rng, 1.0, 0.0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",DirichletSamplerTest::testDistributionThrowsWithZeroConcentration_1_oe,org.apache.commons.rng.sampling.distribution.DirichletSampler,"of(UniformRandomProvider rng,
                                       double... alpha)","/**
@@ -8138,7 +8382,11 @@ rng_371_1,"    @Test
 rng_372_1,"    @Test
     void testDistributionThrowsWithNaNConcentration_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.of(rng, 1.0, Double.NaN));
+        try {
+    DirichletSampler.of(rng, 1.0, Double.NaN);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",DirichletSamplerTest::testDistributionThrowsWithNaNConcentration_1_oe,org.apache.commons.rng.sampling.distribution.DirichletSampler,"of(UniformRandomProvider rng,
                                       double... alpha)","/**
@@ -8161,7 +8409,11 @@ rng_372_1,"    @Test
 rng_373_1,"    @Test
     void testDistributionThrowsWithInfiniteConcentration_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.of(rng, 1.0, Double.POSITIVE_INFINITY));
+        try {
+    DirichletSampler.of(rng, 1.0, Double.POSITIVE_INFINITY);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",DirichletSamplerTest::testDistributionThrowsWithInfiniteConcentration_1_oe,org.apache.commons.rng.sampling.distribution.DirichletSampler,"of(UniformRandomProvider rng,
                                       double... alpha)","/**
@@ -8184,7 +8436,11 @@ rng_373_1,"    @Test
 rng_374_1,"    @Test
     void testSymmetricDistributionThrowsWithInvalidNumberOfCategories_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.symmetric(rng, 1, 1.0));
+        try {
+    DirichletSampler.symmetric(rng, 1, 1.0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",DirichletSamplerTest::testSymmetricDistributionThrowsWithInvalidNumberOfCategories_1_oe,org.apache.commons.rng.sampling.distribution.DirichletSampler,"symmetric(UniformRandomProvider rng,
                                              int k,
@@ -8208,7 +8464,11 @@ rng_374_1,"    @Test
 rng_375_1,"    @Test
     void testSymmetricDistributionThrowsWithZeroConcentration_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.symmetric(rng, 2, 0.0));
+        try {
+    DirichletSampler.symmetric(rng, 2, 0.0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",DirichletSamplerTest::testSymmetricDistributionThrowsWithZeroConcentration_1_oe,org.apache.commons.rng.sampling.distribution.DirichletSampler,"symmetric(UniformRandomProvider rng,
                                              int k,
@@ -8232,7 +8492,11 @@ rng_375_1,"    @Test
 rng_376_1,"    @Test
     void testSymmetricDistributionThrowsWithNaNConcentration_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.symmetric(rng, 2, Double.NaN));
+        try {
+    DirichletSampler.symmetric(rng, 2, Double.NaN);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",DirichletSamplerTest::testSymmetricDistributionThrowsWithNaNConcentration_1_oe,org.apache.commons.rng.sampling.distribution.DirichletSampler,"symmetric(UniformRandomProvider rng,
                                              int k,
@@ -8256,7 +8520,11 @@ rng_376_1,"    @Test
 rng_377_1,"    @Test
     void testSymmetricDistributionThrowsWithInfiniteConcentration_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.symmetric(rng, 2, Double.POSITIVE_INFINITY));
+        try {
+    DirichletSampler.symmetric(rng, 2, Double.POSITIVE_INFINITY);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",DirichletSamplerTest::testSymmetricDistributionThrowsWithInfiniteConcentration_1_oe,org.apache.commons.rng.sampling.distribution.DirichletSampler,"symmetric(UniformRandomProvider rng,
                                              int k,
@@ -8330,7 +8598,11 @@ rng_382_2,"    @Test
     }"
 rng_388_1,"    @Test
     void testConstructorThrowsWithNullProbabilites_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> createSampler(null));
+        try {
+    createSampler(null);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",AliasMethodDiscreteSamplerTest::testConstructorThrowsWithNullProbabilites_1_oe,org.apache.commons.rng.sampling.CompositeSamplers.SamplerBuilder.SamplerFactory,"createSampler(DiscreteSampler discreteSampler,
                             List<S> samplers)","/**
@@ -8348,7 +8620,11 @@ rng_388_1,"    @Test
                             List<S> samplers);"
 rng_389_1,"    @Test
     void testConstructorThrowsWithZeroLengthProbabilites_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> createSampler(new double[0]));
+        try {
+    createSampler(new double[0]);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",AliasMethodDiscreteSamplerTest::testConstructorThrowsWithZeroLengthProbabilites_1_oe,org.apache.commons.rng.sampling.CompositeSamplers.SamplerBuilder.SamplerFactory,"createSampler(DiscreteSampler discreteSampler,
                             List<S> samplers)","/**
@@ -8366,7 +8642,11 @@ rng_389_1,"    @Test
                             List<S> samplers);"
 rng_390_1,"    @Test
     void testConstructorThrowsWithNegativeProbabilites_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> createSampler(new double[] {-1, 0.1, 0.2}));
+        try {
+    createSampler(new double[] {-1, 0.1, 0.2});
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",AliasMethodDiscreteSamplerTest::testConstructorThrowsWithNegativeProbabilites_1_oe,org.apache.commons.rng.sampling.CompositeSamplers.SamplerBuilder.SamplerFactory,"createSampler(DiscreteSampler discreteSampler,
                             List<S> samplers)","/**
@@ -8384,7 +8664,11 @@ rng_390_1,"    @Test
                             List<S> samplers);"
 rng_391_1,"    @Test
     void testConstructorThrowsWithNaNProbabilites_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> createSampler(new double[] {0.1, Double.NaN, 0.2}));
+        try {
+    createSampler(new double[] {0.1, Double.NaN, 0.2});
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",AliasMethodDiscreteSamplerTest::testConstructorThrowsWithNaNProbabilites_1_oe,org.apache.commons.rng.sampling.CompositeSamplers.SamplerBuilder.SamplerFactory,"createSampler(DiscreteSampler discreteSampler,
                             List<S> samplers)","/**
@@ -8402,7 +8686,11 @@ rng_391_1,"    @Test
                             List<S> samplers);"
 rng_392_1,"    @Test
     void testConstructorThrowsWithInfiniteProbabilites_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> createSampler(new double[] {0.1, Double.POSITIVE_INFINITY, 0.2}));
+        try {
+    createSampler(new double[] {0.1, Double.POSITIVE_INFINITY, 0.2});
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",AliasMethodDiscreteSamplerTest::testConstructorThrowsWithInfiniteProbabilites_1_oe,org.apache.commons.rng.sampling.CompositeSamplers.SamplerBuilder.SamplerFactory,"createSampler(DiscreteSampler discreteSampler,
                             List<S> samplers)","/**
@@ -8420,7 +8708,11 @@ rng_392_1,"    @Test
                             List<S> samplers);"
 rng_393_1,"    @Test
     void testConstructorThrowsWithInfiniteSumProbabilites_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> createSampler(new double[] {Double.MAX_VALUE, Double.MAX_VALUE}));
+        try {
+    createSampler(new double[] {Double.MAX_VALUE, Double.MAX_VALUE});
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",AliasMethodDiscreteSamplerTest::testConstructorThrowsWithInfiniteSumProbabilites_1_oe,org.apache.commons.rng.sampling.CompositeSamplers.SamplerBuilder.SamplerFactory,"createSampler(DiscreteSampler discreteSampler,
                             List<S> samplers)","/**
@@ -8438,7 +8730,11 @@ rng_393_1,"    @Test
                             List<S> samplers);"
 rng_394_1,"    @Test
     void testConstructorThrowsWithZeroSumProbabilites_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> createSampler(new double[4]));
+        try {
+    createSampler(new double[4]);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",AliasMethodDiscreteSamplerTest::testConstructorThrowsWithZeroSumProbabilites_1_oe,org.apache.commons.rng.sampling.CompositeSamplers.SamplerBuilder.SamplerFactory,"createSampler(DiscreteSampler discreteSampler,
                             List<S> samplers)","/**
@@ -8481,7 +8777,11 @@ rng_396_1,"    @Test
         // Note: p0 = Math.exp(-mean) => mean = -Math.log(p0).
         // Add to the limit on the mean to cause p0 to be zero.
          double mean = -Math.log(p0) + 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> SmallMeanPoissonSampler.of(rng, mean));
+        try {
+    SmallMeanPoissonSampler.of(rng, mean);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",SmallMeanPoissonSamplerTest::testConstructorThrowsWithMeanThatSetsProbabilityP0ToZero_1_oe,org.apache.commons.rng.sampling.distribution.SmallMeanPoissonSampler,"of(UniformRandomProvider rng,
                                                 double mean)","/**
@@ -8501,7 +8801,11 @@ rng_397_1,"    @Test
          UniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
          double mean = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> SmallMeanPoissonSampler.of(rng, mean));
+        try {
+    SmallMeanPoissonSampler.of(rng, mean);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",SmallMeanPoissonSamplerTest::testConstructorThrowsWithZeroMean_1_oe,org.apache.commons.rng.sampling.distribution.SmallMeanPoissonSampler,"of(UniformRandomProvider rng,
                                                 double mean)","/**
@@ -8580,7 +8884,11 @@ rng_400_1,"    @Test
          int upper = 55;
          int lower = upper + 1;
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DiscreteUniformSampler.of(rng, lower, upper));
+        try {
+    DiscreteUniformSampler.of(rng, lower, upper);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",DiscreteUniformSamplerTest::testConstructorThrowsWithLowerAboveUpper_1_oe,org.apache.commons.rng.sampling.distribution.DiscreteUniformSampler,"of(UniformRandomProvider rng,
                                                 int lower,
@@ -9238,7 +9546,11 @@ rng_412_2,"    @Test
 rng_417_1,"    @Test
     void testConstructorThrowsWithMeanLargerThanUpperBound_1_oe() {
          double mean = SUPPORTED_UPPER_BOUND + 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> KempSmallMeanPoissonSampler.of(dummyRng, mean));
+        try {
+    KempSmallMeanPoissonSampler.of(dummyRng, mean);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",KempSmallMeanPoissonSamplerTest::testConstructorThrowsWithMeanLargerThanUpperBound_1_oe,org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSampler,"of(UniformRandomProvider rng,
                                                 double mean)","/**
@@ -9268,7 +9580,11 @@ rng_417_1,"    @Test
 rng_418_1,"    @Test
     void testConstructorThrowsWithZeroMean_1_oe() {
          double mean = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> KempSmallMeanPoissonSampler.of(dummyRng, mean));
+        try {
+    KempSmallMeanPoissonSampler.of(dummyRng, mean);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",KempSmallMeanPoissonSamplerTest::testConstructorThrowsWithZeroMean_1_oe,org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSampler,"of(UniformRandomProvider rng,
                                                 double mean)","/**
@@ -9298,7 +9614,11 @@ rng_418_1,"    @Test
 rng_419_1,"    @Test
     void testConstructorThrowsWithNegativeMean_1_oe() {
          double mean = -1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> KempSmallMeanPoissonSampler.of(dummyRng, mean));
+        try {
+    KempSmallMeanPoissonSampler.of(dummyRng, mean);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",KempSmallMeanPoissonSamplerTest::testConstructorThrowsWithNegativeMean_1_oe,org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSampler,"of(UniformRandomProvider rng,
                                                 double mean)","/**
@@ -9328,7 +9648,11 @@ rng_419_1,"    @Test
 rng_420_1,"    @Test
     void testConstructorWithNaNMean_1_oe() {
          double mean = Double.NaN;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> KempSmallMeanPoissonSampler.of(dummyRng, mean));
+        try {
+    KempSmallMeanPoissonSampler.of(dummyRng, mean);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",KempSmallMeanPoissonSamplerTest::testConstructorWithNaNMean_1_oe,org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSampler,"of(UniformRandomProvider rng,
                                                 double mean)","/**
@@ -9486,7 +9810,7 @@ rng_422_2,"    @Test
             return d2;
         }"
 rng_424_1,"    @Test
-    void testInfiniteLoop_1_oe() {
+    void testInfiniteLoop_1_oe() throws Exception {
         // A bad implementation whose only purpose is to force access
         // to the rarest branch.
          UniformRandomProvider bad = new UniformRandomProvider() {
@@ -9504,7 +9828,11 @@ rng_424_1,"    @Test
             };
 
         // Infinite loop (in v1.1).
-        Assertions.assertThrows(StackOverflowError.class, () -> new ZigguratNormalizedGaussianSampler(bad).sample());
+        try {
+    new ZigguratNormalizedGaussianSampler(bad).sample();
+    fail(""StackOverflowError"");
+} catch (StackOverflowError e) {
+}
     }
 ",ZigguratNormalizedGaussianSamplerTest::testInfiniteLoop_1_oe,org.apache.commons.rng.sampling.ListSampler,"sample(UniformRandomProvider rng,
                                      List<T> collection,
@@ -9548,7 +9876,11 @@ rng_427_1,"    @Test
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
          double location = 1;
          double scale = -1e-6;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> LevySampler.of(rng, location, scale));
+        try {
+    LevySampler.of(rng, location, scale);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",LevySamplerTest::testConstructorThrowsWithNegativeScale_1_oe,org.apache.commons.rng.sampling.distribution.LevySampler,"of(UniformRandomProvider rng,
                                  double location,
@@ -9573,7 +9905,11 @@ rng_428_1,"    @Test
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
          double location = 1;
          double scale = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> LevySampler.of(rng, location, scale));
+        try {
+    LevySampler.of(rng, location, scale);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",LevySamplerTest::testConstructorThrowsWithZeroScale_1_oe,org.apache.commons.rng.sampling.distribution.LevySampler,"of(UniformRandomProvider rng,
                                  double location,
@@ -9972,7 +10308,11 @@ rng_435_1,"    @Test
     void testConstructorThrowsWhenMaxIsLessThanMin_1_oe() {
          double min = PoissonSampler.PIVOT;
          double max = Math.nextDown(min);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> createPoissonSamplerCache(min, max));
+        try {
+    createPoissonSamplerCache(min, max);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",PoissonSamplerCacheTest::testConstructorThrowsWhenMaxIsLessThanMin_1_oe,,,,
 rng_436_1,"    @Test
@@ -10454,7 +10794,11 @@ rng_441_1,"    @Test
     void testWithRangeConstructorThrowsWhenMaxIsLessThanMin_1_oe() {
          double min = PoissonSampler.PIVOT;
          double max = Math.nextDown(min);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> createPoissonSamplerCache().withRange(min, max));
+        try {
+    createPoissonSamplerCache().withRange(min, max);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",PoissonSamplerCacheTest::testWithRangeConstructorThrowsWhenMaxIsLessThanMin_1_oe,org.apache.commons.rng.sampling.distribution.PoissonSamplerCache,"withRange(double minMean,
                                          double maxMean)","/**
@@ -10832,7 +11176,11 @@ rng_445_1,"    @Test
          RestorableUniformRandomProvider rng =
                 RandomSource.SPLIT_MIX_64.create(0L);
          PoissonSamplerCache cache = createPoissonSamplerCache();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> cache.createSharedStateSampler(rng, 0));
+        try {
+    cache.createSharedStateSampler(rng, 0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",PoissonSamplerCacheTest::testCreateSharedStateSamplerThrowsWithZeroMean_1_oe,org.apache.commons.rng.sampling.distribution.PoissonSamplerCache,"createSharedStateSampler(UniformRandomProvider rng,
                                                                double mean)","/**
@@ -10891,7 +11239,11 @@ rng_446_1,"    @Test
                 RandomSource.SPLIT_MIX_64.create(0L);
          PoissonSamplerCache cache = createPoissonSamplerCache();
          double mean = Integer.MAX_VALUE + 1.0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> cache.createSharedStateSampler(rng, mean));
+        try {
+    cache.createSharedStateSampler(rng, mean);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",PoissonSamplerCacheTest::testCreateSharedStateSamplerThrowsWithNonIntegerMean_1_oe,org.apache.commons.rng.sampling.distribution.PoissonSamplerCache,"createSharedStateSampler(UniformRandomProvider rng,
                                                                double mean)","/**
@@ -11360,7 +11712,11 @@ rng_460_1,"    @Test
     void testCreatePoissonDistributionThrowsWithMeanLargerThanUpperBound_1_oe() {
          UniformRandomProvider rng = new FixedRNG();
          double mean = 1025;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> MarsagliaTsangWangDiscreteSampler.Poisson.of(rng, mean));
+        try {
+    MarsagliaTsangWangDiscreteSampler.Poisson.of(rng, mean);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",MarsagliaTsangWangDiscreteSamplerTest::testCreatePoissonDistributionThrowsWithMeanLargerThanUpperBound_1_oe,org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSampler.Poisson,"of(UniformRandomProvider rng,
                                                     double mean)","/**
@@ -11407,7 +11763,11 @@ rng_461_1,"    @Test
     void testCreatePoissonDistributionThrowsWithZeroMean_1_oe() {
          UniformRandomProvider rng = new FixedRNG();
          double mean = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> MarsagliaTsangWangDiscreteSampler.Poisson.of(rng, mean));
+        try {
+    MarsagliaTsangWangDiscreteSampler.Poisson.of(rng, mean);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",MarsagliaTsangWangDiscreteSamplerTest::testCreatePoissonDistributionThrowsWithZeroMean_1_oe,org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSampler.Poisson,"of(UniformRandomProvider rng,
                                                     double mean)","/**
@@ -11455,7 +11815,11 @@ rng_462_1,"    @Test
          UniformRandomProvider rng = new FixedRNG();
          int trials = -1;
          double p = 0.5;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> MarsagliaTsangWangDiscreteSampler.Binomial.of(rng, trials, p));
+        try {
+    MarsagliaTsangWangDiscreteSampler.Binomial.of(rng, trials, p);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",MarsagliaTsangWangDiscreteSamplerTest::testCreateBinomialDistributionThrowsWithTrialsBelow0_1_oe,org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSampler.Binomial,"of(UniformRandomProvider rng,
                                                     int trials,
@@ -11513,7 +11877,11 @@ rng_463_1,"    @Test
          UniformRandomProvider rng = new FixedRNG();
          int trials = 1 << 16; // 2^16
          double p = 0.5;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> MarsagliaTsangWangDiscreteSampler.Binomial.of(rng, trials, p));
+        try {
+    MarsagliaTsangWangDiscreteSampler.Binomial.of(rng, trials, p);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",MarsagliaTsangWangDiscreteSamplerTest::testCreateBinomialDistributionThrowsWithTrialsAboveMax_1_oe,org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSampler.Binomial,"of(UniformRandomProvider rng,
                                                     int trials,
@@ -11571,7 +11939,11 @@ rng_464_1,"    @Test
          UniformRandomProvider rng = new FixedRNG();
          int trials = 1;
          double p = -0.5;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> MarsagliaTsangWangDiscreteSampler.Binomial.of(rng, trials, p));
+        try {
+    MarsagliaTsangWangDiscreteSampler.Binomial.of(rng, trials, p);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",MarsagliaTsangWangDiscreteSamplerTest::testCreateBinomialDistributionThrowsWithProbabilityBelow0_1_oe,org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSampler.Binomial,"of(UniformRandomProvider rng,
                                                     int trials,
@@ -11629,7 +12001,11 @@ rng_465_1,"    @Test
          UniformRandomProvider rng = new FixedRNG();
          int trials = 1;
          double p = 1.5;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> MarsagliaTsangWangDiscreteSampler.Binomial.of(rng, trials, p));
+        try {
+    MarsagliaTsangWangDiscreteSampler.Binomial.of(rng, trials, p);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",MarsagliaTsangWangDiscreteSamplerTest::testCreateBinomialDistributionThrowsWithProbabilityAbove1_1_oe,org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSampler.Binomial,"of(UniformRandomProvider rng,
                                                     int trials,
@@ -11735,7 +12111,11 @@ rng_467_2,"    @Test
          double p = 0.5;
         // Validate set-up
         // removed other assertion
-        Assertions.assertThrows(IllegalArgumentException.class, () -> MarsagliaTsangWangDiscreteSampler.Binomial.of(rng, trials, p));
+        try {
+    MarsagliaTsangWangDiscreteSampler.Binomial.of(rng, trials, p);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",MarsagliaTsangWangDiscreteSamplerTest::testCreateBinomialDistributionThrowsWhenP0IsZero_2_oe,org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSampler.Binomial,"of(UniformRandomProvider rng,
                                                     int trials,
@@ -12195,7 +12575,11 @@ rng_474_1,"    @Test
          RestorableUniformRandomProvider rng =
                 RandomSource.SPLIT_MIX_64.create(0L);
          double mean = Integer.MAX_VALUE / 2 + 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> LargeMeanPoissonSampler.of(rng, mean));
+        try {
+    LargeMeanPoissonSampler.of(rng, mean);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",LargeMeanPoissonSamplerTest::testConstructorThrowsWithMeanLargerThanUpperBound_1_oe,org.apache.commons.rng.sampling.distribution.LargeMeanPoissonSampler,"of(UniformRandomProvider rng,
                                                 double mean)","/**
@@ -12216,7 +12600,11 @@ rng_475_1,"    @Test
          RestorableUniformRandomProvider rng =
                 RandomSource.SPLIT_MIX_64.create(0L);
          double mean = Math.nextDown(1);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> LargeMeanPoissonSampler.of(rng, mean));
+        try {
+    LargeMeanPoissonSampler.of(rng, mean);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",LargeMeanPoissonSamplerTest::testConstructorThrowsWithMeanBelow1_1_oe,org.apache.commons.rng.sampling.distribution.LargeMeanPoissonSampler,"of(UniformRandomProvider rng,
                                                 double mean)","/**
@@ -12237,7 +12625,11 @@ rng_476_1,"    @Test
          RestorableUniformRandomProvider rng =
                 RandomSource.SPLIT_MIX_64.create(0L);
          LargeMeanPoissonSamplerState state = new LargeMeanPoissonSampler(rng, 1).getState();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new LargeMeanPoissonSampler(rng, state, -0.1));
+        try {
+    new LargeMeanPoissonSampler(rng, state, -0.1);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",LargeMeanPoissonSamplerTest::testConstructorThrowsWithStateAndNegativeFractionalMean_1_oe,org.apache.commons.rng.core.RandomProviderDefaultState,getState(),"/**
      * @return the internal state.
@@ -12249,7 +12641,11 @@ rng_477_1,"    @Test
          RestorableUniformRandomProvider rng =
                 RandomSource.SPLIT_MIX_64.create(0L);
          LargeMeanPoissonSamplerState state = new LargeMeanPoissonSampler(rng, 1).getState();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new LargeMeanPoissonSampler(rng, state, 1.1));
+        try {
+    new LargeMeanPoissonSampler(rng, state, 1.1);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",LargeMeanPoissonSamplerTest::testConstructorThrowsWithStateAndNonFractionalMean_1_oe,org.apache.commons.rng.core.RandomProviderDefaultState,getState(),"/**
      * @return the internal state.
@@ -12261,7 +12657,11 @@ rng_478_1,"    @Test
          RestorableUniformRandomProvider rng =
                 RandomSource.SPLIT_MIX_64.create(0L);
          LargeMeanPoissonSamplerState state = new LargeMeanPoissonSampler(rng, 1).getState();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new LargeMeanPoissonSampler(rng, state, 1));
+        try {
+    new LargeMeanPoissonSampler(rng, state, 1);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",LargeMeanPoissonSamplerTest::testConstructorThrowsWithStateAndFractionalMeanOne_1_oe,org.apache.commons.rng.core.RandomProviderDefaultState,getState(),"/**
      * @return the internal state.
@@ -12273,7 +12673,11 @@ rng_479_1,"    @Test
          long upper = 55;
          long lower = upper + 1;
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> UniformLongSampler.of(rng, lower, upper));
+        try {
+    UniformLongSampler.of(rng, lower, upper);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",UniformLongSamplerTest::testConstructorThrowsWithLowerAboveUpper_1_oe,org.apache.commons.rng.sampling.distribution.UniformLongSampler,"of(UniformRandomProvider rng,
                                         long lower,
@@ -12788,7 +13192,11 @@ rng_498_1,"    @Test
             RandomSource.SPLIT_MIX_64.create(0L);
          double scale = 0;
          double shape = 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> InverseTransformParetoSampler.of(rng, scale, shape));
+        try {
+    InverseTransformParetoSampler.of(rng, scale, shape);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",InverseTransformParetoSamplerTest::testConstructorThrowsWithZeroScale_1_oe,org.apache.commons.rng.sampling.distribution.InverseTransformParetoSampler,"of(UniformRandomProvider rng,
                                                   double scale,
@@ -12812,7 +13220,11 @@ rng_499_1,"    @Test
             RandomSource.SPLIT_MIX_64.create(0L);
          double scale = 1;
          double shape = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> InverseTransformParetoSampler.of(rng, scale, shape));
+        try {
+    InverseTransformParetoSampler.of(rng, scale, shape);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",InverseTransformParetoSamplerTest::testConstructorThrowsWithZeroShape_1_oe,org.apache.commons.rng.sampling.distribution.InverseTransformParetoSampler,"of(UniformRandomProvider rng,
                                                   double scale,
@@ -20882,7 +21294,11 @@ rng_542_2,"    @Test
     }"
 rng_543_1,"    @Test
     void testFactorialThrowsWhenNegative_1_oe() {
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> InternalUtils.factorial(-1));
+        try {
+    InternalUtils.factorial(-1);
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
     }
 ",InternalUtilsTest::testFactorialThrowsWhenNegative_1_oe,org.apache.commons.rng.sampling.distribution.InternalUtils,factorial(int n),"/**
      * @param n Argument.
@@ -20894,7 +21310,11 @@ rng_543_1,"    @Test
     }"
 rng_544_1,"    @Test
     void testFactorialThrowsWhenNotRepresentableAsLong_1_oe() {
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> InternalUtils.factorial(MAX_REPRESENTABLE + 1));
+        try {
+    InternalUtils.factorial(MAX_REPRESENTABLE + 1);
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
     }
 ",InternalUtilsTest::testFactorialThrowsWhenNotRepresentableAsLong_1_oe,org.apache.commons.rng.sampling.distribution.InternalUtils,factorial(int n),"/**
      * @param n Argument.
@@ -21034,7 +21454,11 @@ rng_547_1,"    @Test
         }"
 rng_548_1,"    @Test
     void testLogFactorialThrowsWhenNegative_1_oe() {
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> FactorialLog.create().value(-1));
+        try {
+    FactorialLog.create().value(-1);
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
     }
 ",InternalUtilsTest::testLogFactorialThrowsWhenNegative_1_oe,org.apache.commons.rng.sampling.distribution.InternalUtils.FactorialLog,value(final int n),"/**
          * Computes {@code log(n!)}.
@@ -21058,7 +21482,11 @@ rng_548_1,"    @Test
         }"
 rng_549_1,"    @Test
     void testLogFactorialWithCacheThrowsWhenNegative_1_oe() {
-        Assertions.assertThrows(NegativeArraySizeException.class, () -> FactorialLog.create().withCache(-1));
+        try {
+    FactorialLog.create().withCache(-1);
+    fail(""NegativeArraySizeException"");
+} catch (NegativeArraySizeException e) {
+}
     }
 ",InternalUtilsTest::testLogFactorialWithCacheThrowsWhenNegative_1_oe,org.apache.commons.rng.sampling.distribution.InternalUtils.FactorialLog,withCache(final int cacheSize),"/**
          * Creates an instance with the specified cache size.
@@ -21077,7 +21505,11 @@ rng_550_1,"    @Test
          NormalizedGaussianSampler gauss = ZigguratSampler.NormalizedGaussian.of(rng);
          double scale = -1e-6;
          double shape = 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> LogNormalSampler.of(gauss, scale, shape));
+        try {
+    LogNormalSampler.of(gauss, scale, shape);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",LogNormalSamplerTest::testConstructorThrowsWithNegativeScale_1_oe,org.apache.commons.rng.sampling.distribution.LogNormalSampler,"of(NormalizedGaussianSampler gaussian,
                                                   double scale,
@@ -21107,7 +21539,11 @@ rng_551_1,"    @Test
          NormalizedGaussianSampler gauss = ZigguratSampler.NormalizedGaussian.of(rng);
          double scale = 1;
          double shape = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> LogNormalSampler.of(gauss, scale, shape));
+        try {
+    LogNormalSampler.of(gauss, scale, shape);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",LogNormalSamplerTest::testConstructorThrowsWithZeroShape_1_oe,org.apache.commons.rng.sampling.distribution.LogNormalSampler,"of(NormalizedGaussianSampler gaussian,
                                                   double scale,
@@ -21143,7 +21579,11 @@ rng_553_1,"    @Test
          double shape = 4.56;
          SharedStateContinuousSampler sampler1 =
             LogNormalSampler.of(gauss, scale, shape);
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> sampler1.withUniformRandomProvider(rng2));
+        try {
+    sampler1.withUniformRandomProvider(rng2);
+    fail(""UnsupportedOperationException"");
+} catch (UnsupportedOperationException e) {
+}
     }
 ",LogNormalSamplerTest::testSharedStateSamplerThrowsIfUnderlyingSamplerDoesNotShareState_1_oe,org.apache.commons.rng.sampling.CollectionSampler,withUniformRandomProvider(UniformRandomProvider rng),"/**
      * {@inheritDoc}
@@ -21161,7 +21601,11 @@ rng_554_1,"    @Test
          double shape = 4.56;
          SharedStateContinuousSampler sampler1 =
             LogNormalSampler.of(gauss, scale, shape);
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> sampler1.withUniformRandomProvider(rng2));
+        try {
+    sampler1.withUniformRandomProvider(rng2);
+    fail(""UnsupportedOperationException"");
+} catch (UnsupportedOperationException e) {
+}
     }
 ",LogNormalSamplerTest::testSharedStateSamplerThrowsIfUnderlyingSamplerReturnsWrongSharedState_1_oe,org.apache.commons.rng.sampling.CollectionSampler,withUniformRandomProvider(UniformRandomProvider rng),"/**
      * {@inheritDoc}
@@ -21177,7 +21621,11 @@ rng_555_1,"    @Test
             RandomSource.SPLIT_MIX_64.create(0L);
          double mean = 1;
          double standardDeviation = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new BoxMullerGaussianSampler(rng, mean, standardDeviation));
+        try {
+    new BoxMullerGaussianSampler(rng, mean, standardDeviation);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",BoxMullerGaussianSamplerTest::testConstructorThrowsWithZeroStandardDeviation_1_oe,org.apache.commons.rng.simple.RandomSource,create(),"/**
      * Creates a random number generator with a random seed.
@@ -21209,7 +21657,11 @@ rng_557_1,"    @Test
             RandomSource.SPLIT_MIX_64.create(0L);
          double alpha = 0;
          double theta = 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> AhrensDieterMarsagliaTsangGammaSampler.of(rng, alpha, theta));
+        try {
+    AhrensDieterMarsagliaTsangGammaSampler.of(rng, alpha, theta);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",AhrensDieterMarsagliaTsangGammaSamplerTest::testConstructorThrowsWithZeroAlpha_1_oe,org.apache.commons.rng.sampling.distribution.AhrensDieterMarsagliaTsangGammaSampler,"of(UniformRandomProvider rng,
                                                   double alpha,
@@ -21236,7 +21688,11 @@ rng_558_1,"    @Test
             RandomSource.SPLIT_MIX_64.create(0L);
          double alpha = 1;
          double theta = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> AhrensDieterMarsagliaTsangGammaSampler.of(rng, alpha, theta));
+        try {
+    AhrensDieterMarsagliaTsangGammaSampler.of(rng, alpha, theta);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",AhrensDieterMarsagliaTsangGammaSamplerTest::testConstructorThrowsWithZeroTheta_1_oe,org.apache.commons.rng.sampling.distribution.AhrensDieterMarsagliaTsangGammaSampler,"of(UniformRandomProvider rng,
                                                   double alpha,
@@ -21421,7 +21877,11 @@ rng_564_1,"    @Test
     void testProbabilityOfSuccessAboveOneThrows_1_oe() {
          UniformRandomProvider unusedRng = RandomSource.SPLIT_MIX_64.create(0L);
          double probabilityOfSuccess = Math.nextUp(1.0);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> GeometricSampler.of(unusedRng, probabilityOfSuccess));
+        try {
+    GeometricSampler.of(unusedRng, probabilityOfSuccess);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",GeometricSamplerTest::testProbabilityOfSuccessAboveOneThrows_1_oe,org.apache.commons.rng.sampling.distribution.GeometricSampler,"of(UniformRandomProvider rng,
                                                 double probabilityOfSuccess)","/**
@@ -21449,7 +21909,11 @@ rng_565_1,"    @Test
     void testProbabilityOfSuccessIsZeroThrows_1_oe() {
          UniformRandomProvider unusedRng = RandomSource.SPLIT_MIX_64.create(0L);
          double probabilityOfSuccess = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> GeometricSampler.of(unusedRng, probabilityOfSuccess));
+        try {
+    GeometricSampler.of(unusedRng, probabilityOfSuccess);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",GeometricSamplerTest::testProbabilityOfSuccessIsZeroThrows_1_oe,org.apache.commons.rng.sampling.distribution.GeometricSampler,"of(UniformRandomProvider rng,
                                                 double probabilityOfSuccess)","/**
@@ -21479,7 +21943,11 @@ rng_567_1,"    @Test
             RandomSource.SPLIT_MIX_64.create(0L);
          int numberOfElements = 0;
          double exponent = 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> RejectionInversionZipfSampler.of(rng, numberOfElements, exponent));
+        try {
+    RejectionInversionZipfSampler.of(rng, numberOfElements, exponent);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",RejectionInversionZipfSamplerTest::testConstructorThrowsWithZeroNumberOfElements_1_oe,org.apache.commons.rng.sampling.distribution.RejectionInversionZipfSampler,"of(UniformRandomProvider rng,
                                                 int numberOfElements,
@@ -21504,7 +21972,11 @@ rng_568_1,"    @Test
             RandomSource.SPLIT_MIX_64.create(0L);
          int numberOfElements = 1;
          double exponent = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> RejectionInversionZipfSampler.of(rng, numberOfElements, exponent));
+        try {
+    RejectionInversionZipfSampler.of(rng, numberOfElements, exponent);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",RejectionInversionZipfSamplerTest::testConstructorThrowsWithZeroExponent_1_oe,org.apache.commons.rng.sampling.distribution.RejectionInversionZipfSampler,"of(UniformRandomProvider rng,
                                                 int numberOfElements,
@@ -21529,7 +22001,11 @@ rng_570_1,"    @Test
             RandomSource.SPLIT_MIX_64.create(0L);
          double alpha = 0;
          double beta = 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ChengBetaSampler.of(rng, alpha, beta));
+        try {
+    ChengBetaSampler.of(rng, alpha, beta);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",ChengBetaSamplerTest::testConstructorThrowsWithZeroAlpha_1_oe,org.apache.commons.rng.sampling.distribution.ChengBetaSampler,"of(UniformRandomProvider rng,
                                                   double alpha,
@@ -21571,7 +22047,11 @@ rng_571_1,"    @Test
             RandomSource.SPLIT_MIX_64.create(0L);
          double alpha = 1;
          double beta = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ChengBetaSampler.of(rng, alpha, beta));
+        try {
+    ChengBetaSampler.of(rng, alpha, beta);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",ChengBetaSamplerTest::testConstructorThrowsWithZeroBeta_1_oe,org.apache.commons.rng.sampling.distribution.ChengBetaSampler,"of(UniformRandomProvider rng,
                                                   double alpha,
@@ -21640,7 +22120,11 @@ rng_573_1,"    @Test
     void testExponentialConstructorThrowsWithZeroMean_1_oe() {
          RestorableUniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
          double mean = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ZigguratSampler.Exponential.of(rng, mean));
+        try {
+    ZigguratSampler.Exponential.of(rng, mean);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",ZigguratSamplerTest::testExponentialConstructorThrowsWithZeroMean_1_oe,org.apache.commons.rng.sampling.distribution.ZigguratSampler.Exponential,of(UniformRandomProvider rng),"/**
          * Create a new exponential sampler with {@code mean = 1}.
@@ -21814,7 +22298,11 @@ rng_578_1,"    @Test
          RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
          double mean = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> AhrensDieterExponentialSampler.of(rng, mean));
+        try {
+    AhrensDieterExponentialSampler.of(rng, mean);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",AhrensDieterExponentialSamplerTest::testConstructorThrowsWithZeroMean_1_oe,org.apache.commons.rng.sampling.distribution.AhrensDieterExponentialSampler,"of(UniformRandomProvider rng,
                                                   double mean)","/**
@@ -22021,7 +22509,11 @@ rng_583_1,"    @Test
         }) {
              double low = interval[0];
              double high = interval[1];
-            Assertions.assertThrows(IllegalArgumentException.class, () -> ContinuousUniformSampler.of(rng, low, high, true), () -> ""("" + low + "","" + high + "")"");
+            try {
+    ContinuousUniformSampler.of(rng, low, high, true);
+    fail(""IllegalArgumentException: () -> \""(\"" + low + \"",\"" + high + \"")\"""");
+} catch (IllegalArgumentException e) {
+}
     }
     }
 ",ContinuousUniformSamplerTest::testInvalidOpenIntervalThrows_1_oe,org.apache.commons.rng.sampling.distribution.ContinuousUniformSampler,"of(UniformRandomProvider rng,
@@ -22060,7 +22552,11 @@ rng_583_2,"    @Test
              double low = interval[0];
              double high = interval[1];
             // removed other assertion
-            Assertions.assertThrows(IllegalArgumentException.class, () -> ContinuousUniformSampler.of(rng, high, low, true), () -> ""("" + high + "","" + low + "")"");
+            try {
+    ContinuousUniformSampler.of(rng, high, low, true);
+    fail(""IllegalArgumentException: () -> \""(\"" + high + \"",\"" + low + \"")\"""");
+} catch (IllegalArgumentException e) {
+}
     }
     }
 ",ContinuousUniformSamplerTest::testInvalidOpenIntervalThrows_2_oe,org.apache.commons.rng.sampling.distribution.ContinuousUniformSampler,"of(UniformRandomProvider rng,
@@ -22421,7 +22917,11 @@ rng_586_1,"    @Test
          NormalizedGaussianSampler gauss = ZigguratSampler.NormalizedGaussian.of(rng);
          double mean = 1;
          double standardDeviation = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> GaussianSampler.of(gauss, mean, standardDeviation));
+        try {
+    GaussianSampler.of(gauss, mean, standardDeviation);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",GaussianSamplerTest::testConstructorThrowsWithZeroStandardDeviation_1_oe,org.apache.commons.rng.sampling.distribution.GaussianSampler,"of(NormalizedGaussianSampler normalized,
                                                   double mean,
@@ -22452,7 +22952,11 @@ rng_587_1,"    @Test
          NormalizedGaussianSampler gauss = new ZigguratNormalizedGaussianSampler(rng);
          double mean = 1;
          double standardDeviation = Double.POSITIVE_INFINITY;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> GaussianSampler.of(gauss, mean, standardDeviation));
+        try {
+    GaussianSampler.of(gauss, mean, standardDeviation);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",GaussianSamplerTest::testConstructorThrowsWithInfiniteStandardDeviation_1_oe,org.apache.commons.rng.sampling.distribution.GaussianSampler,"of(NormalizedGaussianSampler normalized,
                                                   double mean,
@@ -22483,7 +22987,11 @@ rng_588_1,"    @Test
          NormalizedGaussianSampler gauss = new ZigguratNormalizedGaussianSampler(rng);
          double mean = 1;
          double standardDeviation = Double.NaN;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> GaussianSampler.of(gauss, mean, standardDeviation));
+        try {
+    GaussianSampler.of(gauss, mean, standardDeviation);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",GaussianSamplerTest::testConstructorThrowsWithNaNStandardDeviation_1_oe,org.apache.commons.rng.sampling.distribution.GaussianSampler,"of(NormalizedGaussianSampler normalized,
                                                   double mean,
@@ -22514,7 +23022,11 @@ rng_589_1,"    @Test
          NormalizedGaussianSampler gauss = new ZigguratNormalizedGaussianSampler(rng);
          double mean = Double.POSITIVE_INFINITY;
          double standardDeviation = 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> GaussianSampler.of(gauss, mean, standardDeviation));
+        try {
+    GaussianSampler.of(gauss, mean, standardDeviation);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",GaussianSamplerTest::testConstructorThrowsWithInfiniteMean_1_oe,org.apache.commons.rng.sampling.distribution.GaussianSampler,"of(NormalizedGaussianSampler normalized,
                                                   double mean,
@@ -22545,7 +23057,11 @@ rng_590_1,"    @Test
          NormalizedGaussianSampler gauss = new ZigguratNormalizedGaussianSampler(rng);
          double mean = Double.NaN;
          double standardDeviation = 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> GaussianSampler.of(gauss, mean, standardDeviation));
+        try {
+    GaussianSampler.of(gauss, mean, standardDeviation);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",GaussianSamplerTest::testConstructorThrowsWithNaNMean_1_oe,org.apache.commons.rng.sampling.distribution.GaussianSampler,"of(NormalizedGaussianSampler normalized,
                                                   double mean,
@@ -22582,7 +23098,11 @@ rng_592_1,"    @Test
          double standardDeviation = 4.56;
          SharedStateContinuousSampler sampler1 =
             GaussianSampler.of(gauss, mean, standardDeviation);
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> sampler1.withUniformRandomProvider(rng2));
+        try {
+    sampler1.withUniformRandomProvider(rng2);
+    fail(""UnsupportedOperationException"");
+} catch (UnsupportedOperationException e) {
+}
     }
 ",GaussianSamplerTest::testSharedStateSamplerThrowsIfUnderlyingSamplerDoesNotShareState_1_oe,org.apache.commons.rng.sampling.CollectionSampler,withUniformRandomProvider(UniformRandomProvider rng),"/**
      * {@inheritDoc}
@@ -22600,7 +23120,11 @@ rng_593_1,"    @Test
          double standardDeviation = 4.56;
          SharedStateContinuousSampler sampler1 =
             GaussianSampler.of(gauss, mean, standardDeviation);
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> sampler1.withUniformRandomProvider(rng2));
+        try {
+    sampler1.withUniformRandomProvider(rng2);
+    fail(""UnsupportedOperationException"");
+} catch (UnsupportedOperationException e) {
+}
     }
 ",GaussianSamplerTest::testSharedStateSamplerThrowsIfUnderlyingSamplerReturnsWrongSharedState_1_oe,org.apache.commons.rng.sampling.CollectionSampler,withUniformRandomProvider(UniformRandomProvider rng),"/**
      * {@inheritDoc}
@@ -22613,7 +23137,11 @@ rng_593_1,"    @Test
 rng_594_1,"    @Test
     void testInvalidDimensionThrows_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> BoxSampler.of(rng, new double[1], new double[1]));
+        try {
+    BoxSampler.of(rng, new double[1], new double[1]);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",BoxSamplerTest::testInvalidDimensionThrows_1_oe,org.apache.commons.rng.sampling.shape.BoxSampler,"of(UniformRandomProvider rng,
                                 double[] a,
@@ -22665,7 +23193,11 @@ rng_595_1,"    @Test
             {c2, c3},
             {c3, c2},
         }) {
-            Assertions.assertThrows(IllegalArgumentException.class, () -> BoxSampler.of(rng, c[0], c[1]), () -> String.format(""Did not detect dimension mismatch: %d,%d"", c[0].length, c[1].length));
+            try {
+    BoxSampler.of(rng, c[0], c[1]);
+    fail(""IllegalArgumentException: () -> String.format(\""Did not detect dimension mismatch: %d,%d\"", c[0].length, c[1].length)"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
 ",BoxSamplerTest::testDimensionMismatchThrows_1_oe,org.apache.commons.rng.sampling.shape.BoxSampler,"of(UniformRandomProvider rng,
@@ -22775,7 +23307,11 @@ rng_596_2,"    @Test
                 for ( double d : bad) {
                      double value = c[i][j];
                     c[i][j] = d;
-                    Assertions.assertThrows(IllegalArgumentException.class, () -> BoxSampler.of(rng, c[0], c[1]), () -> String.format(""Did not detect non-finite coordinate: %d,%d = %s"", ii, jj, d));
+                    try {
+    BoxSampler.of(rng, c[0], c[1]);
+    fail(""IllegalArgumentException: () -> String.format(\""Did not detect non-finite coordinate: %d,%d = %s\"", ii, jj, d)"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
     }
@@ -22956,7 +23492,11 @@ rng_598_2,"    @Test
 rng_599_1,"    @Test
     void testInvalidDimensionThrows_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> LineSampler.of(rng, new double[0], new double[0]));
+        try {
+    LineSampler.of(rng, new double[0], new double[0]);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",LineSamplerTest::testInvalidDimensionThrows_1_oe,org.apache.commons.rng.sampling.shape.LineSampler,"of(UniformRandomProvider rng,
                                  double[] a,
@@ -23008,7 +23548,11 @@ rng_600_1,"    @Test
             {c2, c3},
             {c3, c2},
         }) {
-            Assertions.assertThrows(IllegalArgumentException.class, () -> LineSampler.of(rng, c[0], c[1]), () -> String.format(""Did not detect dimension mismatch: %d,%d"", c[0].length, c[1].length));
+            try {
+    LineSampler.of(rng, c[0], c[1]);
+    fail(""IllegalArgumentException: () -> String.format(\""Did not detect dimension mismatch: %d,%d\"", c[0].length, c[1].length)"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
 ",LineSamplerTest::testDimensionMismatchThrows_1_oe,org.apache.commons.rng.sampling.shape.LineSampler,"of(UniformRandomProvider rng,
@@ -23118,7 +23662,11 @@ rng_601_2,"    @Test
                 for ( double d : bad) {
                      double value = c[i][j];
                     c[i][j] = d;
-                    Assertions.assertThrows(IllegalArgumentException.class, () -> LineSampler.of(rng, c[0], c[1]), () -> String.format(""Did not detect non-finite coordinate: %d,%d = %s"", ii, jj, d));
+                    try {
+    LineSampler.of(rng, c[0], c[1]);
+    fail(""IllegalArgumentException: () -> String.format(\""Did not detect non-finite coordinate: %d,%d = %s\"", ii, jj, d)"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
     }
@@ -23263,7 +23811,11 @@ rng_602_4,"    @Test
 rng_603_1,"    @Test
     void testInvalidDimensionThrows_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> TriangleSampler.of(rng, new double[1], new double[1], new double[1]));
+        try {
+    TriangleSampler.of(rng, new double[1], new double[1], new double[1]);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",TriangleSamplerTest::testInvalidDimensionThrows_1_oe,org.apache.commons.rng.sampling.shape.TriangleSampler,"of(UniformRandomProvider rng,
                                      double[] a,
@@ -23327,7 +23879,11 @@ rng_604_1,"    @Test
             {c3, c3, c2},
             {c3, c2, c3},
         }) {
-            Assertions.assertThrows(IllegalArgumentException.class, () -> TriangleSampler.of(rng, c[0], c[1], c[2]), () -> String.format(""Did not detect dimension mismatch: %d,%d,%d"", c[0].length, c[1].length, c[2].length));
+            try {
+    TriangleSampler.of(rng, c[0], c[1], c[2]);
+    fail(""IllegalArgumentException: () -> String.format(\""Did not detect dimension mismatch: %d,%d,%d\"", c[0].length, c[1].length, c[2].length)"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
 ",TriangleSamplerTest::testDimensionMismatchThrows_1_oe,org.apache.commons.rng.sampling.shape.TriangleSampler,"of(UniformRandomProvider rng,
@@ -23453,7 +24009,11 @@ rng_605_2,"    @Test
                 for ( double d : bad) {
                      double value = c[i][j];
                     c[i][j] = d;
-                    Assertions.assertThrows(IllegalArgumentException.class, () -> TriangleSampler.of(rng, c[0], c[1], c[2]), () -> String.format(""Did not detect non-finite coordinate: %d,%d = %s"", ii, jj, d));
+                    try {
+    TriangleSampler.of(rng, c[0], c[1], c[2]);
+    fail(""IllegalArgumentException: () -> String.format(\""Did not detect non-finite coordinate: %d,%d = %s\"", ii, jj, d)"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
     }
@@ -23728,7 +24288,11 @@ rng_608_11,"    @Test
 rng_609_1,"    @Test
     void testInvalidDimensionThrows_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> UnitBallSampler.of(rng, 0));
+        try {
+    UnitBallSampler.of(rng, 0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",UnitBallSamplerTest::testInvalidDimensionThrows_1_oe,org.apache.commons.rng.sampling.shape.UnitBallSampler,"of(UniformRandomProvider rng,
                                      int dimension)","/**
@@ -23775,7 +24339,11 @@ rng_611_1,"    @Test
         for (int i = 0; i < c.length; i++) {
              int ii = i;
             c[i] = bad;
-            Assertions.assertThrows(IllegalArgumentException.class, () -> TetrahedronSampler.of(rng, c[0], c[1], c[2], c[3]), () -> String.format(""Did not detect invalid dimension for vertex: %d"", ii));
+            try {
+    TetrahedronSampler.of(rng, c[0], c[1], c[2], c[3]);
+    fail(""IllegalArgumentException: () -> String.format(\""Did not detect invalid dimension for vertex: %d\"", ii)"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
 ",TetrahedronSamplerTest::testInvalidDimensionThrows_1_oe,org.apache.commons.rng.sampling.shape.TetrahedronSampler,"of(UniformRandomProvider rng,
@@ -23875,7 +24443,11 @@ rng_612_2,"    @Test
                 for ( double d : bad) {
                      double value = c[i][j];
                     c[i][j] = d;
-                    Assertions.assertThrows(IllegalArgumentException.class, () -> TetrahedronSampler.of(rng, c[0], c[1], c[2], c[3]), () -> String.format(""Did not detect non-finite coordinate: %d,%d = %s"", ii, jj, d));
+                    try {
+    TetrahedronSampler.of(rng, c[0], c[1], c[2], c[3]);
+    fail(""IllegalArgumentException: () -> String.format(\""Did not detect non-finite coordinate: %d,%d = %s\"", ii, jj, d)"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
     }
@@ -27645,7 +28217,11 @@ rng_503_1_1,"    @Test
          double gamma0 = VALID_GAMMA;
          double delta0 = VALID_DELTA;
          UniformRandomProvider rng0 = new SplitMix64(0L);
-                Assertions.assertThrows(IllegalArgumentException.class, () -> StableSampler.of(rng0, alpha0, beta0, gamma0, delta0));
+                try {
+    StableSampler.of(rng0, alpha0, beta0, gamma0, delta0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",StableSamplerTest::testAlphaZeroThrows_1_oe_1_oe,org.apache.commons.rng.sampling.distribution.StableSampler,"of(UniformRandomProvider rng,
                                    double alpha,
@@ -27686,7 +28262,11 @@ rng_504_1_1,"    @Test
          double gamma0 = VALID_GAMMA;
          double delta0 = VALID_DELTA;
          UniformRandomProvider rng0 = new SplitMix64(0L);
-                Assertions.assertThrows(IllegalArgumentException.class, () -> StableSampler.of(rng0, alpha0, beta0, gamma0, delta0));
+                try {
+    StableSampler.of(rng0, alpha0, beta0, gamma0, delta0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",StableSamplerTest::testAlphaBelowZeroThrows_1_oe_1_oe,org.apache.commons.rng.sampling.distribution.StableSampler,"of(UniformRandomProvider rng,
                                    double alpha,
@@ -27740,7 +28320,11 @@ rng_505_4_1,"    @Test
          double gamma0 = VALID_GAMMA;
          double delta0 = VALID_DELTA;
          UniformRandomProvider rng0 = new SplitMix64(0L);
-                Assertions.assertThrows(IllegalArgumentException.class, () -> StableSampler.of(rng0, alpha0, beta0, gamma0, delta0));
+                try {
+    StableSampler.of(rng0, alpha0, beta0, gamma0, delta0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",StableSamplerTest::testAlphaTooCloseToZeroThrows_4_oe_1_oe,org.apache.commons.rng.sampling.distribution.StableSampler,"of(UniformRandomProvider rng,
                                    double alpha,
@@ -27781,7 +28365,11 @@ rng_506_1_1,"    @Test
          double gamma0 = VALID_GAMMA;
          double delta0 = VALID_DELTA;
          UniformRandomProvider rng0 = new SplitMix64(0L);
-                Assertions.assertThrows(IllegalArgumentException.class, () -> StableSampler.of(rng0, alpha0, beta0, gamma0, delta0));
+                try {
+    StableSampler.of(rng0, alpha0, beta0, gamma0, delta0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",StableSamplerTest::testAlphaAboveTwoThrows_1_oe_1_oe,org.apache.commons.rng.sampling.distribution.StableSampler,"of(UniformRandomProvider rng,
                                    double alpha,
@@ -27822,7 +28410,11 @@ rng_507_1_1,"    @Test
          double gamma0 = VALID_GAMMA;
          double delta0 = VALID_DELTA;
          UniformRandomProvider rng0 = new SplitMix64(0L);
-                Assertions.assertThrows(IllegalArgumentException.class, () -> StableSampler.of(rng0, alpha0, beta0, gamma0, delta0));
+                try {
+    StableSampler.of(rng0, alpha0, beta0, gamma0, delta0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",StableSamplerTest::testAlphaNaNThrows_1_oe_1_oe,org.apache.commons.rng.sampling.distribution.StableSampler,"of(UniformRandomProvider rng,
                                    double alpha,
@@ -27863,7 +28455,11 @@ rng_508_1_1,"    @Test
          double gamma0 = VALID_GAMMA;
          double delta0 = VALID_DELTA;
          UniformRandomProvider rng0 = new SplitMix64(0L);
-                Assertions.assertThrows(IllegalArgumentException.class, () -> StableSampler.of(rng0, alpha0, beta0, gamma0, delta0));
+                try {
+    StableSampler.of(rng0, alpha0, beta0, gamma0, delta0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",StableSamplerTest::testBetaBelowMinusOneThrows_1_oe_1_oe,org.apache.commons.rng.sampling.distribution.StableSampler,"of(UniformRandomProvider rng,
                                    double alpha,
@@ -27904,7 +28500,11 @@ rng_509_1_1,"    @Test
          double gamma0 = VALID_GAMMA;
          double delta0 = VALID_DELTA;
          UniformRandomProvider rng0 = new SplitMix64(0L);
-                Assertions.assertThrows(IllegalArgumentException.class, () -> StableSampler.of(rng0, alpha0, beta0, gamma0, delta0));
+                try {
+    StableSampler.of(rng0, alpha0, beta0, gamma0, delta0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",StableSamplerTest::testBetaAboveOneThrows_1_oe_1_oe,org.apache.commons.rng.sampling.distribution.StableSampler,"of(UniformRandomProvider rng,
                                    double alpha,
@@ -27945,7 +28545,11 @@ rng_510_1_1,"    @Test
          double gamma0 = VALID_GAMMA;
          double delta0 = VALID_DELTA;
          UniformRandomProvider rng0 = new SplitMix64(0L);
-                Assertions.assertThrows(IllegalArgumentException.class, () -> StableSampler.of(rng0, alpha0, beta0, gamma0, delta0));
+                try {
+    StableSampler.of(rng0, alpha0, beta0, gamma0, delta0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",StableSamplerTest::testBetaNaNThrows_1_oe_1_oe,org.apache.commons.rng.sampling.distribution.StableSampler,"of(UniformRandomProvider rng,
                                    double alpha,
@@ -27986,7 +28590,11 @@ rng_511_1_1,"    @Test
          double gamma0 = 0.0;
          double delta0 = VALID_DELTA;
          UniformRandomProvider rng0 = new SplitMix64(0L);
-                Assertions.assertThrows(IllegalArgumentException.class, () -> StableSampler.of(rng0, alpha0, beta0, gamma0, delta0));
+                try {
+    StableSampler.of(rng0, alpha0, beta0, gamma0, delta0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",StableSamplerTest::testGammaNotStrictlyPositiveThrows_1_oe_1_oe,org.apache.commons.rng.sampling.distribution.StableSampler,"of(UniformRandomProvider rng,
                                    double alpha,
@@ -28027,7 +28635,11 @@ rng_512_1_1,"    @Test
          double gamma0 = Double.POSITIVE_INFINITY;
          double delta0 = VALID_DELTA;
          UniformRandomProvider rng0 = new SplitMix64(0L);
-                Assertions.assertThrows(IllegalArgumentException.class, () -> StableSampler.of(rng0, alpha0, beta0, gamma0, delta0));
+                try {
+    StableSampler.of(rng0, alpha0, beta0, gamma0, delta0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",StableSamplerTest::testGammaInfThrows_1_oe_1_oe,org.apache.commons.rng.sampling.distribution.StableSampler,"of(UniformRandomProvider rng,
                                    double alpha,
@@ -28068,7 +28680,11 @@ rng_513_1_1,"    @Test
          double gamma0 = Double.NaN;
          double delta0 = VALID_DELTA;
          UniformRandomProvider rng0 = new SplitMix64(0L);
-                Assertions.assertThrows(IllegalArgumentException.class, () -> StableSampler.of(rng0, alpha0, beta0, gamma0, delta0));
+                try {
+    StableSampler.of(rng0, alpha0, beta0, gamma0, delta0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",StableSamplerTest::testGammaNaNThrows_1_oe_1_oe,org.apache.commons.rng.sampling.distribution.StableSampler,"of(UniformRandomProvider rng,
                                    double alpha,
@@ -28109,7 +28725,11 @@ rng_514_1_1,"    @Test
          double gamma0 = VALID_GAMMA;
          double delta0 = Double.POSITIVE_INFINITY;
          UniformRandomProvider rng0 = new SplitMix64(0L);
-                Assertions.assertThrows(IllegalArgumentException.class, () -> StableSampler.of(rng0, alpha0, beta0, gamma0, delta0));
+                try {
+    StableSampler.of(rng0, alpha0, beta0, gamma0, delta0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",StableSamplerTest::testDeltaInfThrows_1_oe_1_oe,org.apache.commons.rng.sampling.distribution.StableSampler,"of(UniformRandomProvider rng,
                                    double alpha,
@@ -28150,7 +28770,11 @@ rng_515_1_1,"    @Test
          double gamma0 = VALID_GAMMA;
          double delta0 = Double.NEGATIVE_INFINITY;
          UniformRandomProvider rng0 = new SplitMix64(0L);
-                Assertions.assertThrows(IllegalArgumentException.class, () -> StableSampler.of(rng0, alpha0, beta0, gamma0, delta0));
+                try {
+    StableSampler.of(rng0, alpha0, beta0, gamma0, delta0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",StableSamplerTest::testDeltaNegInfThrows_1_oe_1_oe,org.apache.commons.rng.sampling.distribution.StableSampler,"of(UniformRandomProvider rng,
                                    double alpha,
@@ -28191,7 +28815,11 @@ rng_516_1_1,"    @Test
          double gamma0 = VALID_GAMMA;
          double delta0 = Double.NaN;
          UniformRandomProvider rng0 = new SplitMix64(0L);
-                Assertions.assertThrows(IllegalArgumentException.class, () -> StableSampler.of(rng0, alpha0, beta0, gamma0, delta0));
+                try {
+    StableSampler.of(rng0, alpha0, beta0, gamma0, delta0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",StableSamplerTest::testDeltaNaNThrows_1_oe_1_oe,org.apache.commons.rng.sampling.distribution.StableSampler,"of(UniformRandomProvider rng,
                                    double alpha,

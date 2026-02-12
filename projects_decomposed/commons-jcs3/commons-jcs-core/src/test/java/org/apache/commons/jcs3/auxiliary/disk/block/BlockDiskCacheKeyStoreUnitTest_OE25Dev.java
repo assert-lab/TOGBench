@@ -171,5 +171,41 @@ public class BlockDiskCacheKeyStoreUnitTest_OE25Dev
         }
     }
 
+    public void testObjectLargerThanMaxSize_1_oe()
+    {
+        final BlockDiskCacheAttributes attributes = new BlockDiskCacheAttributes();
+        attributes.setCacheName("testObjectLargerThanMaxSize");
+        attributes.setDiskPath(rootDirName);
+        attributes.setMaxKeySize(1000);
+        attributes.setBlockSizeBytes(2000);
+        attributes.setDiskLimitType(DiskLimitType.SIZE);
+
+        @SuppressWarnings({ "unchecked", "rawtypes" })
+        final
+        BlockDiskKeyStore<String> keyStore = new BlockDiskKeyStore<>(attributes, new BlockDiskCache(attributes));
+
+        keyStore.put("1", new int[1000]);
+        keyStore.put("2", new int[1000]);
+        assertNull(keyStore.get("1"));
+    }
+
+    public void testObjectLargerThanMaxSize_2_oe()
+    {
+        final BlockDiskCacheAttributes attributes = new BlockDiskCacheAttributes();
+        attributes.setCacheName("testObjectLargerThanMaxSize");
+        attributes.setDiskPath(rootDirName);
+        attributes.setMaxKeySize(1000);
+        attributes.setBlockSizeBytes(2000);
+        attributes.setDiskLimitType(DiskLimitType.SIZE);
+
+        @SuppressWarnings({ "unchecked", "rawtypes" })
+        final
+        BlockDiskKeyStore<String> keyStore = new BlockDiskKeyStore<>(attributes, new BlockDiskCache(attributes));
+
+        keyStore.put("1", new int[1000]);
+        keyStore.put("2", new int[1000]);
+        // removed other assertion
+        assertNotNull(keyStore.get("2"));
+    }
 
 }

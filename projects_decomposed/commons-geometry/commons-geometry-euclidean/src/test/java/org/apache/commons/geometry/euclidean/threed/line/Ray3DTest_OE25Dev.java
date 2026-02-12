@@ -77,5 +77,499 @@ class Ray3DTest_OE25Dev {
         GeometryTestUtils.assertContains(", direction= (1", str);
     }
 
+    @Test
+    void testFromPointAndDirection_1_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 1, 2);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromPointAndDirection(pt, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // assert
+        Assertions.assertTrue(ray.isInfinite());
+    }
+
+    @Test
+    void testFromPointAndDirection_2_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 1, 2);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromPointAndDirection(pt, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        Assertions.assertFalse(ray.isFinite());
+    }
+
+    @Test
+    void testFromPointAndDirection_4_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 1, 2);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromPointAndDirection(pt, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(ray.getEndPoint());
+    }
+
+    @Test
+    void testFromPointAndDirection_6_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 1, 2);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromPointAndDirection(pt, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        Assertions.assertEquals(2, ray.getSubspaceStart(), TEST_EPS);
+    }
+
+    @Test
+    void testFromPointAndDirection_9_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 1, 2);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromPointAndDirection(pt, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        Assertions.assertNull(ray.getCentroid());
+    }
+
+    @Test
+    void testFromPointAndDirection_10_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 1, 2);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromPointAndDirection(pt, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(ray.getBounds());
+    }
+
+    @Test
+    void testFromPoint_1_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(-2, -1, 2);
+
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(1, 0, 2), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromPoint(line, pt);
+
+        // assert
+        Assertions.assertTrue(ray.isInfinite());
+    }
+
+    @Test
+    void testFromPoint_2_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(-2, -1, 2);
+
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(1, 0, 2), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromPoint(line, pt);
+
+        // assert
+        // removed other assertion
+        Assertions.assertFalse(ray.isFinite());
+    }
+
+    @Test
+    void testFromPoint_4_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(-2, -1, 2);
+
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(1, 0, 2), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromPoint(line, pt);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(ray.getEndPoint());
+    }
+
+    @Test
+    void testFromPoint_5_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(-2, -1, 2);
+
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(1, 0, 2), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromPoint(line, pt);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(-1, ray.getSubspaceStart(), TEST_EPS);
+    }
+
+    @Test
+    void testFromPoint_8_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(-2, -1, 2);
+
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(1, 0, 2), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromPoint(line, pt);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        Assertions.assertNull(ray.getCentroid());
+    }
+
+    @Test
+    void testFromPoint_9_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(-2, -1, 2);
+
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(1, 0, 2), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromPoint(line, pt);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(ray.getBounds());
+    }
+
+    @Test
+    void testFromLocation_1_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromLocation(line, -1);
+
+        // assert
+        Assertions.assertTrue(ray.isInfinite());
+    }
+
+    @Test
+    void testFromLocation_2_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromLocation(line, -1);
+
+        // assert
+        // removed other assertion
+        Assertions.assertFalse(ray.isFinite());
+    }
+
+    @Test
+    void testFromLocation_4_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromLocation(line, -1);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(ray.getEndPoint());
+    }
+
+    @Test
+    void testFromLocation_5_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromLocation(line, -1);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(-1, ray.getSubspaceStart(), TEST_EPS);
+    }
+
+    @Test
+    void testFromLocation_8_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromLocation(line, -1);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        Assertions.assertNull(ray.getCentroid());
+    }
+
+    @Test
+    void testFromLocation_9_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // act
+        final Ray3D ray = Lines3D.rayFromLocation(line, -1);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(ray.getBounds());
+    }
+
+    @Test
+    void testTransform_2_oe() {
+        // arrange
+        final AffineTransformMatrix3D t = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, 0.5 * Math.PI)
+                .toMatrix()
+                .translate(Vector3D.Unit.PLUS_Y);
+
+        final Ray3D ray = Lines3D.rayFromPointAndDirection(Vector3D.of(1, 0, 0), Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act
+        final Ray3D result = ray.transform(t);
+
+        // assert
+        // removed other assertion
+        Assertions.assertNull(result.getEndPoint());
+    }
+
+    @Test
+    void testTransform_reflection_2_oe() {
+        // arrange
+        final AffineTransformMatrix3D t = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, 0.5 * Math.PI)
+                .toMatrix()
+                .translate(Vector3D.Unit.PLUS_Y)
+                .scale(1, 1, -2);
+
+        final Ray3D ray = Lines3D.rayFromPointAndDirection(Vector3D.of(1, 0, 0), Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act
+        final Ray3D result = ray.transform(t);
+
+        // assert
+        // removed other assertion
+        Assertions.assertNull(result.getEndPoint());
+    }
+
+    @Test
+    void testContains_1_oe() {
+        // arrange
+        final Vector3D p0 = Vector3D.of(1, 1, 1);
+
+        final Vector3D delta = Vector3D.of(1e-12, 1e-12, 1e-12);
+
+        final Ray3D ray = Lines3D.rayFromPointAndDirection(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act/assert
+        Assertions.assertFalse(ray.contains(Vector3D.of(2, 2, 2)));
+    }
+
+    @Test
+    void testContains_2_oe() {
+        // arrange
+        final Vector3D p0 = Vector3D.of(1, 1, 1);
+
+        final Vector3D delta = Vector3D.of(1e-12, 1e-12, 1e-12);
+
+        final Ray3D ray = Lines3D.rayFromPointAndDirection(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertFalse(ray.contains(Vector3D.of(0.9, 1, 1)));
+    }
+
+    @Test
+    void testContains_3_oe() {
+        // arrange
+        final Vector3D p0 = Vector3D.of(1, 1, 1);
+
+        final Vector3D delta = Vector3D.of(1e-12, 1e-12, 1e-12);
+
+        final Ray3D ray = Lines3D.rayFromPointAndDirection(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(ray.contains(Vector3D.of(-1, 1, 1)));
+    }
+
+    @Test
+    void testContains_4_oe() {
+        // arrange
+        final Vector3D p0 = Vector3D.of(1, 1, 1);
+
+        final Vector3D delta = Vector3D.of(1e-12, 1e-12, 1e-12);
+
+        final Ray3D ray = Lines3D.rayFromPointAndDirection(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertTrue(ray.contains(p0));
+    }
+
+    @Test
+    void testContains_5_oe() {
+        // arrange
+        final Vector3D p0 = Vector3D.of(1, 1, 1);
+
+        final Vector3D delta = Vector3D.of(1e-12, 1e-12, 1e-12);
+
+        final Ray3D ray = Lines3D.rayFromPointAndDirection(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertTrue(ray.contains(p0.subtract(delta)));
+    }
+
+    @Test
+    void testContains_6_oe() {
+        // arrange
+        final Vector3D p0 = Vector3D.of(1, 1, 1);
+
+        final Vector3D delta = Vector3D.of(1e-12, 1e-12, 1e-12);
+
+        final Ray3D ray = Lines3D.rayFromPointAndDirection(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertTrue(ray.contains(Vector3D.of(1000, 1, 1)));
+    }
+
+    @Test
+    void testGetInterval_1_oe() {
+        // arrange
+        final Ray3D ray = Lines3D.rayFromPointAndDirection(Vector3D.of(2, -1, 3), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        // act
+        final Interval interval = ray.getInterval();
+
+        // assert
+        Assertions.assertEquals(-1, interval.getMin(), TEST_EPS);
+    }
+
+    @Test
+    void testGetInterval_3_oe() {
+        // arrange
+        final Ray3D ray = Lines3D.rayFromPointAndDirection(Vector3D.of(2, -1, 3), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        // act
+        final Interval interval = ray.getInterval();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertSame(ray.getLine().getPrecision(), interval.getMinBoundary().getPrecision());
+    }
 
 }
