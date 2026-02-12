@@ -35,35 +35,5 @@ public class ColorHsvTest_OE25Dev {
         colorCopy = new ColorHsv(1.0, 2.0, 3.0);
     }
 
-    @Test
-    public void testHAssignment_1_oe() {
-        assertEquals(1.0, color.H, 0.0);
-    }
-
-    @Test
-    public void testSAssignment_1_oe() {
-        assertEquals(2.0, color.S, 0.0);
-    }
-
-    @Test
-    public void testVAssignment_1_oe() {
-        assertEquals(3.0, color.V, 0.0);
-    }
-
-    @Test
-    public void testToString_1_oe() {
-        assertEquals("{H: 1.0, S: 2.0, V: 3.0}", color.toString());
-    }
-
-    @Test
-    public void testHashCodeAndEquals_1_oe() {
-        assertTrue(color.equals(colorCopy) && colorCopy.equals(color));
-    }
-
-    @Test
-    public void testHashCodeAndEquals_2_oe() {
-        // removed other assertion
-        assertThat(color.hashCode(), is(colorCopy.hashCode()));
-    }
 
 }

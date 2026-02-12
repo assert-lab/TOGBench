@@ -89,7 +89,11 @@ class LogNormalSamplerTest_OE25Dev {
          NormalizedGaussianSampler gauss = ZigguratSampler.NormalizedGaussian.of(rng);
          double scale = -1e-6;
          double shape = 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> LogNormalSampler.of(gauss, scale, shape));
+        try {
+    LogNormalSampler.of(gauss, scale, shape);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -99,7 +103,11 @@ class LogNormalSamplerTest_OE25Dev {
          NormalizedGaussianSampler gauss = ZigguratSampler.NormalizedGaussian.of(rng);
          double scale = 1;
          double shape = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> LogNormalSampler.of(gauss, scale, shape));
+        try {
+    LogNormalSampler.of(gauss, scale, shape);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -115,7 +123,11 @@ class LogNormalSamplerTest_OE25Dev {
          double shape = 4.56;
          SharedStateContinuousSampler sampler1 =
             LogNormalSampler.of(gauss, scale, shape);
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> sampler1.withUniformRandomProvider(rng2));
+        try {
+    sampler1.withUniformRandomProvider(rng2);
+    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+} catch (UnsupportedOperationException e) {
+}
     }
 
     @Test
@@ -126,7 +138,11 @@ class LogNormalSamplerTest_OE25Dev {
          double shape = 4.56;
          SharedStateContinuousSampler sampler1 =
             LogNormalSampler.of(gauss, scale, shape);
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> sampler1.withUniformRandomProvider(rng2));
+        try {
+    sampler1.withUniformRandomProvider(rng2);
+    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+} catch (UnsupportedOperationException e) {
+}
     }
 
 }

@@ -69,51 +69,5 @@ public class FileIteratorTest_OE25Dev {
         }
     }
 
-    @Test
-    public void testIterator_1_oe() throws FileSystemException {
-        final FileObject[] findFiles = BaseFolder.findFiles(Selectors.SELECT_ALL);
-        Assert.assertEquals(FileCount, findFiles.length);
-    }
-
-    @Test
-    public void testIterator_2_oe() throws FileSystemException {
-        final FileObject[] findFiles = BaseFolder.findFiles(Selectors.SELECT_ALL);
-        // removed other assertion
-        final FileObject[] listFiles = BaseFolder.getChildren();
-        Assert.assertTrue(FileCount > listFiles.length);
-    }
-
-    @Test
-    public void testIterator_3_oe() throws FileSystemException {
-        final FileObject[] findFiles = BaseFolder.findFiles(Selectors.SELECT_ALL);
-        // removed other assertion
-        final FileObject[] listFiles = BaseFolder.getChildren();
-        // removed other assertion
-        int i = 0;
-        for (final FileObject actualFile : BaseFolder) {
-            final FileObject expectedFile = findFiles[i];
-            Assert.assertEquals(expectedFile, actualFile);
-    }
-    }
-
-    @Test
-    public void testIterator_4_oe() throws FileSystemException {
-        final FileObject[] findFiles = BaseFolder.findFiles(Selectors.SELECT_ALL);
-        // removed other assertion
-        final FileObject[] listFiles = BaseFolder.getChildren();
-        // removed other assertion
-        int i = 0;
-        for (final FileObject actualFile : BaseFolder) {
-            final FileObject expectedFile = findFiles[i];
-            // removed other assertion
-            i++;
-        }
-        final Iterator<FileObject> iter = BaseFolder.iterator();
-        i = 0;
-        while (iter.hasNext()) {
-            final FileObject expectedFile = findFiles[i];
-            Assert.assertEquals(expectedFile, iter.next());
-    }
-    }
 
 }

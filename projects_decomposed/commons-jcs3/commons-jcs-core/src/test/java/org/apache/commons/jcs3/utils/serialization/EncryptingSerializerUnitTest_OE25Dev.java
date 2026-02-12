@@ -75,40 +75,6 @@ public class EncryptingSerializerUnitTest_OE25Dev
      * @throws Exception on error
      */
 
-    public void testDeserialize_NullInput_1_oe()
-        throws IOException, ClassNotFoundException
-    {
-        // DO WORK
-        final Object result = serializer.deSerialize( null, null );
-
-        // VERIFY
-        assertNull( "Should have nothing.", result );
-    }
-
-    public void testSimpleBackAndForth_1_oe()
-        throws Exception
-    {
-        // DO WORK
-        final String before = "adsfdsafdsafdsafdsafdsafdsafdsagfdsafdsafdsfdsafdsafsa333 31231";
-        final String after = serializer.deSerialize( serializer.serialize( before ), null );
-
-        // VERIFY
-        assertEquals( "Before and after should be the same.", before, after );
-    }
-
-    public void testGCMBackAndForth_1_oe()
-        throws Exception
-    {
-        this.serializer.setAesCipherTransformation("AES/GCM/NoPadding");
-
-        // DO WORK
-        final String before = "adsfdsafdsafdsafdsafdsafdsafdsagfdsafdsafdsfdsafdsafsa333 31231";
-        final String after = serializer.deSerialize( serializer.serialize( before ), null );
-
-        // VERIFY
-        assertEquals( "Before and after should be the same.", before, after );
-    }
-
     public void testDifferentKey_1_oe()
         throws Exception
     {
@@ -117,20 +83,11 @@ public class EncryptingSerializerUnitTest_OE25Dev
         byte[] serialized = serializer.serialize(before);
         serializer.setPreSharedKey("another_key");
 
-        assertThrows(IOException.class, () -> serializer.deSerialize(serialized, null));
-    }
-
-    public void testSerialize_NullInput_1_oe()
-        throws Exception
-    {
-        final String before = null;
-
-        // DO WORK
-        final byte[] serialized = serializer.serialize( before );
-        final String after = (String) serializer.deSerialize( serialized, null );
-
-        // VERIFY
-        assertNull( "Should have nothing. after =" + after, after );
+        try {
+    serializer.deSerialize(serialized, null);
+    org.junit.jupiter.api.Assertions.fail("IOException");
+} catch (IOException e) {
+}
     }
 
 }

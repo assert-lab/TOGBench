@@ -33,12 +33,5 @@ public class FileNameTests_OE25Dev extends AbstractProviderTestCase {
      * Tests resolution of an absolute file name.
      */
 
-    @Test
-    public void testAbsoluteFileName_1_oe() throws Exception {
-        // Locate file by absolute file name
-        final String fileName = new File("testdir").getAbsolutePath();
-        final DefaultFileSystemManager manager = getManager();
-        Assert.assertNotNull("Unexpected null manager for test " + this, manager);
-    }
 
 }

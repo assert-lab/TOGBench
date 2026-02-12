@@ -27,16 +27,5 @@ public class TimestampServiceTest_OE25Dev {
         }
     }
 
-    @Test
-    public void shouldReturnTimestampInSeconds_1_oe() {
-        final String expected = "1000";
-        assertEquals(expected, service.getTimestampInSeconds());
-    }
-
-    @Test
-    public void shouldReturnNonce_1_oe() {
-        final String expected = "1042";
-        assertEquals(expected, service.getNonce());
-    }
 
 }

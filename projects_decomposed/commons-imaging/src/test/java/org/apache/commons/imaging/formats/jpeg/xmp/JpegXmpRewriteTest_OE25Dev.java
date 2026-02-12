@@ -40,13 +40,5 @@ public class JpegXmpRewriteTest_OE25Dev extends JpegXmpBaseTest {
         return getImagesWithXmpData().stream();
     }
 
-    @ParameterizedTest
-    @MethodSource("data")
-    public void testRemoveInsertUpdate_1_oe(final File imageFile) throws Exception {
-        final ByteSource byteSource = new ByteSourceFile(imageFile);
-        final JpegImagingParameters params = new JpegImagingParameters();
-        final String xmpXml = new JpegImageParser().getXmpXml(byteSource, params);
-        assertNotNull(xmpXml);
-    }
 
 }

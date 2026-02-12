@@ -69,9 +69,13 @@ public abstract class ByteSourceTest_OE25Dev extends ImagingTest {
     }
 
     @Test
-    public void testGetInputStreamThrowsNullPointerException_1_oe() {
+    public void testGetInputStreamThrowsNullPointerException_1_oe() throws Exception {
         final ByteSourceArray byteSourceArray = new ByteSourceArray(null);
-        Assertions.assertThrows(NullPointerException.class, () -> byteSourceArray.getInputStream(0L));
+        try {
+    byteSourceArray.getInputStream(0L);
+    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+} catch (NullPointerException e) {
+}
     }
 
 }

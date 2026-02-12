@@ -33,14 +33,5 @@ public class HostNameUtilUnitTest_OE25Dev
      * @throws UnknownHostException
      */
 
-    public void testGetLocalHostAddress_Simple_1_oe() throws UnknownHostException
-    {
-        // DO WORK
-        final String result = HostNameUtil.getLocalHostAddress();
-
-        // VERIFY
-        //System.out.print( result );
-        assertNotNull( "Should have a host address.", result );
-    }
 
 }

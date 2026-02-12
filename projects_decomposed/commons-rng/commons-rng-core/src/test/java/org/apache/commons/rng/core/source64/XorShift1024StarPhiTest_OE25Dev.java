@@ -76,9 +76,5 @@ class XorShift1024StarPhiTest_OE25Dev {
         RandomAssert.assertJumpEquals(EXPECTED_SEQUENCE, EXPECTED_SEQUENCE_AFTER_JUMP, new XorShift1024StarPhi(SEED));
     }
 
-    @Test
-    void testReferenceCode_1_oe() {
-        RandomAssert.assertEquals(EXPECTED_SEQUENCE, new XorShift1024StarPhi(SEED));
-    }
 
 }

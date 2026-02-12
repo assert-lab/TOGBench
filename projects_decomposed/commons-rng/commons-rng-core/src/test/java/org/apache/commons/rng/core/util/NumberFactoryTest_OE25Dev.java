@@ -106,184 +106,15 @@ class NumberFactoryTest_OE25Dev {
     }
 
     @Test
-    void testMakeBooleanFromInt_1_oe() {
-        // Test if the bit is set differently then the booleans are opposite
-         boolean b1 = NumberFactory.makeBoolean(0);
-         boolean b2 = NumberFactory.makeBoolean(0xffffffff);
-        Assertions.assertNotEquals(b1, b2);
-    }
-
-    @Test
-    void testMakeBooleanFromLong_1_oe() {
-        // Test if the bit is set differently then the booleans are opposite
-         boolean b1 = NumberFactory.makeBoolean(0L);
-         boolean b2 = NumberFactory.makeBoolean(0xffffffffffffffffL);
-        Assertions.assertNotEquals(b1, b2);
-    }
-
-    @Test
-    void testMakeIntFromLong_1_oe() {
-        // Test the high order bits and low order bits are xor'd together
-        Assertions.assertEquals(0xffffffff, NumberFactory.makeInt(0xffffffff00000000L));
-    }
-
-    @Test
-    void testMakeIntFromLong_2_oe() {
-        // Test the high order bits and low order bits are xor'd together
-        // removed other assertion
-        Assertions.assertEquals(0x00000000, NumberFactory.makeInt(0xffffffffffffffffL));
-    }
-
-    @Test
-    void testMakeIntFromLong_3_oe() {
-        // Test the high order bits and low order bits are xor'd together
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(0xffffffff, NumberFactory.makeInt(0x00000000ffffffffL));
-    }
-
-    @Test
-    void testMakeIntFromLong_4_oe() {
-        // Test the high order bits and low order bits are xor'd together
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(0x00000000, NumberFactory.makeInt(0x0000000000000000L));
-    }
-
-    @Test
-    void testMakeIntFromLong_5_oe() {
-        // Test the high order bits and low order bits are xor'd together
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(0x0f0f0f0f, NumberFactory.makeInt(0x0f0f0f0f00000000L));
-    }
-
-    @Test
-    void testMakeIntFromLong_6_oe() {
-        // Test the high order bits and low order bits are xor'd together
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(0xf0f0f0f0, NumberFactory.makeInt(0x00000000f0f0f0f0L));
-    }
-
-    @Test
-    void testMakeIntFromLong_7_oe() {
-        // Test the high order bits and low order bits are xor'd together
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(0x00000000, NumberFactory.makeInt(0x0f0f0f0f0f0f0f0fL));
-    }
-
-    @Test
-    void testMakeIntFromLong_8_oe() {
-        // Test the high order bits and low order bits are xor'd together
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(0xffffffff, NumberFactory.makeInt(0x0f0f0f0ff0f0f0f0L));
-    }
-
-    @Test
-    void testExtractLoExtractHi_1_oe() {
-        for (long v : LONG_TEST_VALUES) {
-             int vL = NumberFactory.extractLo(v);
-             int vH = NumberFactory.extractHi(v);
-
-             long actual = (((long) vH) << 32) | (vL & 0xffffffffL);
-            Assertions.assertEquals(v, actual);
-    }
-    }
-
-    @Test
-    void testLong2Long_1_oe() {
-        for (long v : LONG_TEST_VALUES) {
-             int vL = NumberFactory.extractLo(v);
-             int vH = NumberFactory.extractHi(v);
-
-            Assertions.assertEquals(v, NumberFactory.makeLong(vH, vL));
-    }
-    }
-
-    @Test
-    void testLongFromByteArray2Long_1_oe() {
-        for (long expected : LONG_TEST_VALUES) {
-             byte[] b = NumberFactory.makeByteArray(expected);
-            Assertions.assertEquals(expected, NumberFactory.makeLong(b));
-    }
-    }
-
-    @Test
-    void testLongArrayFromByteArray2LongArray_1_oe() {
-         byte[] b = NumberFactory.makeByteArray(LONG_TEST_VALUES);
-        Assertions.assertArrayEquals(LONG_TEST_VALUES, NumberFactory.makeLongArray(b));
-    }
-
-    @Test
-    void testLongArrayToByteArrayMatchesLongToByteArray_1_oe() {
-        // Test individually the bytes are the same as the array conversion
-        for (int i = 0; i < LONG_TEST_VALUES.length; i++) {
-             byte[] b1 = NumberFactory.makeByteArray(LONG_TEST_VALUES[i]);
-             byte[] b2 = NumberFactory.makeByteArray(new long[] {LONG_TEST_VALUES[i]});
-            Assertions.assertArrayEquals(b1, b2);
-    }
-    }
-
-    @Test
-    void testIntFromByteArray2Int_1_oe() {
-        for (int expected : INT_TEST_VALUES) {
-             byte[] b = NumberFactory.makeByteArray(expected);
-            Assertions.assertEquals(expected, NumberFactory.makeInt(b));
-    }
-    }
-
-    @Test
-    void testIntArrayFromByteArray2IntArray_1_oe() {
-         byte[] b = NumberFactory.makeByteArray(INT_TEST_VALUES);
-        Assertions.assertArrayEquals(INT_TEST_VALUES, NumberFactory.makeIntArray(b));
-    }
-
-    @Test
-    void testIntArrayToByteArrayMatchesIntToByteArray_1_oe() {
-        // Test individually the bytes are the same as the array conversion
-        for (int i = 0; i < INT_TEST_VALUES.length; i++) {
-             byte[] b1 = NumberFactory.makeByteArray(INT_TEST_VALUES[i]);
-             byte[] b2 = NumberFactory.makeByteArray(new int[] {INT_TEST_VALUES[i]});
-            Assertions.assertArrayEquals(b1, b2);
-    }
-    }
-
-    @Test
     void testMakeIntPrecondition1_1_oe() {
         for (int i = 0; i <= 10; i++) {
              byte[] bytes = new byte[i];
             if (i != INT_SIZE) {
-                Assertions.assertThrows(IllegalArgumentException.class, () -> NumberFactory.makeInt(bytes));
-    }
-    }
-    }
-
-    @Test
-    void testMakeIntPrecondition1_2_oe() {
-        for (int i = 0; i <= 10; i++) {
-             byte[] bytes = new byte[i];
-            if (i != INT_SIZE) {
-                // removed other assertion
-            } else {
-                Assertions.assertEquals(0, NumberFactory.makeInt(bytes));
+                try {
+    NumberFactory.makeInt(bytes);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
     }
     }
@@ -293,19 +124,11 @@ class NumberFactoryTest_OE25Dev {
         for (int i = 0; i <= 20; i++) {
              byte[] bytes = new byte[i];
             if (i != 0 && i % INT_SIZE != 0) {
-                Assertions.assertThrows(IllegalArgumentException.class, () -> NumberFactory.makeIntArray(bytes));
-    }
-    }
-    }
-
-    @Test
-    void testMakeIntArrayPrecondition1_2_oe() {
-        for (int i = 0; i <= 20; i++) {
-             byte[] bytes = new byte[i];
-            if (i != 0 && i % INT_SIZE != 0) {
-                // removed other assertion
-            } else {
-                Assertions.assertArrayEquals(new int[i / INT_SIZE], NumberFactory.makeIntArray(bytes));
+                try {
+    NumberFactory.makeIntArray(bytes);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
     }
     }
@@ -315,19 +138,11 @@ class NumberFactoryTest_OE25Dev {
         for (int i = 0; i <= 10; i++) {
              byte[] bytes = new byte[i];
             if (i != LONG_SIZE) {
-                Assertions.assertThrows(IllegalArgumentException.class, () -> NumberFactory.makeLong(bytes));
-    }
-    }
-    }
-
-    @Test
-    void testMakeLongPrecondition1_2_oe() {
-        for (int i = 0; i <= 10; i++) {
-             byte[] bytes = new byte[i];
-            if (i != LONG_SIZE) {
-                // removed other assertion
-            } else {
-                Assertions.assertEquals(0L, NumberFactory.makeLong(bytes));
+                try {
+    NumberFactory.makeLong(bytes);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
     }
     }
@@ -337,222 +152,13 @@ class NumberFactoryTest_OE25Dev {
         for (int i = 0; i <= 20; i++) {
              byte[] bytes = new byte[i];
             if (i != 0 && i % LONG_SIZE != 0) {
-                Assertions.assertThrows(IllegalArgumentException.class, () -> NumberFactory.makeLongArray(bytes));
+                try {
+    NumberFactory.makeLongArray(bytes);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
     }
-    }
-
-    @Test
-    void testMakeLongArrayPrecondition1_2_oe() {
-        for (int i = 0; i <= 20; i++) {
-             byte[] bytes = new byte[i];
-            if (i != 0 && i % LONG_SIZE != 0) {
-                // removed other assertion
-            } else {
-                Assertions.assertArrayEquals(new long[i / LONG_SIZE], NumberFactory.makeLongArray(bytes));
-    }
-    }
-    }
-
-    @Test
-    void testFloatGenerationMethods_4_oe() {
-         int allBits = 0xffffffff;
-
-        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-         int noBits = 0;
-        Assertions.assertEquals(0.0f, (noBits >>> 9) * 0x1.0p-23f);
-    }
-
-    @Test
-    void testFloatGenerationMethods_5_oe() {
-         int allBits = 0xffffffff;
-
-        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-         int noBits = 0;
-        // removed other assertion
-        Assertions.assertEquals(0.0f, (noBits >>> 8) * 0x1.0p-24f);
-    }
-
-    @Test
-    void testFloatGenerationMethods_6_oe() {
-         int allBits = 0xffffffff;
-
-        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-         int noBits = 0;
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(0.0f, Float.intBitsToFloat(0x7f << 23 | noBits >>> 9) - 1.0f);
-    }
-
-    @Test
-    void testDoubleGenerationMethods_4_oe() {
-         long allBits = 0xffffffffffffffffL;
-
-        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-         long noBits = 0;
-        Assertions.assertEquals(0.0, (noBits >>> 12) * 0x1.0p-52d);
-    }
-
-    @Test
-    void testDoubleGenerationMethods_5_oe() {
-         long allBits = 0xffffffffffffffffL;
-
-        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-         long noBits = 0;
-        // removed other assertion
-        Assertions.assertEquals(0.0, (noBits >>> 11) * 0x1.0p-53d);
-    }
-
-    @Test
-    void testDoubleGenerationMethods_6_oe() {
-         long allBits = 0xffffffffffffffffL;
-
-        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-         long noBits = 0;
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(0.0, Double.longBitsToDouble(0x3ffL << 52 | noBits >>> 12) - 1.0);
-    }
-
-    @Test
-    void testMakeDoubleFromLong_2_oe() {
-         long allBits = 0xffffffffffffffffL;
-         long noBits = 0;
-        // Within 1 ULP of 1.0
-        // removed other assertion
-        Assertions.assertEquals(0.0, NumberFactory.makeDouble(noBits));
-    }
-
-    @Test
-    void testMakeDoubleFromIntInt_2_oe() {
-         int allBits = 0xffffffff;
-         int noBits = 0;
-        // Within 1 ULP of 1.0
-        // removed other assertion
-        Assertions.assertEquals(0.0, NumberFactory.makeDouble(noBits, noBits));
-    }
-
-    @Test
-    void testMakeFloatFromInt_2_oe() {
-         int allBits = 0xffffffff;
-         int noBits = 0;
-        // Within 1 ULP of 1.0f
-        // removed other assertion
-        Assertions.assertEquals(0.0f, NumberFactory.makeFloat(noBits), 0);
-    }
-
-    @Test
-    void testFloatGenerationMethods_1_oe_1_oe() {
-         int allBits = 0xffffffff;
-
-        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-                 float value0 = (allBits >>> 9) * 0x1.0p-23f;
-         int maxUlps0 = 2;
-        Assertions.assertTrue(value0 <= 1.0f, "Not <= 1.0f");
-    }
-
-    @Test
-    void testFloatGenerationMethods_1_oe_2_oe() {
-         int allBits = 0xffffffff;
-
-        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-                 float value0 = (allBits >>> 9) * 0x1.0p-23f;
-         int maxUlps0 = 2;
-        // removed other assertion
-                Assertions.assertTrue(Precision.equals(1.0f,value0,maxUlps0),()-> "Not equal to 1.0f within units of least precision: " + maxUlps0);
-    }
-
-    @Test
-    void testFloatGenerationMethods_2_oe_1_oe() {
-         int allBits = 0xffffffff;
-
-        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-        // removed other assertion
-                 float value0 = (allBits >>> 8) * 0x1.0p-24f;
-         int maxUlps0 = 1;
-        Assertions.assertTrue(value0 <= 1.0f, "Not <= 1.0f");
-    }
-
-    @Test
-    void testFloatGenerationMethods_2_oe_2_oe() {
-         int allBits = 0xffffffff;
-
-        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-        // removed other assertion
-                 float value0 = (allBits >>> 8) * 0x1.0p-24f;
-         int maxUlps0 = 1;
-        // removed other assertion
-                Assertions.assertTrue(Precision.equals(1.0f,value0,maxUlps0),()-> "Not equal to 1.0f within units of least precision: " + maxUlps0);
-    }
-
-    @Test
-    void testFloatGenerationMethods_3_oe_1_oe() {
-         int allBits = 0xffffffff;
-
-        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-        // removed other assertion
-        // removed other assertion
-                 float value0 = Float.intBitsToFloat(0x7f << 23 | allBits >>> 9) - 1.0f;
-         int maxUlps0 = 2;
-        Assertions.assertTrue(value0 <= 1.0f, "Not <= 1.0f");
-    }
-
-    @Test
-    void testFloatGenerationMethods_3_oe_2_oe() {
-         int allBits = 0xffffffff;
-
-        // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-        // removed other assertion
-        // removed other assertion
-                 float value0 = Float.intBitsToFloat(0x7f << 23 | allBits >>> 9) - 1.0f;
-         int maxUlps0 = 2;
-        // removed other assertion
-                Assertions.assertTrue(Precision.equals(1.0f,value0,maxUlps0),()-> "Not equal to 1.0f within units of least precision: " + maxUlps0);
-    }
-
-    @Test
-    void testMakeFloatFromInt_1_oe_1_oe() {
-         int allBits = 0xffffffff;
-         int noBits = 0;
-        // Within 1 ULP of 1.0f
-                 float value0 = NumberFactory.makeFloat(allBits);
-         int maxUlps0 = 1;
-        Assertions.assertTrue(value0 <= 1.0f, "Not <= 1.0f");
-    }
-
-    @Test
-    void testMakeFloatFromInt_1_oe_2_oe() {
-         int allBits = 0xffffffff;
-         int noBits = 0;
-        // Within 1 ULP of 1.0f
-                 float value0 = NumberFactory.makeFloat(allBits);
-         int maxUlps0 = 1;
-        // removed other assertion
-                Assertions.assertTrue(Precision.equals(1.0f,value0,maxUlps0),()-> "Not equal to 1.0f within units of least precision: " + maxUlps0);
     }
 
 }

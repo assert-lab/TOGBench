@@ -25,20 +25,21 @@ import org.junit.jupiter.api.Test;
 public class PgmFileInfoTest_OE25Dev {
 
     @Test
-    public void testCreateThrowsImageReadExceptionOne_1_oe() {
-        Assertions.assertThrows(ImageReadException.class, () -> new PgmFileInfo(16711680, 16711680, false, 16711680));
+    public void testCreateThrowsImageReadExceptionOne_1_oe() throws Exception {
+        try {
+    new PgmFileInfo(16711680, 16711680, false, 16711680);
+    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+} catch (ImageReadException e) {
+}
     }
 
     @Test
-    public void testCreateThrowsImageReadExceptionTwo_1_oe() {
-        Assertions.assertThrows(ImageReadException.class, () -> new PgmFileInfo(0, 0, true, 0));
-    }
-
-    @Test
-    public void testGetBitDepth_1_oe() throws ImageReadException {
-        final PgmFileInfo pgmFileInfo = new PgmFileInfo(65535, 65535, false, 65535);
-
-        assertEquals(65535, pgmFileInfo.getBitDepth());
+    public void testCreateThrowsImageReadExceptionTwo_1_oe() throws Exception {
+        try {
+    new PgmFileInfo(0, 0, true, 0);
+    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+} catch (ImageReadException e) {
+}
     }
 
 }

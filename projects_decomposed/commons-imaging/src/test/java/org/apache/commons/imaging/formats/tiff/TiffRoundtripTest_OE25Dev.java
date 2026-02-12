@@ -33,49 +33,5 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class TiffRoundtripTest_OE25Dev extends TiffBaseTest {
 
-    @Test
-    public void test_1_oe() throws Exception {
-        final List<File> images = getTiffImages();
-        for (final File imageFile : images) {
-
-            Debug.debug("imageFile", imageFile);
-
-            final ImageMetadata metadata = Imaging.getMetadata(imageFile);
-            assertNotNull(metadata);
-    }
-    }
-
-    @Test
-    public void test_2_oe() throws Exception {
-        final List<File> images = getTiffImages();
-        for (final File imageFile : images) {
-
-            Debug.debug("imageFile", imageFile);
-
-            final ImageMetadata metadata = Imaging.getMetadata(imageFile);
-            // removed other assertion
-
-            final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
-            assertNotNull(imageInfo);
-    }
-    }
-
-    @Test
-    public void test_3_oe() throws Exception {
-        final List<File> images = getTiffImages();
-        for (final File imageFile : images) {
-
-            Debug.debug("imageFile", imageFile);
-
-            final ImageMetadata metadata = Imaging.getMetadata(imageFile);
-            // removed other assertion
-
-            final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
-            // removed other assertion
-
-            final BufferedImage image = Imaging.getBufferedImage(imageFile);
-            assertNotNull(image);
-    }
-    }
 
 }

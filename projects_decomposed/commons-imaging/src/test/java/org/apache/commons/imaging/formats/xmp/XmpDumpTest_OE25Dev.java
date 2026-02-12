@@ -28,25 +28,5 @@ import org.junit.jupiter.api.Test;
 
 public class XmpDumpTest_OE25Dev extends ImagingTest {
 
-    @Test
-    public void test_1_oe() throws Exception {
-        final List<File> images = getTestImages();
-        for (final File imageFile : images) {
-
-            if (imageFile.getName().toLowerCase().endsWith(".png") && isInvalidPNGTestFile(imageFile)) {
-                continue;
-            }
-
-            Debug.debug("imageFile", imageFile);
-            Debug.debug();
-
-            final String xmpXml = Imaging.getXmpXml(imageFile);
-            if (null == xmpXml) {
-                continue;
-            }
-
-            assertNotNull(xmpXml);
-    }
-    }
 
 }

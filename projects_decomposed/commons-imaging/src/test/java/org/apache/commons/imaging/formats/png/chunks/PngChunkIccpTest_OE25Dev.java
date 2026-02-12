@@ -76,9 +76,13 @@ public class PngChunkIccpTest_OE25Dev {
     }
 
     @Test
-    public void testErrorOnNoProfileName_1_oe() {
+    public void testErrorOnNoProfileName_1_oe() throws Exception {
         final byte[] data = ImagingConstants.EMPTY_BYTE_ARRAY;
-        Assertions.assertThrows(ImageReadException.class, () -> new PngChunkIccp(0, chunkType, 0, data));
+        try {
+    new PngChunkIccp(0, chunkType, 0, data);
+    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+} catch (ImageReadException e) {
+}
     }
 
 }

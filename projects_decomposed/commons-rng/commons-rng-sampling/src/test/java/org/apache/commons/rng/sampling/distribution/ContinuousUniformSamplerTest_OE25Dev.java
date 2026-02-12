@@ -129,40 +129,6 @@ class ContinuousUniformSamplerTest_OE25Dev {
     }
 
     @Test
-    void testExcludeBounds_1_oe() {
-        // A broken RNG that will return in an alternating sequence from 0 up or -1 down.
-        // This is either zero bits or all the bits
-         UniformRandomProvider rng = new SplitMix64(0L) {
-            private long l1;
-            private long l2;
-            @Override
-            public long nextLong() {
-                long x;
-                if (l1 > l2) {
-                    l2++;
-                    // Descending sequence: -1, -2, -3, ...
-                    x = -l2;
-                } else {
-                    // Ascending sequence: 0, 1, 2, ...
-                    x = l1++;
-                }
-                // Shift by 11 bits to reverse the shift performed when computing the next
-                // double from a long.
-                return x << 11;
-            }
-        };
-         double low = 3.18;
-         double high = 5.23;
-         SharedStateContinuousSampler sampler =
-            ContinuousUniformSampler.of(rng, low, high, true);
-        // Test the sampler excludes the end points
-        for (int i = 0; i < 10; i++) {
-             double value = sampler.sample();
-            Assertions.assertTrue(value > low && value < high, () -> "Value not in range: " + value);
-    }
-    }
-
-    @Test
     void testInvalidOpenIntervalThrows_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0);
         for ( double[] interval : new double[][] {
@@ -182,7 +148,11 @@ class ContinuousUniformSamplerTest_OE25Dev {
         }) {
              double low = interval[0];
              double high = interval[1];
-            Assertions.assertThrows(IllegalArgumentException.class, () -> ContinuousUniformSampler.of(rng, low, high, true), () -> "(" + low + "," + high + ")");
+            try {
+    ContinuousUniformSampler.of(rng, low, high, true);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: () -> \"(\" + low + \",\" + high + \")\"");
+} catch (IllegalArgumentException e) {
+}
     }
     }
 
@@ -207,128 +177,12 @@ class ContinuousUniformSamplerTest_OE25Dev {
              double low = interval[0];
              double high = interval[1];
             // removed other assertion
-            Assertions.assertThrows(IllegalArgumentException.class, () -> ContinuousUniformSampler.of(rng, high, low, true), () -> "(" + high + "," + low + ")");
+            try {
+    ContinuousUniformSampler.of(rng, high, low, true);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: () -> \"(\" + high + \",\" + low + \")\"");
+} catch (IllegalArgumentException e) {
+}
     }
-    }
-
-    @Test
-    void testTinyOpenIntervalSample_1_oe() {
-         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0);
-
-        // Test sub-normal ranges
-         double x = Double.MIN_VALUE;
-
-        for ( double expected : new double[] {
-            1.23, 2, 56787.7893, 3 * x, 2 * x, x
-        }) {
-             double low = Math.nextUp(expected);
-             double high = Math.nextDown(expected);
-            Assertions.assertEquals(expected, ContinuousUniformSampler.of(rng, low, high, true).sample());
-    }
-    }
-
-    @Test
-    void testTinyOpenIntervalSample_2_oe() {
-         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0);
-
-        // Test sub-normal ranges
-         double x = Double.MIN_VALUE;
-
-        for ( double expected : new double[] {
-            1.23, 2, 56787.7893, 3 * x, 2 * x, x
-        }) {
-             double low = Math.nextUp(expected);
-             double high = Math.nextDown(expected);
-            // removed other assertion
-            Assertions.assertEquals(expected, ContinuousUniformSampler.of(rng, high, low, true).sample());
-    }
-    }
-
-    @Test
-    void testTinyOpenIntervalSample_3_oe() {
-         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0);
-
-        // Test sub-normal ranges
-         double x = Double.MIN_VALUE;
-
-        for ( double expected : new double[] {
-            1.23, 2, 56787.7893, 3 * x, 2 * x, x
-        }) {
-             double low = Math.nextUp(expected);
-             double high = Math.nextDown(expected);
-            // removed other assertion
-            // removed other assertion
-            Assertions.assertEquals(-expected, ContinuousUniformSampler.of(rng, -low, -high, true).sample());
-    }
-    }
-
-    @Test
-    void testTinyOpenIntervalSample_4_oe() {
-         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0);
-
-        // Test sub-normal ranges
-         double x = Double.MIN_VALUE;
-
-        for ( double expected : new double[] {
-            1.23, 2, 56787.7893, 3 * x, 2 * x, x
-        }) {
-             double low = Math.nextUp(expected);
-             double high = Math.nextDown(expected);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            Assertions.assertEquals(-expected, ContinuousUniformSampler.of(rng, -high, -low, true).sample());
-    }
-    }
-
-    @Test
-    void testTinyOpenIntervalSample_5_oe() {
-         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0);
-
-        // Test sub-normal ranges
-         double x = Double.MIN_VALUE;
-
-        for ( double expected : new double[] {
-            1.23, 2, 56787.7893, 3 * x, 2 * x, x
-        }) {
-             double low = Math.nextUp(expected);
-             double high = Math.nextDown(expected);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        // Special case of sampling around zero.
-        // Requires 2 doubles inside the range.
-         double y = ContinuousUniformSampler.of(rng, -x, 2 * x, true).sample();
-        Assertions.assertTrue(-x < y && y < 2 * x);
-    }
-
-    @Test
-    void testTinyOpenIntervalSample_6_oe() {
-         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0);
-
-        // Test sub-normal ranges
-         double x = Double.MIN_VALUE;
-
-        for ( double expected : new double[] {
-            1.23, 2, 56787.7893, 3 * x, 2 * x, x
-        }) {
-             double low = Math.nextUp(expected);
-             double high = Math.nextDown(expected);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        // Special case of sampling around zero.
-        // Requires 2 doubles inside the range.
-         double y = ContinuousUniformSampler.of(rng, -x, 2 * x, true).sample();
-        // removed other assertion
-         double z = ContinuousUniformSampler.of(rng, -2 * x, x, true).sample();
-        Assertions.assertTrue(-2 * x < z && z < x);
     }
 
 }

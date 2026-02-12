@@ -64,10 +64,5 @@ class PoissonSamplerTest_OE25Dev {
      * used in other tests does not create an instance of the wrapper class.
      */
 
-    @Test
-    void testToString_1_oe() {
-         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertTrue(new PoissonSampler(rng, 1.23).toString().toLowerCase().contains("poisson"));
-    }
 
 }

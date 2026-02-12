@@ -113,13 +113,12 @@ class XoRoShiRo128PlusPlusTest_OE25Dev {
      */
 
     @Test
-    void testReferenceCode_1_oe() {
-        RandomAssert.assertEquals(EXPECTED_SEQUENCE, new XoRoShiRo128PlusPlus(SEED));
-    }
-
-    @Test
     void testNextOutputThrows_1_oe() {
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> new XoRoShiRo128PlusPlus(SEED).nextOutput());
+        try {
+    new XoRoShiRo128PlusPlus(SEED).nextOutput();
+    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+} catch (UnsupportedOperationException e) {
+}
     }
 
 }

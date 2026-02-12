@@ -435,4 +435,13 @@ public class TestLinkedBlockingDeque {
         assertEquals(Integer.valueOf(1), arr[0]);
         assertEquals(Integer.valueOf(2), arr[1]);
     }
+
+    @Test
+    public void test_oe() throws InterruptedException {
+        try {
+    deque.putLast(null);
+    fail("NullPointerException");
+} catch (NullPointerException e) {
+}
+    }
 }

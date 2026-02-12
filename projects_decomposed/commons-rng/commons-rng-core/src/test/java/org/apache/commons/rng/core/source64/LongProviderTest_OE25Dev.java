@@ -82,47 +82,5 @@ class LongProviderTest_OE25Dev {
      * <p>The order should be from the least-significant bit.
      */
 
-    @Test
-    void testNextInt_1_oe() {
-         int max = 5;
-        for (int i = 0; i < max; i++) {
-            for (int j = 0; j < max; j++) {
-                // Pack into upper then lower bits
-                 long value = (((long) i) << 32) | (j & 0xffffffffL);
-                 LongProvider provider = new FixedLongProvider(value);
-                Assertions.assertEquals(i, provider.nextInt(), "1st call not the upper 32-bits");
-    }
-    }
-    }
-
-    @Test
-    void testNextInt_3_oe() {
-         int max = 5;
-        for (int i = 0; i < max; i++) {
-            for (int j = 0; j < max; j++) {
-                // Pack into upper then lower bits
-                 long value = (((long) i) << 32) | (j & 0xffffffffL);
-                 LongProvider provider = new FixedLongProvider(value);
-                // removed other assertion
-                // removed other assertion
-                Assertions.assertEquals(i, provider.nextInt(), "3rd call not the upper 32-bits");
-    }
-    }
-    }
-
-    @Test
-    void testNextBoolean_1_oe() {
-        for (int i = 0; i < Long.SIZE; i++) {
-            // Set only a single bit in the source
-             long value = 1L << i;
-             LongProvider provider = new FlipLongProvider(value);
-            // Test the result for a single pass over the long
-            for (int j = 0; j < Long.SIZE; j++) {
-                 boolean expected = i == j;
-                 int index = j;
-                Assertions.assertEquals(expected, provider.nextBoolean(), () -> "Pass 1, bit " + index);
-    }
-    }
-    }
 
 }

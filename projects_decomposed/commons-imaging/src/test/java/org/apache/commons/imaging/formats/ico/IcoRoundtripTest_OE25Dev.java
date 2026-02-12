@@ -539,37 +539,5 @@ public class IcoRoundtripTest_OE25Dev extends IcoBaseTest {
         }
     }
 
-    @Test
-    public void testZeroColorPlanes_1_oe() throws Exception {
-        final int foreground = 0xFFF000E0;
-        final int background = 0xFF102030;
-        for (final Map.Entry<Integer,BitmapGenerator> entry : generatorMap.entrySet()) {
-            final int bitDepth = entry.getKey();
-            final BitmapGenerator bitmapGenerator = entry.getValue();
-
-            final ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            final BinaryOutputStream bos = new BinaryOutputStream(baos,
-                    ByteOrder.LITTLE_ENDIAN);
-            final byte[] bitmap = bitmapGenerator.generateBitmap(foreground,
-                    background, (bitDepth <= 8) ? (1 << bitDepth) : 0);
-            writeICONDIR(bos, 0, 1, 1);
-            writeICONDIRENTRY(bos, 16, 16, 0, 0, 1, bitDepth,
-                    40 + bitmap.length);
-            writeBITMAPINFOHEADER(bos, 16, 2 * 16, 0 /* should be 1 */,
-                    bitDepth, 0, 0, 0);
-            bos.write(bitmap);
-            bos.flush();
-
-            boolean threw = false;
-            try {
-                writeAndReadImageData(
-                        "16x16x" + bitDepth + "-zero-colorPlanes",
-                        baos.toByteArray(), foreground, background);
-            } catch (final ImageReadException imageReadException) {
-                threw = true;
-            }
-            assertTrue(threw);
-    }
-    }
 
 }

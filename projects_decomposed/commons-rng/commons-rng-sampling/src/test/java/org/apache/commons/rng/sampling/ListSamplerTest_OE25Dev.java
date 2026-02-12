@@ -184,228 +184,26 @@ class ListSamplerTest_OE25Dev {
     }
 
     @Test
-    void testSample_1_oe() {
-         String[][] c = {{"0", "1"}, {"0", "2"}, {"0", "3"}, {"0", "4"},
-                              {"1", "2"}, {"1", "3"}, {"1", "4"},
-                              {"2", "3"}, {"2", "4"},
-                              {"3", "4"}};
-         long[] observed = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-         double[] expected = {100, 100, 100, 100, 100, 100, 100, 100, 100, 100};
-
-         HashSet<String> cPop = new HashSet<>(); // {0, 1, 2, 3, 4}.
-        for (int i = 0; i < 5; i++) {
-            cPop.add(Integer.toString(i));
-        }
-
-         List<Set<String>> sets = new ArrayList<>(); // 2-sets from 5.
-        for (int i = 0; i < 10; i++) {
-             HashSet<String> hs = new HashSet<>();
-            hs.add(c[i][0]);
-            hs.add(c[i][1]);
-            sets.add(hs);
-        }
-
-        for (int i = 0; i < 1000; i++) {
-            observed[findSample(sets, ListSampler.sample(rng, new ArrayList<>(cPop), 2))]++;
-        }
-
-        // Pass if we cannot reject null hypothesis that distributions are the same.
-        Assertions.assertFalse(chiSquareTest.chiSquareTest(expected, observed, 0.001));
-    }
-
-    @Test
-    void testSampleWhole_1_oe() {
-        // Sample of size = size of collection must return the same collection.
-         List<String> list = new ArrayList<>();
-        list.add("one");
-
-         List<String> one = ListSampler.sample(rng, list, 1);
-        Assertions.assertEquals(1, one.size());
-    }
-
-    @Test
-    void testSampleWhole_2_oe() {
-        // Sample of size = size of collection must return the same collection.
-         List<String> list = new ArrayList<>();
-        list.add("one");
-
-         List<String> one = ListSampler.sample(rng, list, 1);
-        // removed other assertion
-        Assertions.assertTrue(one.contains("one"));
-    }
-
-    @Test
     void testSamplePrecondition1_1_oe() {
         // Must fail for sample size > collection size.
          List<String> list = new ArrayList<>();
         list.add("one");
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ListSampler.sample(rng, list, 2));
+        try {
+    ListSampler.sample(rng, list, 2);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testSamplePrecondition2_1_oe() {
         // Must fail for empty collection.
          List<String> list = new ArrayList<>();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ListSampler.sample(rng, list, 1));
-    }
-
-    @Test
-    void testShuffle_1_oe() {
-         List<Integer> orig = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            orig.add((i + 1) * rng.nextInt());
-        }
-
-         List<Integer> arrayList = new ArrayList<>(orig);
-
-        ListSampler.shuffle(rng, arrayList);
-        // Ensure that at least one entry has moved.
-        Assertions.assertTrue(compare(orig, arrayList, 0, orig.size(), false), "ArrayList");
-    }
-
-    @Test
-    void testShuffle_2_oe() {
-         List<Integer> orig = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            orig.add((i + 1) * rng.nextInt());
-        }
-
-         List<Integer> arrayList = new ArrayList<>(orig);
-
-        ListSampler.shuffle(rng, arrayList);
-        // Ensure that at least one entry has moved.
-        // removed other assertion
-
-         List<Integer> linkedList = new LinkedList<>(orig);
-
-        ListSampler.shuffle(rng, linkedList);
-        // Ensure that at least one entry has moved.
-        Assertions.assertTrue(compare(orig, linkedList, 0, orig.size(), false), "LinkedList");
-    }
-
-    @Test
-    void testShuffleTail_1_oe() {
-         List<Integer> orig = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            orig.add((i + 1) * rng.nextInt());
-        }
-         List<Integer> list = new ArrayList<>(orig);
-
-         int start = 4;
-        ListSampler.shuffle(rng, list, start, false);
-
-        // Ensure that all entries below index "start" did not move.
-        Assertions.assertTrue(compare(orig, list, 0, start, true));
-    }
-
-    @Test
-    void testShuffleTail_2_oe() {
-         List<Integer> orig = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            orig.add((i + 1) * rng.nextInt());
-        }
-         List<Integer> list = new ArrayList<>(orig);
-
-         int start = 4;
-        ListSampler.shuffle(rng, list, start, false);
-
-        // Ensure that all entries below index "start" did not move.
-        // removed other assertion
-
-        // Ensure that at least one entry has moved.
-        Assertions.assertTrue(compare(orig, list, start, orig.size(), false));
-    }
-
-    @Test
-    void testShuffleHead_1_oe() {
-         List<Integer> orig = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            orig.add((i + 1) * rng.nextInt());
-        }
-         List<Integer> list = new ArrayList<>(orig);
-
-         int start = 4;
-        ListSampler.shuffle(rng, list, start, true);
-
-        // Ensure that all entries above index "start" did not move.
-        Assertions.assertTrue(compare(orig, list, start + 1, orig.size(), true));
-    }
-
-    @Test
-    void testShuffleHead_2_oe() {
-         List<Integer> orig = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            orig.add((i + 1) * rng.nextInt());
-        }
-         List<Integer> list = new ArrayList<>(orig);
-
-         int start = 4;
-        ListSampler.shuffle(rng, list, start, true);
-
-        // Ensure that all entries above index "start" did not move.
-        // removed other assertion
-
-        // Ensure that at least one entry has moved.
-        Assertions.assertTrue(compare(orig, list, 0, start + 1, false));
-    }
-
-    @Test
-    void testShuffleMatchesPermutationSamplerShuffle_1_oe_1_oe() {
-         List<Integer> orig = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            orig.add((i + 1) * rng.nextInt());
-        }
-
-                 List<Integer> list0 = new ArrayList<>(orig);
-         int[] array0 = new int[list0.size()];
-                ListIterator<Integer> it0 = list0.listIterator();
-                for (int i0 = 0; i0 < array0.length; i0++) {
-                    array0[i0] = it0.next();
-                }
-        
-                // Identical RNGs
-                 long seed0 = RandomSource.createLong();
-                 UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(seed0);
-                 UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
-        
-                ListSampler.shuffle(rng10, list0);
-                PermutationSampler.shuffle(rng20, array0);
-        
-                 Supplier<String> msg0 = () -> "Type=" + list0.getClass().getSimpleName();
-                it0 = list0.listIterator();
-                for (int i0 = 0; i0 < array0.length; i0++) {
-                    Assertions.assertEquals(array0[i0], it0.next().intValue(), msg0);
-    }
-    }
-
-    @Test
-    void testShuffleMatchesPermutationSamplerShuffle_2_oe_1_oe() {
-         List<Integer> orig = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            orig.add((i + 1) * rng.nextInt());
-        }
-
-        // removed other assertion
-                 List<Integer> list0 = new LinkedList<>(orig);
-         int[] array0 = new int[list0.size()];
-                ListIterator<Integer> it0 = list0.listIterator();
-                for (int i0 = 0; i0 < array0.length; i0++) {
-                    array0[i0] = it0.next();
-                }
-        
-                // Identical RNGs
-                 long seed0 = RandomSource.createLong();
-                 UniformRandomProvider rng10 = RandomSource.SPLIT_MIX_64.create(seed0);
-                 UniformRandomProvider rng20 = RandomSource.SPLIT_MIX_64.create(seed0);
-        
-                ListSampler.shuffle(rng10, list0);
-                PermutationSampler.shuffle(rng20, array0);
-        
-                 Supplier<String> msg0 = () -> "Type=" + list0.getClass().getSimpleName();
-                it0 = list0.listIterator();
-                for (int i0 = 0; i0 < array0.length; i0++) {
-                    Assertions.assertEquals(array0[i0], it0.next().intValue(), msg0);
-    }
+        try {
+    ListSampler.sample(rng, list, 1);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

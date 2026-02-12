@@ -342,7 +342,11 @@ class LineSamplerTest_OE25Dev {
     @Test
     void testInvalidDimensionThrows_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> LineSampler.of(rng, new double[0], new double[0]));
+        try {
+    LineSampler.of(rng, new double[0], new double[0]);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -354,18 +358,12 @@ class LineSamplerTest_OE25Dev {
             {c2, c3},
             {c3, c2},
         }) {
-            Assertions.assertThrows(IllegalArgumentException.class, () -> LineSampler.of(rng, c[0], c[1]), () -> String.format("Did not detect dimension mismatch: %d,%d", c[0].length, c[1].length));
+            try {
+    LineSampler.of(rng, c[0], c[1]);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: () -> String.format(\"Did not detect dimension mismatch: %d,%d\", c[0].length, c[1].length)");
+} catch (IllegalArgumentException e) {
+}
     }
-    }
-
-    @Test
-    void testNonFiniteVertexCoordinates_1_oe() {
-         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        // A valid line
-         double[][] c = new double[][] {
-            {0, 1, 2}, {-1, 2, 3}
-        };
-        Assertions.assertNotNull(LineSampler.of(rng, c[0],  c[1]));
     }
 
     @Test
@@ -384,7 +382,11 @@ class LineSamplerTest_OE25Dev {
                 for ( double d : bad) {
                      double value = c[i][j];
                     c[i][j] = d;
-                    Assertions.assertThrows(IllegalArgumentException.class, () -> LineSampler.of(rng, c[0], c[1]), () -> String.format("Did not detect non-finite coordinate: %d,%d = %s", ii, jj, d));
+                    try {
+    LineSampler.of(rng, c[0], c[1]);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: () -> String.format(\"Did not detect non-finite coordinate: %d,%d = %s\", ii, jj, d)");
+} catch (IllegalArgumentException e) {
+}
     }
     }
     }

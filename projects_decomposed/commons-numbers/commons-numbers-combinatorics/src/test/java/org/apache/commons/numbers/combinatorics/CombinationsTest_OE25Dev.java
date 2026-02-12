@@ -113,25 +113,15 @@ class CombinationsTest_OE25Dev {
     }
 
     @Test
-    void testGetN_1_oe() {
-        final int n = 5;
-        final int k = 3;
-        Assertions.assertEquals(n, Combinations.of(n, k).getN());
-    }
-
-    @Test
-    void testGetK_1_oe() {
-        final int n = 5;
-        final int k = 3;
-        Assertions.assertEquals(k, Combinations.of(n, k).getK());
-    }
-
-    @Test
     void testLexicographicComparatorWrongIterate1_1_oe() {
         final int n = 5;
         final int k = 3;
         final Comparator<int[]> comp = Combinations.of(n, k).comparator();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> comp.compare(new int[] {1}, new int[] {0, 1, 2}));
+        try {
+    comp.compare(new int[] {1}, new int[] {0, 1, 2});
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -139,7 +129,11 @@ class CombinationsTest_OE25Dev {
         final int n = 5;
         final int k = 3;
         final Comparator<int[]> comp = Combinations.of(n, k).comparator();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> comp.compare(new int[] {0, 1, 2}, new int[] {0, 1, 2, 3}));
+        try {
+    comp.compare(new int[] {0, 1, 2}, new int[] {0, 1, 2, 3});
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -147,7 +141,11 @@ class CombinationsTest_OE25Dev {
         final int n = 5;
         final int k = 3;
         final Comparator<int[]> comp = Combinations.of(n, k).comparator();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> comp.compare(new int[] {1, 2, 5}, new int[] {0, 1, 2}));
+        try {
+    comp.compare(new int[] {1, 2, 5}, new int[] {0, 1, 2});
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -155,148 +153,47 @@ class CombinationsTest_OE25Dev {
         final int n = 5;
         final int k = 3;
         final Comparator<int[]> comp = Combinations.of(n, k).comparator();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> comp.compare(new int[] {1, 2, 4}, new int[] {-1, 1, 2}));
-    }
-
-    @Test
-    void testLexicographicComparator_1_oe() {
-        final int n = 5;
-        final int k = 3;
-        final Comparator<int[]> comp = Combinations.of(n, k).comparator();
-        Assertions.assertEquals(1, comp.compare(new int[] {1, 2, 4}, new int[] {1, 2, 3}));
-    }
-
-    @Test
-    void testLexicographicComparator_2_oe() {
-        final int n = 5;
-        final int k = 3;
-        final Comparator<int[]> comp = Combinations.of(n, k).comparator();
-        // removed other assertion
-        Assertions.assertEquals(-1, comp.compare(new int[] {0, 1, 4}, new int[] {0, 2, 4}));
-    }
-
-    @Test
-    void testLexicographicComparator_3_oe() {
-        final int n = 5;
-        final int k = 3;
-        final Comparator<int[]> comp = Combinations.of(n, k).comparator();
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(0, comp.compare(new int[] {1, 3, 4}, new int[] {1, 3, 4}));
-    }
-
-    @Test
-    void testLexicographicComparatorUnsorted_1_oe() {
-        final int n = 5;
-        final int k = 3;
-        final Comparator<int[]> comp = Combinations.of(n, k).comparator();
-        Assertions.assertEquals(1, comp.compare(new int[] {1, 4, 2}, new int[] {1, 3, 2}));
-    }
-
-    @Test
-    void testLexicographicComparatorUnsorted_2_oe() {
-        final int n = 5;
-        final int k = 3;
-        final Comparator<int[]> comp = Combinations.of(n, k).comparator();
-        // removed other assertion
-        Assertions.assertEquals(-1, comp.compare(new int[] {0, 4, 1}, new int[] {0, 4, 2}));
-    }
-
-    @Test
-    void testLexicographicComparatorUnsorted_3_oe() {
-        final int n = 5;
-        final int k = 3;
-        final Comparator<int[]> comp = Combinations.of(n, k).comparator();
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertEquals(0, comp.compare(new int[] {1, 4, 3}, new int[] {1, 3, 4}));
-    }
-
-    @Test
-    void testEmptyCombination_1_oe() {
-        final Iterator<int[]> iter = Combinations.of(12345, 0).iterator();
-        Assertions.assertTrue(iter.hasNext());
-    }
-
-    @Test
-    void testEmptyCombination_2_oe() {
-        final Iterator<int[]> iter = Combinations.of(12345, 0).iterator();
-        // removed other assertion
-        final int[] c = iter.next();
-        Assertions.assertEquals(0, c.length);
-    }
-
-    @Test
-    void testEmptyCombination_3_oe() {
-        final Iterator<int[]> iter = Combinations.of(12345, 0).iterator();
-        // removed other assertion
-        final int[] c = iter.next();
-        // removed other assertion
-        Assertions.assertFalse(iter.hasNext());
-    }
-
-    @Test
-    void testFullSetCombination_1_oe() {
-        final int n = 67;
-        final Iterator<int[]> iter = Combinations.of(n, n).iterator();
-        Assertions.assertTrue(iter.hasNext());
-    }
-
-    @Test
-    void testFullSetCombination_2_oe() {
-        final int n = 67;
-        final Iterator<int[]> iter = Combinations.of(n, n).iterator();
-        // removed other assertion
-        final int[] c = iter.next();
-        Assertions.assertEquals(n, c.length);
-    }
-
-    @Test
-    void testFullSetCombination_3_oe() {
-        final int n = 67;
-        final Iterator<int[]> iter = Combinations.of(n, n).iterator();
-        // removed other assertion
-        final int[] c = iter.next();
-        // removed other assertion
-
-        for (int i = 0; i < n; i++) {
-            Assertions.assertEquals(i, c[i]);
-    }
-    }
-
-    @Test
-    void testFullSetCombination_4_oe() {
-        final int n = 67;
-        final Iterator<int[]> iter = Combinations.of(n, n).iterator();
-        // removed other assertion
-        final int[] c = iter.next();
-        // removed other assertion
-
-        for (int i = 0; i < n; i++) {
-            // removed other assertion
-        }
-
-        Assertions.assertFalse(iter.hasNext());
+        try {
+    comp.compare(new int[] {1, 2, 4}, new int[] {-1, 1, 2});
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testBinomialCoefficientKLargerThanN_1_oe() {
-        Assertions.assertThrows(CombinatoricsException.class, () -> Combinations.of(4, 5) );
+        try {
+    Combinations.of(4, 5);
+    org.junit.jupiter.api.Assertions.fail("CombinatoricsException");
+} catch (CombinatoricsException e) {
+}
     }
 
     @Test
     void testBinomialCoefficientNegativeN_1_oe() {
-        Assertions.assertThrows(CombinatoricsException.class, () -> Combinations.of(-1, 1) );
+        try {
+    Combinations.of(-1, 1);
+    org.junit.jupiter.api.Assertions.fail("CombinatoricsException");
+} catch (CombinatoricsException e) {
+}
     }
 
     @Test
     void testBinomialCoefficientNegativeK_1_oe() {
-        Assertions.assertThrows(CombinatoricsException.class, () -> Combinations.of(10, -1) );
+        try {
+    Combinations.of(10, -1);
+    org.junit.jupiter.api.Assertions.fail("CombinatoricsException");
+} catch (CombinatoricsException e) {
+}
     }
 
     @Test
     void testBinomialCoefficientKAboveN_1_oe() {
-        Assertions.assertThrows(CombinatoricsException.class, () -> Combinations.of(10, 20) );
+        try {
+    Combinations.of(10, 20);
+    org.junit.jupiter.api.Assertions.fail("CombinatoricsException");
+} catch (CombinatoricsException e) {
+}
     }
 
 }

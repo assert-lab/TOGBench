@@ -24,20 +24,5 @@ import org.junit.Test;
  */
 public class WeakRefFilesCacheTests_OE25Dev extends AbstractFilesCacheTestsBase {
 
-    @Test
-    public void testClass_1_oe() {
-        assertTrue(getManager().getFilesCache() instanceof WeakRefFilesCache);
-    }
-
-    @Test
-    public void testFilesCache_1_oe() throws Exception {
-        final FileObject scratchFolder = getWriteFolder();
-
-        final FileObject dir1 = scratchFolder.resolveFile("dir1");
-        final FileObject dir1_2 = scratchFolder.resolveFile("dir1");
-
-        // since both are still referenced they are not purged
-        assertSame(dir1, dir1_2);
-    }
 
 }

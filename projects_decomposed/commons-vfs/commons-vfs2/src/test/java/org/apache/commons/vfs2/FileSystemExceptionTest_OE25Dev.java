@@ -36,35 +36,5 @@ public class FileSystemExceptionTest_OE25Dev {
      * Tests a {@link FileSystemException} containing info with a nested URL containing a complete basic authentication.
      */
 
-    @Test
-    public void testDoesNotModifyUrlsWithoutPassword_1_oe() {
-        final FileSystemException fse = new FileSystemException("vfs.provider/delete.error",
-                "http://foo@junit.org/test.bin");
-        assertEquals("http://foo@junit.org/test.bin", fse.getInfo()[0]);
-    }
-
-    @Test
-    public void testMasksPasswordOfUrlsWithBasicAuthentication_1_oe() {
-        final FileSystemException fse = new FileSystemException("vfs.provider/rename.error", "file://test.bin",
-                "http://foo:bar@junit.org/test.bin");
-
-        assertEquals("file://test.bin", fse.getInfo()[0]);
-    }
-
-    @Test
-    public void testMasksPasswordOfUrlsWithBasicAuthentication_2_oe() {
-        final FileSystemException fse = new FileSystemException("vfs.provider/rename.error", "file://test.bin",
-                "http://foo:bar@junit.org/test.bin");
-
-        // removed other assertion
-        assertEquals("http://foo:***@junit.org/test.bin", fse.getInfo()[1]);
-    }
-
-    @Test
-    public void testProperDetectionOfUrl_1_oe() {
-        final FileSystemException fse = new FileSystemException("vfs.provider/delete.error",
-                "zip:http://foo:bar@junit.org/test.bin");
-        assertEquals("zip:http://foo:***@junit.org/test.bin", fse.getInfo()[0]);
-    }
 
 }

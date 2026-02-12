@@ -47,19 +47,5 @@ public class HMACSha1SignatureServiceTest_OE25Dev {
         service.getSignature("base string", "  ", "tokenSecret");
     }
 
-    @Test
-    public void shouldReturnSignatureMethodString_1_oe() {
-        final String expected = "HMAC-SHA1";
-        assertEquals(expected, service.getSignatureMethod());
-    }
-
-    @Test
-    public void shouldReturnSignature_1_oe() {
-        final String apiSecret = "api secret";
-        final String tokenSecret = "token secret";
-        final String baseString = "base string";
-        final String signature = "uGymw2KHOTWI699YEaoi5xyLT50=";
-        assertEquals(signature, service.getSignature(baseString, apiSecret, tokenSecret));
-    }
 
 }

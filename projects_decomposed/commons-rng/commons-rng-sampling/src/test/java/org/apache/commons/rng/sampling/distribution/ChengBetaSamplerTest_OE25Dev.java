@@ -94,7 +94,11 @@ class ChengBetaSamplerTest_OE25Dev {
             RandomSource.SPLIT_MIX_64.create(0L);
          double alpha = 0;
          double beta = 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ChengBetaSampler.of(rng, alpha, beta));
+        try {
+    ChengBetaSampler.of(rng, alpha, beta);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -103,13 +107,11 @@ class ChengBetaSamplerTest_OE25Dev {
             RandomSource.SPLIT_MIX_64.create(0L);
          double alpha = 1;
          double beta = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ChengBetaSampler.of(rng, alpha, beta));
-    }
-
-    @Test
-    void testToString_1_oe() {
-         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertTrue(new ChengBetaSampler(rng,1.0,2.0).toString().toLowerCase().contains("beta"));
+        try {
+    ChengBetaSampler.of(rng, alpha, beta);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

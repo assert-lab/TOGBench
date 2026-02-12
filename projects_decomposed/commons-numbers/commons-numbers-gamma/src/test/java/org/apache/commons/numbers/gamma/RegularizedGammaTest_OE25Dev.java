@@ -85,14 +85,6 @@ class RegularizedGammaTest_OE25Dev {
     }
 
     @Test
-    void testRegularizedGammaMaxIterationsExceededThrows_1_oe() {
-        final double a = 1.0;
-        final double x = 1.0;
-        // OK without
-        Assertions.assertEquals(0.632120558828558, RegularizedGamma.P.value(a, x), 1e-15);
-    }
-
-    @Test
     void testRegularizedGammaMaxIterationsExceededThrows_2_oe() {
         final double a = 1.0;
         final double x = 1.0;
@@ -100,7 +92,11 @@ class RegularizedGammaTest_OE25Dev {
         // removed other assertion
 
         final int maxIterations = 3;
-        Assertions.assertThrows(ArithmeticException.class, () -> RegularizedGamma.P.value(a, x, 1e-15, maxIterations));
+        try {
+    RegularizedGamma.P.value(a, x, 1e-15, maxIterations);
+    org.junit.jupiter.api.Assertions.fail("ArithmeticException");
+} catch (ArithmeticException e) {
+}
     }
 
 }

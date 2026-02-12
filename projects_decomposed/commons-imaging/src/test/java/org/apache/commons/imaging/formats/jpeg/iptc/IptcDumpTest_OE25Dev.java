@@ -36,19 +36,5 @@ public class IptcDumpTest_OE25Dev extends IptcBaseTest {
         return getImagesWithIptcData().stream();
     }
 
-    @ParameterizedTest
-    @MethodSource("data")
-    public void test_1_oe(final File imageFile) throws Exception {
-        final JpegImageMetadata metadata = (JpegImageMetadata) Imaging.getMetadata(imageFile);
-        assertNotNull(metadata);
-    }
-
-    @ParameterizedTest
-    @MethodSource("data")
-    public void test_2_oe(final File imageFile) throws Exception {
-        final JpegImageMetadata metadata = (JpegImageMetadata) Imaging.getMetadata(imageFile);
-        // removed other assertion
-        assertNotNull(metadata.getPhotoshop());
-    }
 
 }

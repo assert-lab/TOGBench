@@ -54,39 +54,5 @@ public class ThresholdCircuitBreakerTest_OE25Dev {
      * Tests that we can get the threshold value correctly.
      */
 
-    @Test
-    public void testThreshold_1_oe() {
-        final ThresholdCircuitBreaker circuit = new ThresholdCircuitBreaker(threshold);
-        circuit.incrementAndCheckState(9L);
-        assertFalse(circuit.incrementAndCheckState(1L), "Circuit opened before reaching the threshold");
-    }
-
-    @Test
-    public void testThresholdCircuitBreakingException_1_oe() {
-        final ThresholdCircuitBreaker circuit = new ThresholdCircuitBreaker(threshold);
-        circuit.incrementAndCheckState(9L);
-        assertTrue(circuit.incrementAndCheckState(2L), "The circuit was supposed to be open after increment above the threshold");
-    }
-
-    @Test
-    public void testThresholdEqualsZero_1_oe() {
-        final ThresholdCircuitBreaker circuit = new ThresholdCircuitBreaker(zeroThreshold);
-        assertTrue(circuit.incrementAndCheckState(0L), "When the threshold is zero, the circuit is supposed to be always open");
-    }
-
-    @Test
-    public void testClosingThresholdCircuitBreaker_1_oe() {
-        final ThresholdCircuitBreaker circuit = new ThresholdCircuitBreaker(threshold);
-        circuit.incrementAndCheckState(9L);
-        circuit.close();
-        // now the internal counter is back at zero, not 9 anymore. So it is safe to increment 9 again
-        assertFalse(circuit.incrementAndCheckState(9L), "Internal counter was not reset back to zero");
-    }
-
-    @Test
-    public void testGettingThreshold_1_oe() {
-        final ThresholdCircuitBreaker circuit = new ThresholdCircuitBreaker(threshold);
-        assertEquals(Long.valueOf(threshold), Long.valueOf(circuit.getThreshold()), "Wrong value of threshold");
-    }
 
 }

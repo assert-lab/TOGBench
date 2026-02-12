@@ -25,33 +25,5 @@ import org.junit.jupiter.api.Test;
 
 public class RleReaderTest_OE25Dev{
 
-    @Test
-    public void testReadWithNonNull_2_oe() {
-        final RleReader rleReader = new RleReader(false);
-        final byte[] byteArray = new byte[1];
-        final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray, (byte) (-64), (byte) (-64));
-
-        try {
-            rleReader.read(byteArrayInputStream, byteArray);
-            // removed other assertion
-        } catch(final Exception e) {
-            assertEquals("Premature end of file reading image data",e.getMessage());
-    }
-    }
-
-    @Test
-    public void testReadWithNonNull_3_oe() {
-        final RleReader rleReader = new RleReader(false);
-        final byte[] byteArray = new byte[1];
-        final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray, (byte) (-64), (byte) (-64));
-
-        try {
-            rleReader.read(byteArrayInputStream, byteArray);
-            // removed other assertion
-        } catch(final Exception e) {
-            // removed other assertion
-            assertEquals(RleReader.class.getName(), e.getStackTrace()[0].getClassName());
-    }
-    }
 
 }

@@ -24,22 +24,5 @@ import org.junit.jupiter.api.Test;
  */
 class ByteArray2IntArrayTest_OE25Dev {
 
-    @Test
-    void testSeedSizeIsMultipleOfIntSize_1_oe() {
-         byte[] seed = new byte[128];
-         int[] out = new ByteArray2IntArray().convert(seed);
-        Assertions.assertEquals(32, out.length);
-    }
-
-    @Test
-    void testSeedSizeIsNotMultipleOfIntSize_1_oe() {
-         int len = 16;
-         ByteArray2IntArray conv = new ByteArray2IntArray();
-        for (int i = 1; i < 4; i++) {
-             byte[] seed = new byte[len + i];
-             int[] out = conv.convert(seed);
-            Assertions.assertEquals(5, out.length);
-    }
-    }
 
 }

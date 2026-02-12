@@ -24,50 +24,5 @@ import org.junit.jupiter.api.Test;
  */
 class InverseErfcTest_OE25Dev {
 
-    @Test
-    void testErfcInvNaN_1_oe() {
-        Assertions.assertTrue(Double.isNaN(InverseErfc.value(-0.001)));
-    }
-
-    @Test
-    void testErfcInvNaN_2_oe() {
-        // removed other assertion
-        Assertions.assertTrue(Double.isNaN(InverseErfc.value(+2.001)));
-    }
-
-    @Test
-    void testErfcInvInfinite_1_oe() {
-        Assertions.assertTrue(Double.isInfinite(InverseErfc.value(-0)));
-    }
-
-    @Test
-    void testErfcInvInfinite_2_oe() {
-        // removed other assertion
-        Assertions.assertTrue(InverseErfc.value(0) > 0);
-    }
-
-    @Test
-    void testErfcInvInfinite_3_oe() {
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertTrue(Double.isInfinite(InverseErfc.value(+2)));
-    }
-
-    @Test
-    void testErfcInvInfinite_4_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Assertions.assertTrue(InverseErfc.value(+2) < 0);
-    }
-
-    @Test
-    void testErfcInv_1_oe() {
-        for (double x = -5.85; x < 5.9; x += 0.01) {
-            final double y = Erfc.value(x);
-            final double dydxAbs = 2 * Math.exp(-x * x) / Math.sqrt(Math.PI);
-            Assertions.assertEquals(x, InverseErfc.value(y), 1.0e-15 / dydxAbs);
-    }
-    }
 
 }

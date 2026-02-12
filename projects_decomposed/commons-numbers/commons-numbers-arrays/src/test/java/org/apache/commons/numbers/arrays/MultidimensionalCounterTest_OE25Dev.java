@@ -32,20 +32,32 @@ class MultidimensionalCounterTest_OE25Dev {
 
     @Test
     void testPreconditions_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> MultidimensionalCounter.of(0, 1));
+        try {
+    MultidimensionalCounter.of(0, 1);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testPreconditions_2_oe() {
         // removed other assertion
-        Assertions.assertThrows(IllegalArgumentException.class, () -> MultidimensionalCounter.of(2, 0));
+        try {
+    MultidimensionalCounter.of(2, 0);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testPreconditions_3_oe() {
         // removed other assertion
         // removed other assertion
-        Assertions.assertThrows(IllegalArgumentException.class, () -> MultidimensionalCounter.of(-1, 1));
+        try {
+    MultidimensionalCounter.of(-1, 1);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -53,7 +65,11 @@ class MultidimensionalCounterTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        Assertions.assertThrows(IllegalArgumentException.class, () -> MultidimensionalCounter.of(-1, -1));
+        try {
+    MultidimensionalCounter.of(-1, -1);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -62,7 +78,11 @@ class MultidimensionalCounterTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        Assertions.assertThrows(IllegalArgumentException.class, () -> MultidimensionalCounter.of(Integer.MAX_VALUE, 2, Integer.MAX_VALUE));
+        try {
+    MultidimensionalCounter.of(Integer.MAX_VALUE, 2, Integer.MAX_VALUE);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -74,7 +94,11 @@ class MultidimensionalCounterTest_OE25Dev {
         // removed other assertion
 
         final MultidimensionalCounter c = MultidimensionalCounter.of(2, 3);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> c.toUni(1, 1, 1));
+        try {
+    c.toUni(1, 1, 1);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -87,7 +111,11 @@ class MultidimensionalCounterTest_OE25Dev {
 
         final MultidimensionalCounter c = MultidimensionalCounter.of(2, 3);
         // removed other assertion
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> c.toUni(3, 1));
+        try {
+    c.toUni(3, 1);
+    org.junit.jupiter.api.Assertions.fail("IndexOutOfBoundsException");
+} catch (IndexOutOfBoundsException e) {
+}
     }
 
     @Test
@@ -101,7 +129,11 @@ class MultidimensionalCounterTest_OE25Dev {
         final MultidimensionalCounter c = MultidimensionalCounter.of(2, 3);
         // removed other assertion
         // removed other assertion
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> c.toUni(0, -1));
+        try {
+    c.toUni(0, -1);
+    org.junit.jupiter.api.Assertions.fail("IndexOutOfBoundsException");
+} catch (IndexOutOfBoundsException e) {
+}
     }
 
     @Test
@@ -116,7 +148,11 @@ class MultidimensionalCounterTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> c.toMulti(-1));
+        try {
+    c.toMulti(-1);
+    org.junit.jupiter.api.Assertions.fail("IndexOutOfBoundsException");
+} catch (IndexOutOfBoundsException e) {
+}
     }
 
     @Test
@@ -132,227 +168,11 @@ class MultidimensionalCounterTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> c.toMulti(6));
-    }
-
-    @Test
-    void testMulti2UniConversion_1_oe() {
-        final MultidimensionalCounter c = MultidimensionalCounter.of(2, 4, 5);
-        Assertions.assertEquals(33, c.toUni(1, 2, 3));
-    }
-
-    @Test
-    void testMulti2UniConversion_2_oe() {
-        final MultidimensionalCounter c = MultidimensionalCounter.of(2, 4, 5);
-        // removed other assertion
-
-        for (int i = 0, max = c.getSize(); i < max; i++) {
-            Assertions.assertEquals(i, c.toUni(c.toMulti(i)));
-    }
-    }
-
-    @Test
-    void testAccessors_1_oe() {
-        final int[] originalSize = new int[] {2, 6, 5};
-        final MultidimensionalCounter c = MultidimensionalCounter.of(originalSize);
-        final int nDim = c.getDimension();
-        Assertions.assertEquals(nDim, originalSize.length);
-    }
-
-    @Test
-    void testAccessors_2_oe() {
-        final int[] originalSize = new int[] {2, 6, 5};
-        final MultidimensionalCounter c = MultidimensionalCounter.of(originalSize);
-        final int nDim = c.getDimension();
-        // removed other assertion
-
-        final int[] size = c.getSizes();
-        for (int i = 0; i < nDim; i++) {
-            Assertions.assertEquals(originalSize[i], size[i]);
-    }
-    }
-
-    @Test
-    void testIterationConsistency_1_oe() {
-        final MultidimensionalCounter c = MultidimensionalCounter.of(2, 3, 4);
-        final int[][] expected = new int[][] {
-            {0, 0, 0},
-            {0, 0, 1},
-            {0, 0, 2},
-            {0, 0, 3},
-            {0, 1, 0},
-            {0, 1, 1},
-            {0, 1, 2},
-            {0, 1, 3},
-            {0, 2, 0},
-            {0, 2, 1},
-            {0, 2, 2},
-            {0, 2, 3},
-            {1, 0, 0},
-            {1, 0, 1},
-            {1, 0, 2},
-            {1, 0, 3},
-            {1, 1, 0},
-            {1, 1, 1},
-            {1, 1, 2},
-            {1, 1, 3},
-            {1, 2, 0},
-            {1, 2, 1},
-            {1, 2, 2},
-            {1, 2, 3}
-        };
-
-        final int totalSize = c.getSize();
-        Assertions.assertEquals(expected.length, totalSize);
-    }
-
-    @Test
-    void testIterationConsistency_2_oe() {
-        final MultidimensionalCounter c = MultidimensionalCounter.of(2, 3, 4);
-        final int[][] expected = new int[][] {
-            {0, 0, 0},
-            {0, 0, 1},
-            {0, 0, 2},
-            {0, 0, 3},
-            {0, 1, 0},
-            {0, 1, 1},
-            {0, 1, 2},
-            {0, 1, 3},
-            {0, 2, 0},
-            {0, 2, 1},
-            {0, 2, 2},
-            {0, 2, 3},
-            {1, 0, 0},
-            {1, 0, 1},
-            {1, 0, 2},
-            {1, 0, 3},
-            {1, 1, 0},
-            {1, 1, 1},
-            {1, 1, 2},
-            {1, 1, 3},
-            {1, 2, 0},
-            {1, 2, 1},
-            {1, 2, 2},
-            {1, 2, 3}
-        };
-
-        final int totalSize = c.getSize();
-        // removed other assertion
-
-        final int nDim = c.getDimension();
-        for (int i = 0; i < totalSize; i++) {
-            Assertions.assertEquals(i,c.toUni(expected[i]),"Wrong unidimensional index for [" + i + "]");
-    }
-    }
-
-    @Test
-    void testIterationConsistency_3_oe() {
-        final MultidimensionalCounter c = MultidimensionalCounter.of(2, 3, 4);
-        final int[][] expected = new int[][] {
-            {0, 0, 0},
-            {0, 0, 1},
-            {0, 0, 2},
-            {0, 0, 3},
-            {0, 1, 0},
-            {0, 1, 1},
-            {0, 1, 2},
-            {0, 1, 3},
-            {0, 2, 0},
-            {0, 2, 1},
-            {0, 2, 2},
-            {0, 2, 3},
-            {1, 0, 0},
-            {1, 0, 1},
-            {1, 0, 2},
-            {1, 0, 3},
-            {1, 1, 0},
-            {1, 1, 1},
-            {1, 1, 2},
-            {1, 1, 3},
-            {1, 2, 0},
-            {1, 2, 1},
-            {1, 2, 2},
-            {1, 2, 3}
-        };
-
-        final int totalSize = c.getSize();
-        // removed other assertion
-
-        final int nDim = c.getDimension();
-        for (int i = 0; i < totalSize; i++) {
-            // removed other assertion
-
-            final int[] indices = c.toMulti(i);
-            for (int dimIndex = 0; dimIndex < nDim; dimIndex++) {
-                Assertions.assertEquals(expected[i][dimIndex],indices[dimIndex],"Wrong multidimensional index for [" + i + "][" + dimIndex + "]");
-    }
-    }
-    }
-
-    @Test
-    void testToString_1_oe() {
-        final int[] sizes = new int[] {7, 5, 3, 1};
-        final MultidimensionalCounter c = MultidimensionalCounter.of(sizes);
-        Assertions.assertEquals(Arrays.toString(sizes), c.toString());
-    }
-
-    @Test
-    void testCommonsMathIterator_1_oe() {
-        final int[] sizes = new int[] {3, 2, 5};
-        final org.apache.commons.math3.util.MultidimensionalCounter.Iterator cmIter =
-            new org.apache.commons.math3.util.MultidimensionalCounter(sizes).iterator();
-
-        final MultidimensionalCounter counter = MultidimensionalCounter.of(sizes);
-
-        Assertions.assertTrue(cmIter.hasNext());
-    }
-
-    @Test
-    void testCommonsMathIterator_2_oe() {
-        final int[] sizes = new int[] {3, 2, 5};
-        final org.apache.commons.math3.util.MultidimensionalCounter.Iterator cmIter =
-            new org.apache.commons.math3.util.MultidimensionalCounter(sizes).iterator();
-
-        final MultidimensionalCounter counter = MultidimensionalCounter.of(sizes);
-
-        // removed other assertion
-        Assertions.assertTrue(counter.getSize() > 0);
-    }
-
-    @Test
-    void testCommonsMathIterator_3_oe() {
-        final int[] sizes = new int[] {3, 2, 5};
-        final org.apache.commons.math3.util.MultidimensionalCounter.Iterator cmIter =
-            new org.apache.commons.math3.util.MultidimensionalCounter(sizes).iterator();
-
-        final MultidimensionalCounter counter = MultidimensionalCounter.of(sizes);
-
-        // removed other assertion
-        // removed other assertion
-
-        for (int i = 0; i < counter.getSize(); i++) {
-            cmIter.next();
-            Assertions.assertArrayEquals(cmIter.getCounts(), counter.toMulti(i));
-    }
-    }
-
-    @Test
-    void testCommonsMathIterator_4_oe() {
-        final int[] sizes = new int[] {3, 2, 5};
-        final org.apache.commons.math3.util.MultidimensionalCounter.Iterator cmIter =
-            new org.apache.commons.math3.util.MultidimensionalCounter(sizes).iterator();
-
-        final MultidimensionalCounter counter = MultidimensionalCounter.of(sizes);
-
-        // removed other assertion
-        // removed other assertion
-
-        for (int i = 0; i < counter.getSize(); i++) {
-            cmIter.next();
-            // removed other assertion
-        }
-
-        Assertions.assertFalse(cmIter.hasNext());
+        try {
+    c.toMulti(6);
+    org.junit.jupiter.api.Assertions.fail("IndexOutOfBoundsException");
+} catch (IndexOutOfBoundsException e) {
+}
     }
 
 }

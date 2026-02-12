@@ -29,81 +29,7 @@ import org.junit.jupiter.api.Test;
 public class NumericEntityUnescaperTest_OE25Dev  {
 
     @Test
-    public void testSupplementaryUnescaping_1_oe() {
-        final NumericEntityUnescaper neu = new NumericEntityUnescaper();
-        final String input = "&#68642;";
-        final String expected = "\uD803\uDC22";
-
-        final String result = neu.translate(input);
-        assertEquals(expected, result, "Failed to unescape numeric entities supplementary characters");
-    }
-
-    @Test
-    public void testOutOfBounds_1_oe() {
-        final NumericEntityUnescaper neu = new NumericEntityUnescaper();
-
-        assertEquals("Test &", neu.translate("Test &"), "Failed to ignore when last character is &");
-    }
-
-    @Test
-    public void testOutOfBounds_2_oe() {
-        final NumericEntityUnescaper neu = new NumericEntityUnescaper();
-
-        // removed other assertion
-        assertEquals("Test &#", neu.translate("Test &#"), "Failed to ignore when last character is &");
-    }
-
-    @Test
-    public void testOutOfBounds_3_oe() {
-        final NumericEntityUnescaper neu = new NumericEntityUnescaper();
-
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Test &#x", neu.translate("Test &#x"), "Failed to ignore when last character is &");
-    }
-
-    @Test
-    public void testOutOfBounds_4_oe() {
-        final NumericEntityUnescaper neu = new NumericEntityUnescaper();
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Test &#X", neu.translate("Test &#X"), "Failed to ignore when last character is &");
-    }
-
-    @Test
-    public void testUnfinishedEntity_1_oe() {
-        // parse it
-        NumericEntityUnescaper neu = new NumericEntityUnescaper(NumericEntityUnescaper.OPTION.semiColonOptional);
-        String input = "Test &#x30 not test";
-        String expected = "Test \u0030 not test";
-
-        String result = neu.translate(input);
-        assertEquals(expected, result, "Failed to support unfinished entities (i.e. missing semicolon)");
-    }
-
-    @Test
-    public void testUnfinishedEntity_2_oe() {
-        // parse it
-        NumericEntityUnescaper neu = new NumericEntityUnescaper(NumericEntityUnescaper.OPTION.semiColonOptional);
-        String input = "Test &#x30 not test";
-        String expected = "Test \u0030 not test";
-
-        String result = neu.translate(input);
-        // removed other assertion
-
-        // ignore it
-        neu = new NumericEntityUnescaper();
-        input = "Test &#x30 not test";
-        expected = input;
-
-        result = neu.translate(input);
-        assertEquals(expected, result, "Failed to ignore unfinished entities (i.e. missing semicolon)");
-    }
-
-    @Test
-    public void testUnfinishedEntity_3_oe() {
+    public void testUnfinishedEntity_3_oe() throws Exception {
         // parse it
         NumericEntityUnescaper neu = new NumericEntityUnescaper(NumericEntityUnescaper.OPTION.semiColonOptional);
         String input = "Test &#x30 not test";
@@ -124,7 +50,11 @@ public class NumericEntityUnescaperTest_OE25Dev  {
         final NumericEntityUnescaper failingNeu =
                 new NumericEntityUnescaper(NumericEntityUnescaper.OPTION.errorIfNoSemiColon);
         final String failingInput = "Test &#x30 not test";
-        assertThrows(IllegalArgumentException.class, () -> failingNeu.translate(failingInput));
+        try {
+    failingNeu.translate(failingInput);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

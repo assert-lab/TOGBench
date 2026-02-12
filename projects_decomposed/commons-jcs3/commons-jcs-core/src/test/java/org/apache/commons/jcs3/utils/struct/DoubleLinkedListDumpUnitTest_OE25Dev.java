@@ -32,55 +32,5 @@ public class DoubleLinkedListDumpUnitTest_OE25Dev
 {
     /** verify that the entries are dumped. */
 
-    public void testDumpEntries_DebugTrue_1_oe()
-    {
-        // SETUP
-        final StringWriter stringWriter = new StringWriter();
-        TestLogConfigurationUtil.configureLogger( stringWriter, DoubleLinkedList.class.getName() );
-
-        final DoubleLinkedList<DoubleLinkedListNode<String>> list = new DoubleLinkedList<>();
-
-        final String payload1 = "payload1";
-        final DoubleLinkedListNode<String> node1 = new DoubleLinkedListNode<>( payload1 );
-
-        final String payload2 = "payload2";
-        final DoubleLinkedListNode<String> node2 = new DoubleLinkedListNode<>( payload2 );
-
-        list.addLast( node1 );
-        list.addLast( node2 );
-        list.debugDumpEntries();
-
-        // WO WORK
-        final String result = stringWriter.toString();
-
-        // VERIFY
-        assertTrue( "Missing node in log dump", result.indexOf( payload1 ) != -1 );
-    }
-
-    public void testDumpEntries_DebugTrue_2_oe()
-    {
-        // SETUP
-        final StringWriter stringWriter = new StringWriter();
-        TestLogConfigurationUtil.configureLogger( stringWriter, DoubleLinkedList.class.getName() );
-
-        final DoubleLinkedList<DoubleLinkedListNode<String>> list = new DoubleLinkedList<>();
-
-        final String payload1 = "payload1";
-        final DoubleLinkedListNode<String> node1 = new DoubleLinkedListNode<>( payload1 );
-
-        final String payload2 = "payload2";
-        final DoubleLinkedListNode<String> node2 = new DoubleLinkedListNode<>( payload2 );
-
-        list.addLast( node1 );
-        list.addLast( node2 );
-        list.debugDumpEntries();
-
-        // WO WORK
-        final String result = stringWriter.toString();
-
-        // VERIFY
-        // removed other assertion
-        assertTrue( "Missing node in log dump", result.indexOf( payload2 ) != -1 );
-    }
 
 }

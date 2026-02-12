@@ -36,25 +36,21 @@ class FactorialTest_OE25Dev {
     }
 
     @Test
-    void testFactorialZero_1_oe() {
-        Assertions.assertEquals(1, Factorial.value(0), "0!");
-    }
-
-    @Test
-    void testFactorial_1_oe() {
-        for (int i = 1; i < 21; i++) {
-            Assertions.assertEquals(factorial(i), Factorial.value(i), i + "!");
-    }
-    }
-
-    @Test
     void testPrecondition1_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> Factorial.value(-1) );
+        try {
+    Factorial.value(-1);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testPrecondition2_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> Factorial.value(21) );
+        try {
+    Factorial.value(21);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

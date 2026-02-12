@@ -61,11 +61,5 @@ public class CompositeCacheLoaderTest_OE25Dev
             .setCacheLoaderFactory(new CompositeCacheLoader<>(loader1, loader2));
     private Cache<String, String> cache;
 
-    @Test
-    public void checkComposite_1_oe()
-    {
-        cache.get("foo");
-        assertEquals(2, count.get());
-    }
 
 }

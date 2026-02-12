@@ -44,40 +44,5 @@ public class RemoteCacheServerAttributesUnitTest_OE25Dev
      * Verify that the type is set correctly and that the correct name is returned for the type.
      */
 
-    public void testToString_1_oe()
-    {
-        final RemoteCacheServerAttributes attributes = new RemoteCacheServerAttributes();
-        assertNotNull( "Should have a string.", attributes.toString() );
-    }
-
-    public void testSetRemoteTypeName_local_1_oe()
-    {
-        final RemoteCacheServerAttributes attributes = new RemoteCacheServerAttributes();
-        attributes.setRemoteTypeName( "LOCAL" );
-        assertEquals( "Wrong type.", RemoteType.LOCAL, attributes.getRemoteType() );
-    }
-
-    public void testSetRemoteTypeName_local_2_oe()
-    {
-        final RemoteCacheServerAttributes attributes = new RemoteCacheServerAttributes();
-        attributes.setRemoteTypeName( "LOCAL" );
-        // removed other assertion
-        assertEquals( "Wrong name", "LOCAL", attributes.getRemoteTypeName() );
-    }
-
-    public void testSetRemoteTypeName_cluster_1_oe()
-    {
-        final RemoteCacheServerAttributes attributes = new RemoteCacheServerAttributes();
-        attributes.setRemoteTypeName( "CLUSTER" );
-        assertEquals( "Wrong type.", RemoteType.CLUSTER, attributes.getRemoteType() );
-    }
-
-    public void testSetRemoteTypeName_cluster_2_oe()
-    {
-        final RemoteCacheServerAttributes attributes = new RemoteCacheServerAttributes();
-        attributes.setRemoteTypeName( "CLUSTER" );
-        // removed other assertion
-        assertEquals( "Wrong name", "CLUSTER", attributes.getRemoteTypeName() );
-    }
 
 }

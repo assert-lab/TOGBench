@@ -70,7 +70,9 @@ python3 scripts_trial/3_rebuild_tests.py
 # cd projects_decomposed/commons-numbers/commons-numbers-fraction
 # mvn clean test -Dtest="*_OE25Dev#*_oe" --color=never 2>&1 | tee mvn.log
 
-
+#map muts
+python3 scripts_trial/collect_methods.py
+python3 scripts_trial/map_mut.py
 
 ./scripts_trial/clean_loop.sh
 

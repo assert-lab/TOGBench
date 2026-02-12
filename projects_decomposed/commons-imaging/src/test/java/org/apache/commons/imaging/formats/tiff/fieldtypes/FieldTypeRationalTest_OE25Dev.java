@@ -32,19 +32,14 @@ import org.junit.jupiter.api.Test;
 public class FieldTypeRationalTest_OE25Dev {
 
   @Test
-  public void testWriteDataWithNull_1_oe() throws ImageWriteException {
-      final FieldTypeRational fieldTypeRational = new FieldTypeRational(9, null);
-      final Double doubleOne = 2.2d;
-      final byte[] byteArray = fieldTypeRational.writeData(doubleOne, null);
-
-      assertArrayEquals(new byte[] {(byte)11, (byte)0, (byte)0, (byte)0, (byte)5, (byte)0, (byte)0, (byte)0}, byteArray);
-  }
-
-  @Test
-  public void testWriteDataWithNonNull_1_oe() {
+  public void testWriteDataWithNonNull_1_oe() throws Exception {
       final FieldTypeRational fieldTypeRational = new FieldTypeRational((-922), "z_AX");
       final ByteOrder byteOrder = ByteOrder.nativeOrder();
-      Assertions.assertThrows(ImageWriteException.class, () -> fieldTypeRational.writeData("z_AX", byteOrder));
+      try {
+    fieldTypeRational.writeData("z_AX", byteOrder);
+    org.junit.jupiter.api.Assertions.fail("ImageWriteException");
+} catch (ImageWriteException e) {
+}
   }
 
 }

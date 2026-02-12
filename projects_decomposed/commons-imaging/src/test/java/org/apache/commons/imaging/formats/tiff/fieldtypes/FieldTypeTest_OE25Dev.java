@@ -23,25 +23,5 @@ import org.junit.jupiter.api.Test;
 
 public class FieldTypeTest_OE25Dev{
 
-  @Test
-  public void testGetFieldTypeWithNegative_2_oe() {
-      try {
-        FieldType.getFieldType((-748));
-        // removed other assertion
-      } catch(final Exception e) {
-         assertEquals("Field type -748 is unsupported",e.getMessage());
-  }
-  }
-
-  @Test
-  public void testGetFieldTypeWithNegative_3_oe() {
-      try {
-        FieldType.getFieldType((-748));
-        // removed other assertion
-      } catch(final Exception e) {
-         // removed other assertion
-         assertEquals(FieldType.class.getName(), e.getStackTrace()[0].getClassName());
-  }
-  }
 
 }

@@ -308,7 +308,11 @@ class BoxSamplerTest_OE25Dev {
     @Test
     void testInvalidDimensionThrows_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> BoxSampler.of(rng, new double[1], new double[1]));
+        try {
+    BoxSampler.of(rng, new double[1], new double[1]);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -320,18 +324,12 @@ class BoxSamplerTest_OE25Dev {
             {c2, c3},
             {c3, c2},
         }) {
-            Assertions.assertThrows(IllegalArgumentException.class, () -> BoxSampler.of(rng, c[0], c[1]), () -> String.format("Did not detect dimension mismatch: %d,%d", c[0].length, c[1].length));
+            try {
+    BoxSampler.of(rng, c[0], c[1]);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: () -> String.format(\"Did not detect dimension mismatch: %d,%d\", c[0].length, c[1].length)");
+} catch (IllegalArgumentException e) {
+}
     }
-    }
-
-    @Test
-    void testNonFiniteVertexCoordinates_1_oe() {
-         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        // A valid box
-         double[][] c = new double[][] {
-            {0, 1, 2}, {-1, 2, 3}
-        };
-        Assertions.assertNotNull(BoxSampler.of(rng, c[0],  c[1]));
     }
 
     @Test
@@ -350,7 +348,11 @@ class BoxSamplerTest_OE25Dev {
                 for ( double d : bad) {
                      double value = c[i][j];
                     c[i][j] = d;
-                    Assertions.assertThrows(IllegalArgumentException.class, () -> BoxSampler.of(rng, c[0], c[1]), () -> String.format("Did not detect non-finite coordinate: %d,%d = %s", ii, jj, d));
+                    try {
+    BoxSampler.of(rng, c[0], c[1]);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: () -> String.format(\"Did not detect non-finite coordinate: %d,%d = %s\", ii, jj, d)");
+} catch (IllegalArgumentException e) {
+}
     }
     }
     }

@@ -522,38 +522,47 @@ class UnitSphereSamplerTest_OE25Dev {
     @Test
     void testInvalidDimensionThrows_1_oe() {
         // Use instance constructor not factory constructor to exercise 1.X public API
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new UnitSphereSampler(0, null));
+        try {
+    new UnitSphereSampler(0, null);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testInvalidDimensionThrowsWithFactoryConstructor_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> UnitSphereSampler.of(null, 0));
+        try {
+    UnitSphereSampler.of(null, 0);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testBadProvider2D_1_oe() {
-        Assertions.assertThrows(StackOverflowError.class, () -> testBadProvider(2));
+        try {
+    testBadProvider(2);
+    org.junit.jupiter.api.Assertions.fail("StackOverflowError");
+} catch (StackOverflowError e) {
+}
     }
 
     @Test
     void testBadProvider3D_1_oe() {
-        Assertions.assertThrows(StackOverflowError.class, () -> testBadProvider(3));
+        try {
+    testBadProvider(3);
+    org.junit.jupiter.api.Assertions.fail("StackOverflowError");
+} catch (StackOverflowError e) {
+}
     }
 
     @Test
     void testBadProvider4D_1_oe() {
-        Assertions.assertThrows(StackOverflowError.class, () -> testBadProvider(4));
-    }
-
-    @Test
-    void testNextNormSquaredAfterZeroIsValid_1_oe() {
-        // The sampler explicitly handles length == 0 using recursion.
-        // Anything above zero should be valid.
-         double normSq = Math.nextUp(0.0);
-        // Map to the scaling factor
-         double f = 1 / Math.sqrt(normSq);
-        // As long as this is finite positive then the sampler is valid
-        Assertions.assertTrue(f > 0 && f <= Double.MAX_VALUE);
+        try {
+    testBadProvider(4);
+    org.junit.jupiter.api.Assertions.fail("StackOverflowError");
+} catch (StackOverflowError e) {
+}
     }
 
 }

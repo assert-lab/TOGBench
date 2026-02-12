@@ -1,0 +1,213 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+scribejava_80_4,"    @Test
+    public void shouldReleaseLatchOnIOException_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } });
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_4_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_81_4,"    @Test
+    public void shouldReportOAuthException_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } });
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_4_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_82_4,"    @Test
+    public void shouldReleaseLatchOnCancel_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        future.cancel(true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } });
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_4_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_83_4,"    @Test
+    public void shouldReleaseLatchOnFailure_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        handler.onFailure(call, new IOException());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } });
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_4_oe,com.github.scribejava.core.httpclient.jdk.JDKHttpFuture,get(),,"@Override
+    public V get() throws InterruptedException, ExecutionException {
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+
+        return response;
+    }"
+scribejava_85_4,"    @Test
+    public void shouldReleaseLatchOnIOException_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } });
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_4_oe,com.github.scribejava.httpclient.apache.OAuthAsyncCompletionHandler,getResult(),,"public T getResult() throws InterruptedException, ExecutionException {
+        latch.await();
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+        return result;
+    }"
+scribejava_86_4,"    @Test
+    public void shouldReportOAuthException_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } });
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_4_oe,com.github.scribejava.httpclient.apache.OAuthAsyncCompletionHandler,getResult(),,"public T getResult() throws InterruptedException, ExecutionException {
+        latch.await();
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+        return result;
+    }"
+scribejava_87_4,"    @Test
+    public void shouldReleaseLatchOnCancel_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.cancelled();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } });
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_4_oe,com.github.scribejava.httpclient.apache.OAuthAsyncCompletionHandler,getResult(),,"public T getResult() throws InterruptedException, ExecutionException {
+        latch.await();
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+        return result;
+    }"
+scribejava_88_4,"    @Test
+    public void shouldReleaseLatchOnFailure_4_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.failed(new RuntimeException());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } });
+    }
+",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_4_oe,com.github.scribejava.httpclient.apache.OAuthAsyncCompletionHandler,getResult(),,"public T getResult() throws InterruptedException, ExecutionException {
+        latch.await();
+        if (exception != null) {
+            throw new ExecutionException(exception);
+        }
+        return result;
+    }"
+scribejava_91_1,"    @Test
+    public void testErrorExtraction_1_oe() throws IOException {
+
+        final FitBitJsonTokenExtractor extractor = new FitBitJsonTokenExtractor();
+        final OAuth2AccessTokenErrorResponse thrown = assertThrows(OAuth2AccessTokenErrorResponse.class, new ThrowingRunnable() { @Override public void run() throws Throwable { extractor.generateError(new Response(403, null, null, ERROR_JSON)); } });
+    }
+",FitBitJsonTokenExtractorTest::testErrorExtraction_1_oe,com.github.scribejava.apis.fitbit.FitBitJsonTokenExtractor,void generateError(Response response),"/**
+     * Related documentation: https://dev.fitbit.com/build/reference/web-api/oauth2/
+     */","@Override
+    public void generateError(Response response) throws IOException {
+        final JsonNode errorNode;
+        try {
+            errorNode = OAuth2AccessTokenJsonExtractor.OBJECT_MAPPER.readTree(response.getBody()).get(""errors"").get(0);
+        } catch (JsonProcessingException ex) {
+            throw new OAuth2AccessTokenErrorResponse(null, null, null, response);
+        }
+
+        OAuth2Error errorCode;
+        try {
+            errorCode = OAuth2Error
+                    .parseFrom(extractRequiredParameter(errorNode, ""errorType"", response.getBody()).asText());
+        } catch (IllegalArgumentException iaE) {
+            //non oauth standard error code
+            errorCode = null;
+        }
+
+        throw new OAuth2AccessTokenErrorResponse(errorCode, errorNode.get(""message"").asText(), null, response);
+    }"

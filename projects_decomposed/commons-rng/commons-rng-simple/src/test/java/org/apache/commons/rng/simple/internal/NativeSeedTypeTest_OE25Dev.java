@@ -35,13 +35,11 @@ class NativeSeedTypeTest_OE25Dev {
 
     @Test
     void testConvertSeedToBytesUsingNullThrows_1_oe() {
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> NativeSeedType.convertSeedToBytes(null));
-    }
-
-    @Test
-    void testConvertSeedToBytesUsingByteArray_1_oe() {
-         byte[] seed = {42, 78, 99};
-        Assertions.assertSame(seed, NativeSeedType.convertSeedToBytes(seed));
+        try {
+    NativeSeedType.convertSeedToBytes(null);
+    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+} catch (UnsupportedOperationException e) {
+}
     }
 
 }

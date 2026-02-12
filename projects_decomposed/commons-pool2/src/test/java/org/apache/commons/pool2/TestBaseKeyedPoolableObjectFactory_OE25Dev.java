@@ -37,14 +37,5 @@ public class TestBaseKeyedPoolableObjectFactory_OE25Dev {
         }
     }
 
-    @Test
-    public void testDefaultMethods_1_oe() throws Exception {
-        final KeyedPooledObjectFactory<Object,Object> factory = new TestFactory();
-
-        factory.activateObject("key",null); // a no-op
-        factory.passivateObject("key",null); // a no-op
-        factory.destroyObject("key",null); // a no-op
-        assertTrue(factory.validateObject("key",null)); // constant true;
-    }
 
 }

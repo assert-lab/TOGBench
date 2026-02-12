@@ -24,29 +24,5 @@ import org.junit.Test;
  */
 public class DefaultFilesCacheTests_OE25Dev extends AbstractFilesCacheTestsBase {
 
-    @Test
-    public void testFilesCache_1_oe() throws Exception {
-        final FileObject scratchFolder = getWriteFolder();
-
-        final FileObject dir1 = scratchFolder.resolveFile("dir1");
-        final FileObject dir1_2 = scratchFolder.resolveFile("dir1");
-
-        assertSame(dir1, dir1_2);
-    }
-
-    @Test
-    public void testFilesCache_2_oe() throws Exception {
-        final FileObject scratchFolder = getWriteFolder();
-
-        final FileObject dir1 = scratchFolder.resolveFile("dir1");
-        final FileObject dir1_2 = scratchFolder.resolveFile("dir1");
-
-        // removed other assertion
-
-        // now the same test, unreferenced (compare only hashCode)
-        final int hc1 = getFileHashCode();
-        final int hc2 = getFileHashCode();
-        assertEquals("Hashcode of file changed, so most likely new instance", hc1, hc2);
-    }
 
 }

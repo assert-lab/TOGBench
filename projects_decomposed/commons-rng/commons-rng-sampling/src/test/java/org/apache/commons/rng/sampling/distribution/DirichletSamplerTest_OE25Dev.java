@@ -205,113 +205,81 @@ class DirichletSamplerTest_OE25Dev {
     @Test
     void testDistributionThrowsWithInvalidNumberOfCategories_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.of(rng, 1.0));
+        try {
+    DirichletSampler.of(rng, 1.0);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testDistributionThrowsWithZeroConcentration_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.of(rng, 1.0, 0.0));
+        try {
+    DirichletSampler.of(rng, 1.0, 0.0);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testDistributionThrowsWithNaNConcentration_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.of(rng, 1.0, Double.NaN));
+        try {
+    DirichletSampler.of(rng, 1.0, Double.NaN);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testDistributionThrowsWithInfiniteConcentration_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.of(rng, 1.0, Double.POSITIVE_INFINITY));
+        try {
+    DirichletSampler.of(rng, 1.0, Double.POSITIVE_INFINITY);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testSymmetricDistributionThrowsWithInvalidNumberOfCategories_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.symmetric(rng, 1, 1.0));
+        try {
+    DirichletSampler.symmetric(rng, 1, 1.0);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testSymmetricDistributionThrowsWithZeroConcentration_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.symmetric(rng, 2, 0.0));
+        try {
+    DirichletSampler.symmetric(rng, 2, 0.0);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testSymmetricDistributionThrowsWithNaNConcentration_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.symmetric(rng, 2, Double.NaN));
+        try {
+    DirichletSampler.symmetric(rng, 2, Double.NaN);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testSymmetricDistributionThrowsWithInfiniteConcentration_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> DirichletSampler.symmetric(rng, 2, Double.POSITIVE_INFINITY));
-    }
-
-    @Test
-    void testToString_1_oe() {
-         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-         DirichletSampler sampler1 = DirichletSampler.symmetric(rng, 2, 1.0);
-         DirichletSampler sampler2 = DirichletSampler.of(rng, 0.5, 1, 1.5);
-        Assertions.assertTrue(sampler1.toString().toLowerCase().contains("dirichlet"));
-    }
-
-    @Test
-    void testToString_2_oe() {
-         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-         DirichletSampler sampler1 = DirichletSampler.symmetric(rng, 2, 1.0);
-         DirichletSampler sampler2 = DirichletSampler.of(rng, 0.5, 1, 1.5);
-        // removed other assertion
-        Assertions.assertTrue(sampler2.toString().toLowerCase().contains("dirichlet"));
-    }
-
-    @Test
-    void testInvalidSampleIsIgnored_1_oe_1_oe() {
-        // An RNG implementation which should create zero samples from the underlying
-        // exponential sampler for an initial sequence.
-         UniformRandomProvider rng = new SplitMix64(0L) {
-            private int i;
-
-            @Override
-            public long next() {
-                return i++ < 10 ? 0L : super.next();
-            }
-        };
-
-        // Alpha=1 will use an exponential sampler
-         DirichletSampler sampler = DirichletSampler.symmetric(rng, 2, 1.0);
-                 int k0 = 2;
-         double[] x0 = sampler.sample();
-        Assertions.assertEquals(k0, x0.length, "Number of categories");
-    }
-
-    @Test
-    void testInvalidSampleIsIgnored_1_oe_2_oe() {
-        // An RNG implementation which should create zero samples from the underlying
-        // exponential sampler for an initial sequence.
-         UniformRandomProvider rng = new SplitMix64(0L) {
-            private int i;
-
-            @Override
-            public long next() {
-                return i++ < 10 ? 0L : super.next();
-            }
-        };
-
-        // Alpha=1 will use an exponential sampler
-         DirichletSampler sampler = DirichletSampler.symmetric(rng, 2, 1.0);
-                 int k0 = 2;
-         double[] x0 = sampler.sample();
-        // removed other assertion
-                // There are always at least 2 categories
-                double sum0 = x0[0] + x0[1];
-                // Sum the rest
-                for (int i0 = 2; i0 < x0.length; i0++) {
-                    sum0 += x0[i0];
-                }
-                Assertions.assertEquals(1.0, sum0, 1e-10, "Invalid sum0");
+        try {
+    DirichletSampler.symmetric(rng, 2, Double.POSITIVE_INFINITY);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

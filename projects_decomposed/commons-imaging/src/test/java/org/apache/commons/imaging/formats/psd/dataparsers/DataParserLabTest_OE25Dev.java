@@ -22,11 +22,5 @@ import org.junit.jupiter.api.Test;
 
 public class DataParserLabTest_OE25Dev{
 
-  @Test
-  public void testGetBasicChannelsCount_1_oe() {
-      final DataParserLab dataParserLab = new DataParserLab();
-
-      assertEquals(3, dataParserLab.getBasicChannelsCount());
-  }
 
 }

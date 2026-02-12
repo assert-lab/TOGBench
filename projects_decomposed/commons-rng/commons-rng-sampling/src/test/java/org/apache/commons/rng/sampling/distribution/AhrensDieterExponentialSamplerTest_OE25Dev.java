@@ -62,37 +62,11 @@ class AhrensDieterExponentialSamplerTest_OE25Dev {
          RestorableUniformRandomProvider rng =
             RandomSource.SPLIT_MIX_64.create(0L);
          double mean = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> AhrensDieterExponentialSampler.of(rng, mean));
-    }
-
-    @Test
-    void testSamplerWithZeroFromRandomGenerator_1_oe() {
-        // A broken generator that returns zero.
-         UniformRandomProvider rng = new SplitMix64(0) {
-            @Override
-            public long nextLong() {
-                return 0L;
-            }
-        };
-         SharedStateContinuousSampler sampler = AhrensDieterExponentialSampler.of(rng, 1);
-        // This should not infinite loop
-         double[] x = {-1};
-        Assertions.assertTimeout(Duration.ofMillis(50), () -> { x[0] = sampler.sample(); });
-    }
-
-    @Test
-    void testSamplerWithOneFromRandomGenerator_1_oe() {
-        // A broken generator that returns all the bits set.
-         UniformRandomProvider rng = new SplitMix64(0) {
-            @Override
-            public long nextLong() {
-                // All the bits set
-                return -1;
-            }
-        };
-         SharedStateContinuousSampler sampler = AhrensDieterExponentialSampler.of(rng, 1);
-         double x = sampler.sample();
-        Assertions.assertTrue(x >= 0);
+        try {
+    AhrensDieterExponentialSampler.of(rng, mean);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

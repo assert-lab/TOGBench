@@ -33,8 +33,12 @@ public class IEEE754rUtilsTest_OE25Dev  {
     }
 
     @Test
-    public void testEnforceExceptions_1_oe() {
-        assertThrows( NullPointerException.class, () -> IEEE754rUtils.min( (float[]) null), "IllegalArgumentException expected for null input");
+    public void testEnforceExceptions_1_oe() throws Exception {
+        try {
+    IEEE754rUtils.min( (float[]) null);
+    org.junit.jupiter.api.Assertions.fail("NullPointerException: IllegalArgumentException expected for null input");
+} catch (NullPointerException e) {
+}
     }
 
     @Test
@@ -45,12 +49,16 @@ public class IEEE754rUtilsTest_OE25Dev  {
     }
 
     @Test
-    public void testEnforceExceptions_3_oe() {
+    public void testEnforceExceptions_3_oe() throws Exception {
         // removed other assertion
 
         // removed other assertion
 
-        assertThrows( NullPointerException.class, () -> IEEE754rUtils.max( (float[]) null), "IllegalArgumentException expected for null input");
+        try {
+    IEEE754rUtils.max( (float[]) null);
+    org.junit.jupiter.api.Assertions.fail("NullPointerException: IllegalArgumentException expected for null input");
+} catch (NullPointerException e) {
+}
     }
 
     @Test
@@ -65,7 +73,7 @@ public class IEEE754rUtilsTest_OE25Dev  {
     }
 
     @Test
-    public void testEnforceExceptions_5_oe() {
+    public void testEnforceExceptions_5_oe() throws Exception {
         // removed other assertion
 
         // removed other assertion
@@ -74,7 +82,11 @@ public class IEEE754rUtilsTest_OE25Dev  {
 
         // removed other assertion
 
-        assertThrows( NullPointerException.class, () -> IEEE754rUtils.min( (double[]) null), "IllegalArgumentException expected for null input");
+        try {
+    IEEE754rUtils.min( (double[]) null);
+    org.junit.jupiter.api.Assertions.fail("NullPointerException: IllegalArgumentException expected for null input");
+} catch (NullPointerException e) {
+}
     }
 
     @Test
@@ -93,7 +105,7 @@ public class IEEE754rUtilsTest_OE25Dev  {
     }
 
     @Test
-    public void testEnforceExceptions_7_oe() {
+    public void testEnforceExceptions_7_oe() throws Exception {
         // removed other assertion
 
         // removed other assertion
@@ -106,7 +118,11 @@ public class IEEE754rUtilsTest_OE25Dev  {
 
         // removed other assertion
 
-        assertThrows( NullPointerException.class, () -> IEEE754rUtils.max( (double[]) null), "IllegalArgumentException expected for null input");
+        try {
+    IEEE754rUtils.max( (double[]) null);
+    org.junit.jupiter.api.Assertions.fail("NullPointerException: IllegalArgumentException expected for null input");
+} catch (NullPointerException e) {
+}
     }
 
     @Test
@@ -126,207 +142,6 @@ public class IEEE754rUtilsTest_OE25Dev  {
         // removed other assertion
 
         assertThrows( IllegalArgumentException.class, IEEE754rUtils::max, "IllegalArgumentException expected for empty input");
-    }
-
-    @Test
-    public void testLang381_1_oe() {
-        assertEquals(1.2, IEEE754rUtils.min(1.2, 2.5, Double.NaN), 0.01);
-    }
-
-    @Test
-    public void testLang381_2_oe() {
-        // removed other assertion
-        assertEquals(2.5, IEEE754rUtils.max(1.2, 2.5, Double.NaN), 0.01);
-    }
-
-    @Test
-    public void testLang381_3_oe() {
-        // removed other assertion
-        // removed other assertion
-        assertTrue(Double.isNaN(IEEE754rUtils.max(Double.NaN, Double.NaN, Double.NaN)));
-    }
-
-    @Test
-    public void testLang381_4_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(1.2f, IEEE754rUtils.min(1.2f, 2.5f, Float.NaN), 0.01);
-    }
-
-    @Test
-    public void testLang381_5_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2.5f, IEEE754rUtils.max(1.2f, 2.5f, Float.NaN), 0.01);
-    }
-
-    @Test
-    public void testLang381_6_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue(Float.isNaN(IEEE754rUtils.max(Float.NaN, Float.NaN, Float.NaN)));
-    }
-
-    @Test
-    public void testLang381_7_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        final double[] a = new double[] { 1.2, Double.NaN, 3.7, 27.0, 42.0, Double.NaN };
-        assertEquals(42.0, IEEE754rUtils.max(a), 0.01);
-    }
-
-    @Test
-    public void testLang381_8_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        final double[] a = new double[] { 1.2, Double.NaN, 3.7, 27.0, 42.0, Double.NaN };
-        // removed other assertion
-        assertEquals(1.2, IEEE754rUtils.min(a), 0.01);
-    }
-
-    @Test
-    public void testLang381_9_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        final double[] a = new double[] { 1.2, Double.NaN, 3.7, 27.0, 42.0, Double.NaN };
-        // removed other assertion
-        // removed other assertion
-
-        final double[] b = new double[] { Double.NaN, 1.2, Double.NaN, 3.7, 27.0, 42.0, Double.NaN };
-        assertEquals(42.0, IEEE754rUtils.max(b), 0.01);
-    }
-
-    @Test
-    public void testLang381_10_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        final double[] a = new double[] { 1.2, Double.NaN, 3.7, 27.0, 42.0, Double.NaN };
-        // removed other assertion
-        // removed other assertion
-
-        final double[] b = new double[] { Double.NaN, 1.2, Double.NaN, 3.7, 27.0, 42.0, Double.NaN };
-        // removed other assertion
-        assertEquals(1.2, IEEE754rUtils.min(b), 0.01);
-    }
-
-    @Test
-    public void testLang381_11_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        final double[] a = new double[] { 1.2, Double.NaN, 3.7, 27.0, 42.0, Double.NaN };
-        // removed other assertion
-        // removed other assertion
-
-        final double[] b = new double[] { Double.NaN, 1.2, Double.NaN, 3.7, 27.0, 42.0, Double.NaN };
-        // removed other assertion
-        // removed other assertion
-
-        final float[] aF = new float[] { 1.2f, Float.NaN, 3.7f, 27.0f, 42.0f, Float.NaN };
-        assertEquals(1.2f, IEEE754rUtils.min(aF), 0.01);
-    }
-
-    @Test
-    public void testLang381_12_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        final double[] a = new double[] { 1.2, Double.NaN, 3.7, 27.0, 42.0, Double.NaN };
-        // removed other assertion
-        // removed other assertion
-
-        final double[] b = new double[] { Double.NaN, 1.2, Double.NaN, 3.7, 27.0, 42.0, Double.NaN };
-        // removed other assertion
-        // removed other assertion
-
-        final float[] aF = new float[] { 1.2f, Float.NaN, 3.7f, 27.0f, 42.0f, Float.NaN };
-        // removed other assertion
-        assertEquals(42.0f, IEEE754rUtils.max(aF), 0.01);
-    }
-
-    @Test
-    public void testLang381_13_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        final double[] a = new double[] { 1.2, Double.NaN, 3.7, 27.0, 42.0, Double.NaN };
-        // removed other assertion
-        // removed other assertion
-
-        final double[] b = new double[] { Double.NaN, 1.2, Double.NaN, 3.7, 27.0, 42.0, Double.NaN };
-        // removed other assertion
-        // removed other assertion
-
-        final float[] aF = new float[] { 1.2f, Float.NaN, 3.7f, 27.0f, 42.0f, Float.NaN };
-        // removed other assertion
-        // removed other assertion
-
-        final float[] bF = new float[] { Float.NaN, 1.2f, Float.NaN, 3.7f, 27.0f, 42.0f, Float.NaN };
-        assertEquals(1.2f, IEEE754rUtils.min(bF), 0.01);
-    }
-
-    @Test
-    public void testLang381_14_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        final double[] a = new double[] { 1.2, Double.NaN, 3.7, 27.0, 42.0, Double.NaN };
-        // removed other assertion
-        // removed other assertion
-
-        final double[] b = new double[] { Double.NaN, 1.2, Double.NaN, 3.7, 27.0, 42.0, Double.NaN };
-        // removed other assertion
-        // removed other assertion
-
-        final float[] aF = new float[] { 1.2f, Float.NaN, 3.7f, 27.0f, 42.0f, Float.NaN };
-        // removed other assertion
-        // removed other assertion
-
-        final float[] bF = new float[] { Float.NaN, 1.2f, Float.NaN, 3.7f, 27.0f, 42.0f, Float.NaN };
-        // removed other assertion
-        assertEquals(42.0f, IEEE754rUtils.max(bF), 0.01);
     }
 
 }

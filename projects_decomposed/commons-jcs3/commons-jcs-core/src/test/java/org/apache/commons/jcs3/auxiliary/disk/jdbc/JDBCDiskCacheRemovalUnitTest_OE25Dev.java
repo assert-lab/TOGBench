@@ -80,52 +80,5 @@ public class JDBCDiskCacheRemovalUnitTest_OE25Dev
         HsqlSetupTableUtil.setupTABLE( cConn, databaseName );
     }
 
-    public void testPartialKeyRemoval_Good_1_oe()
-        throws Exception
-    {
-        // SETUP
-        setupDatabase();
-
-        final String keyPart1 = "part1";
-        final String keyPart2 = "part2";
-        final String region = "testCache1";
-        final String data = "adfadsfasfddsafasasd";
-
-        final CacheAccess<String, String> jcs = JCS.getInstance( region );
-
-        // DO WORK
-        jcs.put( keyPart1 + ":" + keyPart2, data );
-        Thread.sleep( 1000 );
-
-        // VERIFY
-        final String resultBeforeRemove = jcs.get( keyPart1 + ":" + keyPart2 );
-        assertEquals( "Wrong result", data, resultBeforeRemove );
-    }
-
-    public void testPartialKeyRemoval_Good_2_oe()
-        throws Exception
-    {
-        // SETUP
-        setupDatabase();
-
-        final String keyPart1 = "part1";
-        final String keyPart2 = "part2";
-        final String region = "testCache1";
-        final String data = "adfadsfasfddsafasasd";
-
-        final CacheAccess<String, String> jcs = JCS.getInstance( region );
-
-        // DO WORK
-        jcs.put( keyPart1 + ":" + keyPart2, data );
-        Thread.sleep( 1000 );
-
-        // VERIFY
-        final String resultBeforeRemove = jcs.get( keyPart1 + ":" + keyPart2 );
-        // removed other assertion
-
-        jcs.remove( keyPart1 + ":" );
-        final String resultAfterRemove = jcs.get( keyPart1 + ":" + keyPart2 );
-        assertNull( "Should not have a result after removal.", resultAfterRemove );
-    }
 
 }

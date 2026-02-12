@@ -31,28 +31,15 @@ public class UnicodeUnescaperTest_OE25Dev {
     // Requested in LANG-507
 
     @Test
-    public void testUPlus_1_oe() {
-        final UnicodeUnescaper uu = new UnicodeUnescaper();
-
-        final String input = "\\u+0047";
-        assertEquals("G", uu.translate(input), "Failed to unescape Unicode characters with 'u+' notation");
-    }
-
-    @Test
-    public void testUuuuu_1_oe() {
-        final UnicodeUnescaper uu = new UnicodeUnescaper();
-
-        final String input = "\\uuuuuuuu0047";
-        final String result = uu.translate(input);
-        assertEquals("G", result, "Failed to unescape Unicode characters with many 'u' characters");
-    }
-
-    @Test
-    public void testLessThanFour_1_oe() {
+    public void testLessThanFour_1_oe() throws Exception {
         final UnicodeUnescaper uu = new UnicodeUnescaper();
 
         final String input = "\\0047\\u006";
-        assertThrows( IllegalArgumentException.class, () -> uu.translate(input), "A lack of digits in a Unicode escape sequence failed to throw an exception");
+        try {
+    uu.translate(input);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException: A lack of digits in a Unicode escape sequence failed to throw an exception");
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

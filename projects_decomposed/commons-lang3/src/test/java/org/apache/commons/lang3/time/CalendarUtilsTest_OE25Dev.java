@@ -25,19 +25,5 @@ import org.junit.jupiter.api.Test;
 
 public class CalendarUtilsTest_OE25Dev {
 
-    @Test
-    public void testGetDayOfMonth_1_oe() {
-        assertEquals(Calendar.getInstance().get(Calendar.DAY_OF_MONTH), CalendarUtils.INSTANCE.getDayOfMonth());
-    }
-
-    @Test
-    public void testGetMonth_1_oe() {
-        assertEquals(Calendar.getInstance().get(Calendar.MONTH), CalendarUtils.INSTANCE.getMonth());
-    }
-
-    @Test
-    public void testGetYear_1_oe() {
-        assertEquals(Calendar.getInstance().get(Calendar.YEAR), CalendarUtils.INSTANCE.getYear());
-    }
 
 }

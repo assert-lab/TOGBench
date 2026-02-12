@@ -53,34 +53,5 @@ public class TestBasePoolableObjectFactory_OE25Dev {
      * @throws Exception May occur in some failure modes
      */
 
-    @Test
-    public void testDefaultMethods_1_oe() throws Exception {
-        final PooledObjectFactory<AtomicInteger> factory = new TestFactory();
-
-        factory.activateObject(null); // a no-op
-        factory.passivateObject(null); // a no-op
-        factory.destroyObject(null); // a no-op
-        assertTrue(factory.validateObject(null)); // constant true;
-    }
-
-    @Test
-    public void testDestroyModes_1_oe() throws Exception {
-        final PooledObjectFactory<AtomicInteger> factory = new TestFactory();
-        final PooledObject<AtomicInteger> pooledObj = factory.makeObject();
-        final AtomicInteger obj = pooledObj.getObject();
-        factory.destroyObject(pooledObj);
-        assertEquals(0, obj.get());
-    }
-
-    @Test
-    public void testDestroyModes_2_oe() throws Exception {
-        final PooledObjectFactory<AtomicInteger> factory = new TestFactory();
-        final PooledObject<AtomicInteger> pooledObj = factory.makeObject();
-        final AtomicInteger obj = pooledObj.getObject();
-        factory.destroyObject(pooledObj);
-        // removed other assertion
-        factory.destroyObject(pooledObj, DestroyMode.ABANDONED);
-        assertEquals(1, obj.get());
-    }
 
 }

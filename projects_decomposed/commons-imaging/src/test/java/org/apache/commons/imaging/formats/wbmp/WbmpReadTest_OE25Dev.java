@@ -29,53 +29,5 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class WbmpReadTest_OE25Dev extends WbmpBaseTest {
 
-    @Test
-    public void test_1_oe() throws Exception {
-        Debug.debug("start");
-
-        final List<File> images = getWbmpImages();
-        for (final File imageFile : images) {
-
-            Debug.debug("imageFile", imageFile);
-
-            final ImageMetadata metadata = Imaging.getMetadata(imageFile);
-            Assertions.assertFalse(metadata instanceof File);// Dummy check to avoid unused warning(it may be null);
-    }
-    }
-
-    @Test
-    public void test_2_oe() throws Exception {
-        Debug.debug("start");
-
-        final List<File> images = getWbmpImages();
-        for (final File imageFile : images) {
-
-            Debug.debug("imageFile", imageFile);
-
-            final ImageMetadata metadata = Imaging.getMetadata(imageFile);
-            // removed other assertion
-            final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
-            assertNotNull(imageInfo);
-    }
-    }
-
-    @Test
-    public void test_3_oe() throws Exception {
-        Debug.debug("start");
-
-        final List<File> images = getWbmpImages();
-        for (final File imageFile : images) {
-
-            Debug.debug("imageFile", imageFile);
-
-            final ImageMetadata metadata = Imaging.getMetadata(imageFile);
-            // removed other assertion
-            final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
-            // removed other assertion
-
-            final BufferedImage image = Imaging.getBufferedImage(imageFile);
-            assertNotNull(image);
-    }
-    }
 
 }

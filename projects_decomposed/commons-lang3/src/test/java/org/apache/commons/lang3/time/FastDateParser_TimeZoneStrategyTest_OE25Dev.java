@@ -47,13 +47,5 @@ class FastDateParser_TimeZoneStrategyTest_OE25Dev {
         }
     }
 
-    @Test
-    void testLang1219_1_oe() throws ParseException {
-        final FastDateParser parser = new FastDateParser("dd.MM.yyyy HH:mm:ss z", TimeZone.getDefault(), Locale.GERMAN);
-
-        final Date summer = parser.parse("26.10.2014 02:00:00 MESZ");
-        final Date standard = parser.parse("26.10.2014 02:00:00 MEZ");
-        assertNotEquals(summer.getTime(), standard.getTime());
-    }
 
 }

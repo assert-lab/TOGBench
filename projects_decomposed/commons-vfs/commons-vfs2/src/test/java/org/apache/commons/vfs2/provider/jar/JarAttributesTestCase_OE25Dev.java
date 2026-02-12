@@ -35,21 +35,5 @@ public class JarAttributesTestCase_OE25Dev {
         }
     }
 
-    @Test
-    public void testAttributes_1_oe() throws Exception {
-        final FileObject file = JarProviderTestCase.getTestJar(VFS.getManager(), "test.jar");
-
-        final Map<String, Object> attributes = file.getContent().getAttributes();
-        Assert.assertEquals("1.0", attributes.get("Manifest-Version"));
-    }
-
-    @Test
-    public void testNestedAttributes_1_oe() throws Exception {
-        final FileObject nested = JarProviderTestCase.getTestJar(VFS.getManager(), "nested.jar");
-        final FileObject file = nested.resolveFile("test.jar");
-
-        final Map<String, Object> attributes = file.getContent().getAttributes();
-        Assert.assertEquals("1.0", attributes.get("Manifest-Version"));
-    }
 
 }

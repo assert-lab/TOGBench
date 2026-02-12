@@ -45,20 +45,15 @@ public class BmpImageParserTest_OE25Dev {
      */
 
     @Test
-    public void testImageWidthRounding_1_oe() throws ImageReadException, IOException {
-        final String file = "/images/bmp/IMAGING-264/test-72_6-dpi.bmp";
-        final File bmp = new File(BmpImageParser.class.getResource(file).getFile());
-        final BmpImageParser parser = new BmpImageParser();
-        final ImageInfo imageInfo = parser.getImageInfo(bmp, new BmpImagingParameters());
-        assertEquals(73, imageInfo.getPhysicalWidthDpi(), "Expected 72.6 resolution to be rounded to 73");
-    }
-
-    @Test
     public void testImageForNegativeArraySizeException_1_oe() throws ImageReadException, IOException {
         final String file = "/images/bmp/IMAGING-279/negative_array_size_exception.bmp";
         final File bmp = new File(BmpImageParser.class.getResource(file).getFile());
         final BmpImageParser parser = new BmpImageParser();
-        assertThrows(IOException.class, () -> parser.getImageInfo(bmp, new BmpImagingParameters()));
+        try {
+    parser.getImageInfo(bmp, new BmpImagingParameters());
+    org.junit.jupiter.api.Assertions.fail("IOException");
+} catch (IOException e) {
+}
     }
 
 }

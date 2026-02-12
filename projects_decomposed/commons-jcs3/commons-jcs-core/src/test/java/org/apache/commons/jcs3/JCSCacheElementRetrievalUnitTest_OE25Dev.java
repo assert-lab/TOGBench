@@ -36,31 +36,5 @@ public class JCSCacheElementRetrievalUnitTest_OE25Dev
      * @throws Exception
      */
 
-    public void testSimpleElementRetrieval_1_oe()
-        throws Exception
-    {
-        final CacheAccess<String, String> jcs = JCS.getInstance( "testCache1" );
-
-        jcs.put( "test_key", "test_data" );
-
-        final long now = System.currentTimeMillis();
-        final ICacheElement<String, String> elem = jcs.getCacheElement( "test_key" );
-        assertEquals( "Name wasn't right", "testCache1", elem.getCacheName() );
-    }
-
-    public void testSimpleElementRetrieval_2_oe()
-        throws Exception
-    {
-        final CacheAccess<String, String> jcs = JCS.getInstance( "testCache1" );
-
-        jcs.put( "test_key", "test_data" );
-
-        final long now = System.currentTimeMillis();
-        final ICacheElement<String, String> elem = jcs.getCacheElement( "test_key" );
-        // removed other assertion
-
-        final long diff = now - elem.getElementAttributes().getCreateTime();
-        assertTrue( "Create time should have been at or after the call", diff >= 0 );
-    }
 
 }

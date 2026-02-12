@@ -101,9 +101,5 @@ class XoRoShiRo1024PlusPlusTest_OE25Dev {
         RandomAssert.assertLongJumpEquals(EXPECTED_SEQUENCE, EXPECTED_SEQUENCE_AFTER_LONG_JUMP, new XoRoShiRo1024PlusPlus(SEED));
     }
 
-    @Test
-    void testReferenceCode_1_oe() {
-        RandomAssert.assertEquals(EXPECTED_SEQUENCE, new XoRoShiRo1024PlusPlus(SEED));
-    }
 
 }

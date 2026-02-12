@@ -28,21 +28,4 @@ public class FitBitJsonTokenExtractorTest_OE25Dev {
         final OAuth2AccessTokenErrorResponse thrown = assertThrows(OAuth2AccessTokenErrorResponse.class, new ThrowingRunnable() { @Override public void run() throws Throwable { extractor.generateError(new Response(403, null, null, ERROR_JSON)); } });
     }
 
-    @Test
-    public void testErrorExtraction_2_oe() throws IOException {
-
-        final FitBitJsonTokenExtractor extractor = new FitBitJsonTokenExtractor();
-        // removed other assertion
-        assertSame(OAuth2Error.INVALID_GRANT, thrown.getError());
-    }
-
-    @Test
-    public void testErrorExtraction_3_oe() throws IOException {
-
-        final FitBitJsonTokenExtractor extractor = new FitBitJsonTokenExtractor();
-        // removed other assertion
-        // removed other assertion
-        assertEquals(ERROR_DESCRIPTION, thrown.getErrorDescription());
-    }
-
 }

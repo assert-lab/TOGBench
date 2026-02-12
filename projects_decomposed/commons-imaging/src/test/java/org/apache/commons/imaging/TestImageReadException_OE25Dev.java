@@ -27,30 +27,5 @@ import org.junit.jupiter.api.Test;
  */
 public class TestImageReadException_OE25Dev {
 
-    @Test
-    public void testCreateExceptionWithMessage_1_oe() {
-        final ImageReadException exception = new ImageReadException("imaging");
-        assertEquals("imaging", exception.getMessage());
-    }
-
-    @Test
-    public void testCreateExceptionWithMessage_2_oe() {
-        final ImageReadException exception = new ImageReadException("imaging");
-        // removed other assertion
-        assertNull(exception.getCause());
-    }
-
-    @Test
-    public void testCreateExceptionWithMessageAndCause_1_oe() {
-        final ImageReadException exception = new ImageReadException("imaging", new Exception("cause"));
-        assertEquals("imaging", exception.getMessage());
-    }
-
-    @Test
-    public void testCreateExceptionWithMessageAndCause_2_oe() {
-        final ImageReadException exception = new ImageReadException("imaging", new Exception("cause"));
-        // removed other assertion
-        assertNotNull(exception.getCause());
-    }
 
 }

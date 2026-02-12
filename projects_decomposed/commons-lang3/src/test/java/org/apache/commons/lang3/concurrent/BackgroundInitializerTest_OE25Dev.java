@@ -207,31 +207,6 @@ public class BackgroundInitializerTest_OE25Dev {
     }
 
     @Test
-    public void testGetActiveExecutorBeforeStart_1_oe() {
-        final BackgroundInitializerTestImpl init = new BackgroundInitializerTestImpl();
-        assertNull(init.getActiveExecutor(), "Got an executor");
-    }
-
-    @Test
-    public void testGetActiveExecutorTemp_1_oe() throws ConcurrentException {
-        final BackgroundInitializerTestImpl init = new BackgroundInitializerTestImpl();
-        init.start();
-        assertNotNull(init.getActiveExecutor(), "No active executor");
-    }
-
-    @Test
-    public void testInitializeTempExecutor_1_oe() throws ConcurrentException {
-        final BackgroundInitializerTestImpl init = new BackgroundInitializerTestImpl();
-        assertTrue(init.start(), "Wrong result of start()");
-    }
-
-    @Test
-    public void testStartMultipleTimes_1_oe() throws ConcurrentException {
-        final BackgroundInitializerTestImpl init = new BackgroundInitializerTestImpl();
-        assertTrue(init.start(), "Wrong result for start()");
-    }
-
-    @Test
     public void testGetBeforeStart_1_oe() {
         final BackgroundInitializerTestImpl init = new BackgroundInitializerTestImpl();
         assertThrows(IllegalStateException.class, init::get);
@@ -253,59 +228,6 @@ public class BackgroundInitializerTest_OE25Dev {
         init.ex = ex;
         init.start();
         final ConcurrentException cex = assertThrows(ConcurrentException.class, init::get);
-    }
-
-    @Test
-    public void testGetInterruptedException_2_oe() throws InterruptedException {
-        final ExecutorService exec = Executors.newSingleThreadExecutor();
-        final BackgroundInitializerTestImpl init = new BackgroundInitializerTestImpl(
-                exec);
-        final CountDownLatch latch1 = new CountDownLatch(1);
-        init.shouldSleep = true;
-        init.start();
-        final AtomicReference<InterruptedException> iex = new AtomicReference<>();
-        final Thread getThread = new Thread() {
-            @Override
-            public void run() {
-                try {
-                    init.get();
-                } catch (final ConcurrentException cex) {
-                    if (cex.getCause() instanceof InterruptedException) {
-                        iex.set((InterruptedException) cex.getCause());
-                    }
-                } finally {
-                    // removed other assertion
-                    latch1.countDown();
-                }
-            }
-        };
-        getThread.start();
-        getThread.interrupt();
-        latch1.await();
-        exec.shutdownNow();
-        exec.awaitTermination(1, TimeUnit.SECONDS);
-        assertNotNull(iex.get(), "No interrupted exception");
-    }
-
-    @Test
-    public void testIsStartedFalse_1_oe() {
-        final BackgroundInitializerTestImpl init = new BackgroundInitializerTestImpl();
-        assertFalse(init.isStarted(), "Already started");
-    }
-
-    @Test
-    public void testIsStartedTrue_1_oe() {
-        final BackgroundInitializerTestImpl init = new BackgroundInitializerTestImpl();
-        init.start();
-        assertTrue(init.isStarted(), "Not started");
-    }
-
-    @Test
-    public void testIsStartedAfterGet_1_oe() throws ConcurrentException {
-        final BackgroundInitializerTestImpl init = new BackgroundInitializerTestImpl();
-        init.start();
-        checkInitialize(init);
-        assertTrue(init.isStarted(), "Not started");
     }
 
 }

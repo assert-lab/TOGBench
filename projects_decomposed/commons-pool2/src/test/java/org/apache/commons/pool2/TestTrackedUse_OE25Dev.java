@@ -34,9 +34,5 @@ public class TestTrackedUse_OE25Dev {
 
     }
 
-    @Test
-    public void testDefaultGetLastUsedInstant_1_oe() {
-        assertEquals(Instant.ofEpochMilli(1), new DefaultTrackedUse().getLastUsedInstant());
-    }
 
 }

@@ -1,0 +1,9 @@
+     @Test
+    public void test_oe() throws Exception {
+        try {
+        PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null);
+        fail("IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool) must not allow a null pool.");
+        } catch (IllegalArgumentException e) {
+            // transformed assertthrows to try-catch
+        }
+    }

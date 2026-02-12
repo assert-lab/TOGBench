@@ -56,7 +56,11 @@ class InverseTransformParetoSamplerTest_OE25Dev {
             RandomSource.SPLIT_MIX_64.create(0L);
          double scale = 0;
          double shape = 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> InverseTransformParetoSampler.of(rng, scale, shape));
+        try {
+    InverseTransformParetoSampler.of(rng, scale, shape);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -65,7 +69,11 @@ class InverseTransformParetoSamplerTest_OE25Dev {
             RandomSource.SPLIT_MIX_64.create(0L);
          double scale = 1;
          double shape = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> InverseTransformParetoSampler.of(rng, scale, shape));
+        try {
+    InverseTransformParetoSampler.of(rng, scale, shape);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

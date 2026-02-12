@@ -35,7 +35,11 @@ class BoxMullerGaussianSamplerTest_OE25Dev {
             RandomSource.SPLIT_MIX_64.create(0L);
          double mean = 1;
          double standardDeviation = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new BoxMullerGaussianSampler(rng, mean, standardDeviation));
+        try {
+    new BoxMullerGaussianSampler(rng, mean, standardDeviation);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

@@ -30,6 +30,8 @@ import org.apache.commons.rng.core.util.NumberFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class JDKRandomTest_OE25Dev {
     /**
      * A class that is Serializable.
@@ -91,31 +93,5 @@ class JDKRandomTest_OE25Dev {
         Assertions.assertThrows(IllegalStateException.class, () -> rng.restoreState(dummyState));
     }
 
-    @Test
-    void testReferenceCode_1_oe() {
-         long refSeed = -1357111213L;
-         JDKRandom rng = new JDKRandom(refSeed);
-         Random jdk = new Random(refSeed);
-
-        // This is a trivial test since "JDKRandom" delegates to "Random".
-
-         int numRepeats = 1000;
-        for (int[] r = {0}; r[0] < numRepeats; r[0]++) {
-            Assertions.assertEquals(jdk.nextInt(), rng.nextInt(), () -> r[0] + " nextInt");
-    }
-    }
-
-    @Test
-    void testRestoreToNewInstance_1_oe()  {
-         long seed = 8796746234L;
-         JDKRandom rng1 = new JDKRandom(seed);
-         JDKRandom rng2 = new JDKRandom(seed + 1);
-
-        // Ensure different
-         int numRepeats = 10;
-        for (int[] r = {0}; r[0] < numRepeats; r[0]++) {
-            Assertions.assertNotEquals(rng1.nextInt(), rng2.nextInt(), () -> r[0] + " nextInt");
-    }
-    }
 
 }

@@ -138,7 +138,11 @@ class LargeMeanPoissonSamplerTest_OE25Dev {
          RestorableUniformRandomProvider rng =
                 RandomSource.SPLIT_MIX_64.create(0L);
          double mean = Integer.MAX_VALUE / 2 + 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> LargeMeanPoissonSampler.of(rng, mean));
+        try {
+    LargeMeanPoissonSampler.of(rng, mean);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -146,7 +150,11 @@ class LargeMeanPoissonSamplerTest_OE25Dev {
          RestorableUniformRandomProvider rng =
                 RandomSource.SPLIT_MIX_64.create(0L);
          double mean = Math.nextDown(1);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> LargeMeanPoissonSampler.of(rng, mean));
+        try {
+    LargeMeanPoissonSampler.of(rng, mean);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -154,7 +162,11 @@ class LargeMeanPoissonSamplerTest_OE25Dev {
          RestorableUniformRandomProvider rng =
                 RandomSource.SPLIT_MIX_64.create(0L);
          LargeMeanPoissonSamplerState state = new LargeMeanPoissonSampler(rng, 1).getState();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new LargeMeanPoissonSampler(rng, state, -0.1));
+        try {
+    new LargeMeanPoissonSampler(rng, state, -0.1);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -162,7 +174,11 @@ class LargeMeanPoissonSamplerTest_OE25Dev {
          RestorableUniformRandomProvider rng =
                 RandomSource.SPLIT_MIX_64.create(0L);
          LargeMeanPoissonSamplerState state = new LargeMeanPoissonSampler(rng, 1).getState();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new LargeMeanPoissonSampler(rng, state, 1.1));
+        try {
+    new LargeMeanPoissonSampler(rng, state, 1.1);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -170,7 +186,11 @@ class LargeMeanPoissonSamplerTest_OE25Dev {
          RestorableUniformRandomProvider rng =
                 RandomSource.SPLIT_MIX_64.create(0L);
          LargeMeanPoissonSamplerState state = new LargeMeanPoissonSampler(rng, 1).getState();
-        Assertions.assertThrows(IllegalArgumentException.class, () -> new LargeMeanPoissonSampler(rng, state, 1));
+        try {
+    new LargeMeanPoissonSampler(rng, state, 1);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

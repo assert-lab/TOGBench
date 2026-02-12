@@ -29,109 +29,30 @@ import org.junit.jupiter.api.Test;
 public class CloneFailedExceptionTest_OE25Dev extends AbstractExceptionTest {
 
     @Test
-    public void testThrowingInformativeException_1_oe() {
-        assertThrows(CloneFailedException.class, () -> { throw new CloneFailedException(EXCEPTION_MESSAGE, generateCause()); });
+    public void testThrowingInformativeException_1_oe() throws Exception {
+        try {
+     throw new CloneFailedException(EXCEPTION_MESSAGE, generateCause());
+    org.junit.jupiter.api.Assertions.fail("CloneFailedException");
+} catch (CloneFailedException e) {
+}
     }
 
     @Test
-    public void testThrowingExceptionWithMessage_1_oe() {
-        assertThrows(CloneFailedException.class, () -> { throw new CloneFailedException(EXCEPTION_MESSAGE); });
+    public void testThrowingExceptionWithMessage_1_oe() throws Exception {
+        try {
+     throw new CloneFailedException(EXCEPTION_MESSAGE);
+    org.junit.jupiter.api.Assertions.fail("CloneFailedException");
+} catch (CloneFailedException e) {
+}
     }
 
     @Test
-    public void testThrowingExceptionWithCause_1_oe() {
-        assertThrows(CloneFailedException.class, () -> { throw new CloneFailedException(generateCause()); });
-    }
-
-    @Test
-    public void testWithCauseAndMessage_1_oe() {
-        final Exception exception = new CloneFailedException(EXCEPTION_MESSAGE, generateCause());
-        assertNotNull(exception);
-    }
-
-    @Test
-    public void testWithCauseAndMessage_2_oe() {
-        final Exception exception = new CloneFailedException(EXCEPTION_MESSAGE, generateCause());
-        // removed other assertion
-        assertEquals(EXCEPTION_MESSAGE, exception.getMessage(), WRONG_EXCEPTION_MESSAGE);
-    }
-
-    @Test
-    public void testWithCauseAndMessage_3_oe() {
-        final Exception exception = new CloneFailedException(EXCEPTION_MESSAGE, generateCause());
-        // removed other assertion
-        // removed other assertion
-
-        final Throwable cause = exception.getCause();
-        assertNotNull(cause);
-    }
-
-    @Test
-    public void testWithCauseAndMessage_4_oe() {
-        final Exception exception = new CloneFailedException(EXCEPTION_MESSAGE, generateCause());
-        // removed other assertion
-        // removed other assertion
-
-        final Throwable cause = exception.getCause();
-        // removed other assertion
-        assertEquals(CAUSE_MESSAGE, cause.getMessage(), WRONG_CAUSE_MESSAGE);
-    }
-
-    @Test
-    public void testWithoutCause_1_oe() {
-        final Exception exception = new CloneFailedException(EXCEPTION_MESSAGE);
-        assertNotNull(exception);
-    }
-
-    @Test
-    public void testWithoutCause_2_oe() {
-        final Exception exception = new CloneFailedException(EXCEPTION_MESSAGE);
-        // removed other assertion
-        assertEquals(EXCEPTION_MESSAGE, exception.getMessage(), WRONG_EXCEPTION_MESSAGE);
-    }
-
-    @Test
-    public void testWithoutCause_3_oe() {
-        final Exception exception = new CloneFailedException(EXCEPTION_MESSAGE);
-        // removed other assertion
-        // removed other assertion
-
-        final Throwable cause = exception.getCause();
-        assertNull(cause);
-    }
-
-    @Test
-    public void testWithoutMessage_1_oe() {
-        final Exception exception = new CloneFailedException(generateCause());
-        assertNotNull(exception);
-    }
-
-    @Test
-    public void testWithoutMessage_2_oe() {
-        final Exception exception = new CloneFailedException(generateCause());
-        // removed other assertion
-        assertNotNull(exception.getMessage());
-    }
-
-    @Test
-    public void testWithoutMessage_3_oe() {
-        final Exception exception = new CloneFailedException(generateCause());
-        // removed other assertion
-        // removed other assertion
-
-        final Throwable cause = exception.getCause();
-        assertNotNull(cause);
-    }
-
-    @Test
-    public void testWithoutMessage_4_oe() {
-        final Exception exception = new CloneFailedException(generateCause());
-        // removed other assertion
-        // removed other assertion
-
-        final Throwable cause = exception.getCause();
-        // removed other assertion
-        assertEquals(CAUSE_MESSAGE, cause.getMessage(), WRONG_CAUSE_MESSAGE);
+    public void testThrowingExceptionWithCause_1_oe() throws Exception {
+        try {
+     throw new CloneFailedException(generateCause());
+    org.junit.jupiter.api.Assertions.fail("CloneFailedException");
+} catch (CloneFailedException e) {
+}
     }
 
 }

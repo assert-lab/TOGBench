@@ -70,33 +70,5 @@ class DocumentationExamplesTest_OE25Dev {
 
     }
 
-    @Test
-    void testIndexPageExample_1_oe() {
-        // construct a precision instance to handle floating-point comparisons
-        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
-
-        // create a BSP tree representing the unit cube
-        final RegionBSPTree3D tree = Parallelepiped.unitCube(precision).toTree();
-
-        // create a sphere centered on the origin
-        final Sphere sphere = Sphere.from(Vector3D.ZERO, 0.65, precision);
-
-        // subtract a BSP tree approximation of the sphere containing 512 facets
-        // from the cube, modifying the cube tree in place
-        tree.difference(sphere.toTree(3));
-
-        // compute some properties of the resulting region
-        final double size = tree.getSize(); // 0.11509505362599505
-        final Vector3D centroid = tree.getCentroid(); // (0, 0, 0)
-
-        // convert to a triangle mesh
-        final TriangleMesh mesh = tree.toTriangleMesh(precision);
-
-        // save as an OBJ file
-        IO3D.write(mesh, Paths.get("target/cube-minus-sphere.obj"));
-
-        // -----------
-        Assertions.assertEquals(0.11509505362599505, size, TEST_EPS);
-    }
 
 }

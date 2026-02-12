@@ -44,38 +44,5 @@ public class ReflectionToStringBuilderExcludeWithAnnotationTest_OE25Dev {
 
     private static final String EXCLUDED_FIELD_VALUE = "excluded field value";
 
-    @Test
-    public void test_toStringExclude_1_oe() {
-        final String toString = ReflectionToStringBuilder.toString(new TestFixture());
-
-        assertThat(toString, not(containsString(EXCLUDED_FIELD_NAME)));
-    }
-
-    @Test
-    public void test_toStringExclude_2_oe() {
-        final String toString = ReflectionToStringBuilder.toString(new TestFixture());
-
-        // removed other assertion
-        assertThat(toString, not(containsString(EXCLUDED_FIELD_VALUE)));
-    }
-
-    @Test
-    public void test_toStringExclude_3_oe() {
-        final String toString = ReflectionToStringBuilder.toString(new TestFixture());
-
-        // removed other assertion
-        // removed other assertion
-        assertThat(toString, containsString(INCLUDED_FIELD_NAME));
-    }
-
-    @Test
-    public void test_toStringExclude_4_oe() {
-        final String toString = ReflectionToStringBuilder.toString(new TestFixture());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertThat(toString, containsString(INCLUDED_FIELD_VALUE));
-    }
 
 }

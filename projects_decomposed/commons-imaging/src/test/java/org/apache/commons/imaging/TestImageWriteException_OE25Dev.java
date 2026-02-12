@@ -48,37 +48,5 @@ public class TestImageWriteException_OE25Dev {
                 );
     }
 
-    @Test
-    public void testCreateExceptionWithMessage_1_oe() {
-        final ImageWriteException exception = new ImageWriteException("imaging");
-        assertEquals("imaging", exception.getMessage());
-    }
-
-    @Test
-    public void testCreateExceptionWithMessage_2_oe() {
-        final ImageWriteException exception = new ImageWriteException("imaging");
-        // removed other assertion
-        assertNull(exception.getCause());
-    }
-
-    @Test
-    public void testCreateExceptionWithMessageAndCause_1_oe() {
-        final ImageWriteException exception = new ImageWriteException("imaging", new Exception("cause"));
-        assertEquals("imaging", exception.getMessage());
-    }
-
-    @Test
-    public void testCreateExceptionWithMessageAndCause_2_oe() {
-        final ImageWriteException exception = new ImageWriteException("imaging", new Exception("cause"));
-        // removed other assertion
-        assertNotNull(exception.getCause());
-    }
-
-    @ParameterizedTest
-    @MethodSource("data")
-    public void testCreateExceptionWithData_1_oe(final Object data, final String expectedType) {
-        final ImageWriteException exception = new ImageWriteException("imaging", data);
-        assertEquals(String.format("imaging: %s (%s)", data, expectedType), exception.getMessage());
-    }
 
 }

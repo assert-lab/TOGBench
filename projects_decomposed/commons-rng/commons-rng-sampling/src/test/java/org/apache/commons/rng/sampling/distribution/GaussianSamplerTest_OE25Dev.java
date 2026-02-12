@@ -101,7 +101,11 @@ class GaussianSamplerTest_OE25Dev {
          NormalizedGaussianSampler gauss = ZigguratSampler.NormalizedGaussian.of(rng);
          double mean = 1;
          double standardDeviation = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> GaussianSampler.of(gauss, mean, standardDeviation));
+        try {
+    GaussianSampler.of(gauss, mean, standardDeviation);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -111,7 +115,11 @@ class GaussianSamplerTest_OE25Dev {
          NormalizedGaussianSampler gauss = new ZigguratNormalizedGaussianSampler(rng);
          double mean = 1;
          double standardDeviation = Double.POSITIVE_INFINITY;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> GaussianSampler.of(gauss, mean, standardDeviation));
+        try {
+    GaussianSampler.of(gauss, mean, standardDeviation);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -121,7 +129,11 @@ class GaussianSamplerTest_OE25Dev {
          NormalizedGaussianSampler gauss = new ZigguratNormalizedGaussianSampler(rng);
          double mean = 1;
          double standardDeviation = Double.NaN;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> GaussianSampler.of(gauss, mean, standardDeviation));
+        try {
+    GaussianSampler.of(gauss, mean, standardDeviation);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -131,7 +143,11 @@ class GaussianSamplerTest_OE25Dev {
          NormalizedGaussianSampler gauss = new ZigguratNormalizedGaussianSampler(rng);
          double mean = Double.POSITIVE_INFINITY;
          double standardDeviation = 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> GaussianSampler.of(gauss, mean, standardDeviation));
+        try {
+    GaussianSampler.of(gauss, mean, standardDeviation);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -141,7 +157,11 @@ class GaussianSamplerTest_OE25Dev {
          NormalizedGaussianSampler gauss = new ZigguratNormalizedGaussianSampler(rng);
          double mean = Double.NaN;
          double standardDeviation = 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> GaussianSampler.of(gauss, mean, standardDeviation));
+        try {
+    GaussianSampler.of(gauss, mean, standardDeviation);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -157,7 +177,11 @@ class GaussianSamplerTest_OE25Dev {
          double standardDeviation = 4.56;
          SharedStateContinuousSampler sampler1 =
             GaussianSampler.of(gauss, mean, standardDeviation);
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> sampler1.withUniformRandomProvider(rng2));
+        try {
+    sampler1.withUniformRandomProvider(rng2);
+    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+} catch (UnsupportedOperationException e) {
+}
     }
 
     @Test
@@ -168,7 +192,11 @@ class GaussianSamplerTest_OE25Dev {
          double standardDeviation = 4.56;
          SharedStateContinuousSampler sampler1 =
             GaussianSampler.of(gauss, mean, standardDeviation);
-        Assertions.assertThrows(UnsupportedOperationException.class, () -> sampler1.withUniformRandomProvider(rng2));
+        try {
+    sampler1.withUniformRandomProvider(rng2);
+    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+} catch (UnsupportedOperationException e) {
+}
     }
 
 }

@@ -40,54 +40,5 @@ public class TestPooledSoftReference_OE25Dev {
         ref = new PooledSoftReference<>(softRef);
     }
 
-    @Test
-    public void testPooledSoftReference_1_oe() {
-        assertEquals(REFERENT, ref.getObject());
-    }
-
-    @Test
-    public void testPooledSoftReference_2_oe() {
-        // removed other assertion
-
-        SoftReference<String> softRef = ref.getReference();
-        assertEquals(REFERENT, softRef.get());
-    }
-
-    @Test
-    public void testPooledSoftReference_3_oe() {
-        // removed other assertion
-
-        SoftReference<String> softRef = ref.getReference();
-        // removed other assertion
-        softRef.clear();
-
-        softRef = new SoftReference<>(REFERENT2);
-        ref.setReference(softRef);
-
-        assertEquals(REFERENT2, ref.getObject());
-    }
-
-    @Test
-    public void testPooledSoftReference_4_oe() {
-        // removed other assertion
-
-        SoftReference<String> softRef = ref.getReference();
-        // removed other assertion
-        softRef.clear();
-
-        softRef = new SoftReference<>(REFERENT2);
-        ref.setReference(softRef);
-
-        // removed other assertion
-
-        softRef = ref.getReference();
-        assertEquals(REFERENT2, softRef.get());
-    }
-
-    @Test
-    public void testToString_1_oe() {
-        final String expected = "Referenced Object: test, State: IDLE";
-        assertEquals(expected, ref.toString());
-    }
 
 }

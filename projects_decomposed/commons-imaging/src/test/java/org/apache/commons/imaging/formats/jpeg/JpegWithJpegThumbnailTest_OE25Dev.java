@@ -29,23 +29,5 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class JpegWithJpegThumbnailTest_OE25Dev extends ImagingTest {
 
-    @Test
-    public void testSingleImage_1_oe() throws Exception {
-        final File imageFile = getTestImageByName("img_F028c_small.jpg");
-
-        final ImageMetadata metadata = Imaging.getMetadata(imageFile);
-        assertNotNull(metadata);
-    }
-
-    @Test
-    public void testSingleImage_2_oe() throws Exception {
-        final File imageFile = getTestImageByName("img_F028c_small.jpg");
-
-        final ImageMetadata metadata = Imaging.getMetadata(imageFile);
-        // removed other assertion
-        final JpegImageMetadata jpegMetadata = (JpegImageMetadata) metadata;
-        final BufferedImage image = jpegMetadata.getEXIFThumbnail();
-        assertNotNull(image);
-    }
 
 }

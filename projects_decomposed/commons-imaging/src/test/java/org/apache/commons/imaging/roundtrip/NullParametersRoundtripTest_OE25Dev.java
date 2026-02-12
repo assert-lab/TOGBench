@@ -33,19 +33,5 @@ public class NullParametersRoundtripTest_OE25Dev extends RoundtripBase {
         return Stream.of(FormatInfo.READ_WRITE_FORMATS);
     }
 
-    @ParameterizedTest
-    @MethodSource("data")
-    public void testNullParametersRoundtrip_1_oe(final FormatInfo formatInfo) throws Exception {
-        final BufferedImage testImage = TestImages.createFullColorImage(1, 1);
-        final File temp1 = File.createTempFile("nullParameters.", "." + formatInfo.format.getDefaultExtension());
-        Imaging.writeImage(testImage, temp1, formatInfo.format);
-        Imaging.getImageInfo(temp1);
-        Imaging.getImageSize(temp1);
-        Imaging.getMetadata(temp1);
-        Imaging.getICCProfile(temp1);
-        final BufferedImage imageRead = Imaging.getBufferedImage(temp1);
-
-        assertNotNull(imageRead);
-    }
 
 }

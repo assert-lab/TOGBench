@@ -34,60 +34,6 @@ class ContinuedFractionTest_OE25Dev {
     // NUMBERS-46
 
     @Test
-    void testGoldenRatio_1_oe() throws Exception {
-        ContinuedFraction cf = new ContinuedFraction() {
-            @Override
-            public double getA(int n, double x) {
-                return 1;
-            }
-
-            @Override
-            public double getB(int n, double x) {
-                return 1;
-            }
-        };
-
-        final double eps = 1e-8;
-        double gr = cf.evaluate(0, eps);
-        Assertions.assertEquals(1.61803399, gr, eps);
-    }
-
-    @Test
-    void test415Over93_1_oe() throws Exception {
-        // https://en.wikipedia.org/wiki/Continued_fraction
-        // 415             1
-        // ---  = 4 + ---------
-        //  93        2 +   1
-        //                -----
-        //                6 + 1
-        //                    -
-        //                    7
-        //      = [4; 2, 6, 7]
-
-        ContinuedFraction cf = new ContinuedFraction() {
-            @Override
-            public double getA(int n, double x) {
-                return n <= 3 ? 1 : 0;
-            }
-
-            @Override
-            public double getB(int n, double x) {
-                switch (n) {
-                    case 0: return 4;
-                    case 1: return 2;
-                    case 2: return 6;
-                    case 3: return 7;
-                    default: return 1;
-                }
-            }
-        };
-
-        final double eps = 1e-8;
-        double gr = cf.evaluate(0, eps, 5);
-        Assertions.assertEquals(415.0 / 93.0, gr, eps);
-    }
-
-    @Test
     void testMaxIterationsThrows_1_oe() throws Exception {
         ContinuedFraction cf = new ContinuedFraction() {
             @Override
@@ -143,44 +89,6 @@ class ContinuedFractionTest_OE25Dev {
 
         final double eps = 1e-8;
         final Throwable t = Assertions.assertThrows(FractionException.class, () -> cf.evaluate(0, eps, 5));
-    }
-
-    @Test
-    void testOneIteration_1_oe() {
-        ContinuedFraction cf = new ContinuedFraction() {
-            @Override
-            public double getA(int n, double x) {
-                return 1;
-            }
-
-            @Override
-            public double getB(int n, double x) {
-                return 1;
-            }
-        };
-
-        final double eps = 10;
-        double gr = cf.evaluate(0, eps, 1);
-        Assertions.assertEquals(1.61, gr, eps);
-    }
-
-    @Test
-    void testTwoIterations_1_oe() {
-        ContinuedFraction cf = new ContinuedFraction() {
-            @Override
-            public double getA(int n, double x) {
-                return 1;
-            }
-
-            @Override
-            public double getB(int n, double x) {
-                return 1;
-            }
-        };
-
-        final double eps = 0.5;
-        double gr = cf.evaluate(0, eps, 2);
-        Assertions.assertEquals(1.5, gr);
     }
 
 }

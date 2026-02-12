@@ -77,118 +77,15 @@ public class StrLookupTest_OE25Dev  {
     }
 
     @Test
-    public void testNoneLookup_1_oe() {
-        assertNull(StrLookup.noneLookup().lookup(null));
-    }
-
-    @Test
-    public void testNoneLookup_2_oe() {
-        // removed other assertion
-        assertNull(StrLookup.noneLookup().lookup(""));
-    }
-
-    @Test
-    public void testNoneLookup_3_oe() {
-        // removed other assertion
-        // removed other assertion
-        assertNull(StrLookup.noneLookup().lookup("any"));
-    }
-
-    @Test
-    public void testSystemPropertiesLookup_1_oe() {
-        assertEquals(System.getProperty("os.name"), StrLookup.systemPropertiesLookup().lookup("os.name"));
-    }
-
-    @Test
-    public void testSystemPropertiesLookup_2_oe() {
-        // removed other assertion
-        assertNull(StrLookup.systemPropertiesLookup().lookup(""));
-    }
-
-    @Test
-    public void testSystemPropertiesLookup_3_oe() {
-        // removed other assertion
-        // removed other assertion
-        assertNull(StrLookup.systemPropertiesLookup().lookup("other"));
-    }
-
-    @Test
-    public void testSystemPropertiesLookup_4_oe() {
+    public void testSystemPropertiesLookup_4_oe() throws Exception {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertThrows(NullPointerException.class, () -> StrLookup.systemPropertiesLookup().lookup(null));
-    }
-
-    @Test
-    public void testMapLookup_1_oe() {
-        final Map<String, Object> map = new HashMap<>();
-        map.put("key", "value");
-        map.put("number", Integer.valueOf(2));
-        assertEquals("value", StrLookup.mapLookup(map).lookup("key"));
-    }
-
-    @Test
-    public void testMapLookup_2_oe() {
-        final Map<String, Object> map = new HashMap<>();
-        map.put("key", "value");
-        map.put("number", Integer.valueOf(2));
-        // removed other assertion
-        assertEquals("2", StrLookup.mapLookup(map).lookup("number"));
-    }
-
-    @Test
-    public void testMapLookup_3_oe() {
-        final Map<String, Object> map = new HashMap<>();
-        map.put("key", "value");
-        map.put("number", Integer.valueOf(2));
-        // removed other assertion
-        // removed other assertion
-        assertNull(StrLookup.mapLookup(map).lookup(null));
-    }
-
-    @Test
-    public void testMapLookup_4_oe() {
-        final Map<String, Object> map = new HashMap<>();
-        map.put("key", "value");
-        map.put("number", Integer.valueOf(2));
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertNull(StrLookup.mapLookup(map).lookup(""));
-    }
-
-    @Test
-    public void testMapLookup_5_oe() {
-        final Map<String, Object> map = new HashMap<>();
-        map.put("key", "value");
-        map.put("number", Integer.valueOf(2));
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertNull(StrLookup.mapLookup(map).lookup("other"));
-    }
-
-    @Test
-    public void testMapLookup_nullMap_1_oe() {
-        final Map<String, ?> map = null;
-        assertNull(StrLookup.mapLookup(map).lookup(null));
-    }
-
-    @Test
-    public void testMapLookup_nullMap_2_oe() {
-        final Map<String, ?> map = null;
-        // removed other assertion
-        assertNull(StrLookup.mapLookup(map).lookup(""));
-    }
-
-    @Test
-    public void testMapLookup_nullMap_3_oe() {
-        final Map<String, ?> map = null;
-        // removed other assertion
-        // removed other assertion
-        assertNull(StrLookup.mapLookup(map).lookup("any"));
+        try {
+    StrLookup.systemPropertiesLookup().lookup(null);
+    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+} catch (NullPointerException e) {
+}
     }
 
 }

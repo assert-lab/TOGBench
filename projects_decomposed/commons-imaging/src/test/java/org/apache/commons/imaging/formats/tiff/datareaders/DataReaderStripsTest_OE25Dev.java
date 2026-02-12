@@ -23,33 +23,5 @@ import org.junit.jupiter.api.Test;
 
 public class DataReaderStripsTest_OE25Dev {
 
-    @Test
-    public void testApplyPredictor_1_oe() {
-        final int[] bitsPerPixel = {1,2,3};
-        final DataReaderStrips strips = new DataReaderStrips(
-            null, null, 3, bitsPerPixel, 2, 4, 0, 3, 1, 1,
-            TiffPlanarConfiguration.CHUNKY, null, 2, null);
-        strips.resetPredictor();
-        final int[] samples = {10, 355, 355, 255};
-        int[] expected = {10, 99, 99, 255};
-        int[] predicted = strips.applyPredictor(samples);
-        assertArrayEquals(expected, predicted);
-    }
-
-    @Test
-    public void testApplyPredictor_2_oe() {
-        final int[] bitsPerPixel = {1,2,3};
-        final DataReaderStrips strips = new DataReaderStrips(
-            null, null, 3, bitsPerPixel, 2, 4, 0, 3, 1, 1,
-            TiffPlanarConfiguration.CHUNKY, null, 2, null);
-        strips.resetPredictor();
-        final int[] samples = {10, 355, 355, 255};
-        int[] expected = {10, 99, 99, 255};
-        int[] predicted = strips.applyPredictor(samples);
-        // removed other assertion
-        expected = new int[]{20, 198, 198, 254};
-        predicted = strips.applyPredictor(samples);
-        assertArrayEquals(expected, predicted);
-    }
 
 }

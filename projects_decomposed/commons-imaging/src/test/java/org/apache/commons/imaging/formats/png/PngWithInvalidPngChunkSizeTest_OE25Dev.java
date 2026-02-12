@@ -41,22 +41,30 @@ public class PngWithInvalidPngChunkSizeTest_OE25Dev {
      */
 
     @Test
-    public void testPngWithInvalidPngChunkSize_1_oe() {
+    public void testPngWithInvalidPngChunkSize_1_oe() throws Exception {
         final File imageFile = new File(JpegWithInvalidDhtSegmentTest.class.getResource("/IMAGING-211/testfile_2.png").getFile());
         final PngImagingParameters params = new PngImagingParameters();
         params.setBufferedImageFactory(new ManagedImageBufferedImageFactory());
         PngImageParser jpegImageParser = new PngImageParser();
-        Assertions.assertThrows(ImageReadException.class, () -> jpegImageParser.getBufferedImage(imageFile, params));
+        try {
+    jpegImageParser.getBufferedImage(imageFile, params);
+    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+} catch (ImageReadException e) {
+}
     }
 
     @Test
-    public void testPngWithInvalidNegativePngChunkSize_1_oe() {
+    public void testPngWithInvalidNegativePngChunkSize_1_oe() throws Exception {
         final File imageFile = new File(
                 JpegWithInvalidDhtSegmentTest.class.getResource("/IMAGING-210/testfile.png").getFile());
         final PngImagingParameters params = new PngImagingParameters();
         params.setBufferedImageFactory(new ManagedImageBufferedImageFactory());
         PngImageParser jpegImageParser = new PngImageParser();
-        Assertions.assertThrows(ImageReadException.class, () -> jpegImageParser.getBufferedImage(imageFile, params));
+        try {
+    jpegImageParser.getBufferedImage(imageFile, params);
+    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+} catch (ImageReadException e) {
+}
     }
 
 }

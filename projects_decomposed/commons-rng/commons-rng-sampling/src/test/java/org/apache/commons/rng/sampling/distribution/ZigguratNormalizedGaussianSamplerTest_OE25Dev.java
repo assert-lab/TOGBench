@@ -42,7 +42,7 @@ class ZigguratNormalizedGaussianSamplerTest_OE25Dev {
     }
 
     @Test
-    void testInfiniteLoop_1_oe() {
+    void testInfiniteLoop_1_oe() throws Exception {
         // A bad implementation whose only purpose is to force access
         // to the rarest branch.
          UniformRandomProvider bad = new UniformRandomProvider() {
@@ -60,7 +60,11 @@ class ZigguratNormalizedGaussianSamplerTest_OE25Dev {
             };
 
         // Infinite loop (in v1.1).
-        Assertions.assertThrows(StackOverflowError.class, () -> new ZigguratNormalizedGaussianSampler(bad).sample());
+        try {
+    new ZigguratNormalizedGaussianSampler(bad).sample();
+    org.junit.jupiter.api.Assertions.fail("StackOverflowError");
+} catch (StackOverflowError e) {
+}
     }
 
 }

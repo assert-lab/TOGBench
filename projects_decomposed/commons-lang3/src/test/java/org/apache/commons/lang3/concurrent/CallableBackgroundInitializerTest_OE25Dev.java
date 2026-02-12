@@ -84,24 +84,12 @@ public class CallableBackgroundInitializerTest_OE25Dev  {
     }
 
     @Test()
-    public void testInitNullCallable_1_oe() {
-        assertThrows(NullPointerException.class, () -> new CallableBackgroundInitializer<>(null));
-    }
-
-    @Test
-    public void testInitExecutor_1_oe() throws InterruptedException {
-        final ExecutorService exec = Executors.newSingleThreadExecutor();
-        final CallableBackgroundInitializer<Integer> init = new CallableBackgroundInitializer<>(
-                new TestCallable(), exec);
-        assertEquals(exec, init.getExternalExecutor(), "Executor not set");
-    }
-
-    @Test
-    public void testInitialize_1_oe() throws Exception {
-        final TestCallable call = new TestCallable();
-        final CallableBackgroundInitializer<Integer> init = new CallableBackgroundInitializer<>(
-                call);
-        assertEquals(RESULT, init.initialize(), "Wrong result");
+    public void testInitNullCallable_1_oe() throws Exception {
+        try {
+    new CallableBackgroundInitializer<>(null);
+    org.junit.jupiter.api.Assertions.fail("NullPointerException");
+} catch (NullPointerException e) {
+}
     }
 
 }

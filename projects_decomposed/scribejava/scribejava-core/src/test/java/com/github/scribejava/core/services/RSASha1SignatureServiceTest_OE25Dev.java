@@ -44,20 +44,5 @@ public class RSASha1SignatureServiceTest_OE25Dev {
         }
     }
 
-    @Test
-    public void shouldReturnSignatureMethodString_1_oe() {
-        final String expected = "RSA-SHA1";
-        assertEquals(expected, service.getSignatureMethod());
-    }
-
-    @Test
-    public void shouldReturnSignature_1_oe() {
-        final String apiSecret = "api secret";
-        final String tokenSecret = "token secret";
-        final String baseString = "base string";
-        final String signature = "LUNRzQAlpdNyM9mLXm96Va6g/qVNnEAb7p7K1KM0g8IopOFQJPoOO7cvppgt7w3QyhijWJnCmvqXaaIAGrqvd"
-                + "yr3fIzBULh8D/iZQUNLMi08GCOA34P81XBvsc7A5uJjPDsGhJg2MzoVJ8nWJhU/lMMk4c92S1WGskeoDofRwpo=";
-        assertEquals(signature, service.getSignature(baseString, apiSecret, tokenSecret));
-    }
 
 }

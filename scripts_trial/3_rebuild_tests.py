@@ -17,7 +17,7 @@ def canonical_test_name(name: str) -> str:
 
 def load_inputs_and_meta(project_dir):
     dataset_dir = os.path.join(project_dir, "dataset")
-    inputs_path = os.path.join(dataset_dir, "inputs.csv")
+    inputs_path = os.path.join(dataset_dir, "inputs_trycatch_only.csv")
     meta_path = os.path.join(dataset_dir, "meta.csv")
 
     if not (os.path.exists(inputs_path) and os.path.exists(meta_path)):

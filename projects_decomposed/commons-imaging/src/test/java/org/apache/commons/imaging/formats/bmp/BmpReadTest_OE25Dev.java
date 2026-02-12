@@ -62,26 +62,16 @@ public class BmpReadTest_OE25Dev extends BmpBaseTest {
         new BmpImageParser().dumpImageFile(new ByteSourceFile(inputFile));
     }
 
-    @ParameterizedTest
-    @MethodSource("data")
-    public void testImageInfo_1_oe(final File imageFile) throws ImageReadException, IOException {
-        final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
-        assertNotNull(imageInfo);
-    }
-
-    @ParameterizedTest
-    @MethodSource("data")
-    public void testBufferedImage_1_oe(final File imageFile) throws Exception {
-        final BufferedImage image = Imaging.getBufferedImage(imageFile);
-        assertNotNull(image);
-    }
-
     @Test
     public void testNegativePaletteLength_1_oe() throws ImageReadException, IOException {
         final String input = "/images/bmp/IMAGING-325/crash-3afb569de74522535ef65922233e1920455cdc14.bmp";
         final String location = BmpReadTest.class.getResource(input).getFile();
         final File inputFile = new File(location);
-        assertThrows(ImageReadException.class, () -> new BmpImageParser().dumpImageFile(new ByteSourceFile(inputFile)));
+        try {
+    new BmpImageParser().dumpImageFile(new ByteSourceFile(inputFile));
+    org.junit.jupiter.api.Assertions.fail("ImageReadException");
+} catch (ImageReadException e) {
+}
     }
 
 }

@@ -54,18 +54,12 @@ public class DiffTest_OE25Dev {
     }
 
     @Test
-    public void testCannotModify_1_oe() {
-        assertThrows(UnsupportedOperationException.class, () -> booleanDiff.setValue(Boolean.FALSE));
-    }
-
-    @Test
-    public void testGetFieldName_1_oe() {
-        assertEquals(FIELD_NAME, booleanDiff.getFieldName());
-    }
-
-    @Test
-    public void testGetType_1_oe() {
-        assertEquals(Boolean.class, booleanDiff.getType());
+    public void testCannotModify_1_oe() throws Exception {
+        try {
+    booleanDiff.setValue(Boolean.FALSE);
+    org.junit.jupiter.api.Assertions.fail("UnsupportedOperationException");
+} catch (UnsupportedOperationException e) {
+}
     }
 
 }

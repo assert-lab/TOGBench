@@ -175,16 +175,5 @@ public class RemoteCacheServerFactoryUnitTest_OE25Dev
         assertEquals( "Wrong readTimeout", openTimeout, ((TimeoutConfigurableRMISocketFactory)result).getOpenTimeout() );
     }
 
-    public void testConfigureRemoteCacheServerAttributes_timeoutNotPresent_1_oe()
-    {
-        // SETUP
-        final Properties props = new Properties();
-
-        // DO WORK
-        final RemoteCacheServerAttributes result = RemoteCacheServerFactory.configureRemoteCacheServerAttributes( props );
-
-        // VERIFY
-        assertEquals( "Wrong timeout", ICommonRemoteCacheAttributes.DEFAULT_RMI_SOCKET_FACTORY_TIMEOUT_MILLIS, result.getRmiSocketFactoryTimeoutMillis() );
-    }
 
 }

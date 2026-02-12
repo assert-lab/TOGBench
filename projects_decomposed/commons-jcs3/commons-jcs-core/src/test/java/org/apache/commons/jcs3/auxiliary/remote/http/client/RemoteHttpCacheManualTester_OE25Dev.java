@@ -45,32 +45,5 @@ public class RemoteHttpCacheManualTester_OE25Dev
      * @throws Exception Description of the Exception
      */
 
-    public void testSimpleLoad_1_oe()
-        throws Exception
-    {
-        final CacheAccess<String, String> jcs = JCS.getInstance( "testCache1" );
-
-        jcs.put( "TestKey", "TestValue" );
-
-//        System.out.println( jcs.getStats() );
-
-        for ( int i = 1; i <= items; i++ )
-        {
-            jcs.put( i + ":key", "data" + i );
-        }
-
-        for ( int i = items; i > 0; i-- )
-        {
-            final String res = jcs.get( i + ":key" );
-            if ( res == null )
-            {
-                //assertNotNull( "[" + i + ":key] should not be null", res );
-            }
-        }
-
-        // test removal
-        jcs.remove( "300:key" );
-        assertNull( jcs.get( "TestKey" ) );
-    }
 
 }

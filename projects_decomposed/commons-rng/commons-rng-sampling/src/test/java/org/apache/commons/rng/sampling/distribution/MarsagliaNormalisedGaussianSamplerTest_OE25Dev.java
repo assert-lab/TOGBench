@@ -45,42 +45,5 @@ class MarsagliaNormalisedGaussianSamplerTest_OE25Dev {
      * of the pair is outside the unit circle or lies on the origin.
      */
 
-    @Test
-    void testSamplePairIsRejected_1_oe() {
-         double value = 0.25;
-         UniformRandomProvider rng = new IntProvider() {
-            private int i;
-
-            @Override
-            public int next() {
-                // Not used
-                return 0;
-            }
-
-            @Override
-            public double nextDouble() {
-                i++;
-                if (i <= 2) {
-                    // First two samples are one.
-                    // This is outside the unit circle.
-                    return 1.0;
-                }
-                if (i <= 4) {
-                    // Next two samples are 0.5.
-                    // The pair lies at the origin.
-                    return 0.5;
-                }
-                return value;
-            }
-        };
-
-         MarsagliaNormalizedGaussianSampler sampler = new MarsagliaNormalizedGaussianSampler(rng);
-
-        // Compute as per the algorithm
-         double x = 2 * value - 1;
-         double r2 = x * x + x * x;
-         double expected = x * Math.sqrt(-2 * Math.log(r2) / r2);
-        Assertions.assertEquals(expected, sampler.sample());
-    }
 
 }

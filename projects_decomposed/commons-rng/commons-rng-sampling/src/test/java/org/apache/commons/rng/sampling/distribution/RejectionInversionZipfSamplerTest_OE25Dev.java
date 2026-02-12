@@ -56,7 +56,11 @@ class RejectionInversionZipfSamplerTest_OE25Dev {
             RandomSource.SPLIT_MIX_64.create(0L);
          int numberOfElements = 0;
          double exponent = 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> RejectionInversionZipfSampler.of(rng, numberOfElements, exponent));
+        try {
+    RejectionInversionZipfSampler.of(rng, numberOfElements, exponent);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -65,7 +69,11 @@ class RejectionInversionZipfSamplerTest_OE25Dev {
             RandomSource.SPLIT_MIX_64.create(0L);
          int numberOfElements = 1;
          double exponent = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> RejectionInversionZipfSampler.of(rng, numberOfElements, exponent));
+        try {
+    RejectionInversionZipfSampler.of(rng, numberOfElements, exponent);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

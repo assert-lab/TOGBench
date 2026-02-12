@@ -72,12 +72,5 @@ public class FileTypeTest_OE25Dev {
         test(FileType.IMAGINARY);
     }
 
-    @Test
-    public void testSerializationContainer_1_oe() {
-        final Fixture expectedFixture = new Fixture();
-        final byte[] serialized = SerializationUtils.serialize(expectedFixture);
-        final Fixture actualFixture = (Fixture) SerializationUtils.deserialize(serialized);
-        assertEquals(expectedFixture.getFileType(), actualFixture.getFileType());
-    }
 
 }

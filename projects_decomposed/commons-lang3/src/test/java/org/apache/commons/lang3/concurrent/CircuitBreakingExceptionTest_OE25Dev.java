@@ -31,114 +31,39 @@ import org.junit.jupiter.api.Test;
 public class CircuitBreakingExceptionTest_OE25Dev extends AbstractExceptionTest {
 
     @Test
-    public void testThrowingInformativeException_1_oe() {
-        assertThrows(CircuitBreakingException.class, () -> { throw new CircuitBreakingException(EXCEPTION_MESSAGE, generateCause()); });
+    public void testThrowingInformativeException_1_oe() throws Exception {
+        try {
+     throw new CircuitBreakingException(EXCEPTION_MESSAGE, generateCause());
+    org.junit.jupiter.api.Assertions.fail("CircuitBreakingException");
+} catch (CircuitBreakingException e) {
+}
     }
 
     @Test
-    public void testThrowingExceptionWithMessage_1_oe() {
-        assertThrows(CircuitBreakingException.class, () -> { throw new CircuitBreakingException(EXCEPTION_MESSAGE); });
+    public void testThrowingExceptionWithMessage_1_oe() throws Exception {
+        try {
+     throw new CircuitBreakingException(EXCEPTION_MESSAGE);
+    org.junit.jupiter.api.Assertions.fail("CircuitBreakingException");
+} catch (CircuitBreakingException e) {
+}
     }
 
     @Test
-    public void testThrowingExceptionWithCause_1_oe() {
-        assertThrows(CircuitBreakingException.class, () -> { throw new CircuitBreakingException(generateCause()); });
+    public void testThrowingExceptionWithCause_1_oe() throws Exception {
+        try {
+     throw new CircuitBreakingException(generateCause());
+    org.junit.jupiter.api.Assertions.fail("CircuitBreakingException");
+} catch (CircuitBreakingException e) {
+}
     }
 
     @Test
-    public void testThrowingEmptyException_1_oe() {
-        assertThrows(CircuitBreakingException.class, () -> { throw new CircuitBreakingException(); });
-    }
-
-    @Test
-    public void testWithCauseAndMessage_1_oe() {
-        final Exception exception = new CircuitBreakingException(EXCEPTION_MESSAGE, generateCause());
-        assertNotNull(exception);
-    }
-
-    @Test
-    public void testWithCauseAndMessage_2_oe() {
-        final Exception exception = new CircuitBreakingException(EXCEPTION_MESSAGE, generateCause());
-        // removed other assertion
-        assertEquals(EXCEPTION_MESSAGE, exception.getMessage(), WRONG_EXCEPTION_MESSAGE);
-    }
-
-    @Test
-    public void testWithCauseAndMessage_3_oe() {
-        final Exception exception = new CircuitBreakingException(EXCEPTION_MESSAGE, generateCause());
-        // removed other assertion
-        // removed other assertion
-
-        final Throwable cause = exception.getCause();
-        assertNotNull(cause);
-    }
-
-    @Test
-    public void testWithCauseAndMessage_4_oe() {
-        final Exception exception = new CircuitBreakingException(EXCEPTION_MESSAGE, generateCause());
-        // removed other assertion
-        // removed other assertion
-
-        final Throwable cause = exception.getCause();
-        // removed other assertion
-        assertEquals(CAUSE_MESSAGE, cause.getMessage(), WRONG_CAUSE_MESSAGE);
-    }
-
-    @Test
-    public void testWithoutCause_1_oe() {
-        final Exception exception = new CircuitBreakingException(EXCEPTION_MESSAGE);
-        assertNotNull(exception);
-    }
-
-    @Test
-    public void testWithoutCause_2_oe() {
-        final Exception exception = new CircuitBreakingException(EXCEPTION_MESSAGE);
-        // removed other assertion
-        assertEquals(EXCEPTION_MESSAGE, exception.getMessage(), WRONG_EXCEPTION_MESSAGE);
-    }
-
-    @Test
-    public void testWithoutCause_3_oe() {
-        final Exception exception = new CircuitBreakingException(EXCEPTION_MESSAGE);
-        // removed other assertion
-        // removed other assertion
-
-        final Throwable cause = exception.getCause();
-        assertNull(cause);
-    }
-
-    @Test
-    public void testWithoutMessage_1_oe() {
-        final Exception exception = new CircuitBreakingException(generateCause());
-        assertNotNull(exception);
-    }
-
-    @Test
-    public void testWithoutMessage_2_oe() {
-        final Exception exception = new CircuitBreakingException(generateCause());
-        // removed other assertion
-        assertNotNull(exception.getMessage());
-    }
-
-    @Test
-    public void testWithoutMessage_3_oe() {
-        final Exception exception = new CircuitBreakingException(generateCause());
-        // removed other assertion
-        // removed other assertion
-
-        final Throwable cause = exception.getCause();
-        assertNotNull(cause);
-    }
-
-    @Test
-    public void testWithoutMessage_4_oe() {
-        final Exception exception = new CircuitBreakingException(generateCause());
-        // removed other assertion
-        // removed other assertion
-
-        final Throwable cause = exception.getCause();
-        // removed other assertion
-        assertEquals(CAUSE_MESSAGE, cause.getMessage(), WRONG_CAUSE_MESSAGE);
+    public void testThrowingEmptyException_1_oe() throws Exception {
+        try {
+     throw new CircuitBreakingException();
+    org.junit.jupiter.api.Assertions.fail("CircuitBreakingException");
+} catch (CircuitBreakingException e) {
+}
     }
 
 }

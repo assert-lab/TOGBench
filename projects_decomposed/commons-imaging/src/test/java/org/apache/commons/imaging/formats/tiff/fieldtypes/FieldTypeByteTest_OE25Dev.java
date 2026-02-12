@@ -25,11 +25,15 @@ import org.junit.jupiter.api.Test;
 public class FieldTypeByteTest_OE25Dev{
 
   @Test
-  public void testWriteDataWithNull_1_oe() {
+  public void testWriteDataWithNull_1_oe() throws Exception {
       final FieldTypeByte fieldTypeByte = FieldType.UNDEFINED;
       final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;
 
-      Assertions.assertThrows(ImageWriteException.class, () -> fieldTypeByte.writeData( null, byteOrder));
+      try {
+    fieldTypeByte.writeData( null, byteOrder);
+    org.junit.jupiter.api.Assertions.fail("ImageWriteException");
+} catch (ImageWriteException e) {
+}
   }
 
 }

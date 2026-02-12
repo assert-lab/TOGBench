@@ -74,23 +74,5 @@ public class HtmlTreeBuilderStateTest_OE25Dev {
         assertEquals("<html>\n" + " <head></head>\n" + " <body><a href=\"#1\"> </a>\n" + " <div>\n" + " <a href=\"#1\"> </a>\n" + " <div>\n" + " <a href=\"#1\"> </a><a href=\"#2\">child</a>\n" + " </div>\n" + " </div>\n" + " </body>\n" + "</html>",s);
     }
 
-    @Test
-    public void ensureArraysAreSorted_1_oe() {
-        List<Object[]> constants = findConstantArrays(Constants.class);
-        ensureSorted(constants);
-        assertEquals(38, constants.size());
-    }
-
-    @Test public void ensureTagSearchesAreKnownTags_1_oe() {
-        List<Object[]> constants = findConstantArrays(Constants.class);
-        for (Object[] constant : constants) {
-            String[] tagNames = (String[]) constant;
-            for (String tagName : tagNames) {
-                if (StringUtil.inSorted(tagName, InBodyStartInputAttribs))
-                    continue; // odd one out in the constant
-                assertTrue(Tag.isKnownTag(tagName), String.format("Unknown tag name: %s", tagName));
-        }
-        }
-        }
 
 }

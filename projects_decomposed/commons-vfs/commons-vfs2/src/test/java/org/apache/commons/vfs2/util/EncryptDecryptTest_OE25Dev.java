@@ -32,27 +32,5 @@ public class EncryptDecryptTest_OE25Dev {
         /* ignored */ cryptor.decrypt(broken);
     }
 
-    @Test
-    public void testEncryptDecrypt_1_oe() throws Exception {
-        final String source = "Qryp2!t&tpR59";
-        final String expected = "914589F049CE3E8E3BB1A41BEAE12A9C";
-
-        final Cryptor cryptor = CryptorFactory.getCryptor();
-        final String encrypted = cryptor.encrypt(source);
-        assertEquals(expected, encrypted);
-    }
-
-    @Test
-    public void testEncryptDecrypt_2_oe() throws Exception {
-        final String source = "Qryp2!t&tpR59";
-        final String expected = "914589F049CE3E8E3BB1A41BEAE12A9C";
-
-        final Cryptor cryptor = CryptorFactory.getCryptor();
-        final String encrypted = cryptor.encrypt(source);
-        // removed other assertion
-
-        final String decrypted = cryptor.decrypt(encrypted);
-        assertEquals(source, decrypted);
-    }
 
 }

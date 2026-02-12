@@ -25,13 +25,5 @@ import org.junit.jupiter.api.Test;
 
 public class NoOpCallStackTest_OE25Dev {
 
-    @Test
-    public void printStackTraceIsNoOp_1_oe() {
-        final CallStack stack = NoOpCallStack.INSTANCE;
-        stack.fillInStackTrace();
-        final StringWriter writer = new StringWriter();
-        stack.printStackTrace(new PrintWriter(writer));
-        assertEquals("", writer.toString());
-    }
 
 }

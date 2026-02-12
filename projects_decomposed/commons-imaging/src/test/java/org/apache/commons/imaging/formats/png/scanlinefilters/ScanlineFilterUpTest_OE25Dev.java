@@ -25,13 +25,5 @@ import org.junit.jupiter.api.Test;
 
 public class ScanlineFilterUpTest_OE25Dev {
 
-  @Test
-  public void testUnfilterWithNull_1_oe() throws IOException, ImageReadException {
-      final ScanlineFilterUp scanlineFilterUp = new ScanlineFilterUp();
-      final byte[] byteArray = new byte[4];
-      scanlineFilterUp.unfilter(byteArray, byteArray, null);
-
-      assertArrayEquals(new byte[] {(byte)0, (byte)0, (byte)0, (byte)0}, byteArray);
-  }
 
 }

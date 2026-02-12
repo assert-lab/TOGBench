@@ -32,13 +32,6 @@ class CoordinatesTest_OE25Dev {
      */
 
     @Test
-    void testRequireFiniteWithMessageThrows_1_oe() {
-         double[] c = {0, 1, 2};
-         String message = "This should be prepended";
-        Assertions.assertSame(c, Coordinates.requireFinite(c, message));
-    }
-
-    @Test
     void testRequireFiniteWithMessageThrows_2_oe() {
          double[] c = {0, 1, 2};
          String message = "This should be prepended";
@@ -51,15 +44,6 @@ class CoordinatesTest_OE25Dev {
                 c[i] = d;
                  IllegalArgumentException ex = Assertions.assertThrows(IllegalArgumentException.class, () -> Coordinates.requireFinite(c, message), () -> String.format("Did not detect non-finite coordinate: %d = %s", ii, d));
     }
-    }
-    }
-
-    @Test
-    void testRequireLengthWithMessageThrows_1_oe() {
-         String message = "This should be prepended";
-        for ( double[] c : new double[][] {{0, 1}, {0, 1, 2}}) {
-             int length = c.length;
-            Assertions.assertSame(c, Coordinates.requireLength(c, length, message));
     }
     }
 

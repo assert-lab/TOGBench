@@ -323,19 +323,11 @@ class UnitBallSamplerTest_OE25Dev {
     @Test
     void testInvalidDimensionThrows_1_oe() {
          UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> UnitBallSampler.of(rng, 0));
-    }
-
-    @Test
-    void checkVolumeFunctions_1_oe() {
-         double[] radii = {0, 0.1, 0.25, 0.5, 0.75, 1.0};
-        for (int n = 1; n <= 6; n++) {
-             DoubleUnaryOperator volume = createVolumeFunction(n);
-             DoubleUnaryOperator radius = createRadiusFunction(n);
-            for ( double r : radii) {
-                Assertions.assertEquals(r, radius.applyAsDouble(volume.applyAsDouble(r)), 1e-10);
-    }
-    }
+        try {
+    UnitBallSampler.of(rng, 0);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

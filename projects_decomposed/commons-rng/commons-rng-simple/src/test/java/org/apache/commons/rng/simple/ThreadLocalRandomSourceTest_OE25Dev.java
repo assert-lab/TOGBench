@@ -54,107 +54,20 @@ class ThreadLocalRandomSourceTest_OE25Dev {
 
     @Test
     void testCurrentThrowsForNullRandomSource_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ThreadLocalRandomSource.current(null));
+        try {
+    ThreadLocalRandomSource.current(null);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
     void testCurrentThrowsForRandomSourceWithDataArguments_1_oe() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> ThreadLocalRandomSource.current(RandomSource.TWO_CMRES_SELECT));
-    }
-
-    @Test
-    void testCurrentForAllRandomSources_1_oe()
-            throws InterruptedException, ExecutionException, TimeoutException {
-         RandomSource[] sources = RandomSource.values();
-         UniformRandomProvider[] rngs = new UniformRandomProvider[sources.length];
-
-        for (int i = 0; i < sources.length; i++) {
-             RandomSource source = sources[i];
-            if (toIgnore.contains(source)) {
-                continue;
-            }
-             UniformRandomProvider rng = getCurrent(source);
-            Assertions.assertNotNull(rng, () -> "Failed to create source: " + source);
-    }
-    }
-
-    @Test
-    void testCurrentForAllRandomSources_2_oe()
-            throws InterruptedException, ExecutionException, TimeoutException {
-         RandomSource[] sources = RandomSource.values();
-         UniformRandomProvider[] rngs = new UniformRandomProvider[sources.length];
-
-        for (int i = 0; i < sources.length; i++) {
-             RandomSource source = sources[i];
-            if (toIgnore.contains(source)) {
-                continue;
-            }
-             UniformRandomProvider rng = getCurrent(source);
-            // removed other assertion
-            rngs[i] = rng;
-        }
-        for (int i = 0; i < sources.length; i++) {
-             RandomSource source = sources[i];
-            if (toIgnore.contains(source)) {
-                continue;
-            }
-             UniformRandomProvider rng = getCurrent(source);
-            Assertions.assertSame(rngs[i], rng, () -> "Failed to return same source: " + source);
-    }
-    }
-
-    @Test
-    void testCurrentForAllRandomSources_3_oe()
-            throws InterruptedException, ExecutionException, TimeoutException {
-         RandomSource[] sources = RandomSource.values();
-         UniformRandomProvider[] rngs = new UniformRandomProvider[sources.length];
-
-        for (int i = 0; i < sources.length; i++) {
-             RandomSource source = sources[i];
-            if (toIgnore.contains(source)) {
-                continue;
-            }
-             UniformRandomProvider rng = getCurrent(source);
-            // removed other assertion
-            rngs[i] = rng;
-        }
-        for (int i = 0; i < sources.length; i++) {
-             RandomSource source = sources[i];
-            if (toIgnore.contains(source)) {
-                continue;
-            }
-             UniformRandomProvider rng = getCurrent(source);
-            // removed other assertion
-        }
-
-        // Build on a new thread
-         UniformRandomProvider[] rngs2 = new UniformRandomProvider[rngs.length];
-         ExecutorService executor = Executors.newFixedThreadPool(1);
-         Future<?> future = executor.submit(
-            new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < sources.length; i++) {
-                        if (toIgnore.contains(sources[i])) {
-                            continue;
-                        }
-                        rngs2[i] = getCurrent(sources[i]);
-                    }
-                }
-            });
-
-        // Shutdown and wait for task to end
-        executor.shutdown();
-        future.get(30, TimeUnit.SECONDS);
-
-        // The RNG from the new thread should be different
-        for (int i = 0; i < sources.length; i++) {
-             RandomSource source = sources[i];
-            if (toIgnore.contains(source)) {
-                continue;
-            }
-            Assertions.assertNotSame(rngs[i], rngs2[i], () -> "Failed to return different source: " + source);
-    }
+        try {
+    ThreadLocalRandomSource.current(RandomSource.TWO_CMRES_SELECT);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

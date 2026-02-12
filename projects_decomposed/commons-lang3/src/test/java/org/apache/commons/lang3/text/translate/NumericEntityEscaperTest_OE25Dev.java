@@ -29,41 +29,5 @@ public class NumericEntityEscaperTest_OE25Dev  {
 
     // See LANG-617
 
-    @Test
-    public void testBelow_1_oe() {
-        final NumericEntityEscaper nee = NumericEntityEscaper.below('F');
-
-        final String input = "ADFGZ";
-        final String result = nee.translate(input);
-        assertEquals("&#65;&#68;FGZ", result, "Failed to escape numeric entities via the below method");
-    }
-
-    @Test
-    public void testBetween_1_oe() {
-        final NumericEntityEscaper nee = NumericEntityEscaper.between('F', 'L');
-
-        final String input = "ADFGZ";
-        final String result = nee.translate(input);
-        assertEquals("AD&#70;&#71;Z", result, "Failed to escape numeric entities via the between method");
-    }
-
-    @Test
-    public void testAbove_1_oe() {
-        final NumericEntityEscaper nee = NumericEntityEscaper.above('F');
-
-        final String input = "ADFGZ";
-        final String result = nee.translate(input);
-        assertEquals("ADF&#71;&#90;", result, "Failed to escape numeric entities via the above method");
-    }
-
-    @Test
-    public void testSupplementary_1_oe() {
-        final NumericEntityEscaper nee = new NumericEntityEscaper();
-        final String input = "\uD803\uDC22";
-        final String expected = "&#68642;";
-
-        final String result = nee.translate(input);
-        assertEquals(expected, result, "Failed to escape numeric entities supplementary characters");
-    }
 
 }

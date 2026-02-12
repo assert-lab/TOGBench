@@ -270,42 +270,5 @@ class JumpableProvidersParametricTest_OE25Dev {
         UniformRandomProvider jump();
     }
 
-    @ParameterizedTest
-    @MethodSource("getJumpableProviders")
-    void testJumpReturnsACopy_1_oe_1_oe(JumpableUniformRandomProvider generator) {
-                 TestJumpFunction jumpFunction0 = generator::jump;
-         JumpableUniformRandomProvider generator0 = generator;
-         UniformRandomProvider copy0 = jumpFunction0.jump();
-                Assertions.assertNotSame(generator0, copy0, "The copy0 instance should be a different object");
-    }
-
-    @ParameterizedTest
-    @MethodSource("getJumpableProviders")
-    void testJumpReturnsACopy_1_oe_2_oe(JumpableUniformRandomProvider generator) {
-                 TestJumpFunction jumpFunction0 = generator::jump;
-         JumpableUniformRandomProvider generator0 = generator;
-         UniformRandomProvider copy0 = jumpFunction0.jump();
-                // removed other assertion
-                Assertions.assertEquals(generator0.getClass(), copy0.getClass(), "The copy0 instance should be the same class");
-    }
-
-    @ParameterizedTest
-    @MethodSource("getJumpableProviders")
-    void testLongJumpReturnsACopy_1_oe_1_oe(JumpableUniformRandomProvider generator) {
-                 TestJumpFunction jumpFunction0 = getLongJumpFunction(generator);
-         JumpableUniformRandomProvider generator0 = generator;
-         UniformRandomProvider copy0 = jumpFunction0.jump();
-                Assertions.assertNotSame(generator0, copy0, "The copy0 instance should be a different object");
-    }
-
-    @ParameterizedTest
-    @MethodSource("getJumpableProviders")
-    void testLongJumpReturnsACopy_1_oe_2_oe(JumpableUniformRandomProvider generator) {
-                 TestJumpFunction jumpFunction0 = getLongJumpFunction(generator);
-         JumpableUniformRandomProvider generator0 = generator;
-         UniformRandomProvider copy0 = jumpFunction0.jump();
-                // removed other assertion
-                Assertions.assertEquals(generator0.getClass(), copy0.getClass(), "The copy0 instance should be the same class");
-    }
 
 }

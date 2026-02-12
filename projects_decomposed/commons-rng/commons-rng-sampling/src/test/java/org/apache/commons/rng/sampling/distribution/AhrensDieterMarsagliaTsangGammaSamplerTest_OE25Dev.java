@@ -78,7 +78,11 @@ class AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev {
             RandomSource.SPLIT_MIX_64.create(0L);
          double alpha = 0;
          double theta = 1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> AhrensDieterMarsagliaTsangGammaSampler.of(rng, alpha, theta));
+        try {
+    AhrensDieterMarsagliaTsangGammaSampler.of(rng, alpha, theta);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
     @Test
@@ -87,13 +91,11 @@ class AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev {
             RandomSource.SPLIT_MIX_64.create(0L);
          double alpha = 1;
          double theta = 0;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> AhrensDieterMarsagliaTsangGammaSampler.of(rng, alpha, theta));
-    }
-
-    @Test
-    void testToString_1_oe() {
-         UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
-        Assertions.assertTrue(new AhrensDieterMarsagliaTsangGammaSampler(rng,1.0,2.0).toString().toLowerCase().contains("gamma"));
+        try {
+    AhrensDieterMarsagliaTsangGammaSampler.of(rng, alpha, theta);
+    org.junit.jupiter.api.Assertions.fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
     }
 
 }

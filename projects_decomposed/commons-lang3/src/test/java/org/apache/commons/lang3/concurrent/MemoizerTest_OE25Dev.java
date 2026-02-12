@@ -35,27 +35,6 @@ public class MemoizerTest_OE25Dev {
     }
 
     @Test
-    public void testOnlyCallComputableOnceIfDoesNotThrowException_1_oe() throws Exception {
-        final Integer input = 1;
-        final Memoizer<Integer, Integer> memoizer = new Memoizer<>(computable);
-        expect(computable.compute(input)).andReturn(input);
-        replay(computable);
-
-        assertEquals(input, memoizer.compute(input), "Should call computable first time");
-    }
-
-    @Test
-    public void testOnlyCallComputableOnceIfDoesNotThrowException_2_oe() throws Exception {
-        final Integer input = 1;
-        final Memoizer<Integer, Integer> memoizer = new Memoizer<>(computable);
-        expect(computable.compute(input)).andReturn(input);
-        replay(computable);
-
-        // removed other assertion
-        assertEquals(input, memoizer.compute(input), "Should not call the computable the second time");
-    }
-
-    @Test
     public void testDefaultBehaviourNotToRecalculateExecutionExceptions_1_oe() throws Exception {
         final Integer input = 1;
         final Memoizer<Integer, Integer> memoizer = new Memoizer<>(computable);
@@ -63,7 +42,11 @@ public class MemoizerTest_OE25Dev {
         expect(computable.compute(input)).andThrow(interruptedException);
         replay(computable);
 
-        assertThrows(Throwable.class, () -> memoizer.compute(input));
+        try {
+    memoizer.compute(input);
+    org.junit.jupiter.api.Assertions.fail("Throwable");
+} catch (Throwable e) {
+}
     }
 
     @Test
@@ -75,7 +58,11 @@ public class MemoizerTest_OE25Dev {
         replay(computable);
 
         // removed other assertion
-        assertThrows(IllegalStateException.class, () -> memoizer.compute(input));
+        try {
+    memoizer.compute(input);
+    org.junit.jupiter.api.Assertions.fail("IllegalStateException");
+} catch (IllegalStateException e) {
+}
     }
 
     @Test
@@ -86,7 +73,11 @@ public class MemoizerTest_OE25Dev {
         expect(computable.compute(input)).andThrow(interruptedException);
         replay(computable);
 
-        assertThrows(Throwable.class, () -> memoizer.compute(input));
+        try {
+    memoizer.compute(input);
+    org.junit.jupiter.api.Assertions.fail("Throwable");
+} catch (Throwable e) {
+}
     }
 
     @Test
@@ -98,7 +89,11 @@ public class MemoizerTest_OE25Dev {
         replay(computable);
 
         // removed other assertion
-        assertThrows(IllegalStateException.class, () -> memoizer.compute(input));
+        try {
+    memoizer.compute(input);
+    org.junit.jupiter.api.Assertions.fail("IllegalStateException");
+} catch (IllegalStateException e) {
+}
     }
 
     @Test
@@ -110,7 +105,11 @@ public class MemoizerTest_OE25Dev {
         expect(computable.compute(input)).andThrow(interruptedException).andReturn(answer);
         replay(computable);
 
-        assertThrows(Throwable.class, () -> memoizer.compute(input));
+        try {
+    memoizer.compute(input);
+    org.junit.jupiter.api.Assertions.fail("Throwable");
+} catch (Throwable e) {
+}
     }
 
     @Test
@@ -121,7 +120,11 @@ public class MemoizerTest_OE25Dev {
         expect(computable.compute(input)).andThrow(runtimeException);
         replay(computable);
 
-        assertThrows(RuntimeException.class, () -> memoizer.compute(input));
+        try {
+    memoizer.compute(input);
+    org.junit.jupiter.api.Assertions.fail("RuntimeException");
+} catch (RuntimeException e) {
+}
     }
 
     @Test
@@ -132,7 +135,11 @@ public class MemoizerTest_OE25Dev {
         expect(computable.compute(input)).andThrow(error);
         replay(computable);
 
-        assertThrows(Error.class, () -> memoizer.compute(input));
+        try {
+    memoizer.compute(input);
+    org.junit.jupiter.api.Assertions.fail("Error");
+} catch (Error e) {
+}
     }
 
 }

@@ -1,0 +1,254 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+jsoup_139_1,"    @Test public void exceptionOnUncloseAttribute_1_oe() {
+        assertThrows(Selector.SelectorParseException.class, () -> QueryParser.parse(""section > a[href=\""]""));
+        }
+",QueryParserTest::exceptionOnUncloseAttribute_1_oe,org.jsoup.select.QueryParser,parse(String query),"/**
+     * Parse a CSS query into an Evaluator.
+     * @param query CSS query
+     * @return Evaluator
+     * @see Selector selector query syntax
+     */","public static Evaluator parse(String query) {
+        try {
+            QueryParser p = new QueryParser(query);
+            return p.parse();
+        } catch (IllegalArgumentException e) {
+            throw new Selector.SelectorParseException(e.getMessage());
+        }
+    }"
+jsoup_140_1,"    @Test public void testParsesSingleQuoteInContains_1_oe() {
+        assertThrows(Selector.SelectorParseException.class, () -> QueryParser.parse(""p:contains(One \"" One)""));
+        }
+",QueryParserTest::testParsesSingleQuoteInContains_1_oe,org.jsoup.select.QueryParser,void contains(boolean own),,"private void contains(boolean own) {
+        String query = own ? "":containsOwn"" : "":contains"";
+        tq.consume(query);
+        String searchText = TokenQueue.unescape(tq.chompBalanced('(', ')'));
+        Validate.notEmpty(searchText, query + ""(text) query must not be empty"");
+        evals.add(own
+            ? new Evaluator.ContainsOwnText(searchText)
+            : new Evaluator.ContainsText(searchText));
+    }"
+jsoup_141_1,"    @Test public void exceptOnEmptySelector_1_oe() {
+        assertThrows(Selector.SelectorParseException.class, () -> QueryParser.parse(""""));
+        }
+",QueryParserTest::exceptOnEmptySelector_1_oe,org.jsoup.select.QueryParser,parse(String query),"/**
+     * Parse a CSS query into an Evaluator.
+     * @param query CSS query
+     * @return Evaluator
+     * @see Selector selector query syntax
+     */","public static Evaluator parse(String query) {
+        try {
+            QueryParser p = new QueryParser(query);
+            return p.parse();
+        } catch (IllegalArgumentException e) {
+            throw new Selector.SelectorParseException(e.getMessage());
+        }
+    }"
+jsoup_142_1,"    @Test public void exceptOnNullSelector_1_oe() {
+        assertThrows(Selector.SelectorParseException.class, () -> QueryParser.parse(null));
+        }
+",QueryParserTest::exceptOnNullSelector_1_oe,org.jsoup.select.QueryParser,parse(String query),"/**
+     * Parse a CSS query into an Evaluator.
+     * @param query CSS query
+     * @return Evaluator
+     * @see Selector selector query syntax
+     */","public static Evaluator parse(String query) {
+        try {
+            QueryParser p = new QueryParser(query);
+            return p.parse();
+        } catch (IllegalArgumentException e) {
+            throw new Selector.SelectorParseException(e.getMessage());
+        }
+    }"
+jsoup_398_1,"    @Test public void valueOfChecksNotNull_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> Tag.valueOf(null));
+        }
+",TagTest::valueOfChecksNotNull_1_oe,org.jsoup.parser.Tag,"valueOf(String tagName, ParseSettings settings)","/**
+     * Get a Tag by name. If not previously defined (unknown), returns a new generic tag, that can do anything.
+     * <p>
+     * Pre-defined tags (P, DIV etc) will be ==, but unknown tags are not registered and will only .equals().
+     * </p>
+     * 
+     * @param tagName Name of tag, e.g. ""p"". Case insensitive.
+     * @param settings used to control tag name sensitivity
+     * @return The tag, either defined or new generic.
+     */","public static Tag valueOf(String tagName, ParseSettings settings) {
+        Validate.notNull(tagName);
+        Tag tag = tags.get(tagName);
+
+        if (tag == null) {
+            tagName = settings.normalizeTag(tagName); // the name we'll use
+            Validate.notEmpty(tagName);
+            String normalName = Normalizer.lowerCase(tagName); // the lower-case name to get tag settings off
+            tag = tags.get(normalName);
+
+            if (tag == null) {
+                // not defined: create default; go anywhere, do anything! (incl be inside a <p>)
+                tag = new Tag(tagName);
+                tag.isBlock = false;
+            } else if (settings.preserveTagCase() && !tagName.equals(normalName))  {
+                tag = tag.clone(); // get a new version vs the static one, so name update doesn't reset all
+                tag.tagName = tagName;
+            }
+        }
+        return tag;
+    }"
+jsoup_399_1,"    @Test public void valueOfChecksNotEmpty_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> Tag.valueOf("" ""));
+        }
+",TagTest::valueOfChecksNotEmpty_1_oe,org.jsoup.parser.Tag,"valueOf(String tagName, ParseSettings settings)","/**
+     * Get a Tag by name. If not previously defined (unknown), returns a new generic tag, that can do anything.
+     * <p>
+     * Pre-defined tags (P, DIV etc) will be ==, but unknown tags are not registered and will only .equals().
+     * </p>
+     * 
+     * @param tagName Name of tag, e.g. ""p"". Case insensitive.
+     * @param settings used to control tag name sensitivity
+     * @return The tag, either defined or new generic.
+     */","public static Tag valueOf(String tagName, ParseSettings settings) {
+        Validate.notNull(tagName);
+        Tag tag = tags.get(tagName);
+
+        if (tag == null) {
+            tagName = settings.normalizeTag(tagName); // the name we'll use
+            Validate.notEmpty(tagName);
+            String normalName = Normalizer.lowerCase(tagName); // the lower-case name to get tag settings off
+            tag = tags.get(normalName);
+
+            if (tag == null) {
+                // not defined: create default; go anywhere, do anything! (incl be inside a <p>)
+                tag = new Tag(tagName);
+                tag.isBlock = false;
+            } else if (settings.preserveTagCase() && !tagName.equals(normalName))  {
+                tag = tag.clone(); // get a new version vs the static one, so name update doesn't reset all
+                tag.tagName = tagName;
+            }
+        }
+        return tag;
+    }"
+jsoup_501_1,"    @Test
+    public void constructorValidationThrowsExceptionOnNulls_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> new DocumentType(""html"", null, null));
+    }
+",DocumentTypeTest::constructorValidationThrowsExceptionOnNulls_1_oe,,,,
+jsoup_621_1,"    @Test
+    public void testThrowsOnAddNullText_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> { Document doc = Jsoup.parse(""<div id=1><p>Hello</p></div>""); Element div = doc.getElementById(""1""); div.appendText(null); });
+    }
+",ElementTest::testThrowsOnAddNullText_1_oe,org.jsoup.nodes.Element,appendText(String text),"/**
+     * Create and append a new TextNode to this element.
+     *
+     * @param text the unencoded text to add
+     * @return this element
+     */","public Element appendText(String text) {
+        Validate.notNull(text);
+        TextNode node = new TextNode(text);
+        appendChild(node);
+        return this;
+    }"
+jsoup_622_1,"    @Test
+    public void testThrowsOnPrependNullText_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> { Document doc = Jsoup.parse(""<div id=1><p>Hello</p></div>""); Element div = doc.getElementById(""1""); div.prependText(null); });
+    }
+",ElementTest::testThrowsOnPrependNullText_1_oe,org.jsoup.nodes.Element,prependText(String text),"/**
+     * Create and prepend a new TextNode to this element.
+     *
+     * @param text the unencoded text to add
+     * @return this element
+     */","public Element prependText(String text) {
+        Validate.notNull(text);
+        TextNode node = new TextNode(text);
+        prependChild(node);
+        return this;
+    }"
+jsoup_779_1,"    @Test public void validatesKeysNotEmpty_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> new Attribute("" "", ""Check""));
+        }
+",AttributeTest::validatesKeysNotEmpty_1_oe,,,,
+jsoup_780_1,"    @Test public void validatesKeysNotEmptyViaSet_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> { Attribute attr = new Attribute(""One"", ""Check""); attr.setKey("" ""); });
+        }
+",AttributeTest::validatesKeysNotEmptyViaSet_1_oe,org.jsoup.nodes.Attribute,void setKey(String key),"/**
+     Set the attribute key; case is preserved.
+     @param key the new key; must not be null
+     */","public void setKey(String key) {
+        Validate.notNull(key);
+        key = key.trim();
+        Validate.notEmpty(key); // trimming could potentially make empty, so validate here
+        if (parent != null) {
+            int i = parent.indexOfKey(this.key);
+            if (i != Attributes.NotFound)
+                parent.keys[i] = key;
+        }
+        this.key = key;
+    }"
+jsoup_823_1,"    @Test
+    public void bodyAfterParseThrowsValidationError_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> { Connection.Response res = Jsoup.connect(echoUrl).execute(); Document doc = res.parse(); String body = res.body(); });
+    }
+",ConnectTest::bodyAfterParseThrowsValidationError_1_oe,org.jsoup.Connection.Response,body(),"/**
+         * Get the body of the response as a plain string.
+         * @return body
+         */",String body();
+jsoup_895_2,"    @Test public void canCreateEmptyConnection_2_oe() {
+        HttpConnection con = new HttpConnection();
+        // removed other assertion
+        assertThrows(IllegalArgumentException.class, () -> { URL url = con.request().url(); });
+        }
+",HttpConnectionTest::canCreateEmptyConnection_2_oe,org.jsoup.Connection,url(URL url),"/**
+     * Set the request URL to fetch. The protocol must be HTTP or HTTPS.
+     * @param url URL to connect to
+     * @return this Connection, for chaining
+     */",Connection url(URL url);
+jsoup_896_1,"    @Test public void throwsExceptionOnResponseWithoutExecute_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> { Connection con = HttpConnection.connect(""http://example.com""); con.response(); });
+        }
+",HttpConnectionTest::throwsExceptionOnResponseWithoutExecute_1_oe,org.jsoup.Connection,response(),"/**
+     * Get the response, once the request has been executed.
+     * @return response
+     * @throws IllegalArgumentException if called before the response has been executed.
+     */",Response response();
+jsoup_897_1,"    @Test public void throwsExceptionOnParseWithoutExecute_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> { Connection con = HttpConnection.connect(""http://example.com""); con.response().parse(); });
+        }
+",HttpConnectionTest::throwsExceptionOnParseWithoutExecute_1_oe,org.jsoup.Connection.Response,parse(),"/**
+         * Read and parse the body of the response as a Document. If you intend to parse the same response multiple
+         * times, you should {@link #bufferUp()} first.
+         * @return a parsed Document
+         * @throws IOException on error
+         */",Document parse() throws IOException;
+jsoup_898_1,"    @Test public void throwsExceptionOnBodyWithoutExecute_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> { Connection con = HttpConnection.connect(""http://example.com""); con.response().body(); });
+        }
+",HttpConnectionTest::throwsExceptionOnBodyWithoutExecute_1_oe,org.jsoup.Connection.Response,body(),"/**
+         * Get the body of the response as a plain string.
+         * @return body
+         */",String body();
+jsoup_899_1,"    @Test public void throwsExceptionOnBodyAsBytesWithoutExecute_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> { Connection con = HttpConnection.connect(""http://example.com""); con.response().bodyAsBytes(); });
+        }
+",HttpConnectionTest::throwsExceptionOnBodyAsBytesWithoutExecute_1_oe,org.jsoup.Connection.Response,bodyAsBytes(),"/**
+         * Get the body of the response as an array of bytes.
+         * @return body bytes
+         */",byte[] bodyAsBytes();
+jsoup_906_1,"    @Test public void throwsOnMalformedUrl_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> HttpConnection.connect(""bzzt""));
+        }
+",HttpConnectionTest::throwsOnMalformedUrl_1_oe,org.jsoup.helper.HttpConnection,connect(String url),"/**
+     Create a new Connection, with the request URL specified.
+     @param url the URL to fetch from
+     @return a new Connection object
+     */","public static Connection connect(String url) {
+        Connection con = new HttpConnection();
+        con.url(url);
+        return con;
+    }"
+jsoup_911_1,"    @Test public void throwsOnOddData_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> { Connection con = HttpConnection.connect(""http://example.com/""); con.data(""Name"", ""val"", ""what""); });
+        }
+",HttpConnectionTest::throwsOnOddData_1_oe,org.jsoup.Connection,"data(String key, String value)","/**
+     * Add a request data parameter. Request parameters are sent in the request query string for GETs, and in the
+     * request body for POSTs. A request may have multiple values of the same name.
+     * @param key data key
+     * @param value data value
+     * @return this Connection, for chaining
+     */","Connection data(String key, String value);"
