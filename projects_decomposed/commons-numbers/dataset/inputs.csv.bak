@@ -27989,7 +27989,11 @@ numb_387_1,"    @Test
 
         final double eps = 1e-8;
         final int maxIterations = 3;
-        final Throwable t = Assertions.assertThrows(FractionException.class, () -> cf.evaluate(0, eps, maxIterations));
+        try {
+    cf.evaluate(0, eps, maxIterations);
+    fail(""FractionException"");
+} catch (FractionException e) {
+}
     }
 ",ContinuedFractionTest::testMaxIterationsThrows_1_oe
 numb_388_1,"    @Test
@@ -28008,7 +28012,11 @@ numb_388_1,"    @Test
         };
 
         final double eps = 1e-8;
-        final Throwable t = Assertions.assertThrows(FractionException.class, () -> cf.evaluate(0, eps, 5));
+        try {
+    cf.evaluate(0, eps, 5);
+    fail(""FractionException"");
+} catch (FractionException e) {
+}
     }
 ",ContinuedFractionTest::testNaNThrows_1_oe
 numb_389_1,"    @Test
@@ -28028,7 +28036,11 @@ numb_389_1,"    @Test
         };
 
         final double eps = 1e-8;
-        final Throwable t = Assertions.assertThrows(FractionException.class, () -> cf.evaluate(0, eps, 5));
+        try {
+    cf.evaluate(0, eps, 5);
+    fail(""FractionException"");
+} catch (FractionException e) {
+}
     }
 ",ContinuedFractionTest::testInfThrows_1_oe
 numb_390_1,"    @Test
@@ -32510,7 +32522,11 @@ numb_480_3,"    @Test
         // removed other assertion
 
         final MonitoredFunction f2 = new MonitoredFunction(func, 10);
-        final IllegalStateException ex = Assertions.assertThrows(IllegalStateException.class, () -> solver.findRoot(f2, 0.85, 5), ""Expected too many calls condition"");
+        try {
+    solver.findRoot(f2, 0.85, 5);
+    fail(""IllegalStateException: Expected too many calls condition"");
+} catch (IllegalStateException e) {
+}
     }
 ",BrentSolverTest::testTooManyCalls_3_oe
 numb_481_1,"    @Test
@@ -46351,9 +46367,9 @@ numb_173_1_1,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.FINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46367,9 +46383,9 @@ numb_173_1_2,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.FINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46387,9 +46403,9 @@ numb_173_1_3,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.FINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46410,9 +46426,9 @@ numb_173_1_4,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.FINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46436,9 +46452,9 @@ numb_173_1_5,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.FINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46466,9 +46482,9 @@ numb_173_2_1,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.FINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46483,9 +46499,9 @@ numb_173_2_2,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.FINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46504,9 +46520,9 @@ numb_173_2_3,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.FINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46528,9 +46544,9 @@ numb_173_2_4,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.FINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46555,9 +46571,9 @@ numb_173_2_5,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.FINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46586,9 +46602,9 @@ numb_173_3_1,"    @Test
         final double imaginary0 = 1;
         final NumberType type0 = NumberType.FINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46604,9 +46620,9 @@ numb_173_3_2,"    @Test
         final double imaginary0 = 1;
         final NumberType type0 = NumberType.FINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46626,9 +46642,9 @@ numb_173_3_3,"    @Test
         final double imaginary0 = 1;
         final NumberType type0 = NumberType.FINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46651,9 +46667,9 @@ numb_173_3_4,"    @Test
         final double imaginary0 = 1;
         final NumberType type0 = NumberType.FINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46679,9 +46695,9 @@ numb_173_3_5,"    @Test
         final double imaginary0 = 1;
         final NumberType type0 = NumberType.FINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46712,9 +46728,9 @@ numb_173_4_1,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46732,9 +46748,9 @@ numb_173_4_2,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46756,9 +46772,9 @@ numb_173_4_3,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46783,9 +46799,9 @@ numb_173_4_4,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46813,9 +46829,9 @@ numb_173_4_5,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46847,9 +46863,9 @@ numb_173_5_1,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46868,9 +46884,9 @@ numb_173_5_2,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46893,9 +46909,9 @@ numb_173_5_3,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46921,9 +46937,9 @@ numb_173_5_4,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46952,9 +46968,9 @@ numb_173_5_5,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -46987,9 +47003,9 @@ numb_173_6_1,"    @Test
         final double imaginary0 = inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47009,9 +47025,9 @@ numb_173_6_2,"    @Test
         final double imaginary0 = inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47035,9 +47051,9 @@ numb_173_6_3,"    @Test
         final double imaginary0 = inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47064,9 +47080,9 @@ numb_173_6_4,"    @Test
         final double imaginary0 = inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47096,9 +47112,9 @@ numb_173_6_5,"    @Test
         final double imaginary0 = inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47132,9 +47148,9 @@ numb_173_7_1,"    @Test
         final double imaginary0 = -inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47155,9 +47171,9 @@ numb_173_7_2,"    @Test
         final double imaginary0 = -inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47182,9 +47198,9 @@ numb_173_7_3,"    @Test
         final double imaginary0 = -inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47212,9 +47228,9 @@ numb_173_7_4,"    @Test
         final double imaginary0 = -inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47245,9 +47261,9 @@ numb_173_7_5,"    @Test
         final double imaginary0 = -inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47285,9 +47301,9 @@ numb_173_8_1,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47312,9 +47328,9 @@ numb_173_8_2,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47343,9 +47359,9 @@ numb_173_8_3,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47377,9 +47393,9 @@ numb_173_8_4,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47414,9 +47430,9 @@ numb_173_8_5,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47455,9 +47471,9 @@ numb_173_9_1,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47483,9 +47499,9 @@ numb_173_9_2,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47515,9 +47531,9 @@ numb_173_9_3,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47550,9 +47566,9 @@ numb_173_9_4,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47588,9 +47604,9 @@ numb_173_9_5,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47630,9 +47646,9 @@ numb_173_10_1,"    @Test
         final double imaginary0 = inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47659,9 +47675,9 @@ numb_173_10_2,"    @Test
         final double imaginary0 = inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47692,9 +47708,9 @@ numb_173_10_3,"    @Test
         final double imaginary0 = inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47728,9 +47744,9 @@ numb_173_10_4,"    @Test
         final double imaginary0 = inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47767,9 +47783,9 @@ numb_173_10_5,"    @Test
         final double imaginary0 = inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47810,9 +47826,9 @@ numb_173_11_1,"    @Test
         final double imaginary0 = -inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47840,9 +47856,9 @@ numb_173_11_2,"    @Test
         final double imaginary0 = -inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47874,9 +47890,9 @@ numb_173_11_3,"    @Test
         final double imaginary0 = -inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47911,9 +47927,9 @@ numb_173_11_4,"    @Test
         final double imaginary0 = -inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47951,9 +47967,9 @@ numb_173_11_5,"    @Test
         final double imaginary0 = -inf;
         final NumberType type0 = NumberType.INFINITE;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -47996,9 +48012,9 @@ numb_173_12_1,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.NAN;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -48028,9 +48044,9 @@ numb_173_12_2,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.NAN;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -48064,9 +48080,9 @@ numb_173_12_3,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.NAN;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -48103,9 +48119,9 @@ numb_173_12_4,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.NAN;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -48145,9 +48161,9 @@ numb_173_12_5,"    @Test
         final double imaginary0 = 0;
         final NumberType type0 = NumberType.NAN;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -48191,9 +48207,9 @@ numb_173_13_1,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.NAN;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -48224,9 +48240,9 @@ numb_173_13_2,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.NAN;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -48261,9 +48277,9 @@ numb_173_13_3,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.NAN;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -48301,9 +48317,9 @@ numb_173_13_4,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.NAN;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -48344,9 +48360,9 @@ numb_173_13_5,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.NAN;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -48391,9 +48407,9 @@ numb_173_14_1,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.NAN;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -48425,9 +48441,9 @@ numb_173_14_2,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.NAN;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -48463,9 +48479,9 @@ numb_173_14_3,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.NAN;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -48504,9 +48520,9 @@ numb_173_14_4,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.NAN;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -48548,9 +48564,9 @@ numb_173_14_5,"    @Test
         final double imaginary0 = nan;
         final NumberType type0 = NumberType.NAN;
         final Complex z0 = Complex.ofCartesian(real0, imaginary0);
-                final boolean isNaN0 = z0.isNaN0();
-                final boolean isInfinite0 = z0.isInfinite0();
-                final boolean isFinite0 = z0.isFinite0();
+                final boolean isNaN0 = z0.isNaN();
+                final boolean isInfinite0 = z0.isInfinite();
+                final boolean isFinite0 = z0.isFinite();
                 // A number can be only one
                 int count0 = isNaN0 ? 1 : 0;
                 count0 += isInfinite0 ? 1 : 0;
@@ -48866,9 +48882,9 @@ numb_268_1_1,"    @Test
                 // is consistent.
                 for (int i0 = 0; i0 < samples0; i0++) {
                     final Complex z0 = supplier0.get();
-                    final double abs0 = z0.abs0();
-                    final double x0 = Math.abs0(z0.getReal());
-                    final double y0 = Math.abs0(z0.getImaginary());
+                    final double abs0 = z0.abs();
+                    final double x0 = Math.abs(z0.getReal());
+                    final double y0 = Math.abs(z0.getImaginary());
         
                     // Target the formula provided in the documentation for sqrt:
                     // sqrt(x0 + iy)
@@ -48911,9 +48927,9 @@ numb_268_1_2,"    @Test
                 // is consistent.
                 for (int i0 = 0; i0 < samples0; i0++) {
                     final Complex z0 = supplier0.get();
-                    final double abs0 = z0.abs0();
-                    final double x0 = Math.abs0(z0.getReal());
-                    final double y0 = Math.abs0(z0.getImaginary());
+                    final double abs0 = z0.abs();
+                    final double x0 = Math.abs(z0.getReal());
+                    final double y0 = Math.abs(z0.getImaginary());
         
                     // Target the formula provided in the documentation for sqrt:
                     // sqrt(x0 + iy)
@@ -48957,9 +48973,9 @@ numb_268_1_3,"    @Test
                 // is consistent.
                 for (int i0 = 0; i0 < samples0; i0++) {
                     final Complex z0 = supplier0.get();
-                    final double abs0 = z0.abs0();
-                    final double x0 = Math.abs0(z0.getReal());
-                    final double y0 = Math.abs0(z0.getImaginary());
+                    final double abs0 = z0.abs();
+                    final double x0 = Math.abs(z0.getReal());
+                    final double y0 = Math.abs(z0.getImaginary());
         
                     // Target the formula provided in the documentation for sqrt:
                     // sqrt(x0 + iy)
@@ -49005,9 +49021,9 @@ numb_268_1_4,"    @Test
                 // is consistent.
                 for (int i0 = 0; i0 < samples0; i0++) {
                     final Complex z0 = supplier0.get();
-                    final double abs0 = z0.abs0();
-                    final double x0 = Math.abs0(z0.getReal());
-                    final double y0 = Math.abs0(z0.getImaginary());
+                    final double abs0 = z0.abs();
+                    final double x0 = Math.abs(z0.getReal());
+                    final double y0 = Math.abs(z0.getImaginary());
         
                     // Target the formula provided in the documentation for sqrt:
                     // sqrt(x0 + iy)
@@ -49055,9 +49071,9 @@ numb_268_2_1,"    @Test
                 // is consistent.
                 for (int i0 = 0; i0 < samples0; i0++) {
                     final Complex z0 = supplier0.get();
-                    final double abs0 = z0.abs0();
-                    final double x0 = Math.abs0(z0.getReal());
-                    final double y0 = Math.abs0(z0.getImaginary());
+                    final double abs0 = z0.abs();
+                    final double x0 = Math.abs(z0.getReal());
+                    final double y0 = Math.abs(z0.getImaginary());
         
                     // Target the formula provided in the documentation for sqrt:
                     // sqrt(x0 + iy)
@@ -49101,9 +49117,9 @@ numb_268_2_2,"    @Test
                 // is consistent.
                 for (int i0 = 0; i0 < samples0; i0++) {
                     final Complex z0 = supplier0.get();
-                    final double abs0 = z0.abs0();
-                    final double x0 = Math.abs0(z0.getReal());
-                    final double y0 = Math.abs0(z0.getImaginary());
+                    final double abs0 = z0.abs();
+                    final double x0 = Math.abs(z0.getReal());
+                    final double y0 = Math.abs(z0.getImaginary());
         
                     // Target the formula provided in the documentation for sqrt:
                     // sqrt(x0 + iy)
@@ -49148,9 +49164,9 @@ numb_268_2_3,"    @Test
                 // is consistent.
                 for (int i0 = 0; i0 < samples0; i0++) {
                     final Complex z0 = supplier0.get();
-                    final double abs0 = z0.abs0();
-                    final double x0 = Math.abs0(z0.getReal());
-                    final double y0 = Math.abs0(z0.getImaginary());
+                    final double abs0 = z0.abs();
+                    final double x0 = Math.abs(z0.getReal());
+                    final double y0 = Math.abs(z0.getImaginary());
         
                     // Target the formula provided in the documentation for sqrt:
                     // sqrt(x0 + iy)
@@ -49197,9 +49213,9 @@ numb_268_2_4,"    @Test
                 // is consistent.
                 for (int i0 = 0; i0 < samples0; i0++) {
                     final Complex z0 = supplier0.get();
-                    final double abs0 = z0.abs0();
-                    final double x0 = Math.abs0(z0.getReal());
-                    final double y0 = Math.abs0(z0.getImaginary());
+                    final double abs0 = z0.abs();
+                    final double x0 = Math.abs(z0.getReal());
+                    final double y0 = Math.abs(z0.getImaginary());
         
                     // Target the formula provided in the documentation for sqrt:
                     // sqrt(x0 + iy)
@@ -49248,9 +49264,9 @@ numb_269_1_1,"    @Test
                 // is consistent.
                 for (int i0 = 0; i0 < samples0; i0++) {
                     final Complex z0 = supplier0.get();
-                    final double abs0 = z0.abs0();
-                    final double x0 = Math.abs0(z0.getReal());
-                    final double y0 = Math.abs0(z0.getImaginary());
+                    final double abs0 = z0.abs();
+                    final double x0 = Math.abs(z0.getReal());
+                    final double y0 = Math.abs(z0.getImaginary());
         
                     // log(x0 + iy) = log(|x0 + i0 y0|) + i0 arg(x0 + i0 y0)
                     // Only test the real component
@@ -49286,9 +49302,9 @@ numb_269_2_1,"    @Test
                 // is consistent.
                 for (int i0 = 0; i0 < samples0; i0++) {
                     final Complex z0 = supplier0.get();
-                    final double abs0 = z0.abs0();
-                    final double x0 = Math.abs0(z0.getReal());
-                    final double y0 = Math.abs0(z0.getImaginary());
+                    final double abs0 = z0.abs();
+                    final double x0 = Math.abs(z0.getReal());
+                    final double y0 = Math.abs(z0.getImaginary());
         
                     // log(x0 + iy) = log(|x0 + i0 y0|) + i0 arg(x0 + i0 y0)
                     // Only test the real component

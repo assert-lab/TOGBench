@@ -2723,12 +2723,6 @@ joda_17_4,"    public void testToDateTimeISO_4_oe() {
         assertEquals(ISOChronology.getInstance(PARIS),result.getChronology());
     }
 ",TestMutableDateTime_Basics::testToDateTimeISO_4_oe
-joda_18_1,"    public void testToDateTime_DateTimeZone_1_oe() {
-        MutableDateTime test = new MutableDateTime(TEST_TIME1);
-        MutableDateTime result = test.toMutableDateTime(LONDON);
-        assertEquals(test.getMillis(),result.getMillis());
-    }
-",TestMutableDateTime_Basics::testToDateTime_DateTimeZone_1_oe
 joda_18_2,"    public void testToDateTime_DateTimeZone_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         MutableDateTime result = test.toMutableDateTime(LONDON);
@@ -2769,23 +2763,6 @@ joda_18_5,"    public void testToDateTime_DateTimeZone_5_oe() {
         assertEquals(PARIS,result.getZone());
     }
 ",TestMutableDateTime_Basics::testToDateTime_DateTimeZone_5_oe
-joda_18_6,"    public void testToDateTime_DateTimeZone_6_oe() {
-        MutableDateTime test = new MutableDateTime(TEST_TIME1);
-        MutableDateTime result = test.toMutableDateTime(LONDON);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        test = new MutableDateTime(TEST_TIME1);
-        result = test.toMutableDateTime(PARIS);
-        // removed other assertion
-        // removed other assertion
-
-        test = new MutableDateTime(TEST_TIME1, GregorianChronology.getInstance(PARIS));
-        result = test.toMutableDateTime((DateTimeZone) null);
-        assertEquals(test.getMillis(),result.getMillis());
-    }
-",TestMutableDateTime_Basics::testToDateTime_DateTimeZone_6_oe
 joda_18_7,"    public void testToDateTime_DateTimeZone_7_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         MutableDateTime result = test.toMutableDateTime(LONDON);
@@ -9246,43 +9223,6 @@ joda_185_10,"    public void testToString_10_oe() {
         assertEquals(""StrictChronology[ISOChronology[Europe/Paris]]"",StrictChronology.getInstance(isoParis).toString());
     }
 ",TestChronology::testToString_10_oe
-joda_185_11,"    public void testToString_11_oe() {
-        DateTimeZone paris = DateTimeZone.forID(""Europe/Paris"");
-        ISOChronology isoParis = ISOChronology.getInstance(paris);
-        
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""LimitChronology[ISOChronology[Europe/Paris],NoLimit,NoLimit]"",LimitChronology.getInstance(isoParis,null,null).toString());
-    }
-",TestChronology::testToString_11_oe
-joda_185_12,"    public void testToString_12_oe() {
-        DateTimeZone paris = DateTimeZone.forID(""Europe/Paris"");
-        ISOChronology isoParis = ISOChronology.getInstance(paris);
-        
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""ZonedChronology[ISOChronology[UTC],Europe/Paris]"",ZonedChronology.getInstance(isoParis,paris).toString());
-    }
-",TestChronology::testToString_12_oe
 joda_186_1,"    public void testTest_1_oe() {
         assertEquals(""2002-06-09T00:00:00.000Z"",new Instant(TEST_TIME_NOW).toString());
     }
@@ -14514,67 +14454,6 @@ joda_195_14,"    public void test_useCase_ContainsOverlapAbutGap_zeroDuration_14
         assertNull(test1020.gap(interval));
     }
 ",TestInterval_Basics::test_useCase_ContainsOverlapAbutGap_zeroDuration_14_oe
-joda_195_15,"    public void test_useCase_ContainsOverlapAbutGap_zeroDuration_15_oe() {
-        // this is a simple test to ensure that the use case of these methods
-        // is OK when considering a zero duration inerval
-        // when comparing any two intervals they can be in one and only one of these states
-        // (a) have a gap between them, (b) abut or (c) overlap
-        // contains is a subset of overlap
-        Interval test1020 = new Interval(10, 20);
-        
-        // [8,8) [10,20) - gap
-        Interval interval = new Interval(8, 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // [10,10) [10,20) - abuts and contains-one-way
-        interval = new Interval(10, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(false,test1020.abuts(interval));
-    }
-",TestInterval_Basics::test_useCase_ContainsOverlapAbutGap_zeroDuration_15_oe
-joda_195_16,"    public void test_useCase_ContainsOverlapAbutGap_zeroDuration_16_oe() {
-        // this is a simple test to ensure that the use case of these methods
-        // is OK when considering a zero duration inerval
-        // when comparing any two intervals they can be in one and only one of these states
-        // (a) have a gap between them, (b) abut or (c) overlap
-        // contains is a subset of overlap
-        Interval test1020 = new Interval(10, 20);
-        
-        // [8,8) [10,20) - gap
-        Interval interval = new Interval(8, 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // [10,10) [10,20) - abuts and contains-one-way
-        interval = new Interval(10, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(true,test1020.overlaps(interval));
-    }
-",TestInterval_Basics::test_useCase_ContainsOverlapAbutGap_zeroDuration_16_oe
 joda_195_17,"    public void test_useCase_ContainsOverlapAbutGap_zeroDuration_17_oe() {
         // this is a simple test to ensure that the use case of these methods
         // is OK when considering a zero duration inerval
@@ -14607,73 +14486,6 @@ joda_195_17,"    public void test_useCase_ContainsOverlapAbutGap_zeroDuration_17
         assertEquals(true,test1020.contains(interval));// normal contains zero-duration assertNull(interval.gap(test1020));
     }
 ",TestInterval_Basics::test_useCase_ContainsOverlapAbutGap_zeroDuration_17_oe
-joda_195_18,"    public void test_useCase_ContainsOverlapAbutGap_zeroDuration_18_oe() {
-        // this is a simple test to ensure that the use case of these methods
-        // is OK when considering a zero duration inerval
-        // when comparing any two intervals they can be in one and only one of these states
-        // (a) have a gap between them, (b) abut or (c) overlap
-        // contains is a subset of overlap
-        Interval test1020 = new Interval(10, 20);
-        
-        // [8,8) [10,20) - gap
-        Interval interval = new Interval(8, 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // [10,10) [10,20) - abuts and contains-one-way
-        interval = new Interval(10, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(false,interval.abuts(test1020));
-    }
-",TestInterval_Basics::test_useCase_ContainsOverlapAbutGap_zeroDuration_18_oe
-joda_195_19,"    public void test_useCase_ContainsOverlapAbutGap_zeroDuration_19_oe() {
-        // this is a simple test to ensure that the use case of these methods
-        // is OK when considering a zero duration inerval
-        // when comparing any two intervals they can be in one and only one of these states
-        // (a) have a gap between them, (b) abut or (c) overlap
-        // contains is a subset of overlap
-        Interval test1020 = new Interval(10, 20);
-        
-        // [8,8) [10,20) - gap
-        Interval interval = new Interval(8, 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // [10,10) [10,20) - abuts and contains-one-way
-        interval = new Interval(10, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(true,interval.overlaps(test1020));
-    }
-",TestInterval_Basics::test_useCase_ContainsOverlapAbutGap_zeroDuration_19_oe
 joda_195_20,"    public void test_useCase_ContainsOverlapAbutGap_zeroDuration_20_oe() {
         // this is a simple test to ensure that the use case of these methods
         // is OK when considering a zero duration inerval
@@ -14820,45 +14632,6 @@ joda_195_23,"    public void test_useCase_ContainsOverlapAbutGap_zeroDuration_23
         assertEquals(false,test1020.overlaps(interval));
     }
 ",TestInterval_Basics::test_useCase_ContainsOverlapAbutGap_zeroDuration_23_oe
-joda_195_24,"    public void test_useCase_ContainsOverlapAbutGap_zeroDuration_24_oe() {
-        // this is a simple test to ensure that the use case of these methods
-        // is OK when considering a zero duration inerval
-        // when comparing any two intervals they can be in one and only one of these states
-        // (a) have a gap between them, (b) abut or (c) overlap
-        // contains is a subset of overlap
-        Interval test1020 = new Interval(10, 20);
-        
-        // [8,8) [10,20) - gap
-        Interval interval = new Interval(8, 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // [10,10) [10,20) - abuts and contains-one-way
-        interval = new Interval(10, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(false,test1020.contains(interval));
-    }
-",TestInterval_Basics::test_useCase_ContainsOverlapAbutGap_zeroDuration_24_oe
 joda_195_25,"    public void test_useCase_ContainsOverlapAbutGap_zeroDuration_25_oe() {
         // this is a simple test to ensure that the use case of these methods
         // is OK when considering a zero duration inerval
@@ -15706,12 +15479,6 @@ joda_199_1,"    public void testContainsNow_1_oe() {
         assertEquals(false,interval37.containsNow());// value before DateTimeUtils.setCurrentMillisFixed(3);
     }
 ",TestInterval_Basics::testContainsNow_1_oe
-joda_199_2,"    public void testContainsNow_2_oe() {
-        DateTimeUtils.setCurrentMillisFixed(2);
-        // removed other assertion
-        assertEquals(true,interval37.containsNow());
-    }
-",TestInterval_Basics::testContainsNow_2_oe
 joda_199_3,"    public void testContainsNow_3_oe() {
         DateTimeUtils.setCurrentMillisFixed(2);
         // removed other assertion
@@ -15844,12 +15611,6 @@ joda_201_1,"    public void testContains_RI_null_1_oe() {
         assertEquals(false,interval37.contains((ReadableInstant)null));// value before DateTimeUtils.setCurrentMillisFixed(3);
     }
 ",TestInterval_Basics::testContains_RI_null_1_oe
-joda_201_2,"    public void testContains_RI_null_2_oe() {
-        DateTimeUtils.setCurrentMillisFixed(2);
-        // removed other assertion
-        assertEquals(true,interval37.contains((ReadableInstant)null));
-    }
-",TestInterval_Basics::testContains_RI_null_2_oe
 joda_201_3,"    public void testContains_RI_null_3_oe() {
         DateTimeUtils.setCurrentMillisFixed(2);
         // removed other assertion
@@ -16270,12 +16031,6 @@ joda_204_1,"    public void testContains_RInterval_null_1_oe() {
         assertEquals(false,interval37.contains((ReadableInterval)null));// gap before DateTimeUtils.setCurrentMillisFixed(3);
     }
 ",TestInterval_Basics::testContains_RInterval_null_1_oe
-joda_204_2,"    public void testContains_RInterval_null_2_oe() {
-        DateTimeUtils.setCurrentMillisFixed(2);
-        // removed other assertion
-        assertEquals(true,interval37.contains((ReadableInterval)null));
-    }
-",TestInterval_Basics::testContains_RInterval_null_2_oe
 joda_204_3,"    public void testContains_RInterval_null_3_oe() {
         DateTimeUtils.setCurrentMillisFixed(2);
         // removed other assertion
@@ -16714,13 +16469,6 @@ joda_207_2,"    public void testOverlaps_RInterval_null_2_oe() {
         assertEquals(false,interval37.overlaps((ReadableInterval)null));// abuts before DateTimeUtils.setCurrentMillisFixed(4);
     }
 ",TestInterval_Basics::testOverlaps_RInterval_null_2_oe
-joda_207_3,"    public void testOverlaps_RInterval_null_3_oe() {
-        DateTimeUtils.setCurrentMillisFixed(2);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(true,interval37.overlaps((ReadableInterval)null));
-    }
-",TestInterval_Basics::testOverlaps_RInterval_null_3_oe
 joda_207_4,"    public void testOverlaps_RInterval_null_4_oe() {
         DateTimeUtils.setCurrentMillisFixed(2);
         // removed other assertion
@@ -16958,13 +16706,6 @@ joda_210_2,"    public void testOverlap_RInterval_null_2_oe() {
         assertEquals(null,interval37.overlap((ReadableInterval)null));// abuts before DateTimeUtils.setCurrentMillisFixed(4);
     }
 ",TestInterval_Basics::testOverlap_RInterval_null_2_oe
-joda_210_3,"    public void testOverlap_RInterval_null_3_oe() {
-        DateTimeUtils.setCurrentMillisFixed(2);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(new Interval(4,4),interval37.overlap((ReadableInterval)null));
-    }
-",TestInterval_Basics::testOverlap_RInterval_null_3_oe
 joda_210_4,"    public void testOverlap_RInterval_null_4_oe() {
         DateTimeUtils.setCurrentMillisFixed(2);
         // removed other assertion
@@ -17146,17 +16887,6 @@ joda_214_5,"    public void testGap_RInterval_null_5_oe() {
         assertEquals(null,interval37.gap((ReadableInterval)null));// abuts after DateTimeUtils.setCurrentMillisFixed(8);
     }
 ",TestInterval_Basics::testGap_RInterval_null_5_oe
-joda_214_6,"    public void testGap_RInterval_null_6_oe() {
-        DateTimeUtils.setCurrentMillisFixed(2);
-        // removed other assertion
-        DateTimeUtils.setCurrentMillisFixed(3);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(new Interval(7,8),interval37.gap((ReadableInterval)null));
-    }
-",TestInterval_Basics::testGap_RInterval_null_6_oe
 joda_215_1,"    public void testGap_RInterval_zone_1_oe() {
         Interval testA = new Interval(new DateTime(3, LONDON), new DateTime(7, LONDON));
         assertEquals(ISOChronology.getInstance(LONDON),testA.getChronology());
@@ -17284,12 +17014,6 @@ joda_218_1,"    public void testAbuts_RInterval_null_1_oe() {
         assertEquals(false,interval37.abuts((ReadableInterval)null));// gap before DateTimeUtils.setCurrentMillisFixed(3);
     }
 ",TestInterval_Basics::testAbuts_RInterval_null_1_oe
-joda_218_2,"    public void testAbuts_RInterval_null_2_oe() {
-        DateTimeUtils.setCurrentMillisFixed(2);
-        // removed other assertion
-        assertEquals(true,interval37.abuts((ReadableInterval)null));
-    }
-",TestInterval_Basics::testAbuts_RInterval_null_2_oe
 joda_218_3,"    public void testAbuts_RInterval_null_3_oe() {
         DateTimeUtils.setCurrentMillisFixed(2);
         // removed other assertion
@@ -17307,16 +17031,6 @@ joda_218_4,"    public void testAbuts_RInterval_null_4_oe() {
         assertEquals(false,interval37.abuts((ReadableInterval)null));// overlaps DateTimeUtils.setCurrentMillisFixed(7);
     }
 ",TestInterval_Basics::testAbuts_RInterval_null_4_oe
-joda_218_5,"    public void testAbuts_RInterval_null_5_oe() {
-        DateTimeUtils.setCurrentMillisFixed(2);
-        // removed other assertion
-        // removed other assertion
-        DateTimeUtils.setCurrentMillisFixed(4);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(true,interval37.abuts((ReadableInterval)null));
-    }
-",TestInterval_Basics::testAbuts_RInterval_null_5_oe
 joda_218_6,"    public void testAbuts_RInterval_null_6_oe() {
         DateTimeUtils.setCurrentMillisFixed(2);
         // removed other assertion
@@ -24647,20 +24361,6 @@ joda_374_9,"    public void testPropertyGetMonthOfYear_9_oe() {
         assertEquals(""septembre"",test.monthOfYear().getAsText(Locale.FRENCH));
     }
 ",TestMonthDay_Properties::testPropertyGetMonthOfYear_9_oe
-joda_374_10,"    public void testPropertyGetMonthOfYear_10_oe() {
-        MonthDay test = new MonthDay(9, 6);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Sep"",test.monthOfYear().getAsShortText());
-    }
-",TestMonthDay_Properties::testPropertyGetMonthOfYear_10_oe
 joda_374_11,"    public void testPropertyGetMonthOfYear_11_oe() {
         MonthDay test = new MonthDay(9, 6);
         // removed other assertion
@@ -24710,25 +24410,6 @@ joda_374_13,"    public void testPropertyGetMonthOfYear_13_oe() {
         assertEquals(9,test.monthOfYear().getMaximumTextLength(null));
     }
 ",TestMonthDay_Properties::testPropertyGetMonthOfYear_13_oe
-joda_374_14,"    public void testPropertyGetMonthOfYear_14_oe() {
-        MonthDay test = new MonthDay(9, 6);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // assertEquals(test.getChronology().days(),test.dayOfMonth().getRangeDurationField());
-        // removed other assertion
-        assertEquals(3,test.monthOfYear().getMaximumShortTextLength(null));
-    }
-",TestMonthDay_Properties::testPropertyGetMonthOfYear_14_oe
 joda_375_1,"    public void testPropertyGetMaxMinValuesMonthOfYear_1_oe() {
         MonthDay test = new MonthDay(10, 6);
         assertEquals(1,test.monthOfYear().getMinimumValue());
@@ -26496,11 +26177,6 @@ joda_397_3,"    public void testToString_3_oe() {
         assertEquals(""PT12.345S"",test.toString());
     }
 ",TestPeriod_Basics::testToString_3_oe
-joda_398_1,"    public void testToString_PeriodFormatter_1_oe() {
-        Period test = new Period(1, 2, 3, 4, 5, 6, 7, 8);
-        assertEquals(""1 year,2 months,3 weeks,4 days,5 hours,6 minutes,7 seconds and 8 milliseconds"",test.toString(PeriodFormat.getDefault()));
-    }
-",TestPeriod_Basics::testToString_PeriodFormatter_1_oe
 joda_398_2,"    public void testToString_PeriodFormatter_2_oe() {
         Period test = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         // removed other assertion
@@ -35043,12 +34719,6 @@ joda_497_4,"    public void testToDateTimeISO_4_oe() {
         assertEquals(ISO_PARIS,result.getChronology());
     }
 ",TestDateMidnight_Basics::testToDateTimeISO_4_oe
-joda_498_1,"    public void testToDateTime_DateTimeZone_1_oe() {
-        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
-        DateTime result = test.toDateTime(LONDON);
-        assertEquals(test.getMillis(),result.getMillis());
-    }
-",TestDateMidnight_Basics::testToDateTime_DateTimeZone_1_oe
 joda_498_2,"    public void testToDateTime_DateTimeZone_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(LONDON);
@@ -35089,20 +34759,6 @@ joda_498_5,"    public void testToDateTime_DateTimeZone_5_oe() {
         assertEquals(TEST_TIME1_LONDON,result.getMillis());
     }
 ",TestDateMidnight_Basics::testToDateTime_DateTimeZone_5_oe
-joda_498_6,"    public void testToDateTime_DateTimeZone_6_oe() {
-        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
-        DateTime result = test.toDateTime(LONDON);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        test = new DateMidnight(TEST_TIME1_UTC);
-        result = test.toDateTime(PARIS);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(PARIS,result.getZone());
-    }
-",TestDateMidnight_Basics::testToDateTime_DateTimeZone_6_oe
 joda_498_7,"    public void testToDateTime_DateTimeZone_7_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(LONDON);
@@ -36014,26 +35670,6 @@ joda_512_2,"    public void testWithZoneRetainFields_DateTimeZone_2_oe() {
         assertEquals(TEST_TIME1_PARIS,result.getMillis());
     }
 ",TestDateMidnight_Basics::testWithZoneRetainFields_DateTimeZone_2_oe
-joda_512_3,"    public void testWithZoneRetainFields_DateTimeZone_3_oe() {
-        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
-        DateMidnight result = test.withZoneRetainFields(PARIS);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(ISO_PARIS,result.getChronology());
-    }
-",TestDateMidnight_Basics::testWithZoneRetainFields_DateTimeZone_3_oe
-joda_512_4,"    public void testWithZoneRetainFields_DateTimeZone_4_oe() {
-        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
-        DateMidnight result = test.withZoneRetainFields(PARIS);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateMidnight(TEST_TIME1_UTC, GREGORIAN_PARIS);
-        result = test.withZoneRetainFields(null);
-        assertEquals(TEST_TIME1_PARIS,test.getMillis());
-    }
-",TestDateMidnight_Basics::testWithZoneRetainFields_DateTimeZone_4_oe
 joda_512_5,"    public void testWithZoneRetainFields_DateTimeZone_5_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withZoneRetainFields(PARIS);
@@ -36061,46 +35697,6 @@ joda_512_6,"    public void testWithZoneRetainFields_DateTimeZone_6_oe() {
         assertEquals(GREGORIAN_DEFAULT,result.getChronology());
     }
 ",TestDateMidnight_Basics::testWithZoneRetainFields_DateTimeZone_6_oe
-joda_512_7,"    public void testWithZoneRetainFields_DateTimeZone_7_oe() {
-        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
-        DateMidnight result = test.withZoneRetainFields(PARIS);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateMidnight(TEST_TIME1_UTC, GREGORIAN_PARIS);
-        result = test.withZoneRetainFields(null);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateMidnight(TEST_TIME1_UTC);
-        result = test.withZoneRetainFields(LONDON);
-        assertSame(test,result);
-    }
-",TestDateMidnight_Basics::testWithZoneRetainFields_DateTimeZone_7_oe
-joda_512_8,"    public void testWithZoneRetainFields_DateTimeZone_8_oe() {
-        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
-        DateMidnight result = test.withZoneRetainFields(PARIS);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateMidnight(TEST_TIME1_UTC, GREGORIAN_PARIS);
-        result = test.withZoneRetainFields(null);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateMidnight(TEST_TIME1_UTC);
-        result = test.withZoneRetainFields(LONDON);
-        // removed other assertion
-        
-        test = new DateMidnight(TEST_TIME1_UTC);
-        result = test.withZoneRetainFields(null);
-        assertSame(test,result);
-    }
-",TestDateMidnight_Basics::testWithZoneRetainFields_DateTimeZone_8_oe
 joda_512_9,"    public void testWithZoneRetainFields_DateTimeZone_9_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withZoneRetainFields(PARIS);
@@ -42632,12 +42228,6 @@ joda_631_16,"    public void testToDateTimeISO_16_oe() {
         assertNotSame(test,result);
     }
 ",TestDateTime_Basics::testToDateTimeISO_16_oe
-joda_632_1,"    public void testToDateTime_DateTimeZone_1_oe() {
-        DateTime test = new DateTime(TEST_TIME1);
-        DateTime result = test.toDateTime(LONDON);
-        assertSame(test,result);
-    }
-",TestDateTime_Basics::testToDateTime_DateTimeZone_1_oe
 joda_632_2,"    public void testToDateTime_DateTimeZone_2_oe() {
         DateTime test = new DateTime(TEST_TIME1);
         DateTime result = test.toDateTime(LONDON);
@@ -42690,26 +42280,6 @@ joda_632_5,"    public void testToDateTime_DateTimeZone_5_oe() {
         assertEquals(LONDON,result.getZone());
     }
 ",TestDateTime_Basics::testToDateTime_DateTimeZone_5_oe
-joda_632_6,"    public void testToDateTime_DateTimeZone_6_oe() {
-        DateTime test = new DateTime(TEST_TIME1);
-        DateTime result = test.toDateTime(LONDON);
-        // removed other assertion
-
-        test = new DateTime(TEST_TIME1);
-        result = test.toDateTime(PARIS);
-        // removed other assertion
-        // removed other assertion
-
-        test = new DateTime(TEST_TIME1, PARIS);
-        result = test.toDateTime((DateTimeZone) null);
-        // removed other assertion
-        // removed other assertion
-
-        test = new DateTime(TEST_TIME1);
-        result = test.toDateTime((DateTimeZone) null);
-        assertSame(test,result);
-    }
-",TestDateTime_Basics::testToDateTime_DateTimeZone_6_oe
 joda_633_1,"    public void testToDateTime_Chronology_1_oe() {
         DateTime test = new DateTime(TEST_TIME1);
         DateTime result = test.toDateTime(ISO_DEFAULT);
@@ -43409,32 +42979,6 @@ joda_650_2,"    public void testWithZoneRetainFields_DateTimeZone_2_oe() {
         assertEquals(ISO_PARIS,result.getChronology());
     }
 ",TestDateTime_Basics::testWithZoneRetainFields_DateTimeZone_2_oe
-joda_650_3,"    public void testWithZoneRetainFields_DateTimeZone_3_oe() {
-        DateTime test = new DateTime(TEST_TIME1);
-        DateTime result = test.withZoneRetainFields(PARIS);
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateTime(TEST_TIME1);
-        result = test.withZoneRetainFields(LONDON);
-        assertSame(test,result);
-    }
-",TestDateTime_Basics::testWithZoneRetainFields_DateTimeZone_3_oe
-joda_650_4,"    public void testWithZoneRetainFields_DateTimeZone_4_oe() {
-        DateTime test = new DateTime(TEST_TIME1);
-        DateTime result = test.withZoneRetainFields(PARIS);
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateTime(TEST_TIME1);
-        result = test.withZoneRetainFields(LONDON);
-        // removed other assertion
-        
-        test = new DateTime(TEST_TIME1);
-        result = test.withZoneRetainFields(null);
-        assertSame(test,result);
-    }
-",TestDateTime_Basics::testWithZoneRetainFields_DateTimeZone_4_oe
 joda_650_5,"    public void testWithZoneRetainFields_DateTimeZone_5_oe() {
         DateTime test = new DateTime(TEST_TIME1);
         DateTime result = test.withZoneRetainFields(PARIS);
@@ -43474,30 +43018,6 @@ joda_650_6,"    public void testWithZoneRetainFields_DateTimeZone_6_oe() {
         assertEquals(GREGORIAN_DEFAULT,result.getChronology());
     }
 ",TestDateTime_Basics::testWithZoneRetainFields_DateTimeZone_6_oe
-joda_650_7,"    public void testWithZoneRetainFields_DateTimeZone_7_oe() {
-        DateTime test = new DateTime(TEST_TIME1);
-        DateTime result = test.withZoneRetainFields(PARIS);
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateTime(TEST_TIME1);
-        result = test.withZoneRetainFields(LONDON);
-        // removed other assertion
-        
-        test = new DateTime(TEST_TIME1);
-        result = test.withZoneRetainFields(null);
-        // removed other assertion
-        
-        test = new DateTime(TEST_TIME1, GREGORIAN_PARIS);
-        result = test.withZoneRetainFields(null);
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateTime(TEST_TIME1, new MockNullZoneChronology());
-        result = test.withZoneRetainFields(LONDON);
-        assertSame(test,result);
-    }
-",TestDateTime_Basics::testWithZoneRetainFields_DateTimeZone_7_oe
 joda_651_1,"    public void testWithDate_int_int_int_1_oe() {
         DateTime test = new DateTime(2002, 4, 5, 1, 2, 3, 4, ISO_UTC);
         DateTime result = test.withDate(2003, 5, 6);
@@ -45543,15 +45063,6 @@ joda_724_1,"    public void testGetName_berlin_english_1_oe() {
     }
     }
 ",TestDateTimeZone::testGetName_berlin_english_1_oe
-joda_724_2,"    public void testGetName_berlin_english_2_oe() {
-      DateTimeZone berlin = DateTimeZone.forID(""Europe/Berlin"");
-      if (JDK9) {
-          // removed other assertion
-      } else {
-          assertEquals(""Central European Time"",berlin.getName(TEST_TIME_WINTER,Locale.ENGLISH));
-    }
-    }
-",TestDateTimeZone::testGetName_berlin_english_2_oe
 joda_724_3,"    public void testGetName_berlin_english_3_oe() {
       DateTimeZone berlin = DateTimeZone.forID(""Europe/Berlin"");
       if (JDK9) {
@@ -45577,16 +45088,6 @@ joda_725_2,"    public void testGetName_berlin_german_2_oe() {
     }
     }
 ",TestDateTimeZone::testGetName_berlin_german_2_oe
-joda_725_3,"    public void testGetName_berlin_german_3_oe() {
-        DateTimeZone berlin = DateTimeZone.forID(""Europe/Berlin"");
-        if (JDK9) {
-            // removed other assertion
-            // removed other assertion
-        } else if (JDK6PLUS) {
-            assertEquals(""Mitteleurop\u00e4ische Zeit"",berlin.getName(TEST_TIME_WINTER,Locale.GERMAN));
-    }
-    }
-",TestDateTimeZone::testGetName_berlin_german_3_oe
 joda_725_4,"    public void testGetName_berlin_german_4_oe() {
         DateTimeZone berlin = DateTimeZone.forID(""Europe/Berlin"");
         if (JDK9) {
@@ -62101,28 +61602,6 @@ joda_1104_17,"    public void testPropertyGetMonthOfYear_17_oe() {
         assertEquals(9,test.monthOfYear().getMaximumTextLength(null));
     }
 ",TestDateTime_Properties::testPropertyGetMonthOfYear_17_oe
-joda_1104_18,"    public void testPropertyGetMonthOfYear_18_oe() {
-        DateTime test = new DateTime(2004, 6, 9, 0, 0, 0, 0);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(3,test.monthOfYear().getMaximumShortTextLength(null));
-    }
-",TestDateTime_Properties::testPropertyGetMonthOfYear_18_oe
 joda_1104_19,"    public void testPropertyGetMonthOfYear_19_oe() {
         DateTime test = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         // removed other assertion
@@ -69916,22 +69395,6 @@ joda_1208_11,"    public void testPropertyGetMonthOfYear_11_oe() {
         assertEquals(9,test.monthOfYear().getMaximumTextLength(null));
     }
 ",TestMutableDateTime_Properties::testPropertyGetMonthOfYear_11_oe
-joda_1208_12,"    public void testPropertyGetMonthOfYear_12_oe() {
-        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(3,test.monthOfYear().getMaximumShortTextLength(null));
-    }
-",TestMutableDateTime_Properties::testPropertyGetMonthOfYear_12_oe
 joda_1208_13,"    public void testPropertyGetMonthOfYear_13_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
         // removed other assertion
@@ -77061,27 +76524,11 @@ joda_1358_1,"    public void testToString4_1_oe() {
         assertEquals(""-W-5"",test.toString());
     }
 ",TestPartial_Basics::testToString4_1_oe
-joda_1358_2,"    public void testToString4_2_oe() {
-        Partial test = new Partial(DateTimeFieldType.dayOfWeek(), 5);
-        // removed other assertion
-        
-        test = test.with(DateTimeFieldType.dayOfMonth(), 13);
-        assertEquals(""[dayOfMonth=13,dayOfWeek=5]"",test.toString());
-    }
-",TestPartial_Basics::testToString4_2_oe
 joda_1359_1,"    public void testToString5_1_oe() {
         Partial test = new Partial(DateTimeFieldType.era(), 1);
         assertEquals(""[era=1]"",test.toString());
     }
 ",TestPartial_Basics::testToString5_1_oe
-joda_1359_2,"    public void testToString5_2_oe() {
-        Partial test = new Partial(DateTimeFieldType.era(), 1);
-        // removed other assertion
-        
-        test = test.with(DateTimeFieldType.halfdayOfDay(), 0);
-        assertEquals(""[era=1,halfdayOfDay=0]"",test.toString());
-    }
-",TestPartial_Basics::testToString5_2_oe
 joda_1360_1,"    public void testToString_String_1_oe() {
         Partial test = createHourMinPartial();
         assertEquals(""\ufffd\ufffd\ufffd\ufffd 10"",test.toString(""yyyy HH""));
@@ -80064,12 +79511,6 @@ joda_1402_4,"    public void testToDateTimeISO_4_oe() {
         assertEquals(ISOChronology.getInstance(),result.getChronology());
     }
 ",TestInstant_Basics::testToDateTimeISO_4_oe
-joda_1403_1,"    public void testToDateTime_DateTimeZone_1_oe() {
-        Instant test = new Instant(TEST_TIME1);
-        DateTime result = test.toDateTime(LONDON);
-        assertEquals(test.getMillis(),result.getMillis());
-    }
-",TestInstant_Basics::testToDateTime_DateTimeZone_1_oe
 joda_1403_2,"    public void testToDateTime_DateTimeZone_2_oe() {
         Instant test = new Instant(TEST_TIME1);
         DateTime result = test.toDateTime(LONDON);
@@ -80116,23 +79557,6 @@ joda_1403_5,"    public void testToDateTime_DateTimeZone_5_oe() {
         assertEquals(test.getMillis(),result.getMillis());
     }
 ",TestInstant_Basics::testToDateTime_DateTimeZone_5_oe
-joda_1403_6,"    public void testToDateTime_DateTimeZone_6_oe() {
-        Instant test = new Instant(TEST_TIME1);
-        DateTime result = test.toDateTime(LONDON);
-        // removed other assertion
-        // removed other assertion
-
-        test = new Instant(TEST_TIME1);
-        result = test.toDateTime(PARIS);
-        // removed other assertion
-        // removed other assertion
-
-        test = new Instant(TEST_TIME1);
-        result = test.toDateTime((DateTimeZone) null);
-        // removed other assertion
-        assertEquals(ISOChronology.getInstance(),result.getChronology());
-    }
-",TestInstant_Basics::testToDateTime_DateTimeZone_6_oe
 joda_1404_1,"    public void testToDateTime_Chronology_1_oe() {
         Instant test = new Instant(TEST_TIME1);
         DateTime result = test.toDateTime(ISOChronology.getInstance());
@@ -114728,24 +114152,6 @@ joda_2171_13,"    public void testPropertyGetMonthOfYear_13_oe() {
         assertEquals(9,test.monthOfYear().getMaximumTextLength(null));
     }
 ",TestDateMidnight_Properties::testPropertyGetMonthOfYear_13_oe
-joda_2171_14,"    public void testPropertyGetMonthOfYear_14_oe() {
-        DateMidnight test = new DateMidnight(2004, 6, 9);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(3,test.monthOfYear().getMaximumShortTextLength(null));
-    }
-",TestDateMidnight_Properties::testPropertyGetMonthOfYear_14_oe
 joda_2171_15,"    public void testPropertyGetMonthOfYear_15_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
         // removed other assertion
@@ -188990,48 +188396,6 @@ joda_3020_4,"    public void testLeap_29feb_4_oe() {
         assertEquals(true,dt.dayOfYear().isLeap());
     }
 ",TestJulianChronology::testLeap_29feb_4_oe
-joda_3021_1,"    public void testChronology_1_oe() {
-        int iterations = iIterations;
-        long seed = iSeed;
-        String modeStr;
-        if (iMode == GREGORIAN_MODE) {
-            modeStr = ""Gregorian"";
-        } else {
-            modeStr = ""Julian"";
-        }
-
-        System.out.println(""\nTesting "" + modeStr + "" chronology over "" + iterations + "" iterations"");
-
-        Random rnd = new Random(seed);
-        long updateMillis = System.currentTimeMillis() + UPDATE_INTERVAL;
-
-        for (int i=0; i<iterations; i++) {
-            long now = System.currentTimeMillis();
-            if (now >= updateMillis) {
-                updateMillis = now + UPDATE_INTERVAL;
-                double complete = ((int)((double)i / iterations * 1000.0)) / 10d;
-                if (complete < 100) {
-                    System.out.println("""" + complete + ""% complete (i="" + i + "")"");
-                }
-            }
-
-            long millis = randomMillis(rnd);
-            int value = rnd.nextInt(200) - 100;
-            // millis2 is used for difference tests.
-            long millis2 = millis + rnd.nextLong() % _1000_YEARS - _500_YEARS;
-
-            try {
-                testFields(millis, value, millis2);
-            } catch (RuntimeException e) {
-                System.out.println(""Failure index: "" + i);
-                System.out.println(""Test millis: "" + millis);
-                System.out.println(""Test value: "" + value);
-                System.out.println(""Test millis2: "" + millis2);
-                fail(e.getMessage());
-    }
-    }
-    }
-",MainTest::testChronology_1_oe
 joda_3022_1,"    public void testSingleton_1_oe() throws Exception {
         Class cls = NullConverter.class;
         assertEquals(false,Modifier.isPublic(cls.getModifiers()));
@@ -199265,11 +198629,6 @@ joda_3318_1,"    public void testSubclassableConstructor_1_oe() {
         assertNotNull(f);
     }
 ",TestPeriodFormat::testSubclassableConstructor_1_oe
-joda_3319_1,"    public void test_getDefault_formatStandard_1_oe() {
-        Period p = new Period(0, 0, 0, 1, 5, 6 ,7, 8);
-        assertEquals(""1 day,5 hours,6 minutes,7 seconds and 8 milliseconds"",PeriodFormat.getDefault().print(p));
-    }
-",TestPeriodFormat::test_getDefault_formatStandard_1_oe
 joda_3320_1,"    public void test_getDefault_FormatOneField_1_oe() {
         Period p = Period.days(2);
         assertEquals(""2 days"",PeriodFormat.getDefault().print(p));
@@ -199303,16 +198662,6 @@ joda_3325_1,"    public void test_getDefault_cached_1_oe() {
         assertSame(PeriodFormat.getDefault(),PeriodFormat.getDefault());
     }
 ",TestPeriodFormat::test_getDefault_cached_1_oe
-joda_3326_1,"    public void test_wordBased_default_1_oe() {
-        Period p = new Period(0, 0, 0, 1, 5, 6 ,7, 8);
-        assertEquals(""1 Tag,5 Stunden,6 Minuten,7 Sekunden und 8 Millisekunden"",PeriodFormat.wordBased().print(p));
-    }
-",TestPeriodFormat::test_wordBased_default_1_oe
-joda_3327_1,"    public void test_wordBased_fr_formatStandard_1_oe() {
-        Period p = new Period(0, 0, 0, 1, 5, 6 ,7, 8);
-        assertEquals(""1 jour,5 heures,6 minutes,7 secondes et 8 millisecondes"",PeriodFormat.wordBased(FR).print(p));
-    }
-",TestPeriodFormat::test_wordBased_fr_formatStandard_1_oe
 joda_3328_1,"    public void test_wordBased_fr_FormatOneField_1_oe() {
         Period p = Period.days(2);
         assertEquals(""2 jours"",PeriodFormat.wordBased(FR).print(p));
@@ -199337,11 +198686,6 @@ joda_3332_1,"    public void test_wordBased_fr_cached_1_oe() {
         assertSame(PeriodFormat.wordBased(FR),PeriodFormat.wordBased(FR));
     }
 ",TestPeriodFormat::test_wordBased_fr_cached_1_oe
-joda_3333_1,"    public void test_wordBased_pt_formatStandard_1_oe() {
-        Period p = new Period(0, 0, 0, 1, 5, 6 ,7, 8);
-        assertEquals(""1 dia,5 horas,6 minutos,7 segundos e 8 milissegundos"",PeriodFormat.wordBased(PT).print(p));
-    }
-",TestPeriodFormat::test_wordBased_pt_formatStandard_1_oe
 joda_3334_1,"    public void test_wordBased_pt_FormatOneField_1_oe() {
         Period p = Period.days(2);
         assertEquals(""2 dias"",PeriodFormat.wordBased(PT).print(p));
@@ -199366,11 +198710,6 @@ joda_3338_1,"    public void test_wordBased_pt_cached_1_oe() {
         assertSame(PeriodFormat.wordBased(PT),PeriodFormat.wordBased(PT));
     }
 ",TestPeriodFormat::test_wordBased_pt_cached_1_oe
-joda_3339_1,"    public void test_wordBased_es_formatStandard_1_oe() {
-        Period p = new Period(0, 0, 0, 1, 5, 6 ,7, 8);
-        assertEquals(""1 d\u00EDa,5 horas,6 minutos,7 segundos y 8 milisegundos"",PeriodFormat.wordBased(ES).print(p));
-    }
-",TestPeriodFormat::test_wordBased_es_formatStandard_1_oe
 joda_3340_1,"    public void test_wordBased_es_FormatOneField_1_oe() {
         Period p = Period.days(2);
         assertEquals(""2 d\u00EDas"",PeriodFormat.wordBased(ES).print(p));
@@ -199395,11 +198734,6 @@ joda_3344_1,"    public void test_wordBased_es_cached_1_oe() {
         assertSame(PeriodFormat.wordBased(ES),PeriodFormat.wordBased(ES));
     }
 ",TestPeriodFormat::test_wordBased_es_cached_1_oe
-joda_3345_1,"    public void test_wordBased_de_formatStandard_1_oe() {
-        Period p = new Period(0, 0, 0, 1, 5, 6 ,7, 8);
-        assertEquals(""1 Tag,5 Stunden,6 Minuten,7 Sekunden und 8 Millisekunden"",PeriodFormat.wordBased(DE).print(p));
-    }
-",TestPeriodFormat::test_wordBased_de_formatStandard_1_oe
 joda_3346_1,"    public void test_wordBased_de_FormatOneField_1_oe() {
         Period p = Period.days(2);
         assertEquals(""2 Tage"",PeriodFormat.wordBased(DE).print(p));
@@ -199424,11 +198758,6 @@ joda_3350_1,"    public void test_wordBased_de_cached_1_oe() {
         assertSame(PeriodFormat.wordBased(DE),PeriodFormat.wordBased(DE));
     }
 ",TestPeriodFormat::test_wordBased_de_cached_1_oe
-joda_3351_1,"    public void test_wordBased_nl_formatStandard_1_oe() {
-        Period p = new Period(0, 0, 0, 1, 5, 6 ,7, 8);
-        assertEquals(""1 dag,5 uur,6 minuten,7 seconden en 8 milliseconden"",PeriodFormat.wordBased(NL).print(p));
-    }
-",TestPeriodFormat::test_wordBased_nl_formatStandard_1_oe
 joda_3352_1,"    public void test_wordBased_nl_FormatOneField_1_oe() {
         Period p = Period.days(2);
         assertEquals(""2 dagen"",PeriodFormat.wordBased(NL).print(p));
@@ -199453,16 +198782,6 @@ joda_3356_1,"    public void test_wordBased_nl_cached_1_oe() {
         assertSame(PeriodFormat.wordBased(NL),PeriodFormat.wordBased(NL));
     }
 ",TestPeriodFormat::test_wordBased_nl_cached_1_oe
-joda_3357_1,"    public void test_wordBased_da_formatMultiple_1_oe() {
-        Period p = new Period(2, 3, 4, 2, 5, 6 ,7, 8);
-        assertEquals(""2 \u00E5r,3 m\u00E5neder,4 uger,2 dage,5 timer,6 minutter,7 sekunder og 8 millisekunder"",PeriodFormat.wordBased(DA).print(p));
-    }
-",TestPeriodFormat::test_wordBased_da_formatMultiple_1_oe
-joda_3358_1,"    public void test_wordBased_da_formatSinglular_1_oe() {
-        Period p = new Period(1, 1, 1, 1, 1, 1, 1, 1);
-        assertEquals(""1 \u00E5r,1 m\u00E5ned,1 uge,1 dag,1 time,1 minut,1 sekund og 1 millisekund"",PeriodFormat.wordBased(DA).print(p));
-    }
-",TestPeriodFormat::test_wordBased_da_formatSinglular_1_oe
 joda_3359_1,"    public void test_wordBased_da_cached_1_oe() {
         assertSame(PeriodFormat.wordBased(DA),PeriodFormat.wordBased(DA));
     }
@@ -199501,11 +198820,6 @@ joda_3365_2,"    public void test_wordBased_ja_checkRedundantSeparator_2_oe() {
     }
     }
 ",TestPeriodFormat::test_wordBased_ja_checkRedundantSeparator_2_oe
-joda_3366_1,"    public void test_wordBased_pl_formatStandard_1_oe() {
-        Period p = new Period(0, 0, 0, 1, 5, 6, 7, 8);
-        assertEquals(""1 dzie\u0144,5 godzin,6 minut,7 sekund i 8 milisekund"",PeriodFormat.wordBased(PL).print(p));
-    }
-",TestPeriodFormat::test_wordBased_pl_formatStandard_1_oe
 joda_3367_1,"    public void test_wordBased_pl_FormatOneField_1_oe() {
         Period p = Period.days(2);
         assertEquals(""2 dni"",PeriodFormat.wordBased(PL).print(p));
@@ -210465,21 +209779,6 @@ joda_3373_140,"    public void test_wordBased_pl_regEx_140_oe() {
         assertEquals(""2225 milisekund"",pf.print(Period.millis(2225)));
     }
 ",TestPeriodFormat::test_wordBased_pl_regEx_140_oe
-joda_3374_1,"    public void test_wordBased_bg_formatStandard_1_oe() {
-        Period p = new Period(0, 0, 0, 1, 5, 6, 7, 8);
-        assertEquals(""1 ден,5 часа,6 минути,7 секунди и 8 милисекунди"",PeriodFormat.wordBased(BG).print(p));
-    }
-",TestPeriodFormat::test_wordBased_bg_formatStandard_1_oe
-joda_3375_1,"    public void test_wordBased_cs_formatStandard_1_oe() {
-        Period p = new Period(0, 0, 0, 1, 5, 6, 7, 8);
-        assertEquals(""1 den,5 hodin,6 minut,7 sekund a 8 milisekund"",PeriodFormat.wordBased(CS).print(p));
-    }
-",TestPeriodFormat::test_wordBased_cs_formatStandard_1_oe
-joda_3376_1,"    public void test_wordBased_ru_formatStandard_1_oe() {
-        Period p = new Period(1, 2, 3, 4, 5, 6, 7, 8);
-        assertEquals(""1 год,2 месяца,3 недели,4 дня,5 часов,6 минут,7 секунд и 8 миллисекунд"",PeriodFormat.wordBased(RU).print(p));
-    }
-",TestPeriodFormat::test_wordBased_ru_formatStandard_1_oe
 joda_3377_1,"    public void test_wordBased_ru_FormatOneField_1_oe() {
         Period p = Period.days(2);
         assertEquals(""2 дня"",PeriodFormat.wordBased(RU).print(p));
@@ -230481,42 +229780,6 @@ joda_3383_192,"    public void test_wordBased_ru_regEx_192_oe() {
         assertEquals(""1005 миллисекунд"",pf.print(Period.millis(1005)));
     }
 ",TestPeriodFormat::test_wordBased_ru_regEx_192_oe
-joda_3384_1,"    public void test_wordBased_fr_from_de_1_oe() {
-        Locale.setDefault(DE);
-        Period p = new Period(0, 0, 0, 1, 5, 6, 7, 8);
-        assertEquals(""1 jour,5 heures,6 minutes,7 secondes et 8 millisecondes"",PeriodFormat.wordBased(FR).print(p));
-    }
-",TestPeriodFormat::test_wordBased_fr_from_de_1_oe
-joda_3385_1,"    public void test_wordBased_fr_from_nl_1_oe() {
-        Locale.setDefault(NL);
-        Period p = new Period(0, 0, 0, 1, 5, 6, 7, 8);
-        assertEquals(""1 jour,5 heures,6 minutes,7 secondes et 8 millisecondes"",PeriodFormat.wordBased(FR).print(p));
-    }
-",TestPeriodFormat::test_wordBased_fr_from_nl_1_oe
-joda_3386_1,"    public void test_wordBased_en_from_de_1_oe() {
-        Locale.setDefault(DE);
-        Period p = new Period(0, 0, 0, 1, 5, 6, 7, 8);
-        assertEquals(""1 day,5 hours,6 minutes,7 seconds and 8 milliseconds"",PeriodFormat.wordBased(EN).print(p));
-    }
-",TestPeriodFormat::test_wordBased_en_from_de_1_oe
-joda_3387_1,"    public void test_wordBased_en_from_nl_1_oe() {
-        Locale.setDefault(NL);
-        Period p = new Period(0, 0, 0, 1, 5, 6, 7, 8);
-        assertEquals(""1 day,5 hours,6 minutes,7 seconds and 8 milliseconds"",PeriodFormat.wordBased(EN).print(p));
-    }
-",TestPeriodFormat::test_wordBased_en_from_nl_1_oe
-joda_3388_1,"    public void test_wordBased_en_from_pl_1_oe() {
-        Locale.setDefault(PL);
-        Period p = new Period(0, 0, 0, 1, 5, 6, 7, 8);
-        assertEquals(""1 day,5 hours,6 minutes,7 seconds and 8 milliseconds"",PeriodFormat.wordBased(EN).print(p));
-    }
-",TestPeriodFormat::test_wordBased_en_from_pl_1_oe
-joda_3389_1,"    public void test_wordBased_pl_from_fr_1_oe() {
-        Locale.setDefault(FR);
-        Period p = new Period(0, 0, 0, 1, 5, 6, 7, 8);
-        assertEquals(""1 dzie\u0144,5 godzin,6 minut,7 sekund i 8 milisekund"",PeriodFormat.wordBased(PL).print(p));
-    }
-",TestPeriodFormat::test_wordBased_pl_from_fr_1_oe
 joda_3390_1,"    public void test_getDefault_localeValue_1_oe() {
         PeriodFormatter pf = PeriodFormat.getDefault();
         assertEquals(Locale.ENGLISH,pf.getLocale());
@@ -231076,13 +230339,6 @@ joda_3403_1,"    public void testParseInto_simple_1_oe() {
         assertEquals(20,f.parseInto(result,""P1Y2M3W4DT5H6M7.008S"",0));
     }
 ",TestPeriodFormatter::testParseInto_simple_1_oe
-joda_3403_2,"    public void testParseInto_simple_2_oe() {
-        MutablePeriod expect = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
-        MutablePeriod result = new MutablePeriod();
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestPeriodFormatter::testParseInto_simple_2_oe
 joda_3403_4,"    public void testParseInto_simple_4_oe() {
         MutablePeriod expect = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
         MutablePeriod result = new MutablePeriod();
@@ -234645,14 +233901,6 @@ joda_3548_1,"    public void testParseInto_simple_1_oe() {
         assertEquals(20,g.parseInto(result,""2004-06-09T10:20:30Z"",0));
     }
 ",TestDateTimeFormatter::testParseInto_simple_1_oe
-joda_3548_2,"    public void testParseInto_simple_2_oe() {
-        MutableDateTime expect = null;
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        MutableDateTime result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_simple_2_oe
 joda_3548_4,"    public void testParseInto_simple_4_oe() {
         MutableDateTime expect = null;
         expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
@@ -234709,15 +233957,6 @@ joda_3549_1,"    public void testParseInto_zone_1_oe() {
         assertEquals(20,g.withZone(LONDON).parseInto(result,""2004-06-09T10:20:30Z"",0));
     }
 ",TestDateTimeFormatter::testParseInto_zone_1_oe
-joda_3549_2,"    public void testParseInto_zone_2_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_zone_2_oe
 joda_3549_3,"    public void testParseInto_zone_3_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
@@ -234731,20 +233970,6 @@ joda_3549_3,"    public void testParseInto_zone_3_oe() {
         assertEquals(20,g.withZone(null).parseInto(result,""2004-06-09T10:20:30Z"",0));
     }
 ",TestDateTimeFormatter::testParseInto_zone_3_oe
-joda_3549_4,"    public void testParseInto_zone_4_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_zone_4_oe
 joda_3549_5,"    public void testParseInto_zone_5_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
@@ -234763,25 +233988,6 @@ joda_3549_5,"    public void testParseInto_zone_5_oe() {
         assertEquals(20,g.withZone(PARIS).parseInto(result,""2004-06-09T10:20:30Z"",0));
     }
 ",TestDateTimeFormatter::testParseInto_zone_5_oe
-joda_3549_6,"    public void testParseInto_zone_6_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 12, 20, 30, 0, PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_zone_6_oe
 joda_3550_1,"    public void testParseInto_zone2_1_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
@@ -234790,15 +233996,6 @@ joda_3550_1,"    public void testParseInto_zone2_1_oe() {
         assertEquals(25,g.withZone(LONDON).parseInto(result,""2004-06-09T06:20:30-04:00"",0));
     }
 ",TestDateTimeFormatter::testParseInto_zone2_1_oe
-joda_3550_2,"    public void testParseInto_zone2_2_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_zone2_2_oe
 joda_3550_3,"    public void testParseInto_zone2_3_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
@@ -234811,19 +234008,6 @@ joda_3550_3,"    public void testParseInto_zone2_3_oe() {
         assertEquals(25,g.withZone(null).parseInto(result,""2004-06-09T06:20:30-04:00"",0));
     }
 ",TestDateTimeFormatter::testParseInto_zone2_3_oe
-joda_3550_4,"    public void testParseInto_zone2_4_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_zone2_4_oe
 joda_3550_5,"    public void testParseInto_zone2_5_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
@@ -234840,23 +234024,6 @@ joda_3550_5,"    public void testParseInto_zone2_5_oe() {
         assertEquals(25,g.withZone(PARIS).parseInto(result,""2004-06-09T06:20:30-04:00"",0));
     }
 ",TestDateTimeFormatter::testParseInto_zone2_5_oe
-joda_3550_6,"    public void testParseInto_zone2_6_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 12, 20, 30, 0, PARIS);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_zone2_6_oe
 joda_3551_1,"    public void testParseInto_zone3_1_oe() {
         DateTimeFormatter h = new DateTimeFormatterBuilder()
         .append(ISODateTimeFormat.date())
@@ -234871,21 +234038,6 @@ joda_3551_1,"    public void testParseInto_zone3_1_oe() {
         assertEquals(19,h.withZone(LONDON).parseInto(result,""2004-06-09T10:20:30"",0));
     }
 ",TestDateTimeFormatter::testParseInto_zone3_1_oe
-joda_3551_2,"    public void testParseInto_zone3_2_oe() {
-        DateTimeFormatter h = new DateTimeFormatterBuilder()
-        .append(ISODateTimeFormat.date())
-        .appendLiteral('T')
-        .append(ISODateTimeFormat.timeElementParser())
-        .toFormatter();
-        
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_zone3_2_oe
 joda_3551_3,"    public void testParseInto_zone3_3_oe() {
         DateTimeFormatter h = new DateTimeFormatterBuilder()
         .append(ISODateTimeFormat.date())
@@ -234905,26 +234057,6 @@ joda_3551_3,"    public void testParseInto_zone3_3_oe() {
         assertEquals(19,h.withZone(null).parseInto(result,""2004-06-09T10:20:30"",0));
     }
 ",TestDateTimeFormatter::testParseInto_zone3_3_oe
-joda_3551_4,"    public void testParseInto_zone3_4_oe() {
-        DateTimeFormatter h = new DateTimeFormatterBuilder()
-        .append(ISODateTimeFormat.date())
-        .appendLiteral('T')
-        .append(ISODateTimeFormat.timeElementParser())
-        .toFormatter();
-        
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_zone3_4_oe
 joda_3551_5,"    public void testParseInto_zone3_5_oe() {
         DateTimeFormatter h = new DateTimeFormatterBuilder()
         .append(ISODateTimeFormat.date())
@@ -234949,31 +234081,6 @@ joda_3551_5,"    public void testParseInto_zone3_5_oe() {
         assertEquals(19,h.withZone(PARIS).parseInto(result,""2004-06-09T10:20:30"",0));
     }
 ",TestDateTimeFormatter::testParseInto_zone3_5_oe
-joda_3551_6,"    public void testParseInto_zone3_6_oe() {
-        DateTimeFormatter h = new DateTimeFormatterBuilder()
-        .append(ISODateTimeFormat.date())
-        .appendLiteral('T')
-        .append(ISODateTimeFormat.timeElementParser())
-        .toFormatter();
-        
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_zone3_6_oe
 joda_3552_1,"    public void testParseInto_simple_precedence_1_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
@@ -234983,16 +234090,6 @@ joda_3552_1,"    public void testParseInto_simple_precedence_1_oe() {
         assertEquals(24,f.parseInto(result,""Mon 2004-06-09T10:20:30Z"",0));
     }
 ",TestDateTimeFormatter::testParseInto_simple_precedence_1_oe
-joda_3552_2,"    public void testParseInto_simple_precedence_2_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 7, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // DayOfWeek takes precedence, because week < month in length
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_simple_precedence_2_oe
 joda_3553_1,"    public void testParseInto_offsetParsed_1_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
@@ -235001,15 +234098,6 @@ joda_3553_1,"    public void testParseInto_offsetParsed_1_oe() {
         assertEquals(20,g.withOffsetParsed().parseInto(result,""2004-06-09T10:20:30Z"",0));
     }
 ",TestDateTimeFormatter::testParseInto_offsetParsed_1_oe
-joda_3553_2,"    public void testParseInto_offsetParsed_2_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, UTC);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_offsetParsed_2_oe
 joda_3553_3,"    public void testParseInto_offsetParsed_3_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
@@ -235023,20 +234111,6 @@ joda_3553_3,"    public void testParseInto_offsetParsed_3_oe() {
         assertEquals(25,g.withOffsetParsed().parseInto(result,""2004-06-09T06:20:30-04:00"",0));
     }
 ",TestDateTimeFormatter::testParseInto_offsetParsed_3_oe
-joda_3553_4,"    public void testParseInto_offsetParsed_4_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, UTC);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 6, 20, 30, 0, DateTimeZone.forOffsetHours(-4));
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_offsetParsed_4_oe
 joda_3553_5,"    public void testParseInto_offsetParsed_5_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
@@ -235055,25 +234129,6 @@ joda_3553_5,"    public void testParseInto_offsetParsed_5_oe() {
         assertEquals(20,g.withZone(PARIS).withOffsetParsed().parseInto(result,""2004-06-09T10:20:30Z"",0));
     }
 ",TestDateTimeFormatter::testParseInto_offsetParsed_5_oe
-joda_3553_6,"    public void testParseInto_offsetParsed_6_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, UTC);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 6, 20, 30, 0, DateTimeZone.forOffsetHours(-4));
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, UTC);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_offsetParsed_6_oe
 joda_3553_7,"    public void testParseInto_offsetParsed_7_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
@@ -235096,29 +234151,6 @@ joda_3553_7,"    public void testParseInto_offsetParsed_7_oe() {
         assertEquals(20,g.withOffsetParsed().withZone(PARIS).parseInto(result,""2004-06-09T10:20:30Z"",0));
     }
 ",TestDateTimeFormatter::testParseInto_offsetParsed_7_oe
-joda_3553_8,"    public void testParseInto_offsetParsed_8_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, UTC);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 6, 20, 30, 0, DateTimeZone.forOffsetHours(-4));
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, UTC);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        expect = new MutableDateTime(2004, 6, 9, 12, 20, 30, 0, PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_offsetParsed_8_oe
 joda_3554_1,"    public void testParseInto_chrono_1_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
@@ -235127,15 +234159,6 @@ joda_3554_1,"    public void testParseInto_chrono_1_oe() {
         assertEquals(20,g.withChronology(ISO_PARIS).parseInto(result,""2004-06-09T10:20:30Z"",0));
     }
 ",TestDateTimeFormatter::testParseInto_chrono_1_oe
-joda_3554_2,"    public void testParseInto_chrono_2_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 12, 20, 30, 0, PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_chrono_2_oe
 joda_3554_3,"    public void testParseInto_chrono_3_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
@@ -235149,20 +234172,6 @@ joda_3554_3,"    public void testParseInto_chrono_3_oe() {
         assertEquals(20,g.withChronology(null).parseInto(result,""2004-06-09T10:20:30Z"",0));
     }
 ",TestDateTimeFormatter::testParseInto_chrono_3_oe
-joda_3554_4,"    public void testParseInto_chrono_4_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 12, 20, 30, 0, PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_chrono_4_oe
 joda_3554_5,"    public void testParseInto_chrono_5_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
@@ -235181,25 +234190,6 @@ joda_3554_5,"    public void testParseInto_chrono_5_oe() {
         assertEquals(20,g.withChronology(BUDDHIST_PARIS).parseInto(result,""2547-06-09T10:20:30Z"",0));
     }
 ",TestDateTimeFormatter::testParseInto_chrono_5_oe
-joda_3554_6,"    public void testParseInto_chrono_6_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 12, 20, 30, 0, PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2547, 6, 9, 12, 20, 30, 0, BUDDHIST_PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_chrono_6_oe
 joda_3554_7,"    public void testParseInto_chrono_7_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
@@ -235223,251 +234213,108 @@ joda_3554_7,"    public void testParseInto_chrono_7_oe() {
         assertEquals(20,g.withChronology(BUDDHIST_PARIS).parseInto(result,""2004-06-09T10:20:30Z"",0));
     }
 ",TestDateTimeFormatter::testParseInto_chrono_7_oe
-joda_3554_8,"    public void testParseInto_chrono_8_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 12, 20, 30, 0, PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2547, 6, 9, 12, 20, 30, 0, BUDDHIST_PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 10, 29, 51, 0, BUDDHIST_PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect,result);
-    }
-",TestDateTimeFormatter::testParseInto_chrono_8_oe
 joda_3555_1,"    public void testParseInto_monthOnly_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M"").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, LONDON);
         assertEquals(1,f.parseInto(result,""5"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthOnly_1_oe
-joda_3555_2,"    public void testParseInto_monthOnly_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M"").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, LONDON);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,5,9,12,20,30,0,LONDON),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthOnly_2_oe
 joda_3556_1,"    public void testParseInto_monthOnly_baseStartYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M"").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 1, 1, 12, 20, 30, 0, TOKYO);
         assertEquals(1,f.parseInto(result,""5"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear_1_oe
-joda_3556_2,"    public void testParseInto_monthOnly_baseStartYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M"").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 1, 12, 20, 30, 0, TOKYO);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,5,1,12,20,30,0,TOKYO),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear_2_oe
 joda_3557_1,"    public void testParseInto_monthOnly_parseStartYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M"").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 2, 1, 12, 20, 30, 0, TOKYO);
         assertEquals(1,f.parseInto(result,""1"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear_1_oe
-joda_3557_2,"    public void testParseInto_monthOnly_parseStartYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M"").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 2, 1, 12, 20, 30, 0, TOKYO);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,1,1,12,20,30,0,TOKYO),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear_2_oe
 joda_3558_1,"    public void testParseInto_monthOnly_baseEndYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M"").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 12, 31, 12, 20, 30, 0, TOKYO);
         assertEquals(1,f.parseInto(result,""5"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear_1_oe
-joda_3558_2,"    public void testParseInto_monthOnly_baseEndYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M"").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 12, 31, 12, 20, 30, 0, TOKYO);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,5,31,12,20,30,0,TOKYO),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear_2_oe
 joda_3559_1,"    public void testParseInto_monthOnly_parseEndYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M"").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 1, 31, 12, 20, 30, 0,TOKYO);
         assertEquals(2,f.parseInto(result,""12"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear_1_oe
-joda_3559_2,"    public void testParseInto_monthOnly_parseEndYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M"").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 31, 12, 20, 30, 0,TOKYO);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,12,31,12,20,30,0,TOKYO),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear_2_oe
 joda_3560_1,"    public void testParseInto_monthDay_feb29_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, LONDON);
         assertEquals(4,f.parseInto(result,""2 29"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthDay_feb29_1_oe
-joda_3560_2,"    public void testParseInto_monthDay_feb29_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, LONDON);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,2,29,12,20,30,0,LONDON),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthDay_feb29_2_oe
 joda_3561_1,"    public void testParseInto_monthDay_feb29_startOfYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 1, 1, 0, 0, 0, 0, LONDON);
         assertEquals(4,f.parseInto(result,""2 29"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthDay_feb29_startOfYear_1_oe
-joda_3561_2,"    public void testParseInto_monthDay_feb29_startOfYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 1, 0, 0, 0, 0, LONDON);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,2,29,0,0,0,0,LONDON),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthDay_feb29_startOfYear_2_oe
 joda_3562_1,"    public void testParseInto_monthDay_feb29_OfYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 12, 31, 23, 59, 59, 999, LONDON);
         assertEquals(4,f.parseInto(result,""2 29"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthDay_feb29_OfYear_1_oe
-joda_3562_2,"    public void testParseInto_monthDay_feb29_OfYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 12, 31, 23, 59, 59, 999, LONDON);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,2,29,23,59,59,999,LONDON),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthDay_feb29_OfYear_2_oe
 joda_3563_1,"    public void testParseInto_monthDay_feb29_newYork_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, NEWYORK);
         assertEquals(4,f.parseInto(result,""2 29"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthDay_feb29_newYork_1_oe
-joda_3563_2,"    public void testParseInto_monthDay_feb29_newYork_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, NEWYORK);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,2,29,12,20,30,0,NEWYORK),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthDay_feb29_newYork_2_oe
 joda_3564_1,"    public void testParseInto_monthDay_feb29_newYork_startOfYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 1, 1, 0, 0, 0, 0, NEWYORK);
         assertEquals(4,f.parseInto(result,""2 29"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthDay_feb29_newYork_startOfYear_1_oe
-joda_3564_2,"    public void testParseInto_monthDay_feb29_newYork_startOfYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 1, 0, 0, 0, 0, NEWYORK);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,2,29,0,0,0,0,NEWYORK),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthDay_feb29_newYork_startOfYear_2_oe
 joda_3565_1,"    public void testParseInto_monthDay_feb29_newYork_endOfYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 12, 31, 23, 59, 59, 999, NEWYORK);
         assertEquals(4,f.parseInto(result,""2 29"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthDay_feb29_newYork_endOfYear_1_oe
-joda_3565_2,"    public void testParseInto_monthDay_feb29_newYork_endOfYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 12, 31, 23, 59, 59, 999, NEWYORK);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,2,29,23,59,59,999,NEWYORK),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthDay_feb29_newYork_endOfYear_2_oe
 joda_3566_1,"    public void testParseInto_monthDay_feb29_tokyo_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, TOKYO);
         assertEquals(4,f.parseInto(result,""2 29"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthDay_feb29_tokyo_1_oe
-joda_3566_2,"    public void testParseInto_monthDay_feb29_tokyo_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, TOKYO);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,2,29,12,20,30,0,TOKYO),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthDay_feb29_tokyo_2_oe
 joda_3567_1,"    public void testParseInto_monthDay_feb29_tokyo_startOfYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 1, 1, 0, 0, 0, 0, TOKYO);
         assertEquals(4,f.parseInto(result,""2 29"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthDay_feb29_tokyo_startOfYear_1_oe
-joda_3567_2,"    public void testParseInto_monthDay_feb29_tokyo_startOfYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 1, 0, 0, 0, 0, TOKYO);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,2,29,0,0,0,0,TOKYO),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthDay_feb29_tokyo_startOfYear_2_oe
 joda_3568_1,"    public void testParseInto_monthDay_feb29_tokyo_endOfYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 12, 31, 23, 59, 59, 999, TOKYO);
         assertEquals(4,f.parseInto(result,""2 29"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthDay_feb29_tokyo_endOfYear_1_oe
-joda_3568_2,"    public void testParseInto_monthDay_feb29_tokyo_endOfYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 12, 31, 23, 59, 59, 999, TOKYO);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,2,29,23,59,59,999,TOKYO),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthDay_feb29_tokyo_endOfYear_2_oe
 joda_3569_1,"    public void testParseInto_monthDay_withDefaultYear_feb29_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withDefaultYear(2012);
         MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, LONDON);
         assertEquals(4,f.parseInto(result,""2 29"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29_1_oe
-joda_3569_2,"    public void testParseInto_monthDay_withDefaultYear_feb29_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withDefaultYear(2012);
-        MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, LONDON);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,2,29,12,20,30,0,LONDON),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29_2_oe
 joda_3570_1,"    public void testParseInto_monthDay_withDefaultYear_feb29_newYork_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withDefaultYear(2012);
         MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, NEWYORK);
         assertEquals(4,f.parseInto(result,""2 29"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29_newYork_1_oe
-joda_3570_2,"    public void testParseInto_monthDay_withDefaultYear_feb29_newYork_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withDefaultYear(2012);
-        MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, NEWYORK);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,2,29,12,20,30,0,NEWYORK),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29_newYork_2_oe
 joda_3571_1,"    public void testParseInto_monthDay_withDefaultYear_feb29_newYork_endOfYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withDefaultYear(2012);
         MutableDateTime result = new MutableDateTime(2004, 12, 9, 12, 20, 30, 0, NEWYORK);
         assertEquals(4,f.parseInto(result,""2 29"",0));
     }
 ",TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29_newYork_endOfYear_1_oe
-joda_3571_2,"    public void testParseInto_monthDay_withDefaultYear_feb29_newYork_endOfYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern(""M d"").withDefaultYear(2012);
-        MutableDateTime result = new MutableDateTime(2004, 12, 9, 12, 20, 30, 0, NEWYORK);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004,2,29,12,20,30,0,NEWYORK),result);
-    }
-",TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29_newYork_endOfYear_2_oe
 joda_3572_1,"    public void testParseMillis_fractionOfSecondLong_1_oe() {
         DateTimeFormatter f = new DateTimeFormatterBuilder()
             .appendSecondOfDay(2).appendLiteral('.').appendFractionOfSecond(1, 9)
@@ -239610,15 +238457,6 @@ joda_3634_9,"    public void testFormatSeparatorSimple_9_oe() {
         assertEquals(1,f.getPrinter().countFieldsToPrint(DATE_PERIOD,Integer.MAX_VALUE,null));
     }
 ",TestPeriodFormatterBuilder::testFormatSeparatorSimple_9_oe
-joda_3635_1,"    public void testFormatSeparatorComplex_1_oe() {
-        PeriodFormatter f = builder
-            .appendYears().appendSeparator("", "", "" and "")
-            .appendHours().appendSeparator("", "", "" and "")
-            .appendMinutes().appendSeparator("", "", "" and "")
-            .toFormatter();
-        assertEquals(""1,5 and 6"",f.print(PERIOD));
-    }
-",TestPeriodFormatterBuilder::testFormatSeparatorComplex_1_oe
 joda_3635_2,"    public void testFormatSeparatorComplex_2_oe() {
         PeriodFormatter f = builder
             .appendYears().appendSeparator("", "", "" and "")
@@ -247312,18 +246150,6 @@ joda_3752_4,"    public void testSaveRestoreState_4_oe() {
         assertEquals(true,test.restoreState(state));
     }
 ",TestDateTimeParserBucket::testSaveRestoreState_4_oe
-joda_3752_5,"    public void testSaveRestoreState_5_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400,test.computeMillis(false));
-    }
-",TestDateTimeParserBucket::testSaveRestoreState_5_oe
 joda_3752_6,"    public void testSaveRestoreState_6_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -247353,22 +246179,6 @@ joda_3752_7,"    public void testSaveRestoreState_7_oe() {
         assertEquals(true,test.restoreState(state));
     }
 ",TestDateTimeParserBucket::testSaveRestoreState_7_oe
-joda_3752_8,"    public void testSaveRestoreState_8_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 7);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400,test.computeMillis(false));
-    }
-",TestDateTimeParserBucket::testSaveRestoreState_8_oe
 joda_3753_1,"    public void testSaveRestoreState_avoidSideEffects_1_oe() {
         // computeMillis() has side effects, so check works without it
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
@@ -247401,19 +246211,6 @@ joda_3753_3,"    public void testSaveRestoreState_avoidSideEffects_3_oe() {
         assertEquals(true,test.restoreState(state));
     }
 ",TestDateTimeParserBucket::testSaveRestoreState_avoidSideEffects_3_oe
-joda_3753_4,"    public void testSaveRestoreState_avoidSideEffects_4_oe() {
-        // computeMillis() has side effects, so check works without it
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        Object state = test.saveState();
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 7);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400,test.computeMillis(false));
-    }
-",TestDateTimeParserBucket::testSaveRestoreState_avoidSideEffects_4_oe
 joda_3754_1,"    public void testSaveRestoreState_offset_1_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -247449,18 +246246,6 @@ joda_3754_4,"    public void testSaveRestoreState_offset_4_oe() {
         assertEquals(true,test.restoreState(state));
     }
 ",TestDateTimeParserBucket::testSaveRestoreState_offset_4_oe
-joda_3754_5,"    public void testSaveRestoreState_offset_5_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state = test.saveState();
-        // removed other assertion
-        test.setOffset((Integer) 0);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400,test.computeMillis(false));
-    }
-",TestDateTimeParserBucket::testSaveRestoreState_offset_5_oe
 joda_3755_1,"    public void testSaveRestoreState_zone_1_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -247496,18 +246281,6 @@ joda_3755_4,"    public void testSaveRestoreState_zone_4_oe() {
         assertEquals(true,test.restoreState(state));
     }
 ",TestDateTimeParserBucket::testSaveRestoreState_zone_4_oe
-joda_3755_5,"    public void testSaveRestoreState_zone_5_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state = test.saveState();
-        // removed other assertion
-        test.setZone(DateTimeZone.UTC);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400,test.computeMillis(false));
-    }
-",TestDateTimeParserBucket::testSaveRestoreState_zone_5_oe
 joda_3756_1,"    public void testSaveRestoreState_text_1_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), ""2"", Locale.ENGLISH);
@@ -247543,18 +246316,6 @@ joda_3756_4,"    public void testSaveRestoreState_text_4_oe() {
         assertEquals(true,test.restoreState(state));
     }
 ",TestDateTimeParserBucket::testSaveRestoreState_text_4_oe
-joda_3756_5,"    public void testSaveRestoreState_text_5_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), ""2"", Locale.ENGLISH);
-        // removed other assertion
-        Object state = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), ""6"", Locale.ENGLISH);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400,test.computeMillis(false));
-    }
-",TestDateTimeParserBucket::testSaveRestoreState_text_5_oe
 joda_3757_1,"    public void testSaveRestoreState_twoStates_1_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -247620,22 +246381,6 @@ joda_3757_6,"    public void testSaveRestoreState_twoStates_6_oe() {
         assertEquals(true,test.restoreState(state2));
     }
 ",TestDateTimeParserBucket::testSaveRestoreState_twoStates_6_oe
-joda_3757_7,"    public void testSaveRestoreState_twoStates_7_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state1 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        Object state2 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.secondOfMinute(), 8);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 6 * MILLIS_PER_MINUTE + 100 - OFFSET_0400,test.computeMillis(false));
-    }
-",TestDateTimeParserBucket::testSaveRestoreState_twoStates_7_oe
 joda_3757_8,"    public void testSaveRestoreState_twoStates_8_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -247653,24 +246398,6 @@ joda_3757_8,"    public void testSaveRestoreState_twoStates_8_oe() {
         assertEquals(true,test.restoreState(state1));
     }
 ",TestDateTimeParserBucket::testSaveRestoreState_twoStates_8_oe
-joda_3757_9,"    public void testSaveRestoreState_twoStates_9_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state1 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        Object state2 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.secondOfMinute(), 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400,test.computeMillis(false));
-    }
-",TestDateTimeParserBucket::testSaveRestoreState_twoStates_9_oe
 joda_3757_10,"    public void testSaveRestoreState_twoStates_10_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -247690,26 +246417,6 @@ joda_3757_10,"    public void testSaveRestoreState_twoStates_10_oe() {
         assertEquals(true,test.restoreState(state2));
     }
 ",TestDateTimeParserBucket::testSaveRestoreState_twoStates_10_oe
-joda_3757_11,"    public void testSaveRestoreState_twoStates_11_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state1 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        Object state2 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.secondOfMinute(), 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 6 * MILLIS_PER_MINUTE + 100 - OFFSET_0400,test.computeMillis(false));
-    }
-",TestDateTimeParserBucket::testSaveRestoreState_twoStates_11_oe
 joda_3757_12,"    public void testSaveRestoreState_twoStates_12_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -247731,28 +246438,6 @@ joda_3757_12,"    public void testSaveRestoreState_twoStates_12_oe() {
         assertEquals(true,test.restoreState(state1));
     }
 ",TestDateTimeParserBucket::testSaveRestoreState_twoStates_12_oe
-joda_3757_13,"    public void testSaveRestoreState_twoStates_13_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state1 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        Object state2 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.secondOfMinute(), 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400,test.computeMillis(false));
-    }
-",TestDateTimeParserBucket::testSaveRestoreState_twoStates_13_oe
 joda_3758_1,"    public void testSaveRestoreState_sameStates_1_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -247791,19 +246476,6 @@ joda_3758_4,"    public void testSaveRestoreState_sameStates_4_oe() {
         assertEquals(true,test.restoreState(state2));
     }
 ",TestDateTimeParserBucket::testSaveRestoreState_sameStates_4_oe
-joda_3758_5,"    public void testSaveRestoreState_sameStates_5_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state1 = test.saveState();
-        Object state2 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400,test.computeMillis(false));
-    }
-",TestDateTimeParserBucket::testSaveRestoreState_sameStates_5_oe
 joda_3758_6,"    public void testSaveRestoreState_sameStates_6_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -247835,23 +246507,6 @@ joda_3758_7,"    public void testSaveRestoreState_sameStates_7_oe() {
         assertEquals(true,test.restoreState(state1));
     }
 ",TestDateTimeParserBucket::testSaveRestoreState_sameStates_7_oe
-joda_3758_8,"    public void testSaveRestoreState_sameStates_8_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state1 = test.saveState();
-        Object state2 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 8);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400,test.computeMillis(false));
-    }
-",TestDateTimeParserBucket::testSaveRestoreState_sameStates_8_oe
 joda_3758_9,"    public void testSaveRestoreState_sameStates_9_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -247870,25 +246525,6 @@ joda_3758_9,"    public void testSaveRestoreState_sameStates_9_oe() {
         assertEquals(true,test.restoreState(state2));
     }
 ",TestDateTimeParserBucket::testSaveRestoreState_sameStates_9_oe
-joda_3758_10,"    public void testSaveRestoreState_sameStates_10_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state1 = test.saveState();
-        Object state2 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400,test.computeMillis(false));
-    }
-",TestDateTimeParserBucket::testSaveRestoreState_sameStates_10_oe
 joda_3758_11,"    public void testSaveRestoreState_sameStates_11_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -247909,27 +246545,6 @@ joda_3758_11,"    public void testSaveRestoreState_sameStates_11_oe() {
         assertEquals(true,test.restoreState(state1));
     }
 ",TestDateTimeParserBucket::testSaveRestoreState_sameStates_11_oe
-joda_3758_12,"    public void testSaveRestoreState_sameStates_12_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state1 = test.saveState();
-        Object state2 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400,test.computeMillis(false));
-    }
-",TestDateTimeParserBucket::testSaveRestoreState_sameStates_12_oe
 joda_3759_1,"    public void testSaveRestoreState_badType_1_oe() {
         DateTimeParserBucket bucket1 = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         DateTimeParserBucket bucket2 = new DateTimeParserBucket(100, BUDDHIST_PARIS, LOCALE, 2000, 2000);
@@ -248404,11 +247019,6 @@ joda_3777_1,"    public void test_add_long_int_1_oe() {
         assertEquals(567L,iField.add(567L,0));
     }
 ",TestPreciseDurationField::test_add_long_int_1_oe
-joda_3777_2,"    public void test_add_long_int_2_oe() {
-        // removed other assertion
-        assertEquals(567L + 1234000L,iField.add(567L,1234));
-    }
-",TestPreciseDurationField::test_add_long_int_2_oe
 joda_3777_3,"    public void test_add_long_int_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -248419,11 +247029,6 @@ joda_3778_1,"    public void test_add_long_long_1_oe() {
         assertEquals(567L,iField.add(567L,0L));
     }
 ",TestPreciseDurationField::test_add_long_long_1_oe
-joda_3778_2,"    public void test_add_long_long_2_oe() {
-        // removed other assertion
-        assertEquals(567L + 1234000L,iField.add(567L,1234L));
-    }
-",TestPreciseDurationField::test_add_long_long_2_oe
 joda_3778_3,"    public void test_add_long_long_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -248456,11 +247061,6 @@ joda_3780_1,"    public void test_getDifferenceAsLong_long_long_1_oe() {
         assertEquals(0L,iField.getDifferenceAsLong(1L,0L));
     }
 ",TestPreciseDurationField::test_getDifferenceAsLong_long_long_1_oe
-joda_3780_2,"    public void test_getDifferenceAsLong_long_long_2_oe() {
-        // removed other assertion
-        assertEquals(567L,iField.getDifferenceAsLong(567000L,0L));
-    }
-",TestPreciseDurationField::test_getDifferenceAsLong_long_long_2_oe
 joda_3780_3,"    public void test_getDifferenceAsLong_long_long_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -248766,11 +247366,6 @@ joda_3799_1,"    public void test_add_long_int_1_oe() {
         assertEquals(567L,MillisDurationField.INSTANCE.add(567L,0));
     }
 ",TestMillisDurationField::test_add_long_int_1_oe
-joda_3799_2,"    public void test_add_long_int_2_oe() {
-        // removed other assertion
-        assertEquals(567L + 1234L,MillisDurationField.INSTANCE.add(567L,1234));
-    }
-",TestMillisDurationField::test_add_long_int_2_oe
 joda_3799_3,"    public void test_add_long_int_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -248781,11 +247376,6 @@ joda_3800_1,"    public void test_add_long_long_1_oe() {
         assertEquals(567L,MillisDurationField.INSTANCE.add(567L,0L));
     }
 ",TestMillisDurationField::test_add_long_long_1_oe
-joda_3800_2,"    public void test_add_long_long_2_oe() {
-        // removed other assertion
-        assertEquals(567L + 1234L,MillisDurationField.INSTANCE.add(567L,1234L));
-    }
-",TestMillisDurationField::test_add_long_long_2_oe
 joda_3800_3,"    public void test_add_long_long_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -248811,11 +247401,6 @@ joda_3802_1,"    public void test_getDifferenceAsLong_long_long_1_oe() {
         assertEquals(567L,MillisDurationField.INSTANCE.getDifferenceAsLong(567L,0L));
     }
 ",TestMillisDurationField::test_getDifferenceAsLong_long_long_1_oe
-joda_3802_2,"    public void test_getDifferenceAsLong_long_long_2_oe() {
-        // removed other assertion
-        assertEquals(567L - 1234L,MillisDurationField.INSTANCE.getDifferenceAsLong(567L,1234L));
-    }
-",TestMillisDurationField::test_getDifferenceAsLong_long_long_2_oe
 joda_3802_3,"    public void test_getDifferenceAsLong_long_long_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -249002,26 +247587,12 @@ joda_3821_1,"    public void test_add_long_int_1_oe() {
         assertEquals(61,field.add(1L,1));
     }
 ",TestBaseDateTimeField::test_add_long_int_1_oe
-joda_3821_2,"    public void test_add_long_int_2_oe() {
-        MockCountingDurationField.add_int = 0;
-        BaseDateTimeField field = new MockBaseDateTimeField();
-        // removed other assertion
-        assertEquals(1,MockCountingDurationField.add_int);
-    }
-",TestBaseDateTimeField::test_add_long_int_2_oe
 joda_3822_1,"    public void test_add_long_long_1_oe() {
         MockCountingDurationField.add_long = 0;
         BaseDateTimeField field = new MockBaseDateTimeField();
         assertEquals(61,field.add(1L,1L));
     }
 ",TestBaseDateTimeField::test_add_long_long_1_oe
-joda_3822_2,"    public void test_add_long_long_2_oe() {
-        MockCountingDurationField.add_long = 0;
-        BaseDateTimeField field = new MockBaseDateTimeField();
-        // removed other assertion
-        assertEquals(1,MockCountingDurationField.add_long);
-    }
-",TestBaseDateTimeField::test_add_long_long_2_oe
 joda_3823_1,"    public void test_add_RP_int_intarray_int_1_oe() {
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -249210,26 +247781,12 @@ joda_3826_1,"    public void test_getDifference_long_long_1_oe() {
         assertEquals(30,field.getDifference(0L,0L));
     }
 ",TestBaseDateTimeField::test_getDifference_long_long_1_oe
-joda_3826_2,"    public void test_getDifference_long_long_2_oe() {
-        MockCountingDurationField.difference_long = 0;
-        BaseDateTimeField field = new MockBaseDateTimeField();
-        // removed other assertion
-        assertEquals(1,MockCountingDurationField.difference_long);
-    }
-",TestBaseDateTimeField::test_getDifference_long_long_2_oe
 joda_3827_1,"    public void test_getDifferenceAsLong_long_long_1_oe() {
         MockCountingDurationField.difference_long = 0;
         BaseDateTimeField field = new MockBaseDateTimeField();
         assertEquals(30,field.getDifferenceAsLong(0L,0L));
     }
 ",TestBaseDateTimeField::test_getDifferenceAsLong_long_long_1_oe
-joda_3827_2,"    public void test_getDifferenceAsLong_long_long_2_oe() {
-        MockCountingDurationField.difference_long = 0;
-        BaseDateTimeField field = new MockBaseDateTimeField();
-        // removed other assertion
-        assertEquals(1,MockCountingDurationField.difference_long);
-    }
-",TestBaseDateTimeField::test_getDifferenceAsLong_long_long_2_oe
 joda_3828_1,"    public void test_set_long_int_1_oe() {
         BaseDateTimeField field = new MockBaseDateTimeField();
         assertEquals(1000,field.set(0L,0));
@@ -259297,26 +257854,12 @@ joda_3936_1,"    public void test_add_long_int_1_oe() {
         assertEquals(61,field.add(1L,1));
     }
 ",TestPreciseDurationDateTimeField::test_add_long_int_1_oe
-joda_3936_2,"    public void test_add_long_int_2_oe() {
-        MockCountingDurationField.add_int = 0;
-        BaseDateTimeField field = new MockPreciseDurationDateTimeField();
-        // removed other assertion
-        assertEquals(1,MockCountingDurationField.add_int);
-    }
-",TestPreciseDurationDateTimeField::test_add_long_int_2_oe
 joda_3937_1,"    public void test_add_long_long_1_oe() {
         MockCountingDurationField.add_long = 0;
         BaseDateTimeField field = new MockPreciseDurationDateTimeField();
         assertEquals(61,field.add(1L,1L));
     }
 ",TestPreciseDurationDateTimeField::test_add_long_long_1_oe
-joda_3937_2,"    public void test_add_long_long_2_oe() {
-        MockCountingDurationField.add_long = 0;
-        BaseDateTimeField field = new MockPreciseDurationDateTimeField();
-        // removed other assertion
-        assertEquals(1,MockCountingDurationField.add_long);
-    }
-",TestPreciseDurationDateTimeField::test_add_long_long_2_oe
 joda_3938_1,"    public void test_add_RP_int_intarray_int_1_oe() {
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -259505,26 +258048,12 @@ joda_3941_1,"    public void test_getDifference_long_long_1_oe() {
         assertEquals(30,field.getDifference(0L,0L));
     }
 ",TestPreciseDurationDateTimeField::test_getDifference_long_long_1_oe
-joda_3941_2,"    public void test_getDifference_long_long_2_oe() {
-        MockCountingDurationField.difference_long = 0;
-        BaseDateTimeField field = new MockPreciseDurationDateTimeField();
-        // removed other assertion
-        assertEquals(1,MockCountingDurationField.difference_long);
-    }
-",TestPreciseDurationDateTimeField::test_getDifference_long_long_2_oe
 joda_3942_1,"    public void test_getDifferenceAsLong_long_long_1_oe() {
         MockCountingDurationField.difference_long = 0;
         BaseDateTimeField field = new MockPreciseDurationDateTimeField();
         assertEquals(30,field.getDifferenceAsLong(0L,0L));
     }
 ",TestPreciseDurationDateTimeField::test_getDifferenceAsLong_long_long_1_oe
-joda_3942_2,"    public void test_getDifferenceAsLong_long_long_2_oe() {
-        MockCountingDurationField.difference_long = 0;
-        BaseDateTimeField field = new MockPreciseDurationDateTimeField();
-        // removed other assertion
-        assertEquals(1,MockCountingDurationField.difference_long);
-    }
-",TestPreciseDurationDateTimeField::test_getDifferenceAsLong_long_long_2_oe
 joda_3943_1,"    public void test_set_long_int_1_oe() {
         BaseDateTimeField field = new MockPreciseDurationDateTimeField();
         assertEquals(0,field.set(120L,0));
@@ -260433,11 +258962,6 @@ joda_3984_1,"    public void test_add_long_int_1_oe() {
         assertEquals(567L,iField.add(567L,0));
     }
 ",TestScaledDurationField::test_add_long_int_1_oe
-joda_3984_2,"    public void test_add_long_int_2_oe() {
-        // removed other assertion
-        assertEquals(567L + 1234L * 90L,iField.add(567L,1234));
-    }
-",TestScaledDurationField::test_add_long_int_2_oe
 joda_3984_3,"    public void test_add_long_int_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -260448,11 +258972,6 @@ joda_3985_1,"    public void test_add_long_long_1_oe() {
         assertEquals(567L,iField.add(567L,0L));
     }
 ",TestScaledDurationField::test_add_long_long_1_oe
-joda_3985_2,"    public void test_add_long_long_2_oe() {
-        // removed other assertion
-        assertEquals(567L + 1234L * 90L,iField.add(567L,1234L));
-    }
-",TestScaledDurationField::test_add_long_long_2_oe
 joda_3985_3,"    public void test_add_long_long_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -260485,11 +259004,6 @@ joda_3987_1,"    public void test_getDifferenceAsLong_long_long_1_oe() {
         assertEquals(0L,iField.getDifferenceAsLong(1L,0L));
     }
 ",TestScaledDurationField::test_getDifferenceAsLong_long_long_1_oe
-joda_3987_2,"    public void test_getDifferenceAsLong_long_long_2_oe() {
-        // removed other assertion
-        assertEquals(567L,iField.getDifferenceAsLong(567L * 90L,0L));
-    }
-",TestScaledDurationField::test_getDifferenceAsLong_long_long_2_oe
 joda_3987_3,"    public void test_getDifferenceAsLong_long_long_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -260801,26 +259315,12 @@ joda_4009_1,"    public void test_add_long_int_1_oe() {
         assertEquals(61,field.add(1L,1));
     }
 ",TestPreciseDateTimeField::test_add_long_int_1_oe
-joda_4009_2,"    public void test_add_long_int_2_oe() {
-        MockCountingDurationField.add_int = 0;
-        BaseDateTimeField field = new MockPreciseDateTimeField();
-        // removed other assertion
-        assertEquals(1,MockCountingDurationField.add_int);
-    }
-",TestPreciseDateTimeField::test_add_long_int_2_oe
 joda_4010_1,"    public void test_add_long_long_1_oe() {
         MockCountingDurationField.add_long = 0;
         BaseDateTimeField field = new MockPreciseDateTimeField();
         assertEquals(61,field.add(1L,1L));
     }
 ",TestPreciseDateTimeField::test_add_long_long_1_oe
-joda_4010_2,"    public void test_add_long_long_2_oe() {
-        MockCountingDurationField.add_long = 0;
-        BaseDateTimeField field = new MockPreciseDateTimeField();
-        // removed other assertion
-        assertEquals(1,MockCountingDurationField.add_long);
-    }
-",TestPreciseDateTimeField::test_add_long_long_2_oe
 joda_4011_1,"    public void test_add_RP_int_intarray_int_1_oe() {
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -261009,26 +259509,12 @@ joda_4014_1,"    public void test_getDifference_long_long_1_oe() {
         assertEquals(30,field.getDifference(0L,0L));
     }
 ",TestPreciseDateTimeField::test_getDifference_long_long_1_oe
-joda_4014_2,"    public void test_getDifference_long_long_2_oe() {
-        MockCountingDurationField.difference_long = 0;
-        BaseDateTimeField field = new MockPreciseDateTimeField();
-        // removed other assertion
-        assertEquals(1,MockCountingDurationField.difference_long);
-    }
-",TestPreciseDateTimeField::test_getDifference_long_long_2_oe
 joda_4015_1,"    public void test_getDifferenceAsLong_long_long_1_oe() {
         MockCountingDurationField.difference_long = 0;
         BaseDateTimeField field = new MockPreciseDateTimeField();
         assertEquals(30,field.getDifferenceAsLong(0L,0L));
     }
 ",TestPreciseDateTimeField::test_getDifferenceAsLong_long_long_1_oe
-joda_4015_2,"    public void test_getDifferenceAsLong_long_long_2_oe() {
-        MockCountingDurationField.difference_long = 0;
-        BaseDateTimeField field = new MockPreciseDateTimeField();
-        // removed other assertion
-        assertEquals(1,MockCountingDurationField.difference_long);
-    }
-",TestPreciseDateTimeField::test_getDifferenceAsLong_long_long_2_oe
 joda_4016_1,"    public void test_set_long_int_1_oe() {
         BaseDateTimeField field = new MockPreciseDateTimeField();
         assertEquals(0,field.set(120L,0));
@@ -262039,16 +260525,6 @@ joda_4061_2,"    public void testCompile_2_oe() throws Exception {
         assertEquals(false,tz.isFixed());
     }
 ",TestCompiler::testCompile_2_oe
-joda_4062_2,"    public void testCompileOnBrokenTimeZoneFile_2_oe() throws Exception {
-        try {
-            Provider provider = compileAndLoad(BROKEN_TIMEZONE_FILE);
-            // removed other assertion
-        } catch(NoSuchElementException nsee) {
-            // This used to be thrown in the Rule constructor
-            fail(""NoSuchElementException was thrown; broken timezone file?"");
-    }
-    }
-",TestCompiler::testCompileOnBrokenTimeZoneFile_2_oe
 joda_4062_3,"    public void testCompileOnBrokenTimeZoneFile_3_oe() throws Exception {
         try {
             Provider provider = compileAndLoad(BROKEN_TIMEZONE_FILE);
@@ -262061,16 +260537,6 @@ joda_4062_3,"    public void testCompileOnBrokenTimeZoneFile_3_oe() throws Excep
     }
     }
 ",TestCompiler::testCompileOnBrokenTimeZoneFile_3_oe
-joda_4063_2,"    public void testCompileOnBrokenTimeZoneFile_2_2_oe() throws Exception {
-        try {
-            Provider provider = compileAndLoad(BROKEN_TIMEZONE_FILE_2);
-            // removed other assertion
-        } catch (NoSuchElementException nsee) {
-            // This thrown from the Zone constructor
-            fail(""NoSuchElementException was thrown; broken timezone file?"");
-    }
-    }
-",TestCompiler::testCompileOnBrokenTimeZoneFile_2_2_oe
 joda_4063_3,"    public void testCompileOnBrokenTimeZoneFile_2_3_oe() throws Exception {
         try {
             Provider provider = compileAndLoad(BROKEN_TIMEZONE_FILE_2);

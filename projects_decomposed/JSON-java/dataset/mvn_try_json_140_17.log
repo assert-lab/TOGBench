@@ -1,0 +1,13 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev_json_140_17.java:[3103,8] error: 'try' without 'catch', 'finally' or resource declarations
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev_json_140_17.java:[3098,8] error: 'try' without 'catch', 'finally' or resource declarations
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:2.3.2:testCompile (default-testCompile) on project json: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev_json_140_17.java:[3103,8] error: 'try' without 'catch', 'finally' or resource declarations
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev_json_140_17.java:[3098,8] error: 'try' without 'catch', 'finally' or resource declarations
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

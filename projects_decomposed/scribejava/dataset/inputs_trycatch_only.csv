@@ -17,7 +17,11 @@ scribejava_80_4,"    @Test
         // removed other assertion
         // removed other assertion
         // verify latch is released
-        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } });
+        try {
+    new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } }.execute();
+    fail(""ExecutionException"");
+} catch (ExecutionException e) {
+}
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_4_oe
 scribejava_81_4,"    @Test
@@ -38,7 +42,11 @@ scribejava_81_4,"    @Test
         // removed other assertion
         // removed other assertion
         // verify latch is released
-        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } });
+        try {
+    new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } }.execute();
+    fail(""ExecutionException"");
+} catch (ExecutionException e) {
+}
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_4_oe
 scribejava_82_4,"    @Test
@@ -51,7 +59,11 @@ scribejava_82_4,"    @Test
         // removed other assertion
         // removed other assertion
         // verify latch is released
-        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } });
+        try {
+    new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } }.execute();
+    fail(""ExecutionException"");
+} catch (ExecutionException e) {
+}
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_4_oe
 scribejava_83_4,"    @Test
@@ -64,7 +76,11 @@ scribejava_83_4,"    @Test
         // removed other assertion
         // removed other assertion
         // verify latch is released
-        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } });
+        try {
+    new ThrowingRunnable() { @Override public void run() throws Throwable { future.get(); } }.execute();
+    fail(""ExecutionException"");
+} catch (ExecutionException e) {
+}
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_4_oe
 scribejava_85_4,"    @Test
@@ -80,7 +96,11 @@ scribejava_85_4,"    @Test
         // removed other assertion
         // removed other assertion
         // verify latch is released
-        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } });
+        try {
+    new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } }.execute();
+    fail(""ExecutionException"");
+} catch (ExecutionException e) {
+}
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_4_oe
 scribejava_86_4,"    @Test
@@ -96,7 +116,11 @@ scribejava_86_4,"    @Test
         // removed other assertion
         // removed other assertion
         // verify latch is released
-        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } });
+        try {
+    new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } }.execute();
+    fail(""ExecutionException"");
+} catch (ExecutionException e) {
+}
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_4_oe
 scribejava_87_4,"    @Test
@@ -112,7 +136,11 @@ scribejava_87_4,"    @Test
         // removed other assertion
         // removed other assertion
         // verify latch is released
-        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } });
+        try {
+    new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } }.execute();
+    fail(""ExecutionException"");
+} catch (ExecutionException e) {
+}
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_4_oe
 scribejava_88_4,"    @Test
@@ -128,13 +156,21 @@ scribejava_88_4,"    @Test
         // removed other assertion
         // removed other assertion
         // verify latch is released
-        assertThrows(ExecutionException.class, new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } });
+        try {
+    new ThrowingRunnable() { @Override public void run() throws Throwable { handler.getResult(); } }.execute();
+    fail(""ExecutionException"");
+} catch (ExecutionException e) {
+}
     }
 ",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_4_oe
 scribejava_91_1,"    @Test
     public void testErrorExtraction_1_oe() throws IOException {
 
         final FitBitJsonTokenExtractor extractor = new FitBitJsonTokenExtractor();
-        final OAuth2AccessTokenErrorResponse thrown = assertThrows(OAuth2AccessTokenErrorResponse.class, new ThrowingRunnable() { @Override public void run() throws Throwable { extractor.generateError(new Response(403, null, null, ERROR_JSON)); } });
+        try {
+    new ThrowingRunnable() { @Override public void run() throws Throwable { extractor.generateError(new Response(403, null, null, ERROR_JSON)); } }.execute();
+    fail(""OAuth2AccessTokenErrorResponse"");
+} catch (OAuth2AccessTokenErrorResponse e) {
+}
     }
 ",FitBitJsonTokenExtractorTest::testErrorExtraction_1_oe

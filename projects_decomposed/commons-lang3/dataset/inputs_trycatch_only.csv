@@ -245,9 +245,13 @@ lang_43_1,"    @Test
     }
 ",EnumUtilsTest::test_processBitVector_longClass_1_oe
 lang_58_1,"    @Test
-    public void testContainsNullArg_1_oe() {
+    public void testContainsNullArg_1_oe() throws Exception {
         final CharRange range = CharRange.is('a');
-        final NullPointerException e = assertThrows(NullPointerException.class, () -> range.contains(null));
+        try {
+    range.contains(null);
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
     }
 ",CharRangeTest::testContainsNullArg_1_oe
 lang_59_17,"    @Test
@@ -485,7 +489,7 @@ lang_80_4,"    @Test
     }
 ",CharUtilsTest::testToIntValue_Character_4_oe
 lang_120_26,"    @Test
-    public void testAddObjectAtIndex_26_oe() {
+    public void testAddObjectAtIndex_26_oe() throws Exception {
         Object[] newArray;
         newArray = ArrayUtils.add((Object[]) null, 0, ""a"");
         // removed other assertion
@@ -526,8 +530,11 @@ lang_120_26,"    @Test
         // boolean tests
         boolean[] booleanArray = ArrayUtils.add( null, 0, true );
         // removed other assertion
-        IndexOutOfBoundsException e =
-                assertThrows(IndexOutOfBoundsException.class, () -> ArrayUtils.add( null, -1, true));
+        try {
+    ArrayUtils.add( null, -1, true);
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
     }
 ",ArrayUtilsAddTest::testAddObjectAtIndex_26_oe
 lang_120_31,"    @Test
@@ -3492,9 +3499,13 @@ lang_170_1,"    @Test
     }
 ",ArrayUtilsRemoveMultipleTest::testRemoveAllShortArrayOutOfBoundsIndex_1_oe
 lang_215_1,"    @Test
-    public void testCloneOfUncloneable_1_oe() {
+    public void testCloneOfUncloneable_1_oe() throws Exception {
         final UncloneableString string = new UncloneableString(""apache"");
-        final CloneFailedException e = assertThrows(CloneFailedException.class, () -> ObjectUtils.clone(string));
+        try {
+    ObjectUtils.clone(string);
+    fail(""CloneFailedException"");
+} catch (CloneFailedException e) {
+}
     }
 ",ObjectUtilsTest::testCloneOfUncloneable_1_oe
 lang_217_1,"    @Test
@@ -3892,9 +3903,13 @@ lang_246_1,"    @Test
     }
 ",ObjectUtilsTest::testMedian_nullItems_1_oe
 lang_253_1,"    @Test
-    public void testPossibleCloneOfUncloneable_1_oe() {
+    public void testPossibleCloneOfUncloneable_1_oe() throws Exception {
         final UncloneableString string = new UncloneableString(""apache"");
-        final CloneFailedException e = assertThrows(CloneFailedException.class, () -> ObjectUtils.cloneIfPossible(string));
+        try {
+    ObjectUtils.cloneIfPossible(string);
+    fail(""CloneFailedException"");
+} catch (CloneFailedException e) {
+}
     }
 ",ObjectUtilsTest::testPossibleCloneOfUncloneable_1_oe
 lang_254_3,"    @Test
@@ -3981,10 +3996,14 @@ lang_279_1,"    @Test
     }
 ",CharSequenceUtilsTest::testSubSequenceTooLong_1_oe
 lang_286_1,"    @Test
-    public void testSimpleStreamMapFailing_1_oe() {
+    public void testSimpleStreamMapFailing_1_oe() throws Exception {
         final List<String> input = Arrays.asList(""1"", ""2"", ""3"", ""4 "", ""5"", ""6"");
         final Executable testMethod = () -> Functions.stream(input).map(Integer::valueOf).collect(Collectors.toList());
-        final NumberFormatException thrown = assertThrows(NumberFormatException.class, testMethod);
+        try {
+    testMethod.execute();
+    fail(""NumberFormatException"");
+} catch (NumberFormatException e) {
+}
     }
 ",StreamsTest::testSimpleStreamMapFailing_1_oe
 lang_293_10,"    @Test
@@ -6360,8 +6379,11 @@ lang_1044_1,"    @Test
                 throw new IOException(SERIALIZE_IO_EXCEPTION_MESSAGE);
             }
         };
-        final SerializationException e =
-                assertThrows(SerializationException.class, () -> SerializationUtils.serialize(iMap, streamTest));
+        try {
+    SerializationUtils.serialize(iMap, streamTest);
+    fail(""SerializationException"");
+} catch (SerializationException e) {
+}
     }
 ",SerializationUtilsTest::testSerializeIOException_1_oe
 lang_1048_1,"    @Test
@@ -6391,8 +6413,11 @@ lang_1050_1,"    @Test
         oos.close();
 
         final ByteArrayInputStream inTest = new ByteArrayInputStream(streamReal.toByteArray());
-        final SerializationException se =
-                assertThrows(SerializationException.class, () -> SerializationUtils.deserialize(inTest));
+        try {
+    SerializationUtils.deserialize(inTest);
+    fail(""SerializationException"");
+} catch (SerializationException e) {
+}
     }
 ",SerializationUtilsTest::testDeserializeStreamClassNotFound_1_oe
 lang_1053_1,"    @Test
@@ -7149,542 +7174,974 @@ lang_1191_1,"    @ParameterizedTest
 ",LocaleUtilsTest::testParseAllLocales_1_oe
 lang_1192_1,"            @Test
             void shouldThrowExceptionWithDefaultMessageForFalseExpression_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.isTrue(false));
+                try {
+    Validate.isTrue(false);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowExceptionWithDefaultMessageForFalseExpression_1_oe
 lang_1193_1,"            @Test
             void shouldThrowExceptionWithGivenMessageForFalseExpression_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.isTrue(false, ""MSG""));
+                try {
+    Validate.isTrue(false, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowExceptionWithGivenMessageForFalseExpression_1_oe
 lang_1194_1,"            @Test
             void shouldThrowExceptionWithLongInsertedIntoTemplateMessageForFalseExpression_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.isTrue(false, ""MSG %s"", 6));
+                try {
+    Validate.isTrue(false, ""MSG %s"", 6);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowExceptionWithLongInsertedIntoTemplateMessageForFalseExpression_1_oe
 lang_1195_1,"            @Test
             void shouldThrowExceptionWithDoubleInsertedIntoTemplateMessageForFalseExpression_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.isTrue(false, ""MSG %s"", 7.4d));
+                try {
+    Validate.isTrue(false, ""MSG %s"", 7.4d);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowExceptionWithDoubleInsertedIntoTemplateMessageForFalseExpression_1_oe
 lang_1196_1,"            @Test
             void shouldThrowExceptionWithDoubleInsertedIntoTemplateMessageForFalseExpression_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.isTrue(false, ""MSG %s %s"", ""Object 1"", ""Object 2""));
+                try {
+    Validate.isTrue(false, ""MSG %s %s"", ""Object 1"", ""Object 2"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowExceptionWithDoubleInsertedIntoTemplateMessageForFalseExpression_1_oe
 lang_1198_1,"            @Test
             void shouldThrowExceptionWithDefaultMessageForNullReference_1_oe() {
-                final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.notNull(null));
+                try {
+    Validate.notNull(null);
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
             }
 ",ValidateTest::shouldThrowExceptionWithDefaultMessageForNullReference_1_oe
 lang_1200_1,"            @Test
             void shouldThrowExceptionWithGivenMessageForNullReference_1_oe() {
-                final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.notNull(null, ""MSG""));
+                try {
+    Validate.notNull(null, ""MSG"");
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
             }
 ",ValidateTest::shouldThrowExceptionWithGivenMessageForNullReference_1_oe
 lang_1202_1,"                @Test
                 void shouldThrowNullPointerExceptionWithDefaultMessageForNullArray_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.notEmpty((Object[]) null));
+                    try {
+    Validate.notEmpty((Object[]) null);
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithDefaultMessageForNullArray_1_oe
 lang_1203_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageForEmptyArray_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.notEmpty(new Object[0]));
+                    try {
+    Validate.notEmpty(new Object[0]);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForEmptyArray_1_oe
 lang_1205_1,"                @Test
                 void shouldThrowNullPointerExceptionWithGivenMessageForNullArray_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.notEmpty((Object[]) null, ""MSG""));
+                    try {
+    Validate.notEmpty((Object[]) null, ""MSG"");
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithGivenMessageForNullArray_1_oe
 lang_1206_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageForEmptyArray_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.notEmpty(new Object[0], ""MSG""));
+                    try {
+    Validate.notEmpty(new Object[0], ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForEmptyArray_1_oe
 lang_1208_1,"                @Test
                 void shouldThrowNullPointerExceptionWithDefaultMessageForNullCollection_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.notEmpty((Collection<?>) null));
+                    try {
+    Validate.notEmpty((Collection<?>) null);
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithDefaultMessageForNullCollection_1_oe
 lang_1209_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageForEmptyCollection_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.notEmpty(Collections.emptySet()));
+                    try {
+    Validate.notEmpty(Collections.emptySet());
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForEmptyCollection_1_oe
 lang_1211_1,"                @Test
                 void shouldThrowNullPointerExceptionWithGivenMessageForNullCollection_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.notEmpty((Collection<?>) null, ""MSG""));
+                    try {
+    Validate.notEmpty((Collection<?>) null, ""MSG"");
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithGivenMessageForNullCollection_1_oe
 lang_1212_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageForEmptyCollection_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.notEmpty(Collections.emptySet(), ""MSG""));
+                    try {
+    Validate.notEmpty(Collections.emptySet(), ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageForEmptyCollection_1_oe
 lang_1214_1,"                @Test
                 void shouldThrowNullPointerExceptionWithDefaultMessageForNullMap_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.notEmpty((Map<?, ?>) null));
+                    try {
+    Validate.notEmpty((Map<?, ?>) null);
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithDefaultMessageForNullMap_1_oe
 lang_1215_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageForEmptyMap_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.notEmpty(Collections.emptyMap()));
+                    try {
+    Validate.notEmpty(Collections.emptyMap());
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForEmptyMap_1_oe
 lang_1217_1,"                @Test
                 void shouldThrowNullPointerExceptionWithGivenMessageForNullMap_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.notEmpty((Map<?, ?>) null, ""MSG""));
+                    try {
+    Validate.notEmpty((Map<?, ?>) null, ""MSG"");
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithGivenMessageForNullMap_1_oe
 lang_1218_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageForEmptyMap_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.notEmpty(Collections.emptyMap(), ""MSG""));
+                    try {
+    Validate.notEmpty(Collections.emptyMap(), ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageForEmptyMap_1_oe
 lang_1220_1,"                @Test
                 void shouldThrowNullPointerExceptionWithDefaultMessageForNullCharSequence_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.notEmpty((CharSequence) null));
+                    try {
+    Validate.notEmpty((CharSequence) null);
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithDefaultMessageForNullCharSequence_1_oe
 lang_1221_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageForEmptyString_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.notEmpty(""""));
+                    try {
+    Validate.notEmpty("""");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForEmptyString_1_oe
 lang_1223_1,"                @Test
                 void shouldThrowNullPointerExceptionWithGivenMessageForNullCharSequence_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.notEmpty((CharSequence) null, ""MSG""));
+                    try {
+    Validate.notEmpty((CharSequence) null, ""MSG"");
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithGivenMessageForNullCharSequence_1_oe
 lang_1224_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageForEmptyString_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.notEmpty("""", ""MSG""));
+                    try {
+    Validate.notEmpty("""", ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageForEmptyString_1_oe
 lang_1226_1,"            @Test
             void shouldThrowNullPointerExceptionWithDefaultMessageForNullString_1_oe() {
-                final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.notBlank(null));
+                try {
+    Validate.notBlank(null);
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
             }
 ",ValidateTest::shouldThrowNullPointerExceptionWithDefaultMessageForNullString_1_oe
 lang_1227_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithDefaultMessageForEmptyString_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.notBlank(""""));
+                try {
+    Validate.notBlank("""");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForEmptyString_1_oe
 lang_1228_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithDefaultMessageForBlankString_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.notBlank(""   ""));
+                try {
+    Validate.notBlank(""   "");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForBlankString_1_oe
 lang_1229_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithDefaultMessageForStringContainingOnlyWhitespaceChars_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.notBlank("" \n \t \r \n ""));
+                try {
+    Validate.notBlank("" \n \t \r \n "");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForStringContainingOnlyWhitespaceChars_1_oe
 lang_1231_1,"            @Test
             void shouldThrowNullPointerExceptionWithGivenMessageForNullString_1_oe() {
-                final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.notBlank(null, ""MSG""));
+                try {
+    Validate.notBlank(null, ""MSG"");
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
             }
 ",ValidateTest::shouldThrowNullPointerExceptionWithGivenMessageForNullString_1_oe
 lang_1232_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithGivenMessageForEmptyString_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.notBlank("""", ""MSG""));
+                try {
+    Validate.notBlank("""", ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageForEmptyString_1_oe
 lang_1233_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithGivenMessageForBlankString_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.notBlank(""   "", ""MSG""));
+                try {
+    Validate.notBlank(""   "", ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageForBlankString_1_oe
 lang_1234_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithGivenMessageForStringContainingOnlyWhitespaceChars_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.notBlank("" \n \t \r \n "", ""MSG""));
+                try {
+    Validate.notBlank("" \n \t \r \n "", ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageForStringContainingOnlyWhitespaceChars_1_oe
 lang_1236_1,"                @Test
                 void shouldThrowNullPointerExceptionWithDefaultMessageForNullArray_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.noNullElements((Object[]) null));
+                    try {
+    Validate.noNullElements((Object[]) null);
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithDefaultMessageForNullArray_1_oe
 lang_1237_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageForArrayWithNullElement_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.noNullElements(new String[]{""a"", null}));
+                    try {
+    Validate.noNullElements(new String[]{""a"", null});
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForArrayWithNullElement_1_oe
 lang_1239_1,"                @Test
                 void shouldThrowNullPointerExceptionWithDefaultMessageForNullArray_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.noNullElements((Object[]) null, ""MSG""));
+                    try {
+    Validate.noNullElements((Object[]) null, ""MSG"");
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithDefaultMessageForNullArray_1_oe
 lang_1240_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageForArrayWithNullElement_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.noNullElements(new String[]{""a"", null}, ""MSG""));
+                    try {
+    Validate.noNullElements(new String[]{""a"", null}, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageForArrayWithNullElement_1_oe
 lang_1242_1,"                @Test
                 void shouldThrowNullPointerExceptionWithDefaultMessageForNullCollection_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.noNullElements((Collection<?>) null));
+                    try {
+    Validate.noNullElements((Collection<?>) null);
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithDefaultMessageForNullCollection_1_oe
 lang_1243_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageForCollectionWithNullElement_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.noNullElements(Collections.singleton(null)));
+                    try {
+    Validate.noNullElements(Collections.singleton(null));
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForCollectionWithNullElement_1_oe
 lang_1245_1,"                @Test
                 void shouldThrowNullPointerExceptionWithDefaultMessageForNullCollection_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.noNullElements((Collection<?>) null, ""MSG""));
+                    try {
+    Validate.noNullElements((Collection<?>) null, ""MSG"");
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithDefaultMessageForNullCollection_1_oe
 lang_1246_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageForCollectionWithNullElement_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.noNullElements(Collections.singleton(null), ""MSG""));
+                    try {
+    Validate.noNullElements(Collections.singleton(null), ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageForCollectionWithNullElement_1_oe
 lang_1248_1,"                @Test
                 void shouldThrowNullPointerExceptionWithDefaultForNullArray_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.validIndex((Object[]) null, 1));
+                    try {
+    Validate.validIndex((Object[]) null, 1);
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithDefaultForNullArray_1_oe
 lang_1249_1,"                @Test
                 void shouldThrowIndexOutOfBoundsExceptionWithDefaultMessageForNegativeIndex_1_oe() {
-                    final IndexOutOfBoundsException ex = assertThrows( IndexOutOfBoundsException.class, () -> Validate.validIndex(new String[]{""a""}, -1));
+                    try {
+    Validate.validIndex(new String[]{""a""}, -1);
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
                 }
 ",ValidateTest::shouldThrowIndexOutOfBoundsExceptionWithDefaultMessageForNegativeIndex_1_oe
 lang_1250_1,"                @Test
                 void shouldThrowIndexOutOfBoundsExceptionWithDefaultMessageForIndexOutOfBounds_1_oe() {
-                    final IndexOutOfBoundsException ex = assertThrows( IndexOutOfBoundsException.class, () -> Validate.validIndex(new String[]{""a""}, 1));
+                    try {
+    Validate.validIndex(new String[]{""a""}, 1);
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
                 }
 ",ValidateTest::shouldThrowIndexOutOfBoundsExceptionWithDefaultMessageForIndexOutOfBounds_1_oe
 lang_1252_1,"                @Test
                 void shouldThrowNullPointerExceptionWithDefaultMessageForNullArray_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.validIndex((Object[]) null, 1, ""MSG""));
+                    try {
+    Validate.validIndex((Object[]) null, 1, ""MSG"");
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithDefaultMessageForNullArray_1_oe
 lang_1253_1,"                @Test
                 void shouldThrowIndexOutOfBoundsExceptionWithGivenMessageForNegativeIndex_1_oe() {
-                    final IndexOutOfBoundsException ex = assertThrows( IndexOutOfBoundsException.class, () -> Validate.validIndex(new String[]{""a""}, -1, ""MSG""));
+                    try {
+    Validate.validIndex(new String[]{""a""}, -1, ""MSG"");
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
                 }
 ",ValidateTest::shouldThrowIndexOutOfBoundsExceptionWithGivenMessageForNegativeIndex_1_oe
 lang_1254_1,"                @Test
                 void shouldThrowIndexOutOfBoundsExceptionWithGivenMessageForIndexOutOfBounds_1_oe() {
-                    final IndexOutOfBoundsException ex = assertThrows( IndexOutOfBoundsException.class, () -> Validate.validIndex(new String[]{""a""}, 1, ""MSG""));
+                    try {
+    Validate.validIndex(new String[]{""a""}, 1, ""MSG"");
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
                 }
 ",ValidateTest::shouldThrowIndexOutOfBoundsExceptionWithGivenMessageForIndexOutOfBounds_1_oe
 lang_1256_1,"                @Test
                 void shouldThrowNullPointerExceptionWithDefaultForNullCollection_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.validIndex((Collection<?>) null, 1));
+                    try {
+    Validate.validIndex((Collection<?>) null, 1);
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithDefaultForNullCollection_1_oe
 lang_1257_1,"                @Test
                 void shouldThrowIndexOutOfBoundsExceptionWithDefaultMessageForNegativeIndex_1_oe() {
-                    final IndexOutOfBoundsException ex = assertThrows( IndexOutOfBoundsException.class, () -> Validate.validIndex(Collections.singleton(""a""), -1));
+                    try {
+    Validate.validIndex(Collections.singleton(""a""), -1);
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
                 }
 ",ValidateTest::shouldThrowIndexOutOfBoundsExceptionWithDefaultMessageForNegativeIndex_1_oe
 lang_1258_1,"                @Test
                 void shouldThrowIndexOutOfBoundsExceptionWithDefaultMessageForIndexOutOfBounds_1_oe() {
-                    final IndexOutOfBoundsException ex = assertThrows( IndexOutOfBoundsException.class, () -> Validate.validIndex(Collections.singleton(""a""), 1));
+                    try {
+    Validate.validIndex(Collections.singleton(""a""), 1);
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
                 }
 ",ValidateTest::shouldThrowIndexOutOfBoundsExceptionWithDefaultMessageForIndexOutOfBounds_1_oe
 lang_1260_1,"                @Test
                 void shouldThrowNullPointerExceptionWithDefaultMessageForNullCollection_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.validIndex((Collection<?>) null, 1, ""MSG""));
+                    try {
+    Validate.validIndex((Collection<?>) null, 1, ""MSG"");
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithDefaultMessageForNullCollection_1_oe
 lang_1261_1,"                @Test
                 void shouldThrowIndexOutOfBoundsExceptionWithGivenMessageForNegativeIndex_1_oe() {
-                    final IndexOutOfBoundsException ex = assertThrows( IndexOutOfBoundsException.class, () -> Validate.validIndex(Collections.singleton(""a""), -1, ""MSG""));
+                    try {
+    Validate.validIndex(Collections.singleton(""a""), -1, ""MSG"");
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
                 }
 ",ValidateTest::shouldThrowIndexOutOfBoundsExceptionWithGivenMessageForNegativeIndex_1_oe
 lang_1262_1,"                @Test
                 void shouldThrowIndexOutOfBoundsExceptionWithGivenMessageForIndexOutOfBounds_1_oe() {
-                    final IndexOutOfBoundsException ex = assertThrows( IndexOutOfBoundsException.class, () -> Validate.validIndex(Collections.singleton(""a""), 1, ""MSG""));
+                    try {
+    Validate.validIndex(Collections.singleton(""a""), 1, ""MSG"");
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
                 }
 ",ValidateTest::shouldThrowIndexOutOfBoundsExceptionWithGivenMessageForIndexOutOfBounds_1_oe
 lang_1264_1,"                @Test
                 void shouldThrowNullPointerExceptionWithDefaultForNullString_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.validIndex((String) null, 1));
+                    try {
+    Validate.validIndex((String) null, 1);
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithDefaultForNullString_1_oe
 lang_1265_1,"                @Test
                 void shouldThrowIndexOutOfBoundsExceptionWithDefaultMessageForNegativeIndex_1_oe() {
-                    final IndexOutOfBoundsException ex = assertThrows( IndexOutOfBoundsException.class, () -> Validate.validIndex(""a"", -1));
+                    try {
+    Validate.validIndex(""a"", -1);
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
                 }
 ",ValidateTest::shouldThrowIndexOutOfBoundsExceptionWithDefaultMessageForNegativeIndex_1_oe
 lang_1266_1,"                @Test
                 void shouldThrowIndexOutOfBoundsExceptionWithDefaultMessageForIndexOutOfBounds_1_oe() {
-                    final IndexOutOfBoundsException ex = assertThrows( IndexOutOfBoundsException.class, () -> Validate.validIndex(""a"", 1));
+                    try {
+    Validate.validIndex(""a"", 1);
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
                 }
 ",ValidateTest::shouldThrowIndexOutOfBoundsExceptionWithDefaultMessageForIndexOutOfBounds_1_oe
 lang_1268_1,"                @Test
                 void shouldThrowNullPointerExceptionWithDefaultMessageForNullStr_1_oe() {
-                    final NullPointerException ex = assertThrows( NullPointerException.class, () -> Validate.validIndex((String) null, 1, ""MSG""));
+                    try {
+    Validate.validIndex((String) null, 1, ""MSG"");
+    fail(""NullPointerException"");
+} catch (NullPointerException e) {
+}
                 }
 ",ValidateTest::shouldThrowNullPointerExceptionWithDefaultMessageForNullStr_1_oe
 lang_1269_1,"                @Test
                 void shouldThrowIndexOutOfBoundsExceptionWithGivenMessageForNegativeIndex_1_oe() {
-                    final IndexOutOfBoundsException ex = assertThrows( IndexOutOfBoundsException.class, () -> Validate.validIndex(""a"", -1, ""MSG""));
+                    try {
+    Validate.validIndex(""a"", -1, ""MSG"");
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
                 }
 ",ValidateTest::shouldThrowIndexOutOfBoundsExceptionWithGivenMessageForNegativeIndex_1_oe
 lang_1270_1,"                @Test
                 void shouldThrowIndexOutOfBoundsExceptionWithGivenMessageForIndexOutOfBounds_1_oe() {
-                    final IndexOutOfBoundsException ex = assertThrows( IndexOutOfBoundsException.class, () -> Validate.validIndex(""a"", 1, ""MSG""));
+                    try {
+    Validate.validIndex(""a"", 1, ""MSG"");
+    fail(""IndexOutOfBoundsException"");
+} catch (IndexOutOfBoundsException e) {
+}
                 }
 ",ValidateTest::shouldThrowIndexOutOfBoundsExceptionWithGivenMessageForIndexOutOfBounds_1_oe
 lang_1271_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenStringDoesNotMatchPattern_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.matchesPattern(""hi"", ""[0-9]*""));
+                try {
+    Validate.matchesPattern(""hi"", ""[0-9]*"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenStringDoesNotMatchPattern_1_oe
 lang_1272_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWhenStringDoesNotMatchPattern_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.matchesPattern(""hi"", ""[0-9]*"", ""MSG""));
+                try {
+    Validate.matchesPattern(""hi"", ""[0-9]*"", ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWhenStringDoesNotMatchPattern_1_oe
 lang_1273_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithDefaultMessageForNaN_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.notNaN(Double.NaN));
+                try {
+    Validate.notNaN(Double.NaN);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForNaN_1_oe
 lang_1274_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithGivenMessageForNaN_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.notNaN(Double.NaN, ""MSG""));
+                try {
+    Validate.notNaN(Double.NaN, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageForNaN_1_oe
 lang_1275_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithDefaultMessageForPositiveInfinity_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.finite(Double.POSITIVE_INFINITY));
+                try {
+    Validate.finite(Double.POSITIVE_INFINITY);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForPositiveInfinity_1_oe
 lang_1276_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithDefaultMessageForNegativeInfinity_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.finite(Double.NEGATIVE_INFINITY));
+                try {
+    Validate.finite(Double.NEGATIVE_INFINITY);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForNegativeInfinity_1_oe
 lang_1277_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithDefaultMessageForNaN_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.finite(Double.NaN));
+                try {
+    Validate.finite(Double.NaN);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForNaN_1_oe
 lang_1278_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithDefaultMessageForPositiveInfinity_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.finite(Double.POSITIVE_INFINITY, ""MSG""));
+                try {
+    Validate.finite(Double.POSITIVE_INFINITY, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForPositiveInfinity_1_oe
 lang_1279_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithDefaultMessageForNegativeInfinity_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.finite(Double.NEGATIVE_INFINITY, ""MSG""));
+                try {
+    Validate.finite(Double.NEGATIVE_INFINITY, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForNegativeInfinity_1_oe
 lang_1280_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithDefaultMessageForNaN_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.finite(Double.NaN, ""MSG""));
+                try {
+    Validate.finite(Double.NaN, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageForNaN_1_oe
 lang_1281_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsBelowLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, ""0""));
+                    try {
+    Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, ""0"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsBelowLowerBound_1_oe
 lang_1282_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, ""4""));
+                    try {
+    Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, ""4"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe
 lang_1283_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsBelowLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, ""0"", ""MSG""));
+                    try {
+    Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, ""0"", ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsBelowLowerBound_1_oe
 lang_1284_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsAboveUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, ""4"", ""MSG""));
+                    try {
+    Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, ""4"", ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsAboveUpperBound_1_oe
 lang_1285_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsBelowLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, 0));
+                    try {
+    Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, 0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsBelowLowerBound_1_oe
 lang_1286_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, 4));
+                    try {
+    Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, 4);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe
 lang_1287_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsBelowLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, 0, ""MSG""));
+                    try {
+    Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, 0, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsBelowLowerBound_1_oe
 lang_1288_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsAboveUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, 4, ""MSG""));
+                    try {
+    Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, 4, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsAboveUpperBound_1_oe
 lang_1289_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsBelowLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, 0.01));
+                    try {
+    Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, 0.01);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsBelowLowerBound_1_oe
 lang_1290_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, 4.1));
+                    try {
+    Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, 4.1);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe
 lang_1291_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsBelowLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, 0.01, ""MSG""));
+                    try {
+    Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, 0.01, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsBelowLowerBound_1_oe
 lang_1292_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsAboveUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, 4.1, ""MSG""));
+                    try {
+    Validate.inclusiveBetween(LOWER_BOUND, UPPER_BOUND, 4.1, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsAboveUpperBound_1_oe
 lang_1293_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, LOWER_BOUND));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, LOWER_BOUND);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsLowerBound_1_oe
 lang_1294_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, UPPER_BOUND));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, UPPER_BOUND);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsUpperBound_1_oe
 lang_1295_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsBelowLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, ""0""));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, ""0"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsBelowLowerBound_1_oe
 lang_1296_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, ""4""));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, ""4"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe
 lang_1297_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, LOWER_BOUND, ""MSG""));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, LOWER_BOUND, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsLowerBound_1_oe
 lang_1298_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, UPPER_BOUND, ""MSG""));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, UPPER_BOUND, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsUpperBound_1_oe
 lang_1299_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsBelowLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, ""0"", ""MSG""));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, ""0"", ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsBelowLowerBound_1_oe
 lang_1300_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, ""4"", ""MSG""));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, ""4"", ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe
 lang_1301_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, LOWER_BOUND));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, LOWER_BOUND);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsLowerBound_1_oe
 lang_1302_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, UPPER_BOUND));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, UPPER_BOUND);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsUpperBound_1_oe
 lang_1303_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsBelowLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, 0));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, 0);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsBelowLowerBound_1_oe
 lang_1304_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, 4));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, 4);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe
 lang_1305_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, LOWER_BOUND, ""MSG""));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, LOWER_BOUND, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsLowerBound_1_oe
 lang_1306_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, UPPER_BOUND, ""MSG""));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, UPPER_BOUND, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsUpperBound_1_oe
 lang_1307_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsBelowLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, 0, ""MSG""));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, 0, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsBelowLowerBound_1_oe
 lang_1308_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, 4, ""MSG""));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, 4, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe
 lang_1309_1,"                @Test
                 void shouldThrowIllegalArgumentExcdeptionWhenValueIsLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, LOWER_BOUND));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, LOWER_BOUND);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExcdeptionWhenValueIsLowerBound_1_oe
 lang_1310_1,"                @Test
                 void shouldThrowIllegalArgumentExcdeptionWhenValueIsUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, UPPER_BOUND));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, UPPER_BOUND);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExcdeptionWhenValueIsUpperBound_1_oe
 lang_1311_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsBelowLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, 0.01));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, 0.01);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsBelowLowerBound_1_oe
 lang_1312_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, 4.1));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, 4.1);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsAboveUpperBound_1_oe
 lang_1313_1,"                @Test
                 void shouldThrowIllegalArgumentExcdeptionWhenValueIsLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, LOWER_BOUND, ""MSG""));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, LOWER_BOUND, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExcdeptionWhenValueIsLowerBound_1_oe
 lang_1314_1,"                @Test
                 void shouldThrowIllegalArgumentExcdeptionWhenValueIsUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, UPPER_BOUND, ""MSG""));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, UPPER_BOUND, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExcdeptionWhenValueIsUpperBound_1_oe
 lang_1315_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsBelowLowerBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, 0.01, ""MSG""));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, 0.01, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsBelowLowerBound_1_oe
 lang_1316_1,"                @Test
                 void shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsAboveUpperBound_1_oe() {
-                    final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, 4.1, ""MSG""));
+                    try {
+    Validate.exclusiveBetween(LOWER_BOUND, UPPER_BOUND, 4.1, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
                 }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsAboveUpperBound_1_oe
 lang_1317_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsNotInstanceOfClass_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.isInstanceOf(List.class, ""hi""));
+                try {
+    Validate.isInstanceOf(List.class, ""hi"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenValueIsNotInstanceOfClass_1_oe
 lang_1318_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsNotInstanceOfClass_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.isInstanceOf(List.class, ""hi"", ""MSG""));
+                try {
+    Validate.isInstanceOf(List.class, ""hi"", ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsNotInstanceOfClass_1_oe
 lang_1319_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsNotInstanceOfClass_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.isInstanceOf(List.class, ""hi"", ""Error %s=%s"", ""Name"", ""Value""));
+                try {
+    Validate.isInstanceOf(List.class, ""hi"", ""Error %s=%s"", ""Name"", ""Value"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGivenMessageWhenValueIsNotInstanceOfClass_1_oe
 lang_1320_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenClassIsNotAssignable_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.isAssignableFrom(List.class, String.class));
+                try {
+    Validate.isAssignableFrom(List.class, String.class);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithDefaultMessageWhenClassIsNotAssignable_1_oe
 lang_1321_1,"            @Test
             void shouldThrowIllegalArgumentExceptionWithGiventMessageWhenClassIsNotAssignable_1_oe() {
-                final IllegalArgumentException ex = assertThrows( IllegalArgumentException.class, () -> Validate.isAssignableFrom(List.class, String.class, ""MSG""));
+                try {
+    Validate.isAssignableFrom(List.class, String.class, ""MSG"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
             }
 ",ValidateTest::shouldThrowIllegalArgumentExceptionWithGiventMessageWhenClassIsNotAssignable_1_oe
 lang_1349_6,"    @Test
@@ -8097,10 +8554,14 @@ lang_1399_1,"    @Test
     }
 ",RangeTest::testIntersectionWithNull_1_oe
 lang_1426_1,"    @Test
-    public void testAcceptBiConsumer_1_oe() {
+    public void testAcceptBiConsumer_1_oe() throws Exception {
         final IllegalStateException ise = new IllegalStateException();
         final Testable<?, ?> testable = new Testable<>(null);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Functions.accept(Testable::test, testable, ise));
+        try {
+    Functions.accept(Testable.test, testable, ise)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FunctionsTest::testAcceptBiConsumer_1_oe
 lang_1426_3,"    @Test
@@ -8139,10 +8600,14 @@ lang_1426_5,"    @Test
     }
 ",FunctionsTest::testAcceptBiConsumer_5_oe
 lang_1427_1,"    @Test
-    public void testAcceptConsumer_1_oe() {
+    public void testAcceptConsumer_1_oe() throws Exception {
         final IllegalStateException ise = new IllegalStateException();
         final Testable<?, ?> testable = new Testable<>(ise);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Functions.accept(Testable::test, testable));
+        try {
+    Functions.accept(Testable.test, testable)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FunctionsTest::testAcceptConsumer_1_oe
 lang_1427_3,"    @Test
@@ -8183,10 +8648,14 @@ lang_1427_5,"    @Test
     }
 ",FunctionsTest::testAcceptConsumer_5_oe
 lang_1428_1,"    @Test
-    public void testAcceptDoubleConsumer_1_oe() {
+    public void testAcceptDoubleConsumer_1_oe() throws Exception {
         final IllegalStateException ise = new IllegalStateException();
         final Testable<?, Double> testable = new Testable<>(ise);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Functions.accept(testable::testDouble, 1d));
+        try {
+    Functions.accept(testable.testDouble, 1d)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FunctionsTest::testAcceptDoubleConsumer_1_oe
 lang_1428_4,"    @Test
@@ -8230,10 +8699,14 @@ lang_1428_7,"    @Test
     }
 ",FunctionsTest::testAcceptDoubleConsumer_7_oe
 lang_1429_1,"    @Test
-    public void testAcceptIntConsumer_1_oe() {
+    public void testAcceptIntConsumer_1_oe() throws Exception {
         final IllegalStateException ise = new IllegalStateException();
         final Testable<?, Integer> testable = new Testable<>(ise);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Functions.accept(testable::testInt, 1));
+        try {
+    Functions.accept(testable.testInt, 1)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FunctionsTest::testAcceptIntConsumer_1_oe
 lang_1429_4,"    @Test
@@ -8277,10 +8750,14 @@ lang_1429_7,"    @Test
     }
 ",FunctionsTest::testAcceptIntConsumer_7_oe
 lang_1430_1,"    @Test
-    public void testAcceptLongConsumer_1_oe() {
+    public void testAcceptLongConsumer_1_oe() throws Exception {
         final IllegalStateException ise = new IllegalStateException();
         final Testable<?, Long> testable = new Testable<>(ise);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Functions.accept(testable::testLong, 1L));
+        try {
+    Functions.accept(testable.testLong, 1L)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FunctionsTest::testAcceptLongConsumer_1_oe
 lang_1430_4,"    @Test
@@ -8324,10 +8801,14 @@ lang_1430_7,"    @Test
     }
 ",FunctionsTest::testAcceptLongConsumer_7_oe
 lang_1431_1,"    @Test
-    public void testAcceptObjDoubleConsumer_1_oe() {
+    public void testAcceptObjDoubleConsumer_1_oe() throws Exception {
         final IllegalStateException ise = new IllegalStateException();
         final Testable<String, Double> testable = new Testable<>(ise);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Functions.accept(testable::testObjDouble, ""X"", 1d));
+        try {
+    Functions.accept(testable.testObjDouble, ""X"", 1d)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FunctionsTest::testAcceptObjDoubleConsumer_1_oe
 lang_1431_5,"    @Test
@@ -8374,10 +8855,14 @@ lang_1431_9,"    @Test
     }
 ",FunctionsTest::testAcceptObjDoubleConsumer_9_oe
 lang_1432_1,"    @Test
-    public void testAcceptObjIntConsumer_1_oe() {
+    public void testAcceptObjIntConsumer_1_oe() throws Exception {
         final IllegalStateException ise = new IllegalStateException();
         final Testable<String, Integer> testable = new Testable<>(ise);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Functions.accept(testable::testObjInt, ""X"", 1));
+        try {
+    Functions.accept(testable.testObjInt, ""X"", 1)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FunctionsTest::testAcceptObjIntConsumer_1_oe
 lang_1432_5,"    @Test
@@ -8424,10 +8909,14 @@ lang_1432_9,"    @Test
     }
 ",FunctionsTest::testAcceptObjIntConsumer_9_oe
 lang_1433_1,"    @Test
-    public void testAcceptObjLongConsumer_1_oe() {
+    public void testAcceptObjLongConsumer_1_oe() throws Exception {
         final IllegalStateException ise = new IllegalStateException();
         final Testable<String, Long> testable = new Testable<>(ise);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Functions.accept(testable::testObjLong, ""X"", 1L));
+        try {
+    Functions.accept(testable.testObjLong, ""X"", 1L)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FunctionsTest::testAcceptObjLongConsumer_1_oe
 lang_1433_5,"    @Test
@@ -8474,10 +8963,14 @@ lang_1433_9,"    @Test
     }
 ",FunctionsTest::testAcceptObjLongConsumer_9_oe
 lang_1434_1,"    @Test
-    public void testApplyBiFunction_1_oe() {
+    public void testApplyBiFunction_1_oe() throws Exception {
         final IllegalStateException ise = new IllegalStateException();
         final Testable<?, ?> testable = new Testable<>(null);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Functions.apply(Testable::testAsInteger, testable, ise));
+        try {
+    Functions.apply(Testable.testAsInteger, testable, ise)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FunctionsTest::testApplyBiFunction_1_oe
 lang_1434_3,"    @Test
@@ -8515,10 +9008,14 @@ lang_1434_5,"    @Test
     }
 ",FunctionsTest::testApplyBiFunction_5_oe
 lang_1435_1,"    @Test
-    public void testApplyFunction_1_oe() {
+    public void testApplyFunction_1_oe() throws Exception {
         final IllegalStateException ise = new IllegalStateException();
         final Testable<?, ?> testable = new Testable<>(ise);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Functions.apply(Testable::testAsInteger, testable));
+        try {
+    Functions.apply(Testable.testAsInteger, testable)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FunctionsTest::testApplyFunction_1_oe
 lang_1435_3,"    @Test
@@ -8559,19 +9056,27 @@ lang_1435_5,"    @Test
     }
 ",FunctionsTest::testApplyFunction_5_oe
 lang_1436_1,"    @Test
-    public void testAsCallable_1_oe() {
+    public void testAsCallable_1_oe() throws Exception {
         FailureOnOddInvocations.invocations = 0;
         final FailableCallable<FailureOnOddInvocations, SomeException> failableCallable = FailureOnOddInvocations::new;
         final Callable<FailureOnOddInvocations> callable = Functions.asCallable(failableCallable);
-        final UndeclaredThrowableException e = assertThrows(UndeclaredThrowableException.class, callable::call);
+        try {
+    callable.call();
+    fail(""UndeclaredThrowableException"");
+} catch (UndeclaredThrowableException e) {
+}
     }
 ",FunctionsTest::testAsCallable_1_oe
 lang_1437_1,"    @Test
-    public void testAsConsumer_1_oe() {
+    public void testAsConsumer_1_oe() throws Exception {
         final IllegalStateException ise = new IllegalStateException();
         final Testable<?, ?> testable = new Testable<>(ise);
         final Consumer<Testable<?, ?>> consumer = Functions.asConsumer(Testable::test);
-        Throwable e = assertThrows(IllegalStateException.class, () -> consumer.accept(testable));
+        try {
+    consumer.accept(testable);
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FunctionsTest::testAsConsumer_1_oe
 lang_1437_3,"    @Test
@@ -8614,22 +9119,30 @@ lang_1437_5,"    @Test
     }
 ",FunctionsTest::testAsConsumer_5_oe
 lang_1438_1,"    @Test
-    public void testAsRunnable_1_oe() {
+    public void testAsRunnable_1_oe() throws Exception {
         FailureOnOddInvocations.invocations = 0;
         final Runnable runnable = Functions.asRunnable(FailureOnOddInvocations::new);
-        final UndeclaredThrowableException e = assertThrows(UndeclaredThrowableException.class, runnable::run);
+        try {
+    runnable.run();
+    fail(""UndeclaredThrowableException"");
+} catch (UndeclaredThrowableException e) {
+}
     }
 ",FunctionsTest::testAsRunnable_1_oe
 lang_1439_1,"    @Test
-    public void testAsSupplier_1_oe() {
+    public void testAsSupplier_1_oe() throws Exception {
         FailureOnOddInvocations.invocations = 0;
         final FailableSupplier<FailureOnOddInvocations, Throwable> failableSupplier = FailureOnOddInvocations::new;
         final Supplier<FailureOnOddInvocations> supplier = Functions.asSupplier(failableSupplier);
-        final UndeclaredThrowableException e = assertThrows(UndeclaredThrowableException.class, supplier::get);
+        try {
+    supplier.get();
+    fail(""UndeclaredThrowableException"");
+} catch (UndeclaredThrowableException e) {
+}
     }
 ",FunctionsTest::testAsSupplier_1_oe
 lang_1440_1,"    @Test
-    public void testBiConsumer_1_oe() {
+    public void testBiConsumer_1_oe() throws Exception {
         final IllegalStateException ise = new IllegalStateException();
         final Testable<?, ?> testable = new Testable<>(null);
         final FailableBiConsumer<Testable<?, ?>, Throwable, Throwable> failableBiConsumer = (t, th) -> {
@@ -8637,7 +9150,11 @@ lang_1440_1,"    @Test
             t.test();
         };
         final BiConsumer<Testable<?, ?>, Throwable> consumer = Functions.asBiConsumer(failableBiConsumer);
-        Throwable e = assertThrows(IllegalStateException.class, () -> consumer.accept(testable, ise));
+        try {
+    consumer.accept(testable, ise);
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FunctionsTest::testBiConsumer_1_oe
 lang_1440_3,"    @Test
@@ -8686,7 +9203,7 @@ lang_1440_5,"    @Test
     }
 ",FunctionsTest::testBiConsumer_5_oe
 lang_1441_1,"    @Test
-    public void testBiFunction_1_oe() {
+    public void testBiFunction_1_oe() throws Exception {
         final IllegalStateException ise = new IllegalStateException();
         final Testable<?, ?> testable = new Testable<>(ise);
         final FailableBiFunction<Testable<?, ?>, Throwable, Integer, Throwable> failableBiFunction = (t, th) -> {
@@ -8694,7 +9211,11 @@ lang_1441_1,"    @Test
             return Integer.valueOf(t.testAsInteger());
         };
         final BiFunction<Testable<?, ?>, Throwable, Integer> biFunction = Functions.asBiFunction(failableBiFunction);
-        Throwable e = assertThrows(IllegalStateException.class, () -> biFunction.apply(testable, ise));
+        try {
+    biFunction.apply(testable, ise);
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FunctionsTest::testBiFunction_1_oe
 lang_1441_3,"    @Test
@@ -8746,22 +9267,30 @@ lang_1441_5,"    @Test
 ",FunctionsTest::testBiFunction_5_oe
 lang_1442_1,"    @Test
     @DisplayName(""Test that asPredicate(FailableBiPredicate) is converted to -> BiPredicate "")
-    public void testBiPredicate_1_oe() {
+    public void testBiPredicate_1_oe() throws Exception {
         FailureOnOddInvocations.invocations = 0;
         final Functions.FailableBiPredicate<Object, Object, Throwable> failableBiPredicate = (t1,
             t2) -> FailureOnOddInvocations.failingBool();
         final BiPredicate<?, ?> predicate = Functions.asBiPredicate(failableBiPredicate);
-        final UndeclaredThrowableException e = assertThrows(UndeclaredThrowableException.class, () -> predicate.test(null, null));
+        try {
+    predicate.test(null, null);
+    fail(""UndeclaredThrowableException"");
+} catch (UndeclaredThrowableException e) {
+}
     }
 ",FunctionsTest::testBiPredicate_1_oe
 lang_1443_1,"    @Test
-    public void testCallable_1_oe() {
+    public void testCallable_1_oe() throws Exception {
         FailureOnOddInvocations.invocations = 0;
-        final UndeclaredThrowableException e = assertThrows(UndeclaredThrowableException.class, () -> Functions.run(FailureOnOddInvocations::new));
+        try {
+    Functions.run(FailureOnOddInvocations.new)();
+    fail(""UndeclaredThrowableException"");
+} catch (UndeclaredThrowableException e) {
+}
     }
 ",FunctionsTest::testCallable_1_oe
 lang_1444_1,"    @Test
-    public void testFunction_1_oe() {
+    public void testFunction_1_oe() throws Exception {
         final IllegalStateException ise = new IllegalStateException();
         final Testable<?, ?> testable = new Testable<>(ise);
         final FailableFunction<Throwable, Integer, Throwable> failableFunction = th -> {
@@ -8769,7 +9298,11 @@ lang_1444_1,"    @Test
             return Integer.valueOf(testable.testAsInteger());
         };
         final Function<Throwable, Integer> function = Functions.asFunction(failableFunction);
-        Throwable e = assertThrows(IllegalStateException.class, () -> function.apply(ise));
+        try {
+    function.apply(ise);
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FunctionsTest::testFunction_1_oe
 lang_1444_3,"    @Test
@@ -8820,16 +9353,24 @@ lang_1444_5,"    @Test
     }
 ",FunctionsTest::testFunction_5_oe
 lang_1445_1,"    @Test
-    public void testGetFromSupplier_1_oe() {
+    public void testGetFromSupplier_1_oe() throws Exception {
         FailureOnOddInvocations.invocations = 0;
-        final UndeclaredThrowableException e = assertThrows(UndeclaredThrowableException.class, () -> Functions.run(FailureOnOddInvocations::new));
+        try {
+    Functions.run(FailureOnOddInvocations.new)();
+    fail(""UndeclaredThrowableException"");
+} catch (UndeclaredThrowableException e) {
+}
     }
 ",FunctionsTest::testGetFromSupplier_1_oe
 lang_1446_1,"    @Test
-    public void testGetSupplier_1_oe() {
+    public void testGetSupplier_1_oe() throws Exception {
         final IllegalStateException ise = new IllegalStateException();
         final Testable<?, ?> testable = new Testable<>(ise);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Functions.get(testable::testAsInteger));
+        try {
+    Functions.get(testable.testAsInteger)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FunctionsTest::testGetSupplier_1_oe
 lang_1446_3,"    @Test
@@ -8871,26 +9412,38 @@ lang_1446_5,"    @Test
 ",FunctionsTest::testGetSupplier_5_oe
 lang_1447_1,"    @Test
     @DisplayName(""Test that asPredicate(FailablePredicate) is converted to -> Predicate "")
-    public void testPredicate_1_oe() {
+    public void testPredicate_1_oe() throws Exception {
         FailureOnOddInvocations.invocations = 0;
         final Functions.FailablePredicate<Object, Throwable> failablePredicate = t -> FailureOnOddInvocations
             .failingBool();
         final Predicate<?> predicate = Functions.asPredicate(failablePredicate);
-        final UndeclaredThrowableException e = assertThrows(UndeclaredThrowableException.class, () -> predicate.test(null));
+        try {
+    predicate.test(null);
+    fail(""UndeclaredThrowableException"");
+} catch (UndeclaredThrowableException e) {
+}
     }
 ",FunctionsTest::testPredicate_1_oe
 lang_1448_1,"    @Test
-    public void testRunnable_1_oe() {
+    public void testRunnable_1_oe() throws Exception {
         FailureOnOddInvocations.invocations = 0;
-        final UndeclaredThrowableException e = assertThrows(UndeclaredThrowableException.class, () -> Functions.run(FailureOnOddInvocations::new));
+        try {
+    Functions.run(FailureOnOddInvocations.new)();
+    fail(""UndeclaredThrowableException"");
+} catch (UndeclaredThrowableException e) {
+}
     }
 ",FunctionsTest::testRunnable_1_oe
 lang_1449_1,"    @Test
-    public void testTryWithResources_1_oe() {
+    public void testTryWithResources_1_oe() throws Exception {
         final CloseableObject co = new CloseableObject();
         final FailableConsumer<Throwable, ? extends Throwable> consumer = co::run;
         final IllegalStateException ise = new IllegalStateException();
-        Throwable e = assertThrows(IllegalStateException.class, () -> Functions.tryWithResources(() -> consumer.accept(ise), co::close));
+        try {
+    Functions.tryWithResources(() -> consumer.accept(ise), co.close)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FunctionsTest::testTryWithResources_1_oe
 lang_1449_4,"    @Test
@@ -8912,7 +9465,7 @@ lang_1449_4,"    @Test
     }
 ",FunctionsTest::testTryWithResources_4_oe
 lang_1449_7,"    @Test
-    public void testTryWithResources_7_oe() {
+    public void testTryWithResources_7_oe() throws Exception {
         final CloseableObject co = new CloseableObject();
         final FailableConsumer<Throwable, ? extends Throwable> consumer = co::run;
         final IllegalStateException ise = new IllegalStateException();
@@ -8928,7 +9481,11 @@ lang_1449_7,"    @Test
         // removed other assertion
         co.reset();
         final IOException ioe = new IOException(""Unknown I/O error"");
-        final UncheckedIOException uioe = assertThrows(UncheckedIOException.class, () -> Functions.tryWithResources(() -> consumer.accept(ioe), co::close));
+        try {
+    Functions.tryWithResources(() -> consumer.accept(ioe), co.close)();
+    fail(""UncheckedIOException"");
+} catch (UncheckedIOException e) {
+}
     }
 ",FunctionsTest::testTryWithResources_7_oe
 lang_1451_2,"    @Test
@@ -9090,9 +9647,12 @@ lang_1479_3,"    @Test
     }
 ",StringEscapeUtilsTest::testUnescapeJson_3_oe
 lang_1483_1,"    @Test
-    public void testLANG807_1_oe() {
-        final IllegalArgumentException ex =
-                assertThrows(IllegalArgumentException.class, () -> RandomStringUtils.random(3, 5, 5, false, false));
+    public void testLANG807_1_oe() throws Exception {
+        try {
+    RandomStringUtils.random(3, 5, 5, false, false);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",RandomStringUtilsTest::testLANG807_1_oe
 lang_1484_1,"    @Test
@@ -9343,21 +9903,29 @@ lang_1518_1,"    @Test
     }
 ",BackgroundInitializerTest::testGetBeforeStart_1_oe
 lang_1519_1,"    @Test
-    public void testGetRuntimeException_1_oe() {
+    public void testGetRuntimeException_1_oe() throws Exception {
         final BackgroundInitializerTestImpl init = new BackgroundInitializerTestImpl();
         final RuntimeException rex = new RuntimeException();
         init.ex = rex;
         init.start();
-        final Exception ex = assertThrows(Exception.class, init::get);
+        try {
+    init.get();
+    fail(""Exception"");
+} catch (Exception e) {
+}
     }
 ",BackgroundInitializerTest::testGetRuntimeException_1_oe
 lang_1520_1,"    @Test
-    public void testGetCheckedException_1_oe() {
+    public void testGetCheckedException_1_oe() throws Exception {
         final BackgroundInitializerTestImpl init = new BackgroundInitializerTestImpl();
         final Exception ex = new Exception();
         init.ex = ex;
         init.start();
-        final ConcurrentException cex = assertThrows(ConcurrentException.class, init::get);
+        try {
+    init.get();
+    fail(""ConcurrentException"");
+} catch (ConcurrentException e) {
+}
     }
 ",BackgroundInitializerTest::testGetCheckedException_1_oe
 lang_1539_1,"    @Test
@@ -9415,10 +9983,13 @@ lang_1544_1,"    @Test
     }
 ",ConcurrentUtilsTest::testConcurrentRuntimeExceptionCauseNull_1_oe
 lang_1547_1,"    @Test
-    public void testExtractCauseError_1_oe() {
+    public void testExtractCauseError_1_oe() throws Exception {
         final Error err = new AssertionError(""Test"");
-        final AssertionError e =
-                assertThrows(AssertionError.class, () -> ConcurrentUtils.extractCause(new ExecutionException(err)));
+        try {
+    ConcurrentUtils.extractCause(new ExecutionException(err));
+    fail(""AssertionError"");
+} catch (AssertionError e) {
+}
     }
 ",ConcurrentUtilsTest::testExtractCauseError_1_oe
 lang_1548_1,"    @Test
@@ -9432,56 +10003,83 @@ lang_1548_1,"    @Test
     }
 ",ConcurrentUtilsTest::testExtractCauseUncheckedException_1_oe
 lang_1552_1,"    @Test
-    public void testExtractCauseUncheckedError_1_oe() {
+    public void testExtractCauseUncheckedError_1_oe() throws Exception {
         final Error err = new AssertionError(""Test"");
-        final Error e = assertThrows(Error.class, () -> ConcurrentUtils.extractCauseUnchecked(new ExecutionException(err)));
+        try {
+    ConcurrentUtils.extractCauseUnchecked(new ExecutionException(err));
+    fail(""Error"");
+} catch (Error e) {
+}
     }
 ",ConcurrentUtilsTest::testExtractCauseUncheckedError_1_oe
 lang_1553_1,"    @Test
-    public void testExtractCauseUncheckedUncheckedException_1_oe() {
+    public void testExtractCauseUncheckedUncheckedException_1_oe() throws Exception {
         final RuntimeException rex = new RuntimeException(""Test"");
-        final RuntimeException r =
-                assertThrows(RuntimeException.class, () -> ConcurrentUtils.extractCauseUnchecked(new ExecutionException(rex)));
+        try {
+    ConcurrentUtils.extractCauseUnchecked(new ExecutionException(rex));
+    fail(""RuntimeException"");
+} catch (RuntimeException e) {
+}
     }
 ",ConcurrentUtilsTest::testExtractCauseUncheckedUncheckedException_1_oe
 lang_1555_1,"    @Test
-    public void testHandleCauseError_1_oe() {
+    public void testHandleCauseError_1_oe() throws Exception {
         final Error err = new AssertionError(""Test"");
-        final Error e = assertThrows(Error.class, () -> ConcurrentUtils.handleCause(new ExecutionException(err)));
+        try {
+    ConcurrentUtils.handleCause(new ExecutionException(err));
+    fail(""Error"");
+} catch (Error e) {
+}
     }
 ",ConcurrentUtilsTest::testHandleCauseError_1_oe
 lang_1556_1,"    @Test
-    public void testHandleCauseUncheckedException_1_oe() {
+    public void testHandleCauseUncheckedException_1_oe() throws Exception {
         final RuntimeException rex = new RuntimeException(""Test"");
-        final RuntimeException r =
-                assertThrows(RuntimeException.class, () -> ConcurrentUtils.handleCause(new ExecutionException(rex)));
+        try {
+    ConcurrentUtils.handleCause(new ExecutionException(rex));
+    fail(""RuntimeException"");
+} catch (RuntimeException e) {
+}
     }
 ",ConcurrentUtilsTest::testHandleCauseUncheckedException_1_oe
 lang_1557_1,"    @Test
-    public void testHandleCauseChecked_1_oe() {
+    public void testHandleCauseChecked_1_oe() throws Exception {
         final Exception ex = new Exception(""Test"");
-        final ConcurrentException cex =
-                assertThrows(ConcurrentException.class, () -> ConcurrentUtils.handleCause(new ExecutionException(ex)));
+        try {
+    ConcurrentUtils.handleCause(new ExecutionException(ex));
+    fail(""ConcurrentException"");
+} catch (ConcurrentException e) {
+}
     }
 ",ConcurrentUtilsTest::testHandleCauseChecked_1_oe
 lang_1558_1,"    @Test
-    public void testHandleCauseUncheckedError_1_oe() {
+    public void testHandleCauseUncheckedError_1_oe() throws Exception {
         final Error err = new AssertionError(""Test"");
-        final Error e = assertThrows(Error.class, () -> ConcurrentUtils.handleCauseUnchecked(new ExecutionException(err)));
+        try {
+    ConcurrentUtils.handleCauseUnchecked(new ExecutionException(err));
+    fail(""Error"");
+} catch (Error e) {
+}
     }
 ",ConcurrentUtilsTest::testHandleCauseUncheckedError_1_oe
 lang_1559_1,"    @Test
-    public void testHandleCauseUncheckedUncheckedException_1_oe() {
+    public void testHandleCauseUncheckedUncheckedException_1_oe() throws Exception {
         final RuntimeException rex = new RuntimeException(""Test"");
-        final RuntimeException r =
-                assertThrows(RuntimeException.class, () -> ConcurrentUtils.handleCauseUnchecked(new ExecutionException(rex)));
+        try {
+    ConcurrentUtils.handleCauseUnchecked(new ExecutionException(rex));
+    fail(""RuntimeException"");
+} catch (RuntimeException e) {
+}
     }
 ",ConcurrentUtilsTest::testHandleCauseUncheckedUncheckedException_1_oe
 lang_1560_1,"    @Test
-    public void testHandleCauseUncheckedChecked_1_oe() {
+    public void testHandleCauseUncheckedChecked_1_oe() throws Exception {
         final Exception ex = new Exception(""Test"");
-        final ConcurrentRuntimeException crex =
-                assertThrows(ConcurrentRuntimeException.class, () -> ConcurrentUtils.handleCauseUnchecked(new ExecutionException(ex)));
+        try {
+    ConcurrentUtils.handleCauseUnchecked(new ExecutionException(ex));
+    fail(""ConcurrentRuntimeException"");
+} catch (ConcurrentRuntimeException e) {
+}
     }
 ",ConcurrentUtilsTest::testHandleCauseUncheckedChecked_1_oe
 lang_1566_1,"    @Test
@@ -9493,8 +10091,11 @@ lang_1566_1,"    @Test
         final Exception cause = new Exception();
         EasyMock.expect(init.get()).andThrow(new ConcurrentException(cause));
         EasyMock.replay(init);
-        final ConcurrentRuntimeException crex =
-                assertThrows(ConcurrentRuntimeException.class, () -> ConcurrentUtils.initializeUnchecked(init));
+        try {
+    ConcurrentUtils.initializeUnchecked(init);
+    fail(""ConcurrentRuntimeException"");
+} catch (ConcurrentRuntimeException e) {
+}
     }
 ",ConcurrentUtilsTest::testInitializeUncheckedEx_1_oe
 lang_1577_1,"    @Test
@@ -9507,8 +10108,11 @@ lang_1577_1,"    @Test
         final Exception ex = new Exception();
         EasyMock.expect(init.get()).andThrow(new ConcurrentException(ex));
         EasyMock.replay(init);
-        final ConcurrentRuntimeException crex =
-                assertThrows( ConcurrentRuntimeException.class, () -> ConcurrentUtils.createIfAbsentUnchecked(new ConcurrentHashMap<>(), ""test"", init));
+        try {
+    ConcurrentUtils.createIfAbsentUnchecked(new ConcurrentHashMap<>(), ""test"", init);
+    fail(""ConcurrentRuntimeException"");
+} catch (ConcurrentRuntimeException e) {
+}
     }
 ",ConcurrentUtilsTest::testCreateIfAbsentUncheckedException_1_oe
 lang_1579_1,"    @Test
@@ -9702,12 +10306,16 @@ lang_1594_1,"    @Test
     }
 ",MultiBackgroundInitializerTest::testResultInitializerNamesModify_1_oe
 lang_1595_1,"    @Test
-    public void testInitializeRuntimeEx_1_oe() {
+    public void testInitializeRuntimeEx_1_oe() throws Exception {
         final ChildBackgroundInitializer child = new ChildBackgroundInitializer();
         child.ex = new RuntimeException();
         initializer.addInitializer(CHILD_INIT, child);
         initializer.start();
-        final Exception ex = assertThrows(Exception.class, initializer::get);
+        try {
+    initializer.get();
+    fail(""Exception"");
+} catch (Exception e) {
+}
     }
 ",MultiBackgroundInitializerTest::testInitializeRuntimeEx_1_oe
 lang_1601_1,"    @Test
@@ -9771,7 +10379,7 @@ lang_1625_1,"    @Test
 lang_1634_1,"    @Test
     public void testThrowingInformativeException_1_oe() throws Exception {
         try {
-     throw new CircuitBreakingException(EXCEPTION_MESSAGE, generateCause());
+     new CircuitBreakingException(EXCEPTION_MESSAGE, generateCause());
     fail(""CircuitBreakingException"");
 } catch (CircuitBreakingException e) {
 }
@@ -9780,7 +10388,7 @@ lang_1634_1,"    @Test
 lang_1635_1,"    @Test
     public void testThrowingExceptionWithMessage_1_oe() throws Exception {
         try {
-     throw new CircuitBreakingException(EXCEPTION_MESSAGE);
+     new CircuitBreakingException(EXCEPTION_MESSAGE);
     fail(""CircuitBreakingException"");
 } catch (CircuitBreakingException e) {
 }
@@ -9789,7 +10397,7 @@ lang_1635_1,"    @Test
 lang_1636_1,"    @Test
     public void testThrowingExceptionWithCause_1_oe() throws Exception {
         try {
-     throw new CircuitBreakingException(generateCause());
+     new CircuitBreakingException(generateCause());
     fail(""CircuitBreakingException"");
 } catch (CircuitBreakingException e) {
 }
@@ -9798,7 +10406,7 @@ lang_1636_1,"    @Test
 lang_1637_1,"    @Test
     public void testThrowingEmptyException_1_oe() throws Exception {
         try {
-     throw new CircuitBreakingException();
+     new CircuitBreakingException();
     fail(""CircuitBreakingException"");
 } catch (CircuitBreakingException e) {
 }
@@ -9814,21 +10422,27 @@ lang_1646_1,"    @Test()
     }
 ",CallableBackgroundInitializerTest::testInitNullCallable_1_oe
 lang_1653_1,"    @Test
-    public void testAddEventListenerWithNoAddMethod_1_oe() {
+    public void testAddEventListenerWithNoAddMethod_1_oe() throws Exception {
         final PropertyChangeSource src = new PropertyChangeSource();
         final EventCountingInvocationHandler handler = new EventCountingInvocationHandler();
         final ObjectChangeListener listener = handler.createListener(ObjectChangeListener.class);
-        final IllegalArgumentException e =
-                assertThrows(IllegalArgumentException.class, () -> EventUtils.addEventListener(src, ObjectChangeListener.class, listener));
+        try {
+    EventUtils.addEventListener(src, ObjectChangeListener.class, listener);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",EventUtilsTest::testAddEventListenerWithNoAddMethod_1_oe
 lang_1655_1,"    @Test
-    public void testAddEventListenerWithPrivateAddMethod_1_oe() {
+    public void testAddEventListenerWithPrivateAddMethod_1_oe() throws Exception {
         final PropertyChangeSource src = new PropertyChangeSource();
         final EventCountingInvocationHandler handler = new EventCountingInvocationHandler();
         final VetoableChangeListener listener = handler.createListener(VetoableChangeListener.class);
-        final IllegalArgumentException e =
-                assertThrows(IllegalArgumentException.class, () -> EventUtils.addEventListener(src, VetoableChangeListener.class, listener));
+        try {
+    EventUtils.addEventListener(src, VetoableChangeListener.class, listener);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
     }
 ",EventUtilsTest::testAddEventListenerWithPrivateAddMethod_1_oe
 lang_1660_1,"    @Test
@@ -17286,16 +17900,24 @@ lang_2724_1,"    @ParameterizedTest
     }
 ",FastDateParserTest::testLang1121_1_oe
 lang_2751_1,"    @Test
-    public void testSimpleStreamMapFailing_1_oe() {
+    public void testSimpleStreamMapFailing_1_oe() throws Exception {
         final List<String> input = Arrays.asList(""1"", ""2"", ""3"", ""4 "", ""5"", ""6"");
         final Executable testMethod = () -> Failable.stream(input).map(Integer::valueOf).collect(Collectors.toList());
-        final NumberFormatException thrown = assertThrows(NumberFormatException.class, testMethod);
+        try {
+    testMethod.execute();
+    fail(""NumberFormatException"");
+} catch (NumberFormatException e) {
+}
     }
 ",StreamsTest::testSimpleStreamMapFailing_1_oe
 lang_2757_1,"    @Test
-    public void testAcceptBiConsumer_1_oe() {
+    public void testAcceptBiConsumer_1_oe() throws Exception {
         final Testable<?, ?> testable = new Testable<>(null);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.accept(Testable::test, testable, ILLEGAL_STATE_EXCEPTION));
+        try {
+    Failable.accept(Testable.test, testable, ILLEGAL_STATE_EXCEPTION)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testAcceptBiConsumer_1_oe
 lang_2757_3,"    @Test
@@ -17330,9 +17952,13 @@ lang_2757_5,"    @Test
     }
 ",FailableFunctionsTest::testAcceptBiConsumer_5_oe
 lang_2758_1,"    @Test
-    public void testAcceptConsumer_1_oe() {
+    public void testAcceptConsumer_1_oe() throws Exception {
         final Testable<?, ?> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.accept(Testable::test, testable));
+        try {
+    Failable.accept(Testable.test, testable)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testAcceptConsumer_1_oe
 lang_2758_3,"    @Test
@@ -17369,9 +17995,13 @@ lang_2758_5,"    @Test
     }
 ",FailableFunctionsTest::testAcceptConsumer_5_oe
 lang_2759_1,"    @Test
-    public void testAcceptDoubleConsumer_1_oe() {
+    public void testAcceptDoubleConsumer_1_oe() throws Exception {
         final Testable<?, Double> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.accept(testable::testDouble, 1d));
+        try {
+    Failable.accept(testable.testDouble, 1d)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testAcceptDoubleConsumer_1_oe
 lang_2759_4,"    @Test
@@ -17411,9 +18041,13 @@ lang_2759_7,"    @Test
     }
 ",FailableFunctionsTest::testAcceptDoubleConsumer_7_oe
 lang_2760_1,"    @Test
-    public void testAcceptIntConsumer_1_oe() {
+    public void testAcceptIntConsumer_1_oe() throws Exception {
         final Testable<?, Integer> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.accept(testable::testInt, 1));
+        try {
+    Failable.accept(testable.testInt, 1)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testAcceptIntConsumer_1_oe
 lang_2760_4,"    @Test
@@ -17453,9 +18087,13 @@ lang_2760_7,"    @Test
     }
 ",FailableFunctionsTest::testAcceptIntConsumer_7_oe
 lang_2761_1,"    @Test
-    public void testAcceptLongConsumer_1_oe() {
+    public void testAcceptLongConsumer_1_oe() throws Exception {
         final Testable<?, Long> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.accept(testable::testLong, 1L));
+        try {
+    Failable.accept(testable.testLong, 1L)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testAcceptLongConsumer_1_oe
 lang_2761_4,"    @Test
@@ -17495,9 +18133,13 @@ lang_2761_7,"    @Test
     }
 ",FailableFunctionsTest::testAcceptLongConsumer_7_oe
 lang_2762_1,"    @Test
-    public void testAcceptObjDoubleConsumer_1_oe() {
+    public void testAcceptObjDoubleConsumer_1_oe() throws Exception {
         final Testable<String, Double> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.accept(testable::testObjDouble, ""X"", 1d));
+        try {
+    Failable.accept(testable.testObjDouble, ""X"", 1d)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testAcceptObjDoubleConsumer_1_oe
 lang_2762_5,"    @Test
@@ -17540,9 +18182,13 @@ lang_2762_9,"    @Test
     }
 ",FailableFunctionsTest::testAcceptObjDoubleConsumer_9_oe
 lang_2763_1,"    @Test
-    public void testAcceptObjIntConsumer_1_oe() {
+    public void testAcceptObjIntConsumer_1_oe() throws Exception {
         final Testable<String, Integer> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.accept(testable::testObjInt, ""X"", 1));
+        try {
+    Failable.accept(testable.testObjInt, ""X"", 1)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testAcceptObjIntConsumer_1_oe
 lang_2763_5,"    @Test
@@ -17585,9 +18231,13 @@ lang_2763_9,"    @Test
     }
 ",FailableFunctionsTest::testAcceptObjIntConsumer_9_oe
 lang_2764_1,"    @Test
-    public void testAcceptObjLongConsumer_1_oe() {
+    public void testAcceptObjLongConsumer_1_oe() throws Exception {
         final Testable<String, Long> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.accept(testable::testObjLong, ""X"", 1L));
+        try {
+    Failable.accept(testable.testObjLong, ""X"", 1L)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testAcceptObjLongConsumer_1_oe
 lang_2764_5,"    @Test
@@ -17630,9 +18280,13 @@ lang_2764_9,"    @Test
     }
 ",FailableFunctionsTest::testAcceptObjLongConsumer_9_oe
 lang_2765_1,"    @Test
-    public void testApplyBiFunction_1_oe() {
+    public void testApplyBiFunction_1_oe() throws Exception {
         final Testable<?, ?> testable = new Testable<>(null);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.apply(Testable::testAsInteger, testable, ILLEGAL_STATE_EXCEPTION));
+        try {
+    Failable.apply(Testable.testAsInteger, testable, ILLEGAL_STATE_EXCEPTION)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testApplyBiFunction_1_oe
 lang_2765_3,"    @Test
@@ -17666,15 +18320,23 @@ lang_2765_5,"    @Test
     }
 ",FailableFunctionsTest::testApplyBiFunction_5_oe
 lang_2766_1,"    @Test
-    public void testApplyDoubleBinaryOperator_1_oe() {
+    public void testApplyDoubleBinaryOperator_1_oe() throws Exception {
         final Testable<?, Double> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
-        final Throwable e = assertThrows(IllegalStateException.class, () -> Failable.applyAsDouble(testable::testDoubleDouble, 1d, 2d));
+        try {
+    Failable.applyAsDouble(testable.testDoubleDouble, 1d, 2d)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testApplyDoubleBinaryOperator_1_oe
 lang_2767_1,"    @Test
-    public void testApplyFunction_1_oe() {
+    public void testApplyFunction_1_oe() throws Exception {
         final Testable<?, ?> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.apply(Testable::testAsInteger, testable));
+        try {
+    Failable.apply(Testable.testAsInteger, testable)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testApplyFunction_1_oe
 lang_2767_3,"    @Test
@@ -17711,18 +18373,26 @@ lang_2767_5,"    @Test
     }
 ",FailableFunctionsTest::testApplyFunction_5_oe
 lang_2768_1,"    @Test
-    public void testAsCallable_1_oe() {
+    public void testAsCallable_1_oe() throws Exception {
         FailureOnOddInvocations.invocations = 0;
         final FailableCallable<FailureOnOddInvocations, SomeException> failableCallable = FailureOnOddInvocations::new;
         final Callable<FailureOnOddInvocations> callable = Failable.asCallable(failableCallable);
-        final UndeclaredThrowableException e = assertThrows(UndeclaredThrowableException.class, callable::call);
+        try {
+    callable.call();
+    fail(""UndeclaredThrowableException"");
+} catch (UndeclaredThrowableException e) {
+}
     }
 ",FailableFunctionsTest::testAsCallable_1_oe
 lang_2769_1,"    @Test
-    public void testAsConsumer_1_oe() {
+    public void testAsConsumer_1_oe() throws Exception {
         final Testable<?, ?> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
         final Consumer<Testable<?, ?>> consumer = Failable.asConsumer(Testable::test);
-        Throwable e = assertThrows(IllegalStateException.class, () -> consumer.accept(testable));
+        try {
+    consumer.accept(testable);
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testAsConsumer_1_oe
 lang_2769_3,"    @Test
@@ -17761,18 +18431,26 @@ lang_2769_5,"    @Test
     }
 ",FailableFunctionsTest::testAsConsumer_5_oe
 lang_2770_1,"    @Test
-    public void testAsRunnable_1_oe() {
+    public void testAsRunnable_1_oe() throws Exception {
         FailureOnOddInvocations.invocations = 0;
         final Runnable runnable = Failable.asRunnable(FailureOnOddInvocations::new);
-        final UndeclaredThrowableException e = assertThrows(UndeclaredThrowableException.class, runnable::run);
+        try {
+    runnable.run();
+    fail(""UndeclaredThrowableException"");
+} catch (UndeclaredThrowableException e) {
+}
     }
 ",FailableFunctionsTest::testAsRunnable_1_oe
 lang_2771_1,"    @Test
-    public void testAsSupplier_1_oe() {
+    public void testAsSupplier_1_oe() throws Exception {
         FailureOnOddInvocations.invocations = 0;
         final FailableSupplier<FailureOnOddInvocations, Throwable> failableSupplier = FailureOnOddInvocations::new;
         final Supplier<FailureOnOddInvocations> supplier = Failable.asSupplier(failableSupplier);
-        final UndeclaredThrowableException e = assertThrows(UndeclaredThrowableException.class, supplier::get);
+        try {
+    supplier.get();
+    fail(""UndeclaredThrowableException"");
+} catch (UndeclaredThrowableException e) {
+}
     }
 ",FailableFunctionsTest::testAsSupplier_1_oe
 lang_2772_1,"    @Test
@@ -17783,7 +18461,11 @@ lang_2772_1,"    @Test
             t.test();
         };
         final BiConsumer<Testable<?, ?>, Throwable> consumer = Failable.asBiConsumer(failableBiConsumer);
-        Throwable e = assertThrows(IllegalStateException.class, () -> consumer.accept(testable, ILLEGAL_STATE_EXCEPTION));
+        try {
+    consumer.accept(testable, ILLEGAL_STATE_EXCEPTION);
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testBiConsumer_1_oe
 lang_2772_3,"    @Test
@@ -17859,7 +18541,11 @@ lang_2773_1,"    @Test
             t.test();
         };
         final FailableBiConsumer<Testable<?, ?>, Throwable, Throwable> nop = FailableBiConsumer.nop();
-        Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.andThen(failing).accept(testable, ERROR));
+        try {
+    nop.andThen(failing).accept(testable, ERROR);
+    fail(""OutOfMemoryError"");
+} catch (OutOfMemoryError e) {
+}
     }
 ",FailableFunctionsTest::testBiConsumerAndThen_1_oe
 lang_2773_3,"    @Test
@@ -17902,14 +18588,18 @@ lang_2773_5,"    @Test
     }
 ",FailableFunctionsTest::testBiConsumerAndThen_5_oe
 lang_2774_1,"    @Test
-    public void testBiFunction_1_oe() {
+    public void testBiFunction_1_oe() throws Exception {
         final Testable<?, ?> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
         final FailableBiFunction<Testable<?, ?>, Throwable, Integer, Throwable> failableBiFunction = (t, th) -> {
             t.setThrowable(th);
             return t.testAsInteger();
         };
         final BiFunction<Testable<?, ?>, Throwable, Integer> biFunction = Failable.asBiFunction(failableBiFunction);
-        Throwable e = assertThrows(IllegalStateException.class, () -> biFunction.apply(testable, ILLEGAL_STATE_EXCEPTION));
+        try {
+    biFunction.apply(testable, ILLEGAL_STATE_EXCEPTION);
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testBiFunction_1_oe
 lang_2774_3,"    @Test
@@ -18063,12 +18753,16 @@ lang_2775_4,"    @Test
 ",FailableFunctionsTest::testBiFunctionAndThen_4_oe
 lang_2776_1,"    @Test
     @DisplayName(""Test that asPredicate(FailableBiPredicate) is converted to -> BiPredicate "")
-    public void testBiPredicate_1_oe() {
+    public void testBiPredicate_1_oe() throws Exception {
         FailureOnOddInvocations.invocations = 0;
         final FailableBiPredicate<Object, Object, Throwable> failableBiPredicate = (t1, t2) -> FailureOnOddInvocations
             .failingBool();
         final BiPredicate<?, ?> predicate = Failable.asBiPredicate(failableBiPredicate);
-        final UndeclaredThrowableException e = assertThrows(UndeclaredThrowableException.class, () -> predicate.test(null, null));
+        try {
+    predicate.test(null, null);
+    fail(""UndeclaredThrowableException"");
+} catch (UndeclaredThrowableException e) {
+}
     }
 ",FailableFunctionsTest::testBiPredicate_1_oe
 lang_2777_5,"    @Test
@@ -18130,9 +18824,13 @@ lang_2779_6,"    @Test
     }
 ",FailableFunctionsTest::testBiPredicateOr_6_oe
 lang_2780_1,"    @Test
-    public void testCallable_1_oe() {
+    public void testCallable_1_oe() throws Exception {
         FailureOnOddInvocations.invocations = 0;
-        final UndeclaredThrowableException e = assertThrows(UndeclaredThrowableException.class, () -> Failable.run(FailureOnOddInvocations::new));
+        try {
+    Failable.run(FailureOnOddInvocations.new)();
+    fail(""UndeclaredThrowableException"");
+} catch (UndeclaredThrowableException e) {
+}
     }
 ",FailableFunctionsTest::testCallable_1_oe
 lang_2781_1,"    @Test
@@ -18143,7 +18841,11 @@ lang_2781_1,"    @Test
             testable.test();
         };
         final FailableConsumer<Throwable, Throwable> nop = FailableConsumer.nop();
-        final Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.andThen(failableConsumer).accept(ERROR));
+        try {
+    nop.andThen(failableConsumer).accept(ERROR);
+    fail(""OutOfMemoryError"");
+} catch (OutOfMemoryError e) {
+}
     }
 ",FailableFunctionsTest::testConsumerAndThen_1_oe
 lang_2781_3,"    @Test
@@ -18174,7 +18876,11 @@ lang_2782_1,"    @Test
             testable.test();
         };
         final FailableDoubleConsumer<Throwable> nop = FailableDoubleConsumer.nop();
-        Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.andThen(failing).accept(0d));
+        try {
+    nop.andThen(failing).accept(0d);
+    fail(""OutOfMemoryError"");
+} catch (OutOfMemoryError e) {
+}
     }
 ",FailableFunctionsTest::testDoubleConsumerAndThen_1_oe
 lang_2782_3,"    @Test
@@ -18294,7 +19000,11 @@ lang_2787_1,"    @Test
             return 0d;
         };
         final FailableDoubleUnaryOperator<Throwable> nop = FailableDoubleUnaryOperator.nop();
-        Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.andThen(failing).applyAsDouble(0d));
+        try {
+    nop.andThen(failing).applyAsDouble(0d);
+    fail(""OutOfMemoryError"");
+} catch (OutOfMemoryError e) {
+}
     }
 ",FailableFunctionsTest::testDoubleUnaryOperatorAndThen_1_oe
 lang_2787_3,"    @Test
@@ -18347,7 +19057,11 @@ lang_2788_1,"    @Test
             return 0d;
         };
         final FailableDoubleUnaryOperator<Throwable> nop = FailableDoubleUnaryOperator.nop();
-        Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.compose(failing).applyAsDouble(0d));
+        try {
+    nop.compose(failing).applyAsDouble(0d);
+    fail(""OutOfMemoryError"");
+} catch (OutOfMemoryError e) {
+}
     }
 ",FailableFunctionsTest::testDoubleUnaryOperatorCompose_1_oe
 lang_2788_3,"    @Test
@@ -18405,14 +19119,18 @@ lang_2789_1,"    @Test
     }
 ",FailableFunctionsTest::testDoubleUnaryOperatorIdentity_1_oe
 lang_2790_1,"    @Test
-    public void testFunction_1_oe() {
+    public void testFunction_1_oe() throws Exception {
         final Testable<?, ?> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
         final FailableFunction<Throwable, Integer, Throwable> failableFunction = th -> {
             testable.setThrowable(th);
             return testable.testAsInteger();
         };
         final Function<Throwable, Integer> function = Failable.asFunction(failableFunction);
-        Throwable e = assertThrows(IllegalStateException.class, () -> function.apply(ILLEGAL_STATE_EXCEPTION));
+        try {
+    function.apply(ILLEGAL_STATE_EXCEPTION);
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testFunction_1_oe
 lang_2790_3,"    @Test
@@ -18549,7 +19267,11 @@ lang_2792_1,"    @Test
             return 0;
         };
         final FailableFunction<Object, Integer, Throwable> nop = FailableFunction.nop();
-        Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.compose(failing).apply(0));
+        try {
+    nop.compose(failing).apply(0);
+    fail(""OutOfMemoryError"");
+} catch (OutOfMemoryError e) {
+}
     }
 ",FailableFunctionsTest::testFunctionCompose_1_oe
 lang_2792_3,"    @Test
@@ -18607,9 +19329,13 @@ lang_2793_1,"    @Test
     }
 ",FailableFunctionsTest::testFunctionIdentity_1_oe
 lang_2794_1,"    @Test
-    public void testGetAsBooleanSupplier_1_oe() {
+    public void testGetAsBooleanSupplier_1_oe() throws Exception {
         final Testable<?, ?> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.getAsBoolean(testable::testAsBooleanPrimitive));
+        try {
+    Failable.getAsBoolean(testable.testAsBooleanPrimitive)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testGetAsBooleanSupplier_1_oe
 lang_2794_3,"    @Test
@@ -18646,9 +19372,13 @@ lang_2794_5,"    @Test
     }
 ",FailableFunctionsTest::testGetAsBooleanSupplier_5_oe
 lang_2795_1,"    @Test
-    public void testGetAsDoubleSupplier_1_oe() {
+    public void testGetAsDoubleSupplier_1_oe() throws Exception {
         final Testable<?, ?> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.getAsDouble(testable::testAsDoublePrimitive));
+        try {
+    Failable.getAsDouble(testable.testAsDoublePrimitive)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testGetAsDoubleSupplier_1_oe
 lang_2795_3,"    @Test
@@ -18685,9 +19415,13 @@ lang_2795_5,"    @Test
     }
 ",FailableFunctionsTest::testGetAsDoubleSupplier_5_oe
 lang_2796_1,"    @Test
-    public void testGetAsIntSupplier_1_oe() {
+    public void testGetAsIntSupplier_1_oe() throws Exception {
         final Testable<?, ?> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.getAsInt(testable::testAsIntPrimitive));
+        try {
+    Failable.getAsInt(testable.testAsIntPrimitive)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testGetAsIntSupplier_1_oe
 lang_2796_3,"    @Test
@@ -18724,9 +19458,13 @@ lang_2796_5,"    @Test
     }
 ",FailableFunctionsTest::testGetAsIntSupplier_5_oe
 lang_2797_1,"    @Test
-    public void testGetAsLongSupplier_1_oe() {
+    public void testGetAsLongSupplier_1_oe() throws Exception {
         final Testable<?, ?> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.getAsLong(testable::testAsLongPrimitive));
+        try {
+    Failable.getAsLong(testable.testAsLongPrimitive)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testGetAsLongSupplier_1_oe
 lang_2797_3,"    @Test
@@ -18763,9 +19501,13 @@ lang_2797_5,"    @Test
     }
 ",FailableFunctionsTest::testGetAsLongSupplier_5_oe
 lang_2798_1,"    @Test
-    public void testGetAsShortSupplier_1_oe() {
+    public void testGetAsShortSupplier_1_oe() throws Exception {
         final Testable<?, ?> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.getAsShort(testable::testAsShortPrimitive));
+        try {
+    Failable.getAsShort(testable.testAsShortPrimitive)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testGetAsShortSupplier_1_oe
 lang_2798_3,"    @Test
@@ -18802,15 +19544,23 @@ lang_2798_5,"    @Test
     }
 ",FailableFunctionsTest::testGetAsShortSupplier_5_oe
 lang_2799_1,"    @Test
-    public void testGetFromSupplier_1_oe() {
+    public void testGetFromSupplier_1_oe() throws Exception {
         FailureOnOddInvocations.invocations = 0;
-        final UndeclaredThrowableException e = assertThrows(UndeclaredThrowableException.class, () -> Failable.run(FailureOnOddInvocations::new));
+        try {
+    Failable.run(FailureOnOddInvocations.new)();
+    fail(""UndeclaredThrowableException"");
+} catch (UndeclaredThrowableException e) {
+}
     }
 ",FailableFunctionsTest::testGetFromSupplier_1_oe
 lang_2800_1,"    @Test
-    public void testGetSupplier_1_oe() {
+    public void testGetSupplier_1_oe() throws Exception {
         final Testable<?, ?> testable = new Testable<>(ILLEGAL_STATE_EXCEPTION);
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.get(testable::testAsInteger));
+        try {
+    Failable.get(testable.testAsInteger)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testGetSupplier_1_oe
 lang_2800_3,"    @Test
@@ -18854,7 +19604,11 @@ lang_2801_1,"    @Test
             testable.test();
         };
         final FailableIntConsumer<Throwable> nop = FailableIntConsumer.nop();
-        Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.andThen(failing).accept(0));
+        try {
+    nop.andThen(failing).accept(0);
+    fail(""OutOfMemoryError"");
+} catch (OutOfMemoryError e) {
+}
     }
 ",FailableFunctionsTest::testIntConsumerAndThen_1_oe
 lang_2801_3,"    @Test
@@ -18974,7 +19728,11 @@ lang_2806_1,"    @Test
             return 0;
         };
         final FailableIntUnaryOperator<Throwable> nop = FailableIntUnaryOperator.nop();
-        Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.andThen(failing).applyAsInt(0));
+        try {
+    nop.andThen(failing).applyAsInt(0);
+    fail(""OutOfMemoryError"");
+} catch (OutOfMemoryError e) {
+}
     }
 ",FailableFunctionsTest::testIntUnaryOperatorAndThen_1_oe
 lang_2806_3,"    @Test
@@ -19027,7 +19785,11 @@ lang_2807_1,"    @Test
             return 0;
         };
         final FailableIntUnaryOperator<Throwable> nop = FailableIntUnaryOperator.nop();
-        Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.compose(failing).applyAsInt(0));
+        try {
+    nop.compose(failing).applyAsInt(0);
+    fail(""OutOfMemoryError"");
+} catch (OutOfMemoryError e) {
+}
     }
 ",FailableFunctionsTest::testIntUnaryOperatorCompose_1_oe
 lang_2807_3,"    @Test
@@ -19092,7 +19854,11 @@ lang_2809_1,"    @Test
             testable.test();
         };
         final FailableLongConsumer<Throwable> nop = FailableLongConsumer.nop();
-        Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.andThen(failing).accept(0L));
+        try {
+    nop.andThen(failing).accept(0L);
+    fail(""OutOfMemoryError"");
+} catch (OutOfMemoryError e) {
+}
     }
 ",FailableFunctionsTest::testLongConsumerAndThen_1_oe
 lang_2809_3,"    @Test
@@ -19212,7 +19978,11 @@ lang_2814_1,"    @Test
             return 0L;
         };
         final FailableLongUnaryOperator<Throwable> nop = FailableLongUnaryOperator.nop();
-        Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.andThen(failing).applyAsLong(0L));
+        try {
+    nop.andThen(failing).applyAsLong(0L);
+    fail(""OutOfMemoryError"");
+} catch (OutOfMemoryError e) {
+}
     }
 ",FailableFunctionsTest::testLongUnaryOperatorAndThen_1_oe
 lang_2814_3,"    @Test
@@ -19265,7 +20035,11 @@ lang_2815_1,"    @Test
             return 0L;
         };
         final FailableLongUnaryOperator<Throwable> nop = FailableLongUnaryOperator.nop();
-        Throwable e = assertThrows(OutOfMemoryError.class, () -> nop.compose(failing).applyAsLong(0L));
+        try {
+    nop.compose(failing).applyAsLong(0L);
+    fail(""OutOfMemoryError"");
+} catch (OutOfMemoryError e) {
+}
     }
 ",FailableFunctionsTest::testLongUnaryOperatorCompose_1_oe
 lang_2815_3,"    @Test
@@ -19324,11 +20098,15 @@ lang_2816_1,"    @Test
 ",FailableFunctionsTest::testLongUnaryOperatorIdentity_1_oe
 lang_2817_1,"    @Test
     @DisplayName(""Test that asPredicate(FailablePredicate) is converted to -> Predicate "")
-    public void testPredicate_1_oe() {
+    public void testPredicate_1_oe() throws Exception {
         FailureOnOddInvocations.invocations = 0;
         final FailablePredicate<Object, Throwable> failablePredicate = t -> FailureOnOddInvocations.failingBool();
         final Predicate<?> predicate = Failable.asPredicate(failablePredicate);
-        final UndeclaredThrowableException e = assertThrows(UndeclaredThrowableException.class, () -> predicate.test(null));
+        try {
+    predicate.test(null);
+    fail(""UndeclaredThrowableException"");
+} catch (UndeclaredThrowableException e) {
+}
     }
 ",FailableFunctionsTest::testPredicate_1_oe
 lang_2818_5,"    @Test
@@ -19361,16 +20139,24 @@ lang_2818_6,"    @Test
     }
 ",FailableFunctionsTest::testPredicateAnd_6_oe
 lang_2820_1,"    @Test
-    public void testRunnable_1_oe() {
+    public void testRunnable_1_oe() throws Exception {
         FailureOnOddInvocations.invocations = 0;
-        final UndeclaredThrowableException e = assertThrows(UndeclaredThrowableException.class, () -> Failable.run(FailureOnOddInvocations::new));
+        try {
+    Failable.run(FailureOnOddInvocations.new)();
+    fail(""UndeclaredThrowableException"");
+} catch (UndeclaredThrowableException e) {
+}
     }
 ",FailableFunctionsTest::testRunnable_1_oe
 lang_2821_1,"    @Test
-    public void testTryWithResources_1_oe() {
+    public void testTryWithResources_1_oe() throws Exception {
         final CloseableObject closeable = new CloseableObject();
         final FailableConsumer<Throwable, ? extends Throwable> consumer = closeable::run;
-        Throwable e = assertThrows(IllegalStateException.class, () -> Failable.tryWithResources(() -> consumer.accept(ILLEGAL_STATE_EXCEPTION), closeable::close));
+        try {
+    Failable.tryWithResources(() -> consumer.accept(ILLEGAL_STATE_EXCEPTION), closeable.close)();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",FailableFunctionsTest::testTryWithResources_1_oe
 lang_2821_4,"    @Test
@@ -19390,7 +20176,7 @@ lang_2821_4,"    @Test
     }
 ",FailableFunctionsTest::testTryWithResources_4_oe
 lang_2821_7,"    @Test
-    public void testTryWithResources_7_oe() {
+    public void testTryWithResources_7_oe() throws Exception {
         final CloseableObject closeable = new CloseableObject();
         final FailableConsumer<Throwable, ? extends Throwable> consumer = closeable::run;
         // removed other assertion
@@ -19404,7 +20190,11 @@ lang_2821_7,"    @Test
         // removed other assertion
         closeable.reset();
         final IOException ioe = new IOException(""Unknown I/O error"");
-        final UncheckedIOException uioe = assertThrows(UncheckedIOException.class, () -> Failable.tryWithResources(() -> consumer.accept(ioe), closeable::close));
+        try {
+    Failable.tryWithResources(() -> consumer.accept(ioe), closeable.close)();
+    fail(""UncheckedIOException"");
+} catch (UncheckedIOException e) {
+}
     }
 ",FailableFunctionsTest::testTryWithResources_7_oe
 lang_2822_1,"    @Test
@@ -23445,8 +24235,12 @@ lang_2946_27,"    @Test
     }
 ",FractionTest::testSubtract_27_oe
 lang_3001_1,"    @Test
-    public void testCatchTechniques_1_oe() {
-        IOException ioe = assertThrows(IOException.class, ExceptionUtilsTest::throwsCheckedException);
+    public void testCatchTechniques_1_oe() throws Exception {
+        try {
+    ExceptionUtilsTest.throwsCheckedException();
+    fail(""IOException"");
+} catch (IOException e) {
+}
     }
 ",ExceptionUtilsTest::testCatchTechniques_1_oe
 lang_3001_3,"    @Test
@@ -23501,35 +24295,55 @@ lang_3026_1,"    @Test
     }
 ",ExceptionUtilsTest::testRemoveCommonFrames_ListList_1_oe
 lang_3027_1,"    @Test
-    public void testThrow_1_oe() {
+    public void testThrow_1_oe() throws Exception {
         final Exception expected = new InterruptedException();
-        final Exception actual = assertThrows(Exception.class, () -> ExceptionUtils.rethrow(expected));
+        try {
+    ExceptionUtils.rethrow(expected);
+    fail(""Exception"");
+} catch (Exception e) {
+}
     }
 ",ExceptionUtilsTest::testThrow_1_oe
 lang_3032_1,"    @Test
-    public void testWrapAndUnwrapCheckedException_1_oe() {
-        final Throwable t = assertThrows(Throwable.class, () -> ExceptionUtils.wrapAndThrow(new IOException()));
+    public void testWrapAndUnwrapCheckedException_1_oe() throws Exception {
+        try {
+    ExceptionUtils.wrapAndThrow(new IOException());
+    fail(""Throwable"");
+} catch (Throwable e) {
+}
     }
 ",ExceptionUtilsTest::testWrapAndUnwrapCheckedException_1_oe
 lang_3033_1,"    @Test
-    public void testWrapAndUnwrapError_1_oe() {
-        final Throwable t = assertThrows(Throwable.class, () -> ExceptionUtils.wrapAndThrow(new OutOfMemoryError()));
+    public void testWrapAndUnwrapError_1_oe() throws Exception {
+        try {
+    ExceptionUtils.wrapAndThrow(new OutOfMemoryError());
+    fail(""Throwable"");
+} catch (Throwable e) {
+}
     }
 ",ExceptionUtilsTest::testWrapAndUnwrapError_1_oe
 lang_3034_1,"    @Test
-    public void testWrapAndUnwrapRuntimeException_1_oe() {
-        final Throwable t = assertThrows(Throwable.class, () -> ExceptionUtils.wrapAndThrow(new IllegalArgumentException()));
+    public void testWrapAndUnwrapRuntimeException_1_oe() throws Exception {
+        try {
+    ExceptionUtils.wrapAndThrow(new IllegalArgumentException());
+    fail(""Throwable"");
+} catch (Throwable e) {
+}
     }
 ",ExceptionUtilsTest::testWrapAndUnwrapRuntimeException_1_oe
 lang_3035_1,"    @Test
-    public void testWrapAndUnwrapThrowable_1_oe() {
-        final Throwable t = assertThrows(Throwable.class, () -> ExceptionUtils.wrapAndThrow(new TestThrowable()));
+    public void testWrapAndUnwrapThrowable_1_oe() throws Exception {
+        try {
+    ExceptionUtils.wrapAndThrow(new TestThrowable());
+    fail(""Throwable"");
+} catch (Throwable e) {
+}
     }
 ",ExceptionUtilsTest::testWrapAndUnwrapThrowable_1_oe
 lang_3038_1,"    @Test
     public void testThrowingInformativeException_1_oe() throws Exception {
         try {
-     throw new CloneFailedException(EXCEPTION_MESSAGE, generateCause());
+     new CloneFailedException(EXCEPTION_MESSAGE, generateCause());
     fail(""CloneFailedException"");
 } catch (CloneFailedException e) {
 }
@@ -23538,7 +24352,7 @@ lang_3038_1,"    @Test
 lang_3039_1,"    @Test
     public void testThrowingExceptionWithMessage_1_oe() throws Exception {
         try {
-     throw new CloneFailedException(EXCEPTION_MESSAGE);
+     new CloneFailedException(EXCEPTION_MESSAGE);
     fail(""CloneFailedException"");
 } catch (CloneFailedException e) {
 }
@@ -23547,7 +24361,7 @@ lang_3039_1,"    @Test
 lang_3040_1,"    @Test
     public void testThrowingExceptionWithCause_1_oe() throws Exception {
         try {
-     throw new CloneFailedException(generateCause());
+     new CloneFailedException(generateCause());
     fail(""CloneFailedException"");
 } catch (CloneFailedException e) {
 }

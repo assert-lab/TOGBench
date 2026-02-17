@@ -1,0 +1,46 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------< org.asynchttpclient:async-http-client-extras-rxjava2 >--------
+[INFO] Building Asynchronous Http Client RxJava2 Extras 2.12.3
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ async-http-client-extras-rxjava2 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ async-http-client-extras-rxjava2 ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ async-http-client-extras-rxjava2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.6.1:compile (default-compile) @ async-http-client-extras-rxjava2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ async-http-client-extras-rxjava2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-rxjava2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/maybe/AbstractMaybeAsyncHandlerBridgeTest_OE25Dev.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/maybe/AbstractMaybeAsyncHandlerBridgeTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ async-http-client-extras-rxjava2 ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running TestSuite
+Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.649 sec - in TestSuite
+
+Results :
+
+Tests run: 23, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.450 s
+[INFO] Finished at: 2026-02-16T23:06:28-06:00
+[INFO] ------------------------------------------------------------------------

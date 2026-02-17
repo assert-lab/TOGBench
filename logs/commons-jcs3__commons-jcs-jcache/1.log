@@ -33,7 +33,7 @@
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-jcache ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache
-[INFO] Storing buildNumber: d38478f4c8f5e5933d6d238d04fc5fb5bac243b6 at timestamp: 1770925238340
+[INFO] Storing buildNumber: ddb4764f558725a1465cecefae1b711f8e80413a at timestamp: 1771304770479
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -66,28 +66,29 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-jcs3-jcache ---
 [INFO] Changes detected - recompiling the module!
 [INFO] Compiling 9 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/target/test-classes
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/cdi/CDIJCacheHelperTest_OE25Dev.java: error reading /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/cdi/CDIJCacheHelperTest_OE25Dev.java; /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/cdi/CDIJCacheHelperTest_OE25Dev.java
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/ImmediateExpiryTest_OE25Dev.java: error reading /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/ImmediateExpiryTest_OE25Dev.java; /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/ImmediateExpiryTest_OE25Dev.java
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/CachingProviderTest_OE25Dev.java: error reading /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/CachingProviderTest_OE25Dev.java; /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/CachingProviderTest_OE25Dev.java
-[INFO] 3 errors 
-[INFO] -------------------------------------------------------------
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-jcs3-jcache ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ commons-jcs3-jcache ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.jcs3.jcache.cdi.CDIJCacheHelperTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.85 s - in org.apache.commons.jcs3.jcache.cdi.CDIJCacheHelperTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.jcache.CachingProviderTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.jcache.CachingProviderTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.jcache.ImmediateExpiryTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.jcache.ImmediateExpiryTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.747 s
-[INFO] Finished at: 2026-02-12T13:40:46-06:00
+[INFO] Total time:  17.393 s
+[INFO] Finished at: 2026-02-16T23:06:23-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-jcs3-jcache: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/cdi/CDIJCacheHelperTest_OE25Dev.java: error reading /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/cdi/CDIJCacheHelperTest_OE25Dev.java; /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/cdi/CDIJCacheHelperTest_OE25Dev.java
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/ImmediateExpiryTest_OE25Dev.java: error reading /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/ImmediateExpiryTest_OE25Dev.java; /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/ImmediateExpiryTest_OE25Dev.java
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/CachingProviderTest_OE25Dev.java: error reading /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/CachingProviderTest_OE25Dev.java; /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/src/test/java/org/apache/commons/jcs3/jcache/CachingProviderTest_OE25Dev.java
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

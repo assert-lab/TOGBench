@@ -36,7 +36,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-io-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core
-[INFO] Storing buildNumber: d38478f4c8f5e5933d6d238d04fc5fb5bac243b6 at timestamp: 1770925238591
+[INFO] Storing buildNumber: ddb4764f558725a1465cecefae1b711f8e80413a at timestamp: 1771304770106
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -77,23 +77,23 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.geometry.io.core.output.StreamGeometryOutputTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.26 s - in org.apache.commons.geometry.io.core.output.StreamGeometryOutputTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.29 s - in org.apache.commons.geometry.io.core.output.StreamGeometryOutputTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.output.FileGeometryOutputTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 s - in org.apache.commons.geometry.io.core.output.FileGeometryOutputTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.155 s - in org.apache.commons.geometry.io.core.output.FileGeometryOutputTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev
-[INFO] Tests run: 326, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.766 s - in org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev
+[INFO] Tests run: 326, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.67 s - in org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev
-[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 s - in org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev
+[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 s - in org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.internal.GeometryIOUtilsTest_OE25Dev
-[INFO] Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.apache.commons.geometry.io.core.internal.GeometryIOUtilsTest_OE25Dev
+[INFO] Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s - in org.apache.commons.geometry.io.core.internal.GeometryIOUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.input.FileGeometryInputTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.geometry.io.core.input.FileGeometryInputTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.geometry.io.core.input.FileGeometryInputTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.input.UrlGeometryInputTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.geometry.io.core.input.UrlGeometryInputTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.geometry.io.core.input.UrlGeometryInputTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.input.StreamGeometryInputTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.geometry.io.core.input.StreamGeometryInputTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.geometry.io.core.input.StreamGeometryInputTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.BoundaryIOManagerTest_OE25Dev
-[INFO] Tests run: 101, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.153 s - in org.apache.commons.geometry.io.core.BoundaryIOManagerTest_OE25Dev
+[INFO] Tests run: 101, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.164 s - in org.apache.commons.geometry.io.core.BoundaryIOManagerTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -102,6 +102,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  20.980 s
-[INFO] Finished at: 2026-02-12T13:40:54-06:00
+[INFO] Total time:  22.516 s
+[INFO] Finished at: 2026-02-16T23:06:28-06:00
 [INFO] ------------------------------------------------------------------------

@@ -1,0 +1,317 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.commons:commons-vfs2 >-------------------
+[INFO] Building Apache Commons VFS 2.9.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-vfs2 ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-vfs2 ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (vfs-jar-manifest) @ commons-vfs2 ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/osgi
+    [touch] Creating /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/osgi/MANIFEST.MF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-vfs2 ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-vfs2 ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2
+[INFO] Storing buildNumber: ddb4764f558725a1465cecefae1b711f8e80413a at timestamp: 1771304794847
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
+
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2
+[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-vfs2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-vfs2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 293 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/https/HttpsFileNameParser.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/https/HttpsFileNameParser.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/AbstractFileObject.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/AbstractFileObject.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/FileSystemOptions.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/FileSystemOptions.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.2:manifest (bundle-manifest) @ commons-vfs2 ---
+[WARNING] Manifest org.apache.commons:commons-vfs2:jar:2.9.0 : Unused Import-Package instructions: [org.apache.jackrabbit.*] 
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-vfs2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 64 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-vfs2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 249 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/util/NHttpFileServer.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/util/NHttpFileServer.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpProviderTestCase.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpProviderTestCase.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/SizeFileFilterTest_OE25Dev.java:[681,17] cannot find symbol
+  symbol:   method fail(java.lang.String)
+  location: class org.apache.commons.vfs2.filter.SizeFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/SizeFileFilterTest_OE25Dev.java:[719,17] cannot find symbol
+  symbol:   method fail(java.lang.String)
+  location: class org.apache.commons.vfs2.filter.SizeFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/SizeFileFilterTest_OE25Dev.java:[761,17] cannot find symbol
+  symbol:   method fail(java.lang.String)
+  location: class org.apache.commons.vfs2.filter.SizeFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[879,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[892,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[908,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[930,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[947,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[967,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[989,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[1006,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[1026,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[1051,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[1071,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[1094,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[1126,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[1153,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[1183,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests_OE25Dev.java:[559,44] cannot find symbol
+  symbol:   variable length0
+  location: variable children0 of type org.apache.commons.vfs2.FileObject[]
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests_OE25Dev.java:[560,30] cannot find symbol
+  symbol:   variable children0
+  location: variable info0 of type org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests_OE25Dev.java:[560,60] cannot find symbol
+  symbol:   variable length0
+  location: variable children0 of type org.apache.commons.vfs2.FileObject[]
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests_OE25Dev.java:[570,89] cannot find symbol
+  symbol:   variable children0
+  location: variable info0 of type org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests_OE25Dev.java:[602,44] cannot find symbol
+  symbol:   variable length0
+  location: variable children0 of type org.apache.commons.vfs2.FileObject[]
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests_OE25Dev.java:[603,30] cannot find symbol
+  symbol:   variable children0
+  location: variable info0 of type org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests_OE25Dev.java:[603,60] cannot find symbol
+  symbol:   variable length0
+  location: variable children0 of type org.apache.commons.vfs2.FileObject[]
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests_OE25Dev.java:[621,58] cannot find symbol
+  symbol:   variable children0
+  location: variable info0 of type org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOffLastModifiedTests_OE25Dev.java:[58,21] cannot find symbol
+  symbol:   variable Assert
+  location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOffLastModifiedTests_OE25Dev.java:[58,163] cannot find symbol
+  symbol:   class Date
+  location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOffLastModifiedTests_OE25Dev.java:[58,216] cannot find symbol
+  symbol:   class Date
+  location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/EmptyFileFilterTest_OE25Dev.java:[260,17] cannot find symbol
+  symbol:   method fail(java.lang.String)
+  location: class org.apache.commons.vfs2.filter.EmptyFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/AgeFileFilterTest_OE25Dev.java:[491,17] cannot find symbol
+  symbol:   method fail(java.lang.String)
+  location: class org.apache.commons.vfs2.filter.AgeFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOnLastModifiedTests_OE25Dev.java:[59,25] cannot find symbol
+  symbol:   variable Assert
+  location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOnLastModifiedTests_OE25Dev.java:[59,167] cannot find symbol
+  symbol:   class Date
+  location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOnLastModifiedTests_OE25Dev.java:[59,220] cannot find symbol
+  symbol:   class Date
+  location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOnLastModifiedTests_OE25Dev.java:[83,25] cannot find symbol
+  symbol:   variable Assert
+  location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOnLastModifiedTests_OE25Dev.java:[84,143] cannot find symbol
+  symbol:   class Date
+  location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOnLastModifiedTests_OE25Dev.java:[84,198] cannot find symbol
+  symbol:   class Date
+  location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/DirectoryAndFileFilterTest_OE25Dev.java:[233,17] cannot find symbol
+  symbol:   method fail(java.lang.String)
+  location: class org.apache.commons.vfs2.filter.DirectoryAndFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/DirectoryAndFileFilterTest_OE25Dev.java:[266,17] cannot find symbol
+  symbol:   method fail(java.lang.String)
+  location: class org.apache.commons.vfs2.filter.DirectoryAndFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/HiddenFileFilterTest_OE25Dev.java:[165,37] cannot find symbol
+  symbol:   variable fos0
+  location: class org.apache.commons.vfs2.filter.HiddenFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/HiddenFileFilterTest_OE25Dev.java:[171,17] cannot find symbol
+  symbol:   method fail(java.lang.String)
+  location: class org.apache.commons.vfs2.filter.HiddenFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/HiddenFileFilterTest_OE25Dev.java:[185,37] cannot find symbol
+  symbol:   variable fos0
+  location: class org.apache.commons.vfs2.filter.HiddenFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/VfsClassLoaderTests_OE25Dev.java:[408,64] cannot find symbol
+  symbol:   variable StandardCharsets
+  location: class org.apache.commons.vfs2.impl.VfsClassLoaderTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/VfsClassLoaderTests_OE25Dev.java:[425,64] cannot find symbol
+  symbol:   variable StandardCharsets
+  location: class org.apache.commons.vfs2.impl.VfsClassLoaderTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/VfsClassLoaderTests_OE25Dev.java:[431,23] cannot find symbol
+  symbol:   class InputStream
+  location: class org.apache.commons.vfs2.impl.VfsClassLoaderTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/VfsClassLoaderTests_OE25Dev.java:[432,23] cannot find symbol
+  symbol:   class ByteArrayOutputStream
+  location: class org.apache.commons.vfs2.impl.VfsClassLoaderTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/VfsClassLoaderTests_OE25Dev.java:[434,35] cannot find symbol
+  symbol:   class ByteArrayOutputStream
+  location: class org.apache.commons.vfs2.impl.VfsClassLoaderTests_OE25Dev
+[INFO] 47 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.002 s
+[INFO] Finished at: 2026-02-16T23:06:50-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-vfs2: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/SizeFileFilterTest_OE25Dev.java:[681,17] cannot find symbol
+[ERROR]   symbol:   method fail(java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.filter.SizeFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/SizeFileFilterTest_OE25Dev.java:[719,17] cannot find symbol
+[ERROR]   symbol:   method fail(java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.filter.SizeFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/SizeFileFilterTest_OE25Dev.java:[761,17] cannot find symbol
+[ERROR]   symbol:   method fail(java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.filter.SizeFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[879,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[892,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[908,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[930,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[947,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[967,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[989,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[1006,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[1026,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[1051,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[1071,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[1094,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[1126,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[1153,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[1183,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests_OE25Dev.java:[559,44] cannot find symbol
+[ERROR]   symbol:   variable length0
+[ERROR]   location: variable children0 of type org.apache.commons.vfs2.FileObject[]
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests_OE25Dev.java:[560,30] cannot find symbol
+[ERROR]   symbol:   variable children0
+[ERROR]   location: variable info0 of type org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests_OE25Dev.java:[560,60] cannot find symbol
+[ERROR]   symbol:   variable length0
+[ERROR]   location: variable children0 of type org.apache.commons.vfs2.FileObject[]
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests_OE25Dev.java:[570,89] cannot find symbol
+[ERROR]   symbol:   variable children0
+[ERROR]   location: variable info0 of type org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests_OE25Dev.java:[602,44] cannot find symbol
+[ERROR]   symbol:   variable length0
+[ERROR]   location: variable children0 of type org.apache.commons.vfs2.FileObject[]
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests_OE25Dev.java:[603,30] cannot find symbol
+[ERROR]   symbol:   variable children0
+[ERROR]   location: variable info0 of type org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests_OE25Dev.java:[603,60] cannot find symbol
+[ERROR]   symbol:   variable length0
+[ERROR]   location: variable children0 of type org.apache.commons.vfs2.FileObject[]
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests_OE25Dev.java:[621,58] cannot find symbol
+[ERROR]   symbol:   variable children0
+[ERROR]   location: variable info0 of type org.apache.commons.vfs2.FileInfo
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOffLastModifiedTests_OE25Dev.java:[58,21] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOffLastModifiedTests_OE25Dev.java:[58,163] cannot find symbol
+[ERROR]   symbol:   class Date
+[ERROR]   location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOffLastModifiedTests_OE25Dev.java:[58,216] cannot find symbol
+[ERROR]   symbol:   class Date
+[ERROR]   location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/EmptyFileFilterTest_OE25Dev.java:[260,17] cannot find symbol
+[ERROR]   symbol:   method fail(java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.filter.EmptyFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/AgeFileFilterTest_OE25Dev.java:[491,17] cannot find symbol
+[ERROR]   symbol:   method fail(java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.filter.AgeFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOnLastModifiedTests_OE25Dev.java:[59,25] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOnLastModifiedTests_OE25Dev.java:[59,167] cannot find symbol
+[ERROR]   symbol:   class Date
+[ERROR]   location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOnLastModifiedTests_OE25Dev.java:[59,220] cannot find symbol
+[ERROR]   symbol:   class Date
+[ERROR]   location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOnLastModifiedTests_OE25Dev.java:[83,25] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOnLastModifiedTests_OE25Dev.java:[84,143] cannot find symbol
+[ERROR]   symbol:   class Date
+[ERROR]   location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpMdtmOnLastModifiedTests_OE25Dev.java:[84,198] cannot find symbol
+[ERROR]   symbol:   class Date
+[ERROR]   location: class org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/DirectoryAndFileFilterTest_OE25Dev.java:[233,17] cannot find symbol
+[ERROR]   symbol:   method fail(java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.filter.DirectoryAndFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/DirectoryAndFileFilterTest_OE25Dev.java:[266,17] cannot find symbol
+[ERROR]   symbol:   method fail(java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.filter.DirectoryAndFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/HiddenFileFilterTest_OE25Dev.java:[165,37] cannot find symbol
+[ERROR]   symbol:   variable fos0
+[ERROR]   location: class org.apache.commons.vfs2.filter.HiddenFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/HiddenFileFilterTest_OE25Dev.java:[171,17] cannot find symbol
+[ERROR]   symbol:   method fail(java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.filter.HiddenFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/HiddenFileFilterTest_OE25Dev.java:[185,37] cannot find symbol
+[ERROR]   symbol:   variable fos0
+[ERROR]   location: class org.apache.commons.vfs2.filter.HiddenFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/VfsClassLoaderTests_OE25Dev.java:[408,64] cannot find symbol
+[ERROR]   symbol:   variable StandardCharsets
+[ERROR]   location: class org.apache.commons.vfs2.impl.VfsClassLoaderTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/VfsClassLoaderTests_OE25Dev.java:[425,64] cannot find symbol
+[ERROR]   symbol:   variable StandardCharsets
+[ERROR]   location: class org.apache.commons.vfs2.impl.VfsClassLoaderTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/VfsClassLoaderTests_OE25Dev.java:[431,23] cannot find symbol
+[ERROR]   symbol:   class InputStream
+[ERROR]   location: class org.apache.commons.vfs2.impl.VfsClassLoaderTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/VfsClassLoaderTests_OE25Dev.java:[432,23] cannot find symbol
+[ERROR]   symbol:   class ByteArrayOutputStream
+[ERROR]   location: class org.apache.commons.vfs2.impl.VfsClassLoaderTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/VfsClassLoaderTests_OE25Dev.java:[434,35] cannot find symbol
+[ERROR]   symbol:   class ByteArrayOutputStream
+[ERROR]   location: class org.apache.commons.vfs2.impl.VfsClassLoaderTests_OE25Dev
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

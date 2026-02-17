@@ -1,0 +1,430 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.github.scribejava:scribejava-core:jar:8.3.1
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.12 vs 4.13.2 @ com.github.scribejava:scribejava:8.3.1, /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/pom.xml, line 61, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ---------------< com.github.scribejava:scribejava-core >----------------
+[INFO] Building ScribeJava Core 8.3.1
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ scribejava-core ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce-maven) @ scribejava-core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ scribejava-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ scribejava-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 86 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.2:manifest (bundle-manifest) @ scribejava-core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ scribejava-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ scribejava-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 41 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ scribejava-core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.github.scribejava.core.utils.OAuthEncoderTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s - in com.github.scribejava.core.utils.OAuthEncoderTest_OE25Dev
+[INFO] Running com.github.scribejava.core.utils.StreamUtilsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.utils.StreamUtilsTest_OE25Dev
+[INFO] Running com.github.scribejava.core.pkce.PKCECodeChallengeMethodTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.pkce.PKCECodeChallengeMethodTest_OE25Dev
+[INFO] Running com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev
+[ERROR] Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev
+[ERROR] shouldExtractStandardHeader_6_oe(com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev)  Time elapsed: 0.006 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<,[,,]> but was:<,[ , , ]>
+	at com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev.shouldExtractStandardHeader_6_oe(HeaderExtractorTest_OE25Dev.java:129)
+
+[INFO] Running com.github.scribejava.core.extractors.BaseStringExtractorTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in com.github.scribejava.core.extractors.BaseStringExtractorTest_OE25Dev
+[INFO] Running com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
+[ERROR] Tests run: 32, Failures: 18, Errors: 0, Skipped: 0, Time elapsed: 0.056 s <<< FAILURE! - in com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
+[ERROR] testEmptyMultipartPayload_1_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<...multipart/form-data;[]boundary="----Scribe...> but was:<...multipart/form-data;[ ]boundary="----Scribe...>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testEmptyMultipartPayload_1_oe(MultipartUtilsTest_OE25Dev.java:72)
+
+[ERROR] testComplexMultipartPayload_2_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
+org.junit.ComparisonFailure: 
+expected:<...e reading this text,[you might want to
+consider changing to a mail reader that understands
+how to properly display multipart messages.
+
+--unique-boundary-1
+
+... Some text appears here ...
+--unique-boundary-1
+Content-Type: text/plain;charset=US-ASCII
+
+This could have been part of the previous part,but
+illustrates explicit versus implicit typing of body
+parts.
+
+--unique-boundary-1
+Content-Type: multipart/parallel;boundary="unique-boundary-2"
+
+--unique-boundary-2
+Content-Type: audio/basic
+Content-Transfer-Encoding: base64
+
+... base64-encoded 8000 Hz single-channel
+ mu-law-format audio data goes here ...
+--unique-boundary-2
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+
+... base64-encoded image data goes here ...
+--unique-boundary-2--
+--unique-boundary-1
+Content-Type: text/enriched
+
+This is <bold><italic>enriched.</italic></bold>
+<smaller>as defined in RFC 1896</smaller>
+
+Isn't it
+<bigger><bigger>cool?</bigger></bigger>
+
+--unique-boundary-1
+Content-Type: message/rfc822
+
+From:(mailbox in US-ASCII)
+To:(address in US-ASCII)
+Subject:(subject in US-ASCII)
+Content-Type: Text/plain;]charset=ISO-8859-1
+C...> but was:<...e reading this text,[ you might want to
+consider changing to a mail reader that understands
+how to properly display multipart messages.
+
+--unique-boundary-1
+
+... Some text appears here ...
+--unique-boundary-1
+Content-Type: text/plain; charset=US-ASCII
+
+This could have been part of the previous part, but
+illustrates explicit versus implicit typing of body
+parts.
+
+--unique-boundary-1
+Content-Type: multipart/parallel; boundary="unique-boundary-2"
+
+--unique-boundary-2
+Content-Type: audio/basic
+Content-Transfer-Encoding: base64
+
+... base64-encoded 8000 Hz single-channel
+    mu-law-format audio data goes here ...
+--unique-boundary-2
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+
+... base64-encoded image data goes here ...
+--unique-boundary-2--
+--unique-boundary-1
+Content-Type: text/enriched
+
+This is <bold><italic>enriched.</italic></bold>
+<smaller>as defined in RFC 1896</smaller>
+
+Isn't it
+<bigger><bigger>cool?</bigger></bigger>
+
+--unique-boundary-1
+Content-Type: message/rfc822
+
+From: (mailbox in US-ASCII)
+To: (address in US-ASCII)
+Subject: (subject in US-ASCII)
+Content-Type: Text/plain; ]charset=ISO-8859-1
+C...>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testComplexMultipartPayload_2_oe(MultipartUtilsTest_OE25Dev.java:347)
+
+[ERROR] testFileByteArrayBodyPartPayloadMultipartPayload_1_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<...multipart/form-data;[]boundary="testFileBy...> but was:<...multipart/form-data;[ ]boundary="testFileBy...>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testFileByteArrayBodyPartPayloadMultipartPayload_1_oe(MultipartUtilsTest_OE25Dev.java:213)
+
+[ERROR] testFileByteArrayBodyPartPayloadMultipartPayload_2_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<...position: form-data;[name="name";]filename="filename.e...> but was:<...position: form-data;[ name="name"; ]filename="filename.e...>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testFileByteArrayBodyPartPayloadMultipartPayload_2_oe(MultipartUtilsTest_OE25Dev.java:231)
+
+[ERROR] testParseBoundaryFromHeader_14_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0aA'()+_,> but was:<null>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_14_oe(MultipartUtilsTest_OE25Dev.java:585)
+
+[ERROR] testParseBoundaryFromHeader_15_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0aA'()+_,-./:=?> but was:<null>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_15_oe(MultipartUtilsTest_OE25Dev.java:614)
+
+[ERROR] testParseBoundaryFromHeader_16_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0aA'()+_,-./:=?> but was:<null>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_16_oe(MultipartUtilsTest_OE25Dev.java:645)
+
+[ERROR] testParseBoundaryFromHeader_17_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1234567890123456789012345678901234567890123456789012345678901234567890> but was:<null>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_17_oe(MultipartUtilsTest_OE25Dev.java:678)
+
+[ERROR] testParseBoundaryFromHeader_18_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0.006 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1234567890123456789012345678901234567890123456789012345678901234567890> but was:<null>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_18_oe(MultipartUtilsTest_OE25Dev.java:713)
+
+[ERROR] testParseBoundaryFromHeader_2_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0aA'()+_,-./:=?> but was:<null>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_2_oe(MultipartUtilsTest_OE25Dev.java:359)
+
+[ERROR] testParseBoundaryFromHeader_3_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0aA'()+_,-./:=?> but was:<null>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_3_oe(MultipartUtilsTest_OE25Dev.java:368)
+
+[ERROR] testParseBoundaryFromHeader_4_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0aA'()+_,-./:=?> but was:<null>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_4_oe(MultipartUtilsTest_OE25Dev.java:379)
+
+[ERROR] testParseBoundaryFromHeader_5_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0aA'()+_,-./:=?> but was:<null>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_5_oe(MultipartUtilsTest_OE25Dev.java:392)
+
+[ERROR] testParseBoundaryFromHeader_6_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0aA'()+_,-./:=?> but was:<null>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_6_oe(MultipartUtilsTest_OE25Dev.java:407)
+
+[ERROR] testParseBoundaryFromHeader_7_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0aA'()+_,-./:=?> but was:<null>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_7_oe(MultipartUtilsTest_OE25Dev.java:424)
+
+[ERROR] testParseBoundaryFromHeader_8_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:< 0aA'()+_,-./:=?> but was:<null>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_8_oe(MultipartUtilsTest_OE25Dev.java:443)
+
+[ERROR] testSimpleMultipartPayload_1_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<...pe: multipart/mixed;[]boundary="simple bou...> but was:<...pe: multipart/mixed;[ ]boundary="simple bou...>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testSimpleMultipartPayload_1_oe(MultipartUtilsTest_OE25Dev.java:121)
+
+[ERROR] testSimpleMultipartPayload_2_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: 
+expected:<...is is the preamble. [It is to be ignored,though it
+is a handy place for composition agents to include an
+explanatory note to non-MIME conformant readers.
+--simple boundary
+
+This is implicitly typed plain US-ASCII text.
+It does NOT end with a linebreak.
+--simple boundary
+Content-Type: text/plain;charset=us-ascii
+
+This is explicitly typed plain US-ASCII text.
+It DOES end with a linebreak.
+
+--simple boundary--
+This is the epilogue.] It is also to be ig...> but was:<...is is the preamble. [ It is to be ignored, though it
+is a handy place for composition agents to include an
+explanatory note to non-MIME conformant readers.
+--simple boundary
+
+This is implicitly typed plain US-ASCII text.
+It does NOT end with a linebreak.
+--simple boundary
+Content-Type: text/plain; charset=us-ascii
+
+This is explicitly typed plain US-ASCII text.
+It DOES end with a linebreak.
+
+--simple boundary--
+This is the epilogue. ] It is also to be ig...>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev.testSimpleMultipartPayload_2_oe(MultipartUtilsTest_OE25Dev.java:155)
+
+[INFO] Running com.github.scribejava.core.oauth.OAuth20ServiceTest_OE25Dev
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.37 s - in com.github.scribejava.core.oauth.OAuth20ServiceTest_OE25Dev
+[INFO] Running com.github.scribejava.core.model.TokenTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in com.github.scribejava.core.model.TokenTest_OE25Dev
+[INFO] Running com.github.scribejava.core.model.ParameterListTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in com.github.scribejava.core.model.ParameterListTest_OE25Dev
+[INFO] Running com.github.scribejava.core.model.OAuthRequestTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in com.github.scribejava.core.model.OAuthRequestTest_OE25Dev
+[INFO] Running com.github.scribejava.core.model.RequestTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in com.github.scribejava.core.model.RequestTest_OE25Dev
+[INFO] Running com.github.scribejava.core.base64.Base64Test_OE25Dev
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.1 s - in com.github.scribejava.core.base64.Base64Test_OE25Dev
+[INFO] Running com.github.scribejava.core.services.RSASha1SignatureServiceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 s - in com.github.scribejava.core.services.RSASha1SignatureServiceTest_OE25Dev
+[INFO] Running com.github.scribejava.core.services.HMACSha1SignatureServiceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s - in com.github.scribejava.core.services.HMACSha1SignatureServiceTest_OE25Dev
+[INFO] Running com.github.scribejava.core.services.TimestampServiceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in com.github.scribejava.core.services.TimestampServiceTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   HeaderExtractorTest_OE25Dev.shouldExtractStandardHeader_6_oe:129 expected:<,[,,]> but was:<,[ , , ]>
+[ERROR]   MultipartUtilsTest_OE25Dev.testComplexMultipartPayload_2_oe:347 expected:<...e reading this text,[you might want to
+consider changing to a mail reader that understands
+how to properly display multipart messages.
+
+--unique-boundary-1
+
+... Some text appears here ...
+--unique-boundary-1
+Content-Type: text/plain;charset=US-ASCII
+
+This could have been part of the previous part,but
+illustrates explicit versus implicit typing of body
+parts.
+
+--unique-boundary-1
+Content-Type: multipart/parallel;boundary="unique-boundary-2"
+
+--unique-boundary-2
+Content-Type: audio/basic
+Content-Transfer-Encoding: base64
+
+... base64-encoded 8000 Hz single-channel
+ mu-law-format audio data goes here ...
+--unique-boundary-2
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+
+... base64-encoded image data goes here ...
+--unique-boundary-2--
+--unique-boundary-1
+Content-Type: text/enriched
+
+This is <bold><italic>enriched.</italic></bold>
+<smaller>as defined in RFC 1896</smaller>
+
+Isn't it
+<bigger><bigger>cool?</bigger></bigger>
+
+--unique-boundary-1
+Content-Type: message/rfc822
+
+From:(mailbox in US-ASCII)
+To:(address in US-ASCII)
+Subject:(subject in US-ASCII)
+Content-Type: Text/plain;]charset=ISO-8859-1
+C...> but was:<...e reading this text,[ you might want to
+consider changing to a mail reader that understands
+how to properly display multipart messages.
+
+--unique-boundary-1
+
+... Some text appears here ...
+--unique-boundary-1
+Content-Type: text/plain; charset=US-ASCII
+
+This could have been part of the previous part, but
+illustrates explicit versus implicit typing of body
+parts.
+
+--unique-boundary-1
+Content-Type: multipart/parallel; boundary="unique-boundary-2"
+
+--unique-boundary-2
+Content-Type: audio/basic
+Content-Transfer-Encoding: base64
+
+... base64-encoded 8000 Hz single-channel
+    mu-law-format audio data goes here ...
+--unique-boundary-2
+Content-Type: image/jpeg
+Content-Transfer-Encoding: base64
+
+... base64-encoded image data goes here ...
+--unique-boundary-2--
+--unique-boundary-1
+Content-Type: text/enriched
+
+This is <bold><italic>enriched.</italic></bold>
+<smaller>as defined in RFC 1896</smaller>
+
+Isn't it
+<bigger><bigger>cool?</bigger></bigger>
+
+--unique-boundary-1
+Content-Type: message/rfc822
+
+From: (mailbox in US-ASCII)
+To: (address in US-ASCII)
+Subject: (subject in US-ASCII)
+Content-Type: Text/plain; ]charset=ISO-8859-1
+C...>
+[ERROR]   MultipartUtilsTest_OE25Dev.testEmptyMultipartPayload_1_oe:72 expected:<...multipart/form-data;[]boundary="----Scribe...> but was:<...multipart/form-data;[ ]boundary="----Scribe...>
+[ERROR]   MultipartUtilsTest_OE25Dev.testFileByteArrayBodyPartPayloadMultipartPayload_1_oe:213 expected:<...multipart/form-data;[]boundary="testFileBy...> but was:<...multipart/form-data;[ ]boundary="testFileBy...>
+[ERROR]   MultipartUtilsTest_OE25Dev.testFileByteArrayBodyPartPayloadMultipartPayload_2_oe:231 expected:<...position: form-data;[name="name";]filename="filename.e...> but was:<...position: form-data;[ name="name"; ]filename="filename.e...>
+[ERROR]   MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_14_oe:585 expected:<0aA'()+_,> but was:<null>
+[ERROR]   MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_15_oe:614 expected:<0aA'()+_,-./:=?> but was:<null>
+[ERROR]   MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_16_oe:645 expected:<0aA'()+_,-./:=?> but was:<null>
+[ERROR]   MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_17_oe:678 expected:<1234567890123456789012345678901234567890123456789012345678901234567890> but was:<null>
+[ERROR]   MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_18_oe:713 expected:<1234567890123456789012345678901234567890123456789012345678901234567890> but was:<null>
+[ERROR]   MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_2_oe:359 expected:<0aA'()+_,-./:=?> but was:<null>
+[ERROR]   MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_3_oe:368 expected:<0aA'()+_,-./:=?> but was:<null>
+[ERROR]   MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_4_oe:379 expected:<0aA'()+_,-./:=?> but was:<null>
+[ERROR]   MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_5_oe:392 expected:<0aA'()+_,-./:=?> but was:<null>
+[ERROR]   MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_6_oe:407 expected:<0aA'()+_,-./:=?> but was:<null>
+[ERROR]   MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_7_oe:424 expected:<0aA'()+_,-./:=?> but was:<null>
+[ERROR]   MultipartUtilsTest_OE25Dev.testParseBoundaryFromHeader_8_oe:443 expected:< 0aA'()+_,-./:=?> but was:<null>
+[ERROR]   MultipartUtilsTest_OE25Dev.testSimpleMultipartPayload_1_oe:121 expected:<...pe: multipart/mixed;[]boundary="simple bou...> but was:<...pe: multipart/mixed;[ ]boundary="simple bou...>
+[ERROR]   MultipartUtilsTest_OE25Dev.testSimpleMultipartPayload_2_oe:155 expected:<...is is the preamble. [It is to be ignored,though it
+is a handy place for composition agents to include an
+explanatory note to non-MIME conformant readers.
+--simple boundary
+
+This is implicitly typed plain US-ASCII text.
+It does NOT end with a linebreak.
+--simple boundary
+Content-Type: text/plain;charset=us-ascii
+
+This is explicitly typed plain US-ASCII text.
+It DOES end with a linebreak.
+
+--simple boundary--
+This is the epilogue.] It is also to be ig...> but was:<...is is the preamble. [ It is to be ignored, though it
+is a handy place for composition agents to include an
+explanatory note to non-MIME conformant readers.
+--simple boundary
+
+This is implicitly typed plain US-ASCII text.
+It does NOT end with a linebreak.
+--simple boundary
+Content-Type: text/plain; charset=us-ascii
+
+This is explicitly typed plain US-ASCII text.
+It DOES end with a linebreak.
+
+--simple boundary--
+This is the epilogue. ] It is also to be ig...>
+[INFO] 
+[ERROR] Tests run: 183, Failures: 19, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.478 s
+[INFO] Finished at: 2026-02-16T23:07:45-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project scribejava-core: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -2260,7 +2260,6 @@ lang_283_1,commons-lang3,StringUtilsValueOfTest,testValueOfCharEmpty_1_oe,src/te
 lang_284_1,commons-lang3,StringUtilsValueOfTest,testValueOfCharNull_1_oe,src/test/java/org/apache/commons/lang3/StringUtilsValueOfTest.java,,,,assert,unknown,standard,assertNull
 lang_285_1,commons-lang3,StreamsTest,testSimpleStreamMap_1_oe,src/test/java/org/apache/commons/lang3/StreamsTest.java,,,,assert,unknown,standard,assertEquals
 lang_285_2,commons-lang3,StreamsTest,testSimpleStreamMap_2_oe,src/test/java/org/apache/commons/lang3/StreamsTest.java,,,,assert,unknown,standard,assertEquals
-lang_286_1,commons-lang3,StreamsTest,testSimpleStreamMapFailing_1_oe,src/test/java/org/apache/commons/lang3/StreamsTest.java,,,,assert,unknown,standard,assertThrows
 lang_287_1,commons-lang3,StreamsTest,testSimpleStreamForEach_1_oe,src/test/java/org/apache/commons/lang3/StreamsTest.java,,,,assert,unknown,standard,assertEquals
 lang_287_2,commons-lang3,StreamsTest,testSimpleStreamForEach_2_oe,src/test/java/org/apache/commons/lang3/StreamsTest.java,,,,assert,unknown,standard,assertEquals
 lang_288_1,commons-lang3,StreamsTest,testToArray_1_oe,src/test/java/org/apache/commons/lang3/StreamsTest.java,,,,assert,unknown,standard,assertNotNull
@@ -4628,7 +4627,6 @@ lang_538_1,commons-lang3,StringUtilsTest,testAbbreviate_StringStringIntInt_1_oe,
 lang_538_2,commons-lang3,StringUtilsTest,testAbbreviate_StringStringIntInt_2_oe,src/test/java/org/apache/commons/lang3/StringUtilsTest.java,,,,assert,unknown,standard,assertNull
 lang_538_3,commons-lang3,StringUtilsTest,testAbbreviate_StringStringIntInt_3_oe,src/test/java/org/apache/commons/lang3/StringUtilsTest.java,,,,assert,unknown,standard,assertEquals
 lang_538_4,commons-lang3,StringUtilsTest,testAbbreviate_StringStringIntInt_4_oe,src/test/java/org/apache/commons/lang3/StringUtilsTest.java,,,,assert,unknown,standard,assertEquals
-lang_538_5,commons-lang3,StringUtilsTest,testAbbreviate_StringStringIntInt_5_oe,src/test/java/org/apache/commons/lang3/StringUtilsTest.java,,,,assert,unknown,standard,assertThrows
 lang_538_6,commons-lang3,StringUtilsTest,testAbbreviate_StringStringIntInt_6_oe,src/test/java/org/apache/commons/lang3/StringUtilsTest.java,,,,assert,unknown,standard,assertThrows
 lang_538_7,commons-lang3,StringUtilsTest,testAbbreviate_StringStringIntInt_7_oe,src/test/java/org/apache/commons/lang3/StringUtilsTest.java,,,,assert,unknown,standard,assertEquals
 lang_538_8,commons-lang3,StringUtilsTest,testAbbreviate_StringStringIntInt_8_oe,src/test/java/org/apache/commons/lang3/StringUtilsTest.java,,,,assert,unknown,standard,assertNull
@@ -11182,10 +11180,6 @@ lang_1631_2,commons-lang3,BasicThreadFactoryTest,testNewThreadNoPriority_2_oe,sr
 lang_1632_1,commons-lang3,BasicThreadFactoryTest,testNewThreadExHandler_1_oe,src/test/java/org/apache/commons/lang3/concurrent/BasicThreadFactoryTest.java,,,,assert,unknown,standard,assertSame
 lang_1633_1,commons-lang3,BasicThreadFactoryTest,testNewThreadNoExHandler_1_oe,src/test/java/org/apache/commons/lang3/concurrent/BasicThreadFactoryTest.java,,,,assert,unknown,standard,assertSame
 lang_1633_2,commons-lang3,BasicThreadFactoryTest,testNewThreadNoExHandler_2_oe,src/test/java/org/apache/commons/lang3/concurrent/BasicThreadFactoryTest.java,,,,assert,unknown,standard,assertEquals
-lang_1634_1,commons-lang3,CircuitBreakingExceptionTest,testThrowingInformativeException_1_oe,src/test/java/org/apache/commons/lang3/concurrent/CircuitBreakingExceptionTest.java,,,,assert,unknown,standard,assertThrows
-lang_1635_1,commons-lang3,CircuitBreakingExceptionTest,testThrowingExceptionWithMessage_1_oe,src/test/java/org/apache/commons/lang3/concurrent/CircuitBreakingExceptionTest.java,,,,assert,unknown,standard,assertThrows
-lang_1636_1,commons-lang3,CircuitBreakingExceptionTest,testThrowingExceptionWithCause_1_oe,src/test/java/org/apache/commons/lang3/concurrent/CircuitBreakingExceptionTest.java,,,,assert,unknown,standard,assertThrows
-lang_1637_1,commons-lang3,CircuitBreakingExceptionTest,testThrowingEmptyException_1_oe,src/test/java/org/apache/commons/lang3/concurrent/CircuitBreakingExceptionTest.java,,,,assert,unknown,standard,assertThrows
 lang_1638_1,commons-lang3,CircuitBreakingExceptionTest,testWithCauseAndMessage_1_oe,src/test/java/org/apache/commons/lang3/concurrent/CircuitBreakingExceptionTest.java,,,,assert,unknown,standard,assertNotNull
 lang_1638_2,commons-lang3,CircuitBreakingExceptionTest,testWithCauseAndMessage_2_oe,src/test/java/org/apache/commons/lang3/concurrent/CircuitBreakingExceptionTest.java,,,,assert,unknown,standard,assertEquals
 lang_1638_3,commons-lang3,CircuitBreakingExceptionTest,testWithCauseAndMessage_3_oe,src/test/java/org/apache/commons/lang3/concurrent/CircuitBreakingExceptionTest.java,,,,assert,unknown,standard,assertNotNull
@@ -15358,7 +15352,6 @@ lang_2749_1,commons-lang3,StreamsTest,testSimpleStreamForEach_1_oe,src/test/java
 lang_2749_2,commons-lang3,StreamsTest,testSimpleStreamForEach_2_oe,src/test/java/org/apache/commons/lang3/stream/StreamsTest.java,,,,assert,unknown,standard,assertEquals
 lang_2750_1,commons-lang3,StreamsTest,testSimpleStreamMap_1_oe,src/test/java/org/apache/commons/lang3/stream/StreamsTest.java,,,,assert,unknown,standard,assertEquals
 lang_2750_2,commons-lang3,StreamsTest,testSimpleStreamMap_2_oe,src/test/java/org/apache/commons/lang3/stream/StreamsTest.java,,,,assert,unknown,standard,assertEquals
-lang_2751_1,commons-lang3,StreamsTest,testSimpleStreamMapFailing_1_oe,src/test/java/org/apache/commons/lang3/stream/StreamsTest.java,,,,assert,unknown,standard,assertThrows
 lang_2752_1,commons-lang3,StreamsTest,testToArray_1_oe,src/test/java/org/apache/commons/lang3/stream/StreamsTest.java,,,,assert,unknown,standard,assertNotNull
 lang_2752_2,commons-lang3,StreamsTest,testToArray_2_oe,src/test/java/org/apache/commons/lang3/stream/StreamsTest.java,,,,assert,unknown,standard,assertEquals
 lang_2752_3,commons-lang3,StreamsTest,testToArray_3_oe,src/test/java/org/apache/commons/lang3/stream/StreamsTest.java,,,,assert,unknown,standard,assertEquals
@@ -16760,9 +16753,6 @@ lang_3034_1,commons-lang3,ExceptionUtilsTest,testWrapAndUnwrapRuntimeException_1
 lang_3035_1,commons-lang3,ExceptionUtilsTest,testWrapAndUnwrapThrowable_1_oe,src/test/java/org/apache/commons/lang3/exception/ExceptionUtilsTest.java,,,,assert,unknown,standard,assertThrows
 lang_3036_1,commons-lang3,ExceptionUtilsTest,testgetStackFramesNullArg_1_oe,src/test/java/org/apache/commons/lang3/exception/ExceptionUtilsTest.java,,,,assert,unknown,standard,assertEquals
 lang_3037_1,commons-lang3,ExceptionUtilsTest,testgetStackFramesHappyPath_1_oe,src/test/java/org/apache/commons/lang3/exception/ExceptionUtilsTest.java,,,,assert,unknown,standard,assertArrayEquals
-lang_3038_1,commons-lang3,CloneFailedExceptionTest,testThrowingInformativeException_1_oe,src/test/java/org/apache/commons/lang3/exception/CloneFailedExceptionTest.java,,,,assert,unknown,standard,assertThrows
-lang_3039_1,commons-lang3,CloneFailedExceptionTest,testThrowingExceptionWithMessage_1_oe,src/test/java/org/apache/commons/lang3/exception/CloneFailedExceptionTest.java,,,,assert,unknown,standard,assertThrows
-lang_3040_1,commons-lang3,CloneFailedExceptionTest,testThrowingExceptionWithCause_1_oe,src/test/java/org/apache/commons/lang3/exception/CloneFailedExceptionTest.java,,,,assert,unknown,standard,assertThrows
 lang_3041_1,commons-lang3,CloneFailedExceptionTest,testWithCauseAndMessage_1_oe,src/test/java/org/apache/commons/lang3/exception/CloneFailedExceptionTest.java,,,,assert,unknown,standard,assertNotNull
 lang_3041_2,commons-lang3,CloneFailedExceptionTest,testWithCauseAndMessage_2_oe,src/test/java/org/apache/commons/lang3/exception/CloneFailedExceptionTest.java,,,,assert,unknown,standard,assertEquals
 lang_3041_3,commons-lang3,CloneFailedExceptionTest,testWithCauseAndMessage_3_oe,src/test/java/org/apache/commons/lang3/exception/CloneFailedExceptionTest.java,,,,assert,unknown,standard,assertNotNull

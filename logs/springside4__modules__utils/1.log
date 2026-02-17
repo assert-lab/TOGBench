@@ -71,42 +71,19 @@
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/number/NumberUtilTest_OE25Dev.java: Recompile with -Xlint:removal for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/ListUtilTest_OE25Dev.java: Some input files use unchecked or unsafe operations.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/ListUtilTest_OE25Dev.java: Recompile with -Xlint:unchecked for details.
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java: reference to assertThat is ambiguous
-  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java: reference to assertThat is ambiguous
-  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java: reference to assertThat is ambiguous
-  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java: reference to assertThat is ambiguous
-  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java: reference to assertThat is ambiguous
-  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
-[INFO] 5 errors 
-[INFO] -------------------------------------------------------------
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  17.724 s
-[INFO] Finished at: 2026-02-12T13:40:51-06:00
-[INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project springside-utils: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java: reference to assertThat is ambiguous
-[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java: reference to assertThat is ambiguous
-[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java: reference to assertThat is ambiguous
-[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java: reference to assertThat is ambiguous
-[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java: reference to assertThat is ambiguous
-[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ springside-utils ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.springside.modules.utils.misc.SamplerTest_OE25Dev
+sample 10.5% in 10000 hits should close to 1050, actual is 1003
+sample 10.5% in 10000 hits should close to 1050, actual is 1059
+sample 0.5% in 10000 hits should close to 50, actual is 59
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.178 s - in org.springside.modules.utils.misc.SamplerTest_OE25Dev
+[INFO] Running org.springside.modules.utils.concurrent.BasicFutureTest_OE25Dev
+onCompleted:haha
+onCompleted:haha
+onCompleted:haha
+TIMEOUT

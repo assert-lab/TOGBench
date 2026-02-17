@@ -4627,7 +4627,11 @@ numb_387_1,"    @Test
 
         final double eps = 1e-8;
         final int maxIterations = 3;
-        final Throwable t = Assertions.assertThrows(FractionException.class, () -> cf.evaluate(0, eps, maxIterations));
+        try {
+    cf.evaluate(0, eps, maxIterations);
+    fail(""FractionException"");
+} catch (FractionException e) {
+}
     }
 ",ContinuedFractionTest::testMaxIterationsThrows_1_oe
 numb_388_1,"    @Test
@@ -4646,7 +4650,11 @@ numb_388_1,"    @Test
         };
 
         final double eps = 1e-8;
-        final Throwable t = Assertions.assertThrows(FractionException.class, () -> cf.evaluate(0, eps, 5));
+        try {
+    cf.evaluate(0, eps, 5);
+    fail(""FractionException"");
+} catch (FractionException e) {
+}
     }
 ",ContinuedFractionTest::testNaNThrows_1_oe
 numb_389_1,"    @Test
@@ -4666,7 +4674,11 @@ numb_389_1,"    @Test
         };
 
         final double eps = 1e-8;
-        final Throwable t = Assertions.assertThrows(FractionException.class, () -> cf.evaluate(0, eps, 5));
+        try {
+    cf.evaluate(0, eps, 5);
+    fail(""FractionException"");
+} catch (FractionException e) {
+}
     }
 ",ContinuedFractionTest::testInfThrows_1_oe
 numb_392_1,"    @Test
@@ -5025,7 +5037,11 @@ numb_480_3,"    @Test
         // removed other assertion
 
         final MonitoredFunction f2 = new MonitoredFunction(func, 10);
-        final IllegalStateException ex = Assertions.assertThrows(IllegalStateException.class, () -> solver.findRoot(f2, 0.85, 5), ""Expected too many calls condition"");
+        try {
+    solver.findRoot(f2, 0.85, 5);
+    fail(""IllegalStateException: Expected too many calls condition"");
+} catch (IllegalStateException e) {
+}
     }
 ",BrentSolverTest::testTooManyCalls_3_oe
 numb_514_1,"    @Test

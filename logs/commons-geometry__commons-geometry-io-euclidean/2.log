@@ -1,0 +1,125 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-geometry-io-euclidean:jar:1.0
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ org.apache.commons:commons-geometry-parent:1.0, /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/pom.xml, line 232, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ----------< org.apache.commons:commons-geometry-io-euclidean >----------
+[INFO] Building Apache Commons Geometry IO Euclidean 1.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-geometry-io-euclidean ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-geometry-io-euclidean ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-geometry-io-euclidean ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-geometry-io-euclidean ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-geometry-io-euclidean ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-geometry-io-euclidean ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-geometry-io-euclidean ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-io-euclidean ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean
+[INFO] Storing buildNumber: ddb4764f558725a1465cecefae1b711f8e80413a at timestamp: 1771304785898
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
+
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean
+[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-geometry-io-euclidean ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-geometry-io-euclidean ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 41 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-geometry-io-euclidean ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-geometry-io-euclidean ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 14 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-geometry-io-euclidean ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 40 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/target/test-classes
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-geometry-io-euclidean ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/main/java/org/apache/commons/geometry/io/euclidean/threed/stl/BinaryStlWriter.java:91: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.rewind() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.rewind()
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/main/java/org/apache/commons/geometry/io/euclidean/threed/stl/BinaryStlWriter.java:148: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.flip() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.flip()
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/main/java/org/apache/commons/geometry/io/euclidean/threed/stl/BinaryStlFacetDefinitionReader.java:141: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.rewind() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.rewind()
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/main/java/org/apache/commons/geometry/io/euclidean/threed/stl/BinaryStlFacetDefinitionReader.java:182: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.rewind() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.rewind()
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-geometry-io-euclidean ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M7:test (default-test) @ commons-geometry-io-euclidean ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.geometry.io.euclidean.DocumentationExamplesTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.305 s - in org.apache.commons.geometry.io.euclidean.DocumentationExamplesTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryReadHandler3DTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryReadHandler3DTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryWriteHandler3DTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s - in org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryWriteHandler3DTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.euclidean.threed.BoundaryIOManager3DTest_OE25Dev
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.151 s - in org.apache.commons.geometry.io.euclidean.threed.BoundaryIOManager3DTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.euclidean.threed.FacetDefinitionsTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in org.apache.commons.geometry.io.euclidean.threed.FacetDefinitionsTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3DTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3DTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.euclidean.threed.SimpleFacetDefinitionTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.geometry.io.euclidean.threed.SimpleFacetDefinitionTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryReadHandler3DTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryReadHandler3DTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjFacetDefinitionReaderTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjFacetDefinitionReaderTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjTriangleMeshReaderTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjTriangleMeshReaderTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev
+[INFO] Tests run: 69, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.124 s - in org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryWriteHandler3DTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryWriteHandler3DTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryReadHandler3DTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryReadHandler3DTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryWriteHandler3DTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryWriteHandler3DTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionReaderTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionReaderTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 217, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.704 s
+[INFO] Finished at: 2026-02-16T23:06:42-06:00
+[INFO] ------------------------------------------------------------------------

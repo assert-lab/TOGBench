@@ -297,7 +297,11 @@ geom_288_1,"    @Test
         p.nextLine();
 
         // act/assert
-        final Throwable exc = Assertions.assertThrows(IllegalStateException.class, () -> p.getCurrentTokenAsDouble());
+        try {
+    p.getCurrentTokenAsDouble();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",SimpleTextParserTest::testGetCurrentTokenAsDouble_includedNumberFormatExceptionOnFailure_1_oe
 geom_291_1,"    @Test
@@ -307,7 +311,11 @@ geom_291_1,"    @Test
         p.nextLine();
 
         // act/assert
-        final Throwable exc = Assertions.assertThrows(IllegalStateException.class, () -> p.getCurrentTokenAsInt());
+        try {
+    p.getCurrentTokenAsInt();
+    fail(""IllegalStateException"");
+} catch (IllegalStateException e) {
+}
     }
 ",SimpleTextParserTest::testGetCurrentTokenAsInt_includedNumberFormatExceptionOnFailure_1_oe
 geom_360_1,"    @Test
@@ -316,7 +324,11 @@ geom_360_1,"    @Test
         final CloseCountInputStream in = new CloseCountInputStream(new CloseFailByteArrayInputStream(new byte[0]));
 
         // act/assert
-        final Throwable thr = Assertions.assertThrows(UncheckedIOException.class, () -> { GeometryIOUtils.tryApplyCloseable(i -> { throw new IOException(""fn""); }, () -> in); });
+        try {
+     GeometryIOUtils.tryApplyCloseable(i -> { throw new IOException(""fn""); }, () -> in);
+    fail(""UncheckedIOException"");
+} catch (UncheckedIOException e) {
+}
     }
 ",GeometryIOUtilsTest::testTryApplyCloseable_functionThrows_inputCloseThrows_1_oe
 geom_379_4,"    @Test
@@ -4657,7 +4669,11 @@ geom_41_1_1,"    @Test
     void testParseErrors_1_oe_1_oe() {
         // act/assert
                 final String content0 = ""soli test\n"" + ""facet normal 1 2 3 "" + ""outer loop "" + ""vertex 4 5 6 "" + ""vertex 7 8 9 "" + ""vertex 10 11 12 "" + ""endloop "" + ""endfacet "" + ""endsolid test"";
-        GeometryTestUtils.assertThrowsWithMessage( () -> EuclideanIOTestUtils.readAll(facetReader(content0)), IllegalStateException.class, Pattern.compile(""^Parsing failed.*""));
+        try {
+    IllegalStateException.class;
+    fail(""() -> EuclideanIOTestUtils.readAll(facetReader(content0)): Pattern.compile(\""^Parsing failed.*\"")"");
+} catch (() -> EuclideanIOTestUtils.readAll(facetReader(content0)) e) {
+}
     }
 ",TextStlFacetDefinitionReaderTest::testParseErrors_1_oe_1_oe
 geom_41_2_1,"    @Test
@@ -4665,6 +4681,10 @@ geom_41_2_1,"    @Test
         // act/assert
         // removed other assertion
                 final String content0 = ""solid test\n"" + ""facet normal 1 2 3 "" + ""outer loop "" + ""vertex abc 5 6 "" + ""vertex 7 8 9 "" + ""vertex 10 11 12 "" + ""endloop "" + ""endfacet "" + ""endsolid test"";
-        GeometryTestUtils.assertThrowsWithMessage( () -> EuclideanIOTestUtils.readAll(facetReader(content0)), IllegalStateException.class, Pattern.compile(""^Parsing failed.*""));
+        try {
+    IllegalStateException.class;
+    fail(""() -> EuclideanIOTestUtils.readAll(facetReader(content0)): Pattern.compile(\""^Parsing failed.*\"")"");
+} catch (() -> EuclideanIOTestUtils.readAll(facetReader(content0)) e) {
+}
     }
 ",TextStlFacetDefinitionReaderTest::testParseErrors_2_oe_1_oe
