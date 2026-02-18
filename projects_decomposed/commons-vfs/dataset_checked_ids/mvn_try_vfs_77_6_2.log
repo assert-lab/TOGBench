@@ -1,0 +1,11 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests_OE25Dev_vfs_77_6_2.java:[744,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-vfs2: Compilation failure
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests_OE25Dev_vfs_77_6_2.java:[744,44] incompatible types: java.lang.String cannot be converted to org.apache.commons.vfs2.FileInfo
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

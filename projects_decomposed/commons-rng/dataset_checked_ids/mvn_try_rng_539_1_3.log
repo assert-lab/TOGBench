@@ -1,0 +1,13 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/StableSamplerTest_OE25Dev_rng_539_1_3.java:[2430,26] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/StableSamplerTest_OE25Dev_rng_539_1_3.java:[2430,25] not a statement
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-rng-sampling: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/StableSamplerTest_OE25Dev_rng_539_1_3.java:[2430,26] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/StableSamplerTest_OE25Dev_rng_539_1_3.java:[2430,25] not a statement
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

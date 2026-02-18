@@ -59,8 +59,8 @@ def canonical_test_name(name: str) -> str:
 
 def load_inputs_and_meta(project_dir):
     dataset_dir = os.path.join(project_dir, "dataset")
-    inputs_path = os.path.join(dataset_dir, "inputs.csv")
-    meta_path = os.path.join(dataset_dir, "meta.csv")
+    inputs_path = os.path.join(dataset_dir, "inputs_passed.csv")
+    meta_path = os.path.join(dataset_dir, "meta_passed.csv")
 
     if not (os.path.exists(inputs_path) and os.path.exists(meta_path)):
         return None, None
@@ -298,7 +298,14 @@ def process_test_file(project_dir, test_file_path, test_class, entry, id_to_pref
 
 
 def main():
+
+    target = "commons-pool2"
+
     for project in sorted(os.listdir(PROJECTS_DIR)):
+        if project != target:
+            continue
+
+    # for project in sorted(os.listdir(PROJECTS_DIR)):
         project_dir = os.path.join(PROJECTS_DIR, project)
         if not os.path.isdir(project_dir):
             continue

@@ -1,0 +1,28 @@
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev_async_36_7
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.37 sec <<< FAILURE! - in org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev_async_36_7
+testRegisterIfNew_7_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev_async_36_7)  Time elapsed: 0.131 sec  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev_async_36_7.testRegisterIfNew_7_oe(AsyncHttpClientRegistryTest_OE25Dev_async_36_7.java:120)
+
+
+Results :
+
+Failed tests: 
+  AsyncHttpClientRegistryTest_OE25Dev_async_36_7.testRegisterIfNew_7_oe:120 expected [true] but found [false]
+
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0
+
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-extras-registry: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

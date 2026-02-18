@@ -1,5 +1,0 @@
-id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
-dbut_2_1,commons-dbutils,QueryLoaderTest,testLoadThrowsIllegalArgumentException_1_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown,standard,fail
-dbut_18_1,commons-dbutils,DbUtilsTest,commitAndCloseWithException_1_oe,src/test/java/org/apache/commons/dbutils/DbUtilsTest.java,,,,assert,unknown,standard,fail
-dbut_19_1,commons-dbutils,DbUtilsTest,rollbackAndCloseWithException_1_oe,src/test/java/org/apache/commons/dbutils/DbUtilsTest.java,,,,assert,unknown,standard,fail
-dbut_33_1,commons-dbutils,ResultSetIteratorTest,testRethrowThrowsRuntimeException_1_oe,src/test/java/org/apache/commons/dbutils/ResultSetIteratorTest.java,,,,assert,unknown,standard,fail

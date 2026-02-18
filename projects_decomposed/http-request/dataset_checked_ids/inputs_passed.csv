@@ -1,0 +1,35 @@
+id,test_prefix,test_name
+http_236_3,"  @Test
+  public void sendErrorReadStream_3_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          // removed other assertion
+        }
+      }
+    };
+    final IOException readCause = new IOException();
+    final IOException closeCause = new IOException();
+    InputStream stream = new InputStream() {
+
+      public int read() throws IOException {
+        throw readCause;
+      }
+
+      public void close() throws IOException {
+        throw closeCause;
+      }
+    };
+    try {
+      post(url).send(stream);
+      // removed other assertion
+    } catch (HttpRequestException e) {
+      assertEquals(readCause, e.getCause());
+  }
+  }
+",HttpRequestTest::sendErrorReadStream_3_oe

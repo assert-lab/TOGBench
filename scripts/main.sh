@@ -54,9 +54,9 @@ python3 scripts/custom_inline_decompose.py
 
 python3 scripts/dataset_post_process.py
 
-python3 scripts/2_filter_compilable_tests.py
+# python3 scripts/2_filter_compilable_tests.py
 
-python3 scripts/try_catch_filter.py
+# python3 scripts/try_catch_filter.py
 
 
 # ==== try-catch conversion start ====
@@ -78,39 +78,37 @@ done
 # ==== try-catch conversion ends ====
 
 
-./scripts/project_fixes/async-http-client.sh
-./scripts/project_fixes/bcel.sh
-./scripts/project_fixes/commons-collections4.sh
-./scripts/project_fixes/commons-configuration2.sh
-./scripts/project_fixes/commons-dbutils.sh
-./scripts/project_fixes/commons-geometry.sh
-./scripts/project_fixes/commons-imaging.sh
-./scripts/project_fixes/commons-jcs3.sh
-./scripts/project_fixes/commons-jexl3.sh
-./scripts/project_fixes/commons-lang3.sh
-./scripts/project_fixes/commons-rng.sh
-./scripts/project_fixes/commons-numbers.sh
-./scripts/project_fixes/commons-pool2.sh
-
-./scripts/project_fixes/joda-time.sh
-./scripts/project_fixes/jsoup.sh
-
-./scripts/project_fixes/JSON-java.sh
-./scripts/project_fixes/commons-net.sh
-./scripts/project_fixes/http-request.sh
-./scripts/project_fixes/commons-beanutils.sh
-./scripts/project_fixes/commons-validator.sh
-./scripts/project_fixes/spark.sh
-./scripts/project_fixes/springside4.sh
+# ./scripts/project_fixes/async-http-client.sh
+# ./scripts/project_fixes/bcel.sh
+# ./scripts/project_fixes/commons-collections4.sh
+# ./scripts/project_fixes/commons-configuration2.sh
+# ./scripts/project_fixes/commons-dbutils.sh
+# ./scripts/project_fixes/commons-geometry.sh
+# ./scripts/project_fixes/commons-imaging.sh
+# ./scripts/project_fixes/commons-jcs3.sh
+# ./scripts/project_fixes/commons-jexl3.sh
+# ./scripts/project_fixes/commons-lang3.sh
+# ./scripts/project_fixes/commons-rng.sh
+# ./scripts/project_fixes/commons-numbers.sh
+# ./scripts/project_fixes/commons-pool2.sh
+# ./scripts/project_fixes/joda-time.sh
+# ./scripts/project_fixes/jsoup.sh
+# ./scripts/project_fixes/JSON-java.sh
+# ./scripts/project_fixes/commons-net.sh
+# ./scripts/project_fixes/http-request.sh
+# ./scripts/project_fixes/commons-beanutils.sh
+# ./scripts/project_fixes/commons-validator.sh
+# ./scripts/project_fixes/spark.sh
+# ./scripts/project_fixes/springside4.sh
 
 
 # first run to keep all logs - error and running
 # python3 scripts/3_rebuild_tests.py
-python3 scripts/3_rebuild_decomposed.py
+# python3 scripts/3_rebuild_decomposed.py
 
 # run each projects' fix.sh before running mvn test
-./scripts/project_fixes.sh
-./scripts/clean_loop.sh
+# ./scripts/project_fixes.sh
+# ./scripts/clean_loop.sh
 
 # cd projects_decomposed/commons-lang3
 # mvn clean test -Dtest="*_OE25Dev#*_oe" --color=never 2>&1 | tee mvn.log
@@ -131,12 +129,12 @@ python3 scripts/3_rebuild_decomposed.py
 # ./scripts/clean_loop.sh projects_decomposed/commons-lang3
 # ./scripts/clean_loop.sh projects_decomposed/commons-jcs3/commons-jcs-core
 
-python3 scripts/test_count.py
+# python3 scripts/test_count.py
 
 # python3 scripts/filter_by_logs.py
 
 # # ./scripts/final_mvn_run.sh
 
 
-find . -type f -name "*.bak" -delete
+# find . -type f -name "*.bak" -delete
  

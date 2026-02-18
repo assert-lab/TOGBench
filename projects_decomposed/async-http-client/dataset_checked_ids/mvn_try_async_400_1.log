@@ -1,0 +1,29 @@
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.asynchttpclient.channel.ConnectionPoolTest_OE25Dev_async_400_1
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.601 sec <<< FAILURE! - in org.asynchttpclient.channel.ConnectionPoolTest_OE25Dev_async_400_1
+multipleMaxConnectionOpenTest_1_oe(org.asynchttpclient.channel.ConnectionPoolTest_OE25Dev_async_400_1)  Time elapsed: 0.264 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method ConnectionPoolTest_OE25Dev_async_400_1.multipleMaxConnectionOpenTest_1_oe()[pri:0, instance:org.asynchttpclient.channel.ConnectionPoolTest_OE25Dev_async_400_1@5656be13] should have thrown an exception of type class org.asynchttpclient.exception.TooManyConnectionsException
+
+
+Results :
+
+Failed tests: 
+  ConnectionPoolTest_OE25Dev_async_400_1.multipleMaxConnectionOpenTest_1_oe » Test
+
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0
+
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

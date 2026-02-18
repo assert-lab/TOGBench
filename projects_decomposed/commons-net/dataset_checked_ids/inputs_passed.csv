@@ -1,0 +1,234 @@
+id,test_prefix,test_name
+net_205_1,"    public void testSpy_1_oe() throws Exception
+    {
+        boolean test1spy_ok = false;
+        boolean test2spy_ok = false;
+        boolean stopspy_ok = false;
+        final byte expected1[] = {(byte) 't', (byte) 'e', (byte) 's', (byte) 't', (byte) '1'};
+        final byte expected2[] = {(byte) 't', (byte) 'e', (byte) 's', (byte) 't', (byte) '2'};
+
+        try (final PipedOutputStream po = new PipedOutputStream();
+            final PipedInputStream pi = new PipedInputStream(po)) {
+
+            final OutputStream os = STANDARD.server.getOutputStream();
+            final OutputStream ostc = STANDARD.client.getOutputStream();
+
+            STANDARD.client.registerSpyStream(po);
+
+            os.write(""test1"".getBytes());
+            os.flush();
+
+            Thread.sleep(1000);
+            final byte buffer[] = new byte[5];
+
+            if (pi.available() == 5) {
+                pi.read(buffer);
+                if (equalBytes(buffer, expected1)) {
+                    test1spy_ok = true;
+                }
+            }
+
+            ostc.write(""test2"".getBytes());
+            ostc.flush();
+
+            Thread.sleep(1000);
+
+            if (pi.available() == 5) {
+                pi.read(buffer);
+                if (equalBytes(buffer, expected2)) {
+                    test2spy_ok = true;
+                }
+            }
+
+            STANDARD.client.stopSpyStream();
+            os.write(""test1"".getBytes());
+            os.flush();
+            ostc.write(""test2"".getBytes());
+            ostc.flush();
+            Thread.sleep(1000);
+            if (pi.available() == 0) {
+                stopspy_ok = true;
+            }
+
+            assertTrue(test1spy_ok);
+    }
+    }
+",TelnetClientTest::testSpy_1_oe
+net_205_2,"    public void testSpy_2_oe() throws Exception
+    {
+        boolean test1spy_ok = false;
+        boolean test2spy_ok = false;
+        boolean stopspy_ok = false;
+        final byte expected1[] = {(byte) 't', (byte) 'e', (byte) 's', (byte) 't', (byte) '1'};
+        final byte expected2[] = {(byte) 't', (byte) 'e', (byte) 's', (byte) 't', (byte) '2'};
+
+        try (final PipedOutputStream po = new PipedOutputStream();
+            final PipedInputStream pi = new PipedInputStream(po)) {
+
+            final OutputStream os = STANDARD.server.getOutputStream();
+            final OutputStream ostc = STANDARD.client.getOutputStream();
+
+            STANDARD.client.registerSpyStream(po);
+
+            os.write(""test1"".getBytes());
+            os.flush();
+
+            Thread.sleep(1000);
+            final byte buffer[] = new byte[5];
+
+            if (pi.available() == 5) {
+                pi.read(buffer);
+                if (equalBytes(buffer, expected1)) {
+                    test1spy_ok = true;
+                }
+            }
+
+            ostc.write(""test2"".getBytes());
+            ostc.flush();
+
+            Thread.sleep(1000);
+
+            if (pi.available() == 5) {
+                pi.read(buffer);
+                if (equalBytes(buffer, expected2)) {
+                    test2spy_ok = true;
+                }
+            }
+
+            STANDARD.client.stopSpyStream();
+            os.write(""test1"".getBytes());
+            os.flush();
+            ostc.write(""test2"".getBytes());
+            ostc.flush();
+            Thread.sleep(1000);
+            if (pi.available() == 0) {
+                stopspy_ok = true;
+            }
+
+            // removed other assertion
+            assertTrue(test2spy_ok);
+    }
+    }
+",TelnetClientTest::testSpy_2_oe
+net_205_3,"    public void testSpy_3_oe() throws Exception
+    {
+        boolean test1spy_ok = false;
+        boolean test2spy_ok = false;
+        boolean stopspy_ok = false;
+        final byte expected1[] = {(byte) 't', (byte) 'e', (byte) 's', (byte) 't', (byte) '1'};
+        final byte expected2[] = {(byte) 't', (byte) 'e', (byte) 's', (byte) 't', (byte) '2'};
+
+        try (final PipedOutputStream po = new PipedOutputStream();
+            final PipedInputStream pi = new PipedInputStream(po)) {
+
+            final OutputStream os = STANDARD.server.getOutputStream();
+            final OutputStream ostc = STANDARD.client.getOutputStream();
+
+            STANDARD.client.registerSpyStream(po);
+
+            os.write(""test1"".getBytes());
+            os.flush();
+
+            Thread.sleep(1000);
+            final byte buffer[] = new byte[5];
+
+            if (pi.available() == 5) {
+                pi.read(buffer);
+                if (equalBytes(buffer, expected1)) {
+                    test1spy_ok = true;
+                }
+            }
+
+            ostc.write(""test2"".getBytes());
+            ostc.flush();
+
+            Thread.sleep(1000);
+
+            if (pi.available() == 5) {
+                pi.read(buffer);
+                if (equalBytes(buffer, expected2)) {
+                    test2spy_ok = true;
+                }
+            }
+
+            STANDARD.client.stopSpyStream();
+            os.write(""test1"".getBytes());
+            os.flush();
+            ostc.write(""test2"".getBytes());
+            ostc.flush();
+            Thread.sleep(1000);
+            if (pi.available() == 0) {
+                stopspy_ok = true;
+            }
+
+            // removed other assertion
+            // removed other assertion
+            assertTrue(stopspy_ok);
+    }
+    }
+",TelnetClientTest::testSpy_3_oe
+net_228_2,"    public void testReadOnly_2_oe() throws IOException
+    {
+        // Start a read-only server
+        final TFTPServer tftpS = new TFTPServer(serverDirectory, serverDirectory, SERVER_PORT,
+                ServerMode.GET_ONLY, null, null);
+
+        // Create our TFTP instance to handle the file transfer.
+        final TFTPClient tftp = new TFTPClient();
+        tftp.open();
+        tftp.setSoTimeout(2000);
+
+        // make a file to work with.
+        final File file = new File(serverDirectory, filePrefix + ""source.txt"");
+        file.createNewFile();
+
+        // Read the file from the tftp server.
+        final File out = new File(serverDirectory, filePrefix + ""out"");
+
+        // cleanup old failed runs
+        out.delete();
+        // removed other assertion
+
+        try (final FileOutputStream output = new FileOutputStream(out)) {
+            tftp.receiveFile(file.getName(), TFTP.BINARY_MODE, output, ""localhost"", SERVER_PORT);
+        }
+
+        assertTrue(""file not created"", out.exists());
+    }
+",TFTPServerPathTest::testReadOnly_2_oe
+net_229_3,"    public void testWriteOnly_3_oe() throws IOException
+    {
+        // Start a write-only server
+        final TFTPServer tftpS = new TFTPServer(serverDirectory, serverDirectory, SERVER_PORT,
+                ServerMode.PUT_ONLY, null, null);
+
+        // Create our TFTP instance to handle the file transfer.
+        final TFTPClient tftp = new TFTPClient();
+        tftp.open();
+        tftp.setSoTimeout(2000);
+
+        // make a file to work with.
+        final File file = new File(serverDirectory, filePrefix + ""source.txt"");
+        file.createNewFile();
+
+        final File out = new File(serverDirectory, filePrefix + ""out"");
+
+        // cleanup old failed runs
+        out.delete();
+        // removed other assertion
+
+        try (final FileOutputStream output = new FileOutputStream(out)) {
+            tftp.receiveFile(file.getName(), TFTP.BINARY_MODE, output, ""localhost"", SERVER_PORT);
+            // removed other assertion
+        } catch (final IOException e) {
+            // expected path
+        }
+        out.delete();
+
+        try (final FileInputStream fis = new FileInputStream(file)) {
+            tftp.sendFile(out.getName(), TFTP.BINARY_MODE, fis, ""localhost"", SERVER_PORT);
+        }
+
+        assertTrue(""file not created"", out.exists());
+    }
+",TFTPServerPathTest::testWriteOnly_3_oe

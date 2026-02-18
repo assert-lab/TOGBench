@@ -1,0 +1,4067 @@
+id,test_prefix,test_name
+numb_460_9,"    @Test
+    final void testInverse_9_oe() {
+        final Quaternion q = Quaternion.of(1.5, 4, 2, -2.5);
+
+        final Quaternion inverseQ = q.inverse();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Quaternion product = Quaternion.multiply(inverseQ, q);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Quaternion qNul = Quaternion.of(0, 0, 0, 0);
+        try {
+            final Quaternion inverseQNul = qNul.inverse();
+            Assertions.fail(""expecting ZeroException but got : "" + inverseQNul);
+    }
+    }
+",QuaternionTest::testInverse_9_oe
+numb_482_1,"    @Test
+    void testBadEndpoints_1_oe() {
+        final DoubleUnaryOperator f = new Sin();
+        final BrentSolver solver = new BrentSolver(DEFAULT_ABSOLUTE_ACCURACY,
+                                                   DEFAULT_RELATIVE_ACCURACY,
+                                                   DEFAULT_FUNCTION_ACCURACY);
+        try {  // Bad interval.
+            solver.findRoot(f, 1, -1);
+            Assertions.fail(""Expecting bad interval condition"");
+    }
+    }
+",BrentSolverTest::testBadEndpoints_1_oe
+numb_482_3,"    @Test
+    void testBadEndpoints_3_oe() {
+        final DoubleUnaryOperator f = new Sin();
+        final BrentSolver solver = new BrentSolver(DEFAULT_ABSOLUTE_ACCURACY,
+                                                   DEFAULT_RELATIVE_ACCURACY,
+                                                   DEFAULT_FUNCTION_ACCURACY);
+        try {  // Bad interval.
+            solver.findRoot(f, 1, -1);
+            // removed other assertion
+        } catch (SolverException ex) {
+            // Ensure expected error condition.
+            // removed other assertion
+        }
+        try {  // No bracketing.
+            solver.findRoot(f, 1, 1.5);
+            Assertions.fail(""Expecting non-bracketing condition"");
+    }
+    }
+",BrentSolverTest::testBadEndpoints_3_oe
+numb_482_5,"    @Test
+    void testBadEndpoints_5_oe() {
+        final DoubleUnaryOperator f = new Sin();
+        final BrentSolver solver = new BrentSolver(DEFAULT_ABSOLUTE_ACCURACY,
+                                                   DEFAULT_RELATIVE_ACCURACY,
+                                                   DEFAULT_FUNCTION_ACCURACY);
+        try {  // Bad interval.
+            solver.findRoot(f, 1, -1);
+            // removed other assertion
+        } catch (SolverException ex) {
+            // Ensure expected error condition.
+            // removed other assertion
+        }
+        try {  // No bracketing.
+            solver.findRoot(f, 1, 1.5);
+            // removed other assertion
+        } catch (SolverException ex) {
+            // Ensure expected error condition.
+            // removed other assertion
+        }
+        try {  // No bracketing.
+            solver.findRoot(f, 1, 1.2, 1.5);
+            Assertions.fail(""Expecting non-bracketing condition"");
+    }
+    }
+",BrentSolverTest::testBadEndpoints_5_oe
+numb_483_1,"    @Test
+    void testBadInitialGuess_1_oe() {
+        final DoubleUnaryOperator func = new QuinticFunction();
+        final BrentSolver solver = new BrentSolver(DEFAULT_ABSOLUTE_ACCURACY,
+                                                   DEFAULT_RELATIVE_ACCURACY,
+                                                   DEFAULT_FUNCTION_ACCURACY);
+
+        try {
+            // Invalid guess (it *is* a root, but outside of the range).
+            double result = solver.findRoot(func, 0.0, 7.0, 0.6);
+            Assertions.fail(""an out of range condition was expected"");
+    }
+    }
+",BrentSolverTest::testBadInitialGuess_1_oe
+numb_538_62,"    @Test
+    void testRoundDouble_62_oe() {
+        double x = 1.234567890;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // JIRA MATH-151
+        // removed other assertion
+        // removed other assertion
+        double xx = 39.0;
+        xx += 245d / 1000d;
+        // removed other assertion
+
+        // BZ 35904
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            Precision.round(1.234, 2, RoundingMode.UNNECESSARY);
+            Assertions.fail();
+    }
+    }
+",PrecisionTest::testRoundDouble_62_oe
+numb_577_18,"    @Test
+    void testGcd_18_oe() {
+        int a = 30;
+        int b = 50;
+        int c = 77;
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        try {
+            // gcd(Integer.MIN_VALUE, 0) > Integer.MAX_VALUE
+            ArithmeticUtils.gcd(Integer.MIN_VALUE, 0);
+            Assertions.fail(""expecting ArithmeticException"");
+    }
+    }
+",ArithmeticUtilsTest::testGcd_18_oe
+numb_577_19,"    @Test
+    void testGcd_19_oe() {
+        int a = 30;
+        int b = 50;
+        int c = 77;
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        try {
+            // gcd(Integer.MIN_VALUE, 0) > Integer.MAX_VALUE
+            ArithmeticUtils.gcd(Integer.MIN_VALUE, 0);
+            // removed other assertion
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+        try {
+            // gcd(0, Integer.MIN_VALUE) > Integer.MAX_VALUE
+            ArithmeticUtils.gcd(0, Integer.MIN_VALUE);
+            Assertions.fail(""expecting ArithmeticException"");
+    }
+    }
+",ArithmeticUtilsTest::testGcd_19_oe
+numb_577_20,"    @Test
+    void testGcd_20_oe() {
+        int a = 30;
+        int b = 50;
+        int c = 77;
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        try {
+            // gcd(Integer.MIN_VALUE, 0) > Integer.MAX_VALUE
+            ArithmeticUtils.gcd(Integer.MIN_VALUE, 0);
+            // removed other assertion
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+        try {
+            // gcd(0, Integer.MIN_VALUE) > Integer.MAX_VALUE
+            ArithmeticUtils.gcd(0, Integer.MIN_VALUE);
+            // removed other assertion
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+        try {
+            // gcd(Integer.MIN_VALUE, Integer.MIN_VALUE) > Integer.MAX_VALUE
+            ArithmeticUtils.gcd(Integer.MIN_VALUE, Integer.MIN_VALUE);
+            Assertions.fail(""expecting ArithmeticException"");
+    }
+    }
+",ArithmeticUtilsTest::testGcd_20_oe
+numb_579_19,"    @Test
+    void  testGcdLong_19_oe() {
+        long a = 30;
+        long b = 50;
+        long c = 77;
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        try {
+            // gcd(Long.MIN_VALUE, 0) > Long.MAX_VALUE
+            ArithmeticUtils.gcd(Long.MIN_VALUE, 0);
+            Assertions.fail(""expecting ArithmeticException"");
+    }
+    }
+",ArithmeticUtilsTest::testGcdLong_19_oe
+numb_579_20,"    @Test
+    void  testGcdLong_20_oe() {
+        long a = 30;
+        long b = 50;
+        long c = 77;
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        try {
+            // gcd(Long.MIN_VALUE, 0) > Long.MAX_VALUE
+            ArithmeticUtils.gcd(Long.MIN_VALUE, 0);
+            // removed other assertion
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+        try {
+            // gcd(0, Long.MIN_VALUE) > Long.MAX_VALUE
+            ArithmeticUtils.gcd(0, Long.MIN_VALUE);
+            Assertions.fail(""expecting ArithmeticException"");
+    }
+    }
+",ArithmeticUtilsTest::testGcdLong_20_oe
+numb_579_21,"    @Test
+    void  testGcdLong_21_oe() {
+        long a = 30;
+        long b = 50;
+        long c = 77;
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        try {
+            // gcd(Long.MIN_VALUE, 0) > Long.MAX_VALUE
+            ArithmeticUtils.gcd(Long.MIN_VALUE, 0);
+            // removed other assertion
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+        try {
+            // gcd(0, Long.MIN_VALUE) > Long.MAX_VALUE
+            ArithmeticUtils.gcd(0, Long.MIN_VALUE);
+            // removed other assertion
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+        try {
+            // gcd(Long.MIN_VALUE, Long.MIN_VALUE) > Long.MAX_VALUE
+            ArithmeticUtils.gcd(Long.MIN_VALUE, Long.MIN_VALUE);
+            Assertions.fail(""expecting ArithmeticException"");
+    }
+    }
+",ArithmeticUtilsTest::testGcdLong_21_oe
+numb_580_12,"    @Test
+    void testLcm_12_oe() {
+        int a = 30;
+        int b = 50;
+        int c = 77;
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Assert that no intermediate value overflows:
+        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
+        // removed other assertion
+
+        // Special case
+        // removed other assertion
+
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Integer.MIN_VALUE, 1);
+            Assertions.fail(""Expecting ArithmeticException"");
+    }
+    }
+",ArithmeticUtilsTest::testLcm_12_oe
+numb_580_13,"    @Test
+    void testLcm_13_oe() {
+        int a = 30;
+        int b = 50;
+        int c = 77;
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Assert that no intermediate value overflows:
+        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
+        // removed other assertion
+
+        // Special case
+        // removed other assertion
+
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Integer.MIN_VALUE, 1);
+            // removed other assertion
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Integer.MIN_VALUE, 1 << 20);
+            Assertions.fail(""Expecting ArithmeticException"");
+    }
+    }
+",ArithmeticUtilsTest::testLcm_13_oe
+numb_580_14,"    @Test
+    void testLcm_14_oe() {
+        int a = 30;
+        int b = 50;
+        int c = 77;
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Assert that no intermediate value overflows:
+        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
+        // removed other assertion
+
+        // Special case
+        // removed other assertion
+
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Integer.MIN_VALUE, 1);
+            // removed other assertion
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Integer.MIN_VALUE, 1 << 20);
+            // removed other assertion
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+
+        try {
+            ArithmeticUtils.lcm(Integer.MAX_VALUE, Integer.MAX_VALUE - 1);
+            Assertions.fail(""Expecting ArithmeticException"");
+    }
+    }
+",ArithmeticUtilsTest::testLcm_14_oe
+numb_581_13,"    @Test
+    void testLcmLong_13_oe() {
+        long a = 30;
+        long b = 50;
+        long c = 77;
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // Assert that no intermediate value overflows:
+        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
+        // removed other assertion
+
+        // Special case
+        // removed other assertion
+
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Long.MIN_VALUE, 1);
+            Assertions.fail(""Expecting ArithmeticException"");
+    }
+    }
+",ArithmeticUtilsTest::testLcmLong_13_oe
+numb_581_14,"    @Test
+    void testLcmLong_14_oe() {
+        long a = 30;
+        long b = 50;
+        long c = 77;
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // Assert that no intermediate value overflows:
+        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
+        // removed other assertion
+
+        // Special case
+        // removed other assertion
+
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Long.MIN_VALUE, 1);
+            // removed other assertion
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Long.MIN_VALUE, 1 << 20);
+            Assertions.fail(""Expecting ArithmeticException"");
+    }
+    }
+",ArithmeticUtilsTest::testLcmLong_14_oe
+numb_581_16,"    @Test
+    void testLcmLong_16_oe() {
+        long a = 30;
+        long b = 50;
+        long c = 77;
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // Assert that no intermediate value overflows:
+        // The naive implementation of lcm(a,b) would be (a*b)/gcd(a,b)
+        // removed other assertion
+
+        // Special case
+        // removed other assertion
+
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Long.MIN_VALUE, 1);
+            // removed other assertion
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+
+        try {
+            // lcm == abs(MIN_VALUE) cannot be represented as a nonnegative int
+            ArithmeticUtils.lcm(Long.MIN_VALUE, 1 << 20);
+            // removed other assertion
+        } catch (ArithmeticException expected) {
+            // expected
+        }
+
+        // removed other assertion
+        try {
+            ArithmeticUtils.lcm(Long.MAX_VALUE, Long.MAX_VALUE - 1);
+            Assertions.fail(""Expecting ArithmeticException"");
+    }
+    }
+",ArithmeticUtilsTest::testLcmLong_16_oe
+numb_582_3,"    @Test
+    void testPow_3_oe() {
+
+        // removed other assertion
+        // removed other assertion
+        try {
+            ArithmeticUtils.pow(21, -7);
+            Assertions.fail(""Expecting IllegalArgumentException"");
+    }
+    }
+",ArithmeticUtilsTest::testPow_3_oe
+numb_582_6,"    @Test
+    void testPow_6_oe() {
+
+        // removed other assertion
+        // removed other assertion
+        try {
+            ArithmeticUtils.pow(21, -7);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+
+        // removed other assertion
+        // removed other assertion
+        try {
+            ArithmeticUtils.pow(21, -7);
+            Assertions.fail(""Expecting IllegalArgumentException"");
+    }
+    }
+",ArithmeticUtilsTest::testPow_6_oe
+numb_582_9,"    @Test
+    void testPow_9_oe() {
+
+        // removed other assertion
+        // removed other assertion
+        try {
+            ArithmeticUtils.pow(21, -7);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+
+        // removed other assertion
+        // removed other assertion
+        try {
+            ArithmeticUtils.pow(21, -7);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+
+        // removed other assertion
+        // removed other assertion
+        try {
+            ArithmeticUtils.pow(21L, -7);
+            Assertions.fail(""Expecting IllegalArgumentException"");
+    }
+    }
+",ArithmeticUtilsTest::testPow_9_oe
+numb_582_12,"    @Test
+    void testPow_12_oe() {
+
+        // removed other assertion
+        // removed other assertion
+        try {
+            ArithmeticUtils.pow(21, -7);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+
+        // removed other assertion
+        // removed other assertion
+        try {
+            ArithmeticUtils.pow(21, -7);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+
+        // removed other assertion
+        // removed other assertion
+        try {
+            ArithmeticUtils.pow(21L, -7);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+
+        BigInteger twentyOne = BigInteger.valueOf(21L);
+        // removed other assertion
+        // removed other assertion
+        try {
+            ArithmeticUtils.pow(twentyOne, -7);
+            Assertions.fail(""Expecting IllegalArgumentException"");
+    }
+    }
+",ArithmeticUtilsTest::testPow_12_oe
+numb_582_15,"    @Test
+    void testPow_15_oe() {
+
+        // removed other assertion
+        // removed other assertion
+        try {
+            ArithmeticUtils.pow(21, -7);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+
+        // removed other assertion
+        // removed other assertion
+        try {
+            ArithmeticUtils.pow(21, -7);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+
+        // removed other assertion
+        // removed other assertion
+        try {
+            ArithmeticUtils.pow(21L, -7);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+
+        BigInteger twentyOne = BigInteger.valueOf(21L);
+        // removed other assertion
+        // removed other assertion
+        try {
+            ArithmeticUtils.pow(twentyOne, -7);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected behavior
+        }
+
+        // removed other assertion
+        // removed other assertion
+        try {
+            ArithmeticUtils.pow(twentyOne, -7L);
+            Assertions.fail(""Expecting IllegalArgumentException"");
+    }
+    }
+",ArithmeticUtilsTest::testPow_15_oe
+numb_600_1,"    @Test
+    void testRemainderUnsignedLongSpecialCases_1_oe() {
+        long[] longs = getLongSpecialCases();
+        for (long dividend : longs) {
+            for (long divisor : longs) {
+                if (divisor == 0L) {
+                    try {
+                        ArithmeticUtils.remainderUnsigned(dividend, divisor);
+                        Assertions.fail(""Should have failed with ArithmeticException: division by zero"");
+    }
+    }
+    }
+    }
+    }
+",ArithmeticUtilsTest::testRemainderUnsignedLongSpecialCases_1_oe
+numb_131_1_1,"    @Test
+    void testMultiply_1_oe_1_oe() {
+                final String name0 = ""multiply"";
+        final Complex> operation0 = Complex::multiply;
+        final long maxUlps0 = 0;
+        final List<Complex[]> data0 = loadTestData(name0);
+                final long ulps0 = getTestUlps(maxUlps0);
+                for (final Complex[] triple0 : data0) {
+                    assertComplex(triple0[0], triple0[1], name0, operation0, triple0[2], ulps0);
+    }
+    }
+",CReferenceTest::testMultiply_1_oe_1_oe
+numb_132_1_1,"    @Test
+    void testDivide_1_oe_1_oe() {
+                final String name0 = ""divide"";
+        final Complex> operation0 = Complex::divide;
+        final long maxUlps0 = 7;
+        final List<Complex[]> data0 = loadTestData(name0);
+                final long ulps0 = getTestUlps(maxUlps0);
+                for (final Complex[] triple0 : data0) {
+                    assertComplex(triple0[0], triple0[1], name0, operation0, triple0[2], ulps0);
+    }
+    }
+",CReferenceTest::testDivide_1_oe_1_oe
+numb_133_1_1,"    @Test
+    void testPowComplex_1_oe_1_oe() {
+                final String name0 = ""pow"";
+        final Complex> operation0 = Complex::pow;
+        final long maxUlps0 = 9;
+        final List<Complex[]> data0 = loadTestData(name0);
+                final long ulps0 = getTestUlps(maxUlps0);
+                for (final Complex[] triple0 : data0) {
+                    assertComplex(triple0[0], triple0[1], name0, operation0, triple0[2], ulps0);
+    }
+    }
+",CReferenceTest::testPowComplex_1_oe_1_oe
+numb_134_5_1,"    @Test
+    void testMultiply_5_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ""if one operand is an infinity and the other operand is a nonzero finite number or an
+        // infinity, then the result of the * operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : infinites) {
+                                final Complex c10 = z;
+                final Complex c20 = w;
+                final Complex> operation0 = Complex::multiply;
+                final String operationName0 = ""*"";
+                final Predicate<Complex> expected0 = Complex::isInfinite;
+                final String expectedName0 = ""Inf"";
+                final Complex z0 = operation0.apply(c10, c20);
+                        Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+    }
+",CStandardTest::testMultiply_5_oe_1_oe
+numb_134_6_1,"    @Test
+    void testMultiply_6_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ""if one operand is an infinity and the other operand is a nonzero finite number or an
+        // infinity, then the result of the * operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+                                final Complex c10 = w;
+                final Complex c20 = z;
+                final Complex> operation0 = Complex::multiply;
+                final String operationName0 = ""*"";
+                final Predicate<Complex> expected0 = Complex::isInfinite;
+                final String expectedName0 = ""Inf"";
+                final Complex z0 = operation0.apply(c10, c20);
+                        Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+    }
+",CStandardTest::testMultiply_6_oe_1_oe
+numb_134_7_1,"    @Test
+    void testMultiply_7_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ""if one operand is an infinity and the other operand is a nonzero finite number or an
+        // infinity, then the result of the * operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            for (final Complex w : nonZeroFinites) {
+                                final Complex c10 = z;
+                final Complex c20 = w;
+                final Complex> operation0 = Complex::multiply;
+                final String operationName0 = ""*"";
+                final Predicate<Complex> expected0 = Complex::isInfinite;
+                final String expectedName0 = ""Inf"";
+                final Complex z0 = operation0.apply(c10, c20);
+                        Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+    }
+",CStandardTest::testMultiply_7_oe_1_oe
+numb_134_8_1,"    @Test
+    void testMultiply_8_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ""if one operand is an infinity and the other operand is a nonzero finite number or an
+        // infinity, then the result of the * operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+                                final Complex c10 = w;
+                final Complex c20 = z;
+                final Complex> operation0 = Complex::multiply;
+                final String operationName0 = ""*"";
+                final Predicate<Complex> expected0 = Complex::isInfinite;
+                final String expectedName0 = ""Inf"";
+                final Complex z0 = operation0.apply(c10, c20);
+                        Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+    }
+",CStandardTest::testMultiply_8_oe_1_oe
+numb_134_9_1,"    @Test
+    void testMultiply_9_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ""if one operand is an infinity and the other operand is a nonzero finite number or an
+        // infinity, then the result of the * operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            // C.99 refers to non-zero finites.
+            // Infer that Complex multiplication of zero with infinites is not defined.
+            for (final Complex w : zeroFinites) {
+                                final Complex c10 = z;
+                final Complex c20 = w;
+                final Complex> operation0 = Complex::multiply;
+                final String operationName0 = ""*"";
+                final Predicate<Complex> expected0 = Complex::isNaN;
+                final String expectedName0 = ""NaN"";
+                final Complex z0 = operation0.apply(c10, c20);
+                        Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+    }
+",CStandardTest::testMultiply_9_oe_1_oe
+numb_134_10_1,"    @Test
+    void testMultiply_10_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ""if one operand is an infinity and the other operand is a nonzero finite number or an
+        // infinity, then the result of the * operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            // C.99 refers to non-zero finites.
+            // Infer that Complex multiplication of zero with infinites is not defined.
+            for (final Complex w : zeroFinites) {
+                // removed other assertion
+                                final Complex c10 = w;
+                final Complex c20 = z;
+                final Complex> operation0 = Complex::multiply;
+                final String operationName0 = ""*"";
+                final Predicate<Complex> expected0 = Complex::isNaN;
+                final String expectedName0 = ""NaN"";
+                final Complex z0 = operation0.apply(c10, c20);
+                        Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+    }
+",CStandardTest::testMultiply_10_oe_1_oe
+numb_134_11_1,"    @Test
+    void testMultiply_11_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ""if one operand is an infinity and the other operand is a nonzero finite number or an
+        // infinity, then the result of the * operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            // C.99 refers to non-zero finites.
+            // Infer that Complex multiplication of zero with infinites is not defined.
+            for (final Complex w : zeroFinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // ISO C Standard in Annex G is missing an explicit definition of how to handle NaNs.
+        // We will assume multiplication by (nan,nan) is not allowed.
+        // It is undefined how to multiply when a complex has only one NaN component.
+        // The reference implementation in Annex G allows it.
+
+        // The GNU g++ compiler computes:
+        // (1e300 + i 1e300) * (1e30 + i NAN) = inf + i inf
+        // Thus this is allowing some computations with NaN.
+
+        // Check multiply with (NaN,NaN) is not corrected
+        final double[] values = {0, 1, inf, negInf, nan};
+        for (final Complex z : createCombinations(values, c -> true)) {
+                        final Complex c10 = z;
+            final Complex c20 = NAN;
+            final Complex> operation0 = Complex::multiply;
+            final String operationName0 = ""*"";
+            final Predicate<Complex> expected0 = Complex::isNaN;
+            final String expectedName0 = ""NaN"";
+            final Complex z0 = operation0.apply(c10, c20);
+                    Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+",CStandardTest::testMultiply_11_oe_1_oe
+numb_134_12_1,"    @Test
+    void testMultiply_12_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ""if one operand is an infinity and the other operand is a nonzero finite number or an
+        // infinity, then the result of the * operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            // C.99 refers to non-zero finites.
+            // Infer that Complex multiplication of zero with infinites is not defined.
+            for (final Complex w : zeroFinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // ISO C Standard in Annex G is missing an explicit definition of how to handle NaNs.
+        // We will assume multiplication by (nan,nan) is not allowed.
+        // It is undefined how to multiply when a complex has only one NaN component.
+        // The reference implementation in Annex G allows it.
+
+        // The GNU g++ compiler computes:
+        // (1e300 + i 1e300) * (1e30 + i NAN) = inf + i inf
+        // Thus this is allowing some computations with NaN.
+
+        // Check multiply with (NaN,NaN) is not corrected
+        final double[] values = {0, 1, inf, negInf, nan};
+        for (final Complex z : createCombinations(values, c -> true)) {
+            // removed other assertion
+                        final Complex c10 = NAN;
+            final Complex c20 = z;
+            final Complex> operation0 = Complex::multiply;
+            final String operationName0 = ""*"";
+            final Predicate<Complex> expected0 = Complex::isNaN;
+            final String expectedName0 = ""NaN"";
+            final Complex z0 = operation0.apply(c10, c20);
+                    Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+",CStandardTest::testMultiply_12_oe_1_oe
+numb_134_13_1,"    @Test
+    void testMultiply_13_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ""if one operand is an infinity and the other operand is a nonzero finite number or an
+        // infinity, then the result of the * operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            // C.99 refers to non-zero finites.
+            // Infer that Complex multiplication of zero with infinites is not defined.
+            for (final Complex w : zeroFinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // ISO C Standard in Annex G is missing an explicit definition of how to handle NaNs.
+        // We will assume multiplication by (nan,nan) is not allowed.
+        // It is undefined how to multiply when a complex has only one NaN component.
+        // The reference implementation in Annex G allows it.
+
+        // The GNU g++ compiler computes:
+        // (1e300 + i 1e300) * (1e30 + i NAN) = inf + i inf
+        // Thus this is allowing some computations with NaN.
+
+        // Check multiply with (NaN,NaN) is not corrected
+        final double[] values = {0, 1, inf, negInf, nan};
+        for (final Complex z : createCombinations(values, c -> true)) {
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Test multiply cases which result in overflow are corrected to infinity
+                final Complex c10 = maxMax;
+        final Complex c20 = maxMax;
+        final Complex> operation0 = Complex::multiply;
+        final String operationName0 = ""*"";
+        final Predicate<Complex> expected0 = Complex::isInfinite;
+        final String expectedName0 = ""Inf"";
+        final Complex z0 = operation0.apply(c10, c20);
+                Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+",CStandardTest::testMultiply_13_oe_1_oe
+numb_134_14_1,"    @Test
+    void testMultiply_14_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ""if one operand is an infinity and the other operand is a nonzero finite number or an
+        // infinity, then the result of the * operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            // C.99 refers to non-zero finites.
+            // Infer that Complex multiplication of zero with infinites is not defined.
+            for (final Complex w : zeroFinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // ISO C Standard in Annex G is missing an explicit definition of how to handle NaNs.
+        // We will assume multiplication by (nan,nan) is not allowed.
+        // It is undefined how to multiply when a complex has only one NaN component.
+        // The reference implementation in Annex G allows it.
+
+        // The GNU g++ compiler computes:
+        // (1e300 + i 1e300) * (1e30 + i NAN) = inf + i inf
+        // Thus this is allowing some computations with NaN.
+
+        // Check multiply with (NaN,NaN) is not corrected
+        final double[] values = {0, 1, inf, negInf, nan};
+        for (final Complex z : createCombinations(values, c -> true)) {
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Test multiply cases which result in overflow are corrected to infinity
+        // removed other assertion
+                final Complex c10 = maxNan;
+        final Complex c20 = maxNan;
+        final Complex> operation0 = Complex::multiply;
+        final String operationName0 = ""*"";
+        final Predicate<Complex> expected0 = Complex::isInfinite;
+        final String expectedName0 = ""Inf"";
+        final Complex z0 = operation0.apply(c10, c20);
+                Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+",CStandardTest::testMultiply_14_oe_1_oe
+numb_134_15_1,"    @Test
+    void testMultiply_15_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ""if one operand is an infinity and the other operand is a nonzero finite number or an
+        // infinity, then the result of the * operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            // C.99 refers to non-zero finites.
+            // Infer that Complex multiplication of zero with infinites is not defined.
+            for (final Complex w : zeroFinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // ISO C Standard in Annex G is missing an explicit definition of how to handle NaNs.
+        // We will assume multiplication by (nan,nan) is not allowed.
+        // It is undefined how to multiply when a complex has only one NaN component.
+        // The reference implementation in Annex G allows it.
+
+        // The GNU g++ compiler computes:
+        // (1e300 + i 1e300) * (1e30 + i NAN) = inf + i inf
+        // Thus this is allowing some computations with NaN.
+
+        // Check multiply with (NaN,NaN) is not corrected
+        final double[] values = {0, 1, inf, negInf, nan};
+        for (final Complex z : createCombinations(values, c -> true)) {
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Test multiply cases which result in overflow are corrected to infinity
+        // removed other assertion
+        // removed other assertion
+                final Complex c10 = nanMax;
+        final Complex c20 = maxNan;
+        final Complex> operation0 = Complex::multiply;
+        final String operationName0 = ""*"";
+        final Predicate<Complex> expected0 = Complex::isInfinite;
+        final String expectedName0 = ""Inf"";
+        final Complex z0 = operation0.apply(c10, c20);
+                Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+",CStandardTest::testMultiply_15_oe_1_oe
+numb_134_16_1,"    @Test
+    void testMultiply_16_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ""if one operand is an infinity and the other operand is a nonzero finite number or an
+        // infinity, then the result of the * operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            // C.99 refers to non-zero finites.
+            // Infer that Complex multiplication of zero with infinites is not defined.
+            for (final Complex w : zeroFinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // ISO C Standard in Annex G is missing an explicit definition of how to handle NaNs.
+        // We will assume multiplication by (nan,nan) is not allowed.
+        // It is undefined how to multiply when a complex has only one NaN component.
+        // The reference implementation in Annex G allows it.
+
+        // The GNU g++ compiler computes:
+        // (1e300 + i 1e300) * (1e30 + i NAN) = inf + i inf
+        // Thus this is allowing some computations with NaN.
+
+        // Check multiply with (NaN,NaN) is not corrected
+        final double[] values = {0, 1, inf, negInf, nan};
+        for (final Complex z : createCombinations(values, c -> true)) {
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Test multiply cases which result in overflow are corrected to infinity
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Complex c10 = maxNan;
+        final Complex c20 = nanMax;
+        final Complex> operation0 = Complex::multiply;
+        final String operationName0 = ""*"";
+        final Predicate<Complex> expected0 = Complex::isInfinite;
+        final String expectedName0 = ""Inf"";
+        final Complex z0 = operation0.apply(c10, c20);
+                Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+",CStandardTest::testMultiply_16_oe_1_oe
+numb_134_17_1,"    @Test
+    void testMultiply_17_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+
+        // C.99 refers to non-zero finites.
+        // Standard multiplication of zero with infinites is not defined.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ""if one operand is an infinity and the other operand is a nonzero finite number or an
+        // infinity, then the result of the * operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+            // C.99 refers to non-zero finites.
+            // Infer that Complex multiplication of zero with infinites is not defined.
+            for (final Complex w : zeroFinites) {
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // ISO C Standard in Annex G is missing an explicit definition of how to handle NaNs.
+        // We will assume multiplication by (nan,nan) is not allowed.
+        // It is undefined how to multiply when a complex has only one NaN component.
+        // The reference implementation in Annex G allows it.
+
+        // The GNU g++ compiler computes:
+        // (1e300 + i 1e300) * (1e30 + i NAN) = inf + i inf
+        // Thus this is allowing some computations with NaN.
+
+        // Check multiply with (NaN,NaN) is not corrected
+        final double[] values = {0, 1, inf, negInf, nan};
+        for (final Complex z : createCombinations(values, c -> true)) {
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Test multiply cases which result in overflow are corrected to infinity
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final Complex c10 = nanMax;
+        final Complex c20 = nanMax;
+        final Complex> operation0 = Complex::multiply;
+        final String operationName0 = ""*"";
+        final Predicate<Complex> expected0 = Complex::isInfinite;
+        final String expectedName0 = ""Inf"";
+        final Complex z0 = operation0.apply(c10, c20);
+                Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+",CStandardTest::testMultiply_17_oe_1_oe
+numb_135_1_1,"    @Test
+    void testDivide_1_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+        final ArrayList<Complex> nans = createNaNs();
+        final ArrayList<Complex> finites = new ArrayList<>(nonZeroFinites);
+        finites.addAll(zeroFinites);
+
+        // ""if the first operand is an infinity and the second operand is a finite number, then the
+        // result of the / operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : nonZeroFinites) {
+                                final Complex c10 = z;
+                final Complex c20 = w;
+                final Complex> operation0 = Complex::divide;
+                final String operationName0 = ""/"";
+                final Predicate<Complex> expected0 = Complex::isInfinite;
+                final String expectedName0 = ""Inf"";
+                final Complex z0 = operation0.apply(c10, c20);
+                        Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+    }
+",CStandardTest::testDivide_1_oe_1_oe
+numb_135_2_1,"    @Test
+    void testDivide_2_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+        final ArrayList<Complex> nans = createNaNs();
+        final ArrayList<Complex> finites = new ArrayList<>(nonZeroFinites);
+        finites.addAll(zeroFinites);
+
+        // ""if the first operand is an infinity and the second operand is a finite number, then the
+        // result of the / operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+            }
+            for (final Complex w : zeroFinites) {
+                                final Complex c10 = z;
+                final Complex c20 = w;
+                final Complex> operation0 = Complex::divide;
+                final String operationName0 = ""/"";
+                final Predicate<Complex> expected0 = Complex::isInfinite;
+                final String expectedName0 = ""Inf"";
+                final Complex z0 = operation0.apply(c10, c20);
+                        Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+    }
+",CStandardTest::testDivide_2_oe_1_oe
+numb_135_3_1,"    @Test
+    void testDivide_3_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+        final ArrayList<Complex> nans = createNaNs();
+        final ArrayList<Complex> finites = new ArrayList<>(nonZeroFinites);
+        finites.addAll(zeroFinites);
+
+        // ""if the first operand is an infinity and the second operand is a finite number, then the
+        // result of the / operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+            }
+            for (final Complex w : zeroFinites) {
+                // removed other assertion
+            }
+            // Check inf/inf cannot be done
+            for (final Complex w : infinites) {
+                                final Complex c10 = z;
+                final Complex c20 = w;
+                final Complex> operation0 = Complex::divide;
+                final String operationName0 = ""/"";
+                final Predicate<Complex> expected0 = Complex::isNaN;
+                final String expectedName0 = ""NaN"";
+                final Complex z0 = operation0.apply(c10, c20);
+                        Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+    }
+",CStandardTest::testDivide_3_oe_1_oe
+numb_135_4_1,"    @Test
+    void testDivide_4_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+        final ArrayList<Complex> nans = createNaNs();
+        final ArrayList<Complex> finites = new ArrayList<>(nonZeroFinites);
+        finites.addAll(zeroFinites);
+
+        // ""if the first operand is an infinity and the second operand is a finite number, then the
+        // result of the / operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+            }
+            for (final Complex w : zeroFinites) {
+                // removed other assertion
+            }
+            // Check inf/inf cannot be done
+            for (final Complex w : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ""if the first operand is a finite number and the second operand is an infinity, then the
+        // result of the / operator is a zero;""
+        for (final Complex z : finites) {
+            for (final Complex w : infinites) {
+                                final Complex c10 = z;
+                final Complex c20 = w;
+                final Complex> operation0 = Complex::divide;
+                final String operationName0 = ""/"";
+                final Predicate<Complex> expected0 = CStandardTest::isZero;
+                final String expectedName0 = ""Zero"";
+                final Complex z0 = operation0.apply(c10, c20);
+                        Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+    }
+",CStandardTest::testDivide_4_oe_1_oe
+numb_135_5_1,"    @Test
+    void testDivide_5_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+        final ArrayList<Complex> nans = createNaNs();
+        final ArrayList<Complex> finites = new ArrayList<>(nonZeroFinites);
+        finites.addAll(zeroFinites);
+
+        // ""if the first operand is an infinity and the second operand is a finite number, then the
+        // result of the / operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+            }
+            for (final Complex w : zeroFinites) {
+                // removed other assertion
+            }
+            // Check inf/inf cannot be done
+            for (final Complex w : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ""if the first operand is a finite number and the second operand is an infinity, then the
+        // result of the / operator is a zero;""
+        for (final Complex z : finites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ""if the first operand is a nonzero finite number or an infinity and the second operand is
+        // a zero, then the result of the / operator is an infinity.""
+        for (final Complex w : zeroFinites) {
+            for (final Complex z : nonZeroFinites) {
+                                final Complex c10 = z;
+                final Complex c20 = w;
+                final Complex> operation0 = Complex::divide;
+                final String operationName0 = ""/"";
+                final Predicate<Complex> expected0 = Complex::isInfinite;
+                final String expectedName0 = ""Inf"";
+                final Complex z0 = operation0.apply(c10, c20);
+                        Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+    }
+",CStandardTest::testDivide_5_oe_1_oe
+numb_135_6_1,"    @Test
+    void testDivide_6_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+        final ArrayList<Complex> nans = createNaNs();
+        final ArrayList<Complex> finites = new ArrayList<>(nonZeroFinites);
+        finites.addAll(zeroFinites);
+
+        // ""if the first operand is an infinity and the second operand is a finite number, then the
+        // result of the / operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+            }
+            for (final Complex w : zeroFinites) {
+                // removed other assertion
+            }
+            // Check inf/inf cannot be done
+            for (final Complex w : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ""if the first operand is a finite number and the second operand is an infinity, then the
+        // result of the / operator is a zero;""
+        for (final Complex z : finites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ""if the first operand is a nonzero finite number or an infinity and the second operand is
+        // a zero, then the result of the / operator is an infinity.""
+        for (final Complex w : zeroFinites) {
+            for (final Complex z : nonZeroFinites) {
+                // removed other assertion
+            }
+            for (final Complex z : infinites) {
+                                final Complex c10 = z;
+                final Complex c20 = w;
+                final Complex> operation0 = Complex::divide;
+                final String operationName0 = ""/"";
+                final Predicate<Complex> expected0 = Complex::isInfinite;
+                final String expectedName0 = ""Inf"";
+                final Complex z0 = operation0.apply(c10, c20);
+                        Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+    }
+",CStandardTest::testDivide_6_oe_1_oe
+numb_135_7_1,"    @Test
+    void testDivide_7_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+        final ArrayList<Complex> nans = createNaNs();
+        final ArrayList<Complex> finites = new ArrayList<>(nonZeroFinites);
+        finites.addAll(zeroFinites);
+
+        // ""if the first operand is an infinity and the second operand is a finite number, then the
+        // result of the / operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+            }
+            for (final Complex w : zeroFinites) {
+                // removed other assertion
+            }
+            // Check inf/inf cannot be done
+            for (final Complex w : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ""if the first operand is a finite number and the second operand is an infinity, then the
+        // result of the / operator is a zero;""
+        for (final Complex z : finites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ""if the first operand is a nonzero finite number or an infinity and the second operand is
+        // a zero, then the result of the / operator is an infinity.""
+        for (final Complex w : zeroFinites) {
+            for (final Complex z : nonZeroFinites) {
+                // removed other assertion
+            }
+            for (final Complex z : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ISO C Standard in Annex G is missing an explicit definition of how to handle NaNs.
+        // The reference implementation does not correct for divide by NaN components unless
+        // infinite.
+        for (final Complex w : nans) {
+            for (final Complex z : finites) {
+                                final Complex c10 = z;
+                final Complex c20 = w;
+                final Complex> operation0 = Complex::divide;
+                final String operationName0 = ""/"";
+                final Predicate<Complex> expected0 = c -> NAN.equals(c);
+                final String expectedName0 = ""(NaN,NaN)"";
+                final Complex z0 = operation0.apply(c10, c20);
+                        Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+    }
+",CStandardTest::testDivide_7_oe_1_oe
+numb_135_8_1,"    @Test
+    void testDivide_8_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+        final ArrayList<Complex> nans = createNaNs();
+        final ArrayList<Complex> finites = new ArrayList<>(nonZeroFinites);
+        finites.addAll(zeroFinites);
+
+        // ""if the first operand is an infinity and the second operand is a finite number, then the
+        // result of the / operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+            }
+            for (final Complex w : zeroFinites) {
+                // removed other assertion
+            }
+            // Check inf/inf cannot be done
+            for (final Complex w : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ""if the first operand is a finite number and the second operand is an infinity, then the
+        // result of the / operator is a zero;""
+        for (final Complex z : finites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ""if the first operand is a nonzero finite number or an infinity and the second operand is
+        // a zero, then the result of the / operator is an infinity.""
+        for (final Complex w : zeroFinites) {
+            for (final Complex z : nonZeroFinites) {
+                // removed other assertion
+            }
+            for (final Complex z : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ISO C Standard in Annex G is missing an explicit definition of how to handle NaNs.
+        // The reference implementation does not correct for divide by NaN components unless
+        // infinite.
+        for (final Complex w : nans) {
+            for (final Complex z : finites) {
+                // removed other assertion
+            }
+            for (final Complex z : infinites) {
+                                final Complex c10 = z;
+                final Complex c20 = w;
+                final Complex> operation0 = Complex::divide;
+                final String operationName0 = ""/"";
+                final Predicate<Complex> expected0 = c -> NAN.equals(c);
+                final String expectedName0 = ""(NaN,NaN)"";
+                final Complex z0 = operation0.apply(c10, c20);
+                        Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+    }
+",CStandardTest::testDivide_8_oe_1_oe
+numb_135_9_1,"    @Test
+    void testDivide_9_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+        final ArrayList<Complex> nans = createNaNs();
+        final ArrayList<Complex> finites = new ArrayList<>(nonZeroFinites);
+        finites.addAll(zeroFinites);
+
+        // ""if the first operand is an infinity and the second operand is a finite number, then the
+        // result of the / operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+            }
+            for (final Complex w : zeroFinites) {
+                // removed other assertion
+            }
+            // Check inf/inf cannot be done
+            for (final Complex w : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ""if the first operand is a finite number and the second operand is an infinity, then the
+        // result of the / operator is a zero;""
+        for (final Complex z : finites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ""if the first operand is a nonzero finite number or an infinity and the second operand is
+        // a zero, then the result of the / operator is an infinity.""
+        for (final Complex w : zeroFinites) {
+            for (final Complex z : nonZeroFinites) {
+                // removed other assertion
+            }
+            for (final Complex z : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ISO C Standard in Annex G is missing an explicit definition of how to handle NaNs.
+        // The reference implementation does not correct for divide by NaN components unless
+        // infinite.
+        for (final Complex w : nans) {
+            for (final Complex z : finites) {
+                // removed other assertion
+            }
+            for (final Complex z : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // Check (NaN,NaN) divide is not corrected for the edge case of divide by zero or infinite
+        for (final Complex w : zeroFinites) {
+                        final Complex c10 = NAN;
+            final Complex c20 = w;
+            final Complex> operation0 = Complex::divide;
+            final String operationName0 = ""/"";
+            final Predicate<Complex> expected0 = Complex::isNaN;
+            final String expectedName0 = ""NaN"";
+            final Complex z0 = operation0.apply(c10, c20);
+                    Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+",CStandardTest::testDivide_9_oe_1_oe
+numb_135_10_1,"    @Test
+    void testDivide_10_oe_1_oe() {
+        final ArrayList<Complex> infinites = createInfinites();
+        final ArrayList<Complex> nonZeroFinites = createNonZeroFinites();
+        final ArrayList<Complex> zeroFinites = createZeroFinites();
+        final ArrayList<Complex> nans = createNaNs();
+        final ArrayList<Complex> finites = new ArrayList<>(nonZeroFinites);
+        finites.addAll(zeroFinites);
+
+        // ""if the first operand is an infinity and the second operand is a finite number, then the
+        // result of the / operator is an infinity;""
+        for (final Complex z : infinites) {
+            for (final Complex w : nonZeroFinites) {
+                // removed other assertion
+            }
+            for (final Complex w : zeroFinites) {
+                // removed other assertion
+            }
+            // Check inf/inf cannot be done
+            for (final Complex w : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ""if the first operand is a finite number and the second operand is an infinity, then the
+        // result of the / operator is a zero;""
+        for (final Complex z : finites) {
+            for (final Complex w : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ""if the first operand is a nonzero finite number or an infinity and the second operand is
+        // a zero, then the result of the / operator is an infinity.""
+        for (final Complex w : zeroFinites) {
+            for (final Complex z : nonZeroFinites) {
+                // removed other assertion
+            }
+            for (final Complex z : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // ISO C Standard in Annex G is missing an explicit definition of how to handle NaNs.
+        // The reference implementation does not correct for divide by NaN components unless
+        // infinite.
+        for (final Complex w : nans) {
+            for (final Complex z : finites) {
+                // removed other assertion
+            }
+            for (final Complex z : infinites) {
+                // removed other assertion
+            }
+        }
+
+        // Check (NaN,NaN) divide is not corrected for the edge case of divide by zero or infinite
+        for (final Complex w : zeroFinites) {
+            // removed other assertion
+        }
+        for (final Complex w : infinites) {
+                        final Complex c10 = NAN;
+            final Complex c20 = w;
+            final Complex> operation0 = Complex::divide;
+            final String operationName0 = ""/"";
+            final Predicate<Complex> expected0 = Complex::isNaN;
+            final String expectedName0 = ""NaN"";
+            final Complex z0 = operation0.apply(c10, c20);
+                    Assertions.assertTrue(expected0.test(z0),()-> String.format(""%s expected0: %s %s %s = %s"",expectedName0,c10,operationName0,c20,z0));
+    }
+    }
+",CStandardTest::testDivide_10_oe_1_oe
+numb_235_1_1,"    @Test
+    void testSignedArithmetic_1_oe_1_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+                final String name0 = ""addReal"";
+        final Complex> doubleOperation0 = Complex::add;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofReal;
+        final Complex> complexOperation0 = Complex::add;
+        final long expectedFailures0 = 0b1111000000000000111100000000000011110000000000001111L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            Assertions.assertEquals(y0.getReal(), z0.getReal(), 0, () -> c0 + "" "" + name0 + "" "" + arg0 + "": real"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_1_oe_1_oe
+numb_235_1_2,"    @Test
+    void testSignedArithmetic_1_oe_2_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+                final String name0 = ""addReal"";
+        final Complex> doubleOperation0 = Complex::add;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofReal;
+        final Complex> complexOperation0 = Complex::add;
+        final long expectedFailures0 = 0b1111000000000000111100000000000011110000000000001111L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            Assertions.assertEquals(y0.getImaginary(),z0.getImaginary(),0,()-> c0 + "" "" + name0 + "" "" + arg0 + "": imaginary"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_1_oe_2_oe
+numb_235_1_3,"    @Test
+    void testSignedArithmetic_1_oe_3_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+                final String name0 = ""addReal"";
+        final Complex> doubleOperation0 = Complex::add;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofReal;
+        final Complex> complexOperation0 = Complex::add;
+        final long expectedFailures0 = 0b1111000000000000111100000000000011110000000000001111L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            // removed other assertion
+                            Assertions.assertEquals(expectedFailure0,!y0.equals(z0),()-> c0 + "" "" + name0 + "" "" + arg0 + "": sign-difference"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_1_oe_3_oe
+numb_235_2_1,"    @Test
+    void testSignedArithmetic_2_oe_1_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+                final String name0 = ""addImaginary"";
+        final Complex> doubleOperation0 = Complex::addImaginary;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofImaginary;
+        final Complex> complexOperation0 = Complex::add;
+        final long expectedFailures0 = 0b1111111111111111L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            Assertions.assertEquals(y0.getReal(), z0.getReal(), 0, () -> c0 + "" "" + name0 + "" "" + arg0 + "": real"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_2_oe_1_oe
+numb_235_2_2,"    @Test
+    void testSignedArithmetic_2_oe_2_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+                final String name0 = ""addImaginary"";
+        final Complex> doubleOperation0 = Complex::addImaginary;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofImaginary;
+        final Complex> complexOperation0 = Complex::add;
+        final long expectedFailures0 = 0b1111111111111111L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            Assertions.assertEquals(y0.getImaginary(),z0.getImaginary(),0,()-> c0 + "" "" + name0 + "" "" + arg0 + "": imaginary"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_2_oe_2_oe
+numb_235_2_3,"    @Test
+    void testSignedArithmetic_2_oe_3_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+                final String name0 = ""addImaginary"";
+        final Complex> doubleOperation0 = Complex::addImaginary;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofImaginary;
+        final Complex> complexOperation0 = Complex::add;
+        final long expectedFailures0 = 0b1111111111111111L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            // removed other assertion
+                            Assertions.assertEquals(expectedFailure0,!y0.equals(z0),()-> c0 + "" "" + name0 + "" "" + arg0 + "": sign-difference"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_2_oe_3_oe
+numb_235_3_1,"    @Test
+    void testSignedArithmetic_3_oe_1_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+                final String name0 = ""subtractReal"";
+        final Complex> doubleOperation0 = Complex::subtract;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofReal;
+        final Complex> complexOperation0 = Complex::subtract;
+        final long expectedFailures0 = 0;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            Assertions.assertEquals(y0.getReal(), z0.getReal(), 0, () -> c0 + "" "" + name0 + "" "" + arg0 + "": real"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_3_oe_1_oe
+numb_235_3_2,"    @Test
+    void testSignedArithmetic_3_oe_2_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+                final String name0 = ""subtractReal"";
+        final Complex> doubleOperation0 = Complex::subtract;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofReal;
+        final Complex> complexOperation0 = Complex::subtract;
+        final long expectedFailures0 = 0;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            Assertions.assertEquals(y0.getImaginary(),z0.getImaginary(),0,()-> c0 + "" "" + name0 + "" "" + arg0 + "": imaginary"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_3_oe_2_oe
+numb_235_3_3,"    @Test
+    void testSignedArithmetic_3_oe_3_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+                final String name0 = ""subtractReal"";
+        final Complex> doubleOperation0 = Complex::subtract;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofReal;
+        final Complex> complexOperation0 = Complex::subtract;
+        final long expectedFailures0 = 0;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            // removed other assertion
+                            Assertions.assertEquals(expectedFailure0,!y0.equals(z0),()-> c0 + "" "" + name0 + "" "" + arg0 + "": sign-difference"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_3_oe_3_oe
+numb_235_4_1,"    @Test
+    void testSignedArithmetic_4_oe_1_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+                final String name0 = ""subtractImaginary"";
+        final Complex> doubleOperation0 = Complex::subtractImaginary;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofImaginary;
+        final Complex> complexOperation0 = Complex::subtract;
+        final long expectedFailures0 = 0;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            Assertions.assertEquals(y0.getReal(), z0.getReal(), 0, () -> c0 + "" "" + name0 + "" "" + arg0 + "": real"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_4_oe_1_oe
+numb_235_4_2,"    @Test
+    void testSignedArithmetic_4_oe_2_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+                final String name0 = ""subtractImaginary"";
+        final Complex> doubleOperation0 = Complex::subtractImaginary;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofImaginary;
+        final Complex> complexOperation0 = Complex::subtract;
+        final long expectedFailures0 = 0;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            Assertions.assertEquals(y0.getImaginary(),z0.getImaginary(),0,()-> c0 + "" "" + name0 + "" "" + arg0 + "": imaginary"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_4_oe_2_oe
+numb_235_4_3,"    @Test
+    void testSignedArithmetic_4_oe_3_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+                final String name0 = ""subtractImaginary"";
+        final Complex> doubleOperation0 = Complex::subtractImaginary;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofImaginary;
+        final Complex> complexOperation0 = Complex::subtract;
+        final long expectedFailures0 = 0;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            // removed other assertion
+                            Assertions.assertEquals(expectedFailure0,!y0.equals(z0),()-> c0 + "" "" + name0 + "" "" + arg0 + "": sign-difference"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_4_oe_3_oe
+numb_235_5_1,"    @Test
+    void testSignedArithmetic_5_oe_1_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 16: x - (x,+0.0)
+                final String name0 = ""subtractFromReal"";
+        final Complex> doubleOperation0 = Complex::subtractFrom;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofReal;
+        final Complex> complexOperation0 = (y, z) -> z.subtract(y);
+        final long expectedFailures0 = 0b11110000000000001111000000000000111100000000000011110000L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            Assertions.assertEquals(y0.getReal(), z0.getReal(), 0, () -> c0 + "" "" + name0 + "" "" + arg0 + "": real"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_5_oe_1_oe
+numb_235_5_2,"    @Test
+    void testSignedArithmetic_5_oe_2_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 16: x - (x,+0.0)
+                final String name0 = ""subtractFromReal"";
+        final Complex> doubleOperation0 = Complex::subtractFrom;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofReal;
+        final Complex> complexOperation0 = (y, z) -> z.subtract(y);
+        final long expectedFailures0 = 0b11110000000000001111000000000000111100000000000011110000L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            Assertions.assertEquals(y0.getImaginary(),z0.getImaginary(),0,()-> c0 + "" "" + name0 + "" "" + arg0 + "": imaginary"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_5_oe_2_oe
+numb_235_5_3,"    @Test
+    void testSignedArithmetic_5_oe_3_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 16: x - (x,+0.0)
+                final String name0 = ""subtractFromReal"";
+        final Complex> doubleOperation0 = Complex::subtractFrom;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofReal;
+        final Complex> complexOperation0 = (y, z) -> z.subtract(y);
+        final long expectedFailures0 = 0b11110000000000001111000000000000111100000000000011110000L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            // removed other assertion
+                            Assertions.assertEquals(expectedFailure0,!y0.equals(z0),()-> c0 + "" "" + name0 + "" "" + arg0 + "": sign-difference"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_5_oe_3_oe
+numb_235_6_1,"    @Test
+    void testSignedArithmetic_6_oe_1_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 16: x - (x,+0.0)
+        // removed other assertion
+        // 16: x - (+0.0,x)
+                final String name0 = ""subtractFromImaginary"";
+        final Complex> doubleOperation0 = Complex::subtractFromImaginary;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofImaginary;
+        final Complex> complexOperation0 = (y, z) -> z.subtract(y);
+        final long expectedFailures0 = 0b11111111111111110000000000000000L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            Assertions.assertEquals(y0.getReal(), z0.getReal(), 0, () -> c0 + "" "" + name0 + "" "" + arg0 + "": real"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_6_oe_1_oe
+numb_235_6_2,"    @Test
+    void testSignedArithmetic_6_oe_2_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 16: x - (x,+0.0)
+        // removed other assertion
+        // 16: x - (+0.0,x)
+                final String name0 = ""subtractFromImaginary"";
+        final Complex> doubleOperation0 = Complex::subtractFromImaginary;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofImaginary;
+        final Complex> complexOperation0 = (y, z) -> z.subtract(y);
+        final long expectedFailures0 = 0b11111111111111110000000000000000L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            Assertions.assertEquals(y0.getImaginary(),z0.getImaginary(),0,()-> c0 + "" "" + name0 + "" "" + arg0 + "": imaginary"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_6_oe_2_oe
+numb_235_6_3,"    @Test
+    void testSignedArithmetic_6_oe_3_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 16: x - (x,+0.0)
+        // removed other assertion
+        // 16: x - (+0.0,x)
+                final String name0 = ""subtractFromImaginary"";
+        final Complex> doubleOperation0 = Complex::subtractFromImaginary;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofImaginary;
+        final Complex> complexOperation0 = (y, z) -> z.subtract(y);
+        final long expectedFailures0 = 0b11111111111111110000000000000000L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            // removed other assertion
+                            Assertions.assertEquals(expectedFailure0,!y0.equals(z0),()-> c0 + "" "" + name0 + "" "" + arg0 + "": sign-difference"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_6_oe_3_oe
+numb_235_7_1,"    @Test
+    void testSignedArithmetic_7_oe_1_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 16: x - (x,+0.0)
+        // removed other assertion
+        // 16: x - (+0.0,x)
+        // removed other assertion
+        // 4: (-0.0,-x) * +x
+        // 4: (+0.0,-0.0) * x
+        // 4: (+0.0,x) * -x
+        // 2: (-y,-x) * +0.0
+        // 2: (+y,+0.0) * -x
+        // 2: (+y,-0.0) * +x
+        // 2: (+y,-x) * -0.0
+        // 2: (+x,-y) * +0.0
+        // 2: (+x,+y) * -0.0
+                final String name0 = ""multiplyReal"";
+        final Complex> doubleOperation0 = Complex::multiply;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofReal;
+        final Complex> complexOperation0 = Complex::multiply;
+        final long expectedFailures0 = 0b1001101011011000000100000001000010111010111110000101000001010L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            Assertions.assertEquals(y0.getReal(), z0.getReal(), 0, () -> c0 + "" "" + name0 + "" "" + arg0 + "": real"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_7_oe_1_oe
+numb_235_7_2,"    @Test
+    void testSignedArithmetic_7_oe_2_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 16: x - (x,+0.0)
+        // removed other assertion
+        // 16: x - (+0.0,x)
+        // removed other assertion
+        // 4: (-0.0,-x) * +x
+        // 4: (+0.0,-0.0) * x
+        // 4: (+0.0,x) * -x
+        // 2: (-y,-x) * +0.0
+        // 2: (+y,+0.0) * -x
+        // 2: (+y,-0.0) * +x
+        // 2: (+y,-x) * -0.0
+        // 2: (+x,-y) * +0.0
+        // 2: (+x,+y) * -0.0
+                final String name0 = ""multiplyReal"";
+        final Complex> doubleOperation0 = Complex::multiply;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofReal;
+        final Complex> complexOperation0 = Complex::multiply;
+        final long expectedFailures0 = 0b1001101011011000000100000001000010111010111110000101000001010L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            Assertions.assertEquals(y0.getImaginary(),z0.getImaginary(),0,()-> c0 + "" "" + name0 + "" "" + arg0 + "": imaginary"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_7_oe_2_oe
+numb_235_7_3,"    @Test
+    void testSignedArithmetic_7_oe_3_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 16: x - (x,+0.0)
+        // removed other assertion
+        // 16: x - (+0.0,x)
+        // removed other assertion
+        // 4: (-0.0,-x) * +x
+        // 4: (+0.0,-0.0) * x
+        // 4: (+0.0,x) * -x
+        // 2: (-y,-x) * +0.0
+        // 2: (+y,+0.0) * -x
+        // 2: (+y,-0.0) * +x
+        // 2: (+y,-x) * -0.0
+        // 2: (+x,-y) * +0.0
+        // 2: (+x,+y) * -0.0
+                final String name0 = ""multiplyReal"";
+        final Complex> doubleOperation0 = Complex::multiply;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofReal;
+        final Complex> complexOperation0 = Complex::multiply;
+        final long expectedFailures0 = 0b1001101011011000000100000001000010111010111110000101000001010L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            // removed other assertion
+                            Assertions.assertEquals(expectedFailure0,!y0.equals(z0),()-> c0 + "" "" + name0 + "" "" + arg0 + "": sign-difference"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_7_oe_3_oe
+numb_235_8_1,"    @Test
+    void testSignedArithmetic_8_oe_1_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 16: x - (x,+0.0)
+        // removed other assertion
+        // 16: x - (+0.0,x)
+        // removed other assertion
+        // 4: (-0.0,-x) * +x
+        // 4: (+0.0,-0.0) * x
+        // 4: (+0.0,x) * -x
+        // 2: (-y,-x) * +0.0
+        // 2: (+y,+0.0) * -x
+        // 2: (+y,-0.0) * +x
+        // 2: (+y,-x) * -0.0
+        // 2: (+x,-y) * +0.0
+        // 2: (+x,+y) * -0.0
+        // removed other assertion
+        // 4: (-0.0,+x) * +x
+        // 2: (+0.0,-0.0) * -x
+        // 4: (+0.0,+0.0) * x
+        // 2: (+0.0,+y) * -x
+        // 2: (-y,+x) * +0.0
+        // 4: (+y,x) * -0.0
+        // 2: (+0.0,+/-y) * -/+0
+        // 2: (+y,+/-0.0) * +/-y (sign 0.0 matches sign y)
+        // 2: (+y,+x) * +0.0
+                final String name0 = ""multiplyImaginary"";
+        final Complex> doubleOperation0 = Complex::multiplyImaginary;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofImaginary;
+        final Complex> complexOperation0 = Complex::multiply;
+        final long expectedFailures0 = 0b11000110110101001000000010000001110001111101011010000010100000L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            Assertions.assertEquals(y0.getReal(), z0.getReal(), 0, () -> c0 + "" "" + name0 + "" "" + arg0 + "": real"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_8_oe_1_oe
+numb_235_8_2,"    @Test
+    void testSignedArithmetic_8_oe_2_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 16: x - (x,+0.0)
+        // removed other assertion
+        // 16: x - (+0.0,x)
+        // removed other assertion
+        // 4: (-0.0,-x) * +x
+        // 4: (+0.0,-0.0) * x
+        // 4: (+0.0,x) * -x
+        // 2: (-y,-x) * +0.0
+        // 2: (+y,+0.0) * -x
+        // 2: (+y,-0.0) * +x
+        // 2: (+y,-x) * -0.0
+        // 2: (+x,-y) * +0.0
+        // 2: (+x,+y) * -0.0
+        // removed other assertion
+        // 4: (-0.0,+x) * +x
+        // 2: (+0.0,-0.0) * -x
+        // 4: (+0.0,+0.0) * x
+        // 2: (+0.0,+y) * -x
+        // 2: (-y,+x) * +0.0
+        // 4: (+y,x) * -0.0
+        // 2: (+0.0,+/-y) * -/+0
+        // 2: (+y,+/-0.0) * +/-y (sign 0.0 matches sign y)
+        // 2: (+y,+x) * +0.0
+                final String name0 = ""multiplyImaginary"";
+        final Complex> doubleOperation0 = Complex::multiplyImaginary;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofImaginary;
+        final Complex> complexOperation0 = Complex::multiply;
+        final long expectedFailures0 = 0b11000110110101001000000010000001110001111101011010000010100000L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            Assertions.assertEquals(y0.getImaginary(),z0.getImaginary(),0,()-> c0 + "" "" + name0 + "" "" + arg0 + "": imaginary"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_8_oe_2_oe
+numb_235_8_3,"    @Test
+    void testSignedArithmetic_8_oe_3_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 16: x - (x,+0.0)
+        // removed other assertion
+        // 16: x - (+0.0,x)
+        // removed other assertion
+        // 4: (-0.0,-x) * +x
+        // 4: (+0.0,-0.0) * x
+        // 4: (+0.0,x) * -x
+        // 2: (-y,-x) * +0.0
+        // 2: (+y,+0.0) * -x
+        // 2: (+y,-0.0) * +x
+        // 2: (+y,-x) * -0.0
+        // 2: (+x,-y) * +0.0
+        // 2: (+x,+y) * -0.0
+        // removed other assertion
+        // 4: (-0.0,+x) * +x
+        // 2: (+0.0,-0.0) * -x
+        // 4: (+0.0,+0.0) * x
+        // 2: (+0.0,+y) * -x
+        // 2: (-y,+x) * +0.0
+        // 4: (+y,x) * -0.0
+        // 2: (+0.0,+/-y) * -/+0
+        // 2: (+y,+/-0.0) * +/-y (sign 0.0 matches sign y)
+        // 2: (+y,+x) * +0.0
+                final String name0 = ""multiplyImaginary"";
+        final Complex> doubleOperation0 = Complex::multiplyImaginary;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofImaginary;
+        final Complex> complexOperation0 = Complex::multiply;
+        final long expectedFailures0 = 0b11000110110101001000000010000001110001111101011010000010100000L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            // removed other assertion
+                            Assertions.assertEquals(expectedFailure0,!y0.equals(z0),()-> c0 + "" "" + name0 + "" "" + arg0 + "": sign-difference"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_8_oe_3_oe
+numb_235_9_1,"    @Test
+    void testSignedArithmetic_9_oe_1_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 16: x - (x,+0.0)
+        // removed other assertion
+        // 16: x - (+0.0,x)
+        // removed other assertion
+        // 4: (-0.0,-x) * +x
+        // 4: (+0.0,-0.0) * x
+        // 4: (+0.0,x) * -x
+        // 2: (-y,-x) * +0.0
+        // 2: (+y,+0.0) * -x
+        // 2: (+y,-0.0) * +x
+        // 2: (+y,-x) * -0.0
+        // 2: (+x,-y) * +0.0
+        // 2: (+x,+y) * -0.0
+        // removed other assertion
+        // 4: (-0.0,+x) * +x
+        // 2: (+0.0,-0.0) * -x
+        // 4: (+0.0,+0.0) * x
+        // 2: (+0.0,+y) * -x
+        // 2: (-y,+x) * +0.0
+        // 4: (+y,x) * -0.0
+        // 2: (+0.0,+/-y) * -/+0
+        // 2: (+y,+/-0.0) * +/-y (sign 0.0 matches sign y)
+        // 2: (+y,+x) * +0.0
+        // removed other assertion
+        // 2: (-0.0,0) / +y
+        // 2: (+0.0,+x) / -y
+        // 2: (-x,0) / -y
+        // 1: (-0.0,+y) / +y
+        // 1: (-y,+0.0) / -y
+                final String name0 = ""divideReal"";
+        final Complex> doubleOperation0 = Complex::divide;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofReal;
+        final Complex> complexOperation0 = Complex::divide;
+        final long expectedFailures0 = 0b100100001000000010000001000000011001000L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            Assertions.assertEquals(y0.getReal(), z0.getReal(), 0, () -> c0 + "" "" + name0 + "" "" + arg0 + "": real"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_9_oe_1_oe
+numb_235_9_2,"    @Test
+    void testSignedArithmetic_9_oe_2_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 16: x - (x,+0.0)
+        // removed other assertion
+        // 16: x - (+0.0,x)
+        // removed other assertion
+        // 4: (-0.0,-x) * +x
+        // 4: (+0.0,-0.0) * x
+        // 4: (+0.0,x) * -x
+        // 2: (-y,-x) * +0.0
+        // 2: (+y,+0.0) * -x
+        // 2: (+y,-0.0) * +x
+        // 2: (+y,-x) * -0.0
+        // 2: (+x,-y) * +0.0
+        // 2: (+x,+y) * -0.0
+        // removed other assertion
+        // 4: (-0.0,+x) * +x
+        // 2: (+0.0,-0.0) * -x
+        // 4: (+0.0,+0.0) * x
+        // 2: (+0.0,+y) * -x
+        // 2: (-y,+x) * +0.0
+        // 4: (+y,x) * -0.0
+        // 2: (+0.0,+/-y) * -/+0
+        // 2: (+y,+/-0.0) * +/-y (sign 0.0 matches sign y)
+        // 2: (+y,+x) * +0.0
+        // removed other assertion
+        // 2: (-0.0,0) / +y
+        // 2: (+0.0,+x) / -y
+        // 2: (-x,0) / -y
+        // 1: (-0.0,+y) / +y
+        // 1: (-y,+0.0) / -y
+                final String name0 = ""divideReal"";
+        final Complex> doubleOperation0 = Complex::divide;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofReal;
+        final Complex> complexOperation0 = Complex::divide;
+        final long expectedFailures0 = 0b100100001000000010000001000000011001000L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            Assertions.assertEquals(y0.getImaginary(),z0.getImaginary(),0,()-> c0 + "" "" + name0 + "" "" + arg0 + "": imaginary"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_9_oe_2_oe
+numb_235_9_3,"    @Test
+    void testSignedArithmetic_9_oe_3_oe() {
+        // The following lists the conditions for the double primitive operation where
+        // the Complex operation is different. Here the double argument can be:
+        // x : any value
+        // +x : positive
+        // +0.0: positive zero
+        // -x : negative
+        // -0.0: negative zero
+        // 0 : any zero
+        // use y for any non-zero value
+
+        // Check the known fail cases using an integer as a bit set.
+        // If a bit is 1 then the case is known to fail.
+        // The 64 cases are enumerated as:
+        // 4 cases: (a,-0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 0.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a,-2.0) operation on -0.0, 0.0, -2, 3
+        // 4 cases: (a, 3.0) operation on -0.0, 0.0, -2, 3
+        // with a in [-0.0, 0.0, -2, 3]
+        // The least significant bit is for the first case.
+
+        // The bit set was generated for this test. The summary below demonstrates
+        // documenting the sign change cases for multiply and divide is non-trivial
+        // and the javadoc in Complex does not break down the actual cases.
+
+        // 16: (x,-0.0) + x
+        // removed other assertion
+        // 16: (-0.0,x) + x
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 0:
+        // removed other assertion
+        // 16: x - (x,+0.0)
+        // removed other assertion
+        // 16: x - (+0.0,x)
+        // removed other assertion
+        // 4: (-0.0,-x) * +x
+        // 4: (+0.0,-0.0) * x
+        // 4: (+0.0,x) * -x
+        // 2: (-y,-x) * +0.0
+        // 2: (+y,+0.0) * -x
+        // 2: (+y,-0.0) * +x
+        // 2: (+y,-x) * -0.0
+        // 2: (+x,-y) * +0.0
+        // 2: (+x,+y) * -0.0
+        // removed other assertion
+        // 4: (-0.0,+x) * +x
+        // 2: (+0.0,-0.0) * -x
+        // 4: (+0.0,+0.0) * x
+        // 2: (+0.0,+y) * -x
+        // 2: (-y,+x) * +0.0
+        // 4: (+y,x) * -0.0
+        // 2: (+0.0,+/-y) * -/+0
+        // 2: (+y,+/-0.0) * +/-y (sign 0.0 matches sign y)
+        // 2: (+y,+x) * +0.0
+        // removed other assertion
+        // 2: (-0.0,0) / +y
+        // 2: (+0.0,+x) / -y
+        // 2: (-x,0) / -y
+        // 1: (-0.0,+y) / +y
+        // 1: (-y,+0.0) / -y
+                final String name0 = ""divideReal"";
+        final Complex> doubleOperation0 = Complex::divide;
+        final DoubleFunction<Complex> doubleToComplex0 = ComplexTest::ofReal;
+        final Complex> complexOperation0 = Complex::divide;
+        final long expectedFailures0 = 0b100100001000000010000001000000011001000L;
+        // With an operation on zero or non-zero arguments0
+                final double[] arguments0 = {-0.0, 0.0, -2, 3};
+                for (final double a0 : arguments0) {
+                    for (final double b0 : arguments0) {
+                        final Complex c0 = Complex.ofCartesian(a0, b0);
+                        for (final double arg0 : arguments0) {
+                            final Complex y0 = doubleOperation0.apply(c0, arg0);
+                            final Complex z0 = complexOperation0.apply(c0, doubleToComplex0.apply(arg0));
+                            final boolean expectedFailure0 = (expectedFailures0 & 0x1) == 1;
+                            expectedFailures0 >>>= 1;
+                            // Check the same answer. Sign is allowed to be different for zero.
+                            // removed other assertion
+                            // removed other assertion
+                            Assertions.assertEquals(expectedFailure0,!y0.equals(z0),()-> c0 + "" "" + name0 + "" "" + arg0 + "": sign-difference"");
+    }
+    }
+    }
+    }
+",ComplexTest::testSignedArithmetic_9_oe_3_oe
+numb_329_1_1,"    @Test
+    void testDoubleValueForSubnormalNumbers_1_oe_1_oe() {
+                final double expected0 = //Double.MIN_VALUE * 2/3 Double.MIN_VALUE;
+        final BigInteger numerator0 = BigInteger.ONE;
+        final BigInteger denominator0 = BigInteger.ONE.shiftLeft(1073).multiply(BigInteger.valueOf(3L));
+        final BigFraction f0 = BigFraction.of(numerator0, denominator0);
+                Assertions.assertEquals(expected0, f0.doubleValue());
+    }
+",BigFractionTest::testDoubleValueForSubnormalNumbers_1_oe_1_oe
+numb_402_13_1,"    @Test
+    void testNextPrime_13_oe_1_oe() {
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        for (int i = 0; i < SmallPrimes.PRIMES.length - 1; i++) {
+            for (int j = SmallPrimes.PRIMES[i] + 1; j <= SmallPrimes.PRIMES[i + 1]; j++) {
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        for (int i = 25325981 + 1; i <= 25326023; i++) {
+            // removed other assertion
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+                final int n0 = Integer.MIN_VALUE;
+        final String expected0 = MessageFormat.format(Primes.NUMBER_TOO_SMALL, Integer.MIN_VALUE, 0);
+        try {
+                    Primes.nextPrime(n0);
+                    Assertions.fail(""Exception not thrown"");
+    }
+    }
+",PrimesTest::testNextPrime_13_oe_1_oe
+numb_402_14_1,"    @Test
+    void testNextPrime_14_oe_1_oe() {
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        for (int i = 0; i < SmallPrimes.PRIMES.length - 1; i++) {
+            for (int j = SmallPrimes.PRIMES[i] + 1; j <= SmallPrimes.PRIMES[i + 1]; j++) {
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        for (int i = 25325981 + 1; i <= 25326023; i++) {
+            // removed other assertion
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+                final int n0 = -1;
+        final String expected0 = MessageFormat.format(Primes.NUMBER_TOO_SMALL, -1, 0);
+        try {
+                    Primes.nextPrime(n0);
+                    Assertions.fail(""Exception not thrown"");
+    }
+    }
+",PrimesTest::testNextPrime_14_oe_1_oe
+numb_402_15_1,"    @Test
+    void testNextPrime_15_oe_1_oe() {
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        for (int i = 0; i < SmallPrimes.PRIMES.length - 1; i++) {
+            for (int j = SmallPrimes.PRIMES[i] + 1; j <= SmallPrimes.PRIMES[i + 1]; j++) {
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        for (int i = 25325981 + 1; i <= 25326023; i++) {
+            // removed other assertion
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+                final int n0 = -13;
+        final String expected0 = MessageFormat.format(Primes.NUMBER_TOO_SMALL, -13, 0);
+        try {
+                    Primes.nextPrime(n0);
+                    Assertions.fail(""Exception not thrown"");
+    }
+    }
+",PrimesTest::testNextPrime_15_oe_1_oe
+numb_404_1_1,"    @Test
+    void testPrimeFactors_1_oe_1_oe() throws Exception {
+        for (int i : BELOW_2) {
+                        final int n0 = i;
+            final String expected0 = MessageFormat.format(Primes.NUMBER_TOO_SMALL, i, 2);
+            try {
+                        Primes.primeFactors(n0);
+                        Assertions.fail(""Exception not thrown"");
+    }
+    }
+    }
+",PrimesTest::testPrimeFactors_1_oe_1_oe
+numb_511_2_1,"    @Test
+    void testSum_simple_2_oe_1_oe() {
+        // act/assert
+        // removed other assertion
+
+                final double expected0 = Math.PI;
+        final double... values0 = Math.PI;
+        // check non-array method variants
+                final int len0 = values0.length;
+                if (len0 == 1) {
+                    Assertions.assertEquals(expected0, Sum.of(values0[0]).getAsDouble());
+    }
+    }
+",SumTest::testSum_simple_2_oe_1_oe
+numb_511_2_2,"    @Test
+    void testSum_simple_2_oe_2_oe() {
+        // act/assert
+        // removed other assertion
+
+                final double expected0 = Math.PI;
+        final double... values0 = Math.PI;
+        // check non-array method variants
+                final int len0 = values0.length;
+                if (len0 == 1) {
+                    // removed other assertion
+                } else if (len0 == 2) {
+                    Assertions.assertEquals(expected0, Sum.of(values0[0], values0[1]).getAsDouble());
+    }
+    }
+",SumTest::testSum_simple_2_oe_2_oe
+numb_511_2_3,"    @Test
+    void testSum_simple_2_oe_3_oe() {
+        // act/assert
+        // removed other assertion
+
+                final double expected0 = Math.PI;
+        final double... values0 = Math.PI;
+        // check non-array method variants
+                final int len0 = values0.length;
+                if (len0 == 1) {
+                    // removed other assertion
+                } else if (len0 == 2) {
+                    // removed other assertion
+                } else if (len0 == 3) {
+                    Assertions.assertEquals(expected0, Sum.of(values0[0], values0[1], values0[2]).getAsDouble());
+    }
+    }
+",SumTest::testSum_simple_2_oe_3_oe
+numb_511_2_4,"    @Test
+    void testSum_simple_2_oe_4_oe() {
+        // act/assert
+        // removed other assertion
+
+                final double expected0 = Math.PI;
+        final double... values0 = Math.PI;
+        // check non-array method variants
+                final int len0 = values0.length;
+                if (len0 == 1) {
+                    // removed other assertion
+                } else if (len0 == 2) {
+                    // removed other assertion
+                } else if (len0 == 3) {
+                    // removed other assertion
+                } else if (len0 == 4) {
+                    Assertions.assertEquals(expected0, Sum.of(values0[0], values0[1], values0[2], values0[3]).getAsDouble());
+    }
+    }
+",SumTest::testSum_simple_2_oe_4_oe
+numb_511_2_5,"    @Test
+    void testSum_simple_2_oe_5_oe() {
+        // act/assert
+        // removed other assertion
+
+                final double expected0 = Math.PI;
+        final double... values0 = Math.PI;
+        // check non-array method variants
+                final int len0 = values0.length;
+                if (len0 == 1) {
+                    // removed other assertion
+                } else if (len0 == 2) {
+                    // removed other assertion
+                } else if (len0 == 3) {
+                    // removed other assertion
+                } else if (len0 == 4) {
+                    // removed other assertion
+                }
+        
+                // check use with add()
+                final Sum addAccumulator0 = Sum.create();
+                for (int i0 = 0; i0 < len0; ++i0) {
+                    addAccumulator0.add(values0[i0]);
+                }
+                Assertions.assertEquals(expected0, addAccumulator0.getAsDouble());
+    }
+",SumTest::testSum_simple_2_oe_5_oe
+numb_511_2_6,"    @Test
+    void testSum_simple_2_oe_6_oe() {
+        // act/assert
+        // removed other assertion
+
+                final double expected0 = Math.PI;
+        final double... values0 = Math.PI;
+        // check non-array method variants
+                final int len0 = values0.length;
+                if (len0 == 1) {
+                    // removed other assertion
+                } else if (len0 == 2) {
+                    // removed other assertion
+                } else if (len0 == 3) {
+                    // removed other assertion
+                } else if (len0 == 4) {
+                    // removed other assertion
+                }
+        
+                // check use with add()
+                final Sum addAccumulator0 = Sum.create();
+                for (int i0 = 0; i0 < len0; ++i0) {
+                    addAccumulator0.add(values0[i0]);
+                }
+                // removed other assertion
+        
+                // check with accept()
+                final Sum acceptAccumulator0 = Sum.create();
+                for (int i0 = 0; i0 < len0; ++i0) {
+                    acceptAccumulator0.accept(values0[i0]);
+                }
+                Assertions.assertEquals(expected0, acceptAccumulator0.getAsDouble());
+    }
+",SumTest::testSum_simple_2_oe_6_oe
+numb_511_2_7,"    @Test
+    void testSum_simple_2_oe_7_oe() {
+        // act/assert
+        // removed other assertion
+
+                final double expected0 = Math.PI;
+        final double... values0 = Math.PI;
+        // check non-array method variants
+                final int len0 = values0.length;
+                if (len0 == 1) {
+                    // removed other assertion
+                } else if (len0 == 2) {
+                    // removed other assertion
+                } else if (len0 == 3) {
+                    // removed other assertion
+                } else if (len0 == 4) {
+                    // removed other assertion
+                }
+        
+                // check use with add()
+                final Sum addAccumulator0 = Sum.create();
+                for (int i0 = 0; i0 < len0; ++i0) {
+                    addAccumulator0.add(values0[i0]);
+                }
+                // removed other assertion
+        
+                // check with accept()
+                final Sum acceptAccumulator0 = Sum.create();
+                for (int i0 = 0; i0 < len0; ++i0) {
+                    acceptAccumulator0.accept(values0[i0]);
+                }
+                // removed other assertion
+        
+                // check using stream
+                final Sum streamAccumulator0 = Sum.create();
+                Arrays.stream(values0).forEach(streamAccumulator0);
+                Assertions.assertEquals(expected0, streamAccumulator0.getAsDouble());
+    }
+",SumTest::testSum_simple_2_oe_7_oe
+numb_511_2_8,"    @Test
+    void testSum_simple_2_oe_8_oe() {
+        // act/assert
+        // removed other assertion
+
+                final double expected0 = Math.PI;
+        final double... values0 = Math.PI;
+        // check non-array method variants
+                final int len0 = values0.length;
+                if (len0 == 1) {
+                    // removed other assertion
+                } else if (len0 == 2) {
+                    // removed other assertion
+                } else if (len0 == 3) {
+                    // removed other assertion
+                } else if (len0 == 4) {
+                    // removed other assertion
+                }
+        
+                // check use with add()
+                final Sum addAccumulator0 = Sum.create();
+                for (int i0 = 0; i0 < len0; ++i0) {
+                    addAccumulator0.add(values0[i0]);
+                }
+                // removed other assertion
+        
+                // check with accept()
+                final Sum acceptAccumulator0 = Sum.create();
+                for (int i0 = 0; i0 < len0; ++i0) {
+                    acceptAccumulator0.accept(values0[i0]);
+                }
+                // removed other assertion
+        
+                // check using stream
+                final Sum streamAccumulator0 = Sum.create();
+                Arrays.stream(values0).forEach(streamAccumulator0);
+                // removed other assertion
+        
+                // check array instance method
+                Assertions.assertEquals(expected0, Sum.create().add(values0).getAsDouble());
+    }
+",SumTest::testSum_simple_2_oe_8_oe
+numb_511_2_9,"    @Test
+    void testSum_simple_2_oe_9_oe() {
+        // act/assert
+        // removed other assertion
+
+                final double expected0 = Math.PI;
+        final double... values0 = Math.PI;
+        // check non-array method variants
+                final int len0 = values0.length;
+                if (len0 == 1) {
+                    // removed other assertion
+                } else if (len0 == 2) {
+                    // removed other assertion
+                } else if (len0 == 3) {
+                    // removed other assertion
+                } else if (len0 == 4) {
+                    // removed other assertion
+                }
+        
+                // check use with add()
+                final Sum addAccumulator0 = Sum.create();
+                for (int i0 = 0; i0 < len0; ++i0) {
+                    addAccumulator0.add(values0[i0]);
+                }
+                // removed other assertion
+        
+                // check with accept()
+                final Sum acceptAccumulator0 = Sum.create();
+                for (int i0 = 0; i0 < len0; ++i0) {
+                    acceptAccumulator0.accept(values0[i0]);
+                }
+                // removed other assertion
+        
+                // check using stream
+                final Sum streamAccumulator0 = Sum.create();
+                Arrays.stream(values0).forEach(streamAccumulator0);
+                // removed other assertion
+        
+                // check array instance method
+                // removed other assertion
+        
+                // check array factory method
+                Assertions.assertEquals(expected0, Sum.of(values0).getAsDouble());
+    }
+",SumTest::testSum_simple_2_oe_9_oe
+numb_512_1_1,"    @Test
+    void testSumAccuracy_1_oe_1_oe() {
+        // arrange
+        final double a = 9.999999999;
+        final double b = Math.scalb(a, -53);
+        final double c = Math.scalb(a, -53);
+        final double d = Math.scalb(a, -27);
+        final double e = Math.scalb(a, -27);
+        final double f = Math.scalb(a, -50);
+
+        // act/assert
+                final double... values0 = a;
+        final double exact0 = exactSum(values0);
+                assertSum(exact0, values0);
+    }
+",SumTest::testSumAccuracy_1_oe_1_oe

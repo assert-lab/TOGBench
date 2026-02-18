@@ -1,0 +1,13 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev_async_16_5.java:[113,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+  exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project async-http-client-extras-rxjava: Compilation failure
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev_async_16_5.java:[113,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+[ERROR]   exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
