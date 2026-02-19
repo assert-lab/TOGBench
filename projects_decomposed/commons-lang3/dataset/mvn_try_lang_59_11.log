@@ -1,5 +1,5 @@
-[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in org.apache.commons.lang3.CharRangeTest_OE25Dev_lang_59_11
-[ERROR] org.apache.commons.lang3.CharRangeTest_OE25Dev_lang_59_11.testIterator_11_oe  Time elapsed: 0.012 s  <<< FAILURE!
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in org.apache.commons.lang3.CharRangeTest_OE25Dev_lang_59_11
+[ERROR] org.apache.commons.lang3.CharRangeTest_OE25Dev_lang_59_11.testIterator_11_oe  Time elapsed: 0.008 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
 	at org.apache.commons.lang3.CharRangeTest_OE25Dev_lang_59_11.testIterator_11_oe(CharRangeTest_OE25Dev_lang_59_11.java:359)
 

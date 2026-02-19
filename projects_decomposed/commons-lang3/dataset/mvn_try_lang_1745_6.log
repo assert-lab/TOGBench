@@ -1,5 +1,5 @@
-[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in org.apache.commons.lang3.text.StrBuilderTest_OE25Dev_lang_1745_6
-[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev_lang_1745_6.testAsReader_6_oe  Time elapsed: 0.009 s  <<< FAILURE!
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.023 s <<< FAILURE! - in org.apache.commons.lang3.text.StrBuilderTest_OE25Dev_lang_1745_6
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev_lang_1745_6.testAsReader_6_oe  Time elapsed: 0.012 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <0> but was: <2>
 	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev_lang_1745_6.testAsReader_6_oe(StrBuilderTest_OE25Dev_lang_1745_6.java:1851)
 

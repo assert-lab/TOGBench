@@ -369,7 +369,7 @@
             <exclude>src/test/resources/test-data/**/*.tbz2</exclude>
             <exclude>src/test/resources/test-data/test.mf</exclude>
             <!--  implicite exclude does not work if sandbox profile is not activated -->
-            <exclude>commons-vfs2-sandbox/**</exclude>
+            <!-- <exclude>commons-vfs2-sandbox/**</exclude> -->
             <exclude>dist/target/**</exclude>
           </excludes>
         </configuration>
@@ -422,7 +422,7 @@
             <exclude>src/test/resources/test-data/**/*.tbz2</exclude>
             <exclude>src/test/resources/test-data/test.mf</exclude>
             <!--  implicit exclude does not work if sandbox profile is not activated -->
-            <exclude>commons-vfs2-sandbox/**</exclude>
+            <!-- <exclude>commons-vfs2-sandbox/**</exclude> -->
             <exclude>dist/target/**</exclude>
           </excludes>
         </configuration>
@@ -479,7 +479,7 @@
             </overrideCompatibilityChangeParameters>
             <excludes>
               <!--  Package moved to new module -->
-              <exclude>org.apache.commons.vfs2.provider.webdav</exclude>
+              <!-- <exclude>org.apache.commons.vfs2.provider.webdav</exclude> -->
             </excludes>
           </parameter>
         </configuration>

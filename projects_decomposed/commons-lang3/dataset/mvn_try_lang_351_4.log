@@ -1,5 +1,5 @@
-[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in org.apache.commons.lang3.ClassUtilsTest_OE25Dev_lang_351_4
-[ERROR] org.apache.commons.lang3.ClassUtilsTest_OE25Dev_lang_351_4.testHierarchyIncludingInterfaces_4_oe  Time elapsed: 0.009 s  <<< FAILURE!
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! - in org.apache.commons.lang3.ClassUtilsTest_OE25Dev_lang_351_4
+[ERROR] org.apache.commons.lang3.ClassUtilsTest_OE25Dev_lang_351_4.testHierarchyIncludingInterfaces_4_oe  Time elapsed: 0.013 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <java.lang.Object> but was: <org.apache.commons.lang3.reflect.testbed.StringParameterizedChild>
 	at org.apache.commons.lang3.ClassUtilsTest_OE25Dev_lang_351_4.testHierarchyIncludingInterfaces_4_oe(ClassUtilsTest_OE25Dev_lang_351_4.java:1478)
 

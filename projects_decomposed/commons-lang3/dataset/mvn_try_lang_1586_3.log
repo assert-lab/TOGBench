@@ -1,5 +1,5 @@
-[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest_OE25Dev_lang_1586_3
-[ERROR] org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest_OE25Dev_lang_1586_3.testInitializeNoChildren_3_oe  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest_OE25Dev_lang_1586_3
+[ERROR] org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest_OE25Dev_lang_1586_3.testInitializeNoChildren_3_oe  Time elapsed: 0.01 s  <<< ERROR!
 java.lang.IllegalStateException: start() must be called first!
 	at org.apache.commons.lang3.concurrent.MultiBackgroundInitializerTest_OE25Dev_lang_1586_3.testInitializeNoChildren_3_oe(MultiBackgroundInitializerTest_OE25Dev_lang_1586_3.java:395)
 

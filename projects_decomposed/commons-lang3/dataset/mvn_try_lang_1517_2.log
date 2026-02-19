@@ -1,5 +1,5 @@
-[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in org.apache.commons.lang3.concurrent.BackgroundInitializerTest_OE25Dev_lang_1517_2
-[ERROR] org.apache.commons.lang3.concurrent.BackgroundInitializerTest_OE25Dev_lang_1517_2.testStartMultipleTimes_2_oe  Time elapsed: 0.008 s  <<< FAILURE!
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in org.apache.commons.lang3.concurrent.BackgroundInitializerTest_OE25Dev_lang_1517_2
+[ERROR] org.apache.commons.lang3.concurrent.BackgroundInitializerTest_OE25Dev_lang_1517_2.testStartMultipleTimes_2_oe  Time elapsed: 0.011 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Could start again ==> expected: <false> but was: <true>
 	at org.apache.commons.lang3.concurrent.BackgroundInitializerTest_OE25Dev_lang_1517_2.testStartMultipleTimes_2_oe(BackgroundInitializerTest_OE25Dev_lang_1517_2.java:305)
 

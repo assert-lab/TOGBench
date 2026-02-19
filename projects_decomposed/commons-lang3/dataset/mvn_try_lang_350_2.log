@@ -1,5 +1,5 @@
-[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in org.apache.commons.lang3.ClassUtilsTest_OE25Dev_lang_350_2
-[ERROR] org.apache.commons.lang3.ClassUtilsTest_OE25Dev_lang_350_2.testHierarchyExcludingInterfaces_2_oe  Time elapsed: 0.008 s  <<< FAILURE!
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in org.apache.commons.lang3.ClassUtilsTest_OE25Dev_lang_350_2
+[ERROR] org.apache.commons.lang3.ClassUtilsTest_OE25Dev_lang_350_2.testHierarchyExcludingInterfaces_2_oe  Time elapsed: 0.012 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <org.apache.commons.lang3.reflect.testbed.GenericParent> but was: <org.apache.commons.lang3.reflect.testbed.StringParameterizedChild>
 	at org.apache.commons.lang3.ClassUtilsTest_OE25Dev_lang_350_2.testHierarchyExcludingInterfaces_2_oe(ClassUtilsTest_OE25Dev_lang_350_2.java:1477)
 

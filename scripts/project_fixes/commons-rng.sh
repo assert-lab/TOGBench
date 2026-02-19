@@ -16,40 +16,7 @@ meta_path = dataset / "meta.csv"
 inputs_path = dataset / "inputs.csv"
 
 fail_list = [
-
-"JumpableProvidersParametricTest.testJumpCopyMatchesPreJumpState_1_oe_1_oe",
-"JumpableProvidersParametricTest.testLongJumpCopyMatchesPreJumpState_1_oe_1_oe",
-"JumpableProvidersParametricTest.testJumpResetsDefaultState_1_oe_1_oe",
-"JumpableProvidersParametricTest.testLongJumpResetsDefaultState_1_oe_1_oe",
-"NumberFactoryTest.testDoubleGenerationMethods_1_oe_1_oe",
-"NumberFactoryTest.testDoubleGenerationMethods_1_oe_2_oe",
-"NumberFactoryTest.testDoubleGenerationMethods_2_oe_1_oe",
-"NumberFactoryTest.testDoubleGenerationMethods_2_oe_2_oe",
-"NumberFactoryTest.testDoubleGenerationMethods_3_oe_1_oe",
-"NumberFactoryTest.testDoubleGenerationMethods_3_oe_2_oe",
-"NumberFactoryTest.testMakeDoubleFromLong_1_oe_1_oe",
-"NumberFactoryTest.testMakeDoubleFromLong_1_oe_2_oe",
-"NumberFactoryTest.testMakeDoubleFromIntInt_1_oe_2_oe",
-"NumberFactoryTest.testMakeDoubleFromIntInt_1_oe_1_oe",
 "ProvidersCommonParametricTest.testUniformNextBytesFullBuffer_1_oe",
-"IntProviderTest.testNextBoolean_2_oe",
-"LongProviderTest.testNextBoolean_2_oe",
-"LongProviderTest.testNextInt_2_oe",
-"LongProviderTest.testNextInt_4_oe",
-"NumberFactoryTest.testIntToByteArraySignificanceOrder_1_oe",
-"NumberFactoryTest.testLongToByteArraySignificanceOrder_1_oe",
-"CoordinatesTest.testRequireFiniteWithMessageThrows_3_oe",
-"CoordinatesTest.testRequireLengthWithMessageThrows_3_oe",
-"CoordinatesTest.testRequireLengthWithMessageThrows_4_oe",
-"CoordinatesTest.testRequireLengthWithMessageThrows_5_oe",
-"CompositeSamplersTest.testSharedStateObjectSamplerSamplesWithCustomDiscreteSamplerFactory_2_oe",
-"CompositeSamplersTest.testSharedStateObjectSamplerSamplesWithCustomSharedStateDiscreteSamplerFactory_2_oe",
-"AhrensDieterExponentialSamplerTest.testSamplerWithZeroFromRandomGenerator_2_oe",
-"CombinationSamplerTest.testUniformWithKmoreThanHalfN_1_oe_2_oe",
-
-"BoxMullerLogNormalSamplerTest.*",
-
-
 ]
 
 patterns = []

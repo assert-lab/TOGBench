@@ -1,4 +1,4 @@
-[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in org.apache.commons.lang3.StringUtilsTest_OE25Dev_lang_643_13
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! - in org.apache.commons.lang3.StringUtilsTest_OE25Dev_lang_643_13
 [ERROR] org.apache.commons.lang3.StringUtilsTest_OE25Dev_lang_643_13.testReplaceAll_StringStringString_13_oe  Time elapsed: 0.011 s  <<< ERROR!
 java.util.regex.PatternSyntaxException: 
 Dangling meta character '+' near index 1

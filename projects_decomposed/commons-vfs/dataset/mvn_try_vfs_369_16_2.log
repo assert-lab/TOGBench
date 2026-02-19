@@ -1,0 +1,27 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2-jackrabbit2/src/test/java/org/apache/commons/vfs2/provider/webdav4/test/Webdav4VersioningTests_OE25Dev_vfs_369_16_2.java:[143,23] cannot find symbol
+  symbol:   class FileInfo
+  location: class org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev_vfs_369_16_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2-jackrabbit2/src/test/java/org/apache/commons/vfs2/provider/webdav4/test/Webdav4VersioningTests_OE25Dev_vfs_369_16_2.java:[145,20] cannot find symbol
+  symbol:   class FileInfo
+  location: class org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev_vfs_369_16_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2-jackrabbit2/src/test/java/org/apache/commons/vfs2/provider/webdav4/test/Webdav4VersioningTests_OE25Dev_vfs_369_16_2.java:[146,87] cannot find symbol
+  symbol:   variable NameScope
+  location: class org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev_vfs_369_16_2
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-vfs2-jackrabbit2: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2-jackrabbit2/src/test/java/org/apache/commons/vfs2/provider/webdav4/test/Webdav4VersioningTests_OE25Dev_vfs_369_16_2.java:[143,23] cannot find symbol
+[ERROR]   symbol:   class FileInfo
+[ERROR]   location: class org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev_vfs_369_16_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2-jackrabbit2/src/test/java/org/apache/commons/vfs2/provider/webdav4/test/Webdav4VersioningTests_OE25Dev_vfs_369_16_2.java:[145,20] cannot find symbol
+[ERROR]   symbol:   class FileInfo
+[ERROR]   location: class org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev_vfs_369_16_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2-jackrabbit2/src/test/java/org/apache/commons/vfs2/provider/webdav4/test/Webdav4VersioningTests_OE25Dev_vfs_369_16_2.java:[146,87] cannot find symbol
+[ERROR]   symbol:   variable NameScope
+[ERROR]   location: class org.apache.commons.vfs2.provider.webdav4.test.Webdav4VersioningTests_OE25Dev_vfs_369_16_2
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

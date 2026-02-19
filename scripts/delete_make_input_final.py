@@ -89,7 +89,7 @@ def main():
     if not PROJECTS_DIR.exists():
         raise SystemExit(f"missing folder: {PROJECTS_DIR}")
 
-    target = "spark"
+    target = "commons-vfs"
 
     proj_dir = PROJECTS_DIR / target
     if not proj_dir.exists() or not proj_dir.is_dir():

@@ -1,4 +1,4 @@
-[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in org.apache.commons.lang3.CharRangeTest_OE25Dev_lang_59_9
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in org.apache.commons.lang3.CharRangeTest_OE25Dev_lang_59_9
 [ERROR] org.apache.commons.lang3.CharRangeTest_OE25Dev_lang_59_9.testIterator_9_oe  Time elapsed: 0.008 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <c> but was: <a>
 	at org.apache.commons.lang3.CharRangeTest_OE25Dev_lang_59_9.testIterator_9_oe(CharRangeTest_OE25Dev_lang_59_9.java:357)

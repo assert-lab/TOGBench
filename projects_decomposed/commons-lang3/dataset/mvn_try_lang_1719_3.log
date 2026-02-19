@@ -1,5 +1,5 @@
-[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in org.apache.commons.lang3.text.StrBuilderTest_OE25Dev_lang_1719_3
-[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev_lang_1719_3.testReverse_3_oe  Time elapsed: 0.01 s  <<< FAILURE!
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in org.apache.commons.lang3.text.StrBuilderTest_OE25Dev_lang_1719_3
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev_lang_1719_3.testReverse_3_oe  Time elapsed: 0.012 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <eurt>
 	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev_lang_1719_3.testReverse_3_oe(StrBuilderTest_OE25Dev_lang_1719_3.java:1893)
 

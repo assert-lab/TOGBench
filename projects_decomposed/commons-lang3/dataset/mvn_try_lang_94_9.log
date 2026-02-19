@@ -1,5 +1,5 @@
-[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in org.apache.commons.lang3.CharSetTest_OE25Dev_lang_94_9
-[ERROR] org.apache.commons.lang3.CharSetTest_OE25Dev_lang_94_9.testConstructor_String_oddCombinations_9_oe  Time elapsed: 0.008 s  <<< FAILURE!
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in org.apache.commons.lang3.CharSetTest_OE25Dev_lang_94_9
+[ERROR] org.apache.commons.lang3.CharSetTest_OE25Dev_lang_94_9.testConstructor_String_oddCombinations_9_oe  Time elapsed: 0.007 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.apache.commons.lang3.CharSetTest_OE25Dev_lang_94_9.testConstructor_String_oddCombinations_9_oe(CharSetTest_OE25Dev_lang_94_9.java:427)
 

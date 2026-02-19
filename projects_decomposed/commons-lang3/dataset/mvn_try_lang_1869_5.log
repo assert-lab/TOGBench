@@ -1,5 +1,5 @@
-[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev_lang_1869_5
-[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev_lang_1869_5.testConstructor_String_char_char_5_oe  Time elapsed: 0.011 s  <<< FAILURE!
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev_lang_1869_5
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev_lang_1869_5.testConstructor_String_char_char_5_oe  Time elapsed: 0.013 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
 	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev_lang_1869_5.testConstructor_String_char_char_5_oe(StrTokenizerTest_OE25Dev_lang_1869_5.java:850)
 

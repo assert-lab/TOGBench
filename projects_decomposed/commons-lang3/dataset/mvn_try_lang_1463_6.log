@@ -1,5 +1,5 @@
-[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.019 s <<< FAILURE! - in org.apache.commons.lang3.StringEscapeUtilsTest_OE25Dev_lang_1463_6
-[ERROR] org.apache.commons.lang3.StringEscapeUtilsTest_OE25Dev_lang_1463_6.testEscapeXml11_6_oe  Time elapsed: 0.012 s  <<< FAILURE!
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in org.apache.commons.lang3.StringEscapeUtilsTest_OE25Dev_lang_1463_6
+[ERROR] org.apache.commons.lang3.StringEscapeUtilsTest_OE25Dev_lang_1463_6.testEscapeXml11_6_oe  Time elapsed: 0.014 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: XML 1.1 should omit #xd800-#xdfff ==> expected: <a퟿ b> but was: <a퟿  b>
 	at org.apache.commons.lang3.StringEscapeUtilsTest_OE25Dev_lang_1463_6.testEscapeXml11_6_oe(StringEscapeUtilsTest_OE25Dev_lang_1463_6.java:543)
 

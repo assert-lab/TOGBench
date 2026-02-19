@@ -163,8 +163,7 @@ public class AsyncHttpClientCallFactoryTest {
     assertTrue(call.getRequestCustomizers().size() == 2);
   }
 
-  @Test(expectedExceptions = NullPointerException.class,
-          expectedExceptionsMessageRegExp = "httpClientSupplier is marked non-null but is null")
+  @Test(expectedExceptions = NullPointerException.class, expectedExceptionsMessageRegExp = "httpClientSupplier is marked non-null but is null")
   void shouldThrowISEIfHttpClientIsNotDefined() {
     // given
     val factory = AsyncHttpClientCallFactory.builder()

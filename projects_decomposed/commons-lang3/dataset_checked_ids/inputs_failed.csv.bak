@@ -1,22 +1,4 @@
 id,test_prefix,test_name
-lang_1_1,"    @Test
-    public void testToString_ClassLoader_1_oe() throws IOException {
-        final URL url = new URL(""http://localhost"");
-        try (URLClassLoader urlClassLoader = new URLClassLoader(new URL[] { url })) {
-            @SuppressWarnings(""resource"")
-            final ClassLoader classLoader = urlClassLoader;
-            Assertions.assertEquals(String.format(""%s[%s]"", classLoader, url), ClassLoaderUtils.toString(classLoader));
-    }
-    }
-",ClassLoaderUtilsTest::testToString_ClassLoader_1_oe
-lang_2_1,"    @Test
-    public void testToString_URLClassLoader_1_oe() throws IOException {
-        final URL url = new URL(""http://localhost"");
-        try (URLClassLoader urlClassLoader = new URLClassLoader(new URL[] { url })) {
-            Assertions.assertEquals(String.format(""%s[%s]"",urlClassLoader,url),ClassLoaderUtils.toString(urlClassLoader));
-    }
-    }
-",ClassLoaderUtilsTest::testToString_URLClassLoader_1_oe
 lang_289_1,"    @TestFactory
     public Stream<DynamicTest> simpleStreamForEachFailing_1_oe() {
         final List<String> input = Arrays.asList(""1"", ""2"", ""3"", ""4"", ""5"", ""6"");

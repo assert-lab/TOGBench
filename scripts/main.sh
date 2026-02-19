@@ -85,12 +85,12 @@ done
 ./scripts/project_fixes/commons-collections4.sh
 # ./scripts/project_fixes/commons-configuration2.sh
 # ./scripts/project_fixes/commons-dbutils.sh
-# ./scripts/project_fixes/commons-geometry.sh
+./scripts/project_fixes/commons-geometry.sh
 # ./scripts/project_fixes/commons-imaging.sh
-# ./scripts/project_fixes/commons-jcs3.sh
+./scripts/project_fixes/commons-jcs3.sh
 ./scripts/project_fixes/commons-jexl3.sh
-# ./scripts/project_fixes/commons-lang3.sh
-# ./scripts/project_fixes/commons-rng.sh
+./scripts/project_fixes/commons-lang3.sh
+./scripts/project_fixes/commons-rng.sh
 # ./scripts/project_fixes/commons-numbers.sh
 ./scripts/project_fixes/commons-pool2.sh
 ./scripts/project_fixes/joda-time.sh
@@ -100,6 +100,9 @@ done
 # ./scripts/project_fixes/http-request.sh
 ./scripts/project_fixes/commons-beanutils.sh
 # ./scripts/project_fixes/commons-validator.sh
+./scripts/project_fixes/commons-vfs.sh
+./scripts/project_fixes/commons-weaver.sh
+./scripts/project_fixes/scribejava.sh
 ./scripts/project_fixes/spark.sh
 # ./scripts/project_fixes/springside4.sh
 

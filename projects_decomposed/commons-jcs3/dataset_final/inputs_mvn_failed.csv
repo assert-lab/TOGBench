@@ -1,0 +1,4028 @@
+id,test_prefix,test_name
+jcs3_10_1,"    public void testRemove_1_oe()
+        throws Exception
+    {
+        jcs.put( ""key1"", ""value1"" );
+        assertEquals( 1, getListSize() );
+    }
+",JCSThrashTest::testRemove_1_oe
+jcs3_10_3,"    public void testRemove_3_oe()
+        throws Exception
+    {
+        jcs.put( ""key1"", ""value1"" );
+        // removed other assertion
+
+        jcs.remove( ""key1"" );
+        // removed other assertion
+
+        jcs.put( ""key2"", ""value2"" );
+        jcs.put( ""key3"", ""value3"" );
+        assertEquals( 2, getListSize() );
+    }
+",JCSThrashTest::testRemove_3_oe
+jcs3_10_4,"    public void testRemove_4_oe()
+        throws Exception
+    {
+        jcs.put( ""key1"", ""value1"" );
+        // removed other assertion
+
+        jcs.remove( ""key1"" );
+        // removed other assertion
+
+        jcs.put( ""key2"", ""value2"" );
+        jcs.put( ""key3"", ""value3"" );
+        // removed other assertion
+
+        jcs.remove( ""key2"" );
+        assertEquals( 1, getListSize() );
+    }
+",JCSThrashTest::testRemove_4_oe
+jcs3_10_5,"    public void testRemove_5_oe()
+        throws Exception
+    {
+        jcs.put( ""key1"", ""value1"" );
+        // removed other assertion
+
+        jcs.remove( ""key1"" );
+        // removed other assertion
+
+        jcs.put( ""key2"", ""value2"" );
+        jcs.put( ""key3"", ""value3"" );
+        // removed other assertion
+
+        jcs.remove( ""key2"" );
+        // removed other assertion
+
+        // Try to remove an object that is not there in the store
+        jcs.remove( ""key4"" );
+        assertEquals( 1, getListSize() );
+    }
+",JCSThrashTest::testRemove_5_oe
+jcs3_111_1,"    public void testSimpleLoad_1_oe()
+        throws Exception
+    {
+        doWork();
+        assertTrue( this.ratioPut < targetPut );
+    }
+",LRUMapPerformanceTest::testSimpleLoad_1_oe
+jcs3_111_2,"    public void testSimpleLoad_2_oe()
+        throws Exception
+    {
+        doWork();
+        // removed other assertion
+        assertTrue( this.ratioGet < targetGet );
+    }
+",LRUMapPerformanceTest::testSimpleLoad_2_oe
+jcs3_11_1,"    public void testForMemoryLeaks_1_oe()
+        throws Exception
+    {
+        final long differenceMemoryCache = thrashCache();
+        LOG.info( ""Memory Difference is: "" + differenceMemoryCache );
+        assertTrue( differenceMemoryCache < 500000 );
+    }
+",JCSThrashTest::testForMemoryLeaks_1_oe
+jcs3_128_1,"    public void testPassiveBroadcast_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final ArrayList<String> cacheNames = new ArrayList<>();
+
+        // DO WORK
+        sender.passiveBroadcast( SENDING_HOST, SENDING_PORT, cacheNames, 1L );
+
+        // VERIFY
+        // grab the sent message
+        final Object obj = receiver.waitForMessage() ;
+
+        assertTrue( ""unexpected crap received"", obj instanceof UDPDiscoveryMessage );
+    }
+",UDPDiscoverySenderUnitTest::testPassiveBroadcast_1_oe
+jcs3_128_2,"    public void testPassiveBroadcast_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final ArrayList<String> cacheNames = new ArrayList<>();
+
+        // DO WORK
+        sender.passiveBroadcast( SENDING_HOST, SENDING_PORT, cacheNames, 1L );
+
+        // VERIFY
+        // grab the sent message
+        final Object obj = receiver.waitForMessage() ;
+
+        // removed other assertion
+
+        final UDPDiscoveryMessage msg = (UDPDiscoveryMessage) obj;
+        // disabled test because of JCS-89
+        // assertEquals( ""wrong host"", SENDING_HOST, msg.getHost() );
+        assertEquals( ""wrong port"", SENDING_PORT, msg.getPort() );
+    }
+",UDPDiscoverySenderUnitTest::testPassiveBroadcast_2_oe
+jcs3_128_3,"    public void testPassiveBroadcast_3_oe()
+        throws Exception
+    {
+        // SETUP
+        final ArrayList<String> cacheNames = new ArrayList<>();
+
+        // DO WORK
+        sender.passiveBroadcast( SENDING_HOST, SENDING_PORT, cacheNames, 1L );
+
+        // VERIFY
+        // grab the sent message
+        final Object obj = receiver.waitForMessage() ;
+
+        // removed other assertion
+
+        final UDPDiscoveryMessage msg = (UDPDiscoveryMessage) obj;
+        // disabled test because of JCS-89
+        // assertEquals( ""wrong host"", SENDING_HOST, msg.getHost() );
+        // removed other assertion
+        assertEquals( ""wrong message type"", BroadcastType.PASSIVE, msg.getMessageType() );
+    }
+",UDPDiscoverySenderUnitTest::testPassiveBroadcast_3_oe
+jcs3_129_1,"    public void testRemoveBroadcast_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final ArrayList<String> cacheNames = new ArrayList<>();
+
+        // DO WORK
+        sender.removeBroadcast( SENDING_HOST, SENDING_PORT, cacheNames, 1L );
+
+        // VERIFY
+        // grab the sent message
+        final Object obj = receiver.waitForMessage();
+
+        assertTrue( ""unexpected crap received"", obj instanceof UDPDiscoveryMessage );
+    }
+",UDPDiscoverySenderUnitTest::testRemoveBroadcast_1_oe
+jcs3_129_2,"    public void testRemoveBroadcast_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final ArrayList<String> cacheNames = new ArrayList<>();
+
+        // DO WORK
+        sender.removeBroadcast( SENDING_HOST, SENDING_PORT, cacheNames, 1L );
+
+        // VERIFY
+        // grab the sent message
+        final Object obj = receiver.waitForMessage();
+
+        // removed other assertion
+
+        final UDPDiscoveryMessage msg = (UDPDiscoveryMessage) obj;
+        // disabled test because of JCS-89
+        // assertEquals( ""wrong host"", SENDING_HOST, msg.getHost() );
+        assertEquals( ""wrong port"", SENDING_PORT, msg.getPort() );
+    }
+",UDPDiscoverySenderUnitTest::testRemoveBroadcast_2_oe
+jcs3_129_3,"    public void testRemoveBroadcast_3_oe()
+        throws Exception
+    {
+        // SETUP
+        final ArrayList<String> cacheNames = new ArrayList<>();
+
+        // DO WORK
+        sender.removeBroadcast( SENDING_HOST, SENDING_PORT, cacheNames, 1L );
+
+        // VERIFY
+        // grab the sent message
+        final Object obj = receiver.waitForMessage();
+
+        // removed other assertion
+
+        final UDPDiscoveryMessage msg = (UDPDiscoveryMessage) obj;
+        // disabled test because of JCS-89
+        // assertEquals( ""wrong host"", SENDING_HOST, msg.getHost() );
+        // removed other assertion
+        assertEquals( ""wrong message type"", BroadcastType.REMOVE, msg.getMessageType() );
+    }
+",UDPDiscoverySenderUnitTest::testRemoveBroadcast_3_oe
+jcs3_12_1,"    public void testSimpleElementRetrieval_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( ""testCache1"" );
+
+        jcs.put( ""test_key"", ""test_data"" );
+
+        final long now = System.currentTimeMillis();
+        final ICacheElement<String, String> elem = jcs.getCacheElement( ""test_key"" );
+        assertEquals( ""Name wasn't right"", ""testCache1"", elem.getCacheName() );
+    }
+",JCSCacheElementRetrievalUnitTest::testSimpleElementRetrieval_1_oe
+jcs3_12_2,"    public void testSimpleElementRetrieval_2_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( ""testCache1"" );
+
+        jcs.put( ""test_key"", ""test_data"" );
+
+        final long now = System.currentTimeMillis();
+        final ICacheElement<String, String> elem = jcs.getCacheElement( ""test_key"" );
+        // removed other assertion
+
+        final long diff = now - elem.getElementAttributes().getCreateTime();
+        assertTrue( ""Create time should have been at or after the call"", diff >= 0 );
+    }
+",JCSCacheElementRetrievalUnitTest::testSimpleElementRetrieval_2_oe
+jcs3_130_1,"    public void testRequestBroadcast_1_oe()
+        throws Exception
+    {
+        // DO WORK
+        sender.requestBroadcast();
+
+        // VERIFY
+        // grab the sent message
+        final Object obj = receiver.waitForMessage();
+
+        assertTrue( ""unexpected crap received"", obj instanceof UDPDiscoveryMessage );
+    }
+",UDPDiscoverySenderUnitTest::testRequestBroadcast_1_oe
+jcs3_130_2,"    public void testRequestBroadcast_2_oe()
+        throws Exception
+    {
+        // DO WORK
+        sender.requestBroadcast();
+
+        // VERIFY
+        // grab the sent message
+        final Object obj = receiver.waitForMessage();
+
+        // removed other assertion
+
+        final UDPDiscoveryMessage msg = (UDPDiscoveryMessage) obj;
+        assertEquals( ""wrong message type"", BroadcastType.REQUEST, msg.getMessageType() );
+    }
+",UDPDiscoverySenderUnitTest::testRequestBroadcast_2_oe
+jcs3_13_1,"    public void testSimpleLoad_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( ""testCache1"" );
+        //        ICompositeCacheAttributes cattr = jcs.getCacheAttributes();
+        //        cattr.setMaxObjects( 20002 );
+        //        jcs.setCacheAttributes( cattr );
+
+        for ( int i = 1; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", ""data"" + i );
+        }
+
+        for ( int i = items; i > 0; i-- )
+        {
+            final String res = jcs.get( i + "":key"" );
+            assertNotNull( ""["" + i + "":key] should not be null"", res );
+    }
+    }
+",JCSLightLoadUnitTest::testSimpleLoad_1_oe
+jcs3_141_1,"    public void test1SystemPropertyInValueDelimiter_1_oe()
+        throws Exception
+    {
+
+        final int maxMemory = 1234;
+        System.getProperties().setProperty( ""MY_SYSTEM_PROPERTY_DISK_DIR"", ""system_set"" );
+        System.getProperties().setProperty( ""MY_SYSTEM_PROPERTY_MAX_SIZE"", String.valueOf( maxMemory ) );
+
+        JCS.setConfigFilename( ""/TestSystemProperties.ccf"" );
+
+        final CacheAccess<String, String> cache = JCS.getInstance( ""test1"" );
+        assertEquals(""We should have used the system property for the memory size"",maxMemory,cache .getCacheAttributes().getMaxObjects());
+    }
+",SystemPropertyUnitTest::test1SystemPropertyInValueDelimiter_1_oe
+jcs3_142_1,"    public void test2SystemPropertyMissingInValueDelimeter_1_oe()
+        throws Exception
+    {
+        System.getProperties().setProperty( ""MY_SYSTEM_PROPERTY_DISK_DIR"", ""system_set"" );
+
+        final CompositeCacheManager mgr = CompositeCacheManager.getUnconfiguredInstance();
+        mgr.configure( ""/TestSystemProperties.ccf"" );
+
+        final CacheAccess<String, String> cache = JCS.getInstance( ""missing"" );
+        // TODO check against the actual default def
+        assertEquals(""We should have used the default property for the memory size"",100,cache.getCacheAttributes().getMaxObjects());
+    }
+",SystemPropertyUnitTest::test2SystemPropertyMissingInValueDelimeter_1_oe
+jcs3_146_2,"    public void testRemove_2_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( ""test"" );
+        // removed other assertion
+
+        final String key = ""mykey"";
+        final String group = ""mygroup"";
+        final String value = ""myvalue"";
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group, value + i);
+        }
+
+        // Make sure cache contains some data
+        for (int i = 0; i < 10; i++)
+        {
+            final String returnedValue1 = access.getFromGroup(key + i, group);
+            assertEquals( ""Wrong value returned."", value + i, returnedValue1 );
+    }
+    }
+",GroupCacheAccessUnitTest::testRemove_2_oe
+jcs3_147_2,"    public void testInvalidate_2_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( ""test"" );
+        // removed other assertion
+
+        final String key = ""mykey"";
+        final String group = ""mygroup"";
+        final String value = ""myvalue"";
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group + 0, value + i);
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group + 1, value + i);
+        }
+
+        // Make sure cache contains some data
+        for (int i = 0; i < 10; i++)
+        {
+            final String returnedValue1 = access.getFromGroup(key + i, group + 0);
+            assertEquals( ""Wrong value returned."", value + i, returnedValue1 );
+    }
+    }
+",GroupCacheAccessUnitTest::testInvalidate_2_oe
+jcs3_147_3,"    public void testInvalidate_3_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( ""test"" );
+        // removed other assertion
+
+        final String key = ""mykey"";
+        final String group = ""mygroup"";
+        final String value = ""myvalue"";
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group + 0, value + i);
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group + 1, value + i);
+        }
+
+        // Make sure cache contains some data
+        for (int i = 0; i < 10; i++)
+        {
+            final String returnedValue1 = access.getFromGroup(key + i, group + 0);
+            // removed other assertion
+            final String returnedValue2 = access.getFromGroup(key + i, group + 1);
+            assertEquals( ""Wrong value returned."", value + i, returnedValue2 );
+    }
+    }
+",GroupCacheAccessUnitTest::testInvalidate_3_oe
+jcs3_147_5,"    public void testInvalidate_5_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( ""test"" );
+        // removed other assertion
+
+        final String key = ""mykey"";
+        final String group = ""mygroup"";
+        final String value = ""myvalue"";
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group + 0, value + i);
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            access.putInGroup(key + i, group + 1, value + i);
+        }
+
+        // Make sure cache contains some data
+        for (int i = 0; i < 10; i++)
+        {
+            final String returnedValue1 = access.getFromGroup(key + i, group + 0);
+            // removed other assertion
+            final String returnedValue2 = access.getFromGroup(key + i, group + 1);
+            // removed other assertion
+        }
+
+        access.invalidateGroup(group + 0);
+
+        for (int i = 0; i < 10; i++)
+        {
+            // removed other assertion
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            final String returnedValue1 = access.getFromGroup(key + i, group + 1);
+            assertEquals( ""Wrong value returned."", value + i, returnedValue1 );
+    }
+    }
+",GroupCacheAccessUnitTest::testInvalidate_5_oe
+jcs3_148_10,"    public void testGroupCache_10_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( ""testGroup"" );
+        final String groupName1 = ""testgroup1"";
+        final String groupName2 = ""testgroup2"";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
+
+        Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // DO WORK
+        final int numToInsertGroup1 = 10;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup1; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName1, Integer.valueOf( i ) );
+        }
+
+        final int numToInsertGroup2 = 50;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup2; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName2, Integer.valueOf( i + 1 ) );
+        }
+
+        keys1 = access.getGroupKeys( groupName1 ); // Test for JCS-102
+        // removed other assertion
+        // removed other assertion
+
+        keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(Integer.valueOf(6), access.getFromGroup(""5"", groupName2));
+    }
+",GroupCacheAccessUnitTest::testGroupCache_10_oe
+jcs3_148_11,"    public void testGroupCache_11_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( ""testGroup"" );
+        final String groupName1 = ""testgroup1"";
+        final String groupName2 = ""testgroup2"";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
+
+        Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // DO WORK
+        final int numToInsertGroup1 = 10;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup1; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName1, Integer.valueOf( i ) );
+        }
+
+        final int numToInsertGroup2 = 50;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup2; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName2, Integer.valueOf( i + 1 ) );
+        }
+
+        keys1 = access.getGroupKeys( groupName1 ); // Test for JCS-102
+        // removed other assertion
+        // removed other assertion
+
+        keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        assertTrue(access.getGroupNames().contains(groupName1));
+    }
+",GroupCacheAccessUnitTest::testGroupCache_11_oe
+jcs3_148_6,"    public void testGroupCache_6_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( ""testGroup"" );
+        final String groupName1 = ""testgroup1"";
+        final String groupName2 = ""testgroup2"";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
+
+        Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // DO WORK
+        final int numToInsertGroup1 = 10;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup1; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName1, Integer.valueOf( i ) );
+        }
+
+        final int numToInsertGroup2 = 50;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup2; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName2, Integer.valueOf( i + 1 ) );
+        }
+
+        keys1 = access.getGroupKeys( groupName1 ); // Test for JCS-102
+        // removed other assertion
+        assertEquals(""Wrong number returned 1:"", 10, keys1.size());
+    }
+",GroupCacheAccessUnitTest::testGroupCache_6_oe
+jcs3_148_8,"    public void testGroupCache_8_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( ""testGroup"" );
+        final String groupName1 = ""testgroup1"";
+        final String groupName2 = ""testgroup2"";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
+
+        Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // DO WORK
+        final int numToInsertGroup1 = 10;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup1; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName1, Integer.valueOf( i ) );
+        }
+
+        final int numToInsertGroup2 = 50;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup2; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName2, Integer.valueOf( i + 1 ) );
+        }
+
+        keys1 = access.getGroupKeys( groupName1 ); // Test for JCS-102
+        // removed other assertion
+        // removed other assertion
+
+        keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        assertEquals(""Wrong number returned 2:"", 50, keys2.size());
+    }
+",GroupCacheAccessUnitTest::testGroupCache_8_oe
+jcs3_148_9,"    public void testGroupCache_9_oe()
+        throws Exception
+    {
+        final GroupCacheAccess<String, Integer> access = JCS.getGroupCacheInstance( ""testGroup"" );
+        final String groupName1 = ""testgroup1"";
+        final String groupName2 = ""testgroup2"";
+
+        Set<String> keys1 = access.getGroupKeys( groupName1 );
+        // removed other assertion
+        // removed other assertion
+
+        Set<String> keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        // DO WORK
+        final int numToInsertGroup1 = 10;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup1; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName1, Integer.valueOf( i ) );
+        }
+
+        final int numToInsertGroup2 = 50;
+        // insert with prefix1
+        for ( int i = 0; i < numToInsertGroup2; i++ )
+        {
+            access.putInGroup(String.valueOf( i ), groupName2, Integer.valueOf( i + 1 ) );
+        }
+
+        keys1 = access.getGroupKeys( groupName1 ); // Test for JCS-102
+        // removed other assertion
+        // removed other assertion
+
+        keys2 = access.getGroupKeys( groupName2 );
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(Integer.valueOf(5), access.getFromGroup(""5"", groupName1));
+    }
+",GroupCacheAccessUnitTest::testGroupCache_9_oe
+jcs3_149_1,"    public void testParseCacheEventLogger_Null_1_oe()
+    {
+        // SETUP
+        final Properties props = new Properties();
+
+        // DO WORK
+        final MockCacheEventLogger result = (MockCacheEventLogger) AuxiliaryCacheConfigurator.parseCacheEventLogger( props,
+                                                                                                               ""junk"" );
+
+        // VERIFY
+        assertNull( ""Should not have a logger."", result );
+    }
+",AuxiliaryCacheConfiguratorUnitTest::testParseCacheEventLogger_Null_1_oe
+jcs3_150_1,"    public void testParseCacheEventLogger_NullName_1_oe()
+    {
+        // SETUP
+        final Properties props = new Properties();
+
+        // DO WORK
+        final MockCacheEventLogger result = (MockCacheEventLogger) AuxiliaryCacheConfigurator.parseCacheEventLogger( props,
+                                                                                                               null );
+
+        // VERIFY
+        assertNull( ""Should not have a logger."", result );
+    }
+",AuxiliaryCacheConfiguratorUnitTest::testParseCacheEventLogger_NullName_1_oe
+jcs3_151_1,"    public void testParseCacheEventLogger_Normal_1_oe()
+    {
+        // SETUP
+        final String auxPrefix = ""jcs.auxiliary."" + ""MYAux"";
+        final String testPropertyValue = ""This is the value"";
+        final String className = MockCacheEventLogger.class.getName();
+
+        final Properties props = new Properties();
+        props.put( auxPrefix + AuxiliaryCacheConfigurator.CACHE_EVENT_LOGGER_PREFIX, className );
+        props.put( auxPrefix + AuxiliaryCacheConfigurator.CACHE_EVENT_LOGGER_PREFIX
+            + AuxiliaryCacheConfigurator.ATTRIBUTE_PREFIX + "".testProperty"", testPropertyValue );
+
+        // DO WORK
+        final MockCacheEventLogger result = (MockCacheEventLogger) AuxiliaryCacheConfigurator
+            .parseCacheEventLogger( props, auxPrefix );
+
+        // VERIFY
+        assertNotNull( ""Should have a logger."", result );
+    }
+",AuxiliaryCacheConfiguratorUnitTest::testParseCacheEventLogger_Normal_1_oe
+jcs3_151_2,"    public void testParseCacheEventLogger_Normal_2_oe()
+    {
+        // SETUP
+        final String auxPrefix = ""jcs.auxiliary."" + ""MYAux"";
+        final String testPropertyValue = ""This is the value"";
+        final String className = MockCacheEventLogger.class.getName();
+
+        final Properties props = new Properties();
+        props.put( auxPrefix + AuxiliaryCacheConfigurator.CACHE_EVENT_LOGGER_PREFIX, className );
+        props.put( auxPrefix + AuxiliaryCacheConfigurator.CACHE_EVENT_LOGGER_PREFIX
+            + AuxiliaryCacheConfigurator.ATTRIBUTE_PREFIX + "".testProperty"", testPropertyValue );
+
+        // DO WORK
+        final MockCacheEventLogger result = (MockCacheEventLogger) AuxiliaryCacheConfigurator
+            .parseCacheEventLogger( props, auxPrefix );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""Property should be set."", testPropertyValue, result.getTestProperty() );
+    }
+",AuxiliaryCacheConfiguratorUnitTest::testParseCacheEventLogger_Normal_2_oe
+jcs3_152_1,"    public void testParseElementSerializer_Normal_1_oe()
+    {
+        // SETUP
+        final String auxPrefix = ""jcs.auxiliary."" + ""MYAux"";
+        final String testPropertyValue = ""This is the value"";
+        final String className = MockElementSerializer.class.getName();
+
+        final Properties props = new Properties();
+        props.put( auxPrefix + AuxiliaryCacheConfigurator.SERIALIZER_PREFIX, className );
+        props.put( auxPrefix + AuxiliaryCacheConfigurator.SERIALIZER_PREFIX
+            + AuxiliaryCacheConfigurator.ATTRIBUTE_PREFIX + "".testProperty"", testPropertyValue );
+
+        // DO WORK
+        final MockElementSerializer result = (MockElementSerializer) AuxiliaryCacheConfigurator
+            .parseElementSerializer( props, auxPrefix );
+
+        // VERIFY
+        assertNotNull( ""Should have a Serializer."", result );
+    }
+",AuxiliaryCacheConfiguratorUnitTest::testParseElementSerializer_Normal_1_oe
+jcs3_152_2,"    public void testParseElementSerializer_Normal_2_oe()
+    {
+        // SETUP
+        final String auxPrefix = ""jcs.auxiliary."" + ""MYAux"";
+        final String testPropertyValue = ""This is the value"";
+        final String className = MockElementSerializer.class.getName();
+
+        final Properties props = new Properties();
+        props.put( auxPrefix + AuxiliaryCacheConfigurator.SERIALIZER_PREFIX, className );
+        props.put( auxPrefix + AuxiliaryCacheConfigurator.SERIALIZER_PREFIX
+            + AuxiliaryCacheConfigurator.ATTRIBUTE_PREFIX + "".testProperty"", testPropertyValue );
+
+        // DO WORK
+        final MockElementSerializer result = (MockElementSerializer) AuxiliaryCacheConfigurator
+            .parseElementSerializer( props, auxPrefix );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""Property should be set."", testPropertyValue, result.getTestProperty() );
+    }
+",AuxiliaryCacheConfiguratorUnitTest::testParseElementSerializer_Normal_2_oe
+jcs3_153_1,"    public void testParseElementSerializer_Null_1_oe()
+    {
+        // SETUP
+        final Properties props = new Properties();
+
+        // DO WORK
+        final IElementSerializer result = AuxiliaryCacheConfigurator
+            .parseElementSerializer( props, ""junk"" );
+
+        // VERIFY
+        assertTrue( ""Should have the default Serializer."", result instanceof StandardSerializer );
+    }
+",AuxiliaryCacheConfiguratorUnitTest::testParseElementSerializer_Null_1_oe
+jcs3_166_1,"    public void testStandardPut_1_oe()
+        throws Exception
+    {
+        final String region = ""region1"";
+
+        final CacheAccess<String, String> cache = JCS.getInstance( region );
+
+        Thread.sleep( 100 );
+
+        final TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
+        lattr2.setTcpListenerPort( 1102 );
+        lattr2.setTransmissionType(LateralCacheAttributes.Type.TCP);
+        lattr2.setTcpServer( ""localhost:"" + serverPort );
+        lattr2.setIssueRemoveOnPut( false );
+        // should still try to remove
+        // lattr2.setAllowPut( false );
+
+        // Using the lateral, this service will put to and remove from
+        // the cache instance above.
+        // The cache thinks it is different since the listenerid is different
+        final LateralTCPService<String, String> service =
+                new LateralTCPService<>(lattr2,  new StandardSerializer());
+        service.setListenerId( 123456 );
+
+        final String keyToBeRemovedOnPut = ""test1_notremoved"";
+
+        final ICacheElement<String, String> element1 = new CacheElement<>( region, keyToBeRemovedOnPut, region
+            + "":data-this shouldn't get removed, it should get to the cache."" );
+        service.update( element1 );
+
+        Thread.sleep( 1000 );
+
+        final Object testObj = cache.get( keyToBeRemovedOnPut );
+        p( ""testStandardPut, test object = "" + testObj );
+        assertNotNull( ""The test object should not have been removed by a put."", testObj );
+    }
+",LateralTCPIssueRemoveOnPutUnitTest::testStandardPut_1_oe
+jcs3_185_1,"    @Test
+    public void testExpireInBackground_1_oe()
+        throws Exception
+    {
+        final String regionExpire = ""expire1Second"";
+        final int items = 200;
+
+        final CacheAccess<String, String> jcsExpire = JCS.getInstance( regionExpire );
+
+//        System.out.println( ""BEFORE PUT \n"" + jcsExpire.getStats() );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcsExpire.put( i + "":key"", regionExpire + "" data "" + i );
+        }
+
+//        System.out.println( jcsExpire.getStats() );
+
+        // the shrinker is supposed to run every second
+        SleepUtil.sleepAtLeast( 3000 );
+
+//        System.out.println( jcsExpire.getStats() );
+
+        // Test that all items have been removed from the cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            assertNull( ""Removed key should be null: "" + i + "":key"", jcsExpire.get( i + "":key"" ) );
+    }
+    }
+",JDBCDiskCacheShrinkUnitTest::testExpireInBackground_1_oe
+jcs3_186_1,"    @Test
+    public void testDidNotExpire_1_oe()
+        throws CacheException, InterruptedException
+    {
+        final String region = ""expire100Second"";
+        final int items = 200;
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+//        System.out.println( ""BEFORE PUT \n"" + jcs.getStats() );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        SleepUtil.sleepAtLeast( 1000 );
+
+//        System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            assertEquals( ""key = ["" + i + "":key] value = ["" + value + ""]"", region + "" data "" + i, value );
+    }
+    }
+",JDBCDiskCacheShrinkUnitTest::testDidNotExpire_1_oe
+jcs3_187_1,"    @Test
+    public void testDidNotExpireEternal_1_oe()
+        throws CacheException, InterruptedException
+    {
+        final String region = ""eternal"";
+        final int items = 200;
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+//        System.out.println( ""BEFORE PUT \n"" + jcs.getStats() );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        SleepUtil.sleepAtLeast( 1000 );
+
+//        System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            assertEquals( ""key = ["" + i + "":key] value = ["" + value + ""]"", region + "" data "" + i, value );
+    }
+    }
+",JDBCDiskCacheShrinkUnitTest::testDidNotExpireEternal_1_oe
+jcs3_189_1,"    @Test
+    public void testPutGetMatchingWithHSQL_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final int items = 200;
+        final String region = ""testCache2"";
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+//        System.out.println( ""BEFORE PUT \n"" + jcs.getStats() );
+
+        // DO WORK
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+        Thread.sleep( 1000 );
+
+        final Map<String, ICacheElement<String, String>> matchingResults = jcs.getMatchingCacheElements( ""1.8.+"" );
+
+        // VERIFY
+        assertEquals( ""Wrong number returned"", 10, matchingResults.size() );
+    }
+",MySQLDiskCacheHsqlBackedUnitTest::testPutGetMatchingWithHSQL_1_oe
+jcs3_197_1,"    public void testBasicPutRemove_1_oe()
+        throws Exception
+    {
+        final int items = 20;
+
+        final String region = ""testBasicPutRemove"";
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+            assertEquals( ""key = ["" + i + "":key] value = ["" + value + ""]"", region + "" data "" + i, value );
+    }
+    }
+",HSQLDiskCacheUnitTest::testBasicPutRemove_1_oe
+jcs3_197_2,"    public void testBasicPutRemove_2_oe()
+        throws Exception
+    {
+        final int items = 20;
+
+        final String region = ""testBasicPutRemove"";
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            assertNotNull( ""element "" + i + "":key is missing"", element );
+    }
+    }
+",HSQLDiskCacheUnitTest::testBasicPutRemove_2_oe
+jcs3_197_3,"    public void testBasicPutRemove_3_oe()
+        throws Exception
+    {
+        final int items = 20;
+
+        final String region = ""testBasicPutRemove"";
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            assertEquals( ""value "" + i + "":key"", region + "" data "" + i, element.getVal() );
+    }
+    }
+",HSQLDiskCacheUnitTest::testBasicPutRemove_3_oe
+jcs3_199_1,"    public void testRemoveAllProhibition_1_oe()
+        throws CacheException, InterruptedException
+    {
+        final String region = ""noRemoveAll"";
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        final int items = 20;
+
+        // Add items to cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // a db thread could be updating the disk when
+        // Thread.sleep( 500 );
+
+        jcs.clear();
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+            assertEquals( ""key = ["" + i + "":key] value = ["" + value + ""]"", region + "" data "" + i, value );
+    }
+    }
+",HSQLDiskCacheUnitTest::testRemoveAllProhibition_1_oe
+jcs3_227_1,"    public void testBasicOptimization_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final int removeCount = 50;
+
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        cattr.setCacheName( ""testOptimization"" );
+        cattr.setMaxKeySize( removeCount * 2 );
+        cattr.setOptimizeAtRemoveCount( removeCount );
+        cattr.setDiskPath( ""target/test-sandbox/testOptimization"" );
+        final IndexedDiskCache<Integer, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
+
+        disk.removeAll();
+
+        final int numberToInsert = removeCount * 3;
+        final ICacheElement<Integer, DiskTestObject>[] elements = DiskTestObjectUtil
+            .createCacheElementsWithTestObjectsOfVariableSizes( numberToInsert, cattr.getCacheName() );
+
+        for (final ICacheElement<Integer, DiskTestObject> element : elements) {
+            disk.processUpdate( element );
+        }
+
+
+        Thread.sleep( 1000 );
+        final long sizeBeforeRemove = disk.getDataFileSize();
+        // System.out.println( ""file sizeBeforeRemove "" + sizeBeforeRemove );
+        // System.out.println( ""totalSize inserted "" + DiskTestObjectUtil.totalSize( elements, numberToInsert ) );
+
+        // DO WORK
+        for ( int i = 0; i < removeCount; i++ )
+        {
+            disk.processRemove( Integer.valueOf( i ) );
+        }
+
+        SleepUtil.sleepAtLeast( 1000 );
+
+        disk.optimizeFile();
+        // VERIFY
+        final long sizeAfterRemove = disk.getDataFileSize();
+        final long expectedSizeAfterRemove = DiskTestObjectUtil.totalSize( elements, removeCount, elements.length );
+
+        // test is prone to failure for timing reasons.
+        if ( expectedSizeAfterRemove != sizeAfterRemove )
+        {
+            SleepUtil.sleepAtLeast( 2000 );
+        }
+
+        assertTrue(""The post optimization size should be smaller."" +""sizeAfterRemove="" + sizeAfterRemove + "" sizeBeforeRemove= "" +sizeBeforeRemove,sizeAfterRemove < sizeBeforeRemove);
+    }
+",IndexedDiskCacheOptimizationUnitTest::testBasicOptimization_1_oe
+jcs3_227_2,"    public void testBasicOptimization_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final int removeCount = 50;
+
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        cattr.setCacheName( ""testOptimization"" );
+        cattr.setMaxKeySize( removeCount * 2 );
+        cattr.setOptimizeAtRemoveCount( removeCount );
+        cattr.setDiskPath( ""target/test-sandbox/testOptimization"" );
+        final IndexedDiskCache<Integer, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
+
+        disk.removeAll();
+
+        final int numberToInsert = removeCount * 3;
+        final ICacheElement<Integer, DiskTestObject>[] elements = DiskTestObjectUtil
+            .createCacheElementsWithTestObjectsOfVariableSizes( numberToInsert, cattr.getCacheName() );
+
+        for (final ICacheElement<Integer, DiskTestObject> element : elements) {
+            disk.processUpdate( element );
+        }
+
+
+        Thread.sleep( 1000 );
+        final long sizeBeforeRemove = disk.getDataFileSize();
+        // System.out.println( ""file sizeBeforeRemove "" + sizeBeforeRemove );
+        // System.out.println( ""totalSize inserted "" + DiskTestObjectUtil.totalSize( elements, numberToInsert ) );
+
+        // DO WORK
+        for ( int i = 0; i < removeCount; i++ )
+        {
+            disk.processRemove( Integer.valueOf( i ) );
+        }
+
+        SleepUtil.sleepAtLeast( 1000 );
+
+        disk.optimizeFile();
+        // VERIFY
+        final long sizeAfterRemove = disk.getDataFileSize();
+        final long expectedSizeAfterRemove = DiskTestObjectUtil.totalSize( elements, removeCount, elements.length );
+
+        // test is prone to failure for timing reasons.
+        if ( expectedSizeAfterRemove != sizeAfterRemove )
+        {
+            SleepUtil.sleepAtLeast( 2000 );
+        }
+
+        // removed other assertion
+        assertEquals( ""The file size is not as expected size."", expectedSizeAfterRemove, sizeAfterRemove );
+    }
+",IndexedDiskCacheOptimizationUnitTest::testBasicOptimization_2_oe
+jcs3_229_1,"    public void testSimpleLoad_1_oe()
+        throws Exception
+    {
+        doWork();
+        assertTrue( this.ratioPut < targetPut );
+    }
+",LRUMapSizeVsCount::testSimpleLoad_1_oe
+jcs3_229_2,"    public void testSimpleLoad_2_oe()
+        throws Exception
+    {
+        doWork();
+        // removed other assertion
+        assertTrue( this.ratioGet < targetGet );
+    }
+",LRUMapSizeVsCount::testSimpleLoad_2_oe
+jcs3_230_1,"    public void testWrite_NullBlockElement_1_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWrite_NullBlockElement"");
+
+        // DO WORK
+        final int[] blocks = disk.write( null );
+
+        // VERIFY
+        assertEquals( ""Wrong number of blocks recorded."", 1, disk.getNumberOfBlocks() );
+    }
+",BlockDiskUnitTest::testWrite_NullBlockElement_1_oe
+jcs3_230_2,"    public void testWrite_NullBlockElement_2_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWrite_NullBlockElement"");
+
+        // DO WORK
+        final int[] blocks = disk.write( null );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""Wrong number of blocks returned."", 1, blocks.length );
+    }
+",BlockDiskUnitTest::testWrite_NullBlockElement_2_oe
+jcs3_230_3,"    public void testWrite_NullBlockElement_3_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWrite_NullBlockElement"");
+
+        // DO WORK
+        final int[] blocks = disk.write( null );
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        assertEquals( ""Wrong block returned."", 0, blocks[0] );
+    }
+",BlockDiskUnitTest::testWrite_NullBlockElement_3_oe
+jcs3_231_1,"    public void testWrite_SingleBlockElement_1_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWrite_SingleBlockElement"");
+
+        // DO WORK
+        final int bytes = 1 * 1024;
+        final int[] blocks = disk.write( new byte[bytes] );
+
+        // VERIFY
+        assertEquals( ""Wrong number of blocks recorded."", 1, disk.getNumberOfBlocks() );
+    }
+",BlockDiskUnitTest::testWrite_SingleBlockElement_1_oe
+jcs3_231_2,"    public void testWrite_SingleBlockElement_2_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWrite_SingleBlockElement"");
+
+        // DO WORK
+        final int bytes = 1 * 1024;
+        final int[] blocks = disk.write( new byte[bytes] );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""Wrong number of blocks returned."", 1, blocks.length );
+    }
+",BlockDiskUnitTest::testWrite_SingleBlockElement_2_oe
+jcs3_231_3,"    public void testWrite_SingleBlockElement_3_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWrite_SingleBlockElement"");
+
+        // DO WORK
+        final int bytes = 1 * 1024;
+        final int[] blocks = disk.write( new byte[bytes] );
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        assertEquals( ""Wrong block returned."", 0, blocks[0] );
+    }
+",BlockDiskUnitTest::testWrite_SingleBlockElement_3_oe
+jcs3_232_1,"    public void testWriteAndRead_SingleBlockElement_1_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWriteAndRead_SingleBlockElement"");
+
+        // DO WORK
+        final int bytes = 1 * 1024;
+        final int[] blocks = disk.write( new byte[bytes] );
+
+        final byte[] result = (byte[]) disk.read( blocks );
+
+        // VERIFY
+        assertEquals( ""Wrong item retured."", new byte[bytes].length, result.length );
+    }
+",BlockDiskUnitTest::testWriteAndRead_SingleBlockElement_1_oe
+jcs3_233_1,"    public void testWrite_TwoSingleBlockElements_1_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWrite_TwoSingleBlockElements"");
+
+        // DO WORK
+        final int bytes = 1 * 1024;
+        final int[] blocks1 = disk.write( new byte[bytes] );
+        final int[] blocks2 = disk.write( new byte[bytes] );
+
+        // VERIFY
+        assertEquals( ""Wrong number of blocks recorded."", 2, disk.getNumberOfBlocks() );
+    }
+",BlockDiskUnitTest::testWrite_TwoSingleBlockElements_1_oe
+jcs3_233_2,"    public void testWrite_TwoSingleBlockElements_2_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWrite_TwoSingleBlockElements"");
+
+        // DO WORK
+        final int bytes = 1 * 1024;
+        final int[] blocks1 = disk.write( new byte[bytes] );
+        final int[] blocks2 = disk.write( new byte[bytes] );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""Wrong number of blocks returned."", 1, blocks1.length );
+    }
+",BlockDiskUnitTest::testWrite_TwoSingleBlockElements_2_oe
+jcs3_233_3,"    public void testWrite_TwoSingleBlockElements_3_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWrite_TwoSingleBlockElements"");
+
+        // DO WORK
+        final int bytes = 1 * 1024;
+        final int[] blocks1 = disk.write( new byte[bytes] );
+        final int[] blocks2 = disk.write( new byte[bytes] );
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        assertEquals( ""Wrong block returned."", 0, blocks1[0] );
+    }
+",BlockDiskUnitTest::testWrite_TwoSingleBlockElements_3_oe
+jcs3_233_4,"    public void testWrite_TwoSingleBlockElements_4_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWrite_TwoSingleBlockElements"");
+
+        // DO WORK
+        final int bytes = 1 * 1024;
+        final int[] blocks1 = disk.write( new byte[bytes] );
+        final int[] blocks2 = disk.write( new byte[bytes] );
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals( ""Wrong number of blocks returned."", 1, blocks2.length );
+    }
+",BlockDiskUnitTest::testWrite_TwoSingleBlockElements_4_oe
+jcs3_233_5,"    public void testWrite_TwoSingleBlockElements_5_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWrite_TwoSingleBlockElements"");
+
+        // DO WORK
+        final int bytes = 1 * 1024;
+        final int[] blocks1 = disk.write( new byte[bytes] );
+        final int[] blocks2 = disk.write( new byte[bytes] );
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals( ""Wrong block returned."", 1, blocks2[0] );
+    }
+",BlockDiskUnitTest::testWrite_TwoSingleBlockElements_5_oe
+jcs3_234_1,"    public void testCalculateBlocksNeededDouble_1_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testCalculateBlocksNeededDouble"");
+
+        // DO WORK
+        final int result = disk.calculateTheNumberOfBlocksNeeded( new byte[disk.getBlockSizeBytes() * 2
+            - ( 2 * BlockDisk.HEADER_SIZE_BYTES )] );
+
+        // Verify
+        assertEquals( ""Wrong number of blocks"", 2, result );
+    }
+",BlockDiskUnitTest::testCalculateBlocksNeededDouble_1_oe
+jcs3_235_1,"    public void testWrite_DoubleBlockElement_1_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWriteDoubleBlockElement"");
+
+        // DO WORK
+        // byte arrays encur 27 bytes of serialization overhead.
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), 2 );
+        final int[] blocks = disk.write( new byte[bytes] );
+
+        // VERIFY
+        assertEquals( ""Wrong number of blocks recorded."", 2, disk.getNumberOfBlocks() );
+    }
+",BlockDiskUnitTest::testWrite_DoubleBlockElement_1_oe
+jcs3_235_2,"    public void testWrite_DoubleBlockElement_2_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWriteDoubleBlockElement"");
+
+        // DO WORK
+        // byte arrays encur 27 bytes of serialization overhead.
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), 2 );
+        final int[] blocks = disk.write( new byte[bytes] );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""Wrong number of blocks returned."", 2, blocks.length );
+    }
+",BlockDiskUnitTest::testWrite_DoubleBlockElement_2_oe
+jcs3_235_3,"    public void testWrite_DoubleBlockElement_3_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWriteDoubleBlockElement"");
+
+        // DO WORK
+        // byte arrays encur 27 bytes of serialization overhead.
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), 2 );
+        final int[] blocks = disk.write( new byte[bytes] );
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        assertEquals( ""Wrong block returned."", 0, blocks[0] );
+    }
+",BlockDiskUnitTest::testWrite_DoubleBlockElement_3_oe
+jcs3_236_1,"    public void testWrite_128BlockElement_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final int numBlocks = 128;
+
+        setUpBlockDisk(""testWrite_128BlockElement"");
+
+        // DO WORK
+        // byte arrays encur 27 bytes of serialization overhead.
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocks );
+        final int[] blocks = disk.write( new byte[bytes] );
+
+        // VERIFY
+        assertEquals( ""Wrong number of blocks recorded."", numBlocks, disk.getNumberOfBlocks() );
+    }
+",BlockDiskUnitTest::testWrite_128BlockElement_1_oe
+jcs3_236_2,"    public void testWrite_128BlockElement_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final int numBlocks = 128;
+
+        setUpBlockDisk(""testWrite_128BlockElement"");
+
+        // DO WORK
+        // byte arrays encur 27 bytes of serialization overhead.
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocks );
+        final int[] blocks = disk.write( new byte[bytes] );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""Wrong number of blocks returned."", numBlocks, blocks.length );
+    }
+",BlockDiskUnitTest::testWrite_128BlockElement_2_oe
+jcs3_236_3,"    public void testWrite_128BlockElement_3_oe()
+        throws Exception
+    {
+        // SETUP
+        final int numBlocks = 128;
+
+        setUpBlockDisk(""testWrite_128BlockElement"");
+
+        // DO WORK
+        // byte arrays encur 27 bytes of serialization overhead.
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocks );
+        final int[] blocks = disk.write( new byte[bytes] );
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        assertEquals( ""Wrong block returned."", 0, blocks[0] );
+    }
+",BlockDiskUnitTest::testWrite_128BlockElement_3_oe
+jcs3_237_1,"    public void testWriteAndReadMultipleMultiBlockElement_1_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWriteAndReadSingleBlockElement"");
+
+        // DO WORK
+        final int numBlocksPerElement = 4;
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
+
+        final int numElements = 100;
+        for ( int i = 0; i < numElements; i++ )
+        {
+            final int[] blocks = disk.write( new byte[bytes] );
+            final byte[] result = (byte[]) disk.read( blocks );
+
+            // VERIFY
+            assertEquals( ""Wrong item retured."", new byte[bytes].length, result.length );
+    }
+    }
+",BlockDiskUnitTest::testWriteAndReadMultipleMultiBlockElement_1_oe
+jcs3_237_2,"    public void testWriteAndReadMultipleMultiBlockElement_2_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWriteAndReadSingleBlockElement"");
+
+        // DO WORK
+        final int numBlocksPerElement = 4;
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
+
+        final int numElements = 100;
+        for ( int i = 0; i < numElements; i++ )
+        {
+            final int[] blocks = disk.write( new byte[bytes] );
+            final byte[] result = (byte[]) disk.read( blocks );
+
+            // VERIFY
+            // removed other assertion
+            assertEquals( ""Wrong number of blocks returned."", numBlocksPerElement, blocks.length );
+    }
+    }
+",BlockDiskUnitTest::testWriteAndReadMultipleMultiBlockElement_2_oe
+jcs3_238_1,"    public void testWriteAndReadMultipleMultiBlockElement_setSize_1_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWriteAndReadSingleBlockElement"", 1024);
+
+        // DO WORK
+        final int numBlocksPerElement = 4;
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
+
+        final int numElements = 100;
+        final Random r = new Random(System.currentTimeMillis());
+        final byte[] src = new byte[bytes];
+        for ( int i = 0; i < numElements; i++ )
+        {
+            r.nextBytes(src);  // Ensure we don't just write zeros out
+            final int[] blocks = disk.write( src );
+            final byte[] result = (byte[]) disk.read( blocks );
+
+            // VERIFY
+            assertEquals( ""Wrong item length retured."", src.length, result.length );
+    }
+    }
+",BlockDiskUnitTest::testWriteAndReadMultipleMultiBlockElement_setSize_1_oe
+jcs3_238_2,"    public void testWriteAndReadMultipleMultiBlockElement_setSize_2_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWriteAndReadSingleBlockElement"", 1024);
+
+        // DO WORK
+        final int numBlocksPerElement = 4;
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
+
+        final int numElements = 100;
+        final Random r = new Random(System.currentTimeMillis());
+        final byte[] src = new byte[bytes];
+        for ( int i = 0; i < numElements; i++ )
+        {
+            r.nextBytes(src);  // Ensure we don't just write zeros out
+            final int[] blocks = disk.write( src );
+            final byte[] result = (byte[]) disk.read( blocks );
+
+            // VERIFY
+            // removed other assertion
+            assertEquals( ""Wrong number of blocks returned."", numBlocksPerElement, blocks.length );
+    }
+    }
+",BlockDiskUnitTest::testWriteAndReadMultipleMultiBlockElement_setSize_2_oe
+jcs3_238_3,"    public void testWriteAndReadMultipleMultiBlockElement_setSize_3_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWriteAndReadSingleBlockElement"", 1024);
+
+        // DO WORK
+        final int numBlocksPerElement = 4;
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
+
+        final int numElements = 100;
+        final Random r = new Random(System.currentTimeMillis());
+        final byte[] src = new byte[bytes];
+        for ( int i = 0; i < numElements; i++ )
+        {
+            r.nextBytes(src);  // Ensure we don't just write zeros out
+            final int[] blocks = disk.write( src );
+            final byte[] result = (byte[]) disk.read( blocks );
+
+            // VERIFY
+            // removed other assertion
+            // removed other assertion
+
+            // We check the array contents, too, to ensure we read back what we wrote out
+            for (int j = 0 ; j < src.length ; j++) {
+                assertEquals( ""Mismatch at offset "" + j + "" in attempt # "" + (i + 1), src[j], result[j] );
+    }
+    }
+    }
+",BlockDiskUnitTest::testWriteAndReadMultipleMultiBlockElement_setSize_3_oe
+jcs3_238_4,"    public void testWriteAndReadMultipleMultiBlockElement_setSize_4_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWriteAndReadSingleBlockElement"", 1024);
+
+        // DO WORK
+        final int numBlocksPerElement = 4;
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
+
+        final int numElements = 100;
+        final Random r = new Random(System.currentTimeMillis());
+        final byte[] src = new byte[bytes];
+        for ( int i = 0; i < numElements; i++ )
+        {
+            r.nextBytes(src);  // Ensure we don't just write zeros out
+            final int[] blocks = disk.write( src );
+            final byte[] result = (byte[]) disk.read( blocks );
+
+            // VERIFY
+            // removed other assertion
+            // removed other assertion
+
+            // We check the array contents, too, to ensure we read back what we wrote out
+            for (int j = 0 ; j < src.length ; j++) {
+                // removed other assertion
+            }
+        }
+        assertEquals( ""Wrong number of elements. ""+disk, numBlocksPerElement * numElements, disk.getNumberOfBlocks() );
+    }
+",BlockDiskUnitTest::testWriteAndReadMultipleMultiBlockElement_setSize_4_oe
+jcs3_239_1,"    public void testWriteAndRead_BigString_1_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWriteAndRead_BigString"", 4096); //1024
+
+        String string = ""This is my big string ABCDEFGH"";
+        final StringBuilder sb = new StringBuilder();
+        sb.append( string );
+        for ( int i = 0; i < 8; i++ )
+        {
+            sb.append( "" "" + i + sb.toString() ); // big string
+        }
+        string = sb.toString();
+
+        // DO WORK
+        final int[] blocks = disk.write( string );
+        final String result = (String) disk.read( blocks );
+
+        // VERIFY
+//        System.out.println( string );
+//        System.out.println( result );
+//        System.out.println( disk );
+        assertEquals( ""Wrong item retured."", string, result );
+    }
+",BlockDiskUnitTest::testWriteAndRead_BigString_1_oe
+jcs3_240_1,"    public void testWriteAndRead_BigString2_1_oe()
+        throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testWriteAndRead_BigString"", 47); //4096;//1024
+
+        String string = ""abcdefghijklmnopqrstuvwxyz1234567890"";
+        string += string;
+        string += string;
+
+        // DO WORK
+        final int[] blocks = disk.write( string );
+        final String result = (String) disk.read( blocks );
+
+        // VERIFY
+        assertEquals( ""Wrong item retured."", string, result );
+    }
+",BlockDiskUnitTest::testWriteAndRead_BigString2_1_oe
+jcs3_241_1,"    public void testJCS156_1_oe() throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testJCS156"", 4096);
+        final long offset = disk.calculateByteOffsetForBlockAsLong(Integer.MAX_VALUE);
+        assertTrue(""Must not wrap round"", offset > 0);
+    }
+",BlockDiskUnitTest::testJCS156_1_oe
+jcs3_241_2,"    public void testJCS156_2_oe() throws Exception
+    {
+        // SETUP
+        setUpBlockDisk(""testJCS156"", 4096);
+        final long offset = disk.calculateByteOffsetForBlockAsLong(Integer.MAX_VALUE);
+        // removed other assertion
+        assertEquals(Integer.MAX_VALUE*4096L,offset);
+    }
+",BlockDiskUnitTest::testJCS156_2_oe
+jcs3_254_1,"    public void testObjectLargerThanMaxSize_1_oe()
+    {
+        final BlockDiskCacheAttributes attributes = new BlockDiskCacheAttributes();
+        attributes.setCacheName(""testObjectLargerThanMaxSize"");
+        attributes.setDiskPath(rootDirName);
+        attributes.setMaxKeySize(1000);
+        attributes.setBlockSizeBytes(2000);
+        attributes.setDiskLimitType(DiskLimitType.SIZE);
+
+        @SuppressWarnings({ ""unchecked"", ""rawtypes"" })
+        final
+        BlockDiskKeyStore<String> keyStore = new BlockDiskKeyStore<>(attributes, new BlockDiskCache(attributes));
+
+        keyStore.put(""1"", new int[1000]);
+        keyStore.put(""2"", new int[1000]);
+        assertNull(keyStore.get(""1""));
+    }
+",BlockDiskCacheKeyStoreUnitTest::testObjectLargerThanMaxSize_1_oe
+jcs3_254_2,"    public void testObjectLargerThanMaxSize_2_oe()
+    {
+        final BlockDiskCacheAttributes attributes = new BlockDiskCacheAttributes();
+        attributes.setCacheName(""testObjectLargerThanMaxSize"");
+        attributes.setDiskPath(rootDirName);
+        attributes.setMaxKeySize(1000);
+        attributes.setBlockSizeBytes(2000);
+        attributes.setDiskLimitType(DiskLimitType.SIZE);
+
+        @SuppressWarnings({ ""unchecked"", ""rawtypes"" })
+        final
+        BlockDiskKeyStore<String> keyStore = new BlockDiskKeyStore<>(attributes, new BlockDiskCache(attributes));
+
+        keyStore.put(""1"", new int[1000]);
+        keyStore.put(""2"", new int[1000]);
+        // removed other assertion
+        assertNotNull(keyStore.get(""2""));
+    }
+",BlockDiskCacheKeyStoreUnitTest::testObjectLargerThanMaxSize_2_oe
+jcs3_255_1,"    public void testUpdate_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockRemoteCacheClient<String, String> client = new MockRemoteCacheClient<>();
+        final RemoteCacheNoWait<String, String> noWait = new RemoteCacheNoWait<>( client );
+
+        final ICacheElement<String, String> element = new CacheElement<>( ""testUpdate"", ""key"", ""value"" );
+
+        // DO WORK
+        noWait.update( element );
+
+        // VERIFY
+        SleepUtil.sleepAtLeast( 10 );
+
+        assertEquals( ""Wrong number updated."", 1, client.updateList.size() );
+    }
+",RemoteCacheNoWaitUnitTest::testUpdate_1_oe
+jcs3_255_2,"    public void testUpdate_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockRemoteCacheClient<String, String> client = new MockRemoteCacheClient<>();
+        final RemoteCacheNoWait<String, String> noWait = new RemoteCacheNoWait<>( client );
+
+        final ICacheElement<String, String> element = new CacheElement<>( ""testUpdate"", ""key"", ""value"" );
+
+        // DO WORK
+        noWait.update( element );
+
+        // VERIFY
+        SleepUtil.sleepAtLeast( 10 );
+
+        // removed other assertion
+        assertEquals( ""Wrong element"", element, client.updateList.get( 0 ) );
+    }
+",RemoteCacheNoWaitUnitTest::testUpdate_2_oe
+jcs3_256_1,"    public void testGet_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockRemoteCacheClient<String, String> client = new MockRemoteCacheClient<>();
+        final RemoteCacheNoWait<String, String> noWait = new RemoteCacheNoWait<>( client );
+
+        final ICacheElement<String, String> input = new CacheElement<>( ""testUpdate"", ""key"", ""value"" );
+        client.getSetupMap.put( ""key"", input );
+
+        // DO WORK
+        final ICacheElement<String, String> result = noWait.get( ""key"" );
+
+        // VERIFY
+        assertEquals( ""Wrong element"", input, result );
+    }
+",RemoteCacheNoWaitUnitTest::testGet_1_oe
+jcs3_257_1,"    public void testGetMultiple_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockRemoteCacheClient<String, String> client = new MockRemoteCacheClient<>();
+        final RemoteCacheNoWait<String, String> noWait = new RemoteCacheNoWait<>( client );
+
+        final ICacheElement<String, String> inputElement = new CacheElement<>( ""testUpdate"", ""key"", ""value"" );
+        final Map<String, ICacheElement<String, String>> inputMap = new HashMap<>();
+        inputMap.put( ""key"", inputElement );
+
+        final Set<String> keys = new HashSet<>();
+        keys.add( ""key"" );
+
+        client.getMultipleSetupMap.put( keys, inputMap );
+
+        // DO WORK
+        final Map<String, ICacheElement<String, String>> result = noWait.getMultiple( keys );
+
+        // VERIFY
+        assertEquals( ""elements map"", inputMap, result );
+    }
+",RemoteCacheNoWaitUnitTest::testGetMultiple_1_oe
+jcs3_258_1,"    public void testRemove_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockRemoteCacheClient<String, String> client = new MockRemoteCacheClient<>();
+        final RemoteCacheNoWait<String, String> noWait = new RemoteCacheNoWait<>( client );
+
+        final String input = ""MyKey"";
+
+        // DO WORK
+        noWait.remove( input );
+
+        SleepUtil.sleepAtLeast( 10 );
+
+        // VERIFY
+        assertEquals( ""Wrong number updated."", 1, client.removeList.size() );
+    }
+",RemoteCacheNoWaitUnitTest::testRemove_1_oe
+jcs3_258_2,"    public void testRemove_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockRemoteCacheClient<String, String> client = new MockRemoteCacheClient<>();
+        final RemoteCacheNoWait<String, String> noWait = new RemoteCacheNoWait<>( client );
+
+        final String input = ""MyKey"";
+
+        // DO WORK
+        noWait.remove( input );
+
+        SleepUtil.sleepAtLeast( 10 );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""Wrong key"", input, client.removeList.get( 0 ) );
+    }
+",RemoteCacheNoWaitUnitTest::testRemove_2_oe
+jcs3_259_1,"    public void testGetStats_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockRemoteCacheClient<String, String> client = new MockRemoteCacheClient<>();
+        client.status = CacheStatus.ALIVE;
+        final RemoteCacheNoWait<String, String> noWait = new RemoteCacheNoWait<>( client );
+
+        // DO WORK
+        final String result = noWait.getStats();
+
+        // VERIFY
+        assertTrue( ""Status should contain 'ALIVE'"", result.indexOf( ""ALIVE"" ) != -1 );
+    }
+",RemoteCacheNoWaitUnitTest::testGetStats_1_oe
+jcs3_260_1,"    public void testGetStatus_error_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockRemoteCacheClient<String, String> client = new MockRemoteCacheClient<>();
+        client.status = CacheStatus.ERROR;
+        final RemoteCacheNoWait<String, String> noWait = new RemoteCacheNoWait<>( client );
+
+        // DO WORK
+        final CacheStatus result = noWait.getStatus();
+
+        // VERIFY
+        assertEquals( ""Wrong status"", CacheStatus.ERROR, result );
+    }
+",RemoteCacheNoWaitUnitTest::testGetStatus_error_1_oe
+jcs3_261_1,"    public void testFixCache_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockRemoteCacheClient<String, String> client = new MockRemoteCacheClient<>();
+        client.status = CacheStatus.ALIVE;
+        final RemoteCacheNoWait<String, String> noWait = new RemoteCacheNoWait<>( client );
+
+        final MockRemoteCacheService<String, String> service = new MockRemoteCacheService<>();
+
+        final ICacheElement<String, String> element = new CacheElement<>( ""testUpdate"", ""key"", ""value"" );
+
+        // DO WORK
+        noWait.update( element );
+        SleepUtil.sleepAtLeast( 10 );
+        // ICacheEventQueue<String, String> originalQueue = noWait.getCacheEventQueue();
+
+        noWait.fixCache( service );
+
+        noWait.update( element );
+        SleepUtil.sleepAtLeast( 10 );
+
+        // VERIFY
+        assertEquals( ""Wrong status"", service, client.fixed );
+    }
+",RemoteCacheNoWaitUnitTest::testFixCache_1_oe
+jcs3_262_1,"    public void testAddNoWait_InList_1_oe()
+    {
+        // SETUP
+        final List<RemoteCacheNoWait<String, String>> noWaits = new ArrayList<>();
+        final IRemoteCacheAttributes cattr = new RemoteCacheAttributes();
+        cattr.setCacheName( ""testCache1"" );
+
+        final RemoteCache<String, String> client = new RemoteCache<>(cattr, null, null, null);
+        final RemoteCacheNoWait<String, String> noWait = new RemoteCacheNoWait<>( client );
+        noWaits.add( noWait );
+
+        final RemoteCacheNoWaitFacade<String, String> facade = new RemoteCacheNoWaitFacade<>(noWaits, cattr, null, null, null );
+
+        // VERIFY
+        assertEquals( ""Should have one entry."", 1, facade.noWaits.size() );
+    }
+",RemoteCacheNoWaitFacadeUnitTest::testAddNoWait_InList_1_oe
+jcs3_262_2,"    public void testAddNoWait_InList_2_oe()
+    {
+        // SETUP
+        final List<RemoteCacheNoWait<String, String>> noWaits = new ArrayList<>();
+        final IRemoteCacheAttributes cattr = new RemoteCacheAttributes();
+        cattr.setCacheName( ""testCache1"" );
+
+        final RemoteCache<String, String> client = new RemoteCache<>(cattr, null, null, null);
+        final RemoteCacheNoWait<String, String> noWait = new RemoteCacheNoWait<>( client );
+        noWaits.add( noWait );
+
+        final RemoteCacheNoWaitFacade<String, String> facade = new RemoteCacheNoWaitFacade<>(noWaits, cattr, null, null, null );
+
+        // VERIFY
+        // removed other assertion
+        assertTrue( ""Should be in the list."", facade.noWaits.contains( noWait ) );
+    }
+",RemoteCacheNoWaitFacadeUnitTest::testAddNoWait_InList_2_oe
+jcs3_262_3,"    public void testAddNoWait_InList_3_oe()
+    {
+        // SETUP
+        final List<RemoteCacheNoWait<String, String>> noWaits = new ArrayList<>();
+        final IRemoteCacheAttributes cattr = new RemoteCacheAttributes();
+        cattr.setCacheName( ""testCache1"" );
+
+        final RemoteCache<String, String> client = new RemoteCache<>(cattr, null, null, null);
+        final RemoteCacheNoWait<String, String> noWait = new RemoteCacheNoWait<>( client );
+        noWaits.add( noWait );
+
+        final RemoteCacheNoWaitFacade<String, String> facade = new RemoteCacheNoWaitFacade<>(noWaits, cattr, null, null, null );
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        assertSame( ""Should have same facade."", facade, ((RemoteCache<String, String>)facade.noWaits.get(0).getRemoteCache()).getFacade() );
+    }
+",RemoteCacheNoWaitFacadeUnitTest::testAddNoWait_InList_3_oe
+jcs3_263_1,"    public void testFailover_1_oe()
+    {
+        // SETUP
+        final IRemoteCacheAttributes cattr = new RemoteCacheAttributes();
+        cattr.setCacheName(""testCache1"");
+        cattr.setFailoverServers(""localhost:1101,localhost:1102"");
+        cattr.setReceive(false);
+
+        final TestRemoteCacheFactory factory = new TestRemoteCacheFactory();
+        factory.initialize();
+
+        final AuxiliaryCache<String, String> cache = factory.createCache(cattr, null, null, null);
+        final RemoteCacheNoWaitFacade<String, String> facade =
+                (RemoteCacheNoWaitFacade<String, String>) cache;
+        assertEquals(""Should have two failovers."", 2, cattr.getFailovers().size());
+    }
+",RemoteCacheNoWaitFacadeUnitTest::testFailover_1_oe
+jcs3_263_10,"    public void testFailover_10_oe()
+    {
+        // SETUP
+        final IRemoteCacheAttributes cattr = new RemoteCacheAttributes();
+        cattr.setCacheName(""testCache1"");
+        cattr.setFailoverServers(""localhost:1101,localhost:1102"");
+        cattr.setReceive(false);
+
+        final TestRemoteCacheFactory factory = new TestRemoteCacheFactory();
+        factory.initialize();
+
+        final AuxiliaryCache<String, String> cache = factory.createCache(cattr, null, null, null);
+        final RemoteCacheNoWaitFacade<String, String> facade =
+                (RemoteCacheNoWaitFacade<String, String>) cache;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        RemoteCacheNoWait<String, String> primary = facade.getPrimaryServer();
+        // removed other assertion
+
+        // Make primary unusable
+        facade.getPrimaryServer().getCacheEventQueue().destroy();
+        // removed other assertion
+        facade.attemptRestorePrimary = false;
+        facade.connectAndRestore();
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Should be ALIVE"", CacheStatus.ALIVE, facade.getPrimaryServer().getStatus());
+    }
+",RemoteCacheNoWaitFacadeUnitTest::testFailover_10_oe
+jcs3_263_2,"    public void testFailover_2_oe()
+    {
+        // SETUP
+        final IRemoteCacheAttributes cattr = new RemoteCacheAttributes();
+        cattr.setCacheName(""testCache1"");
+        cattr.setFailoverServers(""localhost:1101,localhost:1102"");
+        cattr.setReceive(false);
+
+        final TestRemoteCacheFactory factory = new TestRemoteCacheFactory();
+        factory.initialize();
+
+        final AuxiliaryCache<String, String> cache = factory.createCache(cattr, null, null, null);
+        final RemoteCacheNoWaitFacade<String, String> facade =
+                (RemoteCacheNoWaitFacade<String, String>) cache;
+        // removed other assertion
+        assertEquals(""Should have two managers."", 2, factory.managers.size());
+    }
+",RemoteCacheNoWaitFacadeUnitTest::testFailover_2_oe
+jcs3_263_3,"    public void testFailover_3_oe()
+    {
+        // SETUP
+        final IRemoteCacheAttributes cattr = new RemoteCacheAttributes();
+        cattr.setCacheName(""testCache1"");
+        cattr.setFailoverServers(""localhost:1101,localhost:1102"");
+        cattr.setReceive(false);
+
+        final TestRemoteCacheFactory factory = new TestRemoteCacheFactory();
+        factory.initialize();
+
+        final AuxiliaryCache<String, String> cache = factory.createCache(cattr, null, null, null);
+        final RemoteCacheNoWaitFacade<String, String> facade =
+                (RemoteCacheNoWaitFacade<String, String>) cache;
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Should have primary server."", 0, cattr.getFailoverIndex());
+    }
+",RemoteCacheNoWaitFacadeUnitTest::testFailover_3_oe
+jcs3_263_4,"    public void testFailover_4_oe()
+    {
+        // SETUP
+        final IRemoteCacheAttributes cattr = new RemoteCacheAttributes();
+        cattr.setCacheName(""testCache1"");
+        cattr.setFailoverServers(""localhost:1101,localhost:1102"");
+        cattr.setReceive(false);
+
+        final TestRemoteCacheFactory factory = new TestRemoteCacheFactory();
+        factory.initialize();
+
+        final AuxiliaryCache<String, String> cache = factory.createCache(cattr, null, null, null);
+        final RemoteCacheNoWaitFacade<String, String> facade =
+                (RemoteCacheNoWaitFacade<String, String>) cache;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        RemoteCacheNoWait<String, String> primary = facade.getPrimaryServer();
+        assertEquals(""Should be ALIVE"", CacheStatus.ALIVE, primary.getStatus());
+    }
+",RemoteCacheNoWaitFacadeUnitTest::testFailover_4_oe
+jcs3_263_5,"    public void testFailover_5_oe()
+    {
+        // SETUP
+        final IRemoteCacheAttributes cattr = new RemoteCacheAttributes();
+        cattr.setCacheName(""testCache1"");
+        cattr.setFailoverServers(""localhost:1101,localhost:1102"");
+        cattr.setReceive(false);
+
+        final TestRemoteCacheFactory factory = new TestRemoteCacheFactory();
+        factory.initialize();
+
+        final AuxiliaryCache<String, String> cache = factory.createCache(cattr, null, null, null);
+        final RemoteCacheNoWaitFacade<String, String> facade =
+                (RemoteCacheNoWaitFacade<String, String>) cache;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        RemoteCacheNoWait<String, String> primary = facade.getPrimaryServer();
+        // removed other assertion
+
+        // Make primary unusable
+        facade.getPrimaryServer().getCacheEventQueue().destroy();
+        assertEquals(""Should be ERROR"", CacheStatus.ERROR, primary.getStatus());
+    }
+",RemoteCacheNoWaitFacadeUnitTest::testFailover_5_oe
+jcs3_263_6,"    public void testFailover_6_oe()
+    {
+        // SETUP
+        final IRemoteCacheAttributes cattr = new RemoteCacheAttributes();
+        cattr.setCacheName(""testCache1"");
+        cattr.setFailoverServers(""localhost:1101,localhost:1102"");
+        cattr.setReceive(false);
+
+        final TestRemoteCacheFactory factory = new TestRemoteCacheFactory();
+        factory.initialize();
+
+        final AuxiliaryCache<String, String> cache = factory.createCache(cattr, null, null, null);
+        final RemoteCacheNoWaitFacade<String, String> facade =
+                (RemoteCacheNoWaitFacade<String, String>) cache;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        RemoteCacheNoWait<String, String> primary = facade.getPrimaryServer();
+        // removed other assertion
+
+        // Make primary unusable
+        facade.getPrimaryServer().getCacheEventQueue().destroy();
+        // removed other assertion
+        facade.attemptRestorePrimary = false;
+        facade.connectAndRestore();
+
+        // VERIFY
+        assertEquals(""Should have two failovers."", 2, cattr.getFailovers().size());
+    }
+",RemoteCacheNoWaitFacadeUnitTest::testFailover_6_oe
+jcs3_263_7,"    public void testFailover_7_oe()
+    {
+        // SETUP
+        final IRemoteCacheAttributes cattr = new RemoteCacheAttributes();
+        cattr.setCacheName(""testCache1"");
+        cattr.setFailoverServers(""localhost:1101,localhost:1102"");
+        cattr.setReceive(false);
+
+        final TestRemoteCacheFactory factory = new TestRemoteCacheFactory();
+        factory.initialize();
+
+        final AuxiliaryCache<String, String> cache = factory.createCache(cattr, null, null, null);
+        final RemoteCacheNoWaitFacade<String, String> facade =
+                (RemoteCacheNoWaitFacade<String, String>) cache;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        RemoteCacheNoWait<String, String> primary = facade.getPrimaryServer();
+        // removed other assertion
+
+        // Make primary unusable
+        facade.getPrimaryServer().getCacheEventQueue().destroy();
+        // removed other assertion
+        facade.attemptRestorePrimary = false;
+        facade.connectAndRestore();
+
+        // VERIFY
+        // removed other assertion
+        assertEquals(""Should have two managers."", 2, factory.managers.size());
+    }
+",RemoteCacheNoWaitFacadeUnitTest::testFailover_7_oe
+jcs3_263_8,"    public void testFailover_8_oe()
+    {
+        // SETUP
+        final IRemoteCacheAttributes cattr = new RemoteCacheAttributes();
+        cattr.setCacheName(""testCache1"");
+        cattr.setFailoverServers(""localhost:1101,localhost:1102"");
+        cattr.setReceive(false);
+
+        final TestRemoteCacheFactory factory = new TestRemoteCacheFactory();
+        factory.initialize();
+
+        final AuxiliaryCache<String, String> cache = factory.createCache(cattr, null, null, null);
+        final RemoteCacheNoWaitFacade<String, String> facade =
+                (RemoteCacheNoWaitFacade<String, String>) cache;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        RemoteCacheNoWait<String, String> primary = facade.getPrimaryServer();
+        // removed other assertion
+
+        // Make primary unusable
+        facade.getPrimaryServer().getCacheEventQueue().destroy();
+        // removed other assertion
+        facade.attemptRestorePrimary = false;
+        facade.connectAndRestore();
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Should have switched to secondary server."", 1, cattr.getFailoverIndex());
+    }
+",RemoteCacheNoWaitFacadeUnitTest::testFailover_8_oe
+jcs3_263_9,"    public void testFailover_9_oe()
+    {
+        // SETUP
+        final IRemoteCacheAttributes cattr = new RemoteCacheAttributes();
+        cattr.setCacheName(""testCache1"");
+        cattr.setFailoverServers(""localhost:1101,localhost:1102"");
+        cattr.setReceive(false);
+
+        final TestRemoteCacheFactory factory = new TestRemoteCacheFactory();
+        factory.initialize();
+
+        final AuxiliaryCache<String, String> cache = factory.createCache(cattr, null, null, null);
+        final RemoteCacheNoWaitFacade<String, String> facade =
+                (RemoteCacheNoWaitFacade<String, String>) cache;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        RemoteCacheNoWait<String, String> primary = facade.getPrimaryServer();
+        // removed other assertion
+
+        // Make primary unusable
+        facade.getPrimaryServer().getCacheEventQueue().destroy();
+        // removed other assertion
+        facade.attemptRestorePrimary = false;
+        facade.connectAndRestore();
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNotSame(""Should have diferent primary now"", primary, facade.getPrimaryServer());
+    }
+",RemoteCacheNoWaitFacadeUnitTest::testFailover_9_oe
+jcs3_264_1,"    public void testCreateRegistry_1_oe()
+    {
+        final Registry registry = RemoteUtils.createRegistry( 1102 );
+        assertNotNull(""Registry should not be null"", registry);
+    }
+",RemoteUtilsUnitTest::testCreateRegistry_1_oe
+jcs3_266_5,"    public void testParseServerAndPort_5_oe()
+    {
+        RemoteLocation loc = RemoteLocation.parseServerAndPort(""server1:1234"");
+        // removed other assertion
+        // removed other assertion
+
+        loc = RemoteLocation.parseServerAndPort(""  server2  :  4567  "");
+        // removed other assertion
+        // removed other assertion
+
+        loc = RemoteLocation.parseServerAndPort(""server2  :  port"");
+        assertNull(loc);
+    }
+",RemoteUtilsUnitTest::testParseServerAndPort_5_oe
+jcs3_267_1,"    public void testUpdate_PutOnPut_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final IRemoteCacheAttributes irca = new RemoteCacheAttributes();
+        irca.setRemoveUponRemotePut( false );
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        final RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
+
+        final String cacheName = ""testName"";
+        final String key = ""key"";
+        final String value = ""value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf"";
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final ICacheElementSerialized<String, String> element =
+            new CacheElementSerialized<>( cacheName, key, elementSerializer
+            .serialize( value ), attr );
+
+        // DO WORK
+        listener.handlePut( element );
+
+        // VERIFY
+        final ICache<String, String> cache = cacheMgr.getCache( cacheName );
+        final ICacheElement<String, String> after = cache.get( key );
+
+        assertNotNull( ""Should have a deserialized object."", after );
+    }
+",RemoteCacheListenerUnitTest::testUpdate_PutOnPut_1_oe
+jcs3_267_2,"    public void testUpdate_PutOnPut_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final IRemoteCacheAttributes irca = new RemoteCacheAttributes();
+        irca.setRemoveUponRemotePut( false );
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        final RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
+
+        final String cacheName = ""testName"";
+        final String key = ""key"";
+        final String value = ""value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf"";
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final ICacheElementSerialized<String, String> element =
+            new CacheElementSerialized<>( cacheName, key, elementSerializer
+            .serialize( value ), attr );
+
+        // DO WORK
+        listener.handlePut( element );
+
+        // VERIFY
+        final ICache<String, String> cache = cacheMgr.getCache( cacheName );
+        final ICacheElement<String, String> after = cache.get( key );
+
+        // removed other assertion
+        assertEquals( ""Values should be the same."", value, after.getVal() );
+    }
+",RemoteCacheListenerUnitTest::testUpdate_PutOnPut_2_oe
+jcs3_267_3,"    public void testUpdate_PutOnPut_3_oe()
+        throws Exception
+    {
+        // SETUP
+        final IRemoteCacheAttributes irca = new RemoteCacheAttributes();
+        irca.setRemoveUponRemotePut( false );
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        final RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
+
+        final String cacheName = ""testName"";
+        final String key = ""key"";
+        final String value = ""value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf"";
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final ICacheElementSerialized<String, String> element =
+            new CacheElementSerialized<>( cacheName, key, elementSerializer
+            .serialize( value ), attr );
+
+        // DO WORK
+        listener.handlePut( element );
+
+        // VERIFY
+        final ICache<String, String> cache = cacheMgr.getCache( cacheName );
+        final ICacheElement<String, String> after = cache.get( key );
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Attributes should be the same."",attr.getMaxLife(),after .getElementAttributes().getMaxLife());
+    }
+",RemoteCacheListenerUnitTest::testUpdate_PutOnPut_3_oe
+jcs3_267_4,"    public void testUpdate_PutOnPut_4_oe()
+        throws Exception
+    {
+        // SETUP
+        final IRemoteCacheAttributes irca = new RemoteCacheAttributes();
+        irca.setRemoveUponRemotePut( false );
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        final RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
+
+        final String cacheName = ""testName"";
+        final String key = ""key"";
+        final String value = ""value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf"";
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final ICacheElementSerialized<String, String> element =
+            new CacheElementSerialized<>( cacheName, key, elementSerializer
+            .serialize( value ), attr );
+
+        // DO WORK
+        listener.handlePut( element );
+
+        // VERIFY
+        final ICache<String, String> cache = cacheMgr.getCache( cacheName );
+        final ICacheElement<String, String> after = cache.get( key );
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals( ""Keys should be the same."", key, after.getKey() );
+    }
+",RemoteCacheListenerUnitTest::testUpdate_PutOnPut_4_oe
+jcs3_267_5,"    public void testUpdate_PutOnPut_5_oe()
+        throws Exception
+    {
+        // SETUP
+        final IRemoteCacheAttributes irca = new RemoteCacheAttributes();
+        irca.setRemoveUponRemotePut( false );
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        final RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
+
+        final String cacheName = ""testName"";
+        final String key = ""key"";
+        final String value = ""value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf"";
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final ICacheElementSerialized<String, String> element =
+            new CacheElementSerialized<>( cacheName, key, elementSerializer
+            .serialize( value ), attr );
+
+        // DO WORK
+        listener.handlePut( element );
+
+        // VERIFY
+        final ICache<String, String> cache = cacheMgr.getCache( cacheName );
+        final ICacheElement<String, String> after = cache.get( key );
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals( ""Cache name should be the same."", cacheName, after.getCacheName() );
+    }
+",RemoteCacheListenerUnitTest::testUpdate_PutOnPut_5_oe
+jcs3_268_1,"    public void testUpdate_RemoveOnPut_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final IRemoteCacheAttributes irca = new RemoteCacheAttributes();
+        irca.setRemoveUponRemotePut( true );
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        final RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
+
+        final String cacheName = ""testName"";
+        final String key = ""key"";
+        final String value = ""value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf"";
+        final IElementAttributes attr = new ElementAttributes();
+        attr.setMaxLife(34);
+
+        final IElementSerializer elementSerializer = new StandardSerializer();
+
+        final ICacheElementSerialized<String, String> element =
+            new CacheElementSerialized<>( cacheName, key, elementSerializer
+            .serialize( value ), attr );
+
+        // DO WORK
+        listener.handlePut( element );
+
+        // VERIFY
+        final ICache<String, String> cache = cacheMgr.getCache( cacheName );
+        final ICacheElement<String, String> after = cache.get( key );
+
+        assertNull( ""Should not have a deserialized object since remove on put is true."", after );
+    }
+",RemoteCacheListenerUnitTest::testUpdate_RemoveOnPut_1_oe
+jcs3_269_1,"    public void testUpdateThenWalk_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockRemoteCacheService<String, String> service = new MockRemoteCacheService<>();
+
+        final ZombieCacheServiceNonLocal<String, String> zombie = new ZombieCacheServiceNonLocal<>( 10 );
+
+        final String cacheName = ""testUpdate"";
+
+        // DO WORK
+        final ICacheElement<String, String> element = new CacheElement<>( cacheName, ""key"", ""value"" );
+        zombie.update( element, 123L );
+        zombie.propagateEvents( service );
+
+        // VERIFY
+        assertEquals( ""Updated element is not as expected."", element, service.lastUpdate );
+    }
+",ZombieRemoteCacheServiceUnitTest::testUpdateThenWalk_1_oe
+jcs3_270_1,"    public void testUpdateThenWalk_zeroSize_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockRemoteCacheService<String, String> service = new MockRemoteCacheService<>();
+
+        final ZombieCacheServiceNonLocal<String, String> zombie = new ZombieCacheServiceNonLocal<>( 0 );
+
+        final String cacheName = ""testUpdate"";
+
+        // DO WORK
+        final ICacheElement<String, String> element = new CacheElement<>( cacheName, ""key"", ""value"" );
+        zombie.update( element, 123L );
+        zombie.propagateEvents( service );
+
+        // VERIFY
+        assertNull( ""Nothing should have been put to the service."", service.lastUpdate );
+    }
+",ZombieRemoteCacheServiceUnitTest::testUpdateThenWalk_zeroSize_1_oe
+jcs3_271_1,"    public void testRemoveThenWalk_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockRemoteCacheService<String, String> service = new MockRemoteCacheService<>();
+
+        final ZombieCacheServiceNonLocal<String, String> zombie = new ZombieCacheServiceNonLocal<>( 10 );
+
+        final String cacheName = ""testRemoveThenWalk"";
+        final String key = ""myKey"";
+
+        // DO WORK
+        zombie.remove( cacheName, key, 123L );
+        zombie.propagateEvents( service );
+
+        // VERIFY
+        assertEquals( ""Updated element is not as expected."", key, service.lastRemoveKey );
+    }
+",ZombieRemoteCacheServiceUnitTest::testRemoveThenWalk_1_oe
+jcs3_272_1,"    public void testRemoveAllThenWalk_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockRemoteCacheService<String, String> service = new MockRemoteCacheService<>();
+
+        final ZombieCacheServiceNonLocal<String, String> zombie = new ZombieCacheServiceNonLocal<>( 10 );
+
+        final String cacheName = ""testRemoveThenWalk"";
+
+        // DO WORK
+        zombie.removeAll( cacheName, 123L );
+        zombie.propagateEvents( service );
+
+        // VERIFY
+        assertEquals( ""Updated element is not as expected."", cacheName, service.lastRemoveAllCacheName);
+    }
+",ZombieRemoteCacheServiceUnitTest::testRemoveAllThenWalk_1_oe
+jcs3_273_1,"    public void testUpdate_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final long listenerId = 123;
+        listener.setListenerId( listenerId );
+
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final String cacheName = ""testUpdate"";
+
+        // DO WORK
+        final ICacheElement<String, String> element = new CacheElement<>( cacheName, ""key"", ""value"" );
+        remoteCache.update( element );
+
+        // VERIFY
+        assertTrue(""The element should be in the serialized wrapper."",service.lastUpdate instanceof ICacheElementSerialized);
+    }
+",RemoteCacheUnitTest::testUpdate_1_oe
+jcs3_273_2,"    public void testUpdate_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final long listenerId = 123;
+        listener.setListenerId( listenerId );
+
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final String cacheName = ""testUpdate"";
+
+        // DO WORK
+        final ICacheElement<String, String> element = new CacheElement<>( cacheName, ""key"", ""value"" );
+        remoteCache.update( element );
+
+        // VERIFY
+        // removed other assertion
+        final ICacheElement<String, String> result = SerializationConversionUtil
+            .getDeSerializedCacheElement( (ICacheElementSerialized<String, String>) service.lastUpdate, remoteCache
+                .getElementSerializer() );
+        assertEquals( ""Wrong element updated."", element.getVal(), result.getVal() );
+    }
+",RemoteCacheUnitTest::testUpdate_2_oe
+jcs3_273_3,"    public void testUpdate_3_oe()
+        throws Exception
+    {
+        // SETUP
+        final long listenerId = 123;
+        listener.setListenerId( listenerId );
+
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final String cacheName = ""testUpdate"";
+
+        // DO WORK
+        final ICacheElement<String, String> element = new CacheElement<>( cacheName, ""key"", ""value"" );
+        remoteCache.update( element );
+
+        // VERIFY
+        // removed other assertion
+        final ICacheElement<String, String> result = SerializationConversionUtil
+            .getDeSerializedCacheElement( (ICacheElementSerialized<String, String>) service.lastUpdate, remoteCache
+                .getElementSerializer() );
+        // removed other assertion
+        assertEquals( ""Wrong listener id."", Long.valueOf( listenerId ), service.updateRequestIdList.get( 0 ) );
+    }
+",RemoteCacheUnitTest::testUpdate_3_oe
+jcs3_274_1,"    public void testUpdateZombieThenFix_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final ZombieCacheServiceNonLocal<String, String> zombie = new ZombieCacheServiceNonLocal<>( 10 );
+
+        // set the zombie
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, zombie, listener, monitor );
+
+        final String cacheName = ""testUpdate"";
+
+        // DO WORK
+        final ICacheElement<String, String> element = new CacheElement<>( cacheName, ""key"", ""value"" );
+        remoteCache.update( element );
+        // set the new service, this should call propagate
+        remoteCache.fixCache( service );
+
+        // VERIFY
+        assertTrue(""The element should be in the serialized warapper."",service.lastUpdate instanceof ICacheElementSerialized);
+    }
+",RemoteCacheUnitTest::testUpdateZombieThenFix_1_oe
+jcs3_274_2,"    public void testUpdateZombieThenFix_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final ZombieCacheServiceNonLocal<String, String> zombie = new ZombieCacheServiceNonLocal<>( 10 );
+
+        // set the zombie
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, zombie, listener, monitor );
+
+        final String cacheName = ""testUpdate"";
+
+        // DO WORK
+        final ICacheElement<String, String> element = new CacheElement<>( cacheName, ""key"", ""value"" );
+        remoteCache.update( element );
+        // set the new service, this should call propagate
+        remoteCache.fixCache( service );
+
+        // VERIFY
+        // removed other assertion
+        final ICacheElement<String, String> result = SerializationConversionUtil
+            .getDeSerializedCacheElement( (ICacheElementSerialized<String, String>) service.lastUpdate, remoteCache
+                .getElementSerializer() );
+        assertEquals( ""Wrong element updated."", element.getVal(), result.getVal() );
+    }
+",RemoteCacheUnitTest::testUpdateZombieThenFix_2_oe
+jcs3_275_1,"    public void testUpdate_simple_1_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        final ICacheElement<String, String> item = new CacheElement<>( ""region"", ""key"", ""value"" );
+
+        // DO WORK
+        remoteCache.update( item );
+
+        // VERIFY
+        assertEquals( ""Start should have been called."", 1, cacheEventLogger.startICacheEventCalls );
+    }
+",RemoteCacheUnitTest::testUpdate_simple_1_oe
+jcs3_275_2,"    public void testUpdate_simple_2_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        final ICacheElement<String, String> item = new CacheElement<>( ""region"", ""key"", ""value"" );
+
+        // DO WORK
+        remoteCache.update( item );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""End should have been called."", 1, cacheEventLogger.endICacheEventCalls );
+    }
+",RemoteCacheUnitTest::testUpdate_simple_2_oe
+jcs3_276_1,"    public void testGet_simple_1_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.get( ""key"" );
+
+        // VERIFY
+        assertEquals( ""Start should have been called."", 1, cacheEventLogger.startICacheEventCalls );
+    }
+",RemoteCacheUnitTest::testGet_simple_1_oe
+jcs3_276_2,"    public void testGet_simple_2_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.get( ""key"" );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""End should have been called."", 1, cacheEventLogger.endICacheEventCalls );
+    }
+",RemoteCacheUnitTest::testGet_simple_2_oe
+jcs3_277_1,"    public void testGetMultiple_simple_1_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.getMultiple( new HashSet<>() );
+
+        // VERIFY
+        assertEquals( ""Start should have been called."", 1, cacheEventLogger.startICacheEventCalls );
+    }
+",RemoteCacheUnitTest::testGetMultiple_simple_1_oe
+jcs3_277_2,"    public void testGetMultiple_simple_2_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.getMultiple( new HashSet<>() );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""End should have been called."", 1, cacheEventLogger.endICacheEventCalls );
+    }
+",RemoteCacheUnitTest::testGetMultiple_simple_2_oe
+jcs3_278_1,"    public void testRemove_simple_1_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.remove( ""key"" );
+
+        // VERIFY
+        assertEquals( ""Start should have been called."", 1, cacheEventLogger.startICacheEventCalls );
+    }
+",RemoteCacheUnitTest::testRemove_simple_1_oe
+jcs3_278_2,"    public void testRemove_simple_2_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.remove( ""key"" );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""End should have been called."", 1, cacheEventLogger.endICacheEventCalls );
+    }
+",RemoteCacheUnitTest::testRemove_simple_2_oe
+jcs3_279_1,"    public void testRemoveAll_simple_1_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.remove( ""key"" );
+
+        // VERIFY
+        assertEquals( ""Start should have been called."", 1, cacheEventLogger.startICacheEventCalls );
+    }
+",RemoteCacheUnitTest::testRemoveAll_simple_1_oe
+jcs3_279_2,"    public void testRemoveAll_simple_2_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.remove( ""key"" );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""End should have been called."", 1, cacheEventLogger.endICacheEventCalls );
+    }
+",RemoteCacheUnitTest::testRemoveAll_simple_2_oe
+jcs3_280_1,"    public void testGetMatching_simple_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final String pattern = ""adsfasdfasd.?"";
+
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        final Map<String, ICacheElement<String, String>> result = remoteCache.getMatching( pattern );
+
+        // VERIFY
+        assertNotNull( ""Should have a map"", result );
+    }
+",RemoteCacheUnitTest::testGetMatching_simple_1_oe
+jcs3_280_2,"    public void testGetMatching_simple_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final String pattern = ""adsfasdfasd.?"";
+
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        final Map<String, ICacheElement<String, String>> result = remoteCache.getMatching( pattern );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""Start should have been called."", 1, cacheEventLogger.startICacheEventCalls );
+    }
+",RemoteCacheUnitTest::testGetMatching_simple_2_oe
+jcs3_280_3,"    public void testGetMatching_simple_3_oe()
+        throws Exception
+    {
+        // SETUP
+        final String pattern = ""adsfasdfasd.?"";
+
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        final Map<String, ICacheElement<String, String>> result = remoteCache.getMatching( pattern );
+
+        // VERIFY
+        // removed other assertion
+        // removed other assertion
+        assertEquals( ""End should have been called."", 1, cacheEventLogger.endICacheEventCalls );
+    }
+",RemoteCacheUnitTest::testGetMatching_simple_3_oe
+jcs3_281_1,"    public void testDispose_simple_1_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.dispose( );
+
+        // VERIFY
+        assertEquals( ""Start should have been called."", 1, cacheEventLogger.startICacheEventCalls );
+    }
+",RemoteCacheUnitTest::testDispose_simple_1_oe
+jcs3_281_2,"    public void testDispose_simple_2_oe()
+        throws Exception
+    {
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, listener, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.dispose( );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""End should have been called."", 1, cacheEventLogger.endICacheEventCalls );
+    }
+",RemoteCacheUnitTest::testDispose_simple_2_oe
+jcs3_282_1,"    public void testDispose_nullListener_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, null, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.dispose( );
+
+        // VERIFY
+        assertEquals( ""Start should have been called."", 1, cacheEventLogger.startICacheEventCalls );
+    }
+",RemoteCacheUnitTest::testDispose_nullListener_1_oe
+jcs3_282_2,"    public void testDispose_nullListener_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final RemoteCache<String, String> remoteCache = new RemoteCache<>( cattr, service, null, monitor );
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        remoteCache.setCacheEventLogger( cacheEventLogger );
+
+        // DO WORK
+        remoteCache.dispose( );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""End should have been called."", 1, cacheEventLogger.endICacheEventCalls );
+    }
+",RemoteCacheUnitTest::testDispose_nullListener_2_oe
+jcs3_291_1,"    public void testGet_simple_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockCompositeCacheManager manager = new MockCompositeCacheManager();
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+
+        final RemoteHttpCacheServerAttributes rcsa = new RemoteHttpCacheServerAttributes();
+        final RemoteHttpCacheService<String, String> server =
+            new RemoteHttpCacheService<>( manager, rcsa, cacheEventLogger );
+
+        // DO WORK
+        server.get( ""region"", ""key"" );
+
+        // VERIFY
+        assertEquals( ""Start should have been called."", 1, cacheEventLogger.startICacheEventCalls );
+    }
+",RemoteHttpCacheServiceUnitTest::testGet_simple_1_oe
+jcs3_292_1,"    public void testGetMatching_simple_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockCompositeCacheManager manager = new MockCompositeCacheManager();
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+
+        final RemoteHttpCacheServerAttributes rcsa = new RemoteHttpCacheServerAttributes();
+        final RemoteHttpCacheService<String, String> server =
+            new RemoteHttpCacheService<>( manager, rcsa, cacheEventLogger );
+
+        // DO WORK
+        server.getMatching( ""region"", ""pattern"", 0 );
+
+        // VERIFY
+        assertEquals( ""Start should have been called."", 1, cacheEventLogger.startICacheEventCalls );
+    }
+",RemoteHttpCacheServiceUnitTest::testGetMatching_simple_1_oe
+jcs3_292_2,"    public void testGetMatching_simple_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockCompositeCacheManager manager = new MockCompositeCacheManager();
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+
+        final RemoteHttpCacheServerAttributes rcsa = new RemoteHttpCacheServerAttributes();
+        final RemoteHttpCacheService<String, String> server =
+            new RemoteHttpCacheService<>( manager, rcsa, cacheEventLogger );
+
+        // DO WORK
+        server.getMatching( ""region"", ""pattern"", 0 );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""End should have been called."", 1, cacheEventLogger.endICacheEventCalls );
+    }
+",RemoteHttpCacheServiceUnitTest::testGetMatching_simple_2_oe
+jcs3_293_1,"    public void testGetMultiple_simple_1_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockCompositeCacheManager manager = new MockCompositeCacheManager();
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+
+        final RemoteHttpCacheServerAttributes rcsa = new RemoteHttpCacheServerAttributes();
+        final RemoteHttpCacheService<String, String> server =
+            new RemoteHttpCacheService<>( manager, rcsa, cacheEventLogger );
+
+        // DO WORK
+        server.getMultiple( ""region"", new HashSet<>() );
+
+        // VERIFY
+        assertEquals( ""Start should have been called."", 1, cacheEventLogger.startICacheEventCalls );
+    }
+",RemoteHttpCacheServiceUnitTest::testGetMultiple_simple_1_oe
+jcs3_293_2,"    public void testGetMultiple_simple_2_oe()
+        throws Exception
+    {
+        // SETUP
+        final MockCompositeCacheManager manager = new MockCompositeCacheManager();
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+
+        final RemoteHttpCacheServerAttributes rcsa = new RemoteHttpCacheServerAttributes();
+        final RemoteHttpCacheService<String, String> server =
+            new RemoteHttpCacheService<>( manager, rcsa, cacheEventLogger );
+
+        // DO WORK
+        server.getMultiple( ""region"", new HashSet<>() );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals( ""End should have been called."", 1, cacheEventLogger.endICacheEventCalls );
+    }
+",RemoteHttpCacheServiceUnitTest::testGetMultiple_simple_2_oe
+jcs3_296_1,"    public void testCreateRemoteHttpCacheClient_Bad_1_oe()
+    {
+        // SETUP
+        final String remoteHttpClientClassName = ""junk"";
+        final RemoteHttpCacheAttributes cattr = new RemoteHttpCacheAttributes();
+        cattr.setRemoteHttpClientClassName( remoteHttpClientClassName );
+
+        final RemoteHttpCacheFactory factory = new RemoteHttpCacheFactory();
+
+        // DO WORK
+        final IRemoteHttpCacheClient<String, String> result = factory.createRemoteHttpCacheClientForAttributes( cattr );
+
+        // VEIFY
+        assertNotNull( ""Should have a cache."", result );
+    }
+",RemoteHttpCacheFactoryUnitTest::testCreateRemoteHttpCacheClient_Bad_1_oe
+jcs3_296_2,"    public void testCreateRemoteHttpCacheClient_Bad_2_oe()
+    {
+        // SETUP
+        final String remoteHttpClientClassName = ""junk"";
+        final RemoteHttpCacheAttributes cattr = new RemoteHttpCacheAttributes();
+        cattr.setRemoteHttpClientClassName( remoteHttpClientClassName );
+
+        final RemoteHttpCacheFactory factory = new RemoteHttpCacheFactory();
+
+        // DO WORK
+        final IRemoteHttpCacheClient<String, String> result = factory.createRemoteHttpCacheClientForAttributes( cattr );
+
+        // VEIFY
+        // removed other assertion
+        assertTrue( ""Wrong default."", result instanceof RemoteHttpCacheClient );
+    }
+",RemoteHttpCacheFactoryUnitTest::testCreateRemoteHttpCacheClient_Bad_2_oe
+jcs3_296_3,"    public void testCreateRemoteHttpCacheClient_Bad_3_oe()
+    {
+        // SETUP
+        final String remoteHttpClientClassName = ""junk"";
+        final RemoteHttpCacheAttributes cattr = new RemoteHttpCacheAttributes();
+        cattr.setRemoteHttpClientClassName( remoteHttpClientClassName );
+
+        final RemoteHttpCacheFactory factory = new RemoteHttpCacheFactory();
+
+        // DO WORK
+        final IRemoteHttpCacheClient<String, String> result = factory.createRemoteHttpCacheClientForAttributes( cattr );
+
+        // VEIFY
+        // removed other assertion
+        // removed other assertion
+        assertTrue( ""Should be initialized"", ((RemoteHttpCacheClient<String, String>)result).isInitialized() );
+    }
+",RemoteHttpCacheFactoryUnitTest::testCreateRemoteHttpCacheClient_Bad_3_oe
+jcs3_297_1,"    public void testCreateRemoteHttpCacheClient_default_1_oe()
+    {
+        // SETUP
+        final RemoteHttpCacheAttributes cattr = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheFactory factory = new RemoteHttpCacheFactory();
+
+        // DO WORK
+        final IRemoteHttpCacheClient<String, String> result = factory.createRemoteHttpCacheClientForAttributes( cattr );
+
+        // VEIFY
+        assertNotNull( ""Should have a cache."", result );
+    }
+",RemoteHttpCacheFactoryUnitTest::testCreateRemoteHttpCacheClient_default_1_oe
+jcs3_297_2,"    public void testCreateRemoteHttpCacheClient_default_2_oe()
+    {
+        // SETUP
+        final RemoteHttpCacheAttributes cattr = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheFactory factory = new RemoteHttpCacheFactory();
+
+        // DO WORK
+        final IRemoteHttpCacheClient<String, String> result = factory.createRemoteHttpCacheClientForAttributes( cattr );
+
+        // VEIFY
+        // removed other assertion
+        assertTrue( ""Wrong default."", result instanceof RemoteHttpCacheClient );
+    }
+",RemoteHttpCacheFactoryUnitTest::testCreateRemoteHttpCacheClient_default_2_oe
+jcs3_298_4,"    public void testGetCache_normal_4_oe()
+    {
+        // SETUP
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        // removed other assertion
+        final ICacheEventLogger cacheEventLogger = null;
+        final IElementSerializer elementSerializer = null;
+
+        final RemoteHttpCacheAttributes cattr = new RemoteHttpCacheAttributes();
+        // removed other assertion
+        final RemoteHttpCacheFactory factory = new RemoteHttpCacheFactory();
+        // removed other assertion
+
+
+        // DO WORK
+        final AuxiliaryCache<String, String> result = factory.createCache(cattr, cacheMgr, cacheEventLogger, elementSerializer);
+
+        // VERIFY
+        assertNotNull( ""Should have a cache."", result );
+    }
+",RemoteHttpCacheFactoryUnitTest::testGetCache_normal_4_oe
+jcs3_299_1,"    public void testSimpleLoad_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( ""testCache1"" );
+
+        jcs.put( ""TestKey"", ""TestValue"" );
+
+//        System.out.println( jcs.getStats() );
+
+        for ( int i = 1; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", ""data"" + i );
+        }
+
+        for ( int i = items; i > 0; i-- )
+        {
+            final String res = jcs.get( i + "":key"" );
+            if ( res == null )
+            {
+                //assertNotNull( ""["" + i + "":key] should not be null"", res );
+            }
+        }
+
+        // test removal
+        jcs.remove( ""300:key"" );
+        assertNull( jcs.get( ""TestKey"" ) );
+    }
+",RemoteHttpCacheManualTester::testSimpleLoad_1_oe
+jcs3_300_1,"    public void testGet_nullFromDispatcher_1_oe()
+        throws IOException
+    {
+        // SETUP
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        client.setRemoteDispatcher( mockDispatcher );
+
+        final String cacheName = ""test"";
+        final String key = ""key"";
+
+        mockDispatcher.setupRemoteCacheResponse = null;
+
+        // DO WORK
+        final ICacheElement<String, String> result = client.get( cacheName, key );
+
+        // VERIFY
+        assertNull( ""Wrong result."", result );
+    }
+",RemoteHttpCacheClientUnitTest::testGet_nullFromDispatcher_1_oe
+jcs3_300_2,"    public void testGet_nullFromDispatcher_2_oe()
+        throws IOException
+    {
+        // SETUP
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        client.setRemoteDispatcher( mockDispatcher );
+
+        final String cacheName = ""test"";
+        final String key = ""key"";
+
+        mockDispatcher.setupRemoteCacheResponse = null;
+
+        // DO WORK
+        final ICacheElement<String, String> result = client.get( cacheName, key );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals(""Wrong type."",RemoteRequestType.GET,mockDispatcher.lastRemoteCacheRequest .getRequestType());
+    }
+",RemoteHttpCacheClientUnitTest::testGet_nullFromDispatcher_2_oe
+jcs3_301_1,"    public void testGet_normal_1_oe()
+        throws IOException
+    {
+        // SETUP
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        client.setRemoteDispatcher( mockDispatcher );
+
+        final String cacheName = ""test"";
+        final String key = ""key"";
+
+        final ICacheElement<String, String> expected = new CacheElement<>( cacheName, key, ""value"" );
+        final RemoteCacheResponse<ICacheElement<String, String>> remoteHttpCacheResponse =
+            new RemoteCacheResponse<>();
+        remoteHttpCacheResponse.setPayload( expected );
+
+        mockDispatcher.setupRemoteCacheResponse = remoteHttpCacheResponse;
+
+        // DO WORK
+        final ICacheElement<String, String> result = client.get( cacheName, key );
+
+        // VERIFY
+        assertEquals( ""Wrong result."", expected, result );
+    }
+",RemoteHttpCacheClientUnitTest::testGet_normal_1_oe
+jcs3_301_2,"    public void testGet_normal_2_oe()
+        throws IOException
+    {
+        // SETUP
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        client.setRemoteDispatcher( mockDispatcher );
+
+        final String cacheName = ""test"";
+        final String key = ""key"";
+
+        final ICacheElement<String, String> expected = new CacheElement<>( cacheName, key, ""value"" );
+        final RemoteCacheResponse<ICacheElement<String, String>> remoteHttpCacheResponse =
+            new RemoteCacheResponse<>();
+        remoteHttpCacheResponse.setPayload( expected );
+
+        mockDispatcher.setupRemoteCacheResponse = remoteHttpCacheResponse;
+
+        // DO WORK
+        final ICacheElement<String, String> result = client.get( cacheName, key );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals(""Wrong type."",RemoteRequestType.GET,mockDispatcher.lastRemoteCacheRequest .getRequestType());
+    }
+",RemoteHttpCacheClientUnitTest::testGet_normal_2_oe
+jcs3_302_1,"    public void testGetMatching_normal_1_oe()
+        throws IOException
+    {
+        // SETUP
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        client.setRemoteDispatcher( mockDispatcher );
+
+        final String cacheName = ""test"";
+        final String pattern = ""key"";
+
+        final ICacheElement<String, String> expected = new CacheElement<>( cacheName, ""key"", ""value"" );
+        final Map<String, ICacheElement<String, String>> expectedMap = new HashMap<>();
+        expectedMap.put( ""key"", expected );
+        final RemoteCacheResponse<Map<String, ICacheElement<String, String>>> remoteHttpCacheResponse =
+            new RemoteCacheResponse<>();
+        remoteHttpCacheResponse.setPayload( expectedMap );
+
+        mockDispatcher.setupRemoteCacheResponse = remoteHttpCacheResponse;
+
+        // DO WORK
+        final Map<String, ICacheElement<String, String>> result = client.getMatching( cacheName, pattern );
+
+        // VERIFY
+        assertEquals( ""Wrong result."", expected, result.get( ""key"" ) );
+    }
+",RemoteHttpCacheClientUnitTest::testGetMatching_normal_1_oe
+jcs3_302_2,"    public void testGetMatching_normal_2_oe()
+        throws IOException
+    {
+        // SETUP
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        client.setRemoteDispatcher( mockDispatcher );
+
+        final String cacheName = ""test"";
+        final String pattern = ""key"";
+
+        final ICacheElement<String, String> expected = new CacheElement<>( cacheName, ""key"", ""value"" );
+        final Map<String, ICacheElement<String, String>> expectedMap = new HashMap<>();
+        expectedMap.put( ""key"", expected );
+        final RemoteCacheResponse<Map<String, ICacheElement<String, String>>> remoteHttpCacheResponse =
+            new RemoteCacheResponse<>();
+        remoteHttpCacheResponse.setPayload( expectedMap );
+
+        mockDispatcher.setupRemoteCacheResponse = remoteHttpCacheResponse;
+
+        // DO WORK
+        final Map<String, ICacheElement<String, String>> result = client.getMatching( cacheName, pattern );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals(""Wrong type."",RemoteRequestType.GET_MATCHING,mockDispatcher.lastRemoteCacheRequest.getRequestType());
+    }
+",RemoteHttpCacheClientUnitTest::testGetMatching_normal_2_oe
+jcs3_303_1,"    public void testGetMultiple_normal_1_oe()
+        throws IOException
+    {
+        // SETUP
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        client.setRemoteDispatcher( mockDispatcher );
+
+        final String cacheName = ""test"";
+        final Set<String> keys = Collections.emptySet();
+
+        final ICacheElement<String, String> expected = new CacheElement<>( cacheName, ""key"", ""value"" );
+        final Map<String, ICacheElement<String, String>> expectedMap = new HashMap<>();
+        expectedMap.put( ""key"", expected );
+        final RemoteCacheResponse<Map<String, ICacheElement<String, String>>> remoteHttpCacheResponse =
+            new RemoteCacheResponse<>();
+        remoteHttpCacheResponse.setPayload( expectedMap );
+
+        mockDispatcher.setupRemoteCacheResponse = remoteHttpCacheResponse;
+
+        // DO WORK
+        final Map<String, ICacheElement<String, String>> result = client.getMultiple( cacheName, keys );
+
+        // VERIFY
+        assertEquals( ""Wrong result."", expected, result.get( ""key"" ) );
+    }
+",RemoteHttpCacheClientUnitTest::testGetMultiple_normal_1_oe
+jcs3_303_2,"    public void testGetMultiple_normal_2_oe()
+        throws IOException
+    {
+        // SETUP
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        client.setRemoteDispatcher( mockDispatcher );
+
+        final String cacheName = ""test"";
+        final Set<String> keys = Collections.emptySet();
+
+        final ICacheElement<String, String> expected = new CacheElement<>( cacheName, ""key"", ""value"" );
+        final Map<String, ICacheElement<String, String>> expectedMap = new HashMap<>();
+        expectedMap.put( ""key"", expected );
+        final RemoteCacheResponse<Map<String, ICacheElement<String, String>>> remoteHttpCacheResponse =
+            new RemoteCacheResponse<>();
+        remoteHttpCacheResponse.setPayload( expectedMap );
+
+        mockDispatcher.setupRemoteCacheResponse = remoteHttpCacheResponse;
+
+        // DO WORK
+        final Map<String, ICacheElement<String, String>> result = client.getMultiple( cacheName, keys );
+
+        // VERIFY
+        // removed other assertion
+        assertEquals(""Wrong type."",RemoteRequestType.GET_MULTIPLE,mockDispatcher.lastRemoteCacheRequest.getRequestType());
+    }
+",RemoteHttpCacheClientUnitTest::testGetMultiple_normal_2_oe
+jcs3_304_1,"    public void testRemove_normal_1_oe()
+        throws IOException
+    {
+        // SETUP
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        client.setRemoteDispatcher( mockDispatcher );
+
+        final String cacheName = ""test"";
+        final String key = ""key"";
+
+        // DO WORK
+        client.remove( cacheName, key );
+
+        // VERIFY
+        assertEquals(""Wrong type."",RemoteRequestType.REMOVE,mockDispatcher.lastRemoteCacheRequest .getRequestType());
+    }
+",RemoteHttpCacheClientUnitTest::testRemove_normal_1_oe
+jcs3_305_1,"    public void testRemoveAll_normal_1_oe()
+        throws IOException
+    {
+        // SETUP
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        client.setRemoteDispatcher( mockDispatcher );
+
+        final String cacheName = ""test"";
+
+        // DO WORK
+        client.removeAll( cacheName );
+
+        // VERIFY
+        assertEquals(""Wrong type."",RemoteRequestType.REMOVE_ALL,mockDispatcher.lastRemoteCacheRequest .getRequestType());
+    }
+",RemoteHttpCacheClientUnitTest::testRemoveAll_normal_1_oe
+jcs3_306_1,"    public void testUpdate_normal_1_oe()
+        throws IOException
+    {
+        // SETUP
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        client.setRemoteDispatcher( mockDispatcher );
+
+        final String cacheName = ""test"";
+
+        final ICacheElement<String, String> element = new CacheElement<>( cacheName, ""key"", ""value"" );
+
+        // DO WORK
+        client.update( element );
+
+        // VERIFY
+        assertEquals(""Wrong type."",RemoteRequestType.UPDATE,mockDispatcher.lastRemoteCacheRequest .getRequestType());
+    }
+",RemoteHttpCacheClientUnitTest::testUpdate_normal_1_oe
+jcs3_307_1,"    public void testDispose_normal_1_oe()
+        throws IOException
+    {
+        // SETUP
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        client.setRemoteDispatcher( mockDispatcher );
+
+        final String cacheName = ""test"";
+
+        // DO WORK
+        client.dispose( cacheName );
+
+        // VERIFY
+        assertEquals(""Wrong type."",RemoteRequestType.DISPOSE,mockDispatcher.lastRemoteCacheRequest .getRequestType());
+    }
+",RemoteHttpCacheClientUnitTest::testDispose_normal_1_oe
+jcs3_33_1,"    public void testLoadFromCCF_1_oe()
+        throws CacheException
+    {
+        final CacheAccess<String, String> cache = JCS.getInstance( ""testPutGet"" );
+        final String memoryCacheName = cache.getCacheAttributes().getMemoryCacheName();
+        assertTrue(""Cache name should have SoftReference in it."",memoryCacheName.indexOf(""SoftReferenceMemoryCache"")!= -1);
+    }
+",SoftReferenceMemoryCacheUnitTest::testLoadFromCCF_1_oe
+jcs3_345_1,"    public void testGetRegionInfo_1_oe()
+        throws Exception
+    {
+        final String regionName = ""myRegion"";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
+
+        cache.put( ""key"", ""value"" );
+
+        final JCSAdminBean admin = new JCSAdminBean();
+
+        final List<CacheRegionInfo> regions = admin.buildCacheInfo();
+
+        boolean foundRegion = false;
+
+        for (final CacheRegionInfo info : regions)
+        {
+
+            if ( info.getCacheName().equals( regionName ) )
+            {
+                foundRegion = true;
+
+                assertTrue( ""Byte count should be greater than 5."", info.getByteCount() > 5 );
+    }
+    }
+    }
+",AdminBeanUnitTest::testGetRegionInfo_1_oe
+jcs3_345_2,"    public void testGetRegionInfo_2_oe()
+        throws Exception
+    {
+        final String regionName = ""myRegion"";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
+
+        cache.put( ""key"", ""value"" );
+
+        final JCSAdminBean admin = new JCSAdminBean();
+
+        final List<CacheRegionInfo> regions = admin.buildCacheInfo();
+
+        boolean foundRegion = false;
+
+        for (final CacheRegionInfo info : regions)
+        {
+
+            if ( info.getCacheName().equals( regionName ) )
+            {
+                foundRegion = true;
+
+                // removed other assertion
+
+                assertNotNull( ""Should have stats."", info.getCacheStatistics() );
+    }
+    }
+    }
+",AdminBeanUnitTest::testGetRegionInfo_2_oe
+jcs3_345_3,"    public void testGetRegionInfo_3_oe()
+        throws Exception
+    {
+        final String regionName = ""myRegion"";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
+
+        cache.put( ""key"", ""value"" );
+
+        final JCSAdminBean admin = new JCSAdminBean();
+
+        final List<CacheRegionInfo> regions = admin.buildCacheInfo();
+
+        boolean foundRegion = false;
+
+        for (final CacheRegionInfo info : regions)
+        {
+
+            if ( info.getCacheName().equals( regionName ) )
+            {
+                foundRegion = true;
+
+                // removed other assertion
+
+                // removed other assertion
+            }
+        }
+
+        assertTrue( ""Should have found the region we just created."", foundRegion );
+    }
+",AdminBeanUnitTest::testGetRegionInfo_3_oe
+jcs3_346_1,"    public void testGetElementForRegionInfo_1_oe()
+        throws Exception
+    {
+        final String regionName = ""myRegion"";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
+
+        // clear the region
+        cache.clear();
+
+        final String key = ""myKey"";
+        cache.put( key, ""value"" );
+
+        final JCSAdminBean admin = new JCSAdminBean();
+
+        final List<CacheElementInfo> elements = admin.buildElementInfo( regionName );
+        assertEquals( ""Wrong number of elements in the region."", 1, elements.size() );
+    }
+",AdminBeanUnitTest::testGetElementForRegionInfo_1_oe
+jcs3_346_2,"    public void testGetElementForRegionInfo_2_oe()
+        throws Exception
+    {
+        final String regionName = ""myRegion"";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
+
+        // clear the region
+        cache.clear();
+
+        final String key = ""myKey"";
+        cache.put( key, ""value"" );
+
+        final JCSAdminBean admin = new JCSAdminBean();
+
+        final List<CacheElementInfo> elements = admin.buildElementInfo( regionName );
+        // removed other assertion
+
+        final CacheElementInfo elementInfo = elements.get(0);
+        assertEquals( ""Wrong key."" + elementInfo, key, elementInfo.getKey() );
+    }
+",AdminBeanUnitTest::testGetElementForRegionInfo_2_oe
+jcs3_347_1,"    public void testRemove_1_oe()
+        throws Exception
+    {
+        final JCSAdminBean admin = new JCSAdminBean();
+
+        final String regionName = ""myRegion"";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
+
+        // clear the region
+        cache.clear();
+        admin.clearRegion( regionName );
+
+        final String key = ""myKey"";
+        cache.put( key, ""value"" );
+
+        final List<CacheElementInfo> elements = admin.buildElementInfo( regionName );
+        assertEquals( ""Wrong number of elements in the region."", 1, elements.size() );
+    }
+",AdminBeanUnitTest::testRemove_1_oe
+jcs3_347_2,"    public void testRemove_2_oe()
+        throws Exception
+    {
+        final JCSAdminBean admin = new JCSAdminBean();
+
+        final String regionName = ""myRegion"";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
+
+        // clear the region
+        cache.clear();
+        admin.clearRegion( regionName );
+
+        final String key = ""myKey"";
+        cache.put( key, ""value"" );
+
+        final List<CacheElementInfo> elements = admin.buildElementInfo( regionName );
+        // removed other assertion
+
+        final CacheElementInfo elementInfo = elements.get(0);
+        assertEquals( ""Wrong key."", key, elementInfo.getKey() );
+    }
+",AdminBeanUnitTest::testRemove_2_oe
+jcs3_347_3,"    public void testRemove_3_oe()
+        throws Exception
+    {
+        final JCSAdminBean admin = new JCSAdminBean();
+
+        final String regionName = ""myRegion"";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
+
+        // clear the region
+        cache.clear();
+        admin.clearRegion( regionName );
+
+        final String key = ""myKey"";
+        cache.put( key, ""value"" );
+
+        final List<CacheElementInfo> elements = admin.buildElementInfo( regionName );
+        // removed other assertion
+
+        final CacheElementInfo elementInfo = elements.get(0);
+        // removed other assertion
+
+        admin.removeItem( regionName, key );
+
+        final List<CacheElementInfo> elements2 = admin.buildElementInfo( regionName );
+        assertEquals( ""Wrong number of elements in the region after remove."", 0, elements2.size() );
+    }
+",AdminBeanUnitTest::testRemove_3_oe
+jcs3_348_1,"    public void testClearAll_1_oe()
+        throws Exception
+    {
+        final JCSAdminBean admin = new JCSAdminBean();
+
+        final String regionName = ""myRegion"";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
+
+        final String key = ""myKey"";
+        cache.put( key, ""value"" );
+
+        admin.clearAllRegions();
+
+        final List<CacheElementInfo> elements2 = admin.buildElementInfo( regionName );
+        assertEquals( ""Wrong number of elements in the region after remove."", 0, elements2.size() );
+    }
+",AdminBeanUnitTest::testClearAll_1_oe
+jcs3_34_1,"    public void testPutGetThroughHub_1_oe()
+        throws CacheException
+    {
+        final CacheAccess<String, String> cache = JCS.getInstance( ""testPutGetThroughHub"" );
+
+        final int max = cache.getCacheAttributes().getMaxObjects();
+        final int items = max * 2;
+
+        for ( int i = 0; i < items; i++ )
+        {
+            cache.put( i + "":key"", ""myregion"" + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = 0; i < items; i++ )
+        {
+            final String value = cache.get( i + "":key"" );
+            assertEquals( ""myregion"" + "" data "" + i, value );
+    }
+    }
+",SoftReferenceMemoryCacheUnitTest::testPutGetThroughHub_1_oe
+jcs3_34_2,"    public void testPutGetThroughHub_2_oe()
+        throws CacheException
+    {
+        final CacheAccess<String, String> cache = JCS.getInstance( ""testPutGetThroughHub"" );
+
+        final int max = cache.getCacheAttributes().getMaxObjects();
+        final int items = max * 2;
+
+        for ( int i = 0; i < items; i++ )
+        {
+            cache.put( i + "":key"", ""myregion"" + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = 0; i < items; i++ )
+        {
+            final String value = cache.get( i + "":key"" );
+            // removed other assertion
+        }
+
+        // Test that getMultiple returns all the items remaining in cache and none of the missing ones
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = cache.getCacheElements( keys );
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            assertNotNull( ""element "" + i + "":key is missing"", element );
+    }
+    }
+",SoftReferenceMemoryCacheUnitTest::testPutGetThroughHub_2_oe
+jcs3_34_3,"    public void testPutGetThroughHub_3_oe()
+        throws CacheException
+    {
+        final CacheAccess<String, String> cache = JCS.getInstance( ""testPutGetThroughHub"" );
+
+        final int max = cache.getCacheAttributes().getMaxObjects();
+        final int items = max * 2;
+
+        for ( int i = 0; i < items; i++ )
+        {
+            cache.put( i + "":key"", ""myregion"" + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = 0; i < items; i++ )
+        {
+            final String value = cache.get( i + "":key"" );
+            // removed other assertion
+        }
+
+        // Test that getMultiple returns all the items remaining in cache and none of the missing ones
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = cache.getCacheElements( keys );
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            assertEquals( ""value "" + i + "":key"", ""myregion"" + "" data "" + i, element.getVal() );
+    }
+    }
+",SoftReferenceMemoryCacheUnitTest::testPutGetThroughHub_3_oe
+jcs3_60_2,"    public void testRelease_2_oe()
+    {
+        // See JCS-184
+        // create the manager
+        final CompositeCacheManager manager = CompositeCacheManager.getInstance();
+        // add a simple cache
+        final CompositeCacheAttributes cacheAttributes = new CompositeCacheAttributes();
+        final CompositeCache<String, String> cache = new CompositeCache<>(cacheAttributes, /* attr */ null);
+        manager.addCache(""simple_cache"", cache);
+        // add a client to the cache
+        CompositeCacheManager.getUnconfiguredInstance();
+        // won't release as there are still clients. Only disposed when release() is called by
+        // the last client
+        manager.release();
+        // removed other assertion
+        manager.release();
+        assertEquals(""The cache was NOT disposed during release!"", CacheStatus.DISPOSED, cache.getStatus());
+    }
+",CompositeCacheManagerTest::testRelease_2_oe
+jcs3_62_1,"    public void testParseSpoolChunkSize_Normal_1_oe()
+    {
+        // SETUP
+        final String regionName = ""MyRegion"";
+        final int chunkSize = 5;
+
+        final Properties props = new Properties();
+        props.put( ""jcs.default"", """" );
+        props.put( ""jcs.default.cacheattributes.SpoolChunkSize"", String.valueOf( chunkSize ) );
+
+        final CompositeCacheManager manager = CompositeCacheManager.getUnconfiguredInstance();
+
+        // DO WORK
+        manager.configure( props );
+
+        // VERIFY
+        final CompositeCache<String, String> cache = manager.getCache( regionName );
+        assertEquals( ""Wrong chunkSize"", cache.getCacheAttributes().getSpoolChunkSize(), chunkSize );
+    }
+",CompositeCacheConfiguratorUnitTest::testParseSpoolChunkSize_Normal_1_oe
+jcs3_64_1,"    public void testUpdateConfig_1_oe()
+        throws CacheException
+    {
+        final CacheAccess<String, String> swap = JCS.getInstance( ""Update"" );
+        assertEquals(ICompositeCacheAttributes.DiskUsagePattern.UPDATE,swap.getCacheAttributes().getDiskUsagePattern());
+    }
+",CompositeCacheDiskUsageUnitTest::testUpdateConfig_1_oe
+jcs3_76_1,"    public void testSpoolEvent_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( ""WithDisk"" );
+        // this should add the event handler to all items as they are created.
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        attributes.addElementEventHandler( meh );
+        jcs.setDefaultElementAttributes( attributes );
+
+        // DO WORK
+        // put them in
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.put( i + "":key"", ""data"" + i );
+        }
+        // wait a bit for it to finish
+        Thread.sleep( items / 20 );
+
+        // VERIFY
+        // test to see if the count is right
+        assertTrue(""The number of ELEMENT_EVENT_SPOOLED_DISK_AVAILABLE events ["" + meh.getSpoolCount()+ ""] does not equal the number expected ["" + items + ""]"",meh.getSpoolCount()>= items);
+    }
+",SimpleEventHandlingUnitTest::testSpoolEvent_1_oe
+jcs3_77_1,"    public void testSpoolNoDiskEvent_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( ""NoDisk"" );
+
+        // this should add the event handler to all items as they are created.
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        attributes.addElementEventHandler( meh );
+        jcs.setDefaultElementAttributes( attributes );
+
+        // put them in
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.put( i + "":key"", ""data"" + i );
+        }
+
+        // wait a bit for it to finish
+        Thread.sleep( items / 20 );
+
+        // test to see if the count is right
+        assertTrue(""The number of ELEMENT_EVENT_SPOOLED_DISK_NOT_AVAILABLE events ["" + meh.getSpoolNoDiskCount()+ ""] does not equal the number expected."",meh.getSpoolNoDiskCount()>= items);
+    }
+",SimpleEventHandlingUnitTest::testSpoolNoDiskEvent_1_oe
+jcs3_78_1,"    public void testSpoolNotAllowedEvent_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( ""DiskButNotAllowed"" );
+        // this should add the event handler to all items as they are created.
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        attributes.addElementEventHandler( meh );
+        jcs.setDefaultElementAttributes( attributes );
+
+        // put them in
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.put( i + "":key"", ""data"" + i );
+        }
+
+        // wait a bit for it to finish
+        Thread.sleep( items / 20 );
+
+        // test to see if the count is right
+        assertTrue(""The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events ["" + meh.getSpoolNotAllowedCount()+ ""] does not equal the number expected."",meh.getSpoolNotAllowedCount()>= items);
+    }
+",SimpleEventHandlingUnitTest::testSpoolNotAllowedEvent_1_oe
+jcs3_79_1,"    public void testSpoolNotAllowedEventOnItem_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( ""DiskButNotAllowed"" );
+        // this should add the event handler to all items as they are created.
+        //IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        //attributes.addElementEventHandler( meh );
+        //jcs.setDefaultElementAttributes( attributes );
+
+        // put them in
+        for ( int i = 0; i < items; i++ )
+        {
+            final IElementAttributes attributes = jcs.getDefaultElementAttributes();
+            attributes.addElementEventHandler( meh );
+            jcs.put( i + "":key"", ""data"" + i, attributes );
+        }
+
+        // wait a bit for it to finish
+        Thread.sleep( items / 20 );
+
+        // test to see if the count is right
+        assertTrue(""The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events ["" + meh.getSpoolNotAllowedCount()+ ""] does not equal the number expected."",meh.getSpoolNotAllowedCount()>= items);
+    }
+",SimpleEventHandlingUnitTest::testSpoolNotAllowedEventOnItem_1_oe
+jcs3_7_1,"    public void testPutGetRemove_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( ""testCache1"" );
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", ""data"" + i );
+        }
+
+        // all the gets should be null
+        for ( int i = items; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + "":key"" );
+            assertNull( ""["" + i + "":key] should be null"", res );
+    }
+    }
+",ZeroSizeCacheUnitTest::testPutGetRemove_1_oe
+jcs3_7_2,"    public void testPutGetRemove_2_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( ""testCache1"" );
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", ""data"" + i );
+        }
+
+        // all the gets should be null
+        for ( int i = items; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + "":key"" );
+            // removed other assertion
+        }
+
+        // test removal, should be no exceptions
+        jcs.remove( ""300:key"" );
+
+        // allow the shrinker to run
+        Thread.sleep( 500 );
+
+        // do it again.
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", ""data"" + i );
+        }
+
+        for ( int i = items; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + "":key"" );
+            assertNull( ""["" + i + "":key] should be null"", res );
+    }
+    }
+",ZeroSizeCacheUnitTest::testPutGetRemove_2_oe
+jcs3_81_1,"    public void testExceededIdletimeOnrequestEvent_1_oe()
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( ""Idletime"" );
+        // this should add the event handler to all items as they are created.
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        attributes.addElementEventHandler( meh );
+        jcs.setDefaultElementAttributes( attributes );
+
+        // put them in
+        for ( int i = 0; i < 200; i++ )
+        {
+            jcs.put( i + "":key"", ""data"" + i);
+        }
+
+        // update access time
+        for ( int i = 0; i < 200; i++ )
+        {
+            final String value = jcs.get( i + "":key"");
+            assertNotNull(""Item should not be null for key "" + i + "":key"", value);
+    }
+    }
+",SimpleEventHandlingUnitTest::testExceededIdletimeOnrequestEvent_1_oe
+jcs3_84_1,"    public void testReadWrite_1_oe()
+        throws Exception
+    {
+        final int count = 500; // 100 fit in memory
+        // CompressingSerializer
+        final CacheAccess<String, String> jcs1 = JCS.getInstance( ""blockRegion1"" );
+
+        for ( int i = 0; i < count; i++ )
+        {
+            jcs1.put( ""key:"" + i, ""data"" + i );
+        }
+
+        for ( int i = 0; i < count; i++ )
+        {
+            final String res = jcs1.get( ""key:"" + i );
+            assertNotNull( ""[key:"" + i + ""] should not be null, "" + jcs1.getStats(), res );
+    }
+    }
+",SerializerUnitTest::testReadWrite_1_oe
+jcs3_84_2,"    public void testReadWrite_2_oe()
+        throws Exception
+    {
+        final int count = 500; // 100 fit in memory
+        // CompressingSerializer
+        final CacheAccess<String, String> jcs1 = JCS.getInstance( ""blockRegion1"" );
+
+        for ( int i = 0; i < count; i++ )
+        {
+            jcs1.put( ""key:"" + i, ""data"" + i );
+        }
+
+        for ( int i = 0; i < count; i++ )
+        {
+            final String res = jcs1.get( ""key:"" + i );
+            // removed other assertion
+        }
+
+        // EncryptingSerializer
+        final CacheAccess<String, String> jcs2 = JCS.getInstance( ""blockRegion2"" );
+
+        for ( int i = 0; i < count; i++ )
+        {
+            jcs2.put( ""key:"" + i, ""data"" + i );
+        }
+
+        for ( int i = 0; i < count; i++ )
+        {
+            final String res = jcs2.get( ""key:"" + i );
+            assertNotNull( ""[key:"" + i + ""] should not be null, "" + jcs2.getStats(), res );
+    }
+    }
+",SerializerUnitTest::testReadWrite_2_oe
+jcs3_84_3,"    public void testReadWrite_3_oe()
+        throws Exception
+    {
+        final int count = 500; // 100 fit in memory
+        // CompressingSerializer
+        final CacheAccess<String, String> jcs1 = JCS.getInstance( ""blockRegion1"" );
+
+        for ( int i = 0; i < count; i++ )
+        {
+            jcs1.put( ""key:"" + i, ""data"" + i );
+        }
+
+        for ( int i = 0; i < count; i++ )
+        {
+            final String res = jcs1.get( ""key:"" + i );
+            // removed other assertion
+        }
+
+        // EncryptingSerializer
+        final CacheAccess<String, String> jcs2 = JCS.getInstance( ""blockRegion2"" );
+
+        for ( int i = 0; i < count; i++ )
+        {
+            jcs2.put( ""key:"" + i, ""data"" + i );
+        }
+
+        for ( int i = 0; i < count; i++ )
+        {
+            final String res = jcs2.get( ""key:"" + i );
+            // removed other assertion
+        }
+
+        JCS.shutdown();
+
+        // Re-init
+        // EncryptingSerializer
+        final CacheAccess<String, String> jcs3 = JCS.getInstance( ""blockRegion2"" );
+
+        for ( int i = 0; i < count; i++ )
+        {
+            final String res = jcs3.get( ""key:"" + i );
+            assertNotNull( ""[key:"" + i + ""] should not be null, "" + jcs3.getStats(), res );
+    }
+    }
+",SerializerUnitTest::testReadWrite_3_oe
+jcs3_9_3,"    public void testPut_3_oe()
+        throws Exception
+    {
+        final String value = ""value"";
+        final String key = ""key"";
+
+        // Make sure the element is not found
+        // removed other assertion
+
+        // removed other assertion
+
+        jcs.put( key, value );
+
+        // Get the element
+        LOG.info( ""jcs.getStats(): "" + jcs.getStatistics() );
+        assertEquals( 1, getListSize() );
+    }
+",JCSThrashTest::testPut_3_oe
