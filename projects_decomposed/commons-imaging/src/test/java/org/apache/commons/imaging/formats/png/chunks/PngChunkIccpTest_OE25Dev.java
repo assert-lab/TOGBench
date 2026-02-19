@@ -32,6 +32,8 @@ import org.apache.commons.imaging.ImagingConstants;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Tests for {@link PngChunkIccp}.
  */
@@ -40,9 +42,13 @@ public class PngChunkIccpTest_OE25Dev {
     private static final int chunkType = 1766015824;
 
     @Test
-    public void testErrorOnNoProfileName() {
+    public void testErrorOnNoProfileName_1_oe() throws Exception {
         final byte[] data = ImagingConstants.EMPTY_BYTE_ARRAY;
-        Assertions.assertThrows(ImageReadException.class, () -> new PngChunkIccp(0, chunkType, 0, data));
+        try {
+    new PngChunkIccp(0, chunkType, 0, data);
+    fail("ImageReadException");
+} catch (ImageReadException e) {
+}
     }
 
     @Test

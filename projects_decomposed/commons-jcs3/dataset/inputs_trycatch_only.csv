@@ -1,0 +1,16 @@
+id,test_prefix,test_name
+jcs3_95_1,"    public void testDifferentKey_1_oe()
+        throws Exception
+    {
+        // DO WORK
+        final String before = ""adsfdsafdsafdsafdsafdsafdsafdsagfdsafdsafdsfdsafdsafsa333 31231"";
+        byte[] serialized = serializer.serialize(before);
+        serializer.setPreSharedKey(""another_key"");
+
+        try {
+    serializer.deSerialize(serialized, null);
+    fail(""IOException"");
+} catch (IOException e) {
+}
+    }
+",EncryptingSerializerUnitTest::testDifferentKey_1_oe

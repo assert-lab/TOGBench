@@ -26,11 +26,11 @@ import org.junit.Assert;
 
 public class ClassPathTestCase_OE25Dev extends AbstractTestCase {
 
-    public void testGetClassFile() throws IOException {
+    public void testGetClassFile_1_oe() throws IOException {
         Assert.assertNotNull(ClassPath.SYSTEM_CLASS_PATH.getClassFile("java.lang.String"));
     }
 
-    public void testGetResource() {
+    public void testGetResource_1_oe() {
         Assert.assertNotNull(ClassPath.SYSTEM_CLASS_PATH.getResource("java/lang/String.class"));
     }
 

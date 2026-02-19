@@ -1,0 +1,29 @@
+Jaxb Object to Xml result:
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<user id="1">
+    <name>calvin</name>
+    <interests>
+        <interest>movie</interest>
+        <interest>sports</interest>
+    </interests>
+</user>
+
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.26 s <<< FAILURE! - in org.springside.modules.utils.mapper.XmlMapperTest_OE25Dev_springside4_89_1_3
+[ERROR] objectToXml_1_oe_3_oe(org.springside.modules.utils.mapper.XmlMapperTest_OE25Dev_springside4_89_1_3)  Time elapsed: 0.229 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.dom4j.Element.elements()" because "interests0" is null
+	at org.springside.modules.utils.mapper.XmlMapperTest_OE25Dev_springside4_89_1_3.objectToXml_1_oe_3_oe(XmlMapperTest_OE25Dev_springside4_89_1_3.java:191)
+
+[ERROR] Errors: 
+[ERROR]   XmlMapperTest_OE25Dev_springside4_89_1_3.objectToXml_1_oe_3_oe:191 NullPointer
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project springside-utils: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

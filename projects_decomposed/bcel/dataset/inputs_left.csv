@@ -1,0 +1,25 @@
+id,test_prefix,test_name
+bcel_65_1,"    @Test(expected=ClassGenException.class)
+    public void testsetInstructionNull_1_oe() {
+        final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
+        Assert.assertNotNull(ih);
+    }
+",InstructionHandleTestCase::testsetInstructionNull_1_oe
+bcel_67_1,"    @Test(expected=ClassGenException.class)
+    public void testsetInstructionnotI_1_oe() {
+        final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
+        Assert.assertNotNull(ih);
+    }
+",InstructionHandleTestCase::testsetInstructionnotI_1_oe
+bcel_81_1,"    @Test(expected=ClassGenException.class)
+    public void testsetInstructionNull_1_oe() {
+        final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
+        Assert.assertNotNull(bh);
+    }
+",BranchHandleTestCase::testsetInstructionNull_1_oe
+bcel_83_1,"    @Test(expected=ClassGenException.class)
+    public void testsetInstructionnotBI_1_oe() {
+        final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
+        Assert.assertNotNull(bh);
+    }
+",BranchHandleTestCase::testsetInstructionnotBI_1_oe

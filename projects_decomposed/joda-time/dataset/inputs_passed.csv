@@ -1,0 +1,248 @@
+id,test_prefix,test_name
+joda_18_1,"    public void testToDateTime_DateTimeZone_1_oe() {
+        MutableDateTime test = new MutableDateTime(TEST_TIME1);
+        MutableDateTime result = test.toMutableDateTime(LONDON);
+        assertEquals(test.getMillis(),result.getMillis());
+    }
+",TestMutableDateTime_Basics::testToDateTime_DateTimeZone_1_oe
+joda_18_6,"    public void testToDateTime_DateTimeZone_6_oe() {
+        MutableDateTime test = new MutableDateTime(TEST_TIME1);
+        MutableDateTime result = test.toMutableDateTime(LONDON);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        test = new MutableDateTime(TEST_TIME1);
+        result = test.toMutableDateTime(PARIS);
+        // removed other assertion
+        // removed other assertion
+
+        test = new MutableDateTime(TEST_TIME1, GregorianChronology.getInstance(PARIS));
+        result = test.toMutableDateTime((DateTimeZone) null);
+        assertEquals(test.getMillis(),result.getMillis());
+    }
+",TestMutableDateTime_Basics::testToDateTime_DateTimeZone_6_oe
+joda_498_1,"    public void testToDateTime_DateTimeZone_1_oe() {
+        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
+        DateTime result = test.toDateTime(LONDON);
+        assertEquals(test.getMillis(),result.getMillis());
+    }
+",TestDateMidnight_Basics::testToDateTime_DateTimeZone_1_oe
+joda_498_6,"    public void testToDateTime_DateTimeZone_6_oe() {
+        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
+        DateTime result = test.toDateTime(LONDON);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        test = new DateMidnight(TEST_TIME1_UTC);
+        result = test.toDateTime(PARIS);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(PARIS,result.getZone());
+    }
+",TestDateMidnight_Basics::testToDateTime_DateTimeZone_6_oe
+joda_512_3,"    public void testWithZoneRetainFields_DateTimeZone_3_oe() {
+        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
+        DateMidnight result = test.withZoneRetainFields(PARIS);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(ISO_PARIS,result.getChronology());
+    }
+",TestDateMidnight_Basics::testWithZoneRetainFields_DateTimeZone_3_oe
+joda_512_4,"    public void testWithZoneRetainFields_DateTimeZone_4_oe() {
+        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
+        DateMidnight result = test.withZoneRetainFields(PARIS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        
+        test = new DateMidnight(TEST_TIME1_UTC, GREGORIAN_PARIS);
+        result = test.withZoneRetainFields(null);
+        assertEquals(TEST_TIME1_PARIS,test.getMillis());
+    }
+",TestDateMidnight_Basics::testWithZoneRetainFields_DateTimeZone_4_oe
+joda_512_7,"    public void testWithZoneRetainFields_DateTimeZone_7_oe() {
+        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
+        DateMidnight result = test.withZoneRetainFields(PARIS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        
+        test = new DateMidnight(TEST_TIME1_UTC, GREGORIAN_PARIS);
+        result = test.withZoneRetainFields(null);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        
+        test = new DateMidnight(TEST_TIME1_UTC);
+        result = test.withZoneRetainFields(LONDON);
+        assertSame(test,result);
+    }
+",TestDateMidnight_Basics::testWithZoneRetainFields_DateTimeZone_7_oe
+joda_512_8,"    public void testWithZoneRetainFields_DateTimeZone_8_oe() {
+        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
+        DateMidnight result = test.withZoneRetainFields(PARIS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        
+        test = new DateMidnight(TEST_TIME1_UTC, GREGORIAN_PARIS);
+        result = test.withZoneRetainFields(null);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        
+        test = new DateMidnight(TEST_TIME1_UTC);
+        result = test.withZoneRetainFields(LONDON);
+        // removed other assertion
+        
+        test = new DateMidnight(TEST_TIME1_UTC);
+        result = test.withZoneRetainFields(null);
+        assertSame(test,result);
+    }
+",TestDateMidnight_Basics::testWithZoneRetainFields_DateTimeZone_8_oe
+joda_632_1,"    public void testToDateTime_DateTimeZone_1_oe() {
+        DateTime test = new DateTime(TEST_TIME1);
+        DateTime result = test.toDateTime(LONDON);
+        assertSame(test,result);
+    }
+",TestDateTime_Basics::testToDateTime_DateTimeZone_1_oe
+joda_632_6,"    public void testToDateTime_DateTimeZone_6_oe() {
+        DateTime test = new DateTime(TEST_TIME1);
+        DateTime result = test.toDateTime(LONDON);
+        // removed other assertion
+
+        test = new DateTime(TEST_TIME1);
+        result = test.toDateTime(PARIS);
+        // removed other assertion
+        // removed other assertion
+
+        test = new DateTime(TEST_TIME1, PARIS);
+        result = test.toDateTime((DateTimeZone) null);
+        // removed other assertion
+        // removed other assertion
+
+        test = new DateTime(TEST_TIME1);
+        result = test.toDateTime((DateTimeZone) null);
+        assertSame(test,result);
+    }
+",TestDateTime_Basics::testToDateTime_DateTimeZone_6_oe
+joda_650_3,"    public void testWithZoneRetainFields_DateTimeZone_3_oe() {
+        DateTime test = new DateTime(TEST_TIME1);
+        DateTime result = test.withZoneRetainFields(PARIS);
+        // removed other assertion
+        // removed other assertion
+        
+        test = new DateTime(TEST_TIME1);
+        result = test.withZoneRetainFields(LONDON);
+        assertSame(test,result);
+    }
+",TestDateTime_Basics::testWithZoneRetainFields_DateTimeZone_3_oe
+joda_650_4,"    public void testWithZoneRetainFields_DateTimeZone_4_oe() {
+        DateTime test = new DateTime(TEST_TIME1);
+        DateTime result = test.withZoneRetainFields(PARIS);
+        // removed other assertion
+        // removed other assertion
+        
+        test = new DateTime(TEST_TIME1);
+        result = test.withZoneRetainFields(LONDON);
+        // removed other assertion
+        
+        test = new DateTime(TEST_TIME1);
+        result = test.withZoneRetainFields(null);
+        assertSame(test,result);
+    }
+",TestDateTime_Basics::testWithZoneRetainFields_DateTimeZone_4_oe
+joda_650_7,"    public void testWithZoneRetainFields_DateTimeZone_7_oe() {
+        DateTime test = new DateTime(TEST_TIME1);
+        DateTime result = test.withZoneRetainFields(PARIS);
+        // removed other assertion
+        // removed other assertion
+        
+        test = new DateTime(TEST_TIME1);
+        result = test.withZoneRetainFields(LONDON);
+        // removed other assertion
+        
+        test = new DateTime(TEST_TIME1);
+        result = test.withZoneRetainFields(null);
+        // removed other assertion
+        
+        test = new DateTime(TEST_TIME1, GREGORIAN_PARIS);
+        result = test.withZoneRetainFields(null);
+        // removed other assertion
+        // removed other assertion
+        
+        test = new DateTime(TEST_TIME1, new MockNullZoneChronology());
+        result = test.withZoneRetainFields(LONDON);
+        assertSame(test,result);
+    }
+",TestDateTime_Basics::testWithZoneRetainFields_DateTimeZone_7_oe
+joda_1403_1,"    public void testToDateTime_DateTimeZone_1_oe() {
+        Instant test = new Instant(TEST_TIME1);
+        DateTime result = test.toDateTime(LONDON);
+        assertEquals(test.getMillis(),result.getMillis());
+    }
+",TestInstant_Basics::testToDateTime_DateTimeZone_1_oe
+joda_1403_6,"    public void testToDateTime_DateTimeZone_6_oe() {
+        Instant test = new Instant(TEST_TIME1);
+        DateTime result = test.toDateTime(LONDON);
+        // removed other assertion
+        // removed other assertion
+
+        test = new Instant(TEST_TIME1);
+        result = test.toDateTime(PARIS);
+        // removed other assertion
+        // removed other assertion
+
+        test = new Instant(TEST_TIME1);
+        result = test.toDateTime((DateTimeZone) null);
+        // removed other assertion
+        assertEquals(ISOChronology.getInstance(),result.getChronology());
+    }
+",TestInstant_Basics::testToDateTime_DateTimeZone_6_oe
+joda_3777_2,"    public void test_add_long_int_2_oe() {
+        // removed other assertion
+        assertEquals(567L + 1234000L,iField.add(567L,1234));
+    }
+",TestPreciseDurationField::test_add_long_int_2_oe
+joda_3778_2,"    public void test_add_long_long_2_oe() {
+        // removed other assertion
+        assertEquals(567L + 1234000L,iField.add(567L,1234L));
+    }
+",TestPreciseDurationField::test_add_long_long_2_oe
+joda_3780_2,"    public void test_getDifferenceAsLong_long_long_2_oe() {
+        // removed other assertion
+        assertEquals(567L,iField.getDifferenceAsLong(567000L,0L));
+    }
+",TestPreciseDurationField::test_getDifferenceAsLong_long_long_2_oe
+joda_3799_2,"    public void test_add_long_int_2_oe() {
+        // removed other assertion
+        assertEquals(567L + 1234L,MillisDurationField.INSTANCE.add(567L,1234));
+    }
+",TestMillisDurationField::test_add_long_int_2_oe
+joda_3800_2,"    public void test_add_long_long_2_oe() {
+        // removed other assertion
+        assertEquals(567L + 1234L,MillisDurationField.INSTANCE.add(567L,1234L));
+    }
+",TestMillisDurationField::test_add_long_long_2_oe
+joda_3802_2,"    public void test_getDifferenceAsLong_long_long_2_oe() {
+        // removed other assertion
+        assertEquals(567L - 1234L,MillisDurationField.INSTANCE.getDifferenceAsLong(567L,1234L));
+    }
+",TestMillisDurationField::test_getDifferenceAsLong_long_long_2_oe
+joda_3984_2,"    public void test_add_long_int_2_oe() {
+        // removed other assertion
+        assertEquals(567L + 1234L * 90L,iField.add(567L,1234));
+    }
+",TestScaledDurationField::test_add_long_int_2_oe
+joda_3985_2,"    public void test_add_long_long_2_oe() {
+        // removed other assertion
+        assertEquals(567L + 1234L * 90L,iField.add(567L,1234L));
+    }
+",TestScaledDurationField::test_add_long_long_2_oe
+joda_3987_2,"    public void test_getDifferenceAsLong_long_long_2_oe() {
+        // removed other assertion
+        assertEquals(567L,iField.getDifferenceAsLong(567L * 90L,0L));
+    }
+",TestScaledDurationField::test_getDifferenceAsLong_long_long_2_oe

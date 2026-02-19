@@ -1,0 +1,19 @@
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.028 s <<< FAILURE! - in org.json.junit.JSONTokenerTest_OE25Dev_json_206_3
+[ERROR] testNextBackComboWithNewLines_3_oe(org.json.junit.JSONTokenerTest_OE25Dev_json_206_3)  Time elapsed: 0.005 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:< at [1 [character 2] line 1]> but was:< at [0 [character 1] line 1]>
+	at org.json.junit.JSONTokenerTest_OE25Dev_json_206_3.testNextBackComboWithNewLines_3_oe(JSONTokenerTest_OE25Dev_json_206_3.java:247)
+
+[ERROR] Failures: 
+[ERROR]   JSONTokenerTest_OE25Dev_json_206_3.testNextBackComboWithNewLines_3_oe:247 expected:< at [1 [character 2] line 1]> but was:< at [0 [character 1] line 1]>
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project json: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

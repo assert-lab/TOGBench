@@ -170,9 +170,9 @@
         <artifactId>apache-rat-plugin</artifactId>
         <configuration>
           <skip>true</skip>
-          <excludes>
+          <!-- <excludes>
             <exclude>site-content/**</exclude>
-          </excludes>
+          </excludes> -->
         </configuration>
       </plugin>
     </plugins>

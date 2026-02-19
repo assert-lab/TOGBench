@@ -1,0 +1,128 @@
+id,test_prefix,test_name
+imag_72_1,"    @ParameterizedTest
+    @MethodSource
+    public void testPixelDensityRoundtrip_1_oe(final FormatInfo formatInfo) throws Exception {
+        final BufferedImage testImage = TestImages.createFullColorImage(2, 2);
+
+        final File temp1 = File.createTempFile(""pixeldensity."", ""."" + formatInfo.format.getDefaultExtension());
+
+        final TiffImagingParameters params = new TiffImagingParameters();
+        final PixelDensity pixelDensity = PixelDensity.createFromPixelsPerInch(75, 150);
+        params.setPixelDensity(pixelDensity);
+        TiffImageParser tiffImageParser = new TiffImageParser();
+        tiffImageParser.writeImage(testImage, new ByteArrayOutputStream(), params);
+
+        final ImageInfo imageInfo = Imaging.getImageInfo(temp1);
+        if (imageInfo != null) {
+            final int xReadDPI = imageInfo.getPhysicalWidthDpi();
+            final int yReadDPI = imageInfo.getPhysicalHeightDpi();
+            // allow a 5% margin of error in storage and conversion
+            assertTrue(Math.abs((xReadDPI - pixelDensity.horizontalDensityInches())/ pixelDensity.horizontalDensityInches())<= 0.05);
+    }
+    }
+",PixelDensityRoundtrip::testPixelDensityRoundtrip_1_oe
+imag_72_2,"    @ParameterizedTest
+    @MethodSource
+    public void testPixelDensityRoundtrip_2_oe(final FormatInfo formatInfo) throws Exception {
+        final BufferedImage testImage = TestImages.createFullColorImage(2, 2);
+
+        final File temp1 = File.createTempFile(""pixeldensity."", ""."" + formatInfo.format.getDefaultExtension());
+
+        final TiffImagingParameters params = new TiffImagingParameters();
+        final PixelDensity pixelDensity = PixelDensity.createFromPixelsPerInch(75, 150);
+        params.setPixelDensity(pixelDensity);
+        TiffImageParser tiffImageParser = new TiffImageParser();
+        tiffImageParser.writeImage(testImage, new ByteArrayOutputStream(), params);
+
+        final ImageInfo imageInfo = Imaging.getImageInfo(temp1);
+        if (imageInfo != null) {
+            final int xReadDPI = imageInfo.getPhysicalWidthDpi();
+            final int yReadDPI = imageInfo.getPhysicalHeightDpi();
+            // allow a 5% margin of error in storage and conversion
+            // removed other assertion
+            assertTrue(Math.abs((yReadDPI - pixelDensity.verticalDensityInches())/ pixelDensity.verticalDensityInches())<= 0.05);
+    }
+    }
+",PixelDensityRoundtrip::testPixelDensityRoundtrip_2_oe
+imag_87_3,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void test_3_oe(final File imageFile) throws Exception {
+        JpegImageParser jpegImageParser = new JpegImageParser();
+        final ImageMetadata metadata = jpegImageParser.getExifMetadata(new ByteSourceFile(imageFile), new TiffImagingParameters());
+        // TODO only run this tests with images that have metadata...
+        //assertNotNull(metadata);
+        Debug.debug(""metadata"", metadata);
+
+        Debug.debug(""ICC profile"", Imaging.getICCProfile(imageFile));
+
+        final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+        // removed other assertion
+
+        try {
+            final BufferedImage image = Imaging.getBufferedImage(imageFile);
+            // removed other assertion
+        } catch (final ImageReadException imageReadException) {
+            assertEquals(""Only sequential,baseline JPEGs are supported at the moment"",imageReadException.getMessage());
+    }
+    }
+",JpegReadTest::test_3_oe
+imag_138_1,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testImageMetadata_1_oe(final File imageFile) throws Exception {
+        try {
+    Imaging.getMetadata(imageFile);
+    fail(""UnsupportedOperationException"");
+} catch (UnsupportedOperationException e) {
+}
+    }
+",IcnsReadTest::testImageMetadata_1_oe
+imag_244_1,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testImageMetadata_1_oe(final File imageFile) throws Exception {
+        try {
+    Imaging.getMetadata(imageFile);
+    fail(""UnsupportedOperationException"");
+} catch (UnsupportedOperationException e) {
+}
+    }
+",DcxReadTest::testImageMetadata_1_oe
+imag_279_1,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testMetadata_1_oe(final File imageFile) throws Exception {
+        try {
+    Imaging.getMetadata(imageFile);
+    fail(""UnsupportedOperationException"");
+} catch (UnsupportedOperationException e) {
+}
+    }
+",GifReadTest::testMetadata_1_oe
+imag_292_1,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testMetaData_1_oe(final File imageFile) throws Exception {
+        try {
+    Imaging.getMetadata(imageFile);
+    fail(""UnsupportedOperationException"");
+} catch (UnsupportedOperationException e) {
+}
+    }
+",BmpReadTest::testMetaData_1_oe
+imag_298_1,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testMetadata_1_oe(final File imageFile) throws Exception {
+        try {
+    Imaging.getMetadata(imageFile);
+    fail(""UnsupportedOperationException"");
+} catch (UnsupportedOperationException e) {
+}
+    }
+",IcoReadTest::testMetadata_1_oe
+imag_299_1,"    @ParameterizedTest
+    @MethodSource(""data"")
+    public void testImageInfo_1_oe(final File imageFile) throws Exception {
+        try {
+    Imaging.getImageInfo(imageFile);
+    fail(""UnsupportedOperationException"");
+} catch (UnsupportedOperationException e) {
+}
+    }
+",IcoReadTest::testImageInfo_1_oe

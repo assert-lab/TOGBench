@@ -5,19 +5,17 @@ python3 - << 'PY'
 from pathlib import Path
 import csv
 
-dataset = Path("dataset")
-meta_path = dataset / "meta.csv"
-inputs_path = dataset / "inputs.csv"
+dataset = Path("dataset_final")
+meta_path = dataset / "meta_final.csv"
+inputs_path = dataset / "inputs_final.csv"
 
 fail_list = [
-
-"EmbeddedServersTest.testAddAndCreate_whenCreate_createsCustomServer_1_oe",
-"EmbeddedServersTest.testAddAndCreate_whenCreate_createsCustomServer_2_oe",
-"EmbeddedJettyFactoryTest.create_1_oe",
-"EmbeddedJettyFactoryTest.create_withoutHttpOnly_1_oe",
-"ServiceTest.awaitStopBlocksUntilExtinguished_1_oe",
-
-
+"StaticFilesFromArchiveTest.*",
+"ServletFlagTest.*",
+"RequestTest.*",
+"SessionTest.*",
+"ResponseTest.*",
+"WebSocketServletContextHandlerFactoryTest.*",
 ]
 
 patterns = []

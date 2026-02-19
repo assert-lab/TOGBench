@@ -876,32 +876,6 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
         assertEquals( 0, registeredPoolCount, msg.toString());
     }
 
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testBlockedKeyDoesNotBlockPool() throws Exception {
-        gkoPool.setBlockWhenExhausted(true);
-        gkoPool.setMaxWaitMillis(5000);
-        gkoPool.setMaxTotalPerKey(1);
-        gkoPool.setMaxTotal(-1);
-        gkoPool.borrowObject("one");
-        final long startMillis = System.currentTimeMillis();
-        // Needs to be in a separate thread as this will block
-        final Runnable simple = new SimpleTestThread<>(gkoPool, "one");
-        (new Thread(simple)).start();
-        // This should be almost instant. If it isn't it means this thread got
-        // stuck behind the thread created above which is bad.
-        // Give other thread a chance to start
-        Thread.sleep(1000);
-        gkoPool.borrowObject("two");
-        final long endMillis = System.currentTimeMillis();
-        // If it fails it will be more than 4000ms (5000 less the 1000 sleep)
-        // If it passes it should be almost instant
-        // Use 3000ms as the threshold - should avoid timing issues on most
-        // (all? platforms)
-        assertTrue((endMillis - startMillis)< 4000,"Elapsed time: " +(endMillis - startMillis)+ " should be less than 4000");
-
-    }
-
     /*
      * Note: This test relies on timing for correct execution. There *should* be
      * enough margin for this to work correctly on most (all?) systems but be
@@ -910,56 +884,6 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
     @SuppressWarnings({
         "rawtypes"
     })
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testBorrowObjectFairness() throws Exception {
-
-        final int numThreads = 40;
-        final int maxTotal = 40;
-
-        final GenericKeyedObjectPoolConfig<String> config = new GenericKeyedObjectPoolConfig<>();
-        config.setMaxTotalPerKey(maxTotal);
-        config.setFairness(true);
-        config.setLifo(false);
-        config.setMaxIdlePerKey(maxTotal);
-
-        gkoPool = new GenericKeyedObjectPool<>(simpleFactory, config);
-
-        // Exhaust the pool
-        final String[] objects = new String[maxTotal];
-        for (int i = 0; i < maxTotal; i++) {
-            objects[i] = gkoPool.borrowObject("0");
-        }
-
-        // Start and park threads waiting to borrow objects
-        final TestThread[] threads = new TestThread[numThreads];
-        for(int i=0;i<numThreads;i++) {
-            threads[i] = new TestThread<>(gkoPool, 1, 0, 2000, false, "0" + String.valueOf(i % maxTotal), "0");
-            final Thread t = new Thread(threads[i]);
-            t.start();
-            // Short delay to ensure threads start in correct order
-            try {
-                Thread.sleep(10);
-            } catch (final InterruptedException e) {
-                fail(e.toString());
-            }
-        }
-
-        // Return objects, other threads should get served in order
-        for (int i = 0; i < maxTotal; i++) {
-            gkoPool.returnObject("0", objects[i]);
-        }
-
-        // Wait for threads to finish
-        for (int i = 0; i < numThreads; i++) {
-            while (!(threads[i]).complete()) {
-                Waiter.sleepQuietly(500L);
-            }
-            if (threads[i].failed()) {
-                fail("Thread " + i + " failed: " + threads[i].exception.toString());
-            }
-        }
-    }
 
     /**
      * POOL-192
@@ -967,29 +891,6 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
      *
      * @throws Exception May occur in some failure modes
      */
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testClear() throws Exception {
-        gkoPool.setMaxTotal(2);
-        gkoPool.setMaxTotalPerKey(2);
-        gkoPool.setBlockWhenExhausted(false);
-        gkoPool.addObject("one");
-        gkoPool.addObject("one");
-        assertEquals(2, gkoPool.getNumIdle());
-        gkoPool.clear("one");
-        assertEquals(0, gkoPool.getNumIdle());
-        assertEquals(0, gkoPool.getNumIdle("one"));
-        final String obj1 = gkoPool.borrowObject("one");
-        final String obj2 = gkoPool.borrowObject("one");
-        gkoPool.returnObject("one", obj1);
-        gkoPool.returnObject("one", obj2);
-        gkoPool.clear();
-        assertEquals(0, gkoPool.getNumIdle());
-        assertEquals(0, gkoPool.getNumIdle("one"));
-        gkoPool.borrowObject("one");
-        gkoPool.borrowObject("one");
-        gkoPool.close();
-    }
 
 
     /**
@@ -1036,62 +937,6 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
      *
      * @throws Exception May occur in some failure modes
      */
-    @Test
-    public void testConcurrentInvalidate() throws Exception {
-        // Get allObjects and idleObjects loaded with some instances
-        final int nObjects = 1000;
-        final String key = "one";
-        gkoPool.setMaxTotal(nObjects);
-        gkoPool.setMaxTotalPerKey(nObjects);
-        gkoPool.setMaxIdlePerKey(nObjects);
-        final String [] obj = new String[nObjects];
-        for (int i = 0; i < nObjects; i++) {
-            obj[i] = gkoPool.borrowObject(key);
-        }
-        for (int i = 0; i < nObjects; i++) {
-            if (i % 2 == 0) {
-                gkoPool.returnObject(key, obj[i]);
-            }
-        }
-        final int nThreads = 20;
-        final int nIterations = 60;
-        final InvalidateThread[] threads = new InvalidateThread[nThreads];
-        // Randomly generated list of distinct invalidation targets
-        final ArrayList<Integer> targets = new ArrayList<>();
-        final Random random = new Random();
-        for (int j = 0; j < nIterations; j++) {
-            // Get a random invalidation target
-            Integer targ = Integer.valueOf(random.nextInt(nObjects));
-            while (targets.contains(targ)) {
-                targ = Integer.valueOf(random.nextInt(nObjects));
-            }
-            targets.add(targ);
-            // Launch nThreads threads all trying to invalidate the target
-            for (int i = 0; i < nThreads; i++) {
-                threads[i] =
-                        new InvalidateThread(gkoPool,key, obj[targ.intValue()]);
-            }
-            for (int i = 0; i < nThreads; i++) {
-                new Thread(threads[i]).start();
-            }
-            boolean done = false;
-            while (!done) {
-                done = true;
-                for (int i = 0; i < nThreads; i++) {
-                    done = done && threads[i].complete();
-                }
-                Thread.sleep(100);
-            }
-        }
-        assertEquals(nIterations, gkoPool.getDestroyedCount());
-    }
-
-    @Test
-    public void testConstructorNullFactory() {
-        // add dummy assert (won't be invoked because of IAE) to avoid "unused" warning
-        assertThrows(IllegalArgumentException.class,
-                () -> new GenericKeyedObjectPool<>(null));
-    }
 
     /**
      * JIRA: POOL-270 - make sure constructor correctly sets run
@@ -1114,102 +959,6 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
             pool.returnObject("a", s1);
             pool.returnObject("a", s2);
         }
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEviction() throws Exception {
-        gkoPool.setMaxIdlePerKey(500);
-        gkoPool.setMaxTotalPerKey(500);
-        gkoPool.setNumTestsPerEvictionRun(100);
-        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-
-        final String[] active = new String[500];
-        for(int i=0;i<500;i++) {
-            active[i] = gkoPool.borrowObject("");
-        }
-        for(int i=0;i<500;i++) {
-            gkoPool.returnObject("",active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        assertTrue(gkoPool.getNumIdle("") < 500, "Should be less than 500 idle, found " + gkoPool.getNumIdle(""));
-        Waiter.sleepQuietly(600L);
-        assertTrue(gkoPool.getNumIdle("") < 400, "Should be less than 400 idle, found " + gkoPool.getNumIdle(""));
-        Waiter.sleepQuietly(600L);
-        assertTrue(gkoPool.getNumIdle("") < 300,"Should be less than 300 idle, found " + gkoPool.getNumIdle(""));
-        Waiter.sleepQuietly(600L);
-        assertTrue(gkoPool.getNumIdle("") < 200, "Should be less than 200 idle, found " + gkoPool.getNumIdle(""));
-        Waiter.sleepQuietly(600L);
-        assertTrue(gkoPool.getNumIdle("") < 100 , "Should be less than 100 idle, found " + gkoPool.getNumIdle(""));
-        Waiter.sleepQuietly(600L);
-        assertEquals(0,gkoPool.getNumIdle(""),"Should be zero idle, found " + gkoPool.getNumIdle(""));
-
-        for(int i=0;i<500;i++) {
-            active[i] = gkoPool.borrowObject("");
-        }
-        for(int i=0;i<500;i++) {
-            gkoPool.returnObject("",active[i]);
-        }
-
-        Waiter.sleepQuietly(1000L);
-        assertTrue(gkoPool.getNumIdle("") < 500,"Should be less than 500 idle, found " + gkoPool.getNumIdle(""));
-        Waiter.sleepQuietly(600L);
-        assertTrue(gkoPool.getNumIdle("") < 400,"Should be less than 400 idle, found " + gkoPool.getNumIdle(""));
-        Waiter.sleepQuietly(600L);
-        assertTrue(gkoPool.getNumIdle("") < 300,"Should be less than 300 idle, found " + gkoPool.getNumIdle(""));
-        Waiter.sleepQuietly(600L);
-        assertTrue(gkoPool.getNumIdle("") < 200,"Should be less than 200 idle, found " + gkoPool.getNumIdle(""));
-        Waiter.sleepQuietly(600L);
-        assertTrue(gkoPool.getNumIdle("") < 100,"Should be less than 100 idle, found " + gkoPool.getNumIdle(""));
-        Waiter.sleepQuietly(600L);
-        assertEquals(0,gkoPool.getNumIdle(""),"Should be zero idle, found " + gkoPool.getNumIdle(""));
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testEviction2() throws Exception {
-        gkoPool.setMaxIdlePerKey(500);
-        gkoPool.setMaxTotalPerKey(500);
-        gkoPool.setNumTestsPerEvictionRun(100);
-        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(500));
-        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-
-        final String[] active = new String[500];
-        final String[] active2 = new String[500];
-        for (int i = 0; i < 500; i++) {
-            active[i] = gkoPool.borrowObject("");
-            active2[i] = gkoPool.borrowObject("2");
-        }
-        for (int i = 0; i < 500; i++) {
-            gkoPool.returnObject("", active[i]);
-            gkoPool.returnObject("2", active2[i]);
-        }
-
-        Waiter.sleepQuietly(1100L);
-        assertTrue(gkoPool.getNumIdle() < 1000, "Should be less than 1000 idle, found " + gkoPool.getNumIdle());
-        final long sleepMillisPart2 = 600L;
-        Waiter.sleepQuietly(sleepMillisPart2);
-        assertTrue(gkoPool.getNumIdle() < 900, "Should be less than 900 idle, found " + gkoPool.getNumIdle());
-        Waiter.sleepQuietly(sleepMillisPart2);
-        assertTrue(gkoPool.getNumIdle() < 800, "Should be less than 800 idle, found " + gkoPool.getNumIdle());
-        Waiter.sleepQuietly(sleepMillisPart2);
-        assertTrue(gkoPool.getNumIdle() < 700, "Should be less than 700 idle, found " + gkoPool.getNumIdle());
-        Waiter.sleepQuietly(sleepMillisPart2);
-        assertTrue(gkoPool.getNumIdle() < 600, "Should be less than 600 idle, found " + gkoPool.getNumIdle());
-        Waiter.sleepQuietly(sleepMillisPart2);
-        assertTrue(gkoPool.getNumIdle() < 500, "Should be less than 500 idle, found " + gkoPool.getNumIdle());
-        Waiter.sleepQuietly(sleepMillisPart2);
-        assertTrue(gkoPool.getNumIdle() < 400, "Should be less than 400 idle, found " + gkoPool.getNumIdle());
-        Waiter.sleepQuietly(sleepMillisPart2);
-        assertTrue(gkoPool.getNumIdle() < 300, "Should be less than 300 idle, found " + gkoPool.getNumIdle());
-        Waiter.sleepQuietly(sleepMillisPart2);
-        assertTrue(gkoPool.getNumIdle() < 200, "Should be less than 200 idle, found " + gkoPool.getNumIdle());
-        Waiter.sleepQuietly(sleepMillisPart2);
-        assertTrue(gkoPool.getNumIdle() < 100, "Should be less than 100 idle, found " + gkoPool.getNumIdle());
-        Waiter.sleepQuietly(sleepMillisPart2);
-        assertEquals(0, gkoPool.getNumIdle(), "Should be zero idle, found " + gkoPool.getNumIdle());
     }
 
     /**
@@ -1273,115 +1022,6 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
         checkEvictorVisiting(false);
     }
 
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionInValidationDuringEviction() throws Exception {
-        gkoPool.setMaxIdlePerKey(1);
-        gkoPool.setMinEvictableIdleTime(Duration.ZERO);
-        gkoPool.setTestWhileIdle(true);
-
-        final String obj = gkoPool.borrowObject("one");
-        gkoPool.returnObject("one", obj);
-
-        simpleFactory.setThrowExceptionOnValidate(true);
-        assertThrows(RuntimeException.class, gkoPool::evict);
-        assertEquals(0, gkoPool.getNumActive());
-        assertEquals(0, gkoPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionOnActivateDuringBorrow() throws Exception {
-        final String obj1 = gkoPool.borrowObject("one");
-        final String obj2 = gkoPool.borrowObject("one");
-        gkoPool.returnObject("one", obj1);
-        gkoPool.returnObject("one", obj2);
-        simpleFactory.setThrowExceptionOnActivate(true);
-        simpleFactory.setEvenValid(false);
-        // Activation will now throw every other time
-        // First attempt throws, but loop continues and second succeeds
-        final String obj = gkoPool.borrowObject("one");
-        assertEquals(1, gkoPool.getNumActive("one"));
-        assertEquals(0, gkoPool.getNumIdle("one"));
-        assertEquals(1, gkoPool.getNumActive());
-        assertEquals(0, gkoPool.getNumIdle());
-
-        gkoPool.returnObject("one", obj);
-        simpleFactory.setValid(false);
-        // Validation will now fail on activation when borrowObject returns
-        // an idle instance, and then when attempting to create a new instance
-        assertThrows(NoSuchElementException.class, () -> gkoPool.borrowObject("one"));
-        assertEquals(0, gkoPool.getNumActive("one"));
-        assertEquals(0, gkoPool.getNumIdle("one"));
-        assertEquals(0, gkoPool.getNumActive());
-        assertEquals(0, gkoPool.getNumIdle());
-    }
-
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionOnDestroyDuringBorrow() throws Exception {
-        simpleFactory.setThrowExceptionOnDestroy(true);
-        simpleFactory.setValidationEnabled(true);
-        gkoPool.setTestOnBorrow(true);
-        gkoPool.borrowObject("one");
-        simpleFactory.setValid(false); // Make validation fail on next borrow attempt
-        assertThrows(NoSuchElementException.class, () -> gkoPool.borrowObject("one"));
-        assertEquals(1, gkoPool.getNumActive("one"));
-        assertEquals(0, gkoPool.getNumIdle("one"));
-        assertEquals(1, gkoPool.getNumActive());
-        assertEquals(0, gkoPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionOnDestroyDuringReturn() throws Exception {
-        simpleFactory.setThrowExceptionOnDestroy(true);
-        simpleFactory.setValidationEnabled(true);
-        gkoPool.setTestOnReturn(true);
-        final String obj1 = gkoPool.borrowObject("one");
-        gkoPool.borrowObject("one");
-        simpleFactory.setValid(false); // Make validation fail
-        gkoPool.returnObject("one", obj1);
-        assertEquals(1, gkoPool.getNumActive("one"));
-        assertEquals(0, gkoPool.getNumIdle("one"));
-        assertEquals(1, gkoPool.getNumActive());
-        assertEquals(0, gkoPool.getNumIdle());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testExceptionOnPassivateDuringReturn() throws Exception {
-        final String obj = gkoPool.borrowObject("one");
-        simpleFactory.setThrowExceptionOnPassivate(true);
-        gkoPool.returnObject("one", obj);
-        assertEquals(0,gkoPool.getNumIdle());
-        gkoPool.close();
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testFIFO() throws Exception {
-        gkoPool.setLifo(false);
-        final String key = "key";
-        gkoPool.addObject(key); // "key0"
-        gkoPool.addObject(key); // "key1"
-        gkoPool.addObject(key); // "key2"
-        assertEquals( "key0", gkoPool.borrowObject(key),"Oldest");
-        assertEquals( "key1", gkoPool.borrowObject(key),"Middle");
-        assertEquals( "key2", gkoPool.borrowObject(key),"Youngest");
-        final String s = gkoPool.borrowObject(key);
-        assertEquals( "key3", s,"new-3");
-        gkoPool.returnObject(key, s);
-        assertEquals( s, gkoPool.borrowObject(key),"returned");
-        assertEquals( "key4", gkoPool.borrowObject(key),"new-4");
-    }
-
-    @Test
-    public void testGetStatsString() {
-        assertNotNull((gkoPool.getStatsString()));
-    }
-
     /**
      * Verify that threads waiting on a depleted pool get served when a checked out object is
      * invalidated.
@@ -1403,32 +1043,6 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
     /**
      * Ensure the pool is registered.
      */
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testJmxRegistration() {
-        final ObjectName oname = gkoPool.getJmxName();
-        final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
-        final Set<ObjectName> result = mbs.queryNames(oname, null);
-        assertEquals(1, result.size());
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testLIFO() throws Exception {
-        gkoPool.setLifo(true);
-        final String key = "key";
-        gkoPool.addObject(key); // "key0"
-        gkoPool.addObject(key); // "key1"
-        gkoPool.addObject(key); // "key2"
-        assertEquals( "key2", gkoPool.borrowObject(key),"Youngest");
-        assertEquals( "key1", gkoPool.borrowObject(key),"Middle");
-        assertEquals( "key0", gkoPool.borrowObject(key),"Oldest");
-        final String s = gkoPool.borrowObject(key);
-        assertEquals( "key3", s,"new-3");
-        gkoPool.returnObject(key, s);
-        assertEquals( s, gkoPool.borrowObject(key),"returned");
-        assertEquals( "key4", gkoPool.borrowObject(key),"new-4");
-    }
 
     /**
      * Verifies that threads that get parked waiting for keys not in use
@@ -1484,78 +1098,6 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
         }
     }
 
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxIdle() throws Exception {
-        gkoPool.setMaxTotalPerKey(100);
-        gkoPool.setMaxIdlePerKey(8);
-        final String[] active = new String[100];
-        for(int i=0;i<100;i++) {
-            active[i] = gkoPool.borrowObject("");
-        }
-        assertEquals(100,gkoPool.getNumActive(""));
-        assertEquals(0,gkoPool.getNumIdle(""));
-        for(int i=0;i<100;i++) {
-            gkoPool.returnObject("",active[i]);
-            assertEquals(99 - i,gkoPool.getNumActive(""));
-            assertEquals((i < 8 ? i+1 : 8),gkoPool.getNumIdle(""));
-        }
-
-        for(int i=0;i<100;i++) {
-            active[i] = gkoPool.borrowObject("a");
-        }
-        assertEquals(100,gkoPool.getNumActive("a"));
-        assertEquals(0,gkoPool.getNumIdle("a"));
-        for(int i=0;i<100;i++) {
-            gkoPool.returnObject("a",active[i]);
-            assertEquals(99 - i,gkoPool.getNumActive("a"));
-            assertEquals((i < 8 ? i+1 : 8),gkoPool.getNumIdle("a"));
-        }
-
-        // total number of idle instances is twice maxIdle
-        assertEquals(16, gkoPool.getNumIdle());
-        // Each pool is at the sup
-        assertEquals(8, gkoPool.getNumIdle(""));
-        assertEquals(8, gkoPool.getNumIdle("a"));
-
-    }
-
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxTotal() throws Exception {
-        gkoPool.setMaxTotalPerKey(2);
-        gkoPool.setMaxTotal(3);
-        gkoPool.setBlockWhenExhausted(false);
-
-        final String o1 = gkoPool.borrowObject("a");
-        assertNotNull(o1);
-        final String o2 = gkoPool.borrowObject("a");
-        assertNotNull(o2);
-        final String o3 = gkoPool.borrowObject("b");
-        assertNotNull(o3);
-        assertThrows(NoSuchElementException.class, () -> gkoPool.borrowObject("c"));
-
-        assertEquals(0, gkoPool.getNumIdle());
-
-        gkoPool.returnObject("b", o3);
-        assertEquals(1, gkoPool.getNumIdle());
-        assertEquals(1, gkoPool.getNumIdle("b"));
-
-        final Object o4 = gkoPool.borrowObject("b");
-        assertNotNull(o4);
-        assertEquals(0, gkoPool.getNumIdle());
-        assertEquals(0, gkoPool.getNumIdle("b"));
-
-        gkoPool.setMaxTotal(4);
-        final Object o5 = gkoPool.borrowObject("b");
-        assertNotNull(o5);
-
-        assertEquals(2, gkoPool.getNumActive("a"));
-        assertEquals(2, gkoPool.getNumActive("b"));
-        assertEquals(gkoPool.getMaxTotal(),gkoPool.getNumActive("b")+ gkoPool.getNumActive("b"));
-        assertEquals(gkoPool.getNumActive(),gkoPool.getMaxTotal());
-    }
-
     /**
      * Verifies that maxTotal is not exceeded when factory destroyObject
      * has high latency, testOnReturn is set and there is high incidence of
@@ -1576,37 +1118,2381 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
         runTestThreads(5, 10, 50, gkoPool);
     }
 
+    /**
+     * Verifies that if a borrow of a new key is blocked because maxTotal has
+     * been reached, that borrow continues once another object is returned.
+     *
+     * JIRA: POOL-310
+     */
+
+
+    /*
+     * Test multi-threaded pool access.
+     * Multiple keys, multiple threads, but maxActive only allows half the threads to succeed.
+     *
+     * This test was prompted by Continuum build failures in the Commons DBCP test case:
+     * TestSharedPoolDataSource.testMultipleThreads2()
+     * Let's see if the this fails on Continuum too!
+     */
+
+    /**
+     * Verifies that returning an object twice (without borrow in between) causes ISE
+     * but does not re-validate or re-passivate the instance.
+     *
+     * JIRA: POOL-285
+     */
+
+    /**
+     * Verifies that when a borrowed object is mutated in a way that does not
+     * preserve equality and hashcode, the pool can recognized it on return.
+     *
+     * JIRA: POOL-284
+     */
+    @Test
+    public void testMutable() throws Exception {
+        final HashSetFactory factory = new HashSetFactory();
+        try (final GenericKeyedObjectPool<String, HashSet<String>> pool = new GenericKeyedObjectPool<>(factory,
+                new GenericKeyedObjectPoolConfig<>())) {
+            final HashSet<String> s1 = pool.borrowObject("a");
+            final HashSet<String> s2 = pool.borrowObject("a");
+            s1.add("One");
+            s2.add("One");
+            pool.returnObject("a", s1);
+            pool.returnObject("a", s2);
+        }
+    }
+
+    /**
+     * JIRA: POOL-287
+     *
+     * Verify that when an attempt is made to borrow an instance from the pool
+     * while the evictor is visiting it, there is no capacity leak.
+     *
+     * Test creates the scenario described in POOL-287.
+     */
+    @Test
+    public void testReturnToHead() throws Exception {
+        final SimpleFactory<String> factory = new SimpleFactory<>();
+        factory.setValidateLatency(100);
+        factory.setValid(true); // Validation always succeeds
+        try (final GenericKeyedObjectPool<String, String> pool = new GenericKeyedObjectPool<>(factory)) {
+            pool.setMaxWaitMillis(1000);
+            pool.setTestWhileIdle(true);
+            pool.setMaxTotalPerKey(2);
+            pool.setNumTestsPerEvictionRun(1);
+            pool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+            // Load pool with two objects
+            pool.addObject("one"); // call this o1
+            pool.addObject("one"); // call this o2
+            // Default is LIFO, so "one" pool is now [o2, o1] in offer order.
+            // Evictor will visit in oldest-to-youngest order, so o1 then o2
+
+            Thread.sleep(800); // Wait for first eviction run to complete
+
+            // At this point, one eviction run should have completed, visiting o1
+            // and eviction cursor should be pointed at o2, which is the next offered instance
+            Thread.sleep(250); // Wait for evictor to start
+            final String o1 = pool.borrowObject("one"); // o2 is under eviction, so this will return o1
+            final String o2 = pool.borrowObject("one"); // Once validation completes, o2 should be offered
+            pool.returnObject("one", o1);
+            pool.returnObject("one", o2);
+        }
+    }
+
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxTotalLRU() throws Exception {
+    public void testThreaded1() {
+        gkoPool.setMaxTotalPerKey(15);
+        gkoPool.setMaxIdlePerKey(15);
+        gkoPool.setMaxWaitMillis(1000L);
+        runTestThreads(20, 100, 50, gkoPool);
+    }
+
+
+    // Pool-361
+
+    /**
+     * Verify that threads waiting on a depleted pool get served when a returning object fails
+     * validation.
+     *
+     * JIRA: POOL-240
+     *
+     * @throws Exception May occur in some failure modes
+     */
+    @Test
+    public void testValidationFailureOnReturnFreesCapacity()
+            throws Exception {
+        final SimpleFactory<String> factory = new SimpleFactory<>();
+        factory.setValid(false); // Validate will always fail
+        factory.setValidationEnabled(true);
+        try (final GenericKeyedObjectPool<String, String> pool = new GenericKeyedObjectPool<>(factory)) {
+            pool.setMaxTotalPerKey(2);
+            pool.setMaxWaitMillis(1500);
+            pool.setTestOnReturn(true);
+            pool.setTestOnBorrow(false);
+            // Borrow an instance and hold if for 5 seconds
+            final WaitingTestThread thread1 = new WaitingTestThread(pool, "one", 5000);
+            thread1.start();
+            // Borrow another instance and return it after 500 ms (validation will fail)
+            final WaitingTestThread thread2 = new WaitingTestThread(pool, "one", 500);
+            thread2.start();
+            Thread.sleep(50);
+            // Try to borrow an object
+            final String obj = pool.borrowObject("one");
+            pool.returnObject("one", obj);
+        }
+    }
+
+    // POOL-276
+
+    /**
+     * POOL-189
+     *
+     * @throws Exception May occur in some failure modes
+     */
+
+    @Test
+    public void testAppendStats_1_oe() {
+        assertFalse(gkoPool.getMessageStatistics());
+    }
+
+    @Test
+    public void testAppendStats_2_oe() {
+        // removed other assertion
+        assertEquals("foo", (gkoPool.appendStats("foo")));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testBlockedKeyDoesNotBlockPool_1_oe() throws Exception {
+        gkoPool.setBlockWhenExhausted(true);
+        gkoPool.setMaxWaitMillis(5000);
+        gkoPool.setMaxTotalPerKey(1);
+        gkoPool.setMaxTotal(-1);
+        gkoPool.borrowObject("one");
+        final long startMillis = System.currentTimeMillis();
+        // Needs to be in a separate thread as this will block
+        final Runnable simple = new SimpleTestThread<>(gkoPool, "one");
+        (new Thread(simple)).start();
+        // This should be almost instant. If it isn't it means this thread got
+        // stuck behind the thread created above which is bad.
+        // Give other thread a chance to start
+        Thread.sleep(1000);
+        gkoPool.borrowObject("two");
+        final long endMillis = System.currentTimeMillis();
+        // If it fails it will be more than 4000ms (5000 less the 1000 sleep)
+        // If it passes it should be almost instant
+        // Use 3000ms as the threshold - should avoid timing issues on most
+        // (all? platforms)
+        assertTrue((endMillis - startMillis)< 4000,"Elapsed time: " +(endMillis - startMillis)+ " should be less than 4000");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testBorrowObjectFairness_1_oe() throws Exception {
+
+        final int numThreads = 40;
+        final int maxTotal = 40;
+
+        final GenericKeyedObjectPoolConfig<String> config = new GenericKeyedObjectPoolConfig<>();
+        config.setMaxTotalPerKey(maxTotal);
+        config.setFairness(true);
+        config.setLifo(false);
+        config.setMaxIdlePerKey(maxTotal);
+
+        gkoPool = new GenericKeyedObjectPool<>(simpleFactory, config);
+
+        // Exhaust the pool
+        final String[] objects = new String[maxTotal];
+        for (int i = 0; i < maxTotal; i++) {
+            objects[i] = gkoPool.borrowObject("0");
+        }
+
+        // Start and park threads waiting to borrow objects
+        final TestThread[] threads = new TestThread[numThreads];
+        for(int i=0;i<numThreads;i++) {
+            threads[i] = new TestThread<>(gkoPool, 1, 0, 2000, false, "0" + String.valueOf(i % maxTotal), "0");
+            final Thread t = new Thread(threads[i]);
+            t.start();
+            // Short delay to ensure threads start in correct order
+            try {
+                Thread.sleep(10);
+            } catch (final InterruptedException e) {
+                fail(e.toString());
+    }
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testBorrowObjectFairness_2_oe() throws Exception {
+
+        final int numThreads = 40;
+        final int maxTotal = 40;
+
+        final GenericKeyedObjectPoolConfig<String> config = new GenericKeyedObjectPoolConfig<>();
+        config.setMaxTotalPerKey(maxTotal);
+        config.setFairness(true);
+        config.setLifo(false);
+        config.setMaxIdlePerKey(maxTotal);
+
+        gkoPool = new GenericKeyedObjectPool<>(simpleFactory, config);
+
+        // Exhaust the pool
+        final String[] objects = new String[maxTotal];
+        for (int i = 0; i < maxTotal; i++) {
+            objects[i] = gkoPool.borrowObject("0");
+        }
+
+        // Start and park threads waiting to borrow objects
+        final TestThread[] threads = new TestThread[numThreads];
+        for(int i=0;i<numThreads;i++) {
+            threads[i] = new TestThread<>(gkoPool, 1, 0, 2000, false, "0" + String.valueOf(i % maxTotal), "0");
+            final Thread t = new Thread(threads[i]);
+            t.start();
+            // Short delay to ensure threads start in correct order
+            try {
+                Thread.sleep(10);
+            } catch (final InterruptedException e) {
+                // removed other assertion
+            }
+        }
+
+        // Return objects, other threads should get served in order
+        for (int i = 0; i < maxTotal; i++) {
+            gkoPool.returnObject("0", objects[i]);
+        }
+
+        // Wait for threads to finish
+        for (int i = 0; i < numThreads; i++) {
+            while (!(threads[i]).complete()) {
+                Waiter.sleepQuietly(500L);
+            }
+            if (threads[i].failed()) {
+                fail("Thread " + i + " failed: " + threads[i].exception.toString());
+    }
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testClear_1_oe() throws Exception {
+        gkoPool.setMaxTotal(2);
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setBlockWhenExhausted(false);
+        gkoPool.addObject("one");
+        gkoPool.addObject("one");
+        assertEquals(2, gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testClear_2_oe() throws Exception {
+        gkoPool.setMaxTotal(2);
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setBlockWhenExhausted(false);
+        gkoPool.addObject("one");
+        gkoPool.addObject("one");
+        // removed other assertion
+        gkoPool.clear("one");
+        assertEquals(0, gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testClear_3_oe() throws Exception {
+        gkoPool.setMaxTotal(2);
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setBlockWhenExhausted(false);
+        gkoPool.addObject("one");
+        gkoPool.addObject("one");
+        // removed other assertion
+        gkoPool.clear("one");
+        // removed other assertion
+        assertEquals(0, gkoPool.getNumIdle("one"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testClear_4_oe() throws Exception {
+        gkoPool.setMaxTotal(2);
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setBlockWhenExhausted(false);
+        gkoPool.addObject("one");
+        gkoPool.addObject("one");
+        // removed other assertion
+        gkoPool.clear("one");
+        // removed other assertion
+        // removed other assertion
+        final String obj1 = gkoPool.borrowObject("one");
+        final String obj2 = gkoPool.borrowObject("one");
+        gkoPool.returnObject("one", obj1);
+        gkoPool.returnObject("one", obj2);
+        gkoPool.clear();
+        assertEquals(0, gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testClear_5_oe() throws Exception {
+        gkoPool.setMaxTotal(2);
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setBlockWhenExhausted(false);
+        gkoPool.addObject("one");
+        gkoPool.addObject("one");
+        // removed other assertion
+        gkoPool.clear("one");
+        // removed other assertion
+        // removed other assertion
+        final String obj1 = gkoPool.borrowObject("one");
+        final String obj2 = gkoPool.borrowObject("one");
+        gkoPool.returnObject("one", obj1);
+        gkoPool.returnObject("one", obj2);
+        gkoPool.clear();
+        // removed other assertion
+        assertEquals(0, gkoPool.getNumIdle("one"));
+    }
+
+    @Test
+    public void testConcurrentInvalidate_1_oe() throws Exception {
+        // Get allObjects and idleObjects loaded with some instances
+        final int nObjects = 1000;
+        final String key = "one";
+        gkoPool.setMaxTotal(nObjects);
+        gkoPool.setMaxTotalPerKey(nObjects);
+        gkoPool.setMaxIdlePerKey(nObjects);
+        final String [] obj = new String[nObjects];
+        for (int i = 0; i < nObjects; i++) {
+            obj[i] = gkoPool.borrowObject(key);
+        }
+        for (int i = 0; i < nObjects; i++) {
+            if (i % 2 == 0) {
+                gkoPool.returnObject(key, obj[i]);
+            }
+        }
+        final int nThreads = 20;
+        final int nIterations = 60;
+        final InvalidateThread[] threads = new InvalidateThread[nThreads];
+        // Randomly generated list of distinct invalidation targets
+        final ArrayList<Integer> targets = new ArrayList<>();
+        final Random random = new Random();
+        for (int j = 0; j < nIterations; j++) {
+            // Get a random invalidation target
+            Integer targ = Integer.valueOf(random.nextInt(nObjects));
+            while (targets.contains(targ)) {
+                targ = Integer.valueOf(random.nextInt(nObjects));
+            }
+            targets.add(targ);
+            // Launch nThreads threads all trying to invalidate the target
+            for (int i = 0; i < nThreads; i++) {
+                threads[i] =
+                        new InvalidateThread(gkoPool,key, obj[targ.intValue()]);
+            }
+            for (int i = 0; i < nThreads; i++) {
+                new Thread(threads[i]).start();
+            }
+            boolean done = false;
+            while (!done) {
+                done = true;
+                for (int i = 0; i < nThreads; i++) {
+                    done = done && threads[i].complete();
+                }
+                Thread.sleep(100);
+            }
+        }
+        assertEquals(nIterations, gkoPool.getDestroyedCount());
+    }
+
+    @Test
+    public void testConstructorNullFactory_1_oe() throws Exception {
+        // add dummy assert (won't be invoked because of IAE) to avoid "unused" warning
+        try {
+    new GenericKeyedObjectPool<>(null);
+    fail("IllegalArgumentException");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_1_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        assertTrue(gkoPool.getNumIdle("") < 500, "Should be less than 500 idle, found " + gkoPool.getNumIdle(""));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_2_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertTrue(gkoPool.getNumIdle("") < 400, "Should be less than 400 idle, found " + gkoPool.getNumIdle(""));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_3_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertTrue(gkoPool.getNumIdle("") < 300,"Should be less than 300 idle, found " + gkoPool.getNumIdle(""));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_4_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertTrue(gkoPool.getNumIdle("") < 200, "Should be less than 200 idle, found " + gkoPool.getNumIdle(""));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_5_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertTrue(gkoPool.getNumIdle("") < 100 , "Should be less than 100 idle, found " + gkoPool.getNumIdle(""));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_6_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertEquals(0,gkoPool.getNumIdle(""),"Should be zero idle, found " + gkoPool.getNumIdle(""));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_7_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        assertTrue(gkoPool.getNumIdle("") < 500,"Should be less than 500 idle, found " + gkoPool.getNumIdle(""));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_8_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertTrue(gkoPool.getNumIdle("") < 400,"Should be less than 400 idle, found " + gkoPool.getNumIdle(""));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_9_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertTrue(gkoPool.getNumIdle("") < 300,"Should be less than 300 idle, found " + gkoPool.getNumIdle(""));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_10_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertTrue(gkoPool.getNumIdle("") < 200,"Should be less than 200 idle, found " + gkoPool.getNumIdle(""));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_11_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertTrue(gkoPool.getNumIdle("") < 100,"Should be less than 100 idle, found " + gkoPool.getNumIdle(""));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_12_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+
+        for(int i=0;i<500;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        for(int i=0;i<500;i++) {
+            gkoPool.returnObject("",active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertEquals(0,gkoPool.getNumIdle(""),"Should be zero idle, found " + gkoPool.getNumIdle(""));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction2_1_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        final String[] active2 = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = gkoPool.borrowObject("");
+            active2[i] = gkoPool.borrowObject("2");
+        }
+        for (int i = 0; i < 500; i++) {
+            gkoPool.returnObject("", active[i]);
+            gkoPool.returnObject("2", active2[i]);
+        }
+
+        Waiter.sleepQuietly(1100L);
+        assertTrue(gkoPool.getNumIdle() < 1000, "Should be less than 1000 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction2_2_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        final String[] active2 = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = gkoPool.borrowObject("");
+            active2[i] = gkoPool.borrowObject("2");
+        }
+        for (int i = 0; i < 500; i++) {
+            gkoPool.returnObject("", active[i]);
+            gkoPool.returnObject("2", active2[i]);
+        }
+
+        Waiter.sleepQuietly(1100L);
+        // removed other assertion
+        final long sleepMillisPart2 = 600L;
+        Waiter.sleepQuietly(sleepMillisPart2);
+        assertTrue(gkoPool.getNumIdle() < 900, "Should be less than 900 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction2_3_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        final String[] active2 = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = gkoPool.borrowObject("");
+            active2[i] = gkoPool.borrowObject("2");
+        }
+        for (int i = 0; i < 500; i++) {
+            gkoPool.returnObject("", active[i]);
+            gkoPool.returnObject("2", active2[i]);
+        }
+
+        Waiter.sleepQuietly(1100L);
+        // removed other assertion
+        final long sleepMillisPart2 = 600L;
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        assertTrue(gkoPool.getNumIdle() < 800, "Should be less than 800 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction2_4_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        final String[] active2 = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = gkoPool.borrowObject("");
+            active2[i] = gkoPool.borrowObject("2");
+        }
+        for (int i = 0; i < 500; i++) {
+            gkoPool.returnObject("", active[i]);
+            gkoPool.returnObject("2", active2[i]);
+        }
+
+        Waiter.sleepQuietly(1100L);
+        // removed other assertion
+        final long sleepMillisPart2 = 600L;
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        assertTrue(gkoPool.getNumIdle() < 700, "Should be less than 700 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction2_5_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        final String[] active2 = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = gkoPool.borrowObject("");
+            active2[i] = gkoPool.borrowObject("2");
+        }
+        for (int i = 0; i < 500; i++) {
+            gkoPool.returnObject("", active[i]);
+            gkoPool.returnObject("2", active2[i]);
+        }
+
+        Waiter.sleepQuietly(1100L);
+        // removed other assertion
+        final long sleepMillisPart2 = 600L;
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        assertTrue(gkoPool.getNumIdle() < 600, "Should be less than 600 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction2_6_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        final String[] active2 = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = gkoPool.borrowObject("");
+            active2[i] = gkoPool.borrowObject("2");
+        }
+        for (int i = 0; i < 500; i++) {
+            gkoPool.returnObject("", active[i]);
+            gkoPool.returnObject("2", active2[i]);
+        }
+
+        Waiter.sleepQuietly(1100L);
+        // removed other assertion
+        final long sleepMillisPart2 = 600L;
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        assertTrue(gkoPool.getNumIdle() < 500, "Should be less than 500 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction2_7_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        final String[] active2 = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = gkoPool.borrowObject("");
+            active2[i] = gkoPool.borrowObject("2");
+        }
+        for (int i = 0; i < 500; i++) {
+            gkoPool.returnObject("", active[i]);
+            gkoPool.returnObject("2", active2[i]);
+        }
+
+        Waiter.sleepQuietly(1100L);
+        // removed other assertion
+        final long sleepMillisPart2 = 600L;
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        assertTrue(gkoPool.getNumIdle() < 400, "Should be less than 400 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction2_8_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        final String[] active2 = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = gkoPool.borrowObject("");
+            active2[i] = gkoPool.borrowObject("2");
+        }
+        for (int i = 0; i < 500; i++) {
+            gkoPool.returnObject("", active[i]);
+            gkoPool.returnObject("2", active2[i]);
+        }
+
+        Waiter.sleepQuietly(1100L);
+        // removed other assertion
+        final long sleepMillisPart2 = 600L;
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        assertTrue(gkoPool.getNumIdle() < 300, "Should be less than 300 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction2_9_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        final String[] active2 = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = gkoPool.borrowObject("");
+            active2[i] = gkoPool.borrowObject("2");
+        }
+        for (int i = 0; i < 500; i++) {
+            gkoPool.returnObject("", active[i]);
+            gkoPool.returnObject("2", active2[i]);
+        }
+
+        Waiter.sleepQuietly(1100L);
+        // removed other assertion
+        final long sleepMillisPart2 = 600L;
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        assertTrue(gkoPool.getNumIdle() < 200, "Should be less than 200 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction2_10_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        final String[] active2 = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = gkoPool.borrowObject("");
+            active2[i] = gkoPool.borrowObject("2");
+        }
+        for (int i = 0; i < 500; i++) {
+            gkoPool.returnObject("", active[i]);
+            gkoPool.returnObject("2", active2[i]);
+        }
+
+        Waiter.sleepQuietly(1100L);
+        // removed other assertion
+        final long sleepMillisPart2 = 600L;
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        assertTrue(gkoPool.getNumIdle() < 100, "Should be less than 100 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction2_11_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMaxTotalPerKey(500);
+        gkoPool.setNumTestsPerEvictionRun(100);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+
+        final String[] active = new String[500];
+        final String[] active2 = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = gkoPool.borrowObject("");
+            active2[i] = gkoPool.borrowObject("2");
+        }
+        for (int i = 0; i < 500; i++) {
+            gkoPool.returnObject("", active[i]);
+            gkoPool.returnObject("2", active2[i]);
+        }
+
+        Waiter.sleepQuietly(1100L);
+        // removed other assertion
+        final long sleepMillisPart2 = 600L;
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        // removed other assertion
+        Waiter.sleepQuietly(sleepMillisPart2);
+        assertEquals(0, gkoPool.getNumIdle(), "Should be zero idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionInValidationDuringEviction_1_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(1);
+        gkoPool.setMinEvictableIdleTime(Duration.ZERO);
+        gkoPool.setTestWhileIdle(true);
+
+        final String obj = gkoPool.borrowObject("one");
+        gkoPool.returnObject("one", obj);
+
+        simpleFactory.setThrowExceptionOnValidate(true);
+        try {
+    gkoPool.evict();
+    fail("RuntimeException");
+} catch (RuntimeException e) {
+}
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionInValidationDuringEviction_2_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(1);
+        gkoPool.setMinEvictableIdleTime(Duration.ZERO);
+        gkoPool.setTestWhileIdle(true);
+
+        final String obj = gkoPool.borrowObject("one");
+        gkoPool.returnObject("one", obj);
+
+        simpleFactory.setThrowExceptionOnValidate(true);
+        // removed other assertion
+        assertEquals(0, gkoPool.getNumActive());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnActivateDuringBorrow_1_oe() throws Exception {
+        final String obj1 = gkoPool.borrowObject("one");
+        final String obj2 = gkoPool.borrowObject("one");
+        gkoPool.returnObject("one", obj1);
+        gkoPool.returnObject("one", obj2);
+        simpleFactory.setThrowExceptionOnActivate(true);
+        simpleFactory.setEvenValid(false);
+        // Activation will now throw every other time
+        // First attempt throws, but loop continues and second succeeds
+        final String obj = gkoPool.borrowObject("one");
+        assertEquals(1, gkoPool.getNumActive("one"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnActivateDuringBorrow_2_oe() throws Exception {
+        final String obj1 = gkoPool.borrowObject("one");
+        final String obj2 = gkoPool.borrowObject("one");
+        gkoPool.returnObject("one", obj1);
+        gkoPool.returnObject("one", obj2);
+        simpleFactory.setThrowExceptionOnActivate(true);
+        simpleFactory.setEvenValid(false);
+        // Activation will now throw every other time
+        // First attempt throws, but loop continues and second succeeds
+        final String obj = gkoPool.borrowObject("one");
+        // removed other assertion
+        assertEquals(0, gkoPool.getNumIdle("one"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnActivateDuringBorrow_3_oe() throws Exception {
+        final String obj1 = gkoPool.borrowObject("one");
+        final String obj2 = gkoPool.borrowObject("one");
+        gkoPool.returnObject("one", obj1);
+        gkoPool.returnObject("one", obj2);
+        simpleFactory.setThrowExceptionOnActivate(true);
+        simpleFactory.setEvenValid(false);
+        // Activation will now throw every other time
+        // First attempt throws, but loop continues and second succeeds
+        final String obj = gkoPool.borrowObject("one");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, gkoPool.getNumActive());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnActivateDuringBorrow_4_oe() throws Exception {
+        final String obj1 = gkoPool.borrowObject("one");
+        final String obj2 = gkoPool.borrowObject("one");
+        gkoPool.returnObject("one", obj1);
+        gkoPool.returnObject("one", obj2);
+        simpleFactory.setThrowExceptionOnActivate(true);
+        simpleFactory.setEvenValid(false);
+        // Activation will now throw every other time
+        // First attempt throws, but loop continues and second succeeds
+        final String obj = gkoPool.borrowObject("one");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnActivateDuringBorrow_5_oe() throws Exception {
+        final String obj1 = gkoPool.borrowObject("one");
+        final String obj2 = gkoPool.borrowObject("one");
+        gkoPool.returnObject("one", obj1);
+        gkoPool.returnObject("one", obj2);
+        simpleFactory.setThrowExceptionOnActivate(true);
+        simpleFactory.setEvenValid(false);
+        // Activation will now throw every other time
+        // First attempt throws, but loop continues and second succeeds
+        final String obj = gkoPool.borrowObject("one");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("one", obj);
+        simpleFactory.setValid(false);
+        // Validation will now fail on activation when borrowObject returns
+        // an idle instance, and then when attempting to create a new instance
+        try {
+    gkoPool.borrowObject("one");
+    fail("NoSuchElementException");
+} catch (NoSuchElementException e) {
+}
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnActivateDuringBorrow_6_oe() throws Exception {
+        final String obj1 = gkoPool.borrowObject("one");
+        final String obj2 = gkoPool.borrowObject("one");
+        gkoPool.returnObject("one", obj1);
+        gkoPool.returnObject("one", obj2);
+        simpleFactory.setThrowExceptionOnActivate(true);
+        simpleFactory.setEvenValid(false);
+        // Activation will now throw every other time
+        // First attempt throws, but loop continues and second succeeds
+        final String obj = gkoPool.borrowObject("one");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("one", obj);
+        simpleFactory.setValid(false);
+        // Validation will now fail on activation when borrowObject returns
+        // an idle instance, and then when attempting to create a new instance
+        // removed other assertion
+        assertEquals(0, gkoPool.getNumActive("one"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnActivateDuringBorrow_8_oe() throws Exception {
+        final String obj1 = gkoPool.borrowObject("one");
+        final String obj2 = gkoPool.borrowObject("one");
+        gkoPool.returnObject("one", obj1);
+        gkoPool.returnObject("one", obj2);
+        simpleFactory.setThrowExceptionOnActivate(true);
+        simpleFactory.setEvenValid(false);
+        // Activation will now throw every other time
+        // First attempt throws, but loop continues and second succeeds
+        final String obj = gkoPool.borrowObject("one");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("one", obj);
+        simpleFactory.setValid(false);
+        // Validation will now fail on activation when borrowObject returns
+        // an idle instance, and then when attempting to create a new instance
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, gkoPool.getNumActive());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnDestroyDuringBorrow_1_oe() throws Exception {
+        simpleFactory.setThrowExceptionOnDestroy(true);
+        simpleFactory.setValidationEnabled(true);
+        gkoPool.setTestOnBorrow(true);
+        gkoPool.borrowObject("one");
+        simpleFactory.setValid(false); // Make validation fail on next borrow attempt
+        try {
+    gkoPool.borrowObject("one");
+    fail("NoSuchElementException");
+} catch (NoSuchElementException e) {
+}
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnDestroyDuringBorrow_2_oe() throws Exception {
+        simpleFactory.setThrowExceptionOnDestroy(true);
+        simpleFactory.setValidationEnabled(true);
+        gkoPool.setTestOnBorrow(true);
+        gkoPool.borrowObject("one");
+        simpleFactory.setValid(false); // Make validation fail on next borrow attempt
+        // removed other assertion
+        assertEquals(1, gkoPool.getNumActive("one"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnDestroyDuringBorrow_3_oe() throws Exception {
+        simpleFactory.setThrowExceptionOnDestroy(true);
+        simpleFactory.setValidationEnabled(true);
+        gkoPool.setTestOnBorrow(true);
+        gkoPool.borrowObject("one");
+        simpleFactory.setValid(false); // Make validation fail on next borrow attempt
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, gkoPool.getNumIdle("one"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnDestroyDuringBorrow_4_oe() throws Exception {
+        simpleFactory.setThrowExceptionOnDestroy(true);
+        simpleFactory.setValidationEnabled(true);
+        gkoPool.setTestOnBorrow(true);
+        gkoPool.borrowObject("one");
+        simpleFactory.setValid(false); // Make validation fail on next borrow attempt
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, gkoPool.getNumActive());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnDestroyDuringBorrow_5_oe() throws Exception {
+        simpleFactory.setThrowExceptionOnDestroy(true);
+        simpleFactory.setValidationEnabled(true);
+        gkoPool.setTestOnBorrow(true);
+        gkoPool.borrowObject("one");
+        simpleFactory.setValid(false); // Make validation fail on next borrow attempt
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnDestroyDuringReturn_1_oe() throws Exception {
+        simpleFactory.setThrowExceptionOnDestroy(true);
+        simpleFactory.setValidationEnabled(true);
+        gkoPool.setTestOnReturn(true);
+        final String obj1 = gkoPool.borrowObject("one");
+        gkoPool.borrowObject("one");
+        simpleFactory.setValid(false); // Make validation fail
+        gkoPool.returnObject("one", obj1);
+        assertEquals(1, gkoPool.getNumActive("one"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnDestroyDuringReturn_2_oe() throws Exception {
+        simpleFactory.setThrowExceptionOnDestroy(true);
+        simpleFactory.setValidationEnabled(true);
+        gkoPool.setTestOnReturn(true);
+        final String obj1 = gkoPool.borrowObject("one");
+        gkoPool.borrowObject("one");
+        simpleFactory.setValid(false); // Make validation fail
+        gkoPool.returnObject("one", obj1);
+        // removed other assertion
+        assertEquals(0, gkoPool.getNumIdle("one"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnDestroyDuringReturn_3_oe() throws Exception {
+        simpleFactory.setThrowExceptionOnDestroy(true);
+        simpleFactory.setValidationEnabled(true);
+        gkoPool.setTestOnReturn(true);
+        final String obj1 = gkoPool.borrowObject("one");
+        gkoPool.borrowObject("one");
+        simpleFactory.setValid(false); // Make validation fail
+        gkoPool.returnObject("one", obj1);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, gkoPool.getNumActive());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnDestroyDuringReturn_4_oe() throws Exception {
+        simpleFactory.setThrowExceptionOnDestroy(true);
+        simpleFactory.setValidationEnabled(true);
+        gkoPool.setTestOnReturn(true);
+        final String obj1 = gkoPool.borrowObject("one");
+        gkoPool.borrowObject("one");
+        simpleFactory.setValid(false); // Make validation fail
+        gkoPool.returnObject("one", obj1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnPassivateDuringReturn_1_oe() throws Exception {
+        final String obj = gkoPool.borrowObject("one");
+        simpleFactory.setThrowExceptionOnPassivate(true);
+        gkoPool.returnObject("one", obj);
+        assertEquals(0,gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testFIFO_1_oe() throws Exception {
+        gkoPool.setLifo(false);
+        final String key = "key";
+        gkoPool.addObject(key); // "key0"
+        gkoPool.addObject(key); // "key1"
+        gkoPool.addObject(key); // "key2"
+        assertEquals( "key0", gkoPool.borrowObject(key),"Oldest");
+    }
+
+    @Test
+    public void testGetStatsString_1_oe() {
+        assertNotNull((gkoPool.getStatsString()));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testJmxRegistration_1_oe() {
+        final ObjectName oname = gkoPool.getJmxName();
+        final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
+        final Set<ObjectName> result = mbs.queryNames(oname, null);
+        assertEquals(1, result.size());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testLIFO_1_oe() throws Exception {
+        gkoPool.setLifo(true);
+        final String key = "key";
+        gkoPool.addObject(key); // "key0"
+        gkoPool.addObject(key); // "key1"
+        gkoPool.addObject(key); // "key2"
+        assertEquals( "key2", gkoPool.borrowObject(key),"Youngest");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testLIFO_5_oe() throws Exception {
+        gkoPool.setLifo(true);
+        final String key = "key";
+        gkoPool.addObject(key); // "key0"
+        gkoPool.addObject(key); // "key1"
+        gkoPool.addObject(key); // "key2"
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final String s = gkoPool.borrowObject(key);
+        // removed other assertion
+        gkoPool.returnObject(key, s);
+        assertEquals( s, gkoPool.borrowObject(key),"returned");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxIdle_1_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(100);
+        gkoPool.setMaxIdlePerKey(8);
+        final String[] active = new String[100];
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        assertEquals(100,gkoPool.getNumActive(""));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxIdle_2_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(100);
+        gkoPool.setMaxIdlePerKey(8);
+        final String[] active = new String[100];
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        // removed other assertion
+        assertEquals(0,gkoPool.getNumIdle(""));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxIdle_3_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(100);
+        gkoPool.setMaxIdlePerKey(8);
+        final String[] active = new String[100];
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        // removed other assertion
+        // removed other assertion
+        for(int i=0;i<100;i++) {
+            gkoPool.returnObject("",active[i]);
+            assertEquals(99 - i,gkoPool.getNumActive(""));
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxIdle_4_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(100);
+        gkoPool.setMaxIdlePerKey(8);
+        final String[] active = new String[100];
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        // removed other assertion
+        // removed other assertion
+        for(int i=0;i<100;i++) {
+            gkoPool.returnObject("",active[i]);
+            // removed other assertion
+            assertEquals((i < 8 ? i+1 : 8),gkoPool.getNumIdle(""));
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxIdle_5_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(100);
+        gkoPool.setMaxIdlePerKey(8);
+        final String[] active = new String[100];
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        // removed other assertion
+        // removed other assertion
+        for(int i=0;i<100;i++) {
+            gkoPool.returnObject("",active[i]);
+            // removed other assertion
+            // removed other assertion
+        }
+
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("a");
+        }
+        assertEquals(100,gkoPool.getNumActive("a"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxIdle_6_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(100);
+        gkoPool.setMaxIdlePerKey(8);
+        final String[] active = new String[100];
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        // removed other assertion
+        // removed other assertion
+        for(int i=0;i<100;i++) {
+            gkoPool.returnObject("",active[i]);
+            // removed other assertion
+            // removed other assertion
+        }
+
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("a");
+        }
+        // removed other assertion
+        assertEquals(0,gkoPool.getNumIdle("a"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxIdle_7_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(100);
+        gkoPool.setMaxIdlePerKey(8);
+        final String[] active = new String[100];
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        // removed other assertion
+        // removed other assertion
+        for(int i=0;i<100;i++) {
+            gkoPool.returnObject("",active[i]);
+            // removed other assertion
+            // removed other assertion
+        }
+
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("a");
+        }
+        // removed other assertion
+        // removed other assertion
+        for(int i=0;i<100;i++) {
+            gkoPool.returnObject("a",active[i]);
+            assertEquals(99 - i,gkoPool.getNumActive("a"));
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxIdle_8_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(100);
+        gkoPool.setMaxIdlePerKey(8);
+        final String[] active = new String[100];
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        // removed other assertion
+        // removed other assertion
+        for(int i=0;i<100;i++) {
+            gkoPool.returnObject("",active[i]);
+            // removed other assertion
+            // removed other assertion
+        }
+
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("a");
+        }
+        // removed other assertion
+        // removed other assertion
+        for(int i=0;i<100;i++) {
+            gkoPool.returnObject("a",active[i]);
+            // removed other assertion
+            assertEquals((i < 8 ? i+1 : 8),gkoPool.getNumIdle("a"));
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxIdle_9_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(100);
+        gkoPool.setMaxIdlePerKey(8);
+        final String[] active = new String[100];
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        // removed other assertion
+        // removed other assertion
+        for(int i=0;i<100;i++) {
+            gkoPool.returnObject("",active[i]);
+            // removed other assertion
+            // removed other assertion
+        }
+
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("a");
+        }
+        // removed other assertion
+        // removed other assertion
+        for(int i=0;i<100;i++) {
+            gkoPool.returnObject("a",active[i]);
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // total number of idle instances is twice maxIdle
+        assertEquals(16, gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxIdle_10_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(100);
+        gkoPool.setMaxIdlePerKey(8);
+        final String[] active = new String[100];
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        // removed other assertion
+        // removed other assertion
+        for(int i=0;i<100;i++) {
+            gkoPool.returnObject("",active[i]);
+            // removed other assertion
+            // removed other assertion
+        }
+
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("a");
+        }
+        // removed other assertion
+        // removed other assertion
+        for(int i=0;i<100;i++) {
+            gkoPool.returnObject("a",active[i]);
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // total number of idle instances is twice maxIdle
+        // removed other assertion
+        // Each pool is at the sup
+        assertEquals(8, gkoPool.getNumIdle(""));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxIdle_11_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(100);
+        gkoPool.setMaxIdlePerKey(8);
+        final String[] active = new String[100];
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("");
+        }
+        // removed other assertion
+        // removed other assertion
+        for(int i=0;i<100;i++) {
+            gkoPool.returnObject("",active[i]);
+            // removed other assertion
+            // removed other assertion
+        }
+
+        for(int i=0;i<100;i++) {
+            active[i] = gkoPool.borrowObject("a");
+        }
+        // removed other assertion
+        // removed other assertion
+        for(int i=0;i<100;i++) {
+            gkoPool.returnObject("a",active[i]);
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // total number of idle instances is twice maxIdle
+        // removed other assertion
+        // Each pool is at the sup
+        // removed other assertion
+        assertEquals(8, gkoPool.getNumIdle("a"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotal_1_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+        gkoPool.setBlockWhenExhausted(false);
+
+        final String o1 = gkoPool.borrowObject("a");
+        assertNotNull(o1);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotal_2_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+        gkoPool.setBlockWhenExhausted(false);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o2 = gkoPool.borrowObject("a");
+        assertNotNull(o2);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotal_3_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+        gkoPool.setBlockWhenExhausted(false);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o2 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o3 = gkoPool.borrowObject("b");
+        assertNotNull(o3);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotal_4_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+        gkoPool.setBlockWhenExhausted(false);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o2 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o3 = gkoPool.borrowObject("b");
+        // removed other assertion
+        try {
+    gkoPool.borrowObject("c");
+    fail("NoSuchElementException");
+} catch (NoSuchElementException e) {
+}
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotal_5_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+        gkoPool.setBlockWhenExhausted(false);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o2 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o3 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(0, gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotal_6_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+        gkoPool.setBlockWhenExhausted(false);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o2 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o3 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        gkoPool.returnObject("b", o3);
+        assertEquals(1, gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotal_7_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+        gkoPool.setBlockWhenExhausted(false);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o2 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o3 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        gkoPool.returnObject("b", o3);
+        // removed other assertion
+        assertEquals(1, gkoPool.getNumIdle("b"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotal_8_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+        gkoPool.setBlockWhenExhausted(false);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o2 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o3 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        gkoPool.returnObject("b", o3);
+        // removed other assertion
+        // removed other assertion
+
+        final Object o4 = gkoPool.borrowObject("b");
+        assertNotNull(o4);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotal_9_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+        gkoPool.setBlockWhenExhausted(false);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o2 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o3 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        gkoPool.returnObject("b", o3);
+        // removed other assertion
+        // removed other assertion
+
+        final Object o4 = gkoPool.borrowObject("b");
+        // removed other assertion
+        assertEquals(0, gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotal_10_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+        gkoPool.setBlockWhenExhausted(false);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o2 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o3 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        gkoPool.returnObject("b", o3);
+        // removed other assertion
+        // removed other assertion
+
+        final Object o4 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, gkoPool.getNumIdle("b"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotal_11_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+        gkoPool.setBlockWhenExhausted(false);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o2 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o3 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        gkoPool.returnObject("b", o3);
+        // removed other assertion
+        // removed other assertion
+
+        final Object o4 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.setMaxTotal(4);
+        final Object o5 = gkoPool.borrowObject("b");
+        assertNotNull(o5);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotal_12_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+        gkoPool.setBlockWhenExhausted(false);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o2 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o3 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        gkoPool.returnObject("b", o3);
+        // removed other assertion
+        // removed other assertion
+
+        final Object o4 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.setMaxTotal(4);
+        final Object o5 = gkoPool.borrowObject("b");
+        // removed other assertion
+
+        assertEquals(2, gkoPool.getNumActive("a"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotal_13_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+        gkoPool.setBlockWhenExhausted(false);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o2 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o3 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        gkoPool.returnObject("b", o3);
+        // removed other assertion
+        // removed other assertion
+
+        final Object o4 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.setMaxTotal(4);
+        final Object o5 = gkoPool.borrowObject("b");
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(2, gkoPool.getNumActive("b"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotal_14_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+        gkoPool.setBlockWhenExhausted(false);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o2 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o3 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        gkoPool.returnObject("b", o3);
+        // removed other assertion
+        // removed other assertion
+
+        final Object o4 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.setMaxTotal(4);
+        final Object o5 = gkoPool.borrowObject("b");
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(gkoPool.getMaxTotal(),gkoPool.getNumActive("b")+ gkoPool.getNumActive("b"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotal_15_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+        gkoPool.setBlockWhenExhausted(false);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o2 = gkoPool.borrowObject("a");
+        // removed other assertion
+        final String o3 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        gkoPool.returnObject("b", o3);
+        // removed other assertion
+        // removed other assertion
+
+        final Object o4 = gkoPool.borrowObject("b");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.setMaxTotal(4);
+        final Object o5 = gkoPool.borrowObject("b");
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(gkoPool.getNumActive(),gkoPool.getMaxTotal());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotalLRU_1_oe() throws Exception {
         gkoPool.setMaxTotalPerKey(2);
         gkoPool.setMaxTotal(3);
 
         final String o1 = gkoPool.borrowObject("a");
         assertNotNull(o1);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotalLRU_2_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
         gkoPool.returnObject("a", o1);
         Thread.sleep(25);
 
         final String o2 = gkoPool.borrowObject("b");
         assertNotNull(o2);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotalLRU_3_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        gkoPool.returnObject("a", o1);
+        Thread.sleep(25);
+
+        final String o2 = gkoPool.borrowObject("b");
+        // removed other assertion
         gkoPool.returnObject("b", o2);
         Thread.sleep(25);
 
         final String o3 = gkoPool.borrowObject("c");
         assertNotNull(o3);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotalLRU_4_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        gkoPool.returnObject("a", o1);
+        Thread.sleep(25);
+
+        final String o2 = gkoPool.borrowObject("b");
+        // removed other assertion
+        gkoPool.returnObject("b", o2);
+        Thread.sleep(25);
+
+        final String o3 = gkoPool.borrowObject("c");
+        // removed other assertion
         gkoPool.returnObject("c", o3);
         Thread.sleep(25);
 
         final String o4 = gkoPool.borrowObject("a");
         assertNotNull(o4);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotalLRU_5_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        gkoPool.returnObject("a", o1);
+        Thread.sleep(25);
+
+        final String o2 = gkoPool.borrowObject("b");
+        // removed other assertion
+        gkoPool.returnObject("b", o2);
+        Thread.sleep(25);
+
+        final String o3 = gkoPool.borrowObject("c");
+        // removed other assertion
+        gkoPool.returnObject("c", o3);
+        Thread.sleep(25);
+
+        final String o4 = gkoPool.borrowObject("a");
+        // removed other assertion
         gkoPool.returnObject("a", o4);
         Thread.sleep(25);
 
         assertSame(o1, o4);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotalLRU_6_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        gkoPool.returnObject("a", o1);
+        Thread.sleep(25);
+
+        final String o2 = gkoPool.borrowObject("b");
+        // removed other assertion
+        gkoPool.returnObject("b", o2);
+        Thread.sleep(25);
+
+        final String o3 = gkoPool.borrowObject("c");
+        // removed other assertion
+        gkoPool.returnObject("c", o3);
+        Thread.sleep(25);
+
+        final String o4 = gkoPool.borrowObject("a");
+        // removed other assertion
+        gkoPool.returnObject("a", o4);
+        Thread.sleep(25);
+
+        // removed other assertion
 
         // this should cause b to be bumped out of the pool
         final String o5 = gkoPool.borrowObject("d");
         assertNotNull(o5);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotalLRU_7_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        gkoPool.returnObject("a", o1);
+        Thread.sleep(25);
+
+        final String o2 = gkoPool.borrowObject("b");
+        // removed other assertion
+        gkoPool.returnObject("b", o2);
+        Thread.sleep(25);
+
+        final String o3 = gkoPool.borrowObject("c");
+        // removed other assertion
+        gkoPool.returnObject("c", o3);
+        Thread.sleep(25);
+
+        final String o4 = gkoPool.borrowObject("a");
+        // removed other assertion
+        gkoPool.returnObject("a", o4);
+        Thread.sleep(25);
+
+        // removed other assertion
+
+        // this should cause b to be bumped out of the pool
+        final String o5 = gkoPool.borrowObject("d");
+        // removed other assertion
         gkoPool.returnObject("d", o5);
         Thread.sleep(25);
 
@@ -1614,14 +3500,189 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
         // have been expelled from pool (was oldest because a was requested after b)
         final String o6 = gkoPool.borrowObject("b");
         assertNotNull(o6);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotalLRU_8_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        gkoPool.returnObject("a", o1);
+        Thread.sleep(25);
+
+        final String o2 = gkoPool.borrowObject("b");
+        // removed other assertion
+        gkoPool.returnObject("b", o2);
+        Thread.sleep(25);
+
+        final String o3 = gkoPool.borrowObject("c");
+        // removed other assertion
+        gkoPool.returnObject("c", o3);
+        Thread.sleep(25);
+
+        final String o4 = gkoPool.borrowObject("a");
+        // removed other assertion
+        gkoPool.returnObject("a", o4);
+        Thread.sleep(25);
+
+        // removed other assertion
+
+        // this should cause b to be bumped out of the pool
+        final String o5 = gkoPool.borrowObject("d");
+        // removed other assertion
+        gkoPool.returnObject("d", o5);
+        Thread.sleep(25);
+
+        // now re-request b, we should get a different object because it should
+        // have been expelled from pool (was oldest because a was requested after b)
+        final String o6 = gkoPool.borrowObject("b");
+        // removed other assertion
         gkoPool.returnObject("b", o6);
 
         assertNotSame(o1, o6);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotalLRU_9_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        gkoPool.returnObject("a", o1);
+        Thread.sleep(25);
+
+        final String o2 = gkoPool.borrowObject("b");
+        // removed other assertion
+        gkoPool.returnObject("b", o2);
+        Thread.sleep(25);
+
+        final String o3 = gkoPool.borrowObject("c");
+        // removed other assertion
+        gkoPool.returnObject("c", o3);
+        Thread.sleep(25);
+
+        final String o4 = gkoPool.borrowObject("a");
+        // removed other assertion
+        gkoPool.returnObject("a", o4);
+        Thread.sleep(25);
+
+        // removed other assertion
+
+        // this should cause b to be bumped out of the pool
+        final String o5 = gkoPool.borrowObject("d");
+        // removed other assertion
+        gkoPool.returnObject("d", o5);
+        Thread.sleep(25);
+
+        // now re-request b, we should get a different object because it should
+        // have been expelled from pool (was oldest because a was requested after b)
+        final String o6 = gkoPool.borrowObject("b");
+        // removed other assertion
+        gkoPool.returnObject("b", o6);
+
+        // removed other assertion
         assertNotSame(o2, o6);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotalLRU_10_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        gkoPool.returnObject("a", o1);
+        Thread.sleep(25);
+
+        final String o2 = gkoPool.borrowObject("b");
+        // removed other assertion
+        gkoPool.returnObject("b", o2);
+        Thread.sleep(25);
+
+        final String o3 = gkoPool.borrowObject("c");
+        // removed other assertion
+        gkoPool.returnObject("c", o3);
+        Thread.sleep(25);
+
+        final String o4 = gkoPool.borrowObject("a");
+        // removed other assertion
+        gkoPool.returnObject("a", o4);
+        Thread.sleep(25);
+
+        // removed other assertion
+
+        // this should cause b to be bumped out of the pool
+        final String o5 = gkoPool.borrowObject("d");
+        // removed other assertion
+        gkoPool.returnObject("d", o5);
+        Thread.sleep(25);
+
+        // now re-request b, we should get a different object because it should
+        // have been expelled from pool (was oldest because a was requested after b)
+        final String o6 = gkoPool.borrowObject("b");
+        // removed other assertion
+        gkoPool.returnObject("b", o6);
+
+        // removed other assertion
+        // removed other assertion
 
         // second a is still in there
         final String o7 = gkoPool.borrowObject("a");
         assertNotNull(o7);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMaxTotalLRU_11_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(3);
+
+        final String o1 = gkoPool.borrowObject("a");
+        // removed other assertion
+        gkoPool.returnObject("a", o1);
+        Thread.sleep(25);
+
+        final String o2 = gkoPool.borrowObject("b");
+        // removed other assertion
+        gkoPool.returnObject("b", o2);
+        Thread.sleep(25);
+
+        final String o3 = gkoPool.borrowObject("c");
+        // removed other assertion
+        gkoPool.returnObject("c", o3);
+        Thread.sleep(25);
+
+        final String o4 = gkoPool.borrowObject("a");
+        // removed other assertion
+        gkoPool.returnObject("a", o4);
+        Thread.sleep(25);
+
+        // removed other assertion
+
+        // this should cause b to be bumped out of the pool
+        final String o5 = gkoPool.borrowObject("d");
+        // removed other assertion
+        gkoPool.returnObject("d", o5);
+        Thread.sleep(25);
+
+        // now re-request b, we should get a different object because it should
+        // have been expelled from pool (was oldest because a was requested after b)
+        final String o6 = gkoPool.borrowObject("b");
+        // removed other assertion
+        gkoPool.returnObject("b", o6);
+
+        // removed other assertion
+        // removed other assertion
+
+        // second a is still in there
+        final String o7 = gkoPool.borrowObject("a");
+        // removed other assertion
         gkoPool.returnObject("a", o7);
 
         assertSame(o4, o7);
@@ -1629,33 +3690,35 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxTotalPerKey() throws Exception {
+    public void testMaxTotalPerKey_1_oe() throws Exception {
         gkoPool.setMaxTotalPerKey(3);
         gkoPool.setBlockWhenExhausted(false);
 
         gkoPool.borrowObject("");
         gkoPool.borrowObject("");
         gkoPool.borrowObject("");
-        assertThrows(NoSuchElementException.class, () -> gkoPool.borrowObject(""));
+        try {
+    gkoPool.borrowObject("");
+    fail("NoSuchElementException");
+} catch (NoSuchElementException e) {
+}
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxTotalPerKeyZero() throws Exception {
+    public void testMaxTotalPerKeyZero_1_oe() throws Exception {
         gkoPool.setMaxTotalPerKey(0);
         gkoPool.setBlockWhenExhausted(false);
 
-        assertThrows(NoSuchElementException.class, () -> gkoPool.borrowObject("a"));
+        try {
+    gkoPool.borrowObject("a");
+    fail("NoSuchElementException");
+} catch (NoSuchElementException e) {
+}
     }
 
-    /**
-     * Verifies that if a borrow of a new key is blocked because maxTotal has
-     * been reached, that borrow continues once another object is returned.
-     *
-     * JIRA: POOL-310
-     */
     @Test
-    public void testMaxTotalWithThreads() throws Exception {
+    public void testMaxTotalWithThreads_1_oe() throws Exception {
 
         gkoPool.setMaxTotalPerKey(2);
         gkoPool.setMaxTotal(1);
@@ -1683,33 +3746,125 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
             count++;
         }
         assertFalse(threadA.isAlive());
+    }
+
+    @Test
+    public void testMaxTotalWithThreads_2_oe() throws Exception {
+
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(1);
+
+        final int holdTime = 2000;
+
+        final TestThread<String> testA = new TestThread<>(gkoPool, 1, 0, holdTime, false, null, "a");
+        final TestThread<String> testB = new TestThread<>(gkoPool, 1, 0, holdTime, false, null, "b");
+
+        final Thread threadA = new Thread(testA);
+        final Thread threadB = new Thread(testB);
+
+        threadA.start();
+        threadB.start();
+
+        Thread.sleep(holdTime * 2);
+
+        // Both threads should be complete now.
+        boolean threadRunning = true;
+        int count = 0;
+        while (threadRunning && count < 15) {
+            threadRunning = threadA.isAlive();
+            threadRunning = threadB.isAlive();
+            Thread.sleep(200);
+            count++;
+        }
+        // removed other assertion
         assertFalse(threadB.isAlive());
+    }
+
+    @Test
+    public void testMaxTotalWithThreads_3_oe() throws Exception {
+
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(1);
+
+        final int holdTime = 2000;
+
+        final TestThread<String> testA = new TestThread<>(gkoPool, 1, 0, holdTime, false, null, "a");
+        final TestThread<String> testB = new TestThread<>(gkoPool, 1, 0, holdTime, false, null, "b");
+
+        final Thread threadA = new Thread(testA);
+        final Thread threadB = new Thread(testB);
+
+        threadA.start();
+        threadB.start();
+
+        Thread.sleep(holdTime * 2);
+
+        // Both threads should be complete now.
+        boolean threadRunning = true;
+        int count = 0;
+        while (threadRunning && count < 15) {
+            threadRunning = threadA.isAlive();
+            threadRunning = threadB.isAlive();
+            Thread.sleep(200);
+            count++;
+        }
+        // removed other assertion
+        // removed other assertion
 
         assertFalse(testA.failed);
+    }
+
+    @Test
+    public void testMaxTotalWithThreads_4_oe() throws Exception {
+
+        gkoPool.setMaxTotalPerKey(2);
+        gkoPool.setMaxTotal(1);
+
+        final int holdTime = 2000;
+
+        final TestThread<String> testA = new TestThread<>(gkoPool, 1, 0, holdTime, false, null, "a");
+        final TestThread<String> testB = new TestThread<>(gkoPool, 1, 0, holdTime, false, null, "b");
+
+        final Thread threadA = new Thread(testA);
+        final Thread threadB = new Thread(testB);
+
+        threadA.start();
+        threadB.start();
+
+        Thread.sleep(holdTime * 2);
+
+        // Both threads should be complete now.
+        boolean threadRunning = true;
+        int count = 0;
+        while (threadRunning && count < 15) {
+            threadRunning = threadA.isAlive();
+            threadRunning = threadB.isAlive();
+            Thread.sleep(200);
+            count++;
+        }
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         assertFalse(testB.failed);
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxTotalZero() throws Exception {
+    public void testMaxTotalZero_1_oe() throws Exception {
         gkoPool.setMaxTotal(0);
         gkoPool.setBlockWhenExhausted(false);
 
-        assertThrows(NoSuchElementException.class, () -> gkoPool.borrowObject("a"));
+        try {
+    gkoPool.borrowObject("a");
+    fail("NoSuchElementException");
+} catch (NoSuchElementException e) {
+}
     }
 
-
-    /*
-     * Test multi-threaded pool access.
-     * Multiple keys, multiple threads, but maxActive only allows half the threads to succeed.
-     *
-     * This test was prompted by Continuum build failures in the Commons DBCP test case:
-     * TestSharedPoolDataSource.testMultipleThreads2()
-     * Let's see if the this fails on Continuum too!
-     */
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMaxWaitMultiThreaded() throws Exception {
+    public void testMaxWaitMultiThreaded_1_oe() throws Exception {
         final long maxWait = 500; // wait for connection
         final long holdTime = 4 * maxWait; // how long to hold connection
         final int keyCount = 4; // number of different keys
@@ -1757,10 +3912,9 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
         assertEquals(wtt.length/2,failed,"Expected half the threads to fail");
     }
 
-
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMinIdle() throws Exception {
+    public void testMinIdle_1_oe() throws Exception {
         gkoPool.setMaxIdlePerKey(500);
         gkoPool.setMinIdlePerKey(5);
         gkoPool.setMaxTotalPerKey(10);
@@ -1776,12 +3930,58 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
 
         Waiter.sleepQuietly(150L);
         assertEquals(5, gkoPool.getNumIdle(), "Should be 5 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMinIdle_2_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMinIdlePerKey(5);
+        gkoPool.setMaxTotalPerKey(10);
+        gkoPool.setNumTestsPerEvictionRun(0);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(50));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
+        gkoPool.setTestWhileIdle(true);
+
+        // Generate a random key
+        final String key = "A";
+
+        gkoPool.preparePool(key);
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
 
         final String[] active = new String[5];
         active[0] = gkoPool.borrowObject(key);
 
         Waiter.sleepQuietly(150L);
         assertEquals(5, gkoPool.getNumIdle(), "Should be 5 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMinIdle_3_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMinIdlePerKey(5);
+        gkoPool.setMaxTotalPerKey(10);
+        gkoPool.setNumTestsPerEvictionRun(0);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(50));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
+        gkoPool.setTestWhileIdle(true);
+
+        // Generate a random key
+        final String key = "A";
+
+        gkoPool.preparePool(key);
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        final String[] active = new String[5];
+        active[0] = gkoPool.borrowObject(key);
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
 
         for (int i = 1; i < 5; i++) {
             active[i] = gkoPool.borrowObject(key);
@@ -1789,6 +3989,39 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
 
         Waiter.sleepQuietly(150L);
         assertEquals(5, gkoPool.getNumIdle(), "Should be 5 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMinIdle_4_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMinIdlePerKey(5);
+        gkoPool.setMaxTotalPerKey(10);
+        gkoPool.setNumTestsPerEvictionRun(0);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(50));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
+        gkoPool.setTestWhileIdle(true);
+
+        // Generate a random key
+        final String key = "A";
+
+        gkoPool.preparePool(key);
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        final String[] active = new String[5];
+        active[0] = gkoPool.borrowObject(key);
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        for (int i = 1; i < 5; i++) {
+            active[i] = gkoPool.borrowObject(key);
+        }
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
 
         for (int i = 0; i < 5; i++) {
             gkoPool.returnObject(key, active[i]);
@@ -1800,7 +4033,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMinIdleMaxTotalPerKey() throws Exception {
+    public void testMinIdleMaxTotalPerKey_1_oe() throws Exception {
         gkoPool.setMaxIdlePerKey(500);
         gkoPool.setMinIdlePerKey(5);
         gkoPool.setMaxTotalPerKey(10);
@@ -1813,14 +4046,76 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
 
         gkoPool.preparePool(key);
         assertEquals(5,gkoPool.getNumIdle(),"Should be 5 idle,found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMinIdleMaxTotalPerKey_2_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMinIdlePerKey(5);
+        gkoPool.setMaxTotalPerKey(10);
+        gkoPool.setNumTestsPerEvictionRun(0);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(50));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
+        gkoPool.setTestWhileIdle(true);
+
+        final String key = "A";
+
+        gkoPool.preparePool(key);
+        // removed other assertion
 
         Waiter.sleepQuietly(150L);
         assertEquals(5, gkoPool.getNumIdle(), "Should be 5 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMinIdleMaxTotalPerKey_3_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMinIdlePerKey(5);
+        gkoPool.setMaxTotalPerKey(10);
+        gkoPool.setNumTestsPerEvictionRun(0);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(50));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
+        gkoPool.setTestWhileIdle(true);
+
+        final String key = "A";
+
+        gkoPool.preparePool(key);
+        // removed other assertion
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
 
         final String[] active = new String[10];
 
         Waiter.sleepQuietly(150L);
         assertEquals(5, gkoPool.getNumIdle(), "Should be 5 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMinIdleMaxTotalPerKey_4_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMinIdlePerKey(5);
+        gkoPool.setMaxTotalPerKey(10);
+        gkoPool.setNumTestsPerEvictionRun(0);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(50));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
+        gkoPool.setTestWhileIdle(true);
+
+        final String key = "A";
+
+        gkoPool.preparePool(key);
+        // removed other assertion
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        final String[] active = new String[10];
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
 
         for(int i=0 ; i<5 ; i++) {
             active[i] = gkoPool.borrowObject(key);
@@ -1828,6 +4123,38 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
 
         Waiter.sleepQuietly(150L);
         assertEquals(5, gkoPool.getNumIdle(), "Should be 5 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMinIdleMaxTotalPerKey_5_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMinIdlePerKey(5);
+        gkoPool.setMaxTotalPerKey(10);
+        gkoPool.setNumTestsPerEvictionRun(0);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(50));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
+        gkoPool.setTestWhileIdle(true);
+
+        final String key = "A";
+
+        gkoPool.preparePool(key);
+        // removed other assertion
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        final String[] active = new String[10];
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        for(int i=0 ; i<5 ; i++) {
+            active[i] = gkoPool.borrowObject(key);
+        }
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
 
         for(int i=0 ; i<5 ; i++) {
             gkoPool.returnObject(key, active[i]);
@@ -1835,6 +4162,45 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
 
         Waiter.sleepQuietly(150L);
         assertEquals(10, gkoPool.getNumIdle(), "Should be 10 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMinIdleMaxTotalPerKey_6_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMinIdlePerKey(5);
+        gkoPool.setMaxTotalPerKey(10);
+        gkoPool.setNumTestsPerEvictionRun(0);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(50));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
+        gkoPool.setTestWhileIdle(true);
+
+        final String key = "A";
+
+        gkoPool.preparePool(key);
+        // removed other assertion
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        final String[] active = new String[10];
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        for(int i=0 ; i<5 ; i++) {
+            active[i] = gkoPool.borrowObject(key);
+        }
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        for(int i=0 ; i<5 ; i++) {
+            gkoPool.returnObject(key, active[i]);
+        }
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
 
         for(int i=0 ; i<10 ; i++) {
             active[i] = gkoPool.borrowObject(key);
@@ -1842,6 +4208,52 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
 
         Waiter.sleepQuietly(150L);
         assertEquals(0, gkoPool.getNumIdle(), "Should be 0 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMinIdleMaxTotalPerKey_7_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMinIdlePerKey(5);
+        gkoPool.setMaxTotalPerKey(10);
+        gkoPool.setNumTestsPerEvictionRun(0);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(50));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
+        gkoPool.setTestWhileIdle(true);
+
+        final String key = "A";
+
+        gkoPool.preparePool(key);
+        // removed other assertion
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        final String[] active = new String[10];
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        for(int i=0 ; i<5 ; i++) {
+            active[i] = gkoPool.borrowObject(key);
+        }
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        for(int i=0 ; i<5 ; i++) {
+            gkoPool.returnObject(key, active[i]);
+        }
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        for(int i=0 ; i<10 ; i++) {
+            active[i] = gkoPool.borrowObject(key);
+        }
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
 
         for(int i=0 ; i<10 ; i++) {
             gkoPool.returnObject(key, active[i]);
@@ -1853,7 +4265,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testMinIdleNoPreparePool() throws Exception {
+    public void testMinIdleNoPreparePool_1_oe() throws Exception {
         gkoPool.setMaxIdlePerKey(500);
         gkoPool.setMinIdlePerKey(5);
         gkoPool.setMaxTotalPerKey(10);
@@ -1868,222 +4280,1822 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
 
         Waiter.sleepQuietly(150L);
         assertEquals(0, gkoPool.getNumIdle(), "Should be 0 idle, found " + gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMinIdleNoPreparePool_2_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMinIdlePerKey(5);
+        gkoPool.setMaxTotalPerKey(10);
+        gkoPool.setNumTestsPerEvictionRun(0);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(50));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
+        gkoPool.setTestWhileIdle(true);
+
+
+        //Generate a random key
+        final String key = "A";
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
 
         final Object active = gkoPool.borrowObject(key);
         assertNotNull(active);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMinIdleNoPreparePool_3_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(500);
+        gkoPool.setMinIdlePerKey(5);
+        gkoPool.setMaxTotalPerKey(10);
+        gkoPool.setNumTestsPerEvictionRun(0);
+        gkoPool.setMinEvictableIdleTime(Duration.ofMillis(50));
+        gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
+        gkoPool.setTestWhileIdle(true);
+
+
+        //Generate a random key
+        final String key = "A";
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        final Object active = gkoPool.borrowObject(key);
+        // removed other assertion
 
         Waiter.sleepQuietly(150L);
         assertEquals(5, gkoPool.getNumIdle(), "Should be 5 idle, found " + gkoPool.getNumIdle());
     }
 
-    /**
-     * Verifies that returning an object twice (without borrow in between) causes ISE
-     * but does not re-validate or re-passivate the instance.
-     *
-     * JIRA: POOL-285
-     */
-
-    /**
-     * Verifies that when a borrowed object is mutated in a way that does not
-     * preserve equality and hashcode, the pool can recognized it on return.
-     *
-     * JIRA: POOL-284
-     */
-    @Test
-    public void testMutable() throws Exception {
-        final HashSetFactory factory = new HashSetFactory();
-        try (final GenericKeyedObjectPool<String, HashSet<String>> pool = new GenericKeyedObjectPool<>(factory,
-                new GenericKeyedObjectPoolConfig<>())) {
-            final HashSet<String> s1 = pool.borrowObject("a");
-            final HashSet<String> s2 = pool.borrowObject("a");
-            s1.add("One");
-            s2.add("One");
-            pool.returnObject("a", s1);
-            pool.returnObject("a", s2);
-        }
-    }
-
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testNegativeMaxTotalPerKey() throws Exception {
+    public void testNegativeMaxTotalPerKey_1_oe() throws Exception {
         gkoPool.setMaxTotalPerKey(-1);
         gkoPool.setBlockWhenExhausted(false);
         final String obj = gkoPool.borrowObject("");
         assertEquals("0",obj);
-        gkoPool.returnObject("",obj);
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testNumActiveNumIdle2() throws Exception {
+    public void testNumActiveNumIdle2_1_oe() throws Exception {
         assertEquals(0,gkoPool.getNumActive());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_2_oe() throws Exception {
+        // removed other assertion
         assertEquals(0,gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
         assertEquals(0,gkoPool.getNumActive("A"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0,gkoPool.getNumIdle("A"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0,gkoPool.getNumActive("B"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0,gkoPool.getNumIdle("B"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_7_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final String objA0 = gkoPool.borrowObject("A");
         final String objB0 = gkoPool.borrowObject("B");
 
         assertEquals(2,gkoPool.getNumActive());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_8_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
         assertEquals(0,gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_9_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
         assertEquals(1,gkoPool.getNumActive("A"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_10_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0,gkoPool.getNumIdle("A"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_11_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1,gkoPool.getNumActive("B"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_12_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0,gkoPool.getNumIdle("B"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_13_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final String objA1 = gkoPool.borrowObject("A");
         final String objB1 = gkoPool.borrowObject("B");
 
         assertEquals(4,gkoPool.getNumActive());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_14_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
         assertEquals(0,gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_15_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
         assertEquals(2,gkoPool.getNumActive("A"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_16_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0,gkoPool.getNumIdle("A"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_17_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(2,gkoPool.getNumActive("B"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_18_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(0,gkoPool.getNumIdle("B"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_19_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         gkoPool.returnObject("A",objA0);
         gkoPool.returnObject("B",objB0);
 
         assertEquals(2,gkoPool.getNumActive());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_20_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("A",objA0);
+        gkoPool.returnObject("B",objB0);
+
+        // removed other assertion
         assertEquals(2,gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_21_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("A",objA0);
+        gkoPool.returnObject("B",objB0);
+
+        // removed other assertion
+        // removed other assertion
         assertEquals(1,gkoPool.getNumActive("A"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_22_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("A",objA0);
+        gkoPool.returnObject("B",objB0);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1,gkoPool.getNumIdle("A"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_23_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("A",objA0);
+        gkoPool.returnObject("B",objB0);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1,gkoPool.getNumActive("B"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_24_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("A",objA0);
+        gkoPool.returnObject("B",objB0);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         assertEquals(1,gkoPool.getNumIdle("B"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_25_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("A",objA0);
+        gkoPool.returnObject("B",objB0);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         gkoPool.returnObject("A",objA1);
         gkoPool.returnObject("B",objB1);
 
         assertEquals(0,gkoPool.getNumActive());
-        assertEquals(4,gkoPool.getNumIdle());
-        assertEquals(0,gkoPool.getNumActive("A"));
-        assertEquals(2,gkoPool.getNumIdle("A"));
-        assertEquals(0,gkoPool.getNumActive("B"));
-        assertEquals(2,gkoPool.getNumIdle("B"));
-    }
-
-    /**
-     * JIRA: POOL-287
-     *
-     * Verify that when an attempt is made to borrow an instance from the pool
-     * while the evictor is visiting it, there is no capacity leak.
-     *
-     * Test creates the scenario described in POOL-287.
-     */
-    @Test
-    public void testReturnToHead() throws Exception {
-        final SimpleFactory<String> factory = new SimpleFactory<>();
-        factory.setValidateLatency(100);
-        factory.setValid(true); // Validation always succeeds
-        try (final GenericKeyedObjectPool<String, String> pool = new GenericKeyedObjectPool<>(factory)) {
-            pool.setMaxWaitMillis(1000);
-            pool.setTestWhileIdle(true);
-            pool.setMaxTotalPerKey(2);
-            pool.setNumTestsPerEvictionRun(1);
-            pool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-
-            // Load pool with two objects
-            pool.addObject("one"); // call this o1
-            pool.addObject("one"); // call this o2
-            // Default is LIFO, so "one" pool is now [o2, o1] in offer order.
-            // Evictor will visit in oldest-to-youngest order, so o1 then o2
-
-            Thread.sleep(800); // Wait for first eviction run to complete
-
-            // At this point, one eviction run should have completed, visiting o1
-            // and eviction cursor should be pointed at o2, which is the next offered instance
-            Thread.sleep(250); // Wait for evictor to start
-            final String o1 = pool.borrowObject("one"); // o2 is under eviction, so this will return o1
-            final String o2 = pool.borrowObject("one"); // Once validation completes, o2 should be offered
-            pool.returnObject("one", o1);
-            pool.returnObject("one", o2);
-        }
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testSettersAndGetters() {
+    public void testNumActiveNumIdle2_26_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("A",objA0);
+        gkoPool.returnObject("B",objB0);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("A",objA1);
+        gkoPool.returnObject("B",objB1);
+
+        // removed other assertion
+        assertEquals(4,gkoPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_27_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("A",objA0);
+        gkoPool.returnObject("B",objB0);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("A",objA1);
+        gkoPool.returnObject("B",objB1);
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0,gkoPool.getNumActive("A"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_28_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("A",objA0);
+        gkoPool.returnObject("B",objB0);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("A",objA1);
+        gkoPool.returnObject("B",objB1);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2,gkoPool.getNumIdle("A"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_29_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("A",objA0);
+        gkoPool.returnObject("B",objB0);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("A",objA1);
+        gkoPool.returnObject("B",objB1);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0,gkoPool.getNumActive("B"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testNumActiveNumIdle2_30_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA0 = gkoPool.borrowObject("A");
+        final String objB0 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String objA1 = gkoPool.borrowObject("A");
+        final String objB1 = gkoPool.borrowObject("B");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("A",objA0);
+        gkoPool.returnObject("B",objB0);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject("A",objA1);
+        gkoPool.returnObject("B",objB1);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2,gkoPool.getNumIdle("B"));
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_1_oe() {
         {
             gkoPool.setMaxTotalPerKey(123);
             assertEquals(123, gkoPool.getMaxTotalPerKey());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_2_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
         }
         {
             gkoPool.setMaxIdlePerKey(12);
             assertEquals(12, gkoPool.getMaxIdlePerKey());
-        }
-        {
-            gkoPool.setMaxWaitMillis(1234L);
-            assertEquals(1234L, gkoPool.getMaxWaitMillis());
-        }
-        {
-            gkoPool.setMinEvictableIdleTimeMillis(12345L);
-            assertEquals(12345L, gkoPool.getMinEvictableIdleTimeMillis());
-        }
-        {
-            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
-            assertEquals(12345L, gkoPool.getMinEvictableIdleTime().toMillis());
-        }
-        {
-            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
-            assertEquals(12345L, gkoPool.getMinEvictableIdleDuration().toMillis());
-        }
-        {
-            gkoPool.setNumTestsPerEvictionRun(11);
-            assertEquals(11, gkoPool.getNumTestsPerEvictionRun());
-        }
-        {
-            gkoPool.setTestOnBorrow(true);
-            assertTrue(gkoPool.getTestOnBorrow());
-            gkoPool.setTestOnBorrow(false);
-            assertFalse(gkoPool.getTestOnBorrow());
-        }
-        {
-            gkoPool.setTestOnReturn(true);
-            assertTrue(gkoPool.getTestOnReturn());
-            gkoPool.setTestOnReturn(false);
-            assertFalse(gkoPool.getTestOnReturn());
-        }
-        {
-            gkoPool.setTestWhileIdle(true);
-            assertTrue(gkoPool.getTestWhileIdle());
-            gkoPool.setTestWhileIdle(false);
-            assertFalse(gkoPool.getTestWhileIdle());
-        }
-        {
-            gkoPool.setTimeBetweenEvictionRunsMillis(11235L);
-            assertEquals(11235L, gkoPool.getDurationBetweenEvictionRuns().toMillis());
-            assertEquals(11235L, gkoPool.getTimeBetweenEvictionRuns().toMillis());
-            assertEquals(11235L, gkoPool.getTimeBetweenEvictionRunsMillis());
-        }
-        {
-            gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(11235L));
-            assertEquals(11235L, gkoPool.getDurationBetweenEvictionRuns().toMillis());
-            assertEquals(11235L, gkoPool.getTimeBetweenEvictionRuns().toMillis());
-            assertEquals(11235L, gkoPool.getTimeBetweenEvictionRunsMillis());
-        }
-        {
-            gkoPool.setBlockWhenExhausted(true);
-            assertTrue(gkoPool.getBlockWhenExhausted());
-            gkoPool.setBlockWhenExhausted(false);
-            assertFalse(gkoPool.getBlockWhenExhausted());
-        }
+    }
     }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testThreaded1() {
-        gkoPool.setMaxTotalPerKey(15);
-        gkoPool.setMaxIdlePerKey(15);
-        gkoPool.setMaxWaitMillis(1000L);
-        runTestThreads(20, 100, 50, gkoPool);
+    public void testSettersAndGetters_3_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            assertEquals(1234L, gkoPool.getMaxWaitMillis());
+    }
     }
 
-
-    // Pool-361
     @Test
-    public void testValidateOnCreate() throws Exception {
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_4_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            assertEquals(12345L, gkoPool.getMinEvictableIdleTimeMillis());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_5_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            assertEquals(12345L, gkoPool.getMinEvictableIdleTime().toMillis());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_6_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            assertEquals(12345L, gkoPool.getMinEvictableIdleDuration().toMillis());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_7_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setNumTestsPerEvictionRun(11);
+            assertEquals(11, gkoPool.getNumTestsPerEvictionRun());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_8_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setNumTestsPerEvictionRun(11);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnBorrow(true);
+            assertTrue(gkoPool.getTestOnBorrow());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_9_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setNumTestsPerEvictionRun(11);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnBorrow(true);
+            // removed other assertion
+            gkoPool.setTestOnBorrow(false);
+            assertFalse(gkoPool.getTestOnBorrow());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_10_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setNumTestsPerEvictionRun(11);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnBorrow(true);
+            // removed other assertion
+            gkoPool.setTestOnBorrow(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnReturn(true);
+            assertTrue(gkoPool.getTestOnReturn());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_11_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setNumTestsPerEvictionRun(11);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnBorrow(true);
+            // removed other assertion
+            gkoPool.setTestOnBorrow(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnReturn(true);
+            // removed other assertion
+            gkoPool.setTestOnReturn(false);
+            assertFalse(gkoPool.getTestOnReturn());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_12_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setNumTestsPerEvictionRun(11);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnBorrow(true);
+            // removed other assertion
+            gkoPool.setTestOnBorrow(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnReturn(true);
+            // removed other assertion
+            gkoPool.setTestOnReturn(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestWhileIdle(true);
+            assertTrue(gkoPool.getTestWhileIdle());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_13_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setNumTestsPerEvictionRun(11);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnBorrow(true);
+            // removed other assertion
+            gkoPool.setTestOnBorrow(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnReturn(true);
+            // removed other assertion
+            gkoPool.setTestOnReturn(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestWhileIdle(true);
+            // removed other assertion
+            gkoPool.setTestWhileIdle(false);
+            assertFalse(gkoPool.getTestWhileIdle());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_14_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setNumTestsPerEvictionRun(11);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnBorrow(true);
+            // removed other assertion
+            gkoPool.setTestOnBorrow(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnReturn(true);
+            // removed other assertion
+            gkoPool.setTestOnReturn(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestWhileIdle(true);
+            // removed other assertion
+            gkoPool.setTestWhileIdle(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTimeBetweenEvictionRunsMillis(11235L);
+            assertEquals(11235L, gkoPool.getDurationBetweenEvictionRuns().toMillis());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_15_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setNumTestsPerEvictionRun(11);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnBorrow(true);
+            // removed other assertion
+            gkoPool.setTestOnBorrow(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnReturn(true);
+            // removed other assertion
+            gkoPool.setTestOnReturn(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestWhileIdle(true);
+            // removed other assertion
+            gkoPool.setTestWhileIdle(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTimeBetweenEvictionRunsMillis(11235L);
+            // removed other assertion
+            assertEquals(11235L, gkoPool.getTimeBetweenEvictionRuns().toMillis());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_16_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setNumTestsPerEvictionRun(11);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnBorrow(true);
+            // removed other assertion
+            gkoPool.setTestOnBorrow(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnReturn(true);
+            // removed other assertion
+            gkoPool.setTestOnReturn(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestWhileIdle(true);
+            // removed other assertion
+            gkoPool.setTestWhileIdle(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTimeBetweenEvictionRunsMillis(11235L);
+            // removed other assertion
+            // removed other assertion
+            assertEquals(11235L, gkoPool.getTimeBetweenEvictionRunsMillis());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_17_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setNumTestsPerEvictionRun(11);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnBorrow(true);
+            // removed other assertion
+            gkoPool.setTestOnBorrow(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnReturn(true);
+            // removed other assertion
+            gkoPool.setTestOnReturn(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestWhileIdle(true);
+            // removed other assertion
+            gkoPool.setTestWhileIdle(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTimeBetweenEvictionRunsMillis(11235L);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+        {
+            gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(11235L));
+            assertEquals(11235L, gkoPool.getDurationBetweenEvictionRuns().toMillis());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_18_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setNumTestsPerEvictionRun(11);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnBorrow(true);
+            // removed other assertion
+            gkoPool.setTestOnBorrow(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnReturn(true);
+            // removed other assertion
+            gkoPool.setTestOnReturn(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestWhileIdle(true);
+            // removed other assertion
+            gkoPool.setTestWhileIdle(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTimeBetweenEvictionRunsMillis(11235L);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+        {
+            gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(11235L));
+            // removed other assertion
+            assertEquals(11235L, gkoPool.getTimeBetweenEvictionRuns().toMillis());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_19_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setNumTestsPerEvictionRun(11);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnBorrow(true);
+            // removed other assertion
+            gkoPool.setTestOnBorrow(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnReturn(true);
+            // removed other assertion
+            gkoPool.setTestOnReturn(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestWhileIdle(true);
+            // removed other assertion
+            gkoPool.setTestWhileIdle(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTimeBetweenEvictionRunsMillis(11235L);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+        {
+            gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(11235L));
+            // removed other assertion
+            // removed other assertion
+            assertEquals(11235L, gkoPool.getTimeBetweenEvictionRunsMillis());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_20_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setNumTestsPerEvictionRun(11);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnBorrow(true);
+            // removed other assertion
+            gkoPool.setTestOnBorrow(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnReturn(true);
+            // removed other assertion
+            gkoPool.setTestOnReturn(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestWhileIdle(true);
+            // removed other assertion
+            gkoPool.setTestWhileIdle(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTimeBetweenEvictionRunsMillis(11235L);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+        {
+            gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(11235L));
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+        {
+            gkoPool.setBlockWhenExhausted(true);
+            assertTrue(gkoPool.getBlockWhenExhausted());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSettersAndGetters_21_oe() {
+        {
+            gkoPool.setMaxTotalPerKey(123);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxIdlePerKey(12);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMaxWaitMillis(1234L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTimeMillis(12345L);
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setMinEvictableIdleTime(Duration.ofMillis(12345L));
+            // removed other assertion
+        }
+        {
+            gkoPool.setNumTestsPerEvictionRun(11);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnBorrow(true);
+            // removed other assertion
+            gkoPool.setTestOnBorrow(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestOnReturn(true);
+            // removed other assertion
+            gkoPool.setTestOnReturn(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTestWhileIdle(true);
+            // removed other assertion
+            gkoPool.setTestWhileIdle(false);
+            // removed other assertion
+        }
+        {
+            gkoPool.setTimeBetweenEvictionRunsMillis(11235L);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+        {
+            gkoPool.setTimeBetweenEvictionRuns(Duration.ofMillis(11235L));
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+        {
+            gkoPool.setBlockWhenExhausted(true);
+            // removed other assertion
+            gkoPool.setBlockWhenExhausted(false);
+            assertFalse(gkoPool.getBlockWhenExhausted());
+    }
+    }
+
+    @Test
+    public void testValidateOnCreate_1_oe() throws Exception {
         gkoPool.setTestOnCreate(true);
         simpleFactory.setValidationEnabled(true);
         gkoPool.addObject("one");
@@ -2091,7 +6103,7 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
     }
 
     @Test
-    public void testValidateOnCreateFailure() throws Exception {
+    public void testValidateOnCreateFailure_1_oe() throws Exception {
         gkoPool.setTestOnCreate(true);
         gkoPool.setTestOnBorrow(false);
         gkoPool.setMaxTotal(2);
@@ -2101,51 +6113,82 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
         gkoPool.addObject("one");
         gkoPool.addObject("one");
         assertEquals(0, gkoPool.getNumIdle());
+    }
+
+    @Test
+    public void testValidateOnCreateFailure_2_oe() throws Exception {
+        gkoPool.setTestOnCreate(true);
+        gkoPool.setTestOnBorrow(false);
+        gkoPool.setMaxTotal(2);
+        simpleFactory.setValidationEnabled(true);
+        simpleFactory.setValid(false);
+        // Make sure failed validations do not leak capacity
+        gkoPool.addObject("one");
+        gkoPool.addObject("one");
+        // removed other assertion
         assertEquals(0, gkoPool.getNumActive());
+    }
+
+    @Test
+    public void testValidateOnCreateFailure_3_oe() throws Exception {
+        gkoPool.setTestOnCreate(true);
+        gkoPool.setTestOnBorrow(false);
+        gkoPool.setMaxTotal(2);
+        simpleFactory.setValidationEnabled(true);
+        simpleFactory.setValid(false);
+        // Make sure failed validations do not leak capacity
+        gkoPool.addObject("one");
+        gkoPool.addObject("one");
+        // removed other assertion
+        // removed other assertion
         simpleFactory.setValid(true);
         final String obj = gkoPool.borrowObject("one");
         assertNotNull(obj);
+    }
+
+    @Test
+    public void testValidateOnCreateFailure_4_oe() throws Exception {
+        gkoPool.setTestOnCreate(true);
+        gkoPool.setTestOnBorrow(false);
+        gkoPool.setMaxTotal(2);
+        simpleFactory.setValidationEnabled(true);
+        simpleFactory.setValid(false);
+        // Make sure failed validations do not leak capacity
+        gkoPool.addObject("one");
+        gkoPool.addObject("one");
+        // removed other assertion
+        // removed other assertion
+        simpleFactory.setValid(true);
+        final String obj = gkoPool.borrowObject("one");
+        // removed other assertion
         gkoPool.addObject("one");
         // Should have one idle, one out now
         assertEquals(1, gkoPool.getNumIdle());
+    }
+
+    @Test
+    public void testValidateOnCreateFailure_5_oe() throws Exception {
+        gkoPool.setTestOnCreate(true);
+        gkoPool.setTestOnBorrow(false);
+        gkoPool.setMaxTotal(2);
+        simpleFactory.setValidationEnabled(true);
+        simpleFactory.setValid(false);
+        // Make sure failed validations do not leak capacity
+        gkoPool.addObject("one");
+        gkoPool.addObject("one");
+        // removed other assertion
+        // removed other assertion
+        simpleFactory.setValid(true);
+        final String obj = gkoPool.borrowObject("one");
+        // removed other assertion
+        gkoPool.addObject("one");
+        // Should have one idle, one out now
+        // removed other assertion
         assertEquals(1, gkoPool.getNumActive());
     }
 
-    /**
-     * Verify that threads waiting on a depleted pool get served when a returning object fails
-     * validation.
-     *
-     * JIRA: POOL-240
-     *
-     * @throws Exception May occur in some failure modes
-     */
     @Test
-    public void testValidationFailureOnReturnFreesCapacity()
-            throws Exception {
-        final SimpleFactory<String> factory = new SimpleFactory<>();
-        factory.setValid(false); // Validate will always fail
-        factory.setValidationEnabled(true);
-        try (final GenericKeyedObjectPool<String, String> pool = new GenericKeyedObjectPool<>(factory)) {
-            pool.setMaxTotalPerKey(2);
-            pool.setMaxWaitMillis(1500);
-            pool.setTestOnReturn(true);
-            pool.setTestOnBorrow(false);
-            // Borrow an instance and hold if for 5 seconds
-            final WaitingTestThread thread1 = new WaitingTestThread(pool, "one", 5000);
-            thread1.start();
-            // Borrow another instance and return it after 500 ms (validation will fail)
-            final WaitingTestThread thread2 = new WaitingTestThread(pool, "one", 500);
-            thread2.start();
-            Thread.sleep(50);
-            // Try to borrow an object
-            final String obj = pool.borrowObject("one");
-            pool.returnObject("one", obj);
-        }
-    }
-
-    // POOL-276
-    @Test
-    public void testValidationOnCreateOnly() throws Exception {
+    public void testValidationOnCreateOnly_1_oe() throws Exception {
         simpleFactory.enableValidation = true;
 
         gkoPool.setMaxTotal(1);
@@ -2156,6 +6199,20 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
 
         final String o1 = gkoPool.borrowObject("KEY");
         assertEquals("KEY0", o1);
+    }
+
+    @Test
+    public void testValidationOnCreateOnly_2_oe() throws Exception {
+        simpleFactory.enableValidation = true;
+
+        gkoPool.setMaxTotal(1);
+        gkoPool.setTestOnCreate(true);
+        gkoPool.setTestOnBorrow(false);
+        gkoPool.setTestOnReturn(false);
+        gkoPool.setTestWhileIdle(false);
+
+        final String o1 = gkoPool.borrowObject("KEY");
+        // removed other assertion
         final Timer t = new Timer();
         t.schedule(
                 new TimerTask() {
@@ -2167,18 +6224,38 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
 
         final String o2 = gkoPool.borrowObject("KEY");
         assertEquals("KEY0", o2);
+    }
+
+    @Test
+    public void testValidationOnCreateOnly_3_oe() throws Exception {
+        simpleFactory.enableValidation = true;
+
+        gkoPool.setMaxTotal(1);
+        gkoPool.setTestOnCreate(true);
+        gkoPool.setTestOnBorrow(false);
+        gkoPool.setTestOnReturn(false);
+        gkoPool.setTestWhileIdle(false);
+
+        final String o1 = gkoPool.borrowObject("KEY");
+        // removed other assertion
+        final Timer t = new Timer();
+        t.schedule(
+                new TimerTask() {
+                    @Override
+                    public void run() {
+                        gkoPool.returnObject("KEY", o1);
+                    }
+                }, 3000);
+
+        final String o2 = gkoPool.borrowObject("KEY");
+        // removed other assertion
 
         assertEquals(1, simpleFactory.validateCounter);
     }
 
-    /**
-     * POOL-189
-     *
-     * @throws Exception May occur in some failure modes
-     */
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testWhenExhaustedBlockClosePool() throws Exception {
+    public void testWhenExhaustedBlockClosePool_1_oe() throws Exception {
         gkoPool.setMaxTotalPerKey(1);
         gkoPool.setBlockWhenExhausted(true);
         gkoPool.setMaxWaitMillis(-1);
@@ -2186,6 +6263,18 @@ public class TestGenericKeyedObjectPool_OE25Dev extends TestKeyedObjectPool {
 
         // Make sure an object was obtained
         assertNotNull(obj1);
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testWhenExhaustedBlockClosePool_2_oe() throws Exception {
+        gkoPool.setMaxTotalPerKey(1);
+        gkoPool.setBlockWhenExhausted(true);
+        gkoPool.setMaxWaitMillis(-1);
+        final String obj1 = gkoPool.borrowObject("a");
+
+        // Make sure an object was obtained
+        // removed other assertion
 
         // Create a separate thread to try and borrow another object
         final WaitingTestThread wtt = new WaitingTestThread(gkoPool, "a", 200);

@@ -1,0 +1,42 @@
+id,test_prefix,test_name
+vfs_327_3,"    @Test
+    public void testAddAndRemoveProvider_3_oe() throws FileSystemException {
+        try (DefaultFileSystemManager fileSystemManager = new DefaultFileSystemManager()) {
+            fileSystemManager.setFilesCache(new NullFilesCache());
+            fileSystemManager.setCacheStrategy(CacheStrategy.MANUAL);
+
+            final RamFileProvider provider = Mockito.spy(new RamFileProvider());
+            fileSystemManager.addProvider(""ram1"", provider);
+            fileSystemManager.addProvider(""ram2"", provider);
+            // removed other assertion
+            // removed other assertion
+
+            fileSystemManager.removeProvider(""ram1"");
+            Mockito.verify(provider, Mockito.never()).close();
+            Assert.assertThrows(FileSystemException.class, () -> fileSystemManager.resolveFile(""ram1:///""));
+    }
+    }
+",DefaultFileSystemManagerTest::testAddAndRemoveProvider_3_oe
+vfs_327_5,"    @Test
+    public void testAddAndRemoveProvider_5_oe() throws FileSystemException {
+        try (DefaultFileSystemManager fileSystemManager = new DefaultFileSystemManager()) {
+            fileSystemManager.setFilesCache(new NullFilesCache());
+            fileSystemManager.setCacheStrategy(CacheStrategy.MANUAL);
+
+            final RamFileProvider provider = Mockito.spy(new RamFileProvider());
+            fileSystemManager.addProvider(""ram1"", provider);
+            fileSystemManager.addProvider(""ram2"", provider);
+            // removed other assertion
+            // removed other assertion
+
+            fileSystemManager.removeProvider(""ram1"");
+            Mockito.verify(provider, Mockito.never()).close();
+            // removed other assertion
+            // removed other assertion
+
+            fileSystemManager.removeProvider(""ram2"");
+            Mockito.verify(provider).close();
+            Assert.assertThrows(FileSystemException.class, () -> fileSystemManager.resolveFile(""ram2:///""));
+    }
+    }
+",DefaultFileSystemManagerTest::testAddAndRemoveProvider_5_oe

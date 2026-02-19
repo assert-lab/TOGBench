@@ -1,0 +1,19 @@
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.057 s <<< FAILURE! - in org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev_dbut_38_2
+[ERROR] testToMapOrdering_2_oe(org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev_dbut_38_2)  Time elapsed: 0.022 s  <<< ERROR!
+java.lang.NullPointerException: Cannot load from object array because "this.currentRow" is null
+	at org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev_dbut_38_2.testToMapOrdering_2_oe(BasicRowProcessorTest_OE25Dev_dbut_38_2.java:144)
+
+[ERROR] Errors: 
+[ERROR]   BasicRowProcessorTest_OE25Dev_dbut_38_2.testToMapOrdering_2_oe:144 » NullPointer
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-dbutils: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

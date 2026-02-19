@@ -1,0 +1,50 @@
+id,test_prefix,test_name
+coll_218_3,"    @Test
+    public void instantiateFactorySimple_3_oe() {
+        final Factory<Mock3> factory = FactoryUtils.instantiateFactory(Mock3.class);
+        // removed other assertion
+        Mock3 created = factory.create();
+        // removed other assertion
+        created = factory.create();
+        assertEquals(1, created.getValue());
+    }
+",FactoryUtilsTest::instantiateFactorySimple_3_oe
+coll_1218_1,"    public void testDataSizeAfterSerialization_1_oe() throws IOException, ClassNotFoundException {
+
+        final ReferenceMap<String,String> serialiseMap = new ReferenceMap<>(ReferenceStrength.WEAK, ReferenceStrength.WEAK, true);
+        serialiseMap.put(""KEY"", ""VALUE"");
+
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try (ObjectOutputStream out = new ObjectOutputStream(baos)) {
+            out.writeObject(serialiseMap);
+        }
+
+        final ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+        try (ObjectInputStream in = new ObjectInputStream(bais)) {
+            @SuppressWarnings(""unchecked"")
+            final
+            ReferenceMap<String,String> deserialisedMap = (ReferenceMap<String,String>) in.readObject();
+            assertEquals(1, deserialisedMap.size());
+    }
+    }
+",ReferenceMapTest::testDataSizeAfterSerialization_1_oe
+coll_1218_2,"    public void testDataSizeAfterSerialization_2_oe() throws IOException, ClassNotFoundException {
+
+        final ReferenceMap<String,String> serialiseMap = new ReferenceMap<>(ReferenceStrength.WEAK, ReferenceStrength.WEAK, true);
+        serialiseMap.put(""KEY"", ""VALUE"");
+
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try (ObjectOutputStream out = new ObjectOutputStream(baos)) {
+            out.writeObject(serialiseMap);
+        }
+
+        final ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+        try (ObjectInputStream in = new ObjectInputStream(bais)) {
+            @SuppressWarnings(""unchecked"")
+            final
+            ReferenceMap<String,String> deserialisedMap = (ReferenceMap<String,String>) in.readObject();
+            // removed other assertion
+            assertEquals(serialiseMap.data.length, deserialisedMap.data.length);
+    }
+    }
+",ReferenceMapTest::testDataSizeAfterSerialization_2_oe

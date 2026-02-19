@@ -104,14 +104,6 @@ public class PngWriteReadTest_OE25Dev extends ImagingTest {
         writeAndReadMultipleEXt(smallBlackPixels);
     }
 
-    @Test
-    public void testTransparency() throws Exception {
-        // Test for https://issues.apache.org/jira/browse/SANSELAN-52
-        final int[][] smallAscendingPixels = getAscendingRawData(256, 256);
-        final byte[] pngBytes = Imaging.writeImageToBytes(imageDataToBufferedImage(smallAscendingPixels), ImageFormats.PNG);
-        assertTrue(Imaging.getImageInfo(pngBytes).isTransparent());
-    }
-
     private BufferedImage imageDataToBufferedImage(final int[][] rawData) {
         final int width = rawData[0].length;
         final int height = rawData.length;
@@ -196,6 +188,14 @@ public class PngWriteReadTest_OE25Dev extends ImagingTest {
            = (GenericImageMetadata.GenericImageMetadataItem)imageMetadata.getItems().get(1);
         assertEquals(item1.getKeyword(), "c");
         assertEquals(item1.getText(), "d");
+    }
+
+    @Test
+    public void testTransparency_1_oe() throws Exception {
+        // Test for https://issues.apache.org/jira/browse/SANSELAN-52
+        final int[][] smallAscendingPixels = getAscendingRawData(256, 256);
+        final byte[] pngBytes = Imaging.writeImageToBytes(imageDataToBufferedImage(smallAscendingPixels), ImageFormats.PNG);
+        assertTrue(Imaging.getImageInfo(pngBytes).isTransparent());
     }
 
     @Test

@@ -1,0 +1,5027 @@
+id,test_prefix,test_name
+bean_74_2,"    public void testClearCache_2_oe() throws Exception {
+        MethodUtils.clearCache(); // make sure it starts empty
+        final PublicSubBean bean = new PublicSubBean();
+        MethodUtils.invokeMethod(bean, ""setFoo"", ""alpha"");
+        // removed other assertion
+        assertEquals(0, MethodUtils.clearCache());
+    }
+",MethodUtilsTestCase::testClearCache_2_oe
+bean_75_2,"    public void testSetCacheMethods_2_oe() throws Exception {
+        MethodUtils.setCacheMethods(true);
+        MethodUtils.clearCache(); // make sure it starts empty
+
+        final PublicSubBean bean = new PublicSubBean();
+        MethodUtils.invokeMethod(bean, ""setFoo"", ""alpha"");
+        // removed other assertion
+        assertEquals(0, MethodUtils.clearCache());
+    }
+",MethodUtilsTestCase::testSetCacheMethods_2_oe
+bean_114_4,"    public void testGetNestedBoolean_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.booleanProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedBoolean_4_oe
+bean_114_5,"    public void testGetNestedBoolean_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.booleanProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedBoolean_5_oe
+bean_114_6,"    public void testGetNestedBoolean_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.booleanProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedBoolean_6_oe
+bean_115_4,"    public void testGetNestedDouble_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.doubleProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedDouble_4_oe
+bean_115_5,"    public void testGetNestedDouble_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.doubleProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedDouble_5_oe
+bean_115_6,"    public void testGetNestedDouble_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.doubleProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedDouble_6_oe
+bean_116_4,"    public void testGetNestedFloat_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.floatProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedFloat_4_oe
+bean_116_5,"    public void testGetNestedFloat_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.floatProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedFloat_5_oe
+bean_116_6,"    public void testGetNestedFloat_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.floatProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedFloat_6_oe
+bean_117_4,"    public void testGetNestedInt_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.intProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedInt_4_oe
+bean_117_5,"    public void testGetNestedInt_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.intProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedInt_5_oe
+bean_117_6,"    public void testGetNestedInt_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.intProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedInt_6_oe
+bean_118_4,"    public void testGetNestedLong_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.longProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedLong_4_oe
+bean_118_5,"    public void testGetNestedLong_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.longProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedLong_5_oe
+bean_118_6,"    public void testGetNestedLong_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.longProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedLong_6_oe
+bean_119_4,"    public void testGetNestedReadOnly_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.readOnlyProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedReadOnly_4_oe
+bean_119_5,"    public void testGetNestedReadOnly_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.readOnlyProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedReadOnly_5_oe
+bean_119_6,"    public void testGetNestedReadOnly_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.readOnlyProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedReadOnly_6_oe
+bean_120_4,"    public void testGetNestedShort_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.shortProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedShort_4_oe
+bean_120_5,"    public void testGetNestedShort_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.shortProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedShort_5_oe
+bean_120_6,"    public void testGetNestedShort_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.shortProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedShort_6_oe
+bean_121_4,"    public void testGetNestedString_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.stringProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedString_4_oe
+bean_121_5,"    public void testGetNestedString_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.stringProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedString_5_oe
+bean_121_6,"    public void testGetNestedString_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.stringProperty"");
+            // removed other assertion
+            // removed other assertion
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedString_6_oe
+bean_122_2,"    public void testGetNestedUnknown_2_oe() {
+
+        try {
+            PropertyUtils.getNestedProperty(bean, ""nested.unknown"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedUnknown_2_oe
+bean_122_3,"    public void testGetNestedUnknown_3_oe() {
+
+        try {
+            PropertyUtils.getNestedProperty(bean, ""nested.unknown"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedUnknown_3_oe
+bean_122_4,"    public void testGetNestedUnknown_4_oe() {
+
+        try {
+            PropertyUtils.getNestedProperty(bean, ""nested.unknown"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetNestedUnknown_4_oe
+bean_124_4,"    public void testGetSimpleBoolean_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""booleanProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleBoolean_4_oe
+bean_124_5,"    public void testGetSimpleBoolean_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""booleanProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleBoolean_5_oe
+bean_124_6,"    public void testGetSimpleBoolean_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""booleanProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleBoolean_6_oe
+bean_125_4,"    public void testGetSimpleDouble_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""doubleProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleDouble_4_oe
+bean_125_5,"    public void testGetSimpleDouble_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""doubleProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleDouble_5_oe
+bean_125_6,"    public void testGetSimpleDouble_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""doubleProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleDouble_6_oe
+bean_126_4,"    public void testGetSimpleFloat_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""floatProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleFloat_4_oe
+bean_126_5,"    public void testGetSimpleFloat_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""floatProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleFloat_5_oe
+bean_126_6,"    public void testGetSimpleFloat_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""floatProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleFloat_6_oe
+bean_127_2,"    public void testGetSimpleIndexed_2_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean,
+                    ""intIndexed[0]"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleIndexed_2_oe
+bean_127_3,"    public void testGetSimpleIndexed_3_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean,
+                    ""intIndexed[0]"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // Correct result for this test
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleIndexed_3_oe
+bean_128_4,"    public void testGetSimpleInt_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""intProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleInt_4_oe
+bean_128_5,"    public void testGetSimpleInt_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""intProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleInt_5_oe
+bean_128_6,"    public void testGetSimpleInt_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""intProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleInt_6_oe
+bean_129_4,"    public void testGetSimpleLong_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""longProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleLong_4_oe
+bean_129_5,"    public void testGetSimpleLong_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""longProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleLong_5_oe
+bean_129_6,"    public void testGetSimpleLong_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""longProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleLong_6_oe
+bean_130_2,"    public void testGetSimpleNested_2_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean,
+                    ""nested.stringProperty"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleNested_2_oe
+bean_130_3,"    public void testGetSimpleNested_3_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean,
+                    ""nested.stringProperty"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // Correct result for this test
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleNested_3_oe
+bean_131_4,"    public void testGetSimpleShort_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""shortProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleShort_4_oe
+bean_131_5,"    public void testGetSimpleShort_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""shortProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleShort_5_oe
+bean_131_6,"    public void testGetSimpleShort_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""shortProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleShort_6_oe
+bean_132_4,"    public void testGetSimpleString_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""stringProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleString_4_oe
+bean_132_5,"    public void testGetSimpleString_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""stringProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleString_5_oe
+bean_132_6,"    public void testGetSimpleString_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""stringProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleString_6_oe
+bean_133_2,"    public void testGetSimpleUnknown_2_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean, ""unknown"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleUnknown_2_oe
+bean_133_3,"    public void testGetSimpleUnknown_3_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean, ""unknown"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleUnknown_3_oe
+bean_133_4,"    public void testGetSimpleUnknown_4_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean, ""unknown"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testGetSimpleUnknown_4_oe
+bean_139_2,"    public void testSetNestedBoolean_2_oe() {
+
+        try {
+            final boolean oldValue = nested.getBooleanProperty();
+            final boolean newValue = !oldValue;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.booleanProperty"",
+                    new Boolean(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedBoolean_2_oe
+bean_139_3,"    public void testSetNestedBoolean_3_oe() {
+
+        try {
+            final boolean oldValue = nested.getBooleanProperty();
+            final boolean newValue = !oldValue;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.booleanProperty"",
+                    new Boolean(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedBoolean_3_oe
+bean_139_4,"    public void testSetNestedBoolean_4_oe() {
+
+        try {
+            final boolean oldValue = nested.getBooleanProperty();
+            final boolean newValue = !oldValue;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.booleanProperty"",
+                    new Boolean(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedBoolean_4_oe
+bean_140_2,"    public void testSetNestedDouble_2_oe() {
+
+        try {
+            final double oldValue = nested.getDoubleProperty();
+            final double newValue = oldValue + 1.0;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.doubleProperty"",
+                    new Double(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedDouble_2_oe
+bean_140_3,"    public void testSetNestedDouble_3_oe() {
+
+        try {
+            final double oldValue = nested.getDoubleProperty();
+            final double newValue = oldValue + 1.0;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.doubleProperty"",
+                    new Double(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedDouble_3_oe
+bean_140_4,"    public void testSetNestedDouble_4_oe() {
+
+        try {
+            final double oldValue = nested.getDoubleProperty();
+            final double newValue = oldValue + 1.0;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.doubleProperty"",
+                    new Double(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedDouble_4_oe
+bean_141_2,"    public void testSetNestedFloat_2_oe() {
+
+        try {
+            final float oldValue = nested.getFloatProperty();
+            final float newValue = oldValue + (float) 1.0;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.floatProperty"",
+                    new Float(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedFloat_2_oe
+bean_141_3,"    public void testSetNestedFloat_3_oe() {
+
+        try {
+            final float oldValue = nested.getFloatProperty();
+            final float newValue = oldValue + (float) 1.0;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.floatProperty"",
+                    new Float(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedFloat_3_oe
+bean_141_4,"    public void testSetNestedFloat_4_oe() {
+
+        try {
+            final float oldValue = nested.getFloatProperty();
+            final float newValue = oldValue + (float) 1.0;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.floatProperty"",
+                    new Float(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedFloat_4_oe
+bean_142_2,"    public void testSetNestedInt_2_oe() {
+
+        try {
+            final int oldValue = nested.getIntProperty();
+            final int newValue = oldValue + 1;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.intProperty"",
+                    new Integer(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedInt_2_oe
+bean_142_3,"    public void testSetNestedInt_3_oe() {
+
+        try {
+            final int oldValue = nested.getIntProperty();
+            final int newValue = oldValue + 1;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.intProperty"",
+                    new Integer(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedInt_3_oe
+bean_142_4,"    public void testSetNestedInt_4_oe() {
+
+        try {
+            final int oldValue = nested.getIntProperty();
+            final int newValue = oldValue + 1;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.intProperty"",
+                    new Integer(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedInt_4_oe
+bean_143_2,"    public void testSetNestedLong_2_oe() {
+
+        try {
+            final long oldValue = nested.getLongProperty();
+            final long newValue = oldValue + 1;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.longProperty"",
+                    new Long(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedLong_2_oe
+bean_143_3,"    public void testSetNestedLong_3_oe() {
+
+        try {
+            final long oldValue = nested.getLongProperty();
+            final long newValue = oldValue + 1;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.longProperty"",
+                    new Long(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedLong_3_oe
+bean_143_4,"    public void testSetNestedLong_4_oe() {
+
+        try {
+            final long oldValue = nested.getLongProperty();
+            final long newValue = oldValue + 1;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.longProperty"",
+                    new Long(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedLong_4_oe
+bean_144_2,"    public void testSetNestedReadOnly_2_oe() {
+
+        try {
+            final String oldValue = nested.getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.readOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedReadOnly_2_oe
+bean_144_3,"    public void testSetNestedReadOnly_3_oe() {
+
+        try {
+            final String oldValue = nested.getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.readOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedReadOnly_3_oe
+bean_144_4,"    public void testSetNestedReadOnly_4_oe() {
+
+        try {
+            final String oldValue = nested.getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.readOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedReadOnly_4_oe
+bean_145_2,"    public void testSetNestedShort_2_oe() {
+
+        try {
+            final short oldValue = nested.getShortProperty();
+            short newValue = oldValue;
+            newValue++;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.shortProperty"",
+                    new Short(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedShort_2_oe
+bean_145_3,"    public void testSetNestedShort_3_oe() {
+
+        try {
+            final short oldValue = nested.getShortProperty();
+            short newValue = oldValue;
+            newValue++;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.shortProperty"",
+                    new Short(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedShort_3_oe
+bean_145_4,"    public void testSetNestedShort_4_oe() {
+
+        try {
+            final short oldValue = nested.getShortProperty();
+            short newValue = oldValue;
+            newValue++;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.shortProperty"",
+                    new Short(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedShort_4_oe
+bean_146_2,"    public void testSetNestedString_2_oe() {
+
+        try {
+            final String oldValue = nested.getStringProperty();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.stringProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedString_2_oe
+bean_146_3,"    public void testSetNestedString_3_oe() {
+
+        try {
+            final String oldValue = nested.getStringProperty();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.stringProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedString_3_oe
+bean_146_4,"    public void testSetNestedString_4_oe() {
+
+        try {
+            final String oldValue = nested.getStringProperty();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.stringProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedString_4_oe
+bean_147_2,"    public void testSetNestedUnknown_2_oe() {
+
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.unknown"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedUnknown_2_oe
+bean_147_3,"    public void testSetNestedUnknown_3_oe() {
+
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.unknown"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedUnknown_3_oe
+bean_147_4,"    public void testSetNestedUnknown_4_oe() {
+
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.unknown"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedUnknown_4_oe
+bean_148_2,"    public void testSetNestedWriteOnly_2_oe() {
+
+        try {
+            final String oldValue = nested.getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.writeOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedWriteOnly_2_oe
+bean_148_3,"    public void testSetNestedWriteOnly_3_oe() {
+
+        try {
+            final String oldValue = nested.getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.writeOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedWriteOnly_3_oe
+bean_148_4,"    public void testSetNestedWriteOnly_4_oe() {
+
+        try {
+            final String oldValue = nested.getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.writeOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetNestedWriteOnly_4_oe
+bean_150_2,"    public void testSetSimpleBoolean_2_oe() {
+
+        try {
+            final boolean oldValue = ((Boolean) bean.get(""booleanProperty"")).booleanValue();
+            final boolean newValue = !oldValue;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""booleanProperty"",
+                    new Boolean(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleBoolean_2_oe
+bean_150_3,"    public void testSetSimpleBoolean_3_oe() {
+
+        try {
+            final boolean oldValue = ((Boolean) bean.get(""booleanProperty"")).booleanValue();
+            final boolean newValue = !oldValue;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""booleanProperty"",
+                    new Boolean(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleBoolean_3_oe
+bean_150_4,"    public void testSetSimpleBoolean_4_oe() {
+
+        try {
+            final boolean oldValue = ((Boolean) bean.get(""booleanProperty"")).booleanValue();
+            final boolean newValue = !oldValue;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""booleanProperty"",
+                    new Boolean(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleBoolean_4_oe
+bean_151_2,"    public void testSetSimpleDouble_2_oe() {
+
+        try {
+            final double oldValue = ((Double) bean.get(""doubleProperty"")).doubleValue();
+            final double newValue = oldValue + 1.0;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""doubleProperty"",
+                    new Double(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleDouble_2_oe
+bean_151_3,"    public void testSetSimpleDouble_3_oe() {
+
+        try {
+            final double oldValue = ((Double) bean.get(""doubleProperty"")).doubleValue();
+            final double newValue = oldValue + 1.0;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""doubleProperty"",
+                    new Double(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleDouble_3_oe
+bean_151_4,"    public void testSetSimpleDouble_4_oe() {
+
+        try {
+            final double oldValue = ((Double) bean.get(""doubleProperty"")).doubleValue();
+            final double newValue = oldValue + 1.0;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""doubleProperty"",
+                    new Double(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleDouble_4_oe
+bean_152_2,"    public void testSetSimpleFloat_2_oe() {
+
+        try {
+            final float oldValue = ((Float) bean.get(""floatProperty"")).floatValue();
+            final float newValue = oldValue + (float) 1.0;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""floatProperty"",
+                    new Float(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleFloat_2_oe
+bean_152_3,"    public void testSetSimpleFloat_3_oe() {
+
+        try {
+            final float oldValue = ((Float) bean.get(""floatProperty"")).floatValue();
+            final float newValue = oldValue + (float) 1.0;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""floatProperty"",
+                    new Float(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleFloat_3_oe
+bean_152_4,"    public void testSetSimpleFloat_4_oe() {
+
+        try {
+            final float oldValue = ((Float) bean.get(""floatProperty"")).floatValue();
+            final float newValue = oldValue + (float) 1.0;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""floatProperty"",
+                    new Float(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleFloat_4_oe
+bean_153_2,"    public void testSetSimpleIndexed_2_oe() {
+
+        try {
+            PropertyUtils.setSimpleProperty(bean,
+                    ""stringIndexed[0]"",
+                    ""New String Value"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleIndexed_2_oe
+bean_153_3,"    public void testSetSimpleIndexed_3_oe() {
+
+        try {
+            PropertyUtils.setSimpleProperty(bean,
+                    ""stringIndexed[0]"",
+                    ""New String Value"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // Correct result for this test
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleIndexed_3_oe
+bean_154_2,"    public void testSetSimpleInt_2_oe() {
+
+        try {
+            final int oldValue = ((Integer) bean.get(""intProperty"")).intValue();
+            final int newValue = oldValue + 1;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""intProperty"",
+                    new Integer(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleInt_2_oe
+bean_154_3,"    public void testSetSimpleInt_3_oe() {
+
+        try {
+            final int oldValue = ((Integer) bean.get(""intProperty"")).intValue();
+            final int newValue = oldValue + 1;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""intProperty"",
+                    new Integer(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleInt_3_oe
+bean_154_4,"    public void testSetSimpleInt_4_oe() {
+
+        try {
+            final int oldValue = ((Integer) bean.get(""intProperty"")).intValue();
+            final int newValue = oldValue + 1;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""intProperty"",
+                    new Integer(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleInt_4_oe
+bean_155_2,"    public void testSetSimpleLong_2_oe() {
+
+        try {
+            final long oldValue = ((Long) bean.get(""longProperty"")).longValue();
+            final long newValue = oldValue + 1;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""longProperty"",
+                    new Long(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleLong_2_oe
+bean_155_3,"    public void testSetSimpleLong_3_oe() {
+
+        try {
+            final long oldValue = ((Long) bean.get(""longProperty"")).longValue();
+            final long newValue = oldValue + 1;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""longProperty"",
+                    new Long(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleLong_3_oe
+bean_155_4,"    public void testSetSimpleLong_4_oe() {
+
+        try {
+            final long oldValue = ((Long) bean.get(""longProperty"")).longValue();
+            final long newValue = oldValue + 1;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""longProperty"",
+                    new Long(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleLong_4_oe
+bean_156_2,"    public void testSetSimpleNested_2_oe() {
+
+        try {
+            PropertyUtils.setSimpleProperty(bean,
+                    ""nested.stringProperty"",
+                    ""New String Value"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleNested_2_oe
+bean_156_3,"    public void testSetSimpleNested_3_oe() {
+
+        try {
+            PropertyUtils.setSimpleProperty(bean,
+                    ""nested.stringProperty"",
+                    ""New String Value"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // Correct result for this test
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleNested_3_oe
+bean_157_2,"    public void testSetSimpleShort_2_oe() {
+
+        try {
+            final short oldValue = ((Short) bean.get(""shortProperty"")).shortValue();
+            short newValue = oldValue;
+            newValue++;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""shortProperty"",
+                    new Short(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleShort_2_oe
+bean_157_3,"    public void testSetSimpleShort_3_oe() {
+
+        try {
+            final short oldValue = ((Short) bean.get(""shortProperty"")).shortValue();
+            short newValue = oldValue;
+            newValue++;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""shortProperty"",
+                    new Short(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleShort_3_oe
+bean_157_4,"    public void testSetSimpleShort_4_oe() {
+
+        try {
+            final short oldValue = ((Short) bean.get(""shortProperty"")).shortValue();
+            short newValue = oldValue;
+            newValue++;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""shortProperty"",
+                    new Short(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleShort_4_oe
+bean_158_2,"    public void testSetSimpleString_2_oe() {
+
+        try {
+            final String oldValue = (String) bean.get(""stringProperty"");
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""stringProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleString_2_oe
+bean_158_3,"    public void testSetSimpleString_3_oe() {
+
+        try {
+            final String oldValue = (String) bean.get(""stringProperty"");
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""stringProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleString_3_oe
+bean_158_4,"    public void testSetSimpleString_4_oe() {
+
+        try {
+            final String oldValue = (String) bean.get(""stringProperty"");
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""stringProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleString_4_oe
+bean_159_2,"    public void testSetSimpleUnknown_2_oe() {
+
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""unknown"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleUnknown_2_oe
+bean_159_3,"    public void testSetSimpleUnknown_3_oe() {
+
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""unknown"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleUnknown_3_oe
+bean_159_4,"    public void testSetSimpleUnknown_4_oe() {
+
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""unknown"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaPropertyUtilsTestCase::testSetSimpleUnknown_4_oe
+bean_192_10,"    public void testPopulateArrayProperties_10_oe() {
+
+        try {
+
+            final HashMap<String, Object> map = new HashMap<String, Object>();
+            //            int intArray[] = new int[] { 123, 456, 789 };
+            final String intArrayIn[] = new String[] { ""123"", ""456"", ""789"" };
+            map.put(""intArray"", intArrayIn);
+            String stringArray[] = new String[]
+                { ""New String 0"", ""New String 1"" };
+            map.put(""stringArray"", stringArray);
+
+            BeanUtils.populate(bean, map);
+
+            final int intArray[] = (int[]) bean.get(""intArray"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            stringArray = (String[]) bean.get(""stringArray"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testPopulateArrayProperties_10_oe
+bean_193_3,"    public void testGetArrayProperty_3_oe() {
+        try {
+            String arr[] = BeanUtils.getArrayProperty(bean, ""stringArray"");
+            final String comp[] = (String[]) bean.get(""stringArray"");
+
+            // removed other assertion
+
+            arr = BeanUtils.getArrayProperty(bean, ""intArray"");
+            final int iarr[] = (int[]) bean.get(""intArray"");
+
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testGetArrayProperty_3_oe
+bean_193_4,"    public void testGetArrayProperty_4_oe() {
+        try {
+            String arr[] = BeanUtils.getArrayProperty(bean, ""stringArray"");
+            final String comp[] = (String[]) bean.get(""stringArray"");
+
+            // removed other assertion
+
+            arr = BeanUtils.getArrayProperty(bean, ""intArray"");
+            final int iarr[] = (int[]) bean.get(""intArray"");
+
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testGetArrayProperty_4_oe
+bean_194_3,"    public void testGetIndexedProperty1_3_oe() {
+        try {
+            String val = BeanUtils.getIndexedProperty(bean, ""intIndexed[3]"");
+            String comp = String.valueOf(bean.get(""intIndexed"", 3));
+            // removed other assertion
+
+            val = BeanUtils.getIndexedProperty(bean, ""stringIndexed[3]"");
+            comp = (String) bean.get(""stringIndexed"", 3);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testGetIndexedProperty1_3_oe
+bean_194_4,"    public void testGetIndexedProperty1_4_oe() {
+        try {
+            String val = BeanUtils.getIndexedProperty(bean, ""intIndexed[3]"");
+            String comp = String.valueOf(bean.get(""intIndexed"", 3));
+            // removed other assertion
+
+            val = BeanUtils.getIndexedProperty(bean, ""stringIndexed[3]"");
+            comp = (String) bean.get(""stringIndexed"", 3);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testGetIndexedProperty1_4_oe
+bean_195_3,"    public void testGetIndexedProperty2_3_oe() {
+        try {
+            String val = BeanUtils.getIndexedProperty(bean, ""intIndexed"", 3);
+            String comp = String.valueOf(bean.get(""intIndexed"", 3));
+
+            // removed other assertion
+
+            val = BeanUtils.getIndexedProperty(bean, ""stringIndexed"", 3);
+            comp = (String) bean.get(""stringIndexed"", 3);
+
+            // removed other assertion
+
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testGetIndexedProperty2_3_oe
+bean_195_4,"    public void testGetIndexedProperty2_4_oe() {
+        try {
+            String val = BeanUtils.getIndexedProperty(bean, ""intIndexed"", 3);
+            String comp = String.valueOf(bean.get(""intIndexed"", 3));
+
+            // removed other assertion
+
+            val = BeanUtils.getIndexedProperty(bean, ""stringIndexed"", 3);
+            comp = (String) bean.get(""stringIndexed"", 3);
+
+            // removed other assertion
+
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testGetIndexedProperty2_4_oe
+bean_196_2,"    public void testGetNestedProperty_2_oe() {
+        try {
+            final String val = BeanUtils.getNestedProperty(bean, ""nested.stringProperty"");
+            final String comp = nested.getStringProperty();
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testGetNestedProperty_2_oe
+bean_196_3,"    public void testGetNestedProperty_3_oe() {
+        try {
+            final String val = BeanUtils.getNestedProperty(bean, ""nested.stringProperty"");
+            final String comp = nested.getStringProperty();
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testGetNestedProperty_3_oe
+bean_197_2,"    public void testGetGeneralProperty_2_oe() {
+        try {
+            final String val = BeanUtils.getProperty(bean, ""nested.intIndexed[2]"");
+            final String comp = String.valueOf(bean.get(""intIndexed"", 2));
+
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testGetGeneralProperty_2_oe
+bean_197_3,"    public void testGetGeneralProperty_3_oe() {
+        try {
+            final String val = BeanUtils.getProperty(bean, ""nested.intIndexed[2]"");
+            final String comp = String.valueOf(bean.get(""intIndexed"", 2));
+
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testGetGeneralProperty_3_oe
+bean_198_2,"    public void testGetSimpleProperty_2_oe() {
+        try {
+            final String val = BeanUtils.getSimpleProperty(bean, ""shortProperty"");
+            final String comp = String.valueOf(bean.get(""shortProperty""));
+
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testGetSimpleProperty_2_oe
+bean_198_3,"    public void testGetSimpleProperty_3_oe() {
+        try {
+            final String val = BeanUtils.getSimpleProperty(bean, ""shortProperty"");
+            final String comp = String.valueOf(bean.get(""shortProperty""));
+
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testGetSimpleProperty_3_oe
+bean_199_11,"    public void testPopulateArrayElements_11_oe() {
+
+        try {
+
+            final HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put(""intIndexed[0]"", ""100"");
+            map.put(""intIndexed[2]"", ""120"");
+            map.put(""intIndexed[4]"", ""140"");
+
+            BeanUtils.populate(bean, map);
+            final Integer intIndexed0 = (Integer) bean.get(""intIndexed"", 0);
+            // removed other assertion
+            final Integer intIndexed1 = (Integer) bean.get(""intIndexed"", 1);
+            // removed other assertion
+            final Integer intIndexed2 = (Integer) bean.get(""intIndexed"", 2);
+            // removed other assertion
+            final Integer intIndexed3 = (Integer) bean.get(""intIndexed"", 3);
+            // removed other assertion
+            final Integer intIndexed4 = (Integer) bean.get(""intIndexed"", 4);
+            // removed other assertion
+
+            map.clear();
+            map.put(""stringIndexed[1]"", ""New String 1"");
+            map.put(""stringIndexed[3]"", ""New String 3"");
+
+            BeanUtils.populate(bean, map);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testPopulateArrayElements_11_oe
+bean_200_5,"    public void testPopulateMapped_5_oe() {
+
+        try {
+
+            final HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put(""mappedProperty(First Key)"", ""New First Value"");
+            map.put(""mappedProperty(Third Key)"", ""New Third Value"");
+
+            BeanUtils.populate(bean, map);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testPopulateMapped_5_oe
+bean_201_9,"    public void testPopulateNested_9_oe() {
+
+        try {
+
+            final HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put(""nested.booleanProperty"", ""false"");
+            // booleanSecond is left at true
+            map.put(""nested.doubleProperty"", ""432.0"");
+            // floatProperty is left at 123.0
+            map.put(""nested.intProperty"", ""543"");
+            // longProperty is left at 321
+            map.put(""nested.shortProperty"", ""654"");
+            // stringProperty is left at ""This is a string""
+
+            BeanUtils.populate(bean, map);
+
+            final TestBean nested = (TestBean) bean.get(""nested"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testPopulateNested_9_oe
+bean_202_10,"    public void testPopulateScalar_10_oe() {
+
+        try {
+
+            bean.set(""nullProperty"", ""non-null value"");
+
+            final HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put(""booleanProperty"", ""false"");
+            // booleanSecond is left at true
+            map.put(""doubleProperty"", ""432.0"");
+            // floatProperty is left at 123.0
+            map.put(""intProperty"", ""543"");
+            // longProperty is left at 321
+            map.put(""nullProperty"", null);
+            map.put(""shortProperty"", ""654"");
+            // stringProperty is left at ""This is a string""
+
+            BeanUtils.populate(bean, map);
+
+            final Boolean booleanProperty = (Boolean) bean.get(""booleanProperty"");
+            // removed other assertion
+            final Boolean booleanSecond = (Boolean) bean.get(""booleanSecond"");
+            // removed other assertion
+            final Double doubleProperty = (Double) bean.get(""doubleProperty"");
+            // removed other assertion
+            final Float floatProperty = (Float) bean.get(""floatProperty"");
+            // removed other assertion
+            final Integer intProperty = (Integer) bean.get(""intProperty"");
+            // removed other assertion
+            final Long longProperty = (Long) bean.get(""longProperty"");
+            // removed other assertion
+            // removed other assertion
+            final Short shortProperty = (Short) bean.get(""shortProperty"");
+            // removed other assertion
+            // removed other assertion
+
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",DynaBeanUtilsTestCase::testPopulateScalar_10_oe
+bean_215_2,"    public void testGetWriteMethodUndefined_2_oe() throws Exception {
+        final BeanIntrospectionData data = setUpData();
+        final PropertyDescriptor pd = fetchTestDescriptor(data);
+        final Method writeMethod = pd.getWriteMethod();
+        pd.setWriteMethod(null);
+        // removed other assertion
+        assertEquals(""Method not set in descriptor"", writeMethod, pd.getWriteMethod());
+    }
+",BeanIntrospectionDataTestCase::testGetWriteMethodUndefined_2_oe
+bean_218_1,"    public void testMemoryTestMethodology_1_oe() throws Exception {
+        // test metho;
+        final WeakReference<ClassLoader> reference = new  WeakReference<ClassLoader>(loader);
+        @SuppressWarnings(""unused"")
+        Class<?> myClass = loader.loadClass(""org.apache.commons.beanutils.BetaBean"");
+
+        assertNotNull(""Weak reference released early"", reference.get());
+    }
+",BeanificationTestCase::testMemoryTestMethodology_1_oe
+bean_218_2,"    public void testMemoryTestMethodology_2_oe() throws Exception {
+        // test metho;
+        final WeakReference<ClassLoader> reference = new  WeakReference<ClassLoader>(loader);
+        @SuppressWarnings(""unused"")
+        Class<?> myClass = loader.loadClass(""org.apache.commons.beanutils.BetaBean"");
+
+        // removed other assertion
+
+        // dereference class loader and class:
+        loader = null;
+        myClass = null;
+
+        int iterations = 0;
+        int bytz = 2;
+        while(true) {
+            System.gc();
+            if(iterations++ > MAX_GC_ITERATIONS){
+                fail(""Max iterations reached before resource released."");
+    }
+    }
+    }
+",BeanificationTestCase::testMemoryTestMethodology_2_oe
+bean_219_4,"    public void testMemoryLeak2_4_oe() throws Exception {
+        // tests when the map used by beanutils has the right behaviour
+
+        if (BeanUtilsTestCase.isPre14JVM()) {
+            System.out.println(""WARNING: CANNOT TEST MEMORY LEAK ON PRE1.4 JVM"");
+            return;
+        }
+
+        // many thanks to Juozas Baliuka for suggesting this methodology
+        TestClassLoader loader = new TestClassLoader();
+        final ReferenceQueue<Object> queue = new ReferenceQueue<Object>();
+        final WeakReference<ClassLoader> loaderReference = new WeakReference<ClassLoader>(loader, queue);
+        Integer test = new Integer(1);
+
+        final WeakReference<Integer> testReference = new WeakReference<Integer>(test, queue);
+        //Map map = new ReferenceMap(ReferenceMap.WEAK, ReferenceMap.HARD, true);
+        final Map<Object, Object> map = new WeakHashMap<Object, Object>();
+        map.put(loader, test);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // dereference strong references
+        loader = null;
+        test = null;
+
+        int iterations = 0;
+        int bytz = 2;
+        while(true) {
+            System.gc();
+            if(iterations++ > MAX_GC_ITERATIONS){
+                fail(""Max iterations reached before resource released."");
+    }
+    }
+    }
+",BeanificationTestCase::testMemoryLeak2_4_oe
+bean_220_5,"    public void testMemoryLeak_5_oe() throws Exception {
+        if (BeanUtilsTestCase.isPre14JVM()) {
+            System.out.println(""WARNING: CANNOT TEST MEMORY LEAK ON PRE1.4 JVM"");
+            return;
+        }
+
+        // many thanks to Juozas Baliuka for suggesting this methodology
+        TestClassLoader loader = new TestClassLoader();
+        final WeakReference<ClassLoader> loaderReference = new  WeakReference<ClassLoader>(loader);
+        BeanUtilsBean.getInstance();
+
+        class GetBeanUtilsBeanThread extends Thread {
+
+            BeanUtilsBean beanUtils;
+            ConvertUtilsBean convertUtils;
+            PropertyUtilsBean propertyUtils;
+
+            GetBeanUtilsBeanThread() {}
+
+            @Override
+            public void run() {
+                beanUtils = BeanUtilsBean.getInstance();
+                convertUtils = ConvertUtilsBean.getInstance();
+                propertyUtils = PropertyUtilsBean.getInstance();
+                // XXX Log keeps a reference around!
+                LogFactory.releaseAll();
+            }
+
+            @Override
+            public String toString() {
+                return ""GetBeanUtilsBeanThread"";
+            }
+        }
+
+
+        GetBeanUtilsBeanThread thread = new GetBeanUtilsBeanThread();
+        @SuppressWarnings(""unused"")
+        final
+        WeakReference<Thread> threadWeakReference = new WeakReference<Thread>(thread);
+        thread.setContextClassLoader(loader);
+
+        thread.start();
+        thread.join();
+
+        final WeakReference<BeanUtilsBean> beanUtilsReference = new WeakReference<BeanUtilsBean>(thread.beanUtils);
+        final WeakReference<PropertyUtilsBean> propertyUtilsReference =  new WeakReference<PropertyUtilsBean>(thread.propertyUtils);
+        final WeakReference<ConvertUtilsBean> convertUtilsReference = new WeakReference<ConvertUtilsBean>(thread.convertUtils);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // dereference strong references
+        loader = null;
+        thread.setContextClassLoader(null);
+        thread = null;
+
+        int iterations = 0;
+        int bytz = 2;
+        while(true) {
+            BeanUtilsBean.getInstance();
+            System.gc();
+            if(iterations++ > MAX_GC_ITERATIONS){
+                fail(""Max iterations reached before resource released."");
+    }
+    }
+    }
+",BeanificationTestCase::testMemoryLeak_5_oe
+bean_267_3,"    public void testPut_3_oe() {
+
+        final String newValue = ""ABC"";
+
+        // Test read only
+        try {
+            decoratedMap.put(stringProp.getName(), newValue);
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Test Writable
+        // removed other assertion
+        assertEquals(""dynaBean get"", newValue, dynaBean.get(stringProp.getName()));
+    }
+",DynaBeanMapDecoratorTestCase::testPut_3_oe
+bean_267_4,"    public void testPut_4_oe() {
+
+        final String newValue = ""ABC"";
+
+        // Test read only
+        try {
+            decoratedMap.put(stringProp.getName(), newValue);
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Test Writable
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""modifiableMap get"", newValue, modifiableMap.get(stringProp.getName()));
+    }
+",DynaBeanMapDecoratorTestCase::testPut_4_oe
+bean_271_2,"    public void testValues_2_oe() {
+        final Collection<Object> collection = modifiableMap.values();
+
+        // Check the Collection can't be modified
+        checkUnmodifiable(""values()"", collection, ""xyz"");
+
+        // removed other assertion
+
+        // Collection should be ordered in same sequence as properties
+        final Iterator<Object> iterator = collection.iterator();
+        int i = 0;
+        while (iterator.hasNext()) {
+            assertEquals(""values(""+i+"")"", values[i], iterator.next());
+    }
+    }
+",DynaBeanMapDecoratorTestCase::testValues_2_oe
+bean_303_2,"    public void testToArrayDynaBeans_2_oe() {
+        final LazyDynaList list = new LazyDynaList(LazyDynaBean.class);
+        final LazyDynaBean elem = new LazyDynaBean();
+        list.add(elem);
+        final LazyDynaBean[] beans = new LazyDynaBean[1];
+        // removed other assertion
+        assertSame(""Wrong element"", elem, beans[0]);
+    }
+",LazyDynaListTestCase::testToArrayDynaBeans_2_oe
+bean_304_2,"    public void testToArrayMapType_2_oe() {
+        final LazyDynaList list = new LazyDynaList(HashMap.class);
+        final HashMap<String, Object> elem = new HashMap<String, Object>();
+        list.add(elem);
+        final Map<?, ?>[] array = new Map[1];
+        // removed other assertion
+        assertEquals(""Wrong element"", elem, array[0]);
+    }
+",LazyDynaListTestCase::testToArrayMapType_2_oe
+bean_305_2,"    public void testToArrayOtherType_2_oe() {
+        final LazyDynaList list = new LazyDynaList(TestBean.class);
+        final TestBean elem = new TestBean();
+        list.add(elem);
+        final TestBean[] array = new TestBean[1];
+        // removed other assertion
+        assertEquals(""Wrong element"", elem, array[0]);
+    }
+",LazyDynaListTestCase::testToArrayOtherType_2_oe
+bean_330_4,"    public void testMappedPropertyUtils_4_oe() {
+
+        dynaClass.setReturnNull(false);
+
+        // Check the property & value doesn't exist
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Set the mapped property using PropertyUtils
+        try {
+          PropertyUtils.setProperty(bean, testProperty+""(""+testKey+"")"", testString1);
+        }
+        catch (final NoSuchMethodException ex) {
+            fail(""testIndexedPropertyUtils threw ""+ex);
+    }
+    }
+",LazyDynaBeanTestCase::testMappedPropertyUtils_4_oe
+bean_330_5,"    public void testMappedPropertyUtils_5_oe() {
+
+        dynaClass.setReturnNull(false);
+
+        // Check the property & value doesn't exist
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Set the mapped property using PropertyUtils
+        try {
+          PropertyUtils.setProperty(bean, testProperty+""(""+testKey+"")"", testString1);
+        }
+        catch (final NoSuchMethodException ex) {
+            // removed other assertion
+        }
+        catch (final InvocationTargetException ex) {
+            fail(""testIndexedPropertyUtils threw ""+ex);
+    }
+    }
+",LazyDynaBeanTestCase::testMappedPropertyUtils_5_oe
+bean_338_4,"    public void testIndexedPropertyUtils_4_oe() {
+
+        final int   index     = 3;
+        dynaClass.setReturnNull(false);
+
+        // Check the property & value doesn't exist
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Use PropertyUtils to set the indexed value
+        try {
+          PropertyUtils.setProperty(bean, testProperty+""[""+index+""]"", testString1);
+        }
+        catch (final NoSuchMethodException ex) {
+            fail(""testIndexedPropertyUtils threw ""+ex);
+    }
+    }
+",LazyDynaBeanTestCase::testIndexedPropertyUtils_4_oe
+bean_338_5,"    public void testIndexedPropertyUtils_5_oe() {
+
+        final int   index     = 3;
+        dynaClass.setReturnNull(false);
+
+        // Check the property & value doesn't exist
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Use PropertyUtils to set the indexed value
+        try {
+          PropertyUtils.setProperty(bean, testProperty+""[""+index+""]"", testString1);
+        }
+        catch (final NoSuchMethodException ex) {
+            // removed other assertion
+        }
+        catch (final InvocationTargetException ex) {
+            fail(""testIndexedPropertyUtils threw ""+ex);
+    }
+    }
+",LazyDynaBeanTestCase::testIndexedPropertyUtils_5_oe
+bean_345_7,"    public void testGetArrayProperty_7_oe() {
+        try {
+            String arr[] = BeanUtils.getArrayProperty(bean, ""stringArray"");
+            final String comp[] = bean.getStringArray();
+
+            // removed other assertion
+
+            arr = BeanUtils.getArrayProperty(bean, ""intArray"");
+            final int iarr[] = bean.getIntArray();
+
+            // removed other assertion
+
+
+            // Test property which isn't array or collection
+            arr = BeanUtils.getArrayProperty(bean, ""shortProperty"");
+            final String shortAsString = """" + bean.getShortProperty();
+            // removed other assertion
+            // removed other assertion
+
+
+            // Test comma delimited list
+            bean.setStringProperty(""ABC"");
+            arr = BeanUtils.getArrayProperty(bean, ""stringProperty"");
+            // removed other assertion
+            // removed other assertion
+
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",BeanUtilsTestCase::testGetArrayProperty_7_oe
+bean_345_8,"    public void testGetArrayProperty_8_oe() {
+        try {
+            String arr[] = BeanUtils.getArrayProperty(bean, ""stringArray"");
+            final String comp[] = bean.getStringArray();
+
+            // removed other assertion
+
+            arr = BeanUtils.getArrayProperty(bean, ""intArray"");
+            final int iarr[] = bean.getIntArray();
+
+            // removed other assertion
+
+
+            // Test property which isn't array or collection
+            arr = BeanUtils.getArrayProperty(bean, ""shortProperty"");
+            final String shortAsString = """" + bean.getShortProperty();
+            // removed other assertion
+            // removed other assertion
+
+
+            // Test comma delimited list
+            bean.setStringProperty(""ABC"");
+            arr = BeanUtils.getArrayProperty(bean, ""stringProperty"");
+            // removed other assertion
+            // removed other assertion
+
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",BeanUtilsTestCase::testGetArrayProperty_8_oe
+bean_347_3,"    public void testGetIndexedProperty1_3_oe() {
+        try {
+            String val = BeanUtils.getIndexedProperty(bean, ""intIndexed[3]"");
+            String comp = String.valueOf(bean.getIntIndexed(3));
+            // removed other assertion
+
+            val = BeanUtils.getIndexedProperty(bean, ""stringIndexed[3]"");
+            comp = bean.getStringIndexed(3);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",BeanUtilsTestCase::testGetIndexedProperty1_3_oe
+bean_347_4,"    public void testGetIndexedProperty1_4_oe() {
+        try {
+            String val = BeanUtils.getIndexedProperty(bean, ""intIndexed[3]"");
+            String comp = String.valueOf(bean.getIntIndexed(3));
+            // removed other assertion
+
+            val = BeanUtils.getIndexedProperty(bean, ""stringIndexed[3]"");
+            comp = bean.getStringIndexed(3);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",BeanUtilsTestCase::testGetIndexedProperty1_4_oe
+bean_349_3,"    public void testGetIndexedProperty2_3_oe() {
+        try {
+            String val = BeanUtils.getIndexedProperty(bean, ""intIndexed"", 3);
+            String comp = String.valueOf(bean.getIntIndexed(3));
+
+            // removed other assertion
+
+            val = BeanUtils.getIndexedProperty(bean, ""stringIndexed"", 3);
+            comp = bean.getStringIndexed(3);
+
+            // removed other assertion
+
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",BeanUtilsTestCase::testGetIndexedProperty2_3_oe
+bean_349_4,"    public void testGetIndexedProperty2_4_oe() {
+        try {
+            String val = BeanUtils.getIndexedProperty(bean, ""intIndexed"", 3);
+            String comp = String.valueOf(bean.getIntIndexed(3));
+
+            // removed other assertion
+
+            val = BeanUtils.getIndexedProperty(bean, ""stringIndexed"", 3);
+            comp = bean.getStringIndexed(3);
+
+            // removed other assertion
+
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",BeanUtilsTestCase::testGetIndexedProperty2_4_oe
+bean_350_2,"    public void testGetNestedProperty_2_oe() {
+        try {
+            final String val = BeanUtils.getNestedProperty(bean, ""nested.stringProperty"");
+            final String comp = bean.getNested().getStringProperty();
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",BeanUtilsTestCase::testGetNestedProperty_2_oe
+bean_350_3,"    public void testGetNestedProperty_3_oe() {
+        try {
+            final String val = BeanUtils.getNestedProperty(bean, ""nested.stringProperty"");
+            final String comp = bean.getNested().getStringProperty();
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",BeanUtilsTestCase::testGetNestedProperty_3_oe
+bean_351_2,"    public void testGetGeneralProperty_2_oe() {
+        try {
+            final String val = BeanUtils.getProperty(bean, ""nested.intIndexed[2]"");
+            final String comp = String.valueOf(bean.getIntIndexed(2));
+
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",BeanUtilsTestCase::testGetGeneralProperty_2_oe
+bean_351_3,"    public void testGetGeneralProperty_3_oe() {
+        try {
+            final String val = BeanUtils.getProperty(bean, ""nested.intIndexed[2]"");
+            final String comp = String.valueOf(bean.getIntIndexed(2));
+
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",BeanUtilsTestCase::testGetGeneralProperty_3_oe
+bean_352_2,"    public void testGetSimpleProperty_2_oe() {
+        try {
+            final String val = BeanUtils.getSimpleProperty(bean, ""shortProperty"");
+            final String comp = String.valueOf(bean.getShortProperty());
+
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",BeanUtilsTestCase::testGetSimpleProperty_2_oe
+bean_352_3,"    public void testGetSimpleProperty_3_oe() {
+        try {
+            final String val = BeanUtils.getSimpleProperty(bean, ""shortProperty"");
+            final String comp = String.valueOf(bean.getShortProperty());
+
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",BeanUtilsTestCase::testGetSimpleProperty_3_oe
+bean_354_11,"    public void testPopulateArrayElements_11_oe() {
+
+        try {
+
+            final HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put(""intIndexed[0]"", ""100"");
+            map.put(""intIndexed[2]"", ""120"");
+            map.put(""intIndexed[4]"", ""140"");
+
+            BeanUtils.populate(bean, map);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            map.clear();
+            map.put(""stringIndexed[1]"", ""New String 1"");
+            map.put(""stringIndexed[3]"", ""New String 3"");
+
+            BeanUtils.populate(bean, map);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",BeanUtilsTestCase::testPopulateArrayElements_11_oe
+bean_355_10,"    public void testPopulateArrayProperties_10_oe() {
+
+        try {
+
+            final HashMap<String, Object> map = new HashMap<String, Object>();
+            int intArray[] = new int[] { 123, 456, 789 };
+            map.put(""intArray"", intArray);
+            String stringArray[] = new String[]
+                { ""New String 0"", ""New String 1"" };
+            map.put(""stringArray"", stringArray);
+
+            BeanUtils.populate(bean, map);
+
+            intArray = bean.getIntArray();
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            stringArray = bean.getStringArray();
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",BeanUtilsTestCase::testPopulateArrayProperties_10_oe
+bean_356_5,"    public void testPopulateMapped_5_oe() {
+
+        try {
+
+            final HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put(""mappedProperty(First Key)"", ""New First Value"");
+            map.put(""mappedProperty(Third Key)"", ""New Third Value"");
+
+            BeanUtils.populate(bean, map);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",BeanUtilsTestCase::testPopulateMapped_5_oe
+bean_357_10,"    public void testPopulateNested_10_oe() {
+
+        try {
+
+            final HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put(""nested.booleanProperty"", ""false"");
+            // booleanSecond is left at true
+            map.put(""nested.doubleProperty"", ""432.0"");
+            // floatProperty is left at 123.0
+            map.put(""nested.intProperty"", ""543"");
+            // longProperty is left at 321
+            map.put(""nested.shortProperty"", ""654"");
+            // stringProperty is left at ""This is a string""
+            map.put(""nested.writeOnlyProperty"", ""New writeOnlyProperty value"");
+
+            BeanUtils.populate(bean, map);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",BeanUtilsTestCase::testPopulateNested_10_oe
+bean_358_13,"    public void testPopulateScalar_13_oe() {
+
+        try {
+
+            bean.setNullProperty(""Non-null value"");
+
+            final HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put(""booleanProperty"", ""false"");
+            // booleanSecond is left at true
+            map.put(""byteProperty"", ""111"");
+            map.put(""doubleProperty"", ""432.0"");
+            // floatProperty is left at 123.0
+            map.put(""intProperty"", ""543"");
+            map.put(""longProperty"", """");
+            map.put(""nullProperty"", null);
+            map.put(""shortProperty"", ""654"");
+            // stringProperty is left at ""This is a string""
+            map.put(""writeOnlyProperty"", ""New writeOnlyProperty value"");
+            map.put(""readOnlyProperty"", ""New readOnlyProperty value"");
+
+            BeanUtils.populate(bean, map);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",BeanUtilsTestCase::testPopulateScalar_13_oe
+bean_414_4,"    public void testMappedPropertyUtils_4_oe() {
+
+        dynaMap.setReturnNull(false);
+
+        // Check the property & value doesn't exist
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Set the mapped property using PropertyUtils
+        try {
+          PropertyUtils.setProperty(dynaMap, testProperty+""(""+testKey+"")"", testString1);
+        }
+        catch (final NoSuchMethodException ex) {
+            fail(""testIndexedPropertyUtils threw ""+ex);
+    }
+    }
+",LazyDynaMapTestCase::testMappedPropertyUtils_4_oe
+bean_414_5,"    public void testMappedPropertyUtils_5_oe() {
+
+        dynaMap.setReturnNull(false);
+
+        // Check the property & value doesn't exist
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Set the mapped property using PropertyUtils
+        try {
+          PropertyUtils.setProperty(dynaMap, testProperty+""(""+testKey+"")"", testString1);
+        }
+        catch (final NoSuchMethodException ex) {
+            // removed other assertion
+        }
+        catch (final InvocationTargetException ex) {
+            fail(""testIndexedPropertyUtils threw ""+ex);
+    }
+    }
+",LazyDynaMapTestCase::testMappedPropertyUtils_5_oe
+bean_422_4,"    public void testIndexedPropertyUtils_4_oe() {
+
+        final int   index     = 3;
+        dynaMap.setReturnNull(false);
+
+        // Check the property & value doesn't exist
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Use PropertyUtils to set the indexed value
+        try {
+          PropertyUtils.setProperty(dynaMap, testProperty+""[""+index+""]"", testString1);
+        }
+        catch (final NoSuchMethodException ex) {
+            fail(""testIndexedPropertyUtils threw ""+ex);
+    }
+    }
+",LazyDynaMapTestCase::testIndexedPropertyUtils_4_oe
+bean_422_5,"    public void testIndexedPropertyUtils_5_oe() {
+
+        final int   index     = 3;
+        dynaMap.setReturnNull(false);
+
+        // Check the property & value doesn't exist
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Use PropertyUtils to set the indexed value
+        try {
+          PropertyUtils.setProperty(dynaMap, testProperty+""[""+index+""]"", testString1);
+        }
+        catch (final NoSuchMethodException ex) {
+            // removed other assertion
+        }
+        catch (final InvocationTargetException ex) {
+            fail(""testIndexedPropertyUtils threw ""+ex);
+    }
+    }
+",LazyDynaMapTestCase::testIndexedPropertyUtils_5_oe
+bean_446_4,"    public void testGetNestedBoolean_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.booleanProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedBoolean_4_oe
+bean_446_5,"    public void testGetNestedBoolean_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.booleanProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedBoolean_5_oe
+bean_446_6,"    public void testGetNestedBoolean_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.booleanProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedBoolean_6_oe
+bean_447_4,"    public void testGetNestedDouble_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.doubleProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedDouble_4_oe
+bean_447_5,"    public void testGetNestedDouble_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.doubleProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedDouble_5_oe
+bean_447_6,"    public void testGetNestedDouble_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.doubleProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedDouble_6_oe
+bean_448_4,"    public void testGetNestedFloat_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.floatProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedFloat_4_oe
+bean_448_5,"    public void testGetNestedFloat_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.floatProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedFloat_5_oe
+bean_448_6,"    public void testGetNestedFloat_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.floatProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedFloat_6_oe
+bean_449_4,"    public void testGetNestedInt_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.intProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedInt_4_oe
+bean_449_5,"    public void testGetNestedInt_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.intProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedInt_5_oe
+bean_449_6,"    public void testGetNestedInt_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.intProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedInt_6_oe
+bean_450_4,"    public void testGetNestedLong_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.longProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedLong_4_oe
+bean_450_5,"    public void testGetNestedLong_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.longProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedLong_5_oe
+bean_450_6,"    public void testGetNestedLong_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.longProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedLong_6_oe
+bean_451_4,"    public void testGetNestedReadOnly_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.readOnlyProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedReadOnly_4_oe
+bean_451_5,"    public void testGetNestedReadOnly_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.readOnlyProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedReadOnly_5_oe
+bean_451_6,"    public void testGetNestedReadOnly_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.readOnlyProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedReadOnly_6_oe
+bean_452_4,"    public void testGetNestedShort_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.shortProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedShort_4_oe
+bean_452_5,"    public void testGetNestedShort_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.shortProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedShort_5_oe
+bean_452_6,"    public void testGetNestedShort_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.shortProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedShort_6_oe
+bean_453_4,"    public void testGetNestedString_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.stringProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedString_4_oe
+bean_453_5,"    public void testGetNestedString_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.stringProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedString_5_oe
+bean_453_6,"    public void testGetNestedString_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getNestedProperty
+                    (bean, ""nested.stringProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedString_6_oe
+bean_454_2,"    public void testGetNestedUnknown_2_oe() {
+
+        try {
+            PropertyUtils.getNestedProperty(bean, ""nested.unknown"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedUnknown_2_oe
+bean_454_3,"    public void testGetNestedUnknown_3_oe() {
+
+        try {
+            PropertyUtils.getNestedProperty(bean, ""nested.unknown"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedUnknown_3_oe
+bean_454_4,"    public void testGetNestedUnknown_4_oe() {
+
+        try {
+            PropertyUtils.getNestedProperty(bean, ""nested.unknown"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedUnknown_4_oe
+bean_456_2,"    public void testGetNestedWriteOnly_2_oe() {
+
+        try {
+            PropertyUtils.getNestedProperty(bean, ""writeOnlyProperty"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedWriteOnly_2_oe
+bean_456_3,"    public void testGetNestedWriteOnly_3_oe() {
+
+        try {
+            PropertyUtils.getNestedProperty(bean, ""writeOnlyProperty"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedWriteOnly_3_oe
+bean_456_4,"    public void testGetNestedWriteOnly_4_oe() {
+
+        try {
+            PropertyUtils.getNestedProperty(bean, ""writeOnlyProperty"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetNestedWriteOnly_4_oe
+bean_461_4,"    public void testGetSimpleBoolean_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""booleanProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleBoolean_4_oe
+bean_461_5,"    public void testGetSimpleBoolean_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""booleanProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleBoolean_5_oe
+bean_461_6,"    public void testGetSimpleBoolean_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""booleanProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleBoolean_6_oe
+bean_462_4,"    public void testGetSimpleDouble_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""doubleProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleDouble_4_oe
+bean_462_5,"    public void testGetSimpleDouble_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""doubleProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleDouble_5_oe
+bean_462_6,"    public void testGetSimpleDouble_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""doubleProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleDouble_6_oe
+bean_463_4,"    public void testGetSimpleFloat_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""floatProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleFloat_4_oe
+bean_463_5,"    public void testGetSimpleFloat_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""floatProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleFloat_5_oe
+bean_463_6,"    public void testGetSimpleFloat_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""floatProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleFloat_6_oe
+bean_464_2,"    public void testGetSimpleIndexed_2_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean,
+                    ""intIndexed[0]"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleIndexed_2_oe
+bean_464_3,"    public void testGetSimpleIndexed_3_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean,
+                    ""intIndexed[0]"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // Correct result for this test
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleIndexed_3_oe
+bean_465_4,"    public void testGetSimpleInt_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""intProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleInt_4_oe
+bean_465_5,"    public void testGetSimpleInt_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""intProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleInt_5_oe
+bean_465_6,"    public void testGetSimpleInt_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""intProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleInt_6_oe
+bean_466_4,"    public void testGetSimpleLong_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""longProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleLong_4_oe
+bean_466_5,"    public void testGetSimpleLong_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""longProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleLong_5_oe
+bean_466_6,"    public void testGetSimpleLong_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""longProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleLong_6_oe
+bean_467_2,"    public void testGetSimpleNested_2_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean,
+                    ""nested.stringProperty"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleNested_2_oe
+bean_467_3,"    public void testGetSimpleNested_3_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean,
+                    ""nested.stringProperty"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // Correct result for this test
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleNested_3_oe
+bean_468_4,"    public void testGetSimpleReadOnly_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""readOnlyProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleReadOnly_4_oe
+bean_468_5,"    public void testGetSimpleReadOnly_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""readOnlyProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleReadOnly_5_oe
+bean_468_6,"    public void testGetSimpleReadOnly_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""readOnlyProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleReadOnly_6_oe
+bean_469_4,"    public void testGetSimpleShort_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""shortProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleShort_4_oe
+bean_469_5,"    public void testGetSimpleShort_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""shortProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleShort_5_oe
+bean_469_6,"    public void testGetSimpleShort_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""shortProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleShort_6_oe
+bean_470_4,"    public void testGetSimpleString_4_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""stringProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleString_4_oe
+bean_470_5,"    public void testGetSimpleString_5_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""stringProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleString_5_oe
+bean_470_6,"    public void testGetSimpleString_6_oe() {
+
+        try {
+            final Object value =
+                    PropertyUtils.getSimpleProperty(bean,
+                            ""stringProperty"");
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleString_6_oe
+bean_471_2,"    public void testGetSimpleUnknown_2_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean, ""unknown"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleUnknown_2_oe
+bean_471_3,"    public void testGetSimpleUnknown_3_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean, ""unknown"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleUnknown_3_oe
+bean_471_4,"    public void testGetSimpleUnknown_4_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean, ""unknown"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleUnknown_4_oe
+bean_472_2,"    public void testGetSimpleWriteOnly_2_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean, ""writeOnlyProperty"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleWriteOnly_2_oe
+bean_472_3,"    public void testGetSimpleWriteOnly_3_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean, ""writeOnlyProperty"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleWriteOnly_3_oe
+bean_472_4,"    public void testGetSimpleWriteOnly_4_oe() {
+
+        try {
+            PropertyUtils.getSimpleProperty(bean, ""writeOnlyProperty"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testGetSimpleWriteOnly_4_oe
+bean_488_2,"    public void testSetNestedBoolean_2_oe() {
+
+        try {
+            final boolean oldValue = bean.getNested().getBooleanProperty();
+            final boolean newValue = !oldValue;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.booleanProperty"",
+                    new Boolean(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedBoolean_2_oe
+bean_488_3,"    public void testSetNestedBoolean_3_oe() {
+
+        try {
+            final boolean oldValue = bean.getNested().getBooleanProperty();
+            final boolean newValue = !oldValue;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.booleanProperty"",
+                    new Boolean(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedBoolean_3_oe
+bean_488_4,"    public void testSetNestedBoolean_4_oe() {
+
+        try {
+            final boolean oldValue = bean.getNested().getBooleanProperty();
+            final boolean newValue = !oldValue;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.booleanProperty"",
+                    new Boolean(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedBoolean_4_oe
+bean_489_2,"    public void testSetNestedDouble_2_oe() {
+
+        try {
+            final double oldValue = bean.getNested().getDoubleProperty();
+            final double newValue = oldValue + 1.0;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.doubleProperty"",
+                    new Double(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedDouble_2_oe
+bean_489_3,"    public void testSetNestedDouble_3_oe() {
+
+        try {
+            final double oldValue = bean.getNested().getDoubleProperty();
+            final double newValue = oldValue + 1.0;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.doubleProperty"",
+                    new Double(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedDouble_3_oe
+bean_489_4,"    public void testSetNestedDouble_4_oe() {
+
+        try {
+            final double oldValue = bean.getNested().getDoubleProperty();
+            final double newValue = oldValue + 1.0;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.doubleProperty"",
+                    new Double(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedDouble_4_oe
+bean_490_2,"    public void testSetNestedFloat_2_oe() {
+
+        try {
+            final float oldValue = bean.getNested().getFloatProperty();
+            final float newValue = oldValue + (float) 1.0;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.floatProperty"",
+                    new Float(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedFloat_2_oe
+bean_490_3,"    public void testSetNestedFloat_3_oe() {
+
+        try {
+            final float oldValue = bean.getNested().getFloatProperty();
+            final float newValue = oldValue + (float) 1.0;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.floatProperty"",
+                    new Float(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedFloat_3_oe
+bean_490_4,"    public void testSetNestedFloat_4_oe() {
+
+        try {
+            final float oldValue = bean.getNested().getFloatProperty();
+            final float newValue = oldValue + (float) 1.0;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.floatProperty"",
+                    new Float(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedFloat_4_oe
+bean_491_2,"    public void testSetNestedInt_2_oe() {
+
+        try {
+            final int oldValue = bean.getNested().getIntProperty();
+            final int newValue = oldValue + 1;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.intProperty"",
+                    new Integer(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedInt_2_oe
+bean_491_3,"    public void testSetNestedInt_3_oe() {
+
+        try {
+            final int oldValue = bean.getNested().getIntProperty();
+            final int newValue = oldValue + 1;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.intProperty"",
+                    new Integer(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedInt_3_oe
+bean_491_4,"    public void testSetNestedInt_4_oe() {
+
+        try {
+            final int oldValue = bean.getNested().getIntProperty();
+            final int newValue = oldValue + 1;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.intProperty"",
+                    new Integer(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedInt_4_oe
+bean_492_2,"    public void testSetNestedLong_2_oe() {
+
+        try {
+            final long oldValue = bean.getNested().getLongProperty();
+            final long newValue = oldValue + 1;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.longProperty"",
+                    new Long(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedLong_2_oe
+bean_492_3,"    public void testSetNestedLong_3_oe() {
+
+        try {
+            final long oldValue = bean.getNested().getLongProperty();
+            final long newValue = oldValue + 1;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.longProperty"",
+                    new Long(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedLong_3_oe
+bean_492_4,"    public void testSetNestedLong_4_oe() {
+
+        try {
+            final long oldValue = bean.getNested().getLongProperty();
+            final long newValue = oldValue + 1;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.longProperty"",
+                    new Long(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedLong_4_oe
+bean_493_2,"    public void testSetNestedReadOnly_2_oe() {
+
+        try {
+            final String oldValue = bean.getNested().getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.readOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedReadOnly_2_oe
+bean_493_3,"    public void testSetNestedReadOnly_3_oe() {
+
+        try {
+            final String oldValue = bean.getNested().getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.readOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedReadOnly_3_oe
+bean_493_4,"    public void testSetNestedReadOnly_4_oe() {
+
+        try {
+            final String oldValue = bean.getNested().getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.readOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedReadOnly_4_oe
+bean_494_2,"    public void testSetNestedShort_2_oe() {
+
+        try {
+            final short oldValue = bean.getNested().getShortProperty();
+            short newValue = oldValue;
+            newValue++;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.shortProperty"",
+                    new Short(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedShort_2_oe
+bean_494_3,"    public void testSetNestedShort_3_oe() {
+
+        try {
+            final short oldValue = bean.getNested().getShortProperty();
+            short newValue = oldValue;
+            newValue++;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.shortProperty"",
+                    new Short(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedShort_3_oe
+bean_494_4,"    public void testSetNestedShort_4_oe() {
+
+        try {
+            final short oldValue = bean.getNested().getShortProperty();
+            short newValue = oldValue;
+            newValue++;
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.shortProperty"",
+                    new Short(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedShort_4_oe
+bean_495_2,"    public void testSetNestedString_2_oe() {
+
+        try {
+            final String oldValue = bean.getNested().getStringProperty();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.stringProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedString_2_oe
+bean_495_3,"    public void testSetNestedString_3_oe() {
+
+        try {
+            final String oldValue = bean.getNested().getStringProperty();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.stringProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedString_3_oe
+bean_495_4,"    public void testSetNestedString_4_oe() {
+
+        try {
+            final String oldValue = bean.getNested().getStringProperty();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.stringProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedString_4_oe
+bean_496_2,"    public void testSetNestedUnknown_2_oe() {
+
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.unknown"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedUnknown_2_oe
+bean_496_3,"    public void testSetNestedUnknown_3_oe() {
+
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.unknown"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedUnknown_3_oe
+bean_496_4,"    public void testSetNestedUnknown_4_oe() {
+
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.unknown"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedUnknown_4_oe
+bean_497_2,"    public void testSetNestedWriteOnly_2_oe() {
+
+        try {
+            final String oldValue = bean.getNested().getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.writeOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedWriteOnly_2_oe
+bean_497_3,"    public void testSetNestedWriteOnly_3_oe() {
+
+        try {
+            final String oldValue = bean.getNested().getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.writeOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedWriteOnly_3_oe
+bean_497_4,"    public void testSetNestedWriteOnly_4_oe() {
+
+        try {
+            final String oldValue = bean.getNested().getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setNestedProperty(bean,
+                    ""nested.writeOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetNestedWriteOnly_4_oe
+bean_499_2,"    public void testSetSimpleBoolean_2_oe() {
+
+        try {
+            final boolean oldValue = bean.getBooleanProperty();
+            final boolean newValue = !oldValue;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""booleanProperty"",
+                    new Boolean(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleBoolean_2_oe
+bean_499_3,"    public void testSetSimpleBoolean_3_oe() {
+
+        try {
+            final boolean oldValue = bean.getBooleanProperty();
+            final boolean newValue = !oldValue;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""booleanProperty"",
+                    new Boolean(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleBoolean_3_oe
+bean_499_4,"    public void testSetSimpleBoolean_4_oe() {
+
+        try {
+            final boolean oldValue = bean.getBooleanProperty();
+            final boolean newValue = !oldValue;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""booleanProperty"",
+                    new Boolean(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleBoolean_4_oe
+bean_500_2,"    public void testSetSimpleDouble_2_oe() {
+
+        try {
+            final double oldValue = bean.getDoubleProperty();
+            final double newValue = oldValue + 1.0;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""doubleProperty"",
+                    new Double(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleDouble_2_oe
+bean_500_3,"    public void testSetSimpleDouble_3_oe() {
+
+        try {
+            final double oldValue = bean.getDoubleProperty();
+            final double newValue = oldValue + 1.0;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""doubleProperty"",
+                    new Double(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleDouble_3_oe
+bean_500_4,"    public void testSetSimpleDouble_4_oe() {
+
+        try {
+            final double oldValue = bean.getDoubleProperty();
+            final double newValue = oldValue + 1.0;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""doubleProperty"",
+                    new Double(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleDouble_4_oe
+bean_501_2,"    public void testSetSimpleFloat_2_oe() {
+
+        try {
+            final float oldValue = bean.getFloatProperty();
+            final float newValue = oldValue + (float) 1.0;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""floatProperty"",
+                    new Float(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleFloat_2_oe
+bean_501_3,"    public void testSetSimpleFloat_3_oe() {
+
+        try {
+            final float oldValue = bean.getFloatProperty();
+            final float newValue = oldValue + (float) 1.0;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""floatProperty"",
+                    new Float(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleFloat_3_oe
+bean_501_4,"    public void testSetSimpleFloat_4_oe() {
+
+        try {
+            final float oldValue = bean.getFloatProperty();
+            final float newValue = oldValue + (float) 1.0;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""floatProperty"",
+                    new Float(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleFloat_4_oe
+bean_502_2,"    public void testSetSimpleIndexed_2_oe() {
+
+        try {
+            PropertyUtils.setSimpleProperty(bean,
+                    ""stringIndexed[0]"",
+                    ""New String Value"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleIndexed_2_oe
+bean_502_3,"    public void testSetSimpleIndexed_3_oe() {
+
+        try {
+            PropertyUtils.setSimpleProperty(bean,
+                    ""stringIndexed[0]"",
+                    ""New String Value"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // Correct result for this test
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleIndexed_3_oe
+bean_503_2,"    public void testSetSimpleInt_2_oe() {
+
+        try {
+            final int oldValue = bean.getIntProperty();
+            final int newValue = oldValue + 1;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""intProperty"",
+                    new Integer(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleInt_2_oe
+bean_503_3,"    public void testSetSimpleInt_3_oe() {
+
+        try {
+            final int oldValue = bean.getIntProperty();
+            final int newValue = oldValue + 1;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""intProperty"",
+                    new Integer(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleInt_3_oe
+bean_503_4,"    public void testSetSimpleInt_4_oe() {
+
+        try {
+            final int oldValue = bean.getIntProperty();
+            final int newValue = oldValue + 1;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""intProperty"",
+                    new Integer(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleInt_4_oe
+bean_504_2,"    public void testSetSimpleLong_2_oe() {
+
+        try {
+            final long oldValue = bean.getLongProperty();
+            final long newValue = oldValue + 1;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""longProperty"",
+                    new Long(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleLong_2_oe
+bean_504_3,"    public void testSetSimpleLong_3_oe() {
+
+        try {
+            final long oldValue = bean.getLongProperty();
+            final long newValue = oldValue + 1;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""longProperty"",
+                    new Long(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleLong_3_oe
+bean_504_4,"    public void testSetSimpleLong_4_oe() {
+
+        try {
+            final long oldValue = bean.getLongProperty();
+            final long newValue = oldValue + 1;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""longProperty"",
+                    new Long(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleLong_4_oe
+bean_505_2,"    public void testSetSimpleNested_2_oe() {
+
+        try {
+            PropertyUtils.setSimpleProperty(bean,
+                    ""nested.stringProperty"",
+                    ""New String Value"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleNested_2_oe
+bean_505_3,"    public void testSetSimpleNested_3_oe() {
+
+        try {
+            PropertyUtils.setSimpleProperty(bean,
+                    ""nested.stringProperty"",
+                    ""New String Value"");
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // Correct result for this test
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleNested_3_oe
+bean_506_2,"    public void testSetSimpleReadOnly_2_oe() {
+
+        try {
+            final String oldValue = bean.getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""readOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleReadOnly_2_oe
+bean_506_3,"    public void testSetSimpleReadOnly_3_oe() {
+
+        try {
+            final String oldValue = bean.getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""readOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleReadOnly_3_oe
+bean_506_4,"    public void testSetSimpleReadOnly_4_oe() {
+
+        try {
+            final String oldValue = bean.getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""readOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleReadOnly_4_oe
+bean_507_2,"    public void testSetSimpleShort_2_oe() {
+
+        try {
+            final short oldValue = bean.getShortProperty();
+            short newValue = oldValue;
+            newValue++;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""shortProperty"",
+                    new Short(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleShort_2_oe
+bean_507_3,"    public void testSetSimpleShort_3_oe() {
+
+        try {
+            final short oldValue = bean.getShortProperty();
+            short newValue = oldValue;
+            newValue++;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""shortProperty"",
+                    new Short(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleShort_3_oe
+bean_507_4,"    public void testSetSimpleShort_4_oe() {
+
+        try {
+            final short oldValue = bean.getShortProperty();
+            short newValue = oldValue;
+            newValue++;
+            PropertyUtils.setSimpleProperty(bean,
+                    ""shortProperty"",
+                    new Short(newValue));
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleShort_4_oe
+bean_508_2,"    public void testSetSimpleString_2_oe() {
+
+        try {
+            final String oldValue = bean.getStringProperty();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""stringProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleString_2_oe
+bean_508_3,"    public void testSetSimpleString_3_oe() {
+
+        try {
+            final String oldValue = bean.getStringProperty();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""stringProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleString_3_oe
+bean_508_4,"    public void testSetSimpleString_4_oe() {
+
+        try {
+            final String oldValue = bean.getStringProperty();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""stringProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleString_4_oe
+bean_509_2,"    public void testSetSimpleUnknown_2_oe() {
+
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""unknown"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleUnknown_2_oe
+bean_509_3,"    public void testSetSimpleUnknown_3_oe() {
+
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""unknown"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleUnknown_3_oe
+bean_509_4,"    public void testSetSimpleUnknown_4_oe() {
+
+        try {
+            final String newValue = ""New String Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""unknown"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleUnknown_4_oe
+bean_510_2,"    public void testSetSimpleWriteOnly_2_oe() {
+
+        try {
+            final String oldValue = bean.getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""writeOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleWriteOnly_2_oe
+bean_510_3,"    public void testSetSimpleWriteOnly_3_oe() {
+
+        try {
+            final String oldValue = bean.getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""writeOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            fail(""IllegalArgumentException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleWriteOnly_3_oe
+bean_510_4,"    public void testSetSimpleWriteOnly_4_oe() {
+
+        try {
+            final String oldValue = bean.getWriteOnlyPropertyValue();
+            final String newValue = oldValue + "" Extra Value"";
+            PropertyUtils.setSimpleProperty(bean,
+                    ""writeOnlyProperty"",
+                    newValue);
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final IllegalArgumentException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+    }
+    }
+",PropertyUtilsTestCase::testSetSimpleWriteOnly_4_oe
+bean_522_2,"    public void testRemoveBeanIntrospector_2_oe() {
+        // removed other assertion
+        final PropertyDescriptor[] desc = PropertyUtils
+                .getPropertyDescriptors(AlphaBean.class);
+        assertEquals(""Got descriptors"", 0, desc.length);
+    }
+",PropertyUtilsTestCase::testRemoveBeanIntrospector_2_oe
+bean_593_3,"    public void testBeanUtilsGetProperty_aRatedCd_3_oe() throws Exception {
+        final TestBean bean = new TestBean();
+        bean.setARatedCd(""foo"");
+
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (final NoSuchMethodException e) {
+            // expected result
+        } catch (final Exception e) {
+            fail(""Threw "" + e);
+    }
+    }
+",Jira369TestCase::testBeanUtilsGetProperty_aRatedCd_3_oe
+bean_605_1,"    public void testBeanUtilsSetProperty_NullBean_1_oe() throws Exception {
+        try {
+            BeanUtils.setProperty(null, ""foo"", ""bar"");
+        } catch (final NullPointerException e) {
+            fail(""Threw NullPointerException"");
+    }
+    }
+",Jira368TestCase::testBeanUtilsSetProperty_NullBean_1_oe
+bean_647_1,"    public void testIssue_BEANUTILS_349_PropertyUtils_copyProperties_1_oe() {
+        final PrimitiveBean dest = new PrimitiveBean();
+        final ObjectBean origin = new ObjectBean ();
+        try {
+            PropertyUtils.copyProperties(dest, origin);
+        } catch (final NullPointerException e) {
+            log.error(""Failed"", e);
+            fail(""Threw NullPointerException"");
+    }
+    }
+",Jira349TestCase::testIssue_BEANUTILS_349_PropertyUtils_copyProperties_1_oe
+bean_744_1,"    public void testMemoryTestMethodology_1_oe() throws Exception {
+        // test metho;
+        final WeakReference<ClassLoader> reference = new  WeakReference<ClassLoader>(loader);
+        Class<?> myClass = loader.loadClass(""org.apache.commons.beanutils.BetaBean"");
+
+        assertNotNull(""Weak reference released early"", reference.get());
+    }
+",LocaleBeanificationTestCase::testMemoryTestMethodology_1_oe
+bean_744_2,"    public void testMemoryTestMethodology_2_oe() throws Exception {
+        // test metho;
+        final WeakReference<ClassLoader> reference = new  WeakReference<ClassLoader>(loader);
+        Class<?> myClass = loader.loadClass(""org.apache.commons.beanutils.BetaBean"");
+
+        // removed other assertion
+
+        // dereference class loader and class:
+        loader = null;
+        myClass = null;
+
+        int iterations = 0;
+        int bytz = 2;
+        while(true) {
+            System.gc();
+            if(iterations++ > MAX_GC_ITERATIONS){
+                fail(""Max iterations reached before resource released."");
+    }
+    }
+    }
+",LocaleBeanificationTestCase::testMemoryTestMethodology_2_oe
+bean_745_4,"    public void testMemoryLeak2_4_oe() throws Exception {
+        // tests when the map used by beanutils has the right behaviour
+
+        if (BeanUtilsTestCase.isPre14JVM()) {
+            System.out.println(""WARNING: CANNOT TEST MEMORY LEAK ON PRE1.4 JVM"");
+            return;
+        }
+
+        // many thanks to Juozas Baliuka for suggesting this methodology
+        TestClassLoader loader = new TestClassLoader();
+        final ReferenceQueue<Object> queue = new ReferenceQueue<Object>();
+        final WeakReference<ClassLoader> loaderReference = new WeakReference<ClassLoader>(loader, queue);
+        Integer test = new Integer(1);
+
+        final WeakReference<Integer> testReference = new WeakReference<Integer>(test, queue);
+        //Map map = new ReferenceMap(ReferenceMap.WEAK, ReferenceMap.HARD, true);
+        final Map<TestClassLoader, Integer> map = new WeakHashMap<TestClassLoader, Integer>();
+        map.put(loader, test);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // dereference strong references
+        loader = null;
+        test = null;
+
+        int iterations = 0;
+        int bytz = 2;
+        while(true) {
+            System.gc();
+            if(iterations++ > MAX_GC_ITERATIONS){
+                fail(""Max iterations reached before resource released."");
+    }
+    }
+    }
+",LocaleBeanificationTestCase::testMemoryLeak2_4_oe
+bean_746_4,"    public void testMemoryLeak_4_oe() throws Exception {
+        if (BeanUtilsTestCase.isPre14JVM()) {
+            System.out.println(""WARNING: CANNOT TEST MEMORY LEAK ON PRE1.4 JVM"");
+            return;
+        }
+
+        // many thanks to Juozas Baliuka for suggesting this methodology
+        TestClassLoader loader = new TestClassLoader();
+        final WeakReference<TestClassLoader> loaderReference = new  WeakReference<TestClassLoader>(loader);
+        LocaleBeanUtilsBean.getLocaleBeanUtilsInstance();
+
+        class GetBeanUtilsBeanThread extends Thread {
+
+            LocaleBeanUtilsBean beanUtils;
+            LocaleConvertUtilsBean convertUtils;
+
+            GetBeanUtilsBeanThread() {}
+
+            @Override
+            public void run() {
+                beanUtils = LocaleBeanUtilsBean.getLocaleBeanUtilsInstance();
+                convertUtils = LocaleConvertUtilsBean.getInstance();
+                // XXX Log keeps a reference around!
+                LogFactory.releaseAll();
+            }
+
+            @Override
+            public String toString() {
+                return ""GetBeanUtilsBeanThread"";
+            }
+        }
+
+
+        GetBeanUtilsBeanThread thread = new GetBeanUtilsBeanThread();
+        final WeakReference<GetBeanUtilsBeanThread> threadWeakReference = new WeakReference<GetBeanUtilsBeanThread>(thread);
+        thread.setContextClassLoader(loader);
+
+        thread.start();
+        thread.join();
+
+        final WeakReference<LocaleBeanUtilsBean> beanUtilsReference = new WeakReference<LocaleBeanUtilsBean>(thread.beanUtils);
+        final WeakReference<LocaleConvertUtilsBean> convertUtilsReference = new WeakReference<LocaleConvertUtilsBean>(thread.convertUtils);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // dereference strong references
+        loader = null;
+        thread.setContextClassLoader(null);
+        thread = null;
+
+        int iterations = 0;
+        int bytz = 2;
+        while(true) {
+            LocaleBeanUtilsBean.getLocaleBeanUtilsInstance();
+            System.gc();
+            if(iterations++ > MAX_GC_ITERATIONS){
+                fail(""Max iterations reached before resource released."");
+    }
+    }
+    }
+",LocaleBeanificationTestCase::testMemoryLeak_4_oe

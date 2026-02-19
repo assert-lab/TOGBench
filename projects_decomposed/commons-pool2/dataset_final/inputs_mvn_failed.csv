@@ -1,0 +1,233 @@
+id,test_prefix,test_name
+pool_233_3,"    @Test
+    public void testAbandonedReturn_3_oe() throws Exception {
+        abandonedConfig = new AbandonedConfig();
+        abandonedConfig.setRemoveAbandonedOnBorrow(true);
+        abandonedConfig.setRemoveAbandonedTimeout(TestConstants.ONE_SECOND_DURATION);
+        pool.close();  // Unregister pool created by setup
+        pool = new GenericKeyedObjectPool<>(
+                new SimpleFactory(200, 0),
+                new GenericKeyedObjectPoolConfig<>(), abandonedConfig);
+        final int n = 10;
+        pool.setMaxTotal(n);
+        pool.setBlockWhenExhausted(false);
+        PooledTestObject obj = null;
+        for (int i = 0; i < n - 2; i++) {
+            obj = pool.borrowObject(0);
+        }
+        Objects.requireNonNull(obj, ""Unable to borrow object from pool"");
+        final int deadMansHash = obj.hashCode();
+        final ConcurrentReturner returner = new ConcurrentReturner(obj);
+        Thread.sleep(2000);  // abandon checked out instances
+        // Now start a race - returner waits until borrowObject has kicked
+        // off removeAbandoned and then returns an instance that borrowObject
+        // will deem abandoned.  Make sure it is not returned to the borrower.
+        returner.start();    // short delay, then return instance
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, pool.getNumActive());
+    }
+",TestAbandonedKeyedObjectPool::testAbandonedReturn_3_oe
+pool_253_3,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionInValidationDuringEviction_3_oe() throws Exception {
+        gkoPool.setMaxIdlePerKey(1);
+        gkoPool.setMinEvictableIdleTime(Duration.ZERO);
+        gkoPool.setTestWhileIdle(true);
+
+        final String obj = gkoPool.borrowObject(""one"");
+        gkoPool.returnObject(""one"", obj);
+
+        simpleFactory.setThrowExceptionOnValidate(true);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, gkoPool.getNumIdle());
+    }
+",TestGenericKeyedObjectPool::testExceptionInValidationDuringEviction_3_oe
+pool_254_7,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnActivateDuringBorrow_7_oe() throws Exception {
+        final String obj1 = gkoPool.borrowObject(""one"");
+        final String obj2 = gkoPool.borrowObject(""one"");
+        gkoPool.returnObject(""one"", obj1);
+        gkoPool.returnObject(""one"", obj2);
+        simpleFactory.setThrowExceptionOnActivate(true);
+        simpleFactory.setEvenValid(false);
+        // Activation will now throw every other time
+        // First attempt throws, but loop continues and second succeeds
+        final String obj = gkoPool.borrowObject(""one"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject(""one"", obj);
+        simpleFactory.setValid(false);
+        // Validation will now fail on activation when borrowObject returns
+        // an idle instance, and then when attempting to create a new instance
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, gkoPool.getNumIdle(""one""));
+    }
+",TestGenericKeyedObjectPool::testExceptionOnActivateDuringBorrow_7_oe
+pool_254_9,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnActivateDuringBorrow_9_oe() throws Exception {
+        final String obj1 = gkoPool.borrowObject(""one"");
+        final String obj2 = gkoPool.borrowObject(""one"");
+        gkoPool.returnObject(""one"", obj1);
+        gkoPool.returnObject(""one"", obj2);
+        simpleFactory.setThrowExceptionOnActivate(true);
+        simpleFactory.setEvenValid(false);
+        // Activation will now throw every other time
+        // First attempt throws, but loop continues and second succeeds
+        final String obj = gkoPool.borrowObject(""one"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        gkoPool.returnObject(""one"", obj);
+        simpleFactory.setValid(false);
+        // Validation will now fail on activation when borrowObject returns
+        // an idle instance, and then when attempting to create a new instance
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, gkoPool.getNumIdle());
+    }
+",TestGenericKeyedObjectPool::testExceptionOnActivateDuringBorrow_9_oe
+pool_258_2,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testFIFO_2_oe() throws Exception {
+        gkoPool.setLifo(false);
+        final String key = ""key"";
+        gkoPool.addObject(key); // ""key0""
+        gkoPool.addObject(key); // ""key1""
+        gkoPool.addObject(key); // ""key2""
+        // removed other assertion
+        assertEquals( ""key1"", gkoPool.borrowObject(key),""Middle"");
+    }
+",TestGenericKeyedObjectPool::testFIFO_2_oe
+pool_258_3,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testFIFO_3_oe() throws Exception {
+        gkoPool.setLifo(false);
+        final String key = ""key"";
+        gkoPool.addObject(key); // ""key0""
+        gkoPool.addObject(key); // ""key1""
+        gkoPool.addObject(key); // ""key2""
+        // removed other assertion
+        // removed other assertion
+        assertEquals( ""key2"", gkoPool.borrowObject(key),""Youngest"");
+    }
+",TestGenericKeyedObjectPool::testFIFO_3_oe
+pool_258_4,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testFIFO_4_oe() throws Exception {
+        gkoPool.setLifo(false);
+        final String key = ""key"";
+        gkoPool.addObject(key); // ""key0""
+        gkoPool.addObject(key); // ""key1""
+        gkoPool.addObject(key); // ""key2""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final String s = gkoPool.borrowObject(key);
+        assertEquals( ""key3"", s,""new-3"");
+    }
+",TestGenericKeyedObjectPool::testFIFO_4_oe
+pool_258_5,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testFIFO_5_oe() throws Exception {
+        gkoPool.setLifo(false);
+        final String key = ""key"";
+        gkoPool.addObject(key); // ""key0""
+        gkoPool.addObject(key); // ""key1""
+        gkoPool.addObject(key); // ""key2""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final String s = gkoPool.borrowObject(key);
+        // removed other assertion
+        gkoPool.returnObject(key, s);
+        assertEquals( s, gkoPool.borrowObject(key),""returned"");
+    }
+",TestGenericKeyedObjectPool::testFIFO_5_oe
+pool_258_6,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testFIFO_6_oe() throws Exception {
+        gkoPool.setLifo(false);
+        final String key = ""key"";
+        gkoPool.addObject(key); // ""key0""
+        gkoPool.addObject(key); // ""key1""
+        gkoPool.addObject(key); // ""key2""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final String s = gkoPool.borrowObject(key);
+        // removed other assertion
+        gkoPool.returnObject(key, s);
+        // removed other assertion
+        assertEquals( ""key4"", gkoPool.borrowObject(key),""new-4"");
+    }
+",TestGenericKeyedObjectPool::testFIFO_6_oe
+pool_263_2,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testLIFO_2_oe() throws Exception {
+        gkoPool.setLifo(true);
+        final String key = ""key"";
+        gkoPool.addObject(key); // ""key0""
+        gkoPool.addObject(key); // ""key1""
+        gkoPool.addObject(key); // ""key2""
+        // removed other assertion
+        assertEquals( ""key1"", gkoPool.borrowObject(key),""Middle"");
+    }
+",TestGenericKeyedObjectPool::testLIFO_2_oe
+pool_263_3,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testLIFO_3_oe() throws Exception {
+        gkoPool.setLifo(true);
+        final String key = ""key"";
+        gkoPool.addObject(key); // ""key0""
+        gkoPool.addObject(key); // ""key1""
+        gkoPool.addObject(key); // ""key2""
+        // removed other assertion
+        // removed other assertion
+        assertEquals( ""key0"", gkoPool.borrowObject(key),""Oldest"");
+    }
+",TestGenericKeyedObjectPool::testLIFO_3_oe
+pool_263_4,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testLIFO_4_oe() throws Exception {
+        gkoPool.setLifo(true);
+        final String key = ""key"";
+        gkoPool.addObject(key); // ""key0""
+        gkoPool.addObject(key); // ""key1""
+        gkoPool.addObject(key); // ""key2""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final String s = gkoPool.borrowObject(key);
+        assertEquals( ""key3"", s,""new-3"");
+    }
+",TestGenericKeyedObjectPool::testLIFO_4_oe
+pool_263_6,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testLIFO_6_oe() throws Exception {
+        gkoPool.setLifo(true);
+        final String key = ""key"";
+        gkoPool.addObject(key); // ""key0""
+        gkoPool.addObject(key); // ""key1""
+        gkoPool.addObject(key); // ""key2""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final String s = gkoPool.borrowObject(key);
+        // removed other assertion
+        gkoPool.returnObject(key, s);
+        // removed other assertion
+        assertEquals( ""key4"", gkoPool.borrowObject(key),""new-4"");
+    }
+",TestGenericKeyedObjectPool::testLIFO_6_oe

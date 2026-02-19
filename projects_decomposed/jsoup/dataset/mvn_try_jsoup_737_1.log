@@ -1,0 +1,53 @@
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.043 s <<< FAILURE! - in org.jsoup.nodes.DocumentTest_OE25Dev_jsoup_737_1
+[ERROR] org.jsoup.nodes.DocumentTest_OE25Dev_jsoup_737_1.testHtmlAndXmlSyntax_1_oe  Time elapsed: 0.032 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+expected: <<!doctype html>
+<html>
+ <head></head>
+ <body>
+ <img async checked src="&amp;<>&quot;">&lt;&gt;&amp;"<foo />bar
+ </body>
+</html>> but was: <<!doctype html>
+<html>
+ <head></head>
+ <body>
+  <img async checked src="&amp;<>&quot;">&lt;&gt;&amp;"<foo />bar
+ </body>
+</html>>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at org.jsoup.nodes.DocumentTest_OE25Dev_jsoup_737_1.testHtmlAndXmlSyntax_1_oe(DocumentTest_OE25Dev_jsoup_737_1.java:508)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] Failures: 
+[ERROR]   DocumentTest_OE25Dev_jsoup_737_1.testHtmlAndXmlSyntax_1_oe:508 expected: <<!doctype html>
+<html>
+ <head></head>
+ <body>
+ <img async checked src="&amp;<>&quot;">&lt;&gt;&amp;"<foo />bar
+ </body>
+</html>> but was: <<!doctype html>
+<html>
+ <head></head>
+ <body>
+  <img async checked src="&amp;<>&quot;">&lt;&gt;&amp;"<foo />bar
+ </body>
+</html>>
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project jsoup: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

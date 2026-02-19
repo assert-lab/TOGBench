@@ -5,87 +5,26 @@ python3 - << 'PY'
 from pathlib import Path
 import csv
 
-dataset = Path("dataset")
-meta_path = dataset / "meta.csv"
-inputs_path = dataset / "inputs.csv"
+dataset = Path("dataset_final")
+meta_path = dataset / "meta_final.csv"
+inputs_path = dataset / "inputs_final.csv"
 
 fail_list = [
-    "LocaleBeanificationTestCase.testMemoryTestMethodology_2_oe",
-    "LocaleBeanificationTestCase.testMemoryTestMethodology_1_oe",
-    "BasicDynaBeanTestCase.testSerialization_3_oe",
-    "LazyDynaMapTestCase.testMappedPropertyUtils_4_oe",
-    "LazyDynaMapTestCase.testMappedPropertyUtils_5_oe",
-    "LazyDynaMapTestCase.testIndexedPropertyUtils_4_oe",
-    "LazyDynaMapTestCase.testIndexedPropertyUtils_5_oe",
-
-    "BeanificationTestCase.testMemoryTestMethodology_1_oe",
-    "BeanificationTestCase.testMemoryTestMethodology_2_oe",
-    "DynaBeanUtilsTestCase.testPopulateArrayProperties_10_oe",
-
-    "DynaBeanUtilsTestCase.testGetArrayProperty_3_oe",
-    "DynaBeanUtilsTestCase.testGetArrayProperty_4_oe",
-    "DynaBeanUtilsTestCase.testGetIndexedProperty1_3_oe",
-    "DynaBeanUtilsTestCase.testGetIndexedProperty1_4_oe",
-    "DynaBeanUtilsTestCase.testGetIndexedProperty2_3_oe",
-    "DynaBeanUtilsTestCase.testGetIndexedProperty2_4_oe",
-    "DynaBeanUtilsTestCase.testGetNestedProperty_2_oe",
-    "DynaBeanUtilsTestCase.testGetGeneralProperty_3_oe",
-    "DynaBeanUtilsTestCase.testPopulateScalar_10_oe",
-    "DynaBeanUtilsTestCase.testPopulateNested_9_oe",
-    "DynaBeanUtilsTestCase.testPopulateMapped_5_oe",
-    "DynaBeanUtilsTestCase.testGetNestedProperty_3_oe",
-    "DynaBeanUtilsTestCase.testGetGeneralProperty_2_oe",
-    "DynaBeanUtilsTestCase.testGetSimpleProperty_2_oe",
-    "DynaBeanUtilsTestCase.testGetSimpleProperty_3_oe",
-    "DynaBeanUtilsTestCase.testPopulateArrayElements_11_oe",
-    "Jira349TestCase.testIssue_BEANUTILS_349_PropertyUtils_copyProperties_1_oe",
-    "Jira369TestCase.testBeanUtilsGetProperty_aRatedCd_3_oe",
-
-    "LazyDynaBeanTestCase.testMappedPropertyUtils_4_oe",
-    "LazyDynaBeanTestCase.testMappedPropertyUtils_5_oe",    
-
-    "LazyDynaBeanTestCase.testIndexedPropertyUtils_4_oe",
-    "LazyDynaBeanTestCase.testIndexedPropertyUtils_5_oe",
-    "BeanUtilsTestCase.testGetArrayProperty_7_oe",
-    "BeanUtilsTestCase.testGetArrayProperty_8_oe",
-    "BeanUtilsTestCase.testGetIndexedProperty1_3_oe",
-    "BeanUtilsTestCase.testGetIndexedProperty1_4_oe",
-    "BeanUtilsTestCase.testGetIndexedProperty2_3_oe",
-    "BeanUtilsTestCase.testGetIndexedProperty2_4_oe",
-    "BeanUtilsTestCase.testGetNestedProperty_2_oe",
-    "BeanUtilsTestCase.testGetNestedProperty_3_oe",
-    "BeanUtilsTestCase.testGetGeneralProperty_2_oe",
-    "BeanUtilsTestCase.testGetGeneralProperty_3_oe",
-    "BeanUtilsTestCase.testPopulateNested_10_oe",
-    "BeanUtilsTestCase.testPopulateMapped_5_oe",
-    "BeanUtilsTestCase.testPopulateArrayElements_11_oe",
-    "BeanUtilsTestCase.testGetSimpleProperty_3_oe",
-    "BeanUtilsTestCase.testGetSimpleProperty_2_oe",
-    "BeanUtilsTestCase.testPopulateArrayProperties_10_oe",
-    "BeanUtilsTestCase.testPopulateScalar_13_oe",
-
-    "Jira368TestCase.testBeanUtilsSetProperty_NullBean_1_oe",
-    "BeanIntrospectionDataTestCase.testGetWriteMethodUndefined_2_oe",
-"BeanificationTestCase.testMemoryLeak2_4_oe",
-"BeanificationTestCase.testMemoryLeak_5_oe",
-"DynaBeanMapDecoratorTestCase.testPut_3_oe",
-"DynaBeanMapDecoratorTestCase.testPut_4_oe",
-"DynaBeanMapDecoratorTestCase.testValues_2_oe",
-"LazyDynaListTestCase.testToArrayDynaBeans_2_oe",
-"LazyDynaListTestCase.testToArrayMapType_2_oe",
-"LazyDynaListTestCase.testToArrayOtherType_2_oe",
-"MethodUtilsTestCase.testClearCache_2_oe",
-"MethodUtilsTestCase.testSetCacheMethods_2_oe",
-"LocaleBeanificationTestCase.testMemoryLeak2_4_oe",
-"LocaleBeanificationTestCase.testMemoryLeak_4_oe",
-
-
-    "DynaPropertyUtilsTestCase.*",
-    "PropertyUtilsTestCase.*",
-
-    # "MacOsPeterFTPEntryParserTest.testParseFieldsOnFile*",
-    
-
+"BasicDynaBeanTestCase.testSerialization_3_oe",
+"MemoryLeakTestCase.testPropertyUtilsBean_descriptorsCache_memoryLeak_6_oe",
+"MemoryLeakTestCase.testPropertyUtilsBean_mappedDescriptorsCache_memoryLeak_7_oe",
+"MemoryLeakTestCase.testMappedPropertyDescriptor_MappedMethodReference1_10_oe",
+"MemoryLeakTestCase.testMappedPropertyDescriptor_MappedMethodReference1_11_oe",
+"MemoryLeakTestCase.testMappedPropertyDescriptor_MappedMethodReference1_12_oe",
+"MemoryLeakTestCase.testMappedPropertyDescriptor_MappedMethodReference1_13_oe",
+"MemoryLeakTestCase.testMappedPropertyDescriptor_MappedMethodReference2_10_oe",
+"MemoryLeakTestCase.testMappedPropertyDescriptor_MappedMethodReference2_11_oe",
+"MemoryLeakTestCase.testMappedPropertyDescriptor_MappedMethodReference2_12_oe",
+"MemoryLeakTestCase.testMappedPropertyDescriptor_MappedMethodReference2_13_oe",
+"MemoryLeakTestCase.testMethodUtils_cache_memoryLeak_6_oe",
+"MemoryLeakTestCase.testWrapDynaClass_dynaClasses_memoryLeak_6_oe",
+"MemoryLeakTestCase.testConvertUtilsBean_converters_memoryLeak_6_oe",
+"MemoryLeakTestCase.testLocaleConvertUtilsBean_converters_memoryLeak_6_oe",
 ]
 
 patterns = []

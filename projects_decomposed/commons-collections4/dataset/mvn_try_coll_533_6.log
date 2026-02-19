@@ -1,0 +1,19 @@
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.044 s <<< FAILURE! - in org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev_coll_533_6
+[ERROR] testRemoving1_6_oe(org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev_coll_533_6)  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.IllegalStateException
+	at org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev_coll_533_6.testRemoving1_6_oe(LoopingIteratorTest_OE25Dev_coll_533_6.java:183)
+
+[ERROR] Errors: 
+[ERROR]   LoopingIteratorTest_OE25Dev_coll_533_6.testRemoving1_6_oe:183 » IllegalState
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.1:test (default-test) on project commons-collections4: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

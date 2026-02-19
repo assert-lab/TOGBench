@@ -732,10 +732,10 @@
           </systemPropertyVariables>
               <excludes>
       <!-- exclude whole test classes -->
-      <exclude>**/TestBaseConfiguration.*</exclude>
+      <!-- <exclude>**/TestBaseConfiguration.*</exclude>
       <exclude>**/TestAbstractConfigurationBasicFeatures.*</exclude>
       
-      <exclude>**/TestFileBasedConfigurationBuilder.*</exclude>
+      <exclude>**/TestFileBasedConfigurationBuilder.*</exclude> -->
     </excludes>
         </configuration>
       </plugin>

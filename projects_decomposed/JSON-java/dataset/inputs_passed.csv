@@ -1,0 +1,98 @@
+id,test_prefix,test_name
+json_175_7,"    @Test
+    public void testSingletonBean_7_oe() {
+        final JSONObject jo = new JSONObject(Singleton.getInstance());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        
+        // Update the singleton values
+        Singleton.getInstance().setSomeInt(42);
+        Singleton.getInstance().setSomeString(""Something"");
+        final JSONObject jo2 = new JSONObject(Singleton.getInstance());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ensure our original jo hasn't changed.
+        assertEquals(0, jo.get(""someInt""));
+    }
+",JSONObjectTest::testSingletonBean_7_oe
+json_175_8,"    @Test
+    public void testSingletonBean_8_oe() {
+        final JSONObject jo = new JSONObject(Singleton.getInstance());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        
+        // Update the singleton values
+        Singleton.getInstance().setSomeInt(42);
+        Singleton.getInstance().setSomeString(""Something"");
+        final JSONObject jo2 = new JSONObject(Singleton.getInstance());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ensure our original jo hasn't changed.
+        // removed other assertion
+        assertEquals(null, jo.opt(""someString""));
+    }
+",JSONObjectTest::testSingletonBean_8_oe
+json_176_7,"    @Test
+    public void testSingletonEnumBean_7_oe() {
+        final JSONObject jo = new JSONObject(SingletonEnum.getInstance());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        
+        // Update the singleton values
+        SingletonEnum.getInstance().setSomeInt(42);
+        SingletonEnum.getInstance().setSomeString(""Something"");
+        final JSONObject jo2 = new JSONObject(SingletonEnum.getInstance());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ensure our original jo hasn't changed.
+        assertEquals(0, jo.get(""someInt""));
+    }
+",JSONObjectTest::testSingletonEnumBean_7_oe
+json_176_8,"    @Test
+    public void testSingletonEnumBean_8_oe() {
+        final JSONObject jo = new JSONObject(SingletonEnum.getInstance());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        
+        // Update the singleton values
+        SingletonEnum.getInstance().setSomeInt(42);
+        SingletonEnum.getInstance().setSomeString(""Something"");
+        final JSONObject jo2 = new JSONObject(SingletonEnum.getInstance());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ensure our original jo hasn't changed.
+        // removed other assertion
+        assertEquals(null, jo.opt(""someString""));
+    }
+",JSONObjectTest::testSingletonEnumBean_8_oe
+json_200_1,"    @Test(expected = JSONException.class)
+    public void issue654StackOverflowInputWellFormed_1_oe() {
+        //String input = new String(java.util.Base64.getDecoder().decode(base64Bytes));
+        final InputStream resourceAsStream = JSONObjectTest.class.getClassLoader().getResourceAsStream(""Issue654WellFormedObject.json"");
+        JSONTokener tokener = new JSONTokener(resourceAsStream);
+        JSONObject json_input = new JSONObject(tokener);
+        assertNotNull(json_input);
+    }
+",JSONObjectTest::issue654StackOverflowInputWellFormed_1_oe
+json_200_2,"    @Test(expected = JSONException.class)
+    public void issue654StackOverflowInputWellFormed_2_oe() {
+        //String input = new String(java.util.Base64.getDecoder().decode(base64Bytes));
+        final InputStream resourceAsStream = JSONObjectTest.class.getClassLoader().getResourceAsStream(""Issue654WellFormedObject.json"");
+        JSONTokener tokener = new JSONTokener(resourceAsStream);
+        JSONObject json_input = new JSONObject(tokener);
+        // removed other assertion
+        fail(""Excepected Exception."");
+    }
+",JSONObjectTest::issue654StackOverflowInputWellFormed_2_oe

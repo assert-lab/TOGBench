@@ -1,0 +1,19 @@
+id,test_prefix,test_name
+jsoup_809_4,"    @Test
+    public void throwsExceptionOn404_4_oe() {
+        String url = EchoServlet.Url;
+        Connection con = Jsoup.connect(url).header(EchoServlet.CodeParam, ""404"");
+
+        boolean threw = false;
+        try {
+            Document doc = con.get();
+        } catch (HttpStatusException e) {
+            threw = true;
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch (IOException e) {
+        }
+        assertTrue(threw);
+    }
+",ConnectTest::throwsExceptionOn404_4_oe

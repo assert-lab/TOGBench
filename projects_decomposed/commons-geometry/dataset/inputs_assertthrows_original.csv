@@ -1,0 +1,3438 @@
+id,test_prefix,test_name
+geom_6_1,"    @Test
+    void testToPolygon_failure_1_oe() {
+        // arrange
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(Arrays.asList(
+                Vector3D.ZERO, Vector3D.ZERO, Vector3D.ZERO));
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> FacetDefinitions.toPolygon(f, TEST_PRECISION));
+    }
+",FacetDefinitionsTest::testToPolygon_failure_1_oe
+geom_13_6,"    @Test
+    void testFacetIterator_6_oe() {
+        // arrange
+        final StubFacetDefinitionReader reader = new StubFacetDefinitionReader(Arrays.asList(FACET_1, FACET_2));
+        final FacetDefinitionReaderIterator it = new FacetDefinitionReaderIterator(reader);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertThrows(NoSuchElementException.class, it::next);
+    }
+",AbstractBoundaryReadHandler3DTest::testFacetIterator_6_oe
+geom_15_3,"    @Test
+    void testProperties_verticesOnly_3_oe() {
+        // act
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final List<Vector3D> vertices = f.getVertices();
+        final Vector3D toAdd = FACET_PTS.get(0);
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> vertices.add(toAdd));
+    }
+",SimpleFacetDefinitionTest::testProperties_verticesOnly_3_oe
+geom_16_3,"    @Test
+    void testProperties_verticesAndNormal_3_oe() {
+        // arrange
+        final Vector3D normal = Vector3D.ZERO; // invalid normal is accepted
+
+        // act
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS), normal);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final List<Vector3D> vertices = f.getVertices();
+        final Vector3D toAdd = FACET_PTS.get(0);
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> vertices.add(toAdd));
+    }
+",SimpleFacetDefinitionTest::testProperties_verticesAndNormal_3_oe
+geom_47_3,"    @Test
+    void testRead_incorrectCharset_3_oe() {
+        // arrange
+        final String content = ""solid test\n"" +
+                ""facet normal 1 2 3 "" +
+                ""outer loop "" +
+                    ""vertex 4 5 6 "" +
+                    ""vertex 7 8 9 "" +
+                    ""vertex 10 11 12 "" +
+                ""endloop "" +
+            ""endfacet "" +
+            ""endsolid test"";
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
+        final GeometryInput input = new StreamGeometryInput(in);
+
+        // act/assert
+        try (FacetDefinitionReader reader = handler.facetDefinitionReader(input)) {
+            // removed other assertion
+            // removed other assertion
+
+            Assertions.assertThrows(IllegalStateException.class, () -> reader.readFacet());
+    }
+    }
+",StlBoundaryReadHandler3DTest::testRead_incorrectCharset_3_oe
+geom_48_1,"    @Test
+    void testRead_notEnoughBytes_1_oe() {
+        // arrange
+        final ByteArrayInputStream in = new ByteArrayInputStream(new byte[1]);
+        final GeometryInput input = new StreamGeometryInput(in);
+
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> handler.facetDefinitionReader(input));
+    }
+",StlBoundaryReadHandler3DTest::testRead_notEnoughBytes_1_oe
+geom_49_1,"    @Test
+    void testRead_closesInputOnReaderCreationFailure_1_oe() {
+        // arrange
+        final CloseCountInputStream in = new CloseCountInputStream(new ByteArrayInputStream(new byte[1]));
+        final GeometryInput input = new StreamGeometryInput(in);
+
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> handler.facetDefinitionReader(input));
+    }
+",StlBoundaryReadHandler3DTest::testRead_closesInputOnReaderCreationFailure_1_oe
+geom_65_1,"    @Test
+    void testWrite_verticesAndNormal_fewerThanThreeVertices_1_oe() {
+        // arrange
+        try (TextStlWriter writer = new TextStlWriter(out)) {
+            writer.startSolid();
+
+            final List<Vector3D> noElements = Collections.emptyList();
+            final List<Vector3D> singleElement = Collections.singletonList(Vector3D.ZERO);
+            final List<Vector3D> twoElements = Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 1, 1));
+
+            // act/assert
+            Assertions.assertThrows(IllegalArgumentException.class, () -> writer.writeTriangles(noElements, null));
+    }
+    }
+",TextStlWriterTest::testWrite_verticesAndNormal_fewerThanThreeVertices_1_oe
+geom_65_2,"    @Test
+    void testWrite_verticesAndNormal_fewerThanThreeVertices_2_oe() {
+        // arrange
+        try (TextStlWriter writer = new TextStlWriter(out)) {
+            writer.startSolid();
+
+            final List<Vector3D> noElements = Collections.emptyList();
+            final List<Vector3D> singleElement = Collections.singletonList(Vector3D.ZERO);
+            final List<Vector3D> twoElements = Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 1, 1));
+
+            // act/assert
+            // removed other assertion
+            Assertions.assertThrows(IllegalArgumentException.class, () -> writer.writeTriangles(singleElement, null));
+    }
+    }
+",TextStlWriterTest::testWrite_verticesAndNormal_fewerThanThreeVertices_2_oe
+geom_65_3,"    @Test
+    void testWrite_verticesAndNormal_fewerThanThreeVertices_3_oe() {
+        // arrange
+        try (TextStlWriter writer = new TextStlWriter(out)) {
+            writer.startSolid();
+
+            final List<Vector3D> noElements = Collections.emptyList();
+            final List<Vector3D> singleElement = Collections.singletonList(Vector3D.ZERO);
+            final List<Vector3D> twoElements = Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 1, 1));
+
+            // act/assert
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertThrows(IllegalArgumentException.class, () -> writer.writeTriangles(twoElements, null));
+    }
+    }
+",TextStlWriterTest::testWrite_verticesAndNormal_fewerThanThreeVertices_3_oe
+geom_104_4,"    @Test
+    void testCreate_nonStandardCharset_noCharsetGiven_4_oe() {
+        // arrange
+        final String content = ""solid test\n"" +
+                ""facet normal 1 2 3 "" +
+                ""outer loop "" +
+                    ""vertex 4 5 6 "" +
+                    ""vertex 7 8 9 "" +
+                    ""vertex 10 11 12 "" +
+                ""endloop "" +
+            ""endfacet "" +
+            ""endsolid test"";
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
+
+        // act
+        try (FacetDefinitionReader reader = StlFacetDefinitionReaders.create(in, null)) {
+
+            // assert
+            // removed other assertion
+
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertThrows(IllegalStateException.class, () -> reader.readFacet());
+    }
+    }
+",StlFacetDefinitionReadersTest::testCreate_nonStandardCharset_noCharsetGiven_4_oe
+geom_243_1,"    @Test
+    void testRead_handlerNotFound_1_oe() {
+        // arrange
+        final StubReadHandler r1 = new StubReadHandler(FMT_A);
+        manager.registerReadHandler(r1);
+
+        final StubGeometryInput inputA = new StubGeometryInput(""file.a"");
+        final StubGeometryInput inputB = new StubGeometryInput(""file.b"");
+        final StubGeometryInput inputNull = new StubGeometryInput(null);
+
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-4);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> manager.read(inputA, FMT_B, precision));
+    }
+",BoundaryIOManagerTest::testRead_handlerNotFound_1_oe
+geom_243_2,"    @Test
+    void testRead_handlerNotFound_2_oe() {
+        // arrange
+        final StubReadHandler r1 = new StubReadHandler(FMT_A);
+        manager.registerReadHandler(r1);
+
+        final StubGeometryInput inputA = new StubGeometryInput(""file.a"");
+        final StubGeometryInput inputB = new StubGeometryInput(""file.b"");
+        final StubGeometryInput inputNull = new StubGeometryInput(null);
+
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-4);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> manager.read(inputB, null, precision));
+    }
+",BoundaryIOManagerTest::testRead_handlerNotFound_2_oe
+geom_243_3,"    @Test
+    void testRead_handlerNotFound_3_oe() {
+        // arrange
+        final StubReadHandler r1 = new StubReadHandler(FMT_A);
+        manager.registerReadHandler(r1);
+
+        final StubGeometryInput inputA = new StubGeometryInput(""file.a"");
+        final StubGeometryInput inputB = new StubGeometryInput(""file.b"");
+        final StubGeometryInput inputNull = new StubGeometryInput(null);
+
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-4);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> manager.read(inputNull, null, precision));
+    }
+",BoundaryIOManagerTest::testRead_handlerNotFound_3_oe
+geom_246_1,"    @Test
+    void testBoundaries_handlerNotFound_1_oe() {
+        // arrange
+        final StubReadHandler r1 = new StubReadHandler(FMT_A);
+        manager.registerReadHandler(r1);
+
+        final StubGeometryInput inputA = new StubGeometryInput(""file.a"");
+        final StubGeometryInput inputB = new StubGeometryInput(""file.b"");
+        final StubGeometryInput inputNull = new StubGeometryInput(null);
+
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-4);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> manager.boundaries(inputA, FMT_B, precision));
+    }
+",BoundaryIOManagerTest::testBoundaries_handlerNotFound_1_oe
+geom_246_2,"    @Test
+    void testBoundaries_handlerNotFound_2_oe() {
+        // arrange
+        final StubReadHandler r1 = new StubReadHandler(FMT_A);
+        manager.registerReadHandler(r1);
+
+        final StubGeometryInput inputA = new StubGeometryInput(""file.a"");
+        final StubGeometryInput inputB = new StubGeometryInput(""file.b"");
+        final StubGeometryInput inputNull = new StubGeometryInput(null);
+
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-4);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> manager.boundaries(inputB, null, precision));
+    }
+",BoundaryIOManagerTest::testBoundaries_handlerNotFound_2_oe
+geom_246_3,"    @Test
+    void testBoundaries_handlerNotFound_3_oe() {
+        // arrange
+        final StubReadHandler r1 = new StubReadHandler(FMT_A);
+        manager.registerReadHandler(r1);
+
+        final StubGeometryInput inputA = new StubGeometryInput(""file.a"");
+        final StubGeometryInput inputB = new StubGeometryInput(""file.b"");
+        final StubGeometryInput inputNull = new StubGeometryInput(null);
+
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-4);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> manager.boundaries(inputNull, null, precision));
+    }
+",BoundaryIOManagerTest::testBoundaries_handlerNotFound_3_oe
+geom_249_1,"    @Test
+    void testWrite_handlerNotFound_1_oe() {
+        // arrange
+        final StubWriteHandler w1 = new StubWriteHandler(FMT_A);
+        manager.registerWriteHandler(w1);
+
+        final StubGeometryOutput outputA = new StubGeometryOutput(""file.a"");
+        final StubGeometryOutput outputB = new StubGeometryOutput(""file.b"");
+        final StubGeometryOutput nullOutput = new StubGeometryOutput(null);
+
+        final TestBoundaryList src = BOUNDARY_LIST;
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> manager.write(src, outputA, FMT_B));
+    }
+",BoundaryIOManagerTest::testWrite_handlerNotFound_1_oe
+geom_249_2,"    @Test
+    void testWrite_handlerNotFound_2_oe() {
+        // arrange
+        final StubWriteHandler w1 = new StubWriteHandler(FMT_A);
+        manager.registerWriteHandler(w1);
+
+        final StubGeometryOutput outputA = new StubGeometryOutput(""file.a"");
+        final StubGeometryOutput outputB = new StubGeometryOutput(""file.b"");
+        final StubGeometryOutput nullOutput = new StubGeometryOutput(null);
+
+        final TestBoundaryList src = BOUNDARY_LIST;
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> manager.write(src, outputB, null));
+    }
+",BoundaryIOManagerTest::testWrite_handlerNotFound_2_oe
+geom_249_3,"    @Test
+    void testWrite_handlerNotFound_3_oe() {
+        // arrange
+        final StubWriteHandler w1 = new StubWriteHandler(FMT_A);
+        manager.registerWriteHandler(w1);
+
+        final StubGeometryOutput outputA = new StubGeometryOutput(""file.a"");
+        final StubGeometryOutput outputB = new StubGeometryOutput(""file.b"");
+        final StubGeometryOutput nullOutput = new StubGeometryOutput(null);
+
+        final TestBoundaryList src = BOUNDARY_LIST;
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> manager.write(src, nullOutput, null));
+    }
+",BoundaryIOManagerTest::testWrite_handlerNotFound_3_oe
+geom_288_1,"    @Test
+    void testGetCurrentTokenAsDouble_includedNumberFormatExceptionOnFailure_1_oe() {
+        // arrange
+        final SimpleTextParser p = parser(""abc"");
+        p.nextLine();
+
+        // act/assert
+        final Throwable exc = Assertions.assertThrows(IllegalStateException.class, () -> p.getCurrentTokenAsDouble());
+    }
+",SimpleTextParserTest::testGetCurrentTokenAsDouble_includedNumberFormatExceptionOnFailure_1_oe
+geom_291_1,"    @Test
+    void testGetCurrentTokenAsInt_includedNumberFormatExceptionOnFailure_1_oe() {
+        // arrange
+        final SimpleTextParser p = parser(""abc"");
+        p.nextLine();
+
+        // act/assert
+        final Throwable exc = Assertions.assertThrows(IllegalStateException.class, () -> p.getCurrentTokenAsInt());
+    }
+",SimpleTextParserTest::testGetCurrentTokenAsInt_includedNumberFormatExceptionOnFailure_1_oe
+geom_360_1,"    @Test
+    void testTryApplyCloseable_functionThrows_inputCloseThrows_1_oe() {
+        // arrange
+        final CloseCountInputStream in = new CloseCountInputStream(new CloseFailByteArrayInputStream(new byte[0]));
+
+        // act/assert
+        final Throwable thr = Assertions.assertThrows(UncheckedIOException.class, () -> { GeometryIOUtils.tryApplyCloseable(i -> { throw new IOException(""fn""); }, () -> in); });
+    }
+",GeometryIOUtilsTest::testTryApplyCloseable_functionThrows_inputCloseThrows_1_oe
+geom_379_4,"    @Test
+    void testFromPoints_invalidPoints_4_oe() {
+        // arrange
+        final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
+        final Point2S p2 = Point2S.of(Math.PI, Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> GreatCircles.fromPoints(p1, Point2S.NaN, TEST_PRECISION));
+    }
+",GreatCircleTest::testFromPoints_invalidPoints_4_oe
+geom_379_5,"    @Test
+    void testFromPoints_invalidPoints_5_oe() {
+        // arrange
+        final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
+        final Point2S p2 = Point2S.of(Math.PI, Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> GreatCircles.fromPoints(Point2S.NaN, p2, TEST_PRECISION));
+    }
+",GreatCircleTest::testFromPoints_invalidPoints_5_oe
+geom_379_6,"    @Test
+    void testFromPoints_invalidPoints_6_oe() {
+        // arrange
+        final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
+        final Point2S p2 = Point2S.of(Math.PI, Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> GreatCircles.fromPoints(p1, Point2S.of(Double.POSITIVE_INFINITY, Angle.PI_OVER_TWO), TEST_PRECISION));
+    }
+",GreatCircleTest::testFromPoints_invalidPoints_6_oe
+geom_379_7,"    @Test
+    void testFromPoints_invalidPoints_7_oe() {
+        // arrange
+        final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
+        final Point2S p2 = Point2S.of(Math.PI, Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> GreatCircles.fromPoints(Point2S.of(Double.POSITIVE_INFINITY, Angle.PI_OVER_TWO), p2, TEST_PRECISION));
+    }
+",GreatCircleTest::testFromPoints_invalidPoints_7_oe
+geom_425_1,"    @Test
+    void testGetBoundaryPaths_isUnmodifiable_1_oe() {
+        // arrange
+        final RegionBSPTree2S tree = RegionBSPTree2S.empty();
+        tree.insert(EQUATOR.span());
+
+        // act/assert
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> tree.getBoundaryPaths().add(GreatArcPath.empty()));
+    }
+",RegionBSPTree2STest::testGetBoundaryPaths_isUnmodifiable_1_oe
+geom_475_1,"    @Test
+    void testFromPoints_invalidPoints_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.of(1e-12, Angle.PI_OVER_TWO), TEST_PRECISION));
+    }
+",GreatArcTest::testFromPoints_invalidPoints_1_oe
+geom_475_2,"    @Test
+    void testFromPoints_invalidPoints_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.MINUS_I, TEST_PRECISION));
+    }
+",GreatArcTest::testFromPoints_invalidPoints_2_oe
+geom_514_1,"    @Test
+    void testParse_failure_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Point2S.parse(""abc""));
+    }
+",Point2STest::testParse_failure_1_oe
+geom_567_1,"    @Test
+    void testAdd_arc_differentCircle_1_oe() {
+        // arrange
+        final GreatCircle circle = GreatCircles.fromPoints(Point2S.MINUS_K, Point2S.MINUS_J, TEST_PRECISION);
+        final GreatCircle otherCircle = GreatCircles.fromPoints(Point2S.MINUS_K,
+                Point2S.of((1.5 * Math.PI) - 1e-2, Angle.PI_OVER_TWO), TEST_PRECISION);
+
+        final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle);
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  sub.add(otherCircle.arc(Point2S.PLUS_J, Point2S.of(1.5 * Math.PI, 0.75 * Math.PI))));
+    }
+",EmbeddedTreeSubGreatCircleTest::testAdd_arc_differentCircle_1_oe
+geom_569_1,"    @Test
+    void testAdd_subGreatCircle_otherCircle_1_oe() {
+        // arrange
+        final GreatCircle circle = GreatCircles.fromPoints(Point2S.MINUS_K, Point2S.MINUS_J, TEST_PRECISION);
+        final GreatCircle otherCircle = GreatCircles.fromPoints(Point2S.MINUS_K, Point2S.of((1.5 * Math.PI) - 1e-5, Angle.PI_OVER_TWO), TEST_PRECISION);
+
+        final EmbeddedTreeGreatCircleSubset sub = new EmbeddedTreeGreatCircleSubset(circle);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  sub.add(new EmbeddedTreeGreatCircleSubset(otherCircle, RegionBSPTree1S.full())));
+    }
+",EmbeddedTreeSubGreatCircleTest::testAdd_subGreatCircle_otherCircle_1_oe
+geom_585_1,"    @Test
+    void testFromVertices_invalidArguments_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> ConvexArea2S.fromVertices(Collections.singletonList(Point2S.PLUS_I), TEST_PRECISION));
+    }
+",ConvexArea2STest::testFromVertices_invalidArguments_1_oe
+geom_585_2,"    @Test
+    void testFromVertices_invalidArguments_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalStateException.class, () -> ConvexArea2S.fromVertices(Arrays.asList(Point2S.PLUS_I, Point2S.of(1e-16, Angle.PI_OVER_TWO)), TEST_PRECISION));
+    }
+",ConvexArea2STest::testFromVertices_invalidArguments_2_oe
+geom_618_1,"    @Test
+    void testOf_doubles_invalidArgs_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Double.NEGATIVE_INFINITY, 0, TEST_PRECISION));
+    }
+",AngularIntervalTest::testOf_doubles_invalidArgs_1_oe
+geom_618_2,"    @Test
+    void testOf_doubles_invalidArgs_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(0, Double.POSITIVE_INFINITY, TEST_PRECISION));
+    }
+",AngularIntervalTest::testOf_doubles_invalidArgs_2_oe
+geom_618_3,"    @Test
+    void testOf_doubles_invalidArgs_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, TEST_PRECISION));
+    }
+",AngularIntervalTest::testOf_doubles_invalidArgs_3_oe
+geom_618_4,"    @Test
+    void testOf_doubles_invalidArgs_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Double.NaN, 0, TEST_PRECISION));
+    }
+",AngularIntervalTest::testOf_doubles_invalidArgs_4_oe
+geom_618_5,"    @Test
+    void testOf_doubles_invalidArgs_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(0, Double.NaN, TEST_PRECISION));
+    }
+",AngularIntervalTest::testOf_doubles_invalidArgs_5_oe
+geom_618_6,"    @Test
+    void testOf_doubles_invalidArgs_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Double.NaN, Double.NaN, TEST_PRECISION));
+    }
+",AngularIntervalTest::testOf_doubles_invalidArgs_6_oe
+geom_619_1,"    @Test
+    void testOf_points_invalidArgs_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.of(Double.NEGATIVE_INFINITY), Point1S.ZERO, TEST_PRECISION));
+    }
+",AngularIntervalTest::testOf_points_invalidArgs_1_oe
+geom_619_2,"    @Test
+    void testOf_points_invalidArgs_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.ZERO, Point1S.of(Double.POSITIVE_INFINITY), TEST_PRECISION));
+    }
+",AngularIntervalTest::testOf_points_invalidArgs_2_oe
+geom_619_3,"    @Test
+    void testOf_points_invalidArgs_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.of(Double.POSITIVE_INFINITY), Point1S.of(Double.NEGATIVE_INFINITY), TEST_PRECISION));
+    }
+",AngularIntervalTest::testOf_points_invalidArgs_3_oe
+geom_619_4,"    @Test
+    void testOf_points_invalidArgs_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.NaN, Point1S.ZERO, TEST_PRECISION));
+    }
+",AngularIntervalTest::testOf_points_invalidArgs_4_oe
+geom_619_5,"    @Test
+    void testOf_points_invalidArgs_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.ZERO, Point1S.NaN, TEST_PRECISION));
+    }
+",AngularIntervalTest::testOf_points_invalidArgs_5_oe
+geom_619_6,"    @Test
+    void testOf_points_invalidArgs_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.NaN, Point1S.NaN, TEST_PRECISION));
+    }
+",AngularIntervalTest::testOf_points_invalidArgs_6_oe
+geom_620_1,"    @Test
+    void testOf_orientedPoints_invalidArgs_1_oe() {
+        // arrange
+        final CutAngle pt = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
+        final CutAngle nan = CutAngles.createPositiveFacing(Point1S.NaN, TEST_PRECISION);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(pt, nan));
+    }
+",AngularIntervalTest::testOf_orientedPoints_invalidArgs_1_oe
+geom_620_2,"    @Test
+    void testOf_orientedPoints_invalidArgs_2_oe() {
+        // arrange
+        final CutAngle pt = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
+        final CutAngle nan = CutAngles.createPositiveFacing(Point1S.NaN, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(nan, pt));
+    }
+",AngularIntervalTest::testOf_orientedPoints_invalidArgs_2_oe
+geom_620_3,"    @Test
+    void testOf_orientedPoints_invalidArgs_3_oe() {
+        // arrange
+        final CutAngle pt = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
+        final CutAngle nan = CutAngles.createPositiveFacing(Point1S.NaN, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(nan, nan));
+    }
+",AngularIntervalTest::testOf_orientedPoints_invalidArgs_3_oe
+geom_635_1,"    @Test
+    void testConvex_of_doubles_invalidArgs_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION));
+    }
+",AngularIntervalTest::testConvex_of_doubles_invalidArgs_1_oe
+geom_635_2,"    @Test
+    void testConvex_of_doubles_invalidArgs_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(0, Math.PI + 1e-1, TEST_PRECISION));
+    }
+",AngularIntervalTest::testConvex_of_doubles_invalidArgs_2_oe
+geom_635_3,"    @Test
+    void testConvex_of_doubles_invalidArgs_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Angle.PI_OVER_TWO, -Angle.PI_OVER_TWO + 1, TEST_PRECISION));
+    }
+",AngularIntervalTest::testConvex_of_doubles_invalidArgs_3_oe
+geom_635_4,"    @Test
+    void testConvex_of_doubles_invalidArgs_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(0, -0.5, TEST_PRECISION));
+    }
+",AngularIntervalTest::testConvex_of_doubles_invalidArgs_4_oe
+geom_636_1,"    @Test
+    void testConvex_of_points_invalidArgs_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Point1S.of(Double.NEGATIVE_INFINITY), Point1S.of(Double.POSITIVE_INFINITY), TEST_PRECISION));
+    }
+",AngularIntervalTest::testConvex_of_points_invalidArgs_1_oe
+geom_636_2,"    @Test
+    void testConvex_of_points_invalidArgs_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Point1S.of(0), Point1S.of(Math.PI + 1e-1), TEST_PRECISION));
+    }
+",AngularIntervalTest::testConvex_of_points_invalidArgs_2_oe
+geom_636_3,"    @Test
+    void testConvex_of_points_invalidArgs_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Point1S.of(Angle.PI_OVER_TWO), Point1S.of(-Angle.PI_OVER_TWO + 1), TEST_PRECISION));
+    }
+",AngularIntervalTest::testConvex_of_points_invalidArgs_3_oe
+geom_636_4,"    @Test
+    void testConvex_of_points_invalidArgs_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Point1S.of(0), Point1S.of(-0.5), TEST_PRECISION));
+    }
+",AngularIntervalTest::testConvex_of_points_invalidArgs_4_oe
+geom_637_1,"    @Test
+    void testConvex_of_cutAngles_invalidArgs_1_oe() {
+        // arrange
+        final CutAngle pt = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
+        final CutAngle nan = CutAngles.createPositiveFacing(Point1S.NaN, TEST_PRECISION);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(pt, nan));
+    }
+",AngularIntervalTest::testConvex_of_cutAngles_invalidArgs_1_oe
+geom_637_2,"    @Test
+    void testConvex_of_cutAngles_invalidArgs_2_oe() {
+        // arrange
+        final CutAngle pt = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
+        final CutAngle nan = CutAngles.createPositiveFacing(Point1S.NaN, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(nan, pt));
+    }
+",AngularIntervalTest::testConvex_of_cutAngles_invalidArgs_2_oe
+geom_637_3,"    @Test
+    void testConvex_of_cutAngles_invalidArgs_3_oe() {
+        // arrange
+        final CutAngle pt = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
+        final CutAngle nan = CutAngles.createPositiveFacing(Point1S.NaN, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(nan, nan));
+    }
+",AngularIntervalTest::testConvex_of_cutAngles_invalidArgs_3_oe
+geom_637_4,"    @Test
+    void testConvex_of_cutAngles_invalidArgs_4_oe() {
+        // arrange
+        final CutAngle pt = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
+        final CutAngle nan = CutAngles.createPositiveFacing(Point1S.NaN, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of( CutAngles.createNegativeFacing(1, TEST_PRECISION), CutAngles.createPositiveFacing(0.5, TEST_PRECISION)));
+    }
+",AngularIntervalTest::testConvex_of_cutAngles_invalidArgs_4_oe
+geom_713_1,"    @Test
+    void testAbove_nonFinite_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Point1S.of(Double.POSITIVE_INFINITY).above(Point1S.ZERO));
+    }
+",Point1STest::testAbove_nonFinite_1_oe
+geom_713_2,"    @Test
+    void testAbove_nonFinite_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Point1S.of(Double.NEGATIVE_INFINITY).above(Point1S.ZERO));
+    }
+",Point1STest::testAbove_nonFinite_2_oe
+geom_713_3,"    @Test
+    void testAbove_nonFinite_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Point1S.of(Double.NaN).above(Point1S.ZERO));
+    }
+",Point1STest::testAbove_nonFinite_3_oe
+geom_715_1,"    @Test
+    void testParse_failure_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Point1S.parse(""abc""));
+    }
+",Point1STest::testParse_failure_1_oe
+geom_725_1,"    @Test
+    void testGetBoundaries_listCannotBeModified_1_oe() {
+        // arrange
+        final List<TestLineSegment> boundaries = new ArrayList<>();
+        boundaries.add(new TestLineSegment(0, 0, 1, 1));
+
+        final BoundaryList<TestPoint2D, TestLineSegment> list = new BoundaryList<>(boundaries);
+        final List<TestLineSegment> items = list.getBoundaries();
+        final TestLineSegment segment = new TestLineSegment(1, 1, 0, 2);
+
+        // act/assert
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> items.add(segment));
+    }
+",BoundaryListTest::testGetBoundaries_listCannotBeModified_1_oe
+geom_731_1,"    @Test
+    void testBoundaries_areUnmodifiable_1_oe() {
+        // arrange
+        final StubRegion region = new StubRegion(new ArrayList<>());
+        final List<TestLineSegment> boundaries = region.getBoundaries();
+        final TestLineSegment span = TestLine.X_AXIS.span();
+
+
+        // act/assert
+        Assertions.assertThrows(UnsupportedOperationException.class, () ->  boundaries.add(span));
+    }
+",AbstractConvexHyperplaneBoundedRegionTest::testBoundaries_areUnmodifiable_1_oe
+geom_756_1,"    @Test
+    void testConvexRegionBoundaryBuilder_1_oe() {
+        // arrange
+        final List<TestLine> opposites = Arrays.asList(TestLine.X_AXIS, TestLine.X_AXIS.reverse());
+        final List<TestLine> nonConvex = Arrays.asList(
+                TestLine.X_AXIS,
+                TestLine.Y_AXIS,
+                new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, -1)),
+                new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, -2)));
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> StubRegion.fromBounds(opposites));
+    }
+",AbstractConvexHyperplaneBoundedRegionTest::testConvexRegionBoundaryBuilder_1_oe
+geom_756_2,"    @Test
+    void testConvexRegionBoundaryBuilder_2_oe() {
+        // arrange
+        final List<TestLine> opposites = Arrays.asList(TestLine.X_AXIS, TestLine.X_AXIS.reverse());
+        final List<TestLine> nonConvex = Arrays.asList(
+                TestLine.X_AXIS,
+                TestLine.Y_AXIS,
+                new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, -1)),
+                new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, -2)));
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> StubRegion.fromBounds(nonConvex));
+    }
+",AbstractConvexHyperplaneBoundedRegionTest::testConvexRegionBoundaryBuilder_2_oe
+geom_949_2,"    @Test
+    void testThrowsNoSuchElement_2_oe() {
+        // arrange
+        final List<Integer> input = Collections.emptyList();
+        final EvenCharIterator it = new EvenCharIterator(input.iterator());
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(NoSuchElementException.class, it::next);
+    }
+",IteratorTransformTest::testThrowsNoSuchElement_2_oe
+geom_987_1,"    @Test
+    void testParse_failure_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> PolarCoordinates.parse(""abc""));
+    }
+",PolarCoordinatesTest::testParse_failure_1_oe
+geom_1009_1,"    @Test
+    void toRegion_boundingBoxTooSmall_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Bounds2D.from(Vector2D.ZERO, Vector2D.of(1e-12, 1e-12)).toRegion(TEST_PRECISION));
+    }
+",Bounds2DTest::toRegion_boundingBoxTooSmall_1_oe
+geom_1062_1,"    @Test
+    void testFrom_invalidFunction_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AffineTransformMatrix2D.from(v -> v.multiply(0)));
+    }
+",AffineTransformMatrix2DTest::testFrom_invalidFunction_1_oe
+geom_1105_1,"    @Test
+    void testApplyDirection_illegalNorm_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AffineTransformMatrix2D.createScale(1, 0).applyDirection(Vector2D.Unit.PLUS_Y));
+    }
+",AffineTransformMatrix2DTest::testApplyDirection_illegalNorm_1_oe
+geom_1105_2,"    @Test
+    void testApplyDirection_illegalNorm_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AffineTransformMatrix2D.createScale(2).applyDirection(Vector2D.ZERO));
+    }
+",AffineTransformMatrix2DTest::testApplyDirection_illegalNorm_2_oe
+geom_1122_1,"    @Test
+    void testNormalTransform_nonInvertible_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> AffineTransformMatrix2D.createScale(0).normalTransform());
+    }
+",AffineTransformMatrix2DTest::testNormalTransform_nonInvertible_1_oe
+geom_1127_1,"    @Test
+    void testConstants_normalize_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.ZERO::normalize);
+    }
+",Vector2DTest::testConstants_normalize_1_oe
+geom_1127_2,"    @Test
+    void testConstants_normalize_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.NaN::normalize);
+    }
+",Vector2DTest::testConstants_normalize_2_oe
+geom_1127_3,"    @Test
+    void testConstants_normalize_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.POSITIVE_INFINITY::normalize);
+    }
+",Vector2DTest::testConstants_normalize_3_oe
+geom_1127_4,"    @Test
+    void testConstants_normalize_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.NEGATIVE_INFINITY::normalize);
+    }
+",Vector2DTest::testConstants_normalize_4_oe
+geom_1139_1,"    @Test
+    void testWithNorm_illegalNorm_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.ZERO.withNorm(2.0));
+    }
+",Vector2DTest::testWithNorm_illegalNorm_1_oe
+geom_1139_2,"    @Test
+    void testWithNorm_illegalNorm_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.NaN.withNorm(2.0));
+    }
+",Vector2DTest::testWithNorm_illegalNorm_2_oe
+geom_1139_3,"    @Test
+    void testWithNorm_illegalNorm_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.POSITIVE_INFINITY.withNorm(2.0));
+    }
+",Vector2DTest::testWithNorm_illegalNorm_3_oe
+geom_1139_4,"    @Test
+    void testWithNorm_illegalNorm_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.NEGATIVE_INFINITY.withNorm(2.0));
+    }
+",Vector2DTest::testWithNorm_illegalNorm_4_oe
+geom_1149_1,"    @Test
+    void testOrthogonal_illegalNorm_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.ZERO::orthogonal);
+    }
+",Vector2DTest::testOrthogonal_illegalNorm_1_oe
+geom_1149_2,"    @Test
+    void testOrthogonal_illegalNorm_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.NaN::orthogonal);
+    }
+",Vector2DTest::testOrthogonal_illegalNorm_2_oe
+geom_1149_3,"    @Test
+    void testOrthogonal_illegalNorm_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.POSITIVE_INFINITY::orthogonal);
+    }
+",Vector2DTest::testOrthogonal_illegalNorm_3_oe
+geom_1149_4,"    @Test
+    void testOrthogonal_illegalNorm_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.NEGATIVE_INFINITY::orthogonal);
+    }
+",Vector2DTest::testOrthogonal_illegalNorm_4_oe
+geom_1150_1,"    @Test
+    void testOrthogonal_givenDirection_illegalNorm_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.ZERO.orthogonal(Vector2D.Unit.PLUS_X));
+    }
+",Vector2DTest::testOrthogonal_givenDirection_illegalNorm_1_oe
+geom_1150_2,"    @Test
+    void testOrthogonal_givenDirection_illegalNorm_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.NaN.orthogonal(Vector2D.Unit.PLUS_X));
+    }
+",Vector2DTest::testOrthogonal_givenDirection_illegalNorm_2_oe
+geom_1150_3,"    @Test
+    void testOrthogonal_givenDirection_illegalNorm_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.POSITIVE_INFINITY.orthogonal(Vector2D.Unit.PLUS_X));
+    }
+",Vector2DTest::testOrthogonal_givenDirection_illegalNorm_3_oe
+geom_1150_4,"    @Test
+    void testOrthogonal_givenDirection_illegalNorm_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.NEGATIVE_INFINITY.orthogonal(Vector2D.Unit.PLUS_X));
+    }
+",Vector2DTest::testOrthogonal_givenDirection_illegalNorm_4_oe
+geom_1150_5,"    @Test
+    void testOrthogonal_givenDirection_illegalNorm_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.Unit.PLUS_X.orthogonal(Vector2D.ZERO));
+    }
+",Vector2DTest::testOrthogonal_givenDirection_illegalNorm_5_oe
+geom_1150_6,"    @Test
+    void testOrthogonal_givenDirection_illegalNorm_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.Unit.PLUS_X.orthogonal(Vector2D.NaN));
+    }
+",Vector2DTest::testOrthogonal_givenDirection_illegalNorm_6_oe
+geom_1150_7,"    @Test
+    void testOrthogonal_givenDirection_illegalNorm_7_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.Unit.PLUS_X.orthogonal(Vector2D.POSITIVE_INFINITY));
+    }
+",Vector2DTest::testOrthogonal_givenDirection_illegalNorm_7_oe
+geom_1150_8,"    @Test
+    void testOrthogonal_givenDirection_illegalNorm_8_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.Unit.PLUS_X.orthogonal(Vector2D.NEGATIVE_INFINITY));
+    }
+",Vector2DTest::testOrthogonal_givenDirection_illegalNorm_8_oe
+geom_1151_1,"    @Test
+    void testOrthogonal_givenDirection_directionIsCollinear_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.Unit.PLUS_X.orthogonal(Vector2D.Unit.PLUS_X));
+    }
+",Vector2DTest::testOrthogonal_givenDirection_directionIsCollinear_1_oe
+geom_1151_2,"    @Test
+    void testOrthogonal_givenDirection_directionIsCollinear_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.Unit.PLUS_X.orthogonal(Vector2D.Unit.MINUS_X));
+    }
+",Vector2DTest::testOrthogonal_givenDirection_directionIsCollinear_2_oe
+geom_1151_3,"    @Test
+    void testOrthogonal_givenDirection_directionIsCollinear_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.of(1.0, 1.0).orthogonal(Vector2D.of(2.0, 2.0)));
+    }
+",Vector2DTest::testOrthogonal_givenDirection_directionIsCollinear_3_oe
+geom_1151_4,"    @Test
+    void testOrthogonal_givenDirection_directionIsCollinear_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.of(-1.01, -1.01).orthogonal(Vector2D.of(20.1, 20.1)));
+    }
+",Vector2DTest::testOrthogonal_givenDirection_directionIsCollinear_4_oe
+geom_1153_1,"    @Test
+    void testAngle_illegalNorm_1_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1.0, 1.0);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.ZERO.angle(v));
+    }
+",Vector2DTest::testAngle_illegalNorm_1_oe
+geom_1153_2,"    @Test
+    void testAngle_illegalNorm_2_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1.0, 1.0);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.NaN.angle(v));
+    }
+",Vector2DTest::testAngle_illegalNorm_2_oe
+geom_1153_3,"    @Test
+    void testAngle_illegalNorm_3_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1.0, 1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.POSITIVE_INFINITY.angle(v));
+    }
+",Vector2DTest::testAngle_illegalNorm_3_oe
+geom_1153_4,"    @Test
+    void testAngle_illegalNorm_4_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1.0, 1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.NEGATIVE_INFINITY.angle(v));
+    }
+",Vector2DTest::testAngle_illegalNorm_4_oe
+geom_1153_5,"    @Test
+    void testAngle_illegalNorm_5_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1.0, 1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.angle(Vector2D.ZERO));
+    }
+",Vector2DTest::testAngle_illegalNorm_5_oe
+geom_1153_6,"    @Test
+    void testAngle_illegalNorm_6_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1.0, 1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.angle(Vector2D.NaN));
+    }
+",Vector2DTest::testAngle_illegalNorm_6_oe
+geom_1153_7,"    @Test
+    void testAngle_illegalNorm_7_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1.0, 1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.angle(Vector2D.POSITIVE_INFINITY));
+    }
+",Vector2DTest::testAngle_illegalNorm_7_oe
+geom_1153_8,"    @Test
+    void testAngle_illegalNorm_8_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1.0, 1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.angle(Vector2D.NEGATIVE_INFINITY));
+    }
+",Vector2DTest::testAngle_illegalNorm_8_oe
+geom_1156_1,"    @Test
+    void testProject_baseHasIllegalNorm_1_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1.0, 1.0);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.project(Vector2D.ZERO));
+    }
+",Vector2DTest::testProject_baseHasIllegalNorm_1_oe
+geom_1156_2,"    @Test
+    void testProject_baseHasIllegalNorm_2_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1.0, 1.0);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.project(Vector2D.NaN));
+    }
+",Vector2DTest::testProject_baseHasIllegalNorm_2_oe
+geom_1156_3,"    @Test
+    void testProject_baseHasIllegalNorm_3_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1.0, 1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.project(Vector2D.POSITIVE_INFINITY));
+    }
+",Vector2DTest::testProject_baseHasIllegalNorm_3_oe
+geom_1156_4,"    @Test
+    void testProject_baseHasIllegalNorm_4_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1.0, 1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.project(Vector2D.NEGATIVE_INFINITY));
+    }
+",Vector2DTest::testProject_baseHasIllegalNorm_4_oe
+geom_1157_1,"    @Test
+    void testReject_baseHasIllegalNorm_1_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1.0, 1.0);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.reject(Vector2D.ZERO));
+    }
+",Vector2DTest::testReject_baseHasIllegalNorm_1_oe
+geom_1157_2,"    @Test
+    void testReject_baseHasIllegalNorm_2_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1.0, 1.0);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.reject(Vector2D.NaN));
+    }
+",Vector2DTest::testReject_baseHasIllegalNorm_2_oe
+geom_1157_3,"    @Test
+    void testReject_baseHasIllegalNorm_3_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1.0, 1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.reject(Vector2D.POSITIVE_INFINITY));
+    }
+",Vector2DTest::testReject_baseHasIllegalNorm_3_oe
+geom_1157_4,"    @Test
+    void testReject_baseHasIllegalNorm_4_oe() {
+        // arrange
+        final Vector2D v = Vector2D.of(1.0, 1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.reject(Vector2D.NEGATIVE_INFINITY));
+    }
+",Vector2DTest::testReject_baseHasIllegalNorm_4_oe
+geom_1158_1,"    @Test
+    void testDirectionTo_illegalNorm_1_oe() {
+        // arrange
+        final Vector2D p = Vector2D.of(1, 2);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.ZERO.directionTo(Vector2D.ZERO));
+    }
+",Vector2DTest::testDirectionTo_illegalNorm_1_oe
+geom_1158_2,"    @Test
+    void testDirectionTo_illegalNorm_2_oe() {
+        // arrange
+        final Vector2D p = Vector2D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> p.directionTo(p));
+    }
+",Vector2DTest::testDirectionTo_illegalNorm_2_oe
+geom_1158_3,"    @Test
+    void testDirectionTo_illegalNorm_3_oe() {
+        // arrange
+        final Vector2D p = Vector2D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> p.directionTo(Vector2D.NaN));
+    }
+",Vector2DTest::testDirectionTo_illegalNorm_3_oe
+geom_1158_4,"    @Test
+    void testDirectionTo_illegalNorm_4_oe() {
+        // arrange
+        final Vector2D p = Vector2D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.NEGATIVE_INFINITY.directionTo(p));
+    }
+",Vector2DTest::testDirectionTo_illegalNorm_4_oe
+geom_1158_5,"    @Test
+    void testDirectionTo_illegalNorm_5_oe() {
+        // arrange
+        final Vector2D p = Vector2D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> p.directionTo(Vector2D.POSITIVE_INFINITY));
+    }
+",Vector2DTest::testDirectionTo_illegalNorm_5_oe
+geom_1165_1,"    @Test
+    void testParse_failure_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.parse(""abc""));
+    }
+",Vector2DTest::testParse_failure_1_oe
+geom_1166_1,"    @Test
+    void testOf_arrayArg_invalidDimensions_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class,     () -> Vector2D.of(new double[] {0.0}));
+    }
+",Vector2DTest::testOf_arrayArg_invalidDimensions_1_oe
+geom_1168_1,"    @Test
+    void testUnitFrom_illegalNorm_1_oe() {
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.Unit.from(0.0, 0.0));
+    }
+",Vector2DTest::testUnitFrom_illegalNorm_1_oe
+geom_1168_2,"    @Test
+    void testUnitFrom_illegalNorm_2_oe() {
+
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.Unit.from(Double.NaN, 1.0));
+    }
+",Vector2DTest::testUnitFrom_illegalNorm_2_oe
+geom_1168_3,"    @Test
+    void testUnitFrom_illegalNorm_3_oe() {
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.Unit.from(1.0, Double.NEGATIVE_INFINITY));
+    }
+",Vector2DTest::testUnitFrom_illegalNorm_3_oe
+geom_1168_4,"    @Test
+    void testUnitFrom_illegalNorm_4_oe() {
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector2D.Unit.from(1.0, Double.POSITIVE_INFINITY));
+    }
+",Vector2DTest::testUnitFrom_illegalNorm_4_oe
+geom_1249_1,"    @Test
+    void testGetBoundaryPaths_isUnmodifiable_1_oe() {
+        // arrange
+        final RegionBSPTree2D tree = RegionBSPTree2D.empty();
+        tree.insert(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION));
+
+        // act/assert
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> tree.getBoundaryPaths().add(LinePath.builder(null).build()));
+    }
+",RegionBSPTree2DTest::testGetBoundaryPaths_isUnmodifiable_1_oe
+geom_1379_1,"    @Test
+    void testFromBounds_duplicateLines_differentOrientation_1_oe() {
+        // arrange
+        final Line a = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
+        final Line b = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
+        final Line c = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> ConvexArea.fromBounds(a, b, c));
+    }
+",ConvexAreaTest::testFromBounds_duplicateLines_differentOrientation_1_oe
+geom_1380_1,"    @Test
+    void testFromBounds_boundsDoNotProduceAConvexRegion_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> ConvexArea.fromBounds(Arrays.asList( Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION), Lines.fromPointAndAngle(Vector2D.of(0, -1), Math.PI, TEST_PRECISION), Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION) )));
+    }
+",ConvexAreaTest::testFromBounds_boundsDoNotProduceAConvexRegion_1_oe
+geom_1389_1,"    @Test
+    void testAdd_argumentsFromDifferentLine_1_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
+        final Line otherLine = Lines.fromPointAndAngle(Vector2D.of(0, 1), 1e-2, TEST_PRECISION);
+
+        final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(line);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> subset.add(Lines.subsetFromInterval(otherLine, 0, 1)));
+    }
+",EmbeddedTreeLineSubsetTest::testAdd_argumentsFromDifferentLine_1_oe
+geom_1389_2,"    @Test
+    void testAdd_argumentsFromDifferentLine_2_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
+        final Line otherLine = Lines.fromPointAndAngle(Vector2D.of(0, 1), 1e-2, TEST_PRECISION);
+
+        final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(line);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> subset.add(new EmbeddedTreeLineSubset(otherLine)));
+    }
+",EmbeddedTreeLineSubsetTest::testAdd_argumentsFromDifferentLine_2_oe
+geom_1423_1,"    @Test
+    void testFromTransformedUnitSquare_zeroSizeRegion_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.fromTransformedUnitSquare(AffineTransformMatrix2D.createScale(Vector2D.of(1e-16, 1)), TEST_PRECISION));
+    }
+",ParallelogramTest::testFromTransformedUnitSquare_zeroSizeRegion_1_oe
+geom_1423_2,"    @Test
+    void testFromTransformedUnitSquare_zeroSizeRegion_2_oe() {
+        // act/assert
+        // removed other assertion
+
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.fromTransformedUnitSquare(AffineTransformMatrix2D.createScale(Vector2D.of(1, 1e-16)), TEST_PRECISION));
+    }
+",ParallelogramTest::testFromTransformedUnitSquare_zeroSizeRegion_2_oe
+geom_1426_1,"    @Test
+    void testAxisAligned_illegalArgs_1_oe() {
+        // act/assert
+
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(1, 3), TEST_PRECISION));
+    }
+",ParallelogramTest::testAxisAligned_illegalArgs_1_oe
+geom_1426_2,"    @Test
+    void testAxisAligned_illegalArgs_2_oe() {
+        // act/assert
+
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.axisAligned(Vector2D.of(1, 1), Vector2D.of(3, 1), TEST_PRECISION));
+    }
+",ParallelogramTest::testAxisAligned_illegalArgs_2_oe
+geom_1426_3,"    @Test
+    void testAxisAligned_illegalArgs_3_oe() {
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Parallelogram.axisAligned(Vector2D.of(2, 3), Vector2D.of(2, 3), TEST_PRECISION));
+    }
+",ParallelogramTest::testAxisAligned_illegalArgs_3_oe
+geom_1433_1,"    @Test
+    void testFrom_illegalCenter_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.of(Double.POSITIVE_INFINITY, 1), 1, TEST_PRECISION));
+    }
+",CircleTest::testFrom_illegalCenter_1_oe
+geom_1433_2,"    @Test
+    void testFrom_illegalCenter_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.of(Double.NaN, 1), 1, TEST_PRECISION));
+    }
+",CircleTest::testFrom_illegalCenter_2_oe
+geom_1434_1,"    @Test
+    void testFrom_illegalRadius_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.ZERO, -1, TEST_PRECISION));
+    }
+",CircleTest::testFrom_illegalRadius_1_oe
+geom_1434_2,"    @Test
+    void testFrom_illegalRadius_2_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.ZERO, 0, TEST_PRECISION));
+    }
+",CircleTest::testFrom_illegalRadius_2_oe
+geom_1434_3,"    @Test
+    void testFrom_illegalRadius_3_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.ZERO, Double.POSITIVE_INFINITY, TEST_PRECISION));
+    }
+",CircleTest::testFrom_illegalRadius_3_oe
+geom_1434_4,"    @Test
+    void testFrom_illegalRadius_4_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.ZERO, Double.NaN, TEST_PRECISION));
+    }
+",CircleTest::testFrom_illegalRadius_4_oe
+geom_1434_5,"    @Test
+    void testFrom_illegalRadius_5_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.ZERO, 1e-3, precision));
+    }
+",CircleTest::testFrom_illegalRadius_5_oe
+geom_1487_1,"    @Test
+    void testFrom_segmentsNotConnected_1_oe() {
+        // arrange
+        final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
+        final Segment b = Lines.segmentFromPoints(Vector2D.of(1.01, 0), Vector2D.of(1, 0), TEST_PRECISION);
+
+        final LineConvexSubset c = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION).span();
+        final LineConvexSubset d = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION).span();
+
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> LinePath.from(a, b));
+    }
+",LinePathTest::testFrom_segmentsNotConnected_1_oe
+geom_1487_2,"    @Test
+    void testFrom_segmentsNotConnected_2_oe() {
+        // arrange
+        final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
+        final Segment b = Lines.segmentFromPoints(Vector2D.of(1.01, 0), Vector2D.of(1, 0), TEST_PRECISION);
+
+        final LineConvexSubset c = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION).span();
+        final LineConvexSubset d = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION).span();
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalStateException.class, () -> LinePath.from(c, b));
+    }
+",LinePathTest::testFrom_segmentsNotConnected_2_oe
+geom_1487_3,"    @Test
+    void testFrom_segmentsNotConnected_3_oe() {
+        // arrange
+        final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
+        final Segment b = Lines.segmentFromPoints(Vector2D.of(1.01, 0), Vector2D.of(1, 0), TEST_PRECISION);
+
+        final LineConvexSubset c = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION).span();
+        final LineConvexSubset d = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION).span();
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalStateException.class, () -> LinePath.from(a, d));
+    }
+",LinePathTest::testFrom_segmentsNotConnected_3_oe
+geom_1489_1,"    @Test
+    void testFromVertices_singleVertex_failsToCreatePath_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> LinePath.fromVertices(Collections.singletonList(Vector2D.ZERO), TEST_PRECISION));
+    }
+",LinePathTest::testFromVertices_singleVertex_failsToCreatePath_1_oe
+geom_1494_1,"    @Test
+    void testFromVertexLoop_singleVertex_failsToCreatePath_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> LinePath.fromVertexLoop(Collections.singletonList(Vector2D.ZERO), TEST_PRECISION));
+    }
+",LinePathTest::testFromVertexLoop_singleVertex_failsToCreatePath_1_oe
+geom_1498_3,"    @Test
+    void testGetElements_listIsNotModifiable_3_oe() {
+        // arrange
+        final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
+        final List<LineConvexSubset> inputSegments = new ArrayList<>(Collections.singletonList(a));
+
+        // act
+        final LinePath path = LinePath.from(inputSegments);
+
+        inputSegments.clear();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> path.getElements().add(a));
+    }
+",LinePathTest::testGetElements_listIsNotModifiable_3_oe
+geom_1518_1,"    @Test
+    void testBuilder_prependAndAppend_disconnectedSegments_1_oe() {
+        // arrange
+        final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
+
+        final Builder builder = LinePath.builder(null);
+        builder.append(a);
+
+        // act
+        Assertions.assertThrows(IllegalStateException.class, () -> builder.append(a));
+    }
+",LinePathTest::testBuilder_prependAndAppend_disconnectedSegments_1_oe
+geom_1518_2,"    @Test
+    void testBuilder_prependAndAppend_disconnectedSegments_2_oe() {
+        // arrange
+        final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
+
+        final Builder builder = LinePath.builder(null);
+        builder.append(a);
+
+        // act
+        // removed other assertion
+        Assertions.assertThrows(IllegalStateException.class, () -> builder.prepend(a));
+    }
+",LinePathTest::testBuilder_prependAndAppend_disconnectedSegments_2_oe
+geom_1521_1,"    @Test
+    void testBuilder_prependAndAppend_addingToInfinitePath_1_oe() {
+        // arrange
+        final Vector2D p = Vector2D.Unit.PLUS_X;
+        final Builder builder = LinePath.builder(TEST_PRECISION);
+
+        builder.append(Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION).span());
+
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> builder.prepend(p));
+    }
+",LinePathTest::testBuilder_prependAndAppend_addingToInfinitePath_1_oe
+geom_1521_2,"    @Test
+    void testBuilder_prependAndAppend_addingToInfinitePath_2_oe() {
+        // arrange
+        final Vector2D p = Vector2D.Unit.PLUS_X;
+        final Builder builder = LinePath.builder(TEST_PRECISION);
+
+        builder.append(Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION).span());
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalStateException.class, () -> builder.append(p));
+    }
+",LinePathTest::testBuilder_prependAndAppend_addingToInfinitePath_2_oe
+geom_1538_1,"    @Test
+    void testCreateRotationVector_invalidVectors_1_oe() {
+        // arrange
+        final Vector2D vec = Vector2D.of(1, 1);
+
+        final Vector2D zero = Vector2D.ZERO;
+        final Vector2D nan = Vector2D.NaN;
+        final Vector2D posInf = Vector2D.POSITIVE_INFINITY;
+        final Vector2D negInf = Vector2D.POSITIVE_INFINITY;
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(zero, vec));
+    }
+",Rotation2DTest::testCreateRotationVector_invalidVectors_1_oe
+geom_1538_2,"    @Test
+    void testCreateRotationVector_invalidVectors_2_oe() {
+        // arrange
+        final Vector2D vec = Vector2D.of(1, 1);
+
+        final Vector2D zero = Vector2D.ZERO;
+        final Vector2D nan = Vector2D.NaN;
+        final Vector2D posInf = Vector2D.POSITIVE_INFINITY;
+        final Vector2D negInf = Vector2D.POSITIVE_INFINITY;
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(vec, zero));
+    }
+",Rotation2DTest::testCreateRotationVector_invalidVectors_2_oe
+geom_1538_3,"    @Test
+    void testCreateRotationVector_invalidVectors_3_oe() {
+        // arrange
+        final Vector2D vec = Vector2D.of(1, 1);
+
+        final Vector2D zero = Vector2D.ZERO;
+        final Vector2D nan = Vector2D.NaN;
+        final Vector2D posInf = Vector2D.POSITIVE_INFINITY;
+        final Vector2D negInf = Vector2D.POSITIVE_INFINITY;
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(nan, vec));
+    }
+",Rotation2DTest::testCreateRotationVector_invalidVectors_3_oe
+geom_1538_4,"    @Test
+    void testCreateRotationVector_invalidVectors_4_oe() {
+        // arrange
+        final Vector2D vec = Vector2D.of(1, 1);
+
+        final Vector2D zero = Vector2D.ZERO;
+        final Vector2D nan = Vector2D.NaN;
+        final Vector2D posInf = Vector2D.POSITIVE_INFINITY;
+        final Vector2D negInf = Vector2D.POSITIVE_INFINITY;
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(vec, nan));
+    }
+",Rotation2DTest::testCreateRotationVector_invalidVectors_4_oe
+geom_1538_5,"    @Test
+    void testCreateRotationVector_invalidVectors_5_oe() {
+        // arrange
+        final Vector2D vec = Vector2D.of(1, 1);
+
+        final Vector2D zero = Vector2D.ZERO;
+        final Vector2D nan = Vector2D.NaN;
+        final Vector2D posInf = Vector2D.POSITIVE_INFINITY;
+        final Vector2D negInf = Vector2D.POSITIVE_INFINITY;
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(posInf, vec));
+    }
+",Rotation2DTest::testCreateRotationVector_invalidVectors_5_oe
+geom_1538_6,"    @Test
+    void testCreateRotationVector_invalidVectors_6_oe() {
+        // arrange
+        final Vector2D vec = Vector2D.of(1, 1);
+
+        final Vector2D zero = Vector2D.ZERO;
+        final Vector2D nan = Vector2D.NaN;
+        final Vector2D posInf = Vector2D.POSITIVE_INFINITY;
+        final Vector2D negInf = Vector2D.POSITIVE_INFINITY;
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(vec, negInf));
+    }
+",Rotation2DTest::testCreateRotationVector_invalidVectors_6_oe
+geom_1538_7,"    @Test
+    void testCreateRotationVector_invalidVectors_7_oe() {
+        // arrange
+        final Vector2D vec = Vector2D.of(1, 1);
+
+        final Vector2D zero = Vector2D.ZERO;
+        final Vector2D nan = Vector2D.NaN;
+        final Vector2D posInf = Vector2D.POSITIVE_INFINITY;
+        final Vector2D negInf = Vector2D.POSITIVE_INFINITY;
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(zero, nan));
+    }
+",Rotation2DTest::testCreateRotationVector_invalidVectors_7_oe
+geom_1538_8,"    @Test
+    void testCreateRotationVector_invalidVectors_8_oe() {
+        // arrange
+        final Vector2D vec = Vector2D.of(1, 1);
+
+        final Vector2D zero = Vector2D.ZERO;
+        final Vector2D nan = Vector2D.NaN;
+        final Vector2D posInf = Vector2D.POSITIVE_INFINITY;
+        final Vector2D negInf = Vector2D.POSITIVE_INFINITY;
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(negInf, posInf));
+    }
+",Rotation2DTest::testCreateRotationVector_invalidVectors_8_oe
+geom_1542_1,"    @Test
+    void testFromNormal_illegalArguments_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromNormal(Vector3D.ZERO, TEST_PRECISION));
+    }
+",PlaneTest::testFromNormal_illegalArguments_1_oe
+geom_1543_1,"    @Test
+    void testFromPointAndNormal_illegalArguments_1_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPointAndNormal(pt, Vector3D.ZERO, TEST_PRECISION));
+    }
+",PlaneTest::testFromPointAndNormal_illegalArguments_1_oe
+geom_1545_1,"    @Test
+    void testFromPoints_illegalArguments_1_oe() {
+        // arrange
+        final Vector3D a = Vector3D.of(1, 0, 0);
+        final Vector3D b = Vector3D.of(0, 1, 0);
+
+        // act/assert
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPoints(a, a, a, TEST_PRECISION));
+    }
+",PlaneTest::testFromPoints_illegalArguments_1_oe
+geom_1545_2,"    @Test
+    void testFromPoints_illegalArguments_2_oe() {
+        // arrange
+        final Vector3D a = Vector3D.of(1, 0, 0);
+        final Vector3D b = Vector3D.of(0, 1, 0);
+
+        // act/assert
+
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPoints(a, a, b, TEST_PRECISION));
+    }
+",PlaneTest::testFromPoints_illegalArguments_2_oe
+geom_1545_3,"    @Test
+    void testFromPoints_illegalArguments_3_oe() {
+        // arrange
+        final Vector3D a = Vector3D.of(1, 0, 0);
+        final Vector3D b = Vector3D.of(0, 1, 0);
+
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPoints(a, b, a, TEST_PRECISION));
+    }
+",PlaneTest::testFromPoints_illegalArguments_3_oe
+geom_1545_4,"    @Test
+    void testFromPoints_illegalArguments_4_oe() {
+        // arrange
+        final Vector3D a = Vector3D.of(1, 0, 0);
+        final Vector3D b = Vector3D.of(0, 1, 0);
+
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPoints(b, a, a, TEST_PRECISION));
+    }
+",PlaneTest::testFromPoints_illegalArguments_4_oe
+geom_1548_1,"    @Test
+    void testFromPoints_collection_illegalArguments_1_oe() {
+        // arrange
+        final Vector3D a = Vector3D.ZERO;
+        final Vector3D b = Vector3D.Unit.PLUS_X;
+
+        // act/assert
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPoints(Collections.emptyList(), TEST_PRECISION));
+    }
+",PlaneTest::testFromPoints_collection_illegalArguments_1_oe
+geom_1548_2,"    @Test
+    void testFromPoints_collection_illegalArguments_2_oe() {
+        // arrange
+        final Vector3D a = Vector3D.ZERO;
+        final Vector3D b = Vector3D.Unit.PLUS_X;
+
+        // act/assert
+
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPoints(Collections.singletonList(a), TEST_PRECISION));
+    }
+",PlaneTest::testFromPoints_collection_illegalArguments_2_oe
+geom_1548_3,"    @Test
+    void testFromPoints_collection_illegalArguments_3_oe() {
+        // arrange
+        final Vector3D a = Vector3D.ZERO;
+        final Vector3D b = Vector3D.Unit.PLUS_X;
+
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPoints(Arrays.asList(a, b), TEST_PRECISION));
+    }
+",PlaneTest::testFromPoints_collection_illegalArguments_3_oe
+geom_1549_1,"    @Test
+    void testFromPoints_collection_allPointsCollinear_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPoints(Arrays.asList( Vector3D.ZERO, Vector3D.Unit.PLUS_X, Vector3D.of(2, 0, 0) ), TEST_PRECISION));
+    }
+",PlaneTest::testFromPoints_collection_allPointsCollinear_1_oe
+geom_1549_2,"    @Test
+    void testFromPoints_collection_allPointsCollinear_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPoints(Arrays.asList( Vector3D.ZERO, Vector3D.Unit.PLUS_X, Vector3D.of(2, 0, 0), Vector3D.of(3, 0, 0) ), TEST_PRECISION));
+    }
+",PlaneTest::testFromPoints_collection_allPointsCollinear_2_oe
+geom_1550_1,"    @Test
+    void testFromPoints_collection_notEnoughUniquePoints_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPoints(Arrays.asList( Vector3D.ZERO, Vector3D.ZERO, Vector3D.of(1e-12, 1e-12, 0), Vector3D.Unit.PLUS_X ), TEST_PRECISION));
+    }
+",PlaneTest::testFromPoints_collection_notEnoughUniquePoints_1_oe
+geom_1550_2,"    @Test
+    void testFromPoints_collection_notEnoughUniquePoints_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPoints(Arrays.asList( Vector3D.ZERO, Vector3D.of(1e-12, 0, 0), Vector3D.ZERO ), TEST_PRECISION));
+    }
+",PlaneTest::testFromPoints_collection_notEnoughUniquePoints_2_oe
+geom_1551_1,"    @Test
+    void testFromPoints_collection_pointsNotOnSamePlane_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPoints(Arrays.asList( Vector3D.ZERO, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, Vector3D.Unit.PLUS_Z ), TEST_PRECISION));
+    }
+",PlaneTest::testFromPoints_collection_pointsNotOnSamePlane_1_oe
+geom_1592_1,"    @Test
+    void testParse_failure_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> SphericalCoordinates.parse(""abc""));
+    }
+",SphericalCoordinatesTest::testParse_failure_1_oe
+geom_1614_1,"    @Test
+    void testToTriangleMesh_infiniteBoundary_1_oe() {
+        // arrange
+        final RegionBSPTree3D tree = RegionBSPTree3D.empty();
+        tree.getRoot().insertCut(Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION));
+
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> tree.toTriangleMesh(TEST_PRECISION));
+    }
+",RegionBSPTree3DTest::testToTriangleMesh_infiniteBoundary_1_oe
+geom_1688_1,"    @Test
+    void testAddMethods_validatesPlane_1_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> ps.add(Planes.subsetFromConvexArea( Planes.fromPointAndPlaneVectors(Vector3D.ZERO, Vector3D.Unit.PLUS_X, Vector3D.Unit.MINUS_Z, TEST_PRECISION), ConvexArea.full())));
+    }
+",EmbeddedTreePlaneSubsetTest::testAddMethods_validatesPlane_1_oe
+geom_1688_2,"    @Test
+    void testAddMethods_validatesPlane_2_oe() {
+        // arrange
+        final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> ps.add(new EmbeddedTreePlaneSubset( Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, -1), Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION), false)));
+    }
+",EmbeddedTreePlaneSubsetTest::testAddMethods_validatesPlane_2_oe
+geom_1716_1,"    @Test
+    void testConstants_normalize_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, Vector3D.ZERO::normalize);
+    }
+",Vector3DTest::testConstants_normalize_1_oe
+geom_1716_2,"    @Test
+    void testConstants_normalize_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, Vector3D.NaN::normalize);
+    }
+",Vector3DTest::testConstants_normalize_2_oe
+geom_1716_3,"    @Test
+    void testConstants_normalize_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, Vector3D.POSITIVE_INFINITY::normalize);
+    }
+",Vector3DTest::testConstants_normalize_3_oe
+geom_1716_4,"    @Test
+    void testConstants_normalize_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, Vector3D.NEGATIVE_INFINITY::normalize);
+    }
+",Vector3DTest::testConstants_normalize_4_oe
+geom_1730_1,"    @Test
+    void testWithNorm_illegalNorm_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector3D.ZERO.withNorm(2.0));
+    }
+",Vector3DTest::testWithNorm_illegalNorm_1_oe
+geom_1730_2,"    @Test
+    void testWithNorm_illegalNorm_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector3D.NaN.withNorm(2.0));
+    }
+",Vector3DTest::testWithNorm_illegalNorm_2_oe
+geom_1730_3,"    @Test
+    void testWithNorm_illegalNorm_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector3D.POSITIVE_INFINITY.withNorm(2.0));
+    }
+",Vector3DTest::testWithNorm_illegalNorm_3_oe
+geom_1730_4,"    @Test
+    void testWithNorm_illegalNorm_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector3D.NEGATIVE_INFINITY.withNorm(2.0));
+    }
+",Vector3DTest::testWithNorm_illegalNorm_4_oe
+geom_1738_1,"    @Test
+    void testOrthogonal_illegalNorm_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, Vector3D.ZERO::orthogonal);
+    }
+",Vector3DTest::testOrthogonal_illegalNorm_1_oe
+geom_1738_2,"    @Test
+    void testOrthogonal_illegalNorm_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, Vector3D.NaN::orthogonal);
+    }
+",Vector3DTest::testOrthogonal_illegalNorm_2_oe
+geom_1738_3,"    @Test
+    void testOrthogonal_illegalNorm_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, Vector3D.POSITIVE_INFINITY::orthogonal);
+    }
+",Vector3DTest::testOrthogonal_illegalNorm_3_oe
+geom_1738_4,"    @Test
+    void testOrthogonal_illegalNorm_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, Vector3D.NEGATIVE_INFINITY::orthogonal);
+    }
+",Vector3DTest::testOrthogonal_illegalNorm_4_oe
+geom_1739_1,"    @Test
+    void testOrthogonal_givenDirection_illegalNorm_1_oe() {
+        // act/assert
+
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.ZERO.orthogonal(Vector3D.Unit.PLUS_X));
+    }
+",Vector3DTest::testOrthogonal_givenDirection_illegalNorm_1_oe
+geom_1739_2,"    @Test
+    void testOrthogonal_givenDirection_illegalNorm_2_oe() {
+        // act/assert
+
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.NaN.orthogonal(Vector3D.Unit.PLUS_X));
+    }
+",Vector3DTest::testOrthogonal_givenDirection_illegalNorm_2_oe
+geom_1739_3,"    @Test
+    void testOrthogonal_givenDirection_illegalNorm_3_oe() {
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.POSITIVE_INFINITY.orthogonal(Vector3D.Unit.PLUS_X));
+    }
+",Vector3DTest::testOrthogonal_givenDirection_illegalNorm_3_oe
+geom_1739_4,"    @Test
+    void testOrthogonal_givenDirection_illegalNorm_4_oe() {
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.NEGATIVE_INFINITY.orthogonal(Vector3D.Unit.PLUS_X));
+    }
+",Vector3DTest::testOrthogonal_givenDirection_illegalNorm_4_oe
+geom_1739_5,"    @Test
+    void testOrthogonal_givenDirection_illegalNorm_5_oe() {
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.PLUS_X.orthogonal(Vector3D.ZERO));
+    }
+",Vector3DTest::testOrthogonal_givenDirection_illegalNorm_5_oe
+geom_1739_6,"    @Test
+    void testOrthogonal_givenDirection_illegalNorm_6_oe() {
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.PLUS_X.orthogonal(Vector3D.NaN));
+    }
+",Vector3DTest::testOrthogonal_givenDirection_illegalNorm_6_oe
+geom_1739_7,"    @Test
+    void testOrthogonal_givenDirection_illegalNorm_7_oe() {
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.PLUS_X.orthogonal(Vector3D.POSITIVE_INFINITY));
+    }
+",Vector3DTest::testOrthogonal_givenDirection_illegalNorm_7_oe
+geom_1739_8,"    @Test
+    void testOrthogonal_givenDirection_illegalNorm_8_oe() {
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.PLUS_X.orthogonal(Vector3D.NEGATIVE_INFINITY));
+    }
+",Vector3DTest::testOrthogonal_givenDirection_illegalNorm_8_oe
+geom_1740_1,"    @Test
+    void testOrthogonal_givenDirection_directionIsCollinear_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.PLUS_X.orthogonal(Vector3D.Unit.PLUS_X));
+    }
+",Vector3DTest::testOrthogonal_givenDirection_directionIsCollinear_1_oe
+geom_1740_2,"    @Test
+    void testOrthogonal_givenDirection_directionIsCollinear_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.PLUS_X.orthogonal(Vector3D.Unit.MINUS_X));
+    }
+",Vector3DTest::testOrthogonal_givenDirection_directionIsCollinear_2_oe
+geom_1740_3,"    @Test
+    void testOrthogonal_givenDirection_directionIsCollinear_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.of(1.0, 1.0, 1.0).orthogonal(Vector3D.of(2.0, 2.0, 2.0)));
+    }
+",Vector3DTest::testOrthogonal_givenDirection_directionIsCollinear_3_oe
+geom_1740_4,"    @Test
+    void testOrthogonal_givenDirection_directionIsCollinear_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.of(-1.01, -1.01, -1.01).orthogonal(Vector3D.of(20.1, 20.1, 20.1)));
+    }
+",Vector3DTest::testOrthogonal_givenDirection_directionIsCollinear_4_oe
+geom_1742_1,"    @Test
+    void testAngle_illegalNorm_1_oe() {
+        // arrange
+        final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
+
+        // act/assert
+
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.ZERO.angle(v));
+    }
+",Vector3DTest::testAngle_illegalNorm_1_oe
+geom_1742_2,"    @Test
+    void testAngle_illegalNorm_2_oe() {
+        // arrange
+        final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
+
+        // act/assert
+
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.NaN.angle(v));
+    }
+",Vector3DTest::testAngle_illegalNorm_2_oe
+geom_1742_3,"    @Test
+    void testAngle_illegalNorm_3_oe() {
+        // arrange
+        final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
+
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.POSITIVE_INFINITY.angle(v));
+    }
+",Vector3DTest::testAngle_illegalNorm_3_oe
+geom_1742_4,"    @Test
+    void testAngle_illegalNorm_4_oe() {
+        // arrange
+        final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
+
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.NEGATIVE_INFINITY.angle(v));
+    }
+",Vector3DTest::testAngle_illegalNorm_4_oe
+geom_1742_5,"    @Test
+    void testAngle_illegalNorm_5_oe() {
+        // arrange
+        final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
+
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  v.angle(Vector3D.ZERO));
+    }
+",Vector3DTest::testAngle_illegalNorm_5_oe
+geom_1742_6,"    @Test
+    void testAngle_illegalNorm_6_oe() {
+        // arrange
+        final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
+
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  v.angle(Vector3D.NaN));
+    }
+",Vector3DTest::testAngle_illegalNorm_6_oe
+geom_1742_7,"    @Test
+    void testAngle_illegalNorm_7_oe() {
+        // arrange
+        final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
+
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  v.angle(Vector3D.POSITIVE_INFINITY));
+    }
+",Vector3DTest::testAngle_illegalNorm_7_oe
+geom_1742_8,"    @Test
+    void testAngle_illegalNorm_8_oe() {
+        // arrange
+        final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
+
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  v.angle(Vector3D.NEGATIVE_INFINITY));
+    }
+",Vector3DTest::testAngle_illegalNorm_8_oe
+geom_1751_1,"    @Test
+    void testProject_baseHasIllegalNorm_1_oe() {
+        // arrange
+        final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.project(Vector3D.ZERO));
+    }
+",Vector3DTest::testProject_baseHasIllegalNorm_1_oe
+geom_1751_2,"    @Test
+    void testProject_baseHasIllegalNorm_2_oe() {
+        // arrange
+        final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.project(Vector3D.NaN));
+    }
+",Vector3DTest::testProject_baseHasIllegalNorm_2_oe
+geom_1751_3,"    @Test
+    void testProject_baseHasIllegalNorm_3_oe() {
+        // arrange
+        final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.project(Vector3D.POSITIVE_INFINITY));
+    }
+",Vector3DTest::testProject_baseHasIllegalNorm_3_oe
+geom_1751_4,"    @Test
+    void testProject_baseHasIllegalNorm_4_oe() {
+        // arrange
+        final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  v.project(Vector3D.NEGATIVE_INFINITY));
+    }
+",Vector3DTest::testProject_baseHasIllegalNorm_4_oe
+geom_1752_1,"    @Test
+    void testReject_baseHasIllegalNorm_1_oe() {
+        // arrange
+        final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
+
+        // act/assert
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.reject(Vector3D.ZERO));
+    }
+",Vector3DTest::testReject_baseHasIllegalNorm_1_oe
+geom_1752_2,"    @Test
+    void testReject_baseHasIllegalNorm_2_oe() {
+        // arrange
+        final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
+
+        // act/assert
+
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.reject(Vector3D.NaN));
+    }
+",Vector3DTest::testReject_baseHasIllegalNorm_2_oe
+geom_1752_3,"    @Test
+    void testReject_baseHasIllegalNorm_3_oe() {
+        // arrange
+        final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
+
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.reject(Vector3D.POSITIVE_INFINITY));
+    }
+",Vector3DTest::testReject_baseHasIllegalNorm_3_oe
+geom_1752_4,"    @Test
+    void testReject_baseHasIllegalNorm_4_oe() {
+        // arrange
+        final Vector3D v = Vector3D.of(1.0, 1.0, 1.0);
+
+        // act/assert
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.reject(Vector3D.NEGATIVE_INFINITY));
+    }
+",Vector3DTest::testReject_baseHasIllegalNorm_4_oe
+geom_1753_1,"    @Test
+    void testDirectionTo_illegalNorm_1_oe() {
+        // arrange
+        final Vector3D p = Vector3D.of(1, 2, 3);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.ZERO.directionTo(Vector3D.ZERO));
+    }
+",Vector3DTest::testDirectionTo_illegalNorm_1_oe
+geom_1753_2,"    @Test
+    void testDirectionTo_illegalNorm_2_oe() {
+        // arrange
+        final Vector3D p = Vector3D.of(1, 2, 3);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  p.directionTo(p));
+    }
+",Vector3DTest::testDirectionTo_illegalNorm_2_oe
+geom_1753_3,"    @Test
+    void testDirectionTo_illegalNorm_3_oe() {
+        // arrange
+        final Vector3D p = Vector3D.of(1, 2, 3);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.NEGATIVE_INFINITY.directionTo(p));
+    }
+",Vector3DTest::testDirectionTo_illegalNorm_3_oe
+geom_1753_4,"    @Test
+    void testDirectionTo_illegalNorm_4_oe() {
+        // arrange
+        final Vector3D p = Vector3D.of(1, 2, 3);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  p.directionTo(Vector3D.POSITIVE_INFINITY));
+    }
+",Vector3DTest::testDirectionTo_illegalNorm_4_oe
+geom_1760_1,"    @Test
+    void testParse_failure_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector3D.parse(""abc""));
+    }
+",Vector3DTest::testParse_failure_1_oe
+geom_1761_1,"    @Test
+    void testOf_arrayArg_invalidDimensions_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector3D.of(new double[] {0.0, 0.0}));
+    }
+",Vector3DTest::testOf_arrayArg_invalidDimensions_1_oe
+geom_1763_1,"    @Test
+    void testUnitFrom_static_illegalNorm_1_oe() {
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.from(0.0, 0.0, 0.0));
+    }
+",Vector3DTest::testUnitFrom_static_illegalNorm_1_oe
+geom_1763_2,"    @Test
+    void testUnitFrom_static_illegalNorm_2_oe() {
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.from(Double.NaN, 1.0, 1.0));
+    }
+",Vector3DTest::testUnitFrom_static_illegalNorm_2_oe
+geom_1763_3,"    @Test
+    void testUnitFrom_static_illegalNorm_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.from(1.0, Double.NEGATIVE_INFINITY, 1.0));
+    }
+",Vector3DTest::testUnitFrom_static_illegalNorm_3_oe
+geom_1763_4,"    @Test
+    void testUnitFrom_static_illegalNorm_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector3D.Unit.from(1.0, 1.0, Double.POSITIVE_INFINITY));
+    }
+",Vector3DTest::testUnitFrom_static_illegalNorm_4_oe
+geom_1787_1,"    @Test
+    void toRegion_boundingBoxTooSmall_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Bounds3D.from(Vector3D.ZERO, Vector3D.of(1e-12, 1e-12, 1e-12)) .toRegion(TEST_PRECISION));
+    }
+",Bounds3DTest::toRegion_boundingBoxTooSmall_1_oe
+geom_1807_4,"    @Test
+    void testIndexedTriangles_invalidArgs_4_oe() {
+        // arrange
+        final Vector3D[] vertices = {
+            Vector3D.ZERO,
+            Vector3D.of(1, 0, 0),
+            Vector3D.of(1, 1, 0),
+            Vector3D.of(2, 0, 0)
+        };
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> Planes.indexedTriangles(vertices, new int[][] { {0, 1, 10} }, TEST_PRECISION));
+    }
+",PlanesTest::testIndexedTriangles_invalidArgs_4_oe
+geom_1807_5,"    @Test
+    void testIndexedTriangles_invalidArgs_5_oe() {
+        // arrange
+        final Vector3D[] vertices = {
+            Vector3D.ZERO,
+            Vector3D.of(1, 0, 0),
+            Vector3D.of(1, 1, 0),
+            Vector3D.of(2, 0, 0)
+        };
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> Planes.indexedTriangles(new ArrayList<>(Arrays.asList(vertices)), new int[][] { {0, 1, 10} }, TEST_PRECISION));
+    }
+",PlanesTest::testIndexedTriangles_invalidArgs_5_oe
+geom_1812_3,"    @Test
+    void testIndexedConvexPolygons_invalidArgs_3_oe() {
+        // arrange
+        final Vector3D[] vertices = {
+            Vector3D.ZERO,
+            Vector3D.of(1, 0, 0),
+            Vector3D.of(1, 1, 0),
+            Vector3D.of(2, 0, 0)
+        };
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> Planes.indexedConvexPolygons(vertices, new int[][] { {0, 1, 10} }, TEST_PRECISION));
+    }
+",PlanesTest::testIndexedConvexPolygons_invalidArgs_3_oe
+geom_1812_4,"    @Test
+    void testIndexedConvexPolygons_invalidArgs_4_oe() {
+        // arrange
+        final Vector3D[] vertices = {
+            Vector3D.ZERO,
+            Vector3D.of(1, 0, 0),
+            Vector3D.of(1, 1, 0),
+            Vector3D.of(2, 0, 0)
+        };
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> Planes.indexedConvexPolygons(new ArrayList<>(Arrays.asList(vertices)), new int[][] { {0, 1, 10} }, TEST_PRECISION));
+    }
+",PlanesTest::testIndexedConvexPolygons_invalidArgs_4_oe
+geom_1821_1,"    @Test
+    void testExtrudeVertexLoop_invalidVertexList_1_oe() {
+        // arrange
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, -1),
+                Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+        final Vector3D extrusionVector = Vector3D.of(0, 0, 2);
+
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> Planes.extrudeVertexLoop(Collections.singletonList(Vector2D.ZERO), plane, extrusionVector, TEST_PRECISION));
+    }
+",PlanesTest::testExtrudeVertexLoop_invalidVertexList_1_oe
+geom_1821_2,"    @Test
+    void testExtrudeVertexLoop_invalidVertexList_2_oe() {
+        // arrange
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, -1),
+                Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+        final Vector3D extrusionVector = Vector3D.of(0, 0, 2);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalStateException.class, () -> Planes.extrudeVertexLoop(Arrays.asList(Vector2D.ZERO, Vector2D.of(0, 1e-16)), plane, extrusionVector, TEST_PRECISION));
+    }
+",PlanesTest::testExtrudeVertexLoop_invalidVertexList_2_oe
+geom_1874_1,"    @Test
+    void testVertices_listIsImmutable_1_oe() {
+        // arrange
+        final List<Vector3D> vertices = new ArrayList<>(TRIANGLE_VERTICES);
+        final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, vertices);
+
+        // act/assert
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> p.getVertices().add(Vector3D.of(-1, 0, 1)));
+    }
+",VertexListConvexPolygon3DTest::testVertices_listIsImmutable_1_oe
+geom_1887_1,"    @Test
+    void testFromPointAndPlaneVectors_illegalArguments_1_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+
+        // act/assert
+
+        // identical vectors
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPointAndPlaneVectors(pt, Vector3D.of(0, 0, 1), Vector3D.of(0, 0, 1), TEST_PRECISION));
+    }
+",EmbeddingPlaneTest::testFromPointAndPlaneVectors_illegalArguments_1_oe
+geom_1887_2,"    @Test
+    void testFromPointAndPlaneVectors_illegalArguments_2_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+
+        // act/assert
+
+        // identical vectors
+        // removed other assertion
+        // zero vector
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPointAndPlaneVectors(pt, Vector3D.of(0, 0, 1), Vector3D.ZERO, TEST_PRECISION));
+    }
+",EmbeddingPlaneTest::testFromPointAndPlaneVectors_illegalArguments_2_oe
+geom_1887_3,"    @Test
+    void testFromPointAndPlaneVectors_illegalArguments_3_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+
+        // act/assert
+
+        // identical vectors
+        // removed other assertion
+        // zero vector
+        // removed other assertion
+        // collinear vectors
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPointAndPlaneVectors(pt, Vector3D.of(0, 0, 1), Vector3D.of(0, 0, 2), TEST_PRECISION));
+    }
+",EmbeddingPlaneTest::testFromPointAndPlaneVectors_illegalArguments_3_oe
+geom_1887_4,"    @Test
+    void testFromPointAndPlaneVectors_illegalArguments_4_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+
+        // act/assert
+
+        // identical vectors
+        // removed other assertion
+        // zero vector
+        // removed other assertion
+        // collinear vectors
+        // removed other assertion
+        // collinear vectors - reversed
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPointAndPlaneVectors(pt, Vector3D.of(0, 0, 1), Vector3D.of(0, 0, -2), TEST_PRECISION));
+    }
+",EmbeddingPlaneTest::testFromPointAndPlaneVectors_illegalArguments_4_oe
+geom_1906_1,"    @Test
+    void testFrom_invalidFunction_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AffineTransformMatrix3D.from(v -> v.multiply(0)));
+    }
+",AffineTransformMatrix3DTest::testFrom_invalidFunction_1_oe
+geom_1938_1,"    @Test
+    void testApplyDirection_illegalNorm_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AffineTransformMatrix3D.createScale(1, 0, 1).applyDirection(Vector3D.Unit.PLUS_Y));
+    }
+",AffineTransformMatrix3DTest::testApplyDirection_illegalNorm_1_oe
+geom_1938_2,"    @Test
+    void testApplyDirection_illegalNorm_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AffineTransformMatrix3D.createScale(2).applyDirection(Vector3D.ZERO));
+    }
+",AffineTransformMatrix3DTest::testApplyDirection_illegalNorm_2_oe
+geom_1954_1,"    @Test
+    void testNormalTransform_nonInvertible_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> AffineTransformMatrix3D.createScale(0).normalTransform());
+    }
+",AffineTransformMatrix3DTest::testNormalTransform_nonInvertible_1_oe
+geom_1960_1,"    @Test
+    void testVertices_listIsImmutable_1_oe() {
+        // arrange
+        final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1,
+                Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1));
+
+        // act/assert
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> tri.getVertices().add(Vector3D.of(-1, 0, 1)));
+    }
+",SimpleTriangle3DTest::testVertices_listIsImmutable_1_oe
+geom_1977_4,"    @Test
+    void testFaces_iterator_4_oe() {
+        // arrange
+        final List<Vector3D> vertices = Arrays.asList(
+            Vector3D.ZERO,
+            Vector3D.of(1, 0, 0),
+            Vector3D.of(0, 1, 0)
+        );
+
+        final List<int[]> faceIndices = Collections.singletonList(new int[]{0, 1, 2}
+        );
+
+        final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(vertices, faceIndices, TEST_PRECISION);
+
+        // act/assert
+        final Iterator<TriangleMesh.Face> it = mesh.faces().iterator();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertThrows(NoSuchElementException.class, it::next);
+    }
+",SimpleTriangleMeshTest::testFaces_iterator_4_oe
+geom_1995_1,"    @Test
+    void testFromTransformedUnitCube_zeroSizeRegion_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.fromTransformedUnitCube(AffineTransformMatrix3D.createScale(Vector3D.of(1e-16, 1, 1)), TEST_PRECISION));
+    }
+",ParallelepipedTest::testFromTransformedUnitCube_zeroSizeRegion_1_oe
+geom_1995_2,"    @Test
+    void testFromTransformedUnitCube_zeroSizeRegion_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.fromTransformedUnitCube(AffineTransformMatrix3D.createScale(Vector3D.of(1, 1e-16, 1)), TEST_PRECISION));
+    }
+",ParallelepipedTest::testFromTransformedUnitCube_zeroSizeRegion_2_oe
+geom_1995_3,"    @Test
+    void testFromTransformedUnitCube_zeroSizeRegion_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.fromTransformedUnitCube(AffineTransformMatrix3D.createScale(Vector3D.of(1, 1, 1e-16)), TEST_PRECISION));
+    }
+",ParallelepipedTest::testFromTransformedUnitCube_zeroSizeRegion_3_oe
+geom_1998_1,"    @Test
+    void testAxisAligned_illegalArgs_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.axisAligned(Vector3D.of(1, 2, 3), Vector3D.of(1, 5, 6), TEST_PRECISION));
+    }
+",ParallelepipedTest::testAxisAligned_illegalArgs_1_oe
+geom_1998_2,"    @Test
+    void testAxisAligned_illegalArgs_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.axisAligned(Vector3D.of(1, 2, 3), Vector3D.of(4, 2, 6), TEST_PRECISION));
+    }
+",ParallelepipedTest::testAxisAligned_illegalArgs_2_oe
+geom_1998_3,"    @Test
+    void testAxisAligned_illegalArgs_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.axisAligned(Vector3D.of(1, 2, 3), Vector3D.of(1, 5, 3), TEST_PRECISION));
+    }
+",ParallelepipedTest::testAxisAligned_illegalArgs_3_oe
+geom_2004_1,"    @Test
+    void testFrom_illegalCenter_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Sphere.from(Vector3D.of(Double.POSITIVE_INFINITY, 1, 2), 1, TEST_PRECISION));
+    }
+",SphereTest::testFrom_illegalCenter_1_oe
+geom_2004_2,"    @Test
+    void testFrom_illegalCenter_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Sphere.from(Vector3D.of(Double.NaN, 1, 2), 1, TEST_PRECISION));
+    }
+",SphereTest::testFrom_illegalCenter_2_oe
+geom_2005_1,"    @Test
+    void testFrom_illegalRadius_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Sphere.from(Vector3D.ZERO, -1, TEST_PRECISION));
+    }
+",SphereTest::testFrom_illegalRadius_1_oe
+geom_2005_2,"    @Test
+    void testFrom_illegalRadius_2_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Sphere.from(Vector3D.ZERO, 0, TEST_PRECISION));
+    }
+",SphereTest::testFrom_illegalRadius_2_oe
+geom_2005_3,"    @Test
+    void testFrom_illegalRadius_3_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Sphere.from(Vector3D.ZERO, Double.POSITIVE_INFINITY, TEST_PRECISION));
+    }
+",SphereTest::testFrom_illegalRadius_3_oe
+geom_2005_4,"    @Test
+    void testFrom_illegalRadius_4_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Sphere.from(Vector3D.ZERO, Double.NaN, TEST_PRECISION));
+    }
+",SphereTest::testFrom_illegalRadius_4_oe
+geom_2005_5,"    @Test
+    void testFrom_illegalRadius_5_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Sphere.from(Vector3D.ZERO, 1e-3, precision));
+    }
+",SphereTest::testFrom_illegalRadius_5_oe
+geom_2083_1,"    @Test
+    void testFromPoints_pointsTooClose_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Lines3D.fromPoints(Vector3D.of(1, 1, 1), Vector3D.of(1, 1, 1 + 1e-16), TEST_PRECISION));
+    }
+",Line3DTest::testFromPoints_pointsTooClose_1_oe
+geom_2128_1,"    @Test
+    void testOf_quaternion_illegalNorm_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> QuaternionRotation.of(Quaternion.of(0, 0, 0, 0)));
+    }
+",QuaternionRotationTest::testOf_quaternion_illegalNorm_1_oe
+geom_2128_2,"    @Test
+    void testOf_quaternion_illegalNorm_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalStateException.class, () -> QuaternionRotation.of(Quaternion.of(1, 1, 1, Double.NaN)));
+    }
+",QuaternionRotationTest::testOf_quaternion_illegalNorm_2_oe
+geom_2128_3,"    @Test
+    void testOf_quaternion_illegalNorm_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalStateException.class, () -> QuaternionRotation.of(Quaternion.of(1, 1, Double.POSITIVE_INFINITY, 1)));
+    }
+",QuaternionRotationTest::testOf_quaternion_illegalNorm_3_oe
+geom_2128_4,"    @Test
+    void testOf_quaternion_illegalNorm_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalStateException.class, () -> QuaternionRotation.of(Quaternion.of(1, Double.NEGATIVE_INFINITY, 1, 1)));
+    }
+",QuaternionRotationTest::testOf_quaternion_illegalNorm_4_oe
+geom_2128_5,"    @Test
+    void testOf_quaternion_illegalNorm_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalStateException.class, () -> QuaternionRotation.of(Quaternion.of(Double.NaN, 1, 1, 1)));
+    }
+",QuaternionRotationTest::testOf_quaternion_illegalNorm_5_oe
+geom_2129_1,"    @Test
+    void testOf_components_illegalNorm_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> QuaternionRotation.of(0, 0, 0, 0));
+    }
+",QuaternionRotationTest::testOf_components_illegalNorm_1_oe
+geom_2129_2,"    @Test
+    void testOf_components_illegalNorm_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalStateException.class, () -> QuaternionRotation.of(1, 1, 1, Double.NaN));
+    }
+",QuaternionRotationTest::testOf_components_illegalNorm_2_oe
+geom_2129_3,"    @Test
+    void testOf_components_illegalNorm_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalStateException.class, () -> QuaternionRotation.of(1, 1, Double.POSITIVE_INFINITY, 1));
+    }
+",QuaternionRotationTest::testOf_components_illegalNorm_3_oe
+geom_2129_4,"    @Test
+    void testOf_components_illegalNorm_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalStateException.class, () -> QuaternionRotation.of(1, Double.NEGATIVE_INFINITY, 1, 1));
+    }
+",QuaternionRotationTest::testOf_components_illegalNorm_4_oe
+geom_2129_5,"    @Test
+    void testOf_components_illegalNorm_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalStateException.class, () -> QuaternionRotation.of(Double.NaN, 1, 1, 1));
+    }
+",QuaternionRotationTest::testOf_components_illegalNorm_5_oe
+geom_2137_1,"    @Test
+    void testFromAxisAngle_invalidAxisNorm_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> QuaternionRotation.fromAxisAngle(Vector3D.ZERO, Angle.PI_OVER_TWO));
+    }
+",QuaternionRotationTest::testFromAxisAngle_invalidAxisNorm_1_oe
+geom_2137_2,"    @Test
+    void testFromAxisAngle_invalidAxisNorm_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> QuaternionRotation.fromAxisAngle(Vector3D.NaN, Angle.PI_OVER_TWO));
+    }
+",QuaternionRotationTest::testFromAxisAngle_invalidAxisNorm_2_oe
+geom_2137_3,"    @Test
+    void testFromAxisAngle_invalidAxisNorm_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> QuaternionRotation.fromAxisAngle(Vector3D.POSITIVE_INFINITY, Angle.PI_OVER_TWO));
+    }
+",QuaternionRotationTest::testFromAxisAngle_invalidAxisNorm_3_oe
+geom_2137_4,"    @Test
+    void testFromAxisAngle_invalidAxisNorm_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> QuaternionRotation.fromAxisAngle(Vector3D.NEGATIVE_INFINITY, Angle.PI_OVER_TWO));
+    }
+",QuaternionRotationTest::testFromAxisAngle_invalidAxisNorm_4_oe
+geom_2161_1,"    @Test
+    void testToAxisAngleSequence_invalidArgs_1_oe() {
+        // arrange
+        final QuaternionRotation q = QuaternionRotation.identity();
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> q.toAxisAngleSequence(null, AxisSequence.XYZ));
+    }
+",QuaternionRotationTest::testToAxisAngleSequence_invalidArgs_1_oe
+geom_2161_2,"    @Test
+    void testToAxisAngleSequence_invalidArgs_2_oe() {
+        // arrange
+        final QuaternionRotation q = QuaternionRotation.identity();
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> q.toAxisAngleSequence(AxisReferenceFrame.ABSOLUTE, null));
+    }
+",QuaternionRotationTest::testToAxisAngleSequence_invalidArgs_2_oe
+geom_2172_1,"    @Test
+    void testCreateVectorRotation_invalidArgs_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> QuaternionRotation.createVectorRotation(Vector3D.ZERO, Vector3D.Unit.PLUS_X));
+    }
+",QuaternionRotationTest::testCreateVectorRotation_invalidArgs_1_oe
+geom_2172_2,"    @Test
+    void testCreateVectorRotation_invalidArgs_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> QuaternionRotation.createVectorRotation(Vector3D.Unit.PLUS_X, Vector3D.ZERO));
+    }
+",QuaternionRotationTest::testCreateVectorRotation_invalidArgs_2_oe
+geom_2172_3,"    @Test
+    void testCreateVectorRotation_invalidArgs_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> QuaternionRotation.createVectorRotation(Vector3D.NaN, Vector3D.Unit.PLUS_X));
+    }
+",QuaternionRotationTest::testCreateVectorRotation_invalidArgs_3_oe
+geom_2172_4,"    @Test
+    void testCreateVectorRotation_invalidArgs_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> QuaternionRotation.createVectorRotation(Vector3D.Unit.PLUS_X, Vector3D.POSITIVE_INFINITY));
+    }
+",QuaternionRotationTest::testCreateVectorRotation_invalidArgs_4_oe
+geom_2172_5,"    @Test
+    void testCreateVectorRotation_invalidArgs_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> QuaternionRotation.createVectorRotation(Vector3D.Unit.PLUS_X, Vector3D.NEGATIVE_INFINITY));
+    }
+",QuaternionRotationTest::testCreateVectorRotation_invalidArgs_5_oe
+geom_2179_1,"    @Test
+    void testCreateBasisRotation_invalidArgs_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> QuaternionRotation.createBasisRotation( Vector3D.ZERO, Vector3D.Unit.PLUS_Y, Vector3D.Unit.PLUS_Y, Vector3D.Unit.MINUS_X));
+    }
+",QuaternionRotationTest::testCreateBasisRotation_invalidArgs_1_oe
+geom_2179_2,"    @Test
+    void testCreateBasisRotation_invalidArgs_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> QuaternionRotation.createBasisRotation( Vector3D.Unit.PLUS_X, Vector3D.NaN, Vector3D.Unit.PLUS_Y, Vector3D.Unit.MINUS_X));
+    }
+",QuaternionRotationTest::testCreateBasisRotation_invalidArgs_2_oe
+geom_2179_3,"    @Test
+    void testCreateBasisRotation_invalidArgs_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> QuaternionRotation.createBasisRotation( Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, Vector3D.POSITIVE_INFINITY, Vector3D.Unit.MINUS_X));
+    }
+",QuaternionRotationTest::testCreateBasisRotation_invalidArgs_3_oe
+geom_2179_4,"    @Test
+    void testCreateBasisRotation_invalidArgs_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> QuaternionRotation.createBasisRotation( Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, Vector3D.Unit.PLUS_Y, Vector3D.NEGATIVE_INFINITY));
+    }
+",QuaternionRotationTest::testCreateBasisRotation_invalidArgs_4_oe
+geom_2179_5,"    @Test
+    void testCreateBasisRotation_invalidArgs_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> QuaternionRotation.createBasisRotation( Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, Vector3D.Unit.MINUS_X));
+    }
+",QuaternionRotationTest::testCreateBasisRotation_invalidArgs_5_oe
+geom_2179_6,"    @Test
+    void testCreateBasisRotation_invalidArgs_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> QuaternionRotation.createBasisRotation( Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, Vector3D.Unit.PLUS_Y, Vector3D.Unit.MINUS_Y));
+    }
+",QuaternionRotationTest::testCreateBasisRotation_invalidArgs_6_oe
+geom_2202_1,"    @Test
+    void testOf_doubles_invalidIntervals_1_oe() {
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(1, Double.NaN, TEST_PRECISION));
+    }
+",IntervalTest::testOf_doubles_invalidIntervals_1_oe
+geom_2202_2,"    @Test
+    void testOf_doubles_invalidIntervals_2_oe() {
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Double.NaN, 1, TEST_PRECISION));
+    }
+",IntervalTest::testOf_doubles_invalidIntervals_2_oe
+geom_2202_3,"    @Test
+    void testOf_doubles_invalidIntervals_3_oe() {
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Double.NaN, Double.NaN, TEST_PRECISION));
+    }
+",IntervalTest::testOf_doubles_invalidIntervals_3_oe
+geom_2202_4,"    @Test
+    void testOf_doubles_invalidIntervals_4_oe() {
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION));
+    }
+",IntervalTest::testOf_doubles_invalidIntervals_4_oe
+geom_2202_5,"    @Test
+    void testOf_doubles_invalidIntervals_5_oe() {
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, TEST_PRECISION));
+    }
+",IntervalTest::testOf_doubles_invalidIntervals_5_oe
+geom_2203_1,"    @Test
+    void testOf_points_invalidIntervals_1_oe() {
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Vector1D.of(1), Vector1D.of(Double.NaN), TEST_PRECISION));
+    }
+",IntervalTest::testOf_points_invalidIntervals_1_oe
+geom_2203_2,"    @Test
+    void testOf_points_invalidIntervals_2_oe() {
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Vector1D.of(Double.POSITIVE_INFINITY), Vector1D.of(Double.POSITIVE_INFINITY), TEST_PRECISION));
+    }
+",IntervalTest::testOf_points_invalidIntervals_2_oe
+geom_2205_1,"    @Test
+    void testOf_hyperplanes_invalidArgs_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of( OrientedPoints.fromLocationAndDirection(1, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(1, false, TEST_PRECISION)));
+    }
+",IntervalTest::testOf_hyperplanes_invalidArgs_1_oe
+geom_2205_2,"    @Test
+    void testOf_hyperplanes_invalidArgs_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of( OrientedPoints.fromLocationAndDirection(2, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(1, true, TEST_PRECISION)));
+    }
+",IntervalTest::testOf_hyperplanes_invalidArgs_2_oe
+geom_2205_3,"    @Test
+    void testOf_hyperplanes_invalidArgs_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of( OrientedPoints.fromLocationAndDirection(Double.POSITIVE_INFINITY, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(Double.POSITIVE_INFINITY, true, TEST_PRECISION)));
+    }
+",IntervalTest::testOf_hyperplanes_invalidArgs_3_oe
+geom_2205_4,"    @Test
+    void testOf_hyperplanes_invalidArgs_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of( OrientedPoints.fromLocationAndDirection(Double.NaN, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(1, true, TEST_PRECISION)));
+    }
+",IntervalTest::testOf_hyperplanes_invalidArgs_4_oe
+geom_2205_5,"    @Test
+    void testOf_hyperplanes_invalidArgs_5_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of( OrientedPoints.fromLocationAndDirection(1, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(Double.NaN, true, TEST_PRECISION)));
+    }
+",IntervalTest::testOf_hyperplanes_invalidArgs_5_oe
+geom_2205_6,"    @Test
+    void testOf_hyperplanes_invalidArgs_6_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of( OrientedPoints.fromLocationAndDirection(Double.NaN, false, TEST_PRECISION), OrientedPoints.fromLocationAndDirection(Double.NaN, true, TEST_PRECISION)));
+    }
+",IntervalTest::testOf_hyperplanes_invalidArgs_6_oe
+geom_2205_7,"    @Test
+    void testOf_hyperplanes_invalidArgs_7_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of( null, OrientedPoints.fromLocationAndDirection(Double.NaN, true, TEST_PRECISION)));
+    }
+",IntervalTest::testOf_hyperplanes_invalidArgs_7_oe
+geom_2206_1,"    @Test
+    void testPoint_invalidArgs_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.point(Double.NEGATIVE_INFINITY, TEST_PRECISION));
+    }
+",IntervalTest::testPoint_invalidArgs_1_oe
+geom_2206_2,"    @Test
+    void testPoint_invalidArgs_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.point(Double.POSITIVE_INFINITY, TEST_PRECISION));
+    }
+",IntervalTest::testPoint_invalidArgs_2_oe
+geom_2206_3,"    @Test
+    void testPoint_invalidArgs_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.point(Double.NaN, TEST_PRECISION));
+    }
+",IntervalTest::testPoint_invalidArgs_3_oe
+geom_2207_1,"    @Test
+    void testMin_invalidArgs_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.min(Double.POSITIVE_INFINITY, TEST_PRECISION));
+    }
+",IntervalTest::testMin_invalidArgs_1_oe
+geom_2207_2,"    @Test
+    void testMin_invalidArgs_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.min(Double.NaN, TEST_PRECISION));
+    }
+",IntervalTest::testMin_invalidArgs_2_oe
+geom_2208_1,"    @Test
+    void testMax_invalidArgs_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.max(Double.NEGATIVE_INFINITY, TEST_PRECISION));
+    }
+",IntervalTest::testMax_invalidArgs_1_oe
+geom_2208_2,"    @Test
+    void testMax_invalidArgs_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.max(Double.NaN, TEST_PRECISION));
+    }
+",IntervalTest::testMax_invalidArgs_2_oe
+geom_2234_1,"    @Test
+    void testConstants_normalize_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, Vector1D.ZERO::normalize);
+    }
+",Vector1DTest::testConstants_normalize_1_oe
+geom_2234_2,"    @Test
+    void testConstants_normalize_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, Vector1D.NaN::normalize);
+    }
+",Vector1DTest::testConstants_normalize_2_oe
+geom_2234_3,"    @Test
+    void testConstants_normalize_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, Vector1D.POSITIVE_INFINITY::normalize);
+    }
+",Vector1DTest::testConstants_normalize_3_oe
+geom_2234_4,"    @Test
+    void testConstants_normalize_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, Vector1D.NEGATIVE_INFINITY::normalize);
+    }
+",Vector1DTest::testConstants_normalize_4_oe
+geom_2245_1,"    @Test
+    void testWithNorm_illegalNorm_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.ZERO.withNorm(2.0));
+    }
+",Vector1DTest::testWithNorm_illegalNorm_1_oe
+geom_2245_2,"    @Test
+    void testWithNorm_illegalNorm_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.NaN.withNorm(2.0));
+    }
+",Vector1DTest::testWithNorm_illegalNorm_2_oe
+geom_2245_3,"    @Test
+    void testWithNorm_illegalNorm_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.POSITIVE_INFINITY.withNorm(2.0));
+    }
+",Vector1DTest::testWithNorm_illegalNorm_3_oe
+geom_2245_4,"    @Test
+    void testWithNorm_illegalNorm_4_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.NEGATIVE_INFINITY.withNorm(2.0));
+    }
+",Vector1DTest::testWithNorm_illegalNorm_4_oe
+geom_2255_1,"    @Test
+    void testAngle_illegalNorm_1_oe() {
+        // arrange
+        final Vector1D v = Vector1D.of(1.0);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.ZERO.angle(v));
+    }
+",Vector1DTest::testAngle_illegalNorm_1_oe
+geom_2255_2,"    @Test
+    void testAngle_illegalNorm_2_oe() {
+        // arrange
+        final Vector1D v = Vector1D.of(1.0);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.NaN.angle(v));
+    }
+",Vector1DTest::testAngle_illegalNorm_2_oe
+geom_2255_3,"    @Test
+    void testAngle_illegalNorm_3_oe() {
+        // arrange
+        final Vector1D v = Vector1D.of(1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.POSITIVE_INFINITY.angle(v));
+    }
+",Vector1DTest::testAngle_illegalNorm_3_oe
+geom_2255_4,"    @Test
+    void testAngle_illegalNorm_4_oe() {
+        // arrange
+        final Vector1D v = Vector1D.of(1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.NEGATIVE_INFINITY.angle(v));
+    }
+",Vector1DTest::testAngle_illegalNorm_4_oe
+geom_2255_5,"    @Test
+    void testAngle_illegalNorm_5_oe() {
+        // arrange
+        final Vector1D v = Vector1D.of(1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.angle(Vector1D.ZERO));
+    }
+",Vector1DTest::testAngle_illegalNorm_5_oe
+geom_2255_6,"    @Test
+    void testAngle_illegalNorm_6_oe() {
+        // arrange
+        final Vector1D v = Vector1D.of(1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.angle(Vector1D.NaN));
+    }
+",Vector1DTest::testAngle_illegalNorm_6_oe
+geom_2255_7,"    @Test
+    void testAngle_illegalNorm_7_oe() {
+        // arrange
+        final Vector1D v = Vector1D.of(1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.angle(Vector1D.POSITIVE_INFINITY));
+    }
+",Vector1DTest::testAngle_illegalNorm_7_oe
+geom_2255_8,"    @Test
+    void testAngle_illegalNorm_8_oe() {
+        // arrange
+        final Vector1D v = Vector1D.of(1.0);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.angle(Vector1D.NEGATIVE_INFINITY));
+    }
+",Vector1DTest::testAngle_illegalNorm_8_oe
+geom_2256_1,"    @Test
+    void testDirectionTo_illegalNorm_1_oe() {
+        // arrange
+        final Vector1D v = Vector1D.of(2);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.ZERO.directionTo(Vector1D.ZERO));
+    }
+",Vector1DTest::testDirectionTo_illegalNorm_1_oe
+geom_2256_2,"    @Test
+    void testDirectionTo_illegalNorm_2_oe() {
+        // arrange
+        final Vector1D v = Vector1D.of(2);
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.directionTo(v));
+    }
+",Vector1DTest::testDirectionTo_illegalNorm_2_oe
+geom_2256_3,"    @Test
+    void testDirectionTo_illegalNorm_3_oe() {
+        // arrange
+        final Vector1D v = Vector1D.of(2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.directionTo(Vector1D.NaN));
+    }
+",Vector1DTest::testDirectionTo_illegalNorm_3_oe
+geom_2256_4,"    @Test
+    void testDirectionTo_illegalNorm_4_oe() {
+        // arrange
+        final Vector1D v = Vector1D.of(2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.NEGATIVE_INFINITY.directionTo(v));
+    }
+",Vector1DTest::testDirectionTo_illegalNorm_4_oe
+geom_2256_5,"    @Test
+    void testDirectionTo_illegalNorm_5_oe() {
+        // arrange
+        final Vector1D v = Vector1D.of(2);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> v.directionTo(Vector1D.POSITIVE_INFINITY));
+    }
+",Vector1DTest::testDirectionTo_illegalNorm_5_oe
+geom_2263_1,"    @Test
+    void testParse_failure_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () ->  Vector1D.parse(""abc""));
+    }
+",Vector1DTest::testParse_failure_1_oe
+geom_2265_1,"    @Test
+    void testUnitFrom_illegalNorm_1_oe() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.Unit.from(0.0));
+    }
+",Vector1DTest::testUnitFrom_illegalNorm_1_oe
+geom_2265_2,"    @Test
+    void testUnitFrom_illegalNorm_2_oe() {
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.Unit.from(Double.NaN));
+    }
+",Vector1DTest::testUnitFrom_illegalNorm_2_oe
+geom_2265_3,"    @Test
+    void testUnitFrom_illegalNorm_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.Unit.from(Double.NEGATIVE_INFINITY));
+    }
+",Vector1DTest::testUnitFrom_illegalNorm_3_oe
+geom_2265_4,"    @Test
+    void testUnitFrom_illegalNorm_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Vector1D.Unit.from(Double.POSITIVE_INFINITY));
+    }
+",Vector1DTest::testUnitFrom_illegalNorm_4_oe
+geom_2325_1,"    @Test
+    void testFrom_invalidFunction_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AffineTransformMatrix1D.from(v -> v.multiply(0)));
+    }
+",AffineTransformMatrix1DTest::testFrom_invalidFunction_1_oe
+geom_2350_1,"    @Test
+    void testApplyDirection_illegalNorm_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AffineTransformMatrix1D.createScale(0).applyDirection(Vector1D.Unit.PLUS));
+    }
+",AffineTransformMatrix1DTest::testApplyDirection_illegalNorm_1_oe
+geom_2350_2,"    @Test
+    void testApplyDirection_illegalNorm_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AffineTransformMatrix1D.createScale(2).applyDirection(Vector1D.ZERO));
+    }
+",AffineTransformMatrix1DTest::testApplyDirection_illegalNorm_2_oe
+geom_2359_1,"    @Test
+    void testNormalTransform_nonInvertible_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> AffineTransformMatrix1D.createScale(0).normalTransform());
+    }
+",AffineTransformMatrix1DTest::testNormalTransform_nonInvertible_1_oe
+geom_41_1_1,"    @Test
+    void testParseErrors_1_oe_1_oe() {
+        // act/assert
+                final String content0 = ""soli test\n"" + ""facet normal 1 2 3 "" + ""outer loop "" + ""vertex 4 5 6 "" + ""vertex 7 8 9 "" + ""vertex 10 11 12 "" + ""endloop "" + ""endfacet "" + ""endsolid test"";
+        GeometryTestUtils.assertThrowsWithMessage( () -> EuclideanIOTestUtils.readAll(facetReader(content0)), IllegalStateException.class, Pattern.compile(""^Parsing failed.*""));
+    }
+",TextStlFacetDefinitionReaderTest::testParseErrors_1_oe_1_oe
+geom_41_2_1,"    @Test
+    void testParseErrors_2_oe_1_oe() {
+        // act/assert
+        // removed other assertion
+                final String content0 = ""solid test\n"" + ""facet normal 1 2 3 "" + ""outer loop "" + ""vertex abc 5 6 "" + ""vertex 7 8 9 "" + ""vertex 10 11 12 "" + ""endloop "" + ""endfacet "" + ""endsolid test"";
+        GeometryTestUtils.assertThrowsWithMessage( () -> EuclideanIOTestUtils.readAll(facetReader(content0)), IllegalStateException.class, Pattern.compile(""^Parsing failed.*""));
+    }
+",TextStlFacetDefinitionReaderTest::testParseErrors_2_oe_1_oe

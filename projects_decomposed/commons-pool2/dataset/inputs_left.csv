@@ -1,0 +1,498 @@
+id,test_prefix,test_name
+pool_102_1,"    @Test
+    public void testAbandonedPool_1_oe() throws Exception {
+        final GenericObjectPoolConfig<String> config = new GenericObjectPoolConfig<>();
+        config.setJmxEnabled(false);
+        GenericObjectPool<String> abandoned = new GenericObjectPool<>(simpleFactory, config);
+        abandoned.setTimeBetweenEvictionRuns(Duration.ofMillis(100)); // Starts evictor
+        assertEquals(abandoned.getRemoveAbandonedTimeout(), abandoned.getRemoveAbandonedTimeoutDuration().getSeconds());
+    }
+",TestGenericObjectPool::testAbandonedPool_1_oe
+pool_119_3,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionInValidationDuringEviction_3_oe() throws Exception {
+        genericObjectPool.setMaxIdle(1);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ZERO);
+        genericObjectPool.setTestWhileIdle(true);
+
+        final String active = genericObjectPool.borrowObject();
+        genericObjectPool.returnObject(active);
+
+        simpleFactory.setThrowExceptionOnValidate(true);
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, genericObjectPool.getNumIdle());
+    }
+",TestGenericObjectPool::testExceptionInValidationDuringEviction_3_oe
+pool_120_5,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testExceptionOnActivateDuringBorrow_5_oe() throws Exception {
+        final String obj1 = genericObjectPool.borrowObject();
+        final String obj2 = genericObjectPool.borrowObject();
+        genericObjectPool.returnObject(obj1);
+        genericObjectPool.returnObject(obj2);
+        simpleFactory.setThrowExceptionOnActivate(true);
+        simpleFactory.setEvenValid(false);
+        // Activation will now throw every other time
+        // First attempt throws, but loop continues and second succeeds
+        final String obj = genericObjectPool.borrowObject();
+        // removed other assertion
+        // removed other assertion
+
+        genericObjectPool.returnObject(obj);
+        simpleFactory.setValid(false);
+        // Validation will now fail on activation when borrowObject returns
+        // an idle instance, and then when attempting to create a new instance
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, genericObjectPool.getNumIdle());
+    }
+",TestGenericObjectPool::testExceptionOnActivateDuringBorrow_5_oe
+pool_125_2,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testFIFO_2_oe() throws Exception {
+        genericObjectPool.setLifo(false);
+        genericObjectPool.addObject(); // ""0""
+        genericObjectPool.addObject(); // ""1""
+        genericObjectPool.addObject(); // ""2""
+        // removed other assertion
+        assertEquals( ""1"", genericObjectPool.borrowObject(),""Middle"");
+    }
+",TestGenericObjectPool::testFIFO_2_oe
+pool_125_3,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testFIFO_3_oe() throws Exception {
+        genericObjectPool.setLifo(false);
+        genericObjectPool.addObject(); // ""0""
+        genericObjectPool.addObject(); // ""1""
+        genericObjectPool.addObject(); // ""2""
+        // removed other assertion
+        // removed other assertion
+        assertEquals( ""2"", genericObjectPool.borrowObject(),""Youngest"");
+    }
+",TestGenericObjectPool::testFIFO_3_oe
+pool_125_4,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testFIFO_4_oe() throws Exception {
+        genericObjectPool.setLifo(false);
+        genericObjectPool.addObject(); // ""0""
+        genericObjectPool.addObject(); // ""1""
+        genericObjectPool.addObject(); // ""2""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final String o = genericObjectPool.borrowObject();
+        assertEquals( ""3"", o,""new-3"");
+    }
+",TestGenericObjectPool::testFIFO_4_oe
+pool_125_5,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testFIFO_5_oe() throws Exception {
+        genericObjectPool.setLifo(false);
+        genericObjectPool.addObject(); // ""0""
+        genericObjectPool.addObject(); // ""1""
+        genericObjectPool.addObject(); // ""2""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final String o = genericObjectPool.borrowObject();
+        // removed other assertion
+        genericObjectPool.returnObject(o);
+        assertEquals( o, genericObjectPool.borrowObject(),""returned-3"");
+    }
+",TestGenericObjectPool::testFIFO_5_oe
+pool_125_6,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testFIFO_6_oe() throws Exception {
+        genericObjectPool.setLifo(false);
+        genericObjectPool.addObject(); // ""0""
+        genericObjectPool.addObject(); // ""1""
+        genericObjectPool.addObject(); // ""2""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final String o = genericObjectPool.borrowObject();
+        // removed other assertion
+        genericObjectPool.returnObject(o);
+        // removed other assertion
+        assertEquals( ""4"", genericObjectPool.borrowObject(),""new-4"");
+    }
+",TestGenericObjectPool::testFIFO_6_oe
+pool_135_2,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testLIFO_2_oe() throws Exception {
+        final String o;
+        genericObjectPool.setLifo(true);
+        genericObjectPool.addObject(); // ""0""
+        genericObjectPool.addObject(); // ""1""
+        genericObjectPool.addObject(); // ""2""
+        // removed other assertion
+        assertEquals( ""1"", genericObjectPool.borrowObject(),""Middle"");
+    }
+",TestGenericObjectPool::testLIFO_2_oe
+pool_135_3,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testLIFO_3_oe() throws Exception {
+        final String o;
+        genericObjectPool.setLifo(true);
+        genericObjectPool.addObject(); // ""0""
+        genericObjectPool.addObject(); // ""1""
+        genericObjectPool.addObject(); // ""2""
+        // removed other assertion
+        // removed other assertion
+        assertEquals( ""0"", genericObjectPool.borrowObject(),""Oldest"");
+    }
+",TestGenericObjectPool::testLIFO_3_oe
+pool_135_4,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testLIFO_4_oe() throws Exception {
+        final String o;
+        genericObjectPool.setLifo(true);
+        genericObjectPool.addObject(); // ""0""
+        genericObjectPool.addObject(); // ""1""
+        genericObjectPool.addObject(); // ""2""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        o = genericObjectPool.borrowObject();
+        assertEquals( ""3"", o,""new-3"");
+    }
+",TestGenericObjectPool::testLIFO_4_oe
+pool_135_6,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testLIFO_6_oe() throws Exception {
+        final String o;
+        genericObjectPool.setLifo(true);
+        genericObjectPool.addObject(); // ""0""
+        genericObjectPool.addObject(); // ""1""
+        genericObjectPool.addObject(); // ""2""
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        o = genericObjectPool.borrowObject();
+        // removed other assertion
+        genericObjectPool.returnObject(o);
+        // removed other assertion
+        assertEquals( ""4"", genericObjectPool.borrowObject(),""new-4"");
+    }
+",TestGenericObjectPool::testLIFO_6_oe
+pool_139_1,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    @SuppressWarnings(""rawtypes"")
+    public void testMaxIdleZeroUnderLoad_1_oe() {
+        // Config
+        final int numThreads = 199; // And main thread makes a round 200.
+        final int numIter = 20;
+        final int delay = 25;
+        final int maxTotal = 10;
+
+        simpleFactory.setMaxTotal(maxTotal);
+        genericObjectPool.setMaxTotal(maxTotal);
+        genericObjectPool.setBlockWhenExhausted(true);
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(-1));
+
+        // this is important to trigger POOL-356
+        genericObjectPool.setMaxIdle(0);
+
+        // Start threads to borrow objects
+        final TestThread[] threads = new TestThread[numThreads];
+        for(int i=0;i<numThreads;i++) {
+            // Factor of 2 on iterations so main thread does work whilst other
+            // threads are running. Factor of 2 on delay so average delay for
+            // other threads == actual delay for main thread
+            threads[i] = new TestThread<>(genericObjectPool, numIter * 2, delay * 2);
+            final Thread t = new Thread(threads[i]);
+            t.start();
+        }
+        // Give the threads a chance to start doing some work
+        Waiter.sleepQuietly(100L);
+
+        for (int i = 0; i < numIter; i++) {
+            String obj = null;
+            try {
+                Waiter.sleepQuietly(delay);
+                obj = genericObjectPool.borrowObject();
+                // Under load, observed numActive > maxTotal
+                if (genericObjectPool.getNumActive() > genericObjectPool.getMaxTotal()) {
+                    throw new IllegalStateException(""Too many active objects"");
+                }
+                Waiter.sleepQuietly(delay);
+            } catch (final Exception e) {
+                // Shouldn't happen
+                e.printStackTrace();
+                fail(""Exception on borrow"");
+    }
+    }
+    }
+",TestGenericObjectPool::testMaxIdleZeroUnderLoad_1_oe
+pool_141_1,"    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    @SuppressWarnings(""rawtypes"")
+    public void testMaxTotalUnderLoad_1_oe() {
+        // Config
+        final int numThreads = 199; // And main thread makes a round 200.
+        final int numIter = 20;
+        final int delay = 25;
+        final int maxTotal = 10;
+
+        simpleFactory.setMaxTotal(maxTotal);
+        genericObjectPool.setMaxTotal(maxTotal);
+        genericObjectPool.setBlockWhenExhausted(true);
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(-1));
+
+        // Start threads to borrow objects
+        final TestThread[] threads = new TestThread[numThreads];
+        for(int i=0;i<numThreads;i++) {
+            // Factor of 2 on iterations so main thread does work whilst other
+            // threads are running. Factor of 2 on delay so average delay for
+            // other threads == actual delay for main thread
+            threads[i] = new TestThread<>(genericObjectPool, numIter * 2, delay * 2);
+            final Thread t = new Thread(threads[i]);
+            t.start();
+        }
+        // Give the threads a chance to start doing some work
+        Waiter.sleepQuietly(5000);
+
+        for (int i = 0; i < numIter; i++) {
+            String obj = null;
+            try {
+                Waiter.sleepQuietly(delay);
+                obj = genericObjectPool.borrowObject();
+                // Under load, observed numActive > maxTotal
+                if (genericObjectPool.getNumActive() > genericObjectPool.getMaxTotal()) {
+                    throw new IllegalStateException(""Too many active objects"");
+                }
+                Waiter.sleepQuietly(delay);
+            } catch (final Exception e) {
+                // Shouldn't happen
+                e.printStackTrace();
+                fail(""Exception on borrow"");
+    }
+    }
+    }
+",TestGenericObjectPool::testMaxTotalUnderLoad_1_oe
+pool_293_3,"    @Test
+    public void testOutOfMemory_3_oe() throws Exception {
+        pool = new SoftReferenceObjectPool<>(new SmallPoolableObjectFactory());
+
+        String obj = pool.borrowObject();
+        // removed other assertion
+        pool.returnObject(obj);
+        obj = null;
+
+        // removed other assertion
+
+        final List<byte[]> garbage = new LinkedList<>();
+        final Runtime runtime = Runtime.getRuntime();
+        while (pool.getNumIdle() > 0) {
+            try {
+                long freeMemory = runtime.freeMemory();
+                if (freeMemory > Integer.MAX_VALUE) {
+                    freeMemory = Integer.MAX_VALUE;
+                }
+                garbage.add(new byte[Math.min(1024 * 1024, (int) freeMemory / 2)]);
+            } catch (final OutOfMemoryError oome) {
+                System.gc();
+            }
+            System.gc();
+        }
+        garbage.clear();
+        System.gc();
+
+        obj = pool.borrowObject();
+        assertEquals(""2"", obj);
+    }
+",TestSoftRefOutOfMemory::testOutOfMemory_3_oe
+pool_293_4,"    @Test
+    public void testOutOfMemory_4_oe() throws Exception {
+        pool = new SoftReferenceObjectPool<>(new SmallPoolableObjectFactory());
+
+        String obj = pool.borrowObject();
+        // removed other assertion
+        pool.returnObject(obj);
+        obj = null;
+
+        // removed other assertion
+
+        final List<byte[]> garbage = new LinkedList<>();
+        final Runtime runtime = Runtime.getRuntime();
+        while (pool.getNumIdle() > 0) {
+            try {
+                long freeMemory = runtime.freeMemory();
+                if (freeMemory > Integer.MAX_VALUE) {
+                    freeMemory = Integer.MAX_VALUE;
+                }
+                garbage.add(new byte[Math.min(1024 * 1024, (int) freeMemory / 2)]);
+            } catch (final OutOfMemoryError oome) {
+                System.gc();
+            }
+            System.gc();
+        }
+        garbage.clear();
+        System.gc();
+
+        obj = pool.borrowObject();
+        // removed other assertion
+        pool.returnObject(obj);
+        obj = null;
+
+        assertEquals(1, pool.getNumIdle());
+    }
+",TestSoftRefOutOfMemory::testOutOfMemory_4_oe
+pool_294_1,"    @Test
+    public void testOutOfMemory1000_1_oe() throws Exception {
+        pool = new SoftReferenceObjectPool<>(new SmallPoolableObjectFactory());
+
+        for (int i = 0 ; i < 1000 ; i++) {
+            pool.addObject();
+        }
+
+        String obj = pool.borrowObject();
+        assertEquals(""1000"", obj);
+    }
+",TestSoftRefOutOfMemory::testOutOfMemory1000_1_oe
+pool_294_3,"    @Test
+    public void testOutOfMemory1000_3_oe() throws Exception {
+        pool = new SoftReferenceObjectPool<>(new SmallPoolableObjectFactory());
+
+        for (int i = 0 ; i < 1000 ; i++) {
+            pool.addObject();
+        }
+
+        String obj = pool.borrowObject();
+        // removed other assertion
+        pool.returnObject(obj);
+        obj = null;
+
+        // removed other assertion
+
+        final List<byte[]> garbage = new LinkedList<>();
+        final Runtime runtime = Runtime.getRuntime();
+        while (pool.getNumIdle() > 0) {
+            try {
+                long freeMemory = runtime.freeMemory();
+                if (freeMemory > Integer.MAX_VALUE) {
+                    freeMemory = Integer.MAX_VALUE;
+                }
+                garbage.add(new byte[Math.min(1024 * 1024, (int) freeMemory / 2)]);
+            } catch (final OutOfMemoryError oome) {
+                System.gc();
+            }
+            System.gc();
+        }
+        garbage.clear();
+        System.gc();
+
+        obj = pool.borrowObject();
+        assertEquals(""1001"", obj);
+    }
+",TestSoftRefOutOfMemory::testOutOfMemory1000_3_oe
+pool_294_4,"    @Test
+    public void testOutOfMemory1000_4_oe() throws Exception {
+        pool = new SoftReferenceObjectPool<>(new SmallPoolableObjectFactory());
+
+        for (int i = 0 ; i < 1000 ; i++) {
+            pool.addObject();
+        }
+
+        String obj = pool.borrowObject();
+        // removed other assertion
+        pool.returnObject(obj);
+        obj = null;
+
+        // removed other assertion
+
+        final List<byte[]> garbage = new LinkedList<>();
+        final Runtime runtime = Runtime.getRuntime();
+        while (pool.getNumIdle() > 0) {
+            try {
+                long freeMemory = runtime.freeMemory();
+                if (freeMemory > Integer.MAX_VALUE) {
+                    freeMemory = Integer.MAX_VALUE;
+                }
+                garbage.add(new byte[Math.min(1024 * 1024, (int) freeMemory / 2)]);
+            } catch (final OutOfMemoryError oome) {
+                System.gc();
+            }
+            System.gc();
+        }
+        garbage.clear();
+        System.gc();
+
+        obj = pool.borrowObject();
+        // removed other assertion
+        pool.returnObject(obj);
+        obj = null;
+
+        assertEquals(1, pool.getNumIdle());
+    }
+",TestSoftRefOutOfMemory::testOutOfMemory1000_4_oe
+pool_296_3,"    @Test
+    public void testOutOfMemoryLarge_3_oe() throws Exception {
+        pool = new SoftReferenceObjectPool<>(new LargePoolableObjectFactory(1000000));
+
+        String obj = pool.borrowObject();
+        // removed other assertion
+        pool.returnObject(obj);
+        obj = null;
+
+        // removed other assertion
+
+        final List<byte[]> garbage = new LinkedList<>();
+        final Runtime runtime = Runtime.getRuntime();
+        while (pool.getNumIdle() > 0) {
+            try {
+                long freeMemory = runtime.freeMemory();
+                if (freeMemory > Integer.MAX_VALUE) {
+                    freeMemory = Integer.MAX_VALUE;
+                }
+                garbage.add(new byte[Math.min(1024 * 1024, (int) freeMemory / 2)]);
+            } catch (final OutOfMemoryError oome) {
+                System.gc();
+            }
+            System.gc();
+        }
+        garbage.clear();
+        System.gc();
+
+        obj = pool.borrowObject();
+        assertTrue(obj.startsWith(""2.""));
+    }
+",TestSoftRefOutOfMemory::testOutOfMemoryLarge_3_oe
+pool_296_4,"    @Test
+    public void testOutOfMemoryLarge_4_oe() throws Exception {
+        pool = new SoftReferenceObjectPool<>(new LargePoolableObjectFactory(1000000));
+
+        String obj = pool.borrowObject();
+        // removed other assertion
+        pool.returnObject(obj);
+        obj = null;
+
+        // removed other assertion
+
+        final List<byte[]> garbage = new LinkedList<>();
+        final Runtime runtime = Runtime.getRuntime();
+        while (pool.getNumIdle() > 0) {
+            try {
+                long freeMemory = runtime.freeMemory();
+                if (freeMemory > Integer.MAX_VALUE) {
+                    freeMemory = Integer.MAX_VALUE;
+                }
+                garbage.add(new byte[Math.min(1024 * 1024, (int) freeMemory / 2)]);
+            } catch (final OutOfMemoryError oome) {
+                System.gc();
+            }
+            System.gc();
+        }
+        garbage.clear();
+        System.gc();
+
+        obj = pool.borrowObject();
+        // removed other assertion
+        pool.returnObject(obj);
+        obj = null;
+
+        assertEquals(1, pool.getNumIdle());
+    }
+",TestSoftRefOutOfMemory::testOutOfMemoryLarge_4_oe

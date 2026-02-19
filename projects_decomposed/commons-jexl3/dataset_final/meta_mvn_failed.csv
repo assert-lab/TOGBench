@@ -1,0 +1,11 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
+jexl_521_4,commons-jexl3,ClassCreatorTest,testFunctorOne_4_oe,src/test/java/org/apache/commons/jexl3/ClassCreatorTest.java,,,,assert,unknown,standard,assertEquals
+jexl_521_5,commons-jexl3,ClassCreatorTest,testFunctorOne_5_oe,src/test/java/org/apache/commons/jexl3/ClassCreatorTest.java,,,,assert,unknown,standard,assertEquals
+jexl_521_6,commons-jexl3,ClassCreatorTest,testFunctorOne_6_oe,src/test/java/org/apache/commons/jexl3/ClassCreatorTest.java,,,,assert,unknown,standard,assertEquals
+jexl_521_7,commons-jexl3,ClassCreatorTest,testFunctorOne_7_oe,src/test/java/org/apache/commons/jexl3/ClassCreatorTest.java,,,,assert,unknown,standard,assertNotSame
+jexl_521_8,commons-jexl3,ClassCreatorTest,testFunctorOne_8_oe,src/test/java/org/apache/commons/jexl3/ClassCreatorTest.java,,,,assert,unknown,standard,assertEquals
+jexl_521_9,commons-jexl3,ClassCreatorTest,testFunctorOne_9_oe,src/test/java/org/apache/commons/jexl3/ClassCreatorTest.java,,,,assert,unknown,standard,assertEquals
+jexl_523_3,commons-jexl3,ClassCreatorTest,testMany_3_oe,src/test/java/org/apache/commons/jexl3/ClassCreatorTest.java,,,,assert,unknown,standard,assertNotNull
+jexl_523_4,commons-jexl3,ClassCreatorTest,testMany_4_oe,src/test/java/org/apache/commons/jexl3/ClassCreatorTest.java,,,,assert,unknown,standard,assertEquals
+jexl_523_5,commons-jexl3,ClassCreatorTest,testMany_5_oe,src/test/java/org/apache/commons/jexl3/ClassCreatorTest.java,,,,assert,unknown,standard,assertEquals
+jexl_523_6,commons-jexl3,ClassCreatorTest,testMany_6_oe,src/test/java/org/apache/commons/jexl3/ClassCreatorTest.java,,,,assert,unknown,standard,assertEquals

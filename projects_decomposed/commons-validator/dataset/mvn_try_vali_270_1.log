@@ -1,0 +1,62 @@
+abigail@example.com : expected true actual false
+ abigail@example.com: expected true actual false
+abigail @example.com : expected true actual false
+Abigail <abigail@example.com>: expected true actual false
+Abigail<abigail@example.com>: expected true actual false
+Abigail<@a,@b,@c:abigail@example.com>: expected true actual false
+"This is a phrase"<abigail@example.com>: expected true actual false
+"Abigail "<abigail@example.com>: expected true actual false
+"Joe & J. Harvey" <example @Org>: expected true actual false
+Abigail <abigail @ example.com>: expected true actual false
+Abigail made this <  abigail   @   example  .    com    >: expected true actual false
+Abigail(the bitch)@example.com: expected true actual false
+Abigail <abigail @ example . (bar) com >: expected true actual false
+Abigail < (one)  abigail (two) @(three)example . (bar) com (quz) >: expected true actual false
+Abigail (foo) (((baz)(nested) (comment)) ! ) < (one)  abigail (two) @(three)example . (bar) com (quz) >: expected true actual false
+Abigail <abigail(fo\(o)@example.com>: expected true actual false
+Abigail <abigail(fo\)o)@example.com> : expected true actual false
+(foo) abigail@example.com: expected true actual false
+abigail@example.com (foo): expected true actual false
+"Abi\"gail" <abigail@example.com>: expected true actual false
+abigail@[example.com]: expected true actual false
+abigail@[exa\[ple.com]: expected true actual false
+abigail@[exa\]ple.com]: expected true actual false
+":sysmail"@  Some-Group. Some-Org: expected true actual false
+Muhammed.(I am  the greatest) Ali @(the)Vegas.WBA: expected true actual false
+mailbox.sub1.sub2@this-domain: expected true actual false
+sub-net.mailbox@sub-domain.domain: expected true actual false
+name:;: expected true actual false
+':;: expected true actual false
+name:   ;: expected true actual false
+Alfred Neuman <Neuman@BBN-TENEXA>: expected true actual false
+Neuman@BBN-TENEXA: expected true actual false
+"George, Ted" <Shared@Group.Arpanet>: expected true actual false
+Wilt . (the  Stilt) Chamberlain@NBA.US: expected true actual false
+Cruisers:  Port@Portugal, Jones@SEA;: expected true actual false
+$@[]: expected true actual false
+*()@[]: expected true actual false
+"quoted ( brackets" ( a comment )@example.com: expected true actual false
+"Joe & J. Harvey"\x0D\x0A     <ddd\@ Org>: expected true actual false
+"Joe &\x0D\x0A J. Harvey" <ddd \@ Org>: expected true actual false
+Gourmets:  Pompous Person <WhoZiWhatZit\@Cordon-Bleu>,\x0D\x0A        Childs\@WGBH.Boston, "Galloping Gourmet"\@\x0D\x0A        ANT.Down-Under (Australian National Television),\x0D\x0A        Cheapie\@Discount-Liquors;: expected true actual false
+fred\ barny@example.com: expected false actual true
+invalid�char@example.com: expected false actual true
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.046 s <<< FAILURE! - in org.apache.commons.validator.routines.EmailValidatorTest_OE25Dev_vali_270_1
+[ERROR] testEmailFromPerl_1_oe(org.apache.commons.validator.routines.EmailValidatorTest_OE25Dev_vali_270_1)  Time elapsed: 0.019 s  <<< FAILURE!
+java.lang.AssertionError: Expected 0 errors expected:<0> but was:<43>
+	at org.apache.commons.validator.routines.EmailValidatorTest_OE25Dev_vali_270_1.testEmailFromPerl_1_oe(EmailValidatorTest_OE25Dev_vali_270_1.java:490)
+
+[ERROR] Failures: 
+[ERROR]   EmailValidatorTest_OE25Dev_vali_270_1.testEmailFromPerl_1_oe:490 Expected 0 errors expected:<0> but was:<43>
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-validator: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

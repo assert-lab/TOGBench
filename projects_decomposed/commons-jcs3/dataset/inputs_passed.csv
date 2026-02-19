@@ -1,0 +1,905 @@
+id,test_prefix,test_name
+jcs3_352_2,"    @Test
+    public void immediate_2_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        cacheManager.createCache(""default"",
+                new MutableConfiguration<>()
+                        .setExpiryPolicyFactory(
+                                new FactoryBuilder.SingletonFactory<ExpiryPolicy>(new CreatedExpiryPolicy(Duration.ZERO))));
+        final Cache<String, String> cache = cacheManager.getCache(""default"");
+        // removed other assertion
+        cache.put(""foo"", ""bar"");
+        assertFalse(cache.containsKey(""foo""));
+    }
+",ImmediateExpiryTest::immediate_2_oe
+jcs3_354_1,"    @Test
+    public void getPut_1_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        final Cache<String, String> cache = cacheManager.createCache(""default"", new MutableConfiguration<String, String>());
+        assertFalse(cache.containsKey(""foo""));
+    }
+",CacheTest::getPut_1_oe
+jcs3_354_2,"    @Test
+    public void getPut_2_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        final Cache<String, String> cache = cacheManager.createCache(""default"", new MutableConfiguration<String, String>());
+        // removed other assertion
+        cache.put(""foo"", ""bar"");
+        assertTrue(cache.containsKey(""foo""));
+    }
+",CacheTest::getPut_2_oe
+jcs3_354_3,"    @Test
+    public void getPut_3_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        final Cache<String, String> cache = cacheManager.createCache(""default"", new MutableConfiguration<String, String>());
+        // removed other assertion
+        cache.put(""foo"", ""bar"");
+        // removed other assertion
+        assertEquals(""bar"", cache.get(""foo""));
+    }
+",CacheTest::getPut_3_oe
+jcs3_354_4,"    @Test
+    public void getPut_4_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        final Cache<String, String> cache = cacheManager.createCache(""default"", new MutableConfiguration<String, String>());
+        // removed other assertion
+        cache.put(""foo"", ""bar"");
+        // removed other assertion
+        // removed other assertion
+        cache.remove(""foo"");
+        assertFalse(cache.containsKey(""foo""));
+    }
+",CacheTest::getPut_4_oe
+jcs3_355_1,"    @Test
+    public void listeners_1_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        cacheManager.createCache(""default"", new MutableConfiguration<>());
+        final Cache<String, String> cache = cacheManager.getCache(""default"");
+        final Set<String> event = new HashSet<>();
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = -8253611067837660184L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryCreatedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = 74774789357823553L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryUpdatedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = 2442816458182278519L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryRemovedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+
+        cache.put(""foo"", ""bar"");
+        assertEquals(1, event.size());
+    }
+",CacheTest::listeners_1_oe
+jcs3_355_2,"    @Test
+    public void listeners_2_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        cacheManager.createCache(""default"", new MutableConfiguration<>());
+        final Cache<String, String> cache = cacheManager.getCache(""default"");
+        final Set<String> event = new HashSet<>();
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = -8253611067837660184L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryCreatedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = 74774789357823553L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryUpdatedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = 2442816458182278519L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryRemovedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+
+        cache.put(""foo"", ""bar"");
+        // removed other assertion
+        assertEquals(""foo"", event.iterator().next());
+    }
+",CacheTest::listeners_2_oe
+jcs3_355_3,"    @Test
+    public void listeners_3_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        cacheManager.createCache(""default"", new MutableConfiguration<>());
+        final Cache<String, String> cache = cacheManager.getCache(""default"");
+        final Set<String> event = new HashSet<>();
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = -8253611067837660184L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryCreatedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = 74774789357823553L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryUpdatedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = 2442816458182278519L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryRemovedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+
+        cache.put(""foo"", ""bar"");
+        // removed other assertion
+        // removed other assertion
+        event.clear();
+        cache.put(""foo"", ""new"");
+        assertEquals(1, event.size());
+    }
+",CacheTest::listeners_3_oe
+jcs3_355_4,"    @Test
+    public void listeners_4_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        cacheManager.createCache(""default"", new MutableConfiguration<>());
+        final Cache<String, String> cache = cacheManager.getCache(""default"");
+        final Set<String> event = new HashSet<>();
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = -8253611067837660184L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryCreatedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = 74774789357823553L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryUpdatedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = 2442816458182278519L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryRemovedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+
+        cache.put(""foo"", ""bar"");
+        // removed other assertion
+        // removed other assertion
+        event.clear();
+        cache.put(""foo"", ""new"");
+        // removed other assertion
+        assertEquals(""foo"", event.iterator().next());
+    }
+",CacheTest::listeners_4_oe
+jcs3_355_5,"    @Test
+    public void listeners_5_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        cacheManager.createCache(""default"", new MutableConfiguration<>());
+        final Cache<String, String> cache = cacheManager.getCache(""default"");
+        final Set<String> event = new HashSet<>();
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = -8253611067837660184L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryCreatedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = 74774789357823553L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryUpdatedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = 2442816458182278519L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryRemovedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+
+        cache.put(""foo"", ""bar"");
+        // removed other assertion
+        // removed other assertion
+        event.clear();
+        cache.put(""foo"", ""new"");
+        // removed other assertion
+        // removed other assertion
+        event.clear();
+        cache.remove(""foo"");
+        assertEquals(1, event.size());
+    }
+",CacheTest::listeners_5_oe
+jcs3_355_6,"    @Test
+    public void listeners_6_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        cacheManager.createCache(""default"", new MutableConfiguration<>());
+        final Cache<String, String> cache = cacheManager.getCache(""default"");
+        final Set<String> event = new HashSet<>();
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = -8253611067837660184L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryCreatedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = 74774789357823553L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryUpdatedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+        cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = 2442816458182278519L;
+
+            @Override
+            public Factory<CacheEntryListener<? super String, ? super String>> getCacheEntryListenerFactory()
+            {
+                return () -> (CacheEntryRemovedListener<String, String>) cacheEntryEvents -> event.add(cacheEntryEvents.iterator().next().getKey());
+            }
+
+            @Override
+            public boolean isOldValueRequired()
+            {
+                return false;
+            }
+
+            @Override
+            public Factory<CacheEntryEventFilter<? super String, ? super String>> getCacheEntryEventFilterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public boolean isSynchronous()
+            {
+                return false;
+            }
+        });
+
+        cache.put(""foo"", ""bar"");
+        // removed other assertion
+        // removed other assertion
+        event.clear();
+        cache.put(""foo"", ""new"");
+        // removed other assertion
+        // removed other assertion
+        event.clear();
+        cache.remove(""foo"");
+        // removed other assertion
+        assertEquals(""foo"", event.iterator().next());
+    }
+",CacheTest::listeners_6_oe
+jcs3_356_1,"    @Test
+    public void loader_1_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        cacheManager.createCache(""default"", new CompleteConfiguration<Object, Object>()
+        {
+            /**
+             *
+             */
+            private static final long serialVersionUID = -4598329777808827966L;
+
+            @Override
+            public boolean isReadThrough()
+            {
+                return true;
+            }
+
+            @Override
+            public boolean isWriteThrough()
+            {
+                return false;
+            }
+
+            @Override
+            public boolean isStatisticsEnabled()
+            {
+                return false;
+            }
+
+            @Override
+            public boolean isManagementEnabled()
+            {
+                return false;
+            }
+
+            @Override
+            public Iterable<CacheEntryListenerConfiguration<Object, Object>> getCacheEntryListenerConfigurations()
+            {
+                return null;
+            }
+
+            @Override
+            public Factory<CacheLoader<Object, Object>> getCacheLoaderFactory()
+            {
+                return () -> new CacheLoader<Object, Object>()
+                {
+                    @Override
+                    public Object load(final Object key) throws CacheLoaderException
+                    {
+                        return ""super"";
+                    }
+
+                    @Override
+                    public Map<Object, Object> loadAll(final Iterable<?> keys) throws CacheLoaderException
+                    {
+                        return null;
+                    }
+                };
+            }
+
+            @Override
+            public Factory<CacheWriter<? super Object, ? super Object>> getCacheWriterFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public Factory<ExpiryPolicy> getExpiryPolicyFactory()
+            {
+                return null;
+            }
+
+            @Override
+            public Class<Object> getKeyType()
+            {
+                return Object.class;
+            }
+
+            @Override
+            public Class<Object> getValueType()
+            {
+                return Object.class;
+            }
+
+            @Override
+            public boolean isStoreByValue()
+            {
+                return false;
+            }
+        });
+        final Cache<String, String> cache = cacheManager.getCache(""default"");
+        assertEquals(""super"", cache.get(""lazilyLoaded""));
+    }
+",CacheTest::loader_1_oe
+jcs3_357_1,"    @Test
+    public void listener_1_oe() throws InterruptedException {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        final CacheEntryExpiredListenerImpl listener = new CacheEntryExpiredListenerImpl();
+        cacheManager.createCache(""default"", new MutableConfiguration<String, String>()
+                .setExpiryPolicyFactory(new FactoryBuilder.SingletonFactory<ExpiryPolicy>(
+                        new CreatedExpiryPolicy(new Duration(TimeUnit.MILLISECONDS, 1))))
+                .addCacheEntryListenerConfiguration(new MutableCacheEntryListenerConfiguration<>(
+                        FactoryBuilder.factoryOf(listener),
+                        null, false, false
+                )));
+        final Cache<String, String> cache = cacheManager.getCache(""default"");
+        assertFalse(cache.containsKey(""foo""));
+    }
+",ExpiryListenerTest::listener_1_oe
+jcs3_357_2,"    @Test
+    public void listener_2_oe() throws InterruptedException {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        final CacheEntryExpiredListenerImpl listener = new CacheEntryExpiredListenerImpl();
+        cacheManager.createCache(""default"", new MutableConfiguration<String, String>()
+                .setExpiryPolicyFactory(new FactoryBuilder.SingletonFactory<ExpiryPolicy>(
+                        new CreatedExpiryPolicy(new Duration(TimeUnit.MILLISECONDS, 1))))
+                .addCacheEntryListenerConfiguration(new MutableCacheEntryListenerConfiguration<>(
+                        FactoryBuilder.factoryOf(listener),
+                        null, false, false
+                )));
+        final Cache<String, String> cache = cacheManager.getCache(""default"");
+        // removed other assertion
+        cache.put(""foo"", ""bar"");
+        Thread.sleep(10);
+        assertFalse(cache.containsKey(""foo""));
+    }
+",ExpiryListenerTest::listener_2_oe
+jcs3_360_1,"    @Test
+    public void run_1_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        cacheManager.createCache(""default"", new MutableConfiguration<String, NotSerializableAndImHappyWithIt>().setStoreByValue(false));
+        final Cache<String, NotSerializableAndImHappyWithIt> cache = cacheManager.getCache(""default"");
+        assertFalse(cache.containsKey(""foo""));
+    }
+",NotSerializableTest::run_1_oe
+jcs3_360_2,"    @Test
+    public void run_2_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        cacheManager.createCache(""default"", new MutableConfiguration<String, NotSerializableAndImHappyWithIt>().setStoreByValue(false));
+        final Cache<String, NotSerializableAndImHappyWithIt> cache = cacheManager.getCache(""default"");
+        // removed other assertion
+        cache.put(""foo"", new NotSerializableAndImHappyWithIt(""bar""));
+        assertTrue(cache.containsKey(""foo""));
+    }
+",NotSerializableTest::run_2_oe
+jcs3_360_3,"    @Test
+    public void run_3_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        cacheManager.createCache(""default"", new MutableConfiguration<String, NotSerializableAndImHappyWithIt>().setStoreByValue(false));
+        final Cache<String, NotSerializableAndImHappyWithIt> cache = cacheManager.getCache(""default"");
+        // removed other assertion
+        cache.put(""foo"", new NotSerializableAndImHappyWithIt(""bar""));
+        // removed other assertion
+        assertEquals(""bar"", cache.get(""foo"").name);
+    }
+",NotSerializableTest::run_3_oe
+jcs3_360_4,"    @Test
+    public void run_4_oe()
+    {
+        final CachingProvider cachingProvider = Caching.getCachingProvider();
+        final CacheManager cacheManager = cachingProvider.getCacheManager();
+        cacheManager.createCache(""default"", new MutableConfiguration<String, NotSerializableAndImHappyWithIt>().setStoreByValue(false));
+        final Cache<String, NotSerializableAndImHappyWithIt> cache = cacheManager.getCache(""default"");
+        // removed other assertion
+        cache.put(""foo"", new NotSerializableAndImHappyWithIt(""bar""));
+        // removed other assertion
+        // removed other assertion
+        cache.remove(""foo"");
+        assertFalse(cache.containsKey(""foo""));
+    }
+",NotSerializableTest::run_4_oe

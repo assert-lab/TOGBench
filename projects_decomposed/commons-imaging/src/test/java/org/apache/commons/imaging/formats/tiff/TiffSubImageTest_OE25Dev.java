@@ -37,29 +37,6 @@ public class TiffSubImageTest_OE25Dev extends TiffBaseTest {
         imageFileList = getTiffImages();
     }
 
-    @Test
-    public void testBadSubImage()  throws ImageReadException, IOException {
-        final TiffImageParser tiffImageParser = new TiffImageParser();
-        final File target = imageFileList.get(0);
-        final BufferedImage referenceImage = Imaging.getBufferedImage(target);
-        final int width = referenceImage.getWidth();
-        final int height = referenceImage.getHeight();
-
-        final TiffImagingParameters params = new TiffImagingParameters();
-        params.setSubImage(0, 0, width, height);
-
-        final BufferedImage image = tiffImageParser.getBufferedImage(target, params);
-        assertEquals(image.getWidth(), width, "Improper width when sub-imaging entire image");
-        assertEquals(image.getHeight(), height, "Improper height when sub-imaging entire image");
-
-        processBadParams(target, -1, 0, width, height, "negative x position");
-        processBadParams(target, 0, -1, width, height, "negative y position");
-        processBadParams(target, 0, 0, 0, height, "zero width");
-        processBadParams(target, 0, 0, width, 0, "zero height");
-        processBadParams(target, 1, 0, width, height, "sub-image width extends beyond bounds");
-        processBadParams(target, 0, 1, width, height, "sub-image height extends beyond bounds");
-    }
-
     private void processBadParams(final File target, final int x, final int y, final int width, final int height, final String comment) throws IOException{
         final TiffImageParser tiffImageParser = new TiffImageParser();
         try {
@@ -72,8 +49,40 @@ public class TiffSubImageTest_OE25Dev extends TiffBaseTest {
         }
     }
 
+
     @Test
-    public void testSubImageCorrectness() throws ImageReadException, IOException {
+    public void testBadSubImage_1_oe()  throws ImageReadException, IOException {
+        final TiffImageParser tiffImageParser = new TiffImageParser();
+        final File target = imageFileList.get(0);
+        final BufferedImage referenceImage = Imaging.getBufferedImage(target);
+        final int width = referenceImage.getWidth();
+        final int height = referenceImage.getHeight();
+
+        final TiffImagingParameters params = new TiffImagingParameters();
+        params.setSubImage(0, 0, width, height);
+
+        final BufferedImage image = tiffImageParser.getBufferedImage(target, params);
+        assertEquals(image.getWidth(), width, "Improper width when sub-imaging entire image");
+    }
+
+    @Test
+    public void testBadSubImage_2_oe()  throws ImageReadException, IOException {
+        final TiffImageParser tiffImageParser = new TiffImageParser();
+        final File target = imageFileList.get(0);
+        final BufferedImage referenceImage = Imaging.getBufferedImage(target);
+        final int width = referenceImage.getWidth();
+        final int height = referenceImage.getHeight();
+
+        final TiffImagingParameters params = new TiffImagingParameters();
+        params.setSubImage(0, 0, width, height);
+
+        final BufferedImage image = tiffImageParser.getBufferedImage(target, params);
+        // removed other assertion
+        assertEquals(image.getHeight(), height, "Improper height when sub-imaging entire image");
+    }
+
+    @Test
+    public void testSubImageCorrectness_1_oe() throws ImageReadException, IOException {
         final TiffImageParser tiffImageParser = new TiffImageParser();
         for(final File target: imageFileList) {
             final BufferedImage referenceImage = Imaging.getBufferedImage(target);
@@ -90,7 +99,50 @@ public class TiffSubImageTest_OE25Dev extends TiffBaseTest {
             final int iW = image.getWidth();
             final int iH = image.getHeight();
             assertEquals(iW, rW-2, "Invalid subimage width");
+    }
+    }
+
+    @Test
+    public void testSubImageCorrectness_2_oe() throws ImageReadException, IOException {
+        final TiffImageParser tiffImageParser = new TiffImageParser();
+        for(final File target: imageFileList) {
+            final BufferedImage referenceImage = Imaging.getBufferedImage(target);
+            final int rW = referenceImage.getWidth();
+            final int rH = referenceImage.getHeight();
+            if(rW<3 || rH<3){
+                continue;
+            }
+            final int []rArgb = new int[rW*rH];
+            referenceImage.getRGB(0, 0, rW, rH, rArgb, 0, rW);
+            final TiffImagingParameters params = new TiffImagingParameters();
+            params.setSubImage(1, 1, rW-2, rH-2);
+            final BufferedImage image = tiffImageParser.getBufferedImage(target, params);
+            final int iW = image.getWidth();
+            final int iH = image.getHeight();
+            // removed other assertion
             assertEquals(iH, rH-2, "Invalid subimage height");
+    }
+    }
+
+    @Test
+    public void testSubImageCorrectness_3_oe() throws ImageReadException, IOException {
+        final TiffImageParser tiffImageParser = new TiffImageParser();
+        for(final File target: imageFileList) {
+            final BufferedImage referenceImage = Imaging.getBufferedImage(target);
+            final int rW = referenceImage.getWidth();
+            final int rH = referenceImage.getHeight();
+            if(rW<3 || rH<3){
+                continue;
+            }
+            final int []rArgb = new int[rW*rH];
+            referenceImage.getRGB(0, 0, rW, rH, rArgb, 0, rW);
+            final TiffImagingParameters params = new TiffImagingParameters();
+            params.setSubImage(1, 1, rW-2, rH-2);
+            final BufferedImage image = tiffImageParser.getBufferedImage(target, params);
+            final int iW = image.getWidth();
+            final int iH = image.getHeight();
+            // removed other assertion
+            // removed other assertion
             final int []iArgb= new int[iW*iH];
             image.getRGB(0, 0, iW, iH, iArgb, 0, iW);
             for(int i=0; i<iH; i++){
@@ -98,11 +150,10 @@ public class TiffSubImageTest_OE25Dev extends TiffBaseTest {
                     final int rTest = rArgb[(i+1)*rW+j+1];
                     final int iTest = iArgb[i*iW+j];
                     assertEquals(iTest, rTest, "Invalid pixel lookup for "+target.getName()+" at "+i+", "+j);
-                }
-            }
-        }
     }
-
+    }
+    }
+    }
 
     @Test
     public void testSubImage_1_oe() throws ImageReadException, ImageWriteException, IOException {

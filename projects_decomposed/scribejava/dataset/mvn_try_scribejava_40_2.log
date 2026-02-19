@@ -1,0 +1,76 @@
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.031 s <<< FAILURE! - in com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev_scribejava_40_2
+[ERROR] testSimpleMultipartPayload_2_oe(com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev_scribejava_40_2)  Time elapsed: 0.005 s  <<< FAILURE!
+org.junit.ComparisonFailure: 
+expected:<...is is the preamble. [It is to be ignored,though it
+is a handy place for composition agents to include an
+explanatory note to non-MIME conformant readers.
+--simple boundary
+
+This is implicitly typed plain US-ASCII text.
+It does NOT end with a linebreak.
+--simple boundary
+Content-Type: text/plain;charset=us-ascii
+
+This is explicitly typed plain US-ASCII text.
+It DOES end with a linebreak.
+
+--simple boundary--
+This is the epilogue.] It is also to be ig...> but was:<...is is the preamble. [ It is to be ignored, though it
+is a handy place for composition agents to include an
+explanatory note to non-MIME conformant readers.
+--simple boundary
+
+This is implicitly typed plain US-ASCII text.
+It does NOT end with a linebreak.
+--simple boundary
+Content-Type: text/plain; charset=us-ascii
+
+This is explicitly typed plain US-ASCII text.
+It DOES end with a linebreak.
+
+--simple boundary--
+This is the epilogue. ] It is also to be ig...>
+	at com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev_scribejava_40_2.testSimpleMultipartPayload_2_oe(MultipartUtilsTest_OE25Dev_scribejava_40_2.java:247)
+
+[ERROR] Failures: 
+[ERROR]   MultipartUtilsTest_OE25Dev_scribejava_40_2.testSimpleMultipartPayload_2_oe:247 expected:<...is is the preamble. [It is to be ignored,though it
+is a handy place for composition agents to include an
+explanatory note to non-MIME conformant readers.
+--simple boundary
+
+This is implicitly typed plain US-ASCII text.
+It does NOT end with a linebreak.
+--simple boundary
+Content-Type: text/plain;charset=us-ascii
+
+This is explicitly typed plain US-ASCII text.
+It DOES end with a linebreak.
+
+--simple boundary--
+This is the epilogue.] It is also to be ig...> but was:<...is is the preamble. [ It is to be ignored, though it
+is a handy place for composition agents to include an
+explanatory note to non-MIME conformant readers.
+--simple boundary
+
+This is implicitly typed plain US-ASCII text.
+It does NOT end with a linebreak.
+--simple boundary
+Content-Type: text/plain; charset=us-ascii
+
+This is explicitly typed plain US-ASCII text.
+It DOES end with a linebreak.
+
+--simple boundary--
+This is the epilogue. ] It is also to be ig...>
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project scribejava-core: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,357 @@
+id,test_prefix,test_name
+net_228_2,"    public void testReadOnly_2_oe() throws IOException
+    {
+        // Start a read-only server
+        final TFTPServer tftpS = new TFTPServer(serverDirectory, serverDirectory, SERVER_PORT,
+                ServerMode.GET_ONLY, null, null);
+
+        // Create our TFTP instance to handle the file transfer.
+        final TFTPClient tftp = new TFTPClient();
+        tftp.open();
+        tftp.setSoTimeout(2000);
+
+        // make a file to work with.
+        final File file = new File(serverDirectory, filePrefix + ""source.txt"");
+        file.createNewFile();
+
+        // Read the file from the tftp server.
+        final File out = new File(serverDirectory, filePrefix + ""out"");
+
+        // cleanup old failed runs
+        out.delete();
+        // removed other assertion
+
+        try (final FileOutputStream output = new FileOutputStream(out)) {
+            tftp.receiveFile(file.getName(), TFTP.BINARY_MODE, output, ""localhost"", SERVER_PORT);
+        }
+
+        assertTrue(""file not created"", out.exists());
+    }
+",TFTPServerPathTest::testReadOnly_2_oe
+net_229_1,"    public void testWriteOnly_1_oe() throws IOException
+    {
+        // Start a write-only server
+        final TFTPServer tftpS = new TFTPServer(serverDirectory, serverDirectory, SERVER_PORT,
+                ServerMode.PUT_ONLY, null, null);
+
+        // Create our TFTP instance to handle the file transfer.
+        final TFTPClient tftp = new TFTPClient();
+        tftp.open();
+        tftp.setSoTimeout(2000);
+
+        // make a file to work with.
+        final File file = new File(serverDirectory, filePrefix + ""source.txt"");
+        file.createNewFile();
+
+        final File out = new File(serverDirectory, filePrefix + ""out"");
+
+        // cleanup old failed runs
+        out.delete();
+        assertTrue(""Couldn't clear output location"", !out.exists());
+    }
+",TFTPServerPathTest::testWriteOnly_1_oe
+net_229_3,"    public void testWriteOnly_3_oe() throws IOException
+    {
+        // Start a write-only server
+        final TFTPServer tftpS = new TFTPServer(serverDirectory, serverDirectory, SERVER_PORT,
+                ServerMode.PUT_ONLY, null, null);
+
+        // Create our TFTP instance to handle the file transfer.
+        final TFTPClient tftp = new TFTPClient();
+        tftp.open();
+        tftp.setSoTimeout(2000);
+
+        // make a file to work with.
+        final File file = new File(serverDirectory, filePrefix + ""source.txt"");
+        file.createNewFile();
+
+        final File out = new File(serverDirectory, filePrefix + ""out"");
+
+        // cleanup old failed runs
+        out.delete();
+        // removed other assertion
+
+        try (final FileOutputStream output = new FileOutputStream(out)) {
+            tftp.receiveFile(file.getName(), TFTP.BINARY_MODE, output, ""localhost"", SERVER_PORT);
+            // removed other assertion
+        } catch (final IOException e) {
+            // expected path
+        }
+        out.delete();
+
+        try (final FileInputStream fis = new FileInputStream(file)) {
+            tftp.sendFile(out.getName(), TFTP.BINARY_MODE, fis, ""localhost"", SERVER_PORT);
+        }
+
+        assertTrue(""file not created"", out.exists());
+    }
+",TFTPServerPathTest::testWriteOnly_3_oe
+net_230_1,"    public void testWriteOutsideHome_1_oe() throws IOException
+    {
+        // Start a server
+        final TFTPServer tftpS = new TFTPServer(serverDirectory, serverDirectory, SERVER_PORT,
+                ServerMode.GET_AND_PUT, null, null);
+
+        // Create our TFTP instance to handle the file transfer.
+        final TFTPClient tftp = new TFTPClient();
+        tftp.open();
+
+        final File file = new File(serverDirectory, filePrefix + ""source.txt"");
+        file.createNewFile();
+
+        assertFalse(""test construction error"", new File(serverDirectory, ""../foo"").exists());
+    }
+",TFTPServerPathTest::testWriteOutsideHome_1_oe
+net_230_3,"    public void testWriteOutsideHome_3_oe() throws IOException
+    {
+        // Start a server
+        final TFTPServer tftpS = new TFTPServer(serverDirectory, serverDirectory, SERVER_PORT,
+                ServerMode.GET_AND_PUT, null, null);
+
+        // Create our TFTP instance to handle the file transfer.
+        final TFTPClient tftp = new TFTPClient();
+        tftp.open();
+
+        final File file = new File(serverDirectory, filePrefix + ""source.txt"");
+        file.createNewFile();
+
+        // removed other assertion
+
+        try (final FileInputStream fis = new FileInputStream(file)) {
+            tftp.sendFile(""../foo"", TFTP.BINARY_MODE, fis, ""localhost"", SERVER_PORT);
+            // removed other assertion
+        } catch (final IOException e) {
+            // expected path
+        }
+
+        assertFalse(""file created when it should not have been"",new File(serverDirectory,""../foo"").exists());
+    }
+",TFTPServerPathTest::testWriteOutsideHome_3_oe
+net_64_1,"    public void testInitiateListParsing_1_oe()
+        throws IOException
+    {
+        client.changeWorkingDirectory(validPath);
+
+        final FTPListParseEngine engine = client.initiateListParsing();
+        final List<FTPFile> files = Arrays.asList(engine.getNext(25));
+
+        assertTrue(files.toString(), findByName(files, validFilename));
+    }
+",ListingFunctionalTest::testInitiateListParsing_1_oe
+net_65_1,"    public void testInitiateListParsingWithPath_1_oe()
+        throws IOException
+    {
+        final FTPListParseEngine engine = client.initiateListParsing(validParserKey,
+                                                               validPath);
+        final List<FTPFile> files = Arrays.asList(engine.getNext(25));
+
+        assertTrue(files.toString(), findByName(files, validFilename));
+    }
+",ListingFunctionalTest::testInitiateListParsingWithPath_1_oe
+net_66_1,"    public void testInitiateListParsingWithPathAndAutodetection_1_oe()
+        throws IOException
+    {
+        final FTPListParseEngine engine = client.initiateListParsing(validPath);
+        final List<FTPFile> files = Arrays.asList(engine.getNext(25));
+
+        assertTrue(files.toString(), findByName(files, validFilename));
+    }
+",ListingFunctionalTest::testInitiateListParsingWithPathAndAutodetection_1_oe
+net_67_1,"    public void testInitiateListParsingWithPathAndAutodetectionButEmpty_1_oe()
+        throws IOException
+    {
+        final FTPListParseEngine engine = client.initiateListParsing(invalidPath);
+
+        assertFalse(engine.hasNext());
+    }
+",ListingFunctionalTest::testInitiateListParsingWithPathAndAutodetectionButEmpty_1_oe
+net_68_1,"    public void testInitiateListParsingWithPathAndIncorrectParser_1_oe()
+        throws IOException
+    {
+        final FTPListParseEngine engine = client.initiateListParsing(invalidParserKey,
+                                                               invalidPath);
+
+        assertFalse(engine.hasNext());
+    }
+",ListingFunctionalTest::testInitiateListParsingWithPathAndIncorrectParser_1_oe
+net_69_1,"    public void testListFiles_1_oe()
+        throws IOException
+    {
+        final FTPClientConfig config = new FTPClientConfig(validParserKey);
+        client.configure(config);
+        final List<FTPFile> files = Arrays.asList(client.listFiles(validPath));
+
+        assertTrue(files.toString(),findByName(files,validFilename));
+    }
+",ListingFunctionalTest::testListFiles_1_oe
+net_70_1,"    public void testListFilesWithAutodection_1_oe()
+        throws IOException
+    {
+        client.changeWorkingDirectory(validPath);
+
+        final List<FTPFile> files = Arrays.asList(client.listFiles());
+
+        assertTrue(files.toString(),findByName(files,validFilename));
+    }
+",ListingFunctionalTest::testListFilesWithAutodection_1_oe
+net_71_1,"    public void testListFilesWithIncorrectParser_1_oe()
+        throws IOException
+    {
+        final FTPClientConfig config = new FTPClientConfig(invalidParserKey);
+        client.configure(config);
+
+        final FTPFile[] files = client.listFiles(validPath);
+
+        assertNotNull(files);
+    }
+",ListingFunctionalTest::testListFilesWithIncorrectParser_1_oe
+net_71_2,"    public void testListFilesWithIncorrectParser_2_oe()
+        throws IOException
+    {
+        final FTPClientConfig config = new FTPClientConfig(invalidParserKey);
+        client.configure(config);
+
+        final FTPFile[] files = client.listFiles(validPath);
+
+        // removed other assertion
+
+        // This may well fail, e.g. win, files));
+    }
+",ListingFunctionalTest::testListFilesWithIncorrectParser_2_oe
+net_72_1,"    public void testListFilesWithPathAndAutodectionButEmpty_1_oe()
+        throws IOException
+    {
+        final FTPFile[] files = client.listFiles(invalidPath);
+
+        assertEquals(0, files.length);
+    }
+",ListingFunctionalTest::testListFilesWithPathAndAutodectionButEmpty_1_oe
+net_73_1,"    public void testListFilesWithPathAndAutodetection_1_oe()
+        throws IOException
+    {
+        final List<FTPFile> files = Arrays.asList(client.listFiles(validPath));
+
+        assertTrue(files.toString(),findByName(files,validFilename));
+    }
+",ListingFunctionalTest::testListFilesWithPathAndAutodetection_1_oe
+net_74_1,"    public void testListNames_1_oe()
+        throws IOException
+    {
+        client.changeWorkingDirectory(validPath);
+
+        final String[] names = client.listNames();
+
+        assertNotNull(names);
+    }
+",ListingFunctionalTest::testListNames_1_oe
+net_74_2,"    public void testListNames_2_oe()
+        throws IOException
+    {
+        client.changeWorkingDirectory(validPath);
+
+        final String[] names = client.listNames();
+
+        // removed other assertion
+
+        final List<String> lnames = Arrays.asList(names);
+
+        assertTrue(lnames.toString(), lnames.contains(validFilename));
+    }
+",ListingFunctionalTest::testListNames_2_oe
+net_75_1,"    public void testListNamesWithPath_1_oe()
+        throws IOException
+    {
+        final String[] listNames = client.listNames(validPath);
+        assertNotNull(""listNames not null"", listNames);
+    }
+",ListingFunctionalTest::testListNamesWithPath_1_oe
+net_75_2,"    public void testListNamesWithPath_2_oe()
+        throws IOException
+    {
+        final String[] listNames = client.listNames(validPath);
+        // removed other assertion
+        final List<String> names = Arrays.asList(listNames);
+
+        assertTrue(names.toString(), findByName(names, validFilename));
+    }
+",ListingFunctionalTest::testListNamesWithPath_2_oe
+net_76_1,"    public void testListNamesWithPathButEmpty_1_oe()
+        throws IOException
+    {
+        final String[] names = client.listNames(invalidPath);
+
+        assertNull(names);
+    }
+",ListingFunctionalTest::testListNamesWithPathButEmpty_1_oe
+net_77_1,"    public void testPrintWorkingDirectory_1_oe()
+            throws IOException
+    {
+        client.changeWorkingDirectory(validPath);
+        final String pwd = client.printWorkingDirectory();
+        assertEquals(pwdPath, pwd);
+    }
+",ListingFunctionalTest::testPrintWorkingDirectory_1_oe
+net_79_4,"    public void testTimeZoneFunctionality_4_oe() throws Exception {
+        final java.util.Date now = new java.util.Date();
+        final FTPFile[] files = FTP.listFiles();
+        final TreeSet<FTPFile> sorted = getSortedList(files);
+        //SimpleDateFormat sdf = new SimpleDateFormat(""MM/dd/yyyy HH:mm z"" );
+        FTPFile lastfile = null;
+        FTPFile firstfile = null;
+        for (final FTPFile thisfile : sorted) {
+            if (firstfile == null) {
+                firstfile = thisfile;
+            }
+            //System.out.println(sdf.format(thisfile.getTimestamp().getTime())
+            //        + "" "" +thisfile.getName());
+            if (lastfile != null) {
+                // verify that the list is sorted earliest to latest.
+                // removed other assertion
+            }
+            lastfile = thisfile;
+        }
+
+        if (firstfile == null || lastfile == null)  {
+            // removed other assertion
+        } else {
+            // test that notwithstanding any time zone differences, the newest file
+            // is older than now.
+            // removed other assertion
+            final Calendar first = firstfile.getTimestamp();
+
+            // test that the oldest is less than two days older than the newest
+            // and, in particular, that no files have been considered ""future""
+            // by the parser and therefore been relegated to the same date a
+            // year ago.
+            first.add(Calendar.DAY_OF_MONTH, 2);
+            assertTrue(lastfile.getTimestamp().getTime().toString()+ "" before ""+ first.getTime().toString(),lastfile.getTimestamp().before(first));
+    }
+    }
+",FTPClientConfigFunctionalTest::testTimeZoneFunctionality_4_oe
+net_85_4,"    public void testParserCachingWithKey_4_oe() throws Exception {
+        final FTPClient client = new FTPClient();
+        // removed other assertion
+        client.createParser(FTPClientConfig.SYST_UNIX);
+        final FTPFileEntryParser entryParserSYST = client.getEntryParser();
+        // removed other assertion
+        client.createParser(FTPClientConfig.SYST_UNIX);
+        // removed other assertion
+        final FTPFileEntryParser entryParserVMS = client.getEntryParser();
+        assertNotSame(entryParserSYST,entryParserVMS);// the previous entry was replaced client.createParser(FTPClientConfig.SYST_VMS);
+    }
+",FTPClientTest::testParserCachingWithKey_4_oe
+net_85_6,"    public void testParserCachingWithKey_6_oe() throws Exception {
+        final FTPClient client = new FTPClient();
+        // removed other assertion
+        client.createParser(FTPClientConfig.SYST_UNIX);
+        final FTPFileEntryParser entryParserSYST = client.getEntryParser();
+        // removed other assertion
+        client.createParser(FTPClientConfig.SYST_UNIX);
+        // removed other assertion
+        final FTPFileEntryParser entryParserVMS = client.getEntryParser();
+        // removed other assertion
+        // removed other assertion
+        client.createParser(FTPClientConfig.SYST_UNIX); // revert
+        assertNotSame(entryParserVMS, client.getEntryParser()); // the previous entry was replaced;
+    }
+",FTPClientTest::testParserCachingWithKey_6_oe

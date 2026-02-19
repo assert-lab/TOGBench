@@ -1,0 +1,10 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
+bean_45_1_1,commons-beanutils,MethodUtilsTestCase,testGetAccessibleMethod_1_oe_1_oe,src/test/java/org/apache/commons/beanutils/MethodUtilsTestCase.java,,,,assert,unknown,standard,assertNotNull
+bean_45_1_2,commons-beanutils,MethodUtilsTestCase,testGetAccessibleMethod_1_oe_2_oe,src/test/java/org/apache/commons/beanutils/MethodUtilsTestCase.java,,,,assert,unknown,standard,assertEquals
+bean_45_1_3,commons-beanutils,MethodUtilsTestCase,testGetAccessibleMethod_1_oe_3_oe,src/test/java/org/apache/commons/beanutils/MethodUtilsTestCase.java,,,,assert,unknown,standard,assertTrue
+bean_46_1_1,commons-beanutils,MethodUtilsTestCase,testGetAccessibleMethodFromInterface_1_oe_1_oe,src/test/java/org/apache/commons/beanutils/MethodUtilsTestCase.java,,,,assert,unknown,standard,assertNotNull
+bean_46_1_2,commons-beanutils,MethodUtilsTestCase,testGetAccessibleMethodFromInterface_1_oe_2_oe,src/test/java/org/apache/commons/beanutils/MethodUtilsTestCase.java,,,,assert,unknown,standard,assertEquals
+bean_46_1_3,commons-beanutils,MethodUtilsTestCase,testGetAccessibleMethodFromInterface_1_oe_3_oe,src/test/java/org/apache/commons/beanutils/MethodUtilsTestCase.java,,,,assert,unknown,standard,assertTrue
+bean_47_1_1,commons-beanutils,MethodUtilsTestCase,testGetAccessibleMethodIndirectInterface_1_oe_1_oe,src/test/java/org/apache/commons/beanutils/MethodUtilsTestCase.java,,,,assert,unknown,standard,assertNotNull
+bean_47_1_2,commons-beanutils,MethodUtilsTestCase,testGetAccessibleMethodIndirectInterface_1_oe_2_oe,src/test/java/org/apache/commons/beanutils/MethodUtilsTestCase.java,,,,assert,unknown,standard,assertEquals
+bean_47_1_3,commons-beanutils,MethodUtilsTestCase,testGetAccessibleMethodIndirectInterface_1_oe_3_oe,src/test/java/org/apache/commons/beanutils/MethodUtilsTestCase.java,,,,assert,unknown,standard,assertTrue

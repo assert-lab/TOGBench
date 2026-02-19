@@ -1,0 +1,19 @@
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.029 s <<< FAILURE! - in org.apache.commons.rng.core.source64.LongProviderTest_OE25Dev_rng_203_2
+[ERROR] testNextBoolean_2_oe  Time elapsed: 0.023 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Pass 2, bit 0 ==> expected: <false> but was: <true>
+	at org.apache.commons.rng.core.source64.LongProviderTest_OE25Dev_rng_203_2.testNextBoolean_2_oe(LongProviderTest_OE25Dev_rng_203_2.java:116)
+
+[ERROR] Failures: 
+[ERROR]   LongProviderTest_OE25Dev_rng_203_2.testNextBoolean_2_oe:116 Pass 2, bit 0 ==> expected: <false> but was: <true>
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-rng-core: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

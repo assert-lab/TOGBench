@@ -1,0 +1,592 @@
+id,test_prefix,test_name
+jsoup_139_1,"    @Test public void exceptionOnUncloseAttribute_1_oe() throws Exception {
+        try {
+    QueryParser.parse(""section > a[href=\""]"");
+    fail(""Selector.SelectorParseException"");
+} catch (Selector.SelectorParseException e) {
+}
+        }
+",QueryParserTest::exceptionOnUncloseAttribute_1_oe
+jsoup_140_1,"    @Test public void testParsesSingleQuoteInContains_1_oe() throws Exception {
+        try {
+    QueryParser.parse(""p:contains(One \"" One)"");
+    fail(""Selector.SelectorParseException"");
+} catch (Selector.SelectorParseException e) {
+}
+        }
+",QueryParserTest::testParsesSingleQuoteInContains_1_oe
+jsoup_141_1,"    @Test public void exceptOnEmptySelector_1_oe() throws Exception {
+        try {
+    QueryParser.parse("""");
+    fail(""Selector.SelectorParseException"");
+} catch (Selector.SelectorParseException e) {
+}
+        }
+",QueryParserTest::exceptOnEmptySelector_1_oe
+jsoup_142_1,"    @Test public void exceptOnNullSelector_1_oe() throws Exception {
+        try {
+    QueryParser.parse(null);
+    fail(""Selector.SelectorParseException"");
+} catch (Selector.SelectorParseException e) {
+}
+        }
+",QueryParserTest::exceptOnNullSelector_1_oe
+jsoup_398_1,"    @Test public void valueOfChecksNotNull_1_oe() throws Exception {
+        try {
+    Tag.valueOf(null);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
+        }
+",TagTest::valueOfChecksNotNull_1_oe
+jsoup_399_1,"    @Test public void valueOfChecksNotEmpty_1_oe() throws Exception {
+        try {
+    Tag.valueOf("" "");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
+        }
+",TagTest::valueOfChecksNotEmpty_1_oe
+jsoup_433_1,"    @Test
+    public void nonnull_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> { HtmlTreeBuilder treeBuilder = new HtmlTreeBuilder(); treeBuilder.parse(null, null, null); // not sure how to test that these visual warnings actually appear! - test below checks for method annotation } ); // I'm not convinced that this lambda is easier to read than the old Junit 4 @Test(expected=IEA.class)...;
+    }
+    }
+",HtmlTreeBuilderTest::nonnull_1_oe
+jsoup_482_1,"    @Test
+    public void bailsIfRemovingProtocolThatsNotSet_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> { // a case that came up on the email list Safelist w = Safelist.none(); // note no add tag, and removing protocol without adding first w.addAttributes(""a"", ""href""); w.removeProtocols(""a"", ""href"", ""javascript""); // with no protocols enforced, this was a noop. Now validates. });
+    }
+    }
+",CleanerTest::bailsIfRemovingProtocolThatsNotSet_1_oe
+jsoup_501_1,"    @Test
+    public void constructorValidationThrowsExceptionOnNulls_1_oe() throws Exception {
+        try {
+    new DocumentType(""html"", null, null);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
+    }
+",DocumentTypeTest::constructorValidationThrowsExceptionOnNulls_1_oe
+jsoup_621_1,"    @Test
+    public void testThrowsOnAddNullText_1_oe() throws Exception {
+        try {
+     Document doc = Jsoup.parse(""<div id=1><p>Hello</p></div>""); Element div = doc.getElementById(""1""); div.appendText(null);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
+    }
+",ElementTest::testThrowsOnAddNullText_1_oe
+jsoup_622_1,"    @Test
+    public void testThrowsOnPrependNullText_1_oe() throws Exception {
+        try {
+     Document doc = Jsoup.parse(""<div id=1><p>Hello</p></div>""); Element div = doc.getElementById(""1""); div.prependText(null);
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
+    }
+",ElementTest::testThrowsOnPrependNullText_1_oe
+jsoup_779_1,"    @Test public void validatesKeysNotEmpty_1_oe() throws Exception {
+        try {
+    new Attribute("" "", ""Check"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
+        }
+",AttributeTest::validatesKeysNotEmpty_1_oe
+jsoup_780_1,"    @Test public void validatesKeysNotEmptyViaSet_1_oe() throws Exception {
+        try {
+     Attribute attr = new Attribute(""One"", ""Check""); attr.setKey("" "");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
+        }
+",AttributeTest::validatesKeysNotEmptyViaSet_1_oe
+jsoup_804_1,"    @Test
+    public void exceptOnUnknownContentType_1_oe() {
+        String url = ""http://direct.jsoup.org/rez/osi_logo.png""; // not text/* but image/png, should throw
+        boolean threw = false;
+        try {
+            Document doc = Jsoup.parse(new URL(url), 3000);
+        } catch (UnsupportedMimeTypeException e) {
+            threw = true;
+            assertEquals(""org.jsoup.UnsupportedMimeTypeException: Unhandled content type. Must be text/*, application/xml, or application/xhtml+xml. Mimetype=image/png, URL=http://direct.jsoup.org/rez/osi_logo.png"", e.toString());
+            assertEquals(url, e.getUrl());
+            assertEquals(""image/png"", e.getMimeType());
+        } catch (IOException e) {
+        }
+        assertTrue(threw);
+    }
+
+    @Test
+    public void ignoresContentTypeIfSoConfigured() throws IOException {
+        Document doc = Jsoup.connect(""https://jsoup.org/rez/osi_logo.png"").ignoreContentType(true).get();
+        assertEquals("""", doc.title()); // this will cause an ugly parse tree
+    }
+
+    private static String ihVal(String key, Document doc) {
+        return doc.select(""th:contains(""+key+"") + td"").first().text();
+    }
+
+    @Test
+    public void followsTempRedirect() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/302.pl""); // http://jsoup.org
+        Document doc = con.get();
+        assertTrue(doc.title().contains(""jsoup""));
+    }
+
+    @Test
+    public void followsNewTempRedirect() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/307.pl""); // http://jsoup.org
+        Document doc = con.get();
+        assertTrue(doc.title().contains(""jsoup""));
+        assertEquals(""https://jsoup.org/"", con.response().url().toString());
+    }
+
+    @Test
+    public void postRedirectsFetchWithGet() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/302.pl"")
+                .data(""Argument"", ""Riposte"")
+                .method(Connection.Method.POST);
+        Connection.Response res = con.execute();
+        assertEquals(""https://jsoup.org/"", res.url().toExternalForm());
+        assertEquals(Connection.Method.GET, res.method());
+    }
+
+    @Test
+    public void followsRedirectToHttps() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/302-secure.pl""); // https://www.google.com
+        con.data(""id"", ""5"");
+        Document doc = con.get();
+        assertTrue(doc.title().contains(""Google""));
+    }
+
+    @Test
+    public void followsRelativeRedirect() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/302-rel.pl""); // to /tidy/
+        Document doc = con.post();
+        assertTrue(doc.title().contains(""HTML Tidy Online""));
+    }
+
+    @Test
+    public void followsRelativeDotRedirect() throws IOException {
+        // redirects to ""./ok.html"", should resolve to http://direct.infohound.net/tools/ok.html
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/302-rel-dot.pl""); // to ./ok.html
+        Document doc = con.post();
+        assertTrue(doc.title().contains(""OK""));
+        assertEquals(doc.location(), ""http://direct.infohound.net/tools/ok.html"");
+    }
+
+    @Test
+    public void followsRelativeDotRedirect2() throws IOException {
+        //redirects to ""esportspenedes.cat/./ep/index.php"", should resolve to ""esportspenedes.cat/ep/index.php""
+        Connection con = Jsoup.connect(""http://esportspenedes.cat"")  // note lack of trailing / - server should redir to / first, then to ./ep/...; but doesn't'
+                .timeout(10000);
+        Document doc = con.post();
+        assertEquals(doc.location(), ""http://esportspenedes.cat/ep/index.php"");
+    }
+
+    @Test
+    public void followsRedirectsWithWithespaces() throws IOException {
+        Connection con = Jsoup.connect(""http://tinyurl.com/kgofxl8""); // to http://www.google.com/?q=white spaces
+        Document doc = con.get();
+        assertTrue(doc.title().contains(""Google""));
+    }
+
+    @Test
+    public void gracefullyHandleBrokenLocationRedirect() throws IOException {
+        Connection con = Jsoup.connect(""http://aag-ye.com""); // has Location: http:/temp/AAG_New/en/index.php
+        con.get(); // would throw exception on error
+        assertTrue(true);
+    }
+
+    @Test
+    public void ignores500tExceptionIfSoConfigured() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/500.pl"").ignoreHttpErrors(true);
+        Connection.Response res = con.execute();
+        Document doc = res.parse();
+        assertEquals(500, res.statusCode());
+        assertEquals(""Application Error"", res.statusMessage());
+        assertEquals(""Woops"", doc.select(""h1"").first().text());
+    }
+
+    @Test
+    public void ignores500WithNoContentExceptionIfSoConfigured() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/500-no-content.pl"").ignoreHttpErrors(true);
+        Connection.Response res = con.execute();
+        Document doc = res.parse();
+        assertEquals(500, res.statusCode());
+        assertEquals(""Application Error"", res.statusMessage());
+    }
+
+    @Test
+    public void ignores200WithNoContentExceptionIfSoConfigured() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/200-no-content.pl"").ignoreHttpErrors(true);
+        Connection.Response res = con.execute();
+        Document doc = res.parse();
+        assertEquals(200, res.statusCode());
+        assertEquals(""All Good"", res.statusMessage());
+    }
+
+    @Test
+    public void handles200WithNoContent() throws IOException {
+        Connection con = Jsoup
+            .connect(""http://direct.infohound.net/tools/200-no-content.pl"")
+            .userAgent(browserUa);
+        Connection.Response res = con.execute();
+        Document doc = res.parse();
+        assertEquals(200, res.statusCode());
+
+        con = Jsoup
+            .connect(""http://direct.infohound.net/tools/200-no-content.pl"")
+            .parser(Parser.xmlParser())
+            .userAgent(browserUa);
+        res = con.execute();
+        doc = res.parse();
+        assertEquals(200, res.statusCode());
+    }
+
+    @Test
+    public void doesntRedirectIfSoConfigured() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/302.pl"").followRedirects(false);
+        Connection.Response res = con.execute();
+        assertEquals(302, res.statusCode());
+        assertEquals(""http://jsoup.org"", res.header(""Location""));
+    }
+
+    @Test
+    public void redirectsResponseCookieToNextResponse() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/302-cookie.pl"");
+        Connection.Response res = con.execute();
+        assertEquals(""asdfg123"",res.cookie(""token""));// confirms that cookies set on 1st hit are presented in final result 
+        Document doc = res.parse();
+        assertEquals(""token=asdfg123; uid=jhy"", ihVal(""HTTP_COOKIE"", doc)); // confirms that redirected hit saw cookie
+    }
+
+    @Test
+    public void maximumRedirects() {
+        boolean threw = false;
+        try {
+            Document doc = Jsoup.connect(""http://direct.infohound.net/tools/loop.pl"").get();
+        } catch (IOException e) {
+            assertTrue(e.getMessage().contains(""Too many redirects""));
+            threw = true;
+        }
+        assertTrue(threw);
+    }
+
+    @Test
+    public void handlesDodgyCharset() throws IOException {
+        // tests that when we get back ""UFT8"", that it is recognised as unsupported, and falls back to default instead
+        String url = ""http://direct.infohound.net/tools/bad-charset.pl"";
+        Connection.Response res = Jsoup.connect(url).execute();
+        assertEquals(""text/html;charset=UFT8"",res.header(""Content-Type""));// from the header assertNull(res.charset());// tried to get from header,not supported,so returns null Document doc = res.parse();// would throw an error if charset unsupported assertTrue(doc.text().contains(""Hello!""));
+        assertEquals(""UTF-8"", res.charset()); // set from default on parse
+    }
+
+    /**
+     * Verify that security disabling feature works properly.
+     * <p/>
+     * 1. try to hit url with invalid certificate and evaluate that exception is thrown
+     *
+     * @throws Exception
+     */
+    @Test
+    public void testUnsafeFail() throws Exception {
+        String url = WEBSITE_WITH_INVALID_CERTIFICATE;
+        try {
+    Jsoup.connect(url).execute();
+    fail(""IOException"");
+} catch (IOException e) {
+}
+    }
+    }
+",UrlConnectTest::exceptOnUnknownContentType_1_oe
+jsoup_804_2,"    @Test
+    public void exceptOnUnknownContentType_2_oe() {
+        String url = ""http://direct.jsoup.org/rez/osi_logo.png""; // not text/* but image/png, should throw
+        boolean threw = false;
+        try {
+            Document doc = Jsoup.parse(new URL(url), 3000);
+        } catch (UnsupportedMimeTypeException e) {
+            threw = true;
+            assertEquals(""org.jsoup.UnsupportedMimeTypeException: Unhandled content type. Must be text/*, application/xml, or application/xhtml+xml. Mimetype=image/png, URL=http://direct.jsoup.org/rez/osi_logo.png"", e.toString());
+            assertEquals(url, e.getUrl());
+            assertEquals(""image/png"", e.getMimeType());
+        } catch (IOException e) {
+        }
+        assertTrue(threw);
+    }
+
+    @Test
+    public void ignoresContentTypeIfSoConfigured() throws IOException {
+        Document doc = Jsoup.connect(""https://jsoup.org/rez/osi_logo.png"").ignoreContentType(true).get();
+        assertEquals("""", doc.title()); // this will cause an ugly parse tree
+    }
+
+    private static String ihVal(String key, Document doc) {
+        return doc.select(""th:contains(""+key+"") + td"").first().text();
+    }
+
+    @Test
+    public void followsTempRedirect() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/302.pl""); // http://jsoup.org
+        Document doc = con.get();
+        assertTrue(doc.title().contains(""jsoup""));
+    }
+
+    @Test
+    public void followsNewTempRedirect() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/307.pl""); // http://jsoup.org
+        Document doc = con.get();
+        assertTrue(doc.title().contains(""jsoup""));
+        assertEquals(""https://jsoup.org/"", con.response().url().toString());
+    }
+
+    @Test
+    public void postRedirectsFetchWithGet() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/302.pl"")
+                .data(""Argument"", ""Riposte"")
+                .method(Connection.Method.POST);
+        Connection.Response res = con.execute();
+        assertEquals(""https://jsoup.org/"", res.url().toExternalForm());
+        assertEquals(Connection.Method.GET, res.method());
+    }
+
+    @Test
+    public void followsRedirectToHttps() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/302-secure.pl""); // https://www.google.com
+        con.data(""id"", ""5"");
+        Document doc = con.get();
+        assertTrue(doc.title().contains(""Google""));
+    }
+
+    @Test
+    public void followsRelativeRedirect() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/302-rel.pl""); // to /tidy/
+        Document doc = con.post();
+        assertTrue(doc.title().contains(""HTML Tidy Online""));
+    }
+
+    @Test
+    public void followsRelativeDotRedirect() throws IOException {
+        // redirects to ""./ok.html"", should resolve to http://direct.infohound.net/tools/ok.html
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/302-rel-dot.pl""); // to ./ok.html
+        Document doc = con.post();
+        assertTrue(doc.title().contains(""OK""));
+        assertEquals(doc.location(), ""http://direct.infohound.net/tools/ok.html"");
+    }
+
+    @Test
+    public void followsRelativeDotRedirect2() throws IOException {
+        //redirects to ""esportspenedes.cat/./ep/index.php"", should resolve to ""esportspenedes.cat/ep/index.php""
+        Connection con = Jsoup.connect(""http://esportspenedes.cat"")  // note lack of trailing / - server should redir to / first, then to ./ep/...; but doesn't'
+                .timeout(10000);
+        Document doc = con.post();
+        assertEquals(doc.location(), ""http://esportspenedes.cat/ep/index.php"");
+    }
+
+    @Test
+    public void followsRedirectsWithWithespaces() throws IOException {
+        Connection con = Jsoup.connect(""http://tinyurl.com/kgofxl8""); // to http://www.google.com/?q=white spaces
+        Document doc = con.get();
+        assertTrue(doc.title().contains(""Google""));
+    }
+
+    @Test
+    public void gracefullyHandleBrokenLocationRedirect() throws IOException {
+        Connection con = Jsoup.connect(""http://aag-ye.com""); // has Location: http:/temp/AAG_New/en/index.php
+        con.get(); // would throw exception on error
+        assertTrue(true);
+    }
+
+    @Test
+    public void ignores500tExceptionIfSoConfigured() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/500.pl"").ignoreHttpErrors(true);
+        Connection.Response res = con.execute();
+        Document doc = res.parse();
+        assertEquals(500, res.statusCode());
+        assertEquals(""Application Error"", res.statusMessage());
+        assertEquals(""Woops"", doc.select(""h1"").first().text());
+    }
+
+    @Test
+    public void ignores500WithNoContentExceptionIfSoConfigured() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/500-no-content.pl"").ignoreHttpErrors(true);
+        Connection.Response res = con.execute();
+        Document doc = res.parse();
+        assertEquals(500, res.statusCode());
+        assertEquals(""Application Error"", res.statusMessage());
+    }
+
+    @Test
+    public void ignores200WithNoContentExceptionIfSoConfigured() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/200-no-content.pl"").ignoreHttpErrors(true);
+        Connection.Response res = con.execute();
+        Document doc = res.parse();
+        assertEquals(200, res.statusCode());
+        assertEquals(""All Good"", res.statusMessage());
+    }
+
+    @Test
+    public void handles200WithNoContent() throws IOException {
+        Connection con = Jsoup
+            .connect(""http://direct.infohound.net/tools/200-no-content.pl"")
+            .userAgent(browserUa);
+        Connection.Response res = con.execute();
+        Document doc = res.parse();
+        assertEquals(200, res.statusCode());
+
+        con = Jsoup
+            .connect(""http://direct.infohound.net/tools/200-no-content.pl"")
+            .parser(Parser.xmlParser())
+            .userAgent(browserUa);
+        res = con.execute();
+        doc = res.parse();
+        assertEquals(200, res.statusCode());
+    }
+
+    @Test
+    public void doesntRedirectIfSoConfigured() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/302.pl"").followRedirects(false);
+        Connection.Response res = con.execute();
+        assertEquals(302, res.statusCode());
+        assertEquals(""http://jsoup.org"", res.header(""Location""));
+    }
+
+    @Test
+    public void redirectsResponseCookieToNextResponse() throws IOException {
+        Connection con = Jsoup.connect(""http://direct.infohound.net/tools/302-cookie.pl"");
+        Connection.Response res = con.execute();
+        assertEquals(""asdfg123"",res.cookie(""token""));// confirms that cookies set on 1st hit are presented in final result 
+        Document doc = res.parse();
+        assertEquals(""token=asdfg123; uid=jhy"", ihVal(""HTTP_COOKIE"", doc)); // confirms that redirected hit saw cookie
+    }
+
+    @Test
+    public void maximumRedirects() {
+        boolean threw = false;
+        try {
+            Document doc = Jsoup.connect(""http://direct.infohound.net/tools/loop.pl"").get();
+        } catch (IOException e) {
+            assertTrue(e.getMessage().contains(""Too many redirects""));
+            threw = true;
+        }
+        assertTrue(threw);
+    }
+
+    @Test
+    public void handlesDodgyCharset() throws IOException {
+        // tests that when we get back ""UFT8"", that it is recognised as unsupported, and falls back to default instead
+        String url = ""http://direct.infohound.net/tools/bad-charset.pl"";
+        Connection.Response res = Jsoup.connect(url).execute();
+        assertEquals(""text/html;charset=UFT8"",res.header(""Content-Type""));// from the header assertNull(res.charset());// tried to get from header,not supported,so returns null Document doc = res.parse();// would throw an error if charset unsupported assertTrue(doc.text().contains(""Hello!""));
+        assertEquals(""UTF-8"", res.charset()); // set from default on parse
+    }
+
+    /**
+     * Verify that security disabling feature works properly.
+     * <p/>
+     * 1. try to hit url with invalid certificate and evaluate that exception is thrown
+     *
+     * @throws Exception
+     */
+    @Test
+    public void testUnsafeFail() throws Exception {
+        String url = WEBSITE_WITH_INVALID_CERTIFICATE;
+        // removed other assertion
+    }
+
+
+    /**
+     * Verify that requests to websites with SNI fail on jdk 1.6
+     * <p/>
+     * read for more details:
+     * http://en.wikipedia.org/wiki/Server_Name_Indication
+     *
+     * Test is ignored independent from others as it requires JDK 1.6
+     * @throws Exception
+     */
+    @Test
+    public void testSNIFail() throws Exception {
+        try {
+    Jsoup.connect(WEBSITE_WITH_SNI).execute();
+    fail(""IOException"");
+} catch (IOException e) {
+}
+    }
+    }
+",UrlConnectTest::exceptOnUnknownContentType_2_oe
+jsoup_823_1,"    @Test
+    public void bodyAfterParseThrowsValidationError_1_oe() throws Exception {
+        try {
+     Connection.Response res = Jsoup.connect(echoUrl).execute(); Document doc = res.parse(); String body = res.body();
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
+    }
+",ConnectTest::bodyAfterParseThrowsValidationError_1_oe
+jsoup_825_1,"    @Test
+    public void parseParseThrowsValidates_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> { Connection.Response res = Jsoup.connect(echoUrl).execute(); Document doc = res.parse(); assertTrue(doc.title().contains(""Environment"")); Document doc2 = res.parse(); // should blow up because the response input stream has been drained });
+    }
+    }
+",ConnectTest::parseParseThrowsValidates_1_oe
+jsoup_895_2,"    @Test public void canCreateEmptyConnection_2_oe() throws Exception {
+        HttpConnection con = new HttpConnection();
+        // removed other assertion
+        try {
+     URL url = con.request().url();
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
+        }
+",HttpConnectionTest::canCreateEmptyConnection_2_oe
+jsoup_896_1,"    @Test public void throwsExceptionOnResponseWithoutExecute_1_oe() throws Exception {
+        try {
+     Connection con = HttpConnection.connect(""http://example.com""); con.response();
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
+        }
+",HttpConnectionTest::throwsExceptionOnResponseWithoutExecute_1_oe
+jsoup_897_1,"    @Test public void throwsExceptionOnParseWithoutExecute_1_oe() throws Exception {
+        try {
+     Connection con = HttpConnection.connect(""http://example.com""); con.response().parse();
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
+        }
+",HttpConnectionTest::throwsExceptionOnParseWithoutExecute_1_oe
+jsoup_898_1,"    @Test public void throwsExceptionOnBodyWithoutExecute_1_oe() throws Exception {
+        try {
+     Connection con = HttpConnection.connect(""http://example.com""); con.response().body();
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
+        }
+",HttpConnectionTest::throwsExceptionOnBodyWithoutExecute_1_oe
+jsoup_899_1,"    @Test public void throwsExceptionOnBodyAsBytesWithoutExecute_1_oe() throws Exception {
+        try {
+     Connection con = HttpConnection.connect(""http://example.com""); con.response().bodyAsBytes();
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
+        }
+",HttpConnectionTest::throwsExceptionOnBodyAsBytesWithoutExecute_1_oe
+jsoup_906_1,"    @Test public void throwsOnMalformedUrl_1_oe() throws Exception {
+        try {
+    HttpConnection.connect(""bzzt"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
+        }
+",HttpConnectionTest::throwsOnMalformedUrl_1_oe
+jsoup_911_1,"    @Test public void throwsOnOddData_1_oe() throws Exception {
+        try {
+     Connection con = HttpConnection.connect(""http://example.com/""); con.data(""Name"", ""val"", ""what"");
+    fail(""IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
+        }
+",HttpConnectionTest::throwsOnOddData_1_oe

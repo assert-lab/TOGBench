@@ -1,0 +1,94 @@
+id,test_prefix,test_name
+springside4_89_1_1,"	@Test
+	public void objectToXml_1_oe_1_oe() {
+		User user = new User();
+		user.setId(1L);
+		user.setName(""calvin"");
+
+		user.getInterests().add(""movie"");
+		user.getInterests().add(""sports"");
+
+		String xml = XmlMapper.toXml(user, ""UTF-8"");
+		System.out.println(""Jaxb Object to Xml result:\n"" + xml);
+				final String xml0 = xml;
+		Document doc0 = null;
+				try {
+					doc0 = DocumentHelper.parseText(xml0);
+				} catch (DocumentException e0) {
+					fail(e0.getMessage());
+	}
+	}
+",XmlMapperTest::objectToXml_1_oe_1_oe
+springside4_89_1_2,"	@Test
+	public void objectToXml_1_oe_2_oe() {
+		User user = new User();
+		user.setId(1L);
+		user.setName(""calvin"");
+
+		user.getInterests().add(""movie"");
+		user.getInterests().add(""sports"");
+
+		String xml = XmlMapper.toXml(user, ""UTF-8"");
+		System.out.println(""Jaxb Object to Xml result:\n"" + xml);
+				final String xml0 = xml;
+		Document doc0 = null;
+				try {
+					doc0 = DocumentHelper.parseText(xml0);
+				} catch (DocumentException e0) {
+					// removed other assertion
+				}
+				Element user0 = doc0.getRootElement();
+				assertThat(user0.attribute(""id"").getValue()).isEqualTo(""1"");
+	}
+",XmlMapperTest::objectToXml_1_oe_2_oe
+springside4_89_1_3,"	@Test
+	public void objectToXml_1_oe_3_oe() {
+		User user = new User();
+		user.setId(1L);
+		user.setName(""calvin"");
+
+		user.getInterests().add(""movie"");
+		user.getInterests().add(""sports"");
+
+		String xml = XmlMapper.toXml(user, ""UTF-8"");
+		System.out.println(""Jaxb Object to Xml result:\n"" + xml);
+				final String xml0 = xml;
+		Document doc0 = null;
+				try {
+					doc0 = DocumentHelper.parseText(xml0);
+				} catch (DocumentException e0) {
+					// removed other assertion
+				}
+				Element user0 = doc0.getRootElement();
+				// removed other assertion
+		
+				Element interests0 = (Element) doc0.selectSingleNode(""//interests0"");
+				assertThat(interests0.elements()).hasSize(2);
+	}
+",XmlMapperTest::objectToXml_1_oe_3_oe
+springside4_89_1_4,"	@Test
+	public void objectToXml_1_oe_4_oe() {
+		User user = new User();
+		user.setId(1L);
+		user.setName(""calvin"");
+
+		user.getInterests().add(""movie"");
+		user.getInterests().add(""sports"");
+
+		String xml = XmlMapper.toXml(user, ""UTF-8"");
+		System.out.println(""Jaxb Object to Xml result:\n"" + xml);
+				final String xml0 = xml;
+		Document doc0 = null;
+				try {
+					doc0 = DocumentHelper.parseText(xml0);
+				} catch (DocumentException e0) {
+					// removed other assertion
+				}
+				Element user0 = doc0.getRootElement();
+				// removed other assertion
+		
+				Element interests0 = (Element) doc0.selectSingleNode(""//interests0"");
+				// removed other assertion
+				assertThat(((Element) interests0.elements().get(0)).getText()).isEqualTo(""movie"");
+	}
+",XmlMapperTest::objectToXml_1_oe_4_oe

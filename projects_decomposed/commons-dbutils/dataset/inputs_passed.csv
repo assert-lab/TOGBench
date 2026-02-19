@@ -1,0 +1,17 @@
+id,test_prefix,test_name
+dbut_119_1,"    @Test
+    public void testApplyTypeOfDate_1_oe() throws Exception {
+        assertEquals(java.sql.Date.class, handler.apply(java.sql.Date.class, new java.util.Date()).getClass());
+    }
+",DatePropertyHandlerTest::testApplyTypeOfDate_1_oe
+dbut_120_1,"    @Test
+    public void testApplyTypeOfTime_1_oe() throws Exception {
+        assertEquals(Time.class, handler.apply(java.sql.Time.class, new java.util.Date()).getClass());
+    }
+",DatePropertyHandlerTest::testApplyTypeOfTime_1_oe
+dbut_121_1,"    @Test
+    public void testApplyTypeOfTimestamp_1_oe() throws Exception {
+        Timestamp ts = new Timestamp(new java.util.Date().getTime());
+        assertEquals(Timestamp.class, handler.apply(java.sql.Timestamp.class, ts).getClass());
+    }
+",DatePropertyHandlerTest::testApplyTypeOfTimestamp_1_oe

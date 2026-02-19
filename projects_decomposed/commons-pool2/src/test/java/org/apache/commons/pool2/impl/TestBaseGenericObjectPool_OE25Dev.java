@@ -48,7 +48,7 @@ public class TestBaseGenericObjectPool_OE25Dev {
     }
 
     @Test
-    public void testActiveTimeStatistics() {
+    public void testActiveTimeStatistics_1_oe() {
         for (int i = 0; i < 99; i++) { // must be < MEAN_TIMING_STATS_CACHE_SIZE
             pool.updateStatsReturn(Duration.ofMillis(i));
         }
@@ -56,25 +56,67 @@ public class TestBaseGenericObjectPool_OE25Dev {
     }
 
     @Test
-    public void testBorrowWaitStatistics() {
+    public void testBorrowWaitStatistics_1_oe() {
         final DefaultPooledObject<String> p = (DefaultPooledObject<String>) factory.makeObject();
         pool.updateStatsBorrow(p, Duration.ofMillis(10));
         pool.updateStatsBorrow(p, Duration.ofMillis(20));
         pool.updateStatsBorrow(p, Duration.ofMillis(20));
         pool.updateStatsBorrow(p, Duration.ofMillis(30));
         assertEquals(20, pool.getMeanBorrowWaitTimeMillis(), Double.MIN_VALUE);
+    }
+
+    @Test
+    public void testBorrowWaitStatistics_2_oe() {
+        final DefaultPooledObject<String> p = (DefaultPooledObject<String>) factory.makeObject();
+        pool.updateStatsBorrow(p, Duration.ofMillis(10));
+        pool.updateStatsBorrow(p, Duration.ofMillis(20));
+        pool.updateStatsBorrow(p, Duration.ofMillis(20));
+        pool.updateStatsBorrow(p, Duration.ofMillis(30));
+        // removed other assertion
         assertEquals(30, pool.getMaxBorrowWaitTimeMillis(), 0);
     }
 
-    public void testBorrowWaitStatisticsMax() {
+    public void testBorrowWaitStatisticsMax_1_oe() {
         final DefaultPooledObject<String> p = (DefaultPooledObject<String>) factory.makeObject();
         assertEquals(0, pool.getMaxBorrowWaitTimeMillis(), Double.MIN_VALUE);
+    }
+
+    public void testBorrowWaitStatisticsMax_2_oe() {
+        final DefaultPooledObject<String> p = (DefaultPooledObject<String>) factory.makeObject();
+        // removed other assertion
         pool.updateStatsBorrow(p, Duration.ZERO);
         assertEquals(0, pool.getMaxBorrowWaitTimeMillis(), Double.MIN_VALUE);
+    }
+
+    public void testBorrowWaitStatisticsMax_3_oe() {
+        final DefaultPooledObject<String> p = (DefaultPooledObject<String>) factory.makeObject();
+        // removed other assertion
+        pool.updateStatsBorrow(p, Duration.ZERO);
+        // removed other assertion
         pool.updateStatsBorrow(p, Duration.ofMillis(20));
         assertEquals(20, pool.getMaxBorrowWaitTimeMillis(), Double.MIN_VALUE);
+    }
+
+    public void testBorrowWaitStatisticsMax_4_oe() {
+        final DefaultPooledObject<String> p = (DefaultPooledObject<String>) factory.makeObject();
+        // removed other assertion
+        pool.updateStatsBorrow(p, Duration.ZERO);
+        // removed other assertion
+        pool.updateStatsBorrow(p, Duration.ofMillis(20));
+        // removed other assertion
         pool.updateStatsBorrow(p, Duration.ofMillis(20));
         assertEquals(20, pool.getMaxBorrowWaitTimeMillis(), Double.MIN_VALUE);
+    }
+
+    public void testBorrowWaitStatisticsMax_5_oe() {
+        final DefaultPooledObject<String> p = (DefaultPooledObject<String>) factory.makeObject();
+        // removed other assertion
+        pool.updateStatsBorrow(p, Duration.ZERO);
+        // removed other assertion
+        pool.updateStatsBorrow(p, Duration.ofMillis(20));
+        // removed other assertion
+        pool.updateStatsBorrow(p, Duration.ofMillis(20));
+        // removed other assertion
         pool.updateStatsBorrow(p, Duration.ofMillis(10));
         assertEquals(20, pool.getMaxBorrowWaitTimeMillis(), Double.MIN_VALUE);
     }

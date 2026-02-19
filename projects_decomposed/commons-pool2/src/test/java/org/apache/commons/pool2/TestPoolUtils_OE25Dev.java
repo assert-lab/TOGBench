@@ -191,40 +191,285 @@ public class TestPoolUtils_OE25Dev {
         }
     }
 
+    /**
+     * Tests the {@link PoolUtils} timer holder.
+     */
+
+
     @Test
-    public void testCheckRethrow() {
+    public void testCheckMinIdleKeyedObjectPool_1_oe() throws Exception {
+        try {
+    PoolUtils.checkMinIdle(null, new Object(), 1, 1);
+    fail("IllegalArgumentException: PoolUtils.checkMinIdle(KeyedObjectPool,Object,int,long) must not allow null pool.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testCheckMinIdleObjectPool_1_oe() throws Exception {
+        try {
+    PoolUtils.checkMinIdle(null, 1, 1);
+    fail("IllegalArgumentException: PoolUtils.checkMinIdle(ObjectPool,,) must not allow null pool.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testCheckRethrow_1_oe() {
         try {
             PoolUtils.checkRethrow(new Exception());
         } catch (final Throwable t) {
             fail("PoolUtils.checkRethrow(Throwable) must rethrow only ThreadDeath and VirtualMachineError.");
+    }
+    }
+
+    @Test
+    public void testCheckRethrow_3_oe() {
+        try {
+            PoolUtils.checkRethrow(new Exception());
+        } catch (final Throwable t) {
+            // removed other assertion
         }
         try {
             PoolUtils.checkRethrow(new ThreadDeath());
-            fail("PoolUtils.checkRethrow(Throwable) must rethrow ThreadDeath.");
+            // removed other assertion
         } catch (final ThreadDeath td) {
             // expected
         } catch (final Throwable t) {
             fail("PoolUtils.checkRethrow(Throwable) must rethrow only ThreadDeath and VirtualMachineError.");
+    }
+    }
+
+    @Test
+    public void testCheckRethrow_5_oe() {
+        try {
+            PoolUtils.checkRethrow(new Exception());
+        } catch (final Throwable t) {
+            // removed other assertion
+        }
+        try {
+            PoolUtils.checkRethrow(new ThreadDeath());
+            // removed other assertion
+        } catch (final ThreadDeath td) {
+            // expected
+        } catch (final Throwable t) {
+            // removed other assertion
         }
         try {
             PoolUtils.checkRethrow(new InternalError()); // InternalError extends VirtualMachineError
-            fail("PoolUtils.checkRethrow(Throwable) must rethrow VirtualMachineError.");
+            // removed other assertion
         } catch (final VirtualMachineError td) {
             // expected
         } catch (final Throwable t) {
             fail("PoolUtils.checkRethrow(Throwable) must rethrow only ThreadDeath and VirtualMachineError.");
-        }
+    }
     }
 
     @Test
-    public void testJavaBeanInstantiation() {
+    public void testErodingPerKeyKeyedObjectPool_1_oe() throws Exception {
+        try {
+    PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null, 1f, true);
+    fail("IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool) must not allow a null pool.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testErodingPerKeyKeyedObjectPool_2_oe() throws Exception {
+        // removed other assertion
+
+        try {
+    PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null, 0f, true);
+    fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float, boolean) must not allow a non-positive factor.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testErodingPerKeyKeyedObjectPool_3_oe() throws Exception {
+        // removed other assertion
+
+        // removed other assertion
+
+        try {
+    PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null, 1f, true);
+    fail("IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool, float, boolean) must not allow a null pool.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testErodingPoolKeyedObjectPool_1_oe() throws Exception {
+        try {
+    PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null);
+    fail("IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool) must not allow a null pool.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testErodingPoolKeyedObjectPool_2_oe() throws Exception {
+        // removed other assertion
+
+        try {
+    PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null, 1f);
+    fail("IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool, float) must not allow a null pool.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testErodingPoolKeyedObjectPool_3_oe() throws Exception {
+        // removed other assertion
+
+        // removed other assertion
+
+        try {
+    PoolUtils.erodingPool((KeyedObjectPool<Object, Object>) null, 1f, true);
+    fail("IllegalArgumentException: PoolUtils.erodingPool(KeyedObjectPool, float, boolean) must not allow a null pool.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testErodingPoolKeyedObjectPool_4_oe() throws Exception {
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        final List<String> calledMethods = new ArrayList<>();
+        final InvocationHandler handler = new MethodCallLogger(calledMethods) {
+            @Override
+            public Object invoke(final Object proxy, final Method method, final Object[] args) throws Throwable {
+                Object o = super.invoke(proxy, method, args);
+                if (o instanceof Integer) {
+                    // so getNumActive/getNumIdle are not zero.
+                    o = Integer.valueOf(1);
+                }
+                return o;
+            }
+        };
+
+        try {
+    PoolUtils.erodingPool(createProxy(KeyedObjectPool.class, handler), 0f);
+    fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float) must not allow a non-positive factor.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testErodingPoolKeyedObjectPool_5_oe() throws Exception {
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        final List<String> calledMethods = new ArrayList<>();
+        final InvocationHandler handler = new MethodCallLogger(calledMethods) {
+            @Override
+            public Object invoke(final Object proxy, final Method method, final Object[] args) throws Throwable {
+                Object o = super.invoke(proxy, method, args);
+                if (o instanceof Integer) {
+                    // so getNumActive/getNumIdle are not zero.
+                    o = Integer.valueOf(1);
+                }
+                return o;
+            }
+        };
+
+        // removed other assertion
+
+        try {
+    PoolUtils.erodingPool(createProxy(KeyedObjectPool.class, handler), 0f, false);
+    fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float, boolean) must not allow a non-positive factor.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testErodingPoolObjectPool_1_oe() throws Exception {
+        try {
+    PoolUtils.erodingPool((ObjectPool<Object>) null);
+    fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool) must not allow a null pool.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testErodingPoolObjectPool_2_oe() throws Exception {
+        // removed other assertion
+
+        try {
+    PoolUtils.erodingPool((ObjectPool<Object>) null, 1f);
+    fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float) must not allow a null pool.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testErodingPoolObjectPool_3_oe() throws Exception {
+        // removed other assertion
+
+        // removed other assertion
+
+        final List<String> calledMethods = new ArrayList<>();
+        final InvocationHandler handler = new MethodCallLogger(calledMethods) {
+            @Override
+            public Object invoke(final Object proxy, final Method method, final Object[] args) throws Throwable {
+                Object o = super.invoke(proxy, method, args);
+                if (o instanceof Integer) {
+                    // so getNumActive/getNumIdle are not zero.
+                    o = Integer.valueOf(1);
+                }
+                return o;
+            }
+        };
+
+        try {
+    PoolUtils.erodingPool(createProxy(ObjectPool.class, handler), -1f);
+    fail("IllegalArgumentException: PoolUtils.erodingPool(ObjectPool, float) must not allow a non-positive factor.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testJavaBeanInstantiation_1_oe() {
         assertNotNull(new PoolUtils());
     }
 
     @Test
-    public void testSynchronizedPoolableFactoryKeyedPoolableObjectFactory() throws Exception {
-        assertThrows(IllegalArgumentException.class, () -> PoolUtils.synchronizedKeyedPooledFactory((KeyedPooledObjectFactory<Object, Object>) null),
-                "PoolUtils.synchronizedPoolableFactory(KeyedPoolableObjectFactory) must not allow a null factory.");
+    public void testPrefillKeyedObjectPool_1_oe() throws Exception {
+        try {
+    PoolUtils.prefill(null, new Object(), 1);
+    fail("IllegalArgumentException: PoolUtils.prefill(KeyedObjectPool,Object,int) must not accept null pool.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testPrefillObjectPool_1_oe() throws Exception {
+        try {
+    PoolUtils.prefill(null, 1);
+    fail("IllegalArgumentException: PoolUtils.prefill(ObjectPool,int) must not allow null pool.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testSynchronizedPoolableFactoryKeyedPoolableObjectFactory_1_oe() throws Exception {
+        try {
+    PoolUtils.synchronizedKeyedPooledFactory((KeyedPooledObjectFactory<Object, Object>) null);
+    fail("IllegalArgumentException: PoolUtils.synchronizedPoolableFactory(KeyedPoolableObjectFactory) must not allow a null factory.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testSynchronizedPoolableFactoryKeyedPoolableObjectFactory_2_oe() throws Exception {
+        // removed other assertion
 
         final List<String> calledMethods = new ArrayList<>();
         @SuppressWarnings("unchecked")
@@ -233,14 +478,20 @@ public class TestPoolUtils_OE25Dev {
         final KeyedPooledObjectFactory<Object, Object> skpof = PoolUtils.synchronizedKeyedPooledFactory(kpof);
         final List<String> expectedMethods = invokeEveryMethod(skpof);
         assertEquals(expectedMethods, calledMethods);
-
-        // TODO: Anyone feel motivated to construct a test that verifies proper synchronization?
     }
 
     @Test
-    public void testSynchronizedPoolableFactoryPoolableObjectFactory() throws Exception {
-        assertThrows(IllegalArgumentException.class, () -> PoolUtils.synchronizedPooledFactory((PooledObjectFactory<Object>) null),
-                "PoolUtils.synchronizedPoolableFactory(PoolableObjectFactory) must not allow a null factory.");
+    public void testSynchronizedPoolableFactoryPoolableObjectFactory_1_oe() throws Exception {
+        try {
+    PoolUtils.synchronizedPooledFactory((PooledObjectFactory<Object>) null);
+    fail("IllegalArgumentException: PoolUtils.synchronizedPoolableFactory(PoolableObjectFactory) must not allow a null factory.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testSynchronizedPoolableFactoryPoolableObjectFactory_2_oe() throws Exception {
+        // removed other assertion
 
         final List<String> calledMethods = new ArrayList<>();
         @SuppressWarnings("unchecked")
@@ -249,20 +500,38 @@ public class TestPoolUtils_OE25Dev {
         final PooledObjectFactory<Object> spof = PoolUtils.synchronizedPooledFactory(pof);
         final List<String> expectedMethods = invokeEveryMethod(spof);
         assertEquals(expectedMethods, calledMethods);
-
-        // TODO: Anyone feel motivated to construct a test that verifies proper synchronization?
     }
 
-    /**
-     * Tests the {@link PoolUtils} timer holder.
-     */
     @Test
-    public void testTimerHolder() {
+    public void testSynchronizedPoolKeyedObjectPool_1_oe() throws Exception {
+        try {
+    PoolUtils.synchronizedPool((KeyedObjectPool<Object, Object>) null);
+    fail("IllegalArgumentException: PoolUtils.synchronizedPool(KeyedObjectPool) must not allow a null pool.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testSynchronizedPoolObjectPool_1_oe() throws Exception {
+        try {
+    PoolUtils.synchronizedPool((ObjectPool<Object>) null);
+    fail("IllegalArgumentException: PoolUtils.synchronizedPool(ObjectPool) must not allow a null pool.");
+} catch (IllegalArgumentException e) {
+}
+    }
+
+    @Test
+    public void testTimerHolder_1_oe() {
         final PoolUtils.TimerHolder h = new PoolUtils.TimerHolder();
         assertNotNull(h);
-        assertNotNull(PoolUtils.TimerHolder.MIN_IDLE_TIMER);
     }
 
+    @Test
+    public void testTimerHolder_2_oe() {
+        final PoolUtils.TimerHolder h = new PoolUtils.TimerHolder();
+        // removed other assertion
+        assertNotNull(PoolUtils.TimerHolder.MIN_IDLE_TIMER);
+    }
 
     @Test
     public void testCheckMinIdleKeyedObjectPool_2_oe() throws Exception {

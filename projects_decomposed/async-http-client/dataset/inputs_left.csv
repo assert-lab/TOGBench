@@ -1,0 +1,519 @@
+id,test_prefix,test_name
+async_51_1,"  @Test(expectedExceptions = AsyncHttpClientImplException.class)
+  public void testRepeatedCallsToBadAsyncHttpClient_1_oe() throws IOException {
+    boolean exceptionCaught = false;
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, NON_EXISTENT_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      //
+    } catch (AsyncHttpClientImplException e) {
+      exceptionCaught = true;
+    }
+    Assert.assertTrue(exceptionCaught, ""Didn't catch exception the first time"");
+  }
+",AbstractAsyncHttpClientFactoryTest::testRepeatedCallsToBadAsyncHttpClient_1_oe
+async_51_2,"  @Test(expectedExceptions = AsyncHttpClientImplException.class)
+  public void testRepeatedCallsToBadAsyncHttpClient_2_oe() throws IOException {
+    boolean exceptionCaught = false;
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, NON_EXISTENT_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      //
+    } catch (AsyncHttpClientImplException e) {
+      exceptionCaught = true;
+    }
+    // removed other assertion
+    exceptionCaught = false;
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      //
+    } catch (AsyncHttpClientImplException e) {
+      exceptionCaught = true;
+    }
+    Assert.assertTrue(exceptionCaught, ""Didn't catch exception the second time"");
+  }
+",AbstractAsyncHttpClientFactoryTest::testRepeatedCallsToBadAsyncHttpClient_2_oe
+async_117_2,"  @Test
+  public void testRequestTimeout_2_oe() throws IOException {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(100).execute();
+      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+      // removed other assertion
+    } catch (InterruptedException e) {
+      fail(""Interrupted."", e);
+  }
+  }
+",PerRequestTimeoutTest::testRequestTimeout_2_oe
+async_117_3,"  @Test
+  public void testRequestTimeout_3_oe() throws IOException {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(100).execute();
+      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+      // removed other assertion
+    } catch (InterruptedException e) {
+      // removed other assertion
+    } catch (ExecutionException e) {
+      assertTrue(e.getCause() instanceof TimeoutException);
+  }
+  }
+",PerRequestTimeoutTest::testRequestTimeout_3_oe
+async_118_2,"  @Test
+  public void testReadTimeout_2_oe() throws IOException {
+    try (AsyncHttpClient client = asyncHttpClient(config().setReadTimeout(100))) {
+      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
+      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+      // removed other assertion
+    } catch (InterruptedException e) {
+      fail(""Interrupted."", e);
+  }
+  }
+",PerRequestTimeoutTest::testReadTimeout_2_oe
+async_118_3,"  @Test
+  public void testReadTimeout_3_oe() throws IOException {
+    try (AsyncHttpClient client = asyncHttpClient(config().setReadTimeout(100))) {
+      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
+      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+      // removed other assertion
+    } catch (InterruptedException e) {
+      // removed other assertion
+    } catch (ExecutionException e) {
+      assertTrue(e.getCause() instanceof TimeoutException);
+  }
+  }
+",PerRequestTimeoutTest::testReadTimeout_3_oe
+async_119_2,"  @Test
+  public void testGlobalDefaultPerRequestInfiniteTimeout_2_oe() throws IOException {
+    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
+      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(-1).execute();
+      Response response = responseFuture.get();
+      // removed other assertion
+    } catch (InterruptedException e) {
+      fail(""Interrupted."", e);
+  }
+  }
+",PerRequestTimeoutTest::testGlobalDefaultPerRequestInfiniteTimeout_2_oe
+async_120_2,"  @Test
+  public void testGlobalRequestTimeout_2_oe() throws IOException {
+    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
+      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
+      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+      // removed other assertion
+    } catch (InterruptedException e) {
+      fail(""Interrupted."", e);
+  }
+  }
+",PerRequestTimeoutTest::testGlobalRequestTimeout_2_oe
+async_120_3,"  @Test
+  public void testGlobalRequestTimeout_3_oe() throws IOException {
+    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
+      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
+      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+      // removed other assertion
+    } catch (InterruptedException e) {
+      // removed other assertion
+    } catch (ExecutionException e) {
+      assertTrue(e.getCause() instanceof TimeoutException);
+  }
+  }
+",PerRequestTimeoutTest::testGlobalRequestTimeout_3_oe
+async_121_3,"  @Test
+  public void testGlobalIdleTimeout_3_oe() throws IOException {
+    final long times[] = new long[]{-1, -1};
+
+    try (AsyncHttpClient client = asyncHttpClient(config().setPooledConnectionIdleTimeout(2000))) {
+      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute(new AsyncCompletionHandler<Response>() {
+        @Override
+        public Response onCompleted(Response response) {
+          return response;
+        }
+
+        @Override
+        public State onBodyPartReceived(HttpResponseBodyPart content) throws Exception {
+          times[0] = unpreciseMillisTime();
+          return super.onBodyPartReceived(content);
+        }
+
+        @Override
+        public void onThrowable(Throwable t) {
+          times[1] = unpreciseMillisTime();
+          super.onThrowable(t);
+        }
+      });
+      Response response = responseFuture.get();
+      // removed other assertion
+      // removed other assertion
+    } catch (InterruptedException e) {
+      fail(""Interrupted."", e);
+  }
+  }
+",PerRequestTimeoutTest::testGlobalIdleTimeout_3_oe
+async_141_1,"  @Test(enabled = false)
+  public void redirected302InvalidTest_1_oe() throws Exception {
+    isSet.getAndSet(false);
+
+    Exception e = null;
+
+    try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
+      c.prepareGet(getTargetUrl()).setHeader(""X-redirect"", String.format(""http://localhost:%d/"", port2)).execute().get();
+    } catch (ExecutionException ex) {
+      e = ex;
+    }
+
+    assertNotNull(e);
+  }
+",Relative302Test::redirected302InvalidTest_1_oe
+async_141_2,"  @Test(enabled = false)
+  public void redirected302InvalidTest_2_oe() throws Exception {
+    isSet.getAndSet(false);
+
+    Exception e = null;
+
+    try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
+      c.prepareGet(getTargetUrl()).setHeader(""X-redirect"", String.format(""http://localhost:%d/"", port2)).execute().get();
+    } catch (ExecutionException ex) {
+      e = ex;
+    }
+
+    // removed other assertion
+    Throwable cause = e.getCause();
+    assertTrue(cause instanceof ConnectException);
+  }
+",Relative302Test::redirected302InvalidTest_2_oe
+async_141_3,"  @Test(enabled = false)
+  public void redirected302InvalidTest_3_oe() throws Exception {
+    isSet.getAndSet(false);
+
+    Exception e = null;
+
+    try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
+      c.prepareGet(getTargetUrl()).setHeader(""X-redirect"", String.format(""http://localhost:%d/"", port2)).execute().get();
+    } catch (ExecutionException ex) {
+      e = ex;
+    }
+
+    // removed other assertion
+    Throwable cause = e.getCause();
+    // removed other assertion
+    assertTrue(cause.getMessage().contains("":"" + port2));
+  }
+",Relative302Test::redirected302InvalidTest_3_oe
+async_165_1,"  @Test(groups = ""online"", enabled = false)
+  public void redirected302InvalidTest_1_oe() throws Exception {
+    isSet.getAndSet(false);
+    Exception e = null;
+
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      c.preparePost(getTargetUrl()).setFollowRedirect(true).setHeader(""X-redirect"", String.format(""http://localhost:%d/"", port2)).execute().get();
+    } catch (ExecutionException ex) {
+      e = ex;
+    }
+
+    assertNotNull(e);
+  }
+",PerRequestRelative302Test::redirected302InvalidTest_1_oe
+async_165_2,"  @Test(groups = ""online"", enabled = false)
+  public void redirected302InvalidTest_2_oe() throws Exception {
+    isSet.getAndSet(false);
+    Exception e = null;
+
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      c.preparePost(getTargetUrl()).setFollowRedirect(true).setHeader(""X-redirect"", String.format(""http://localhost:%d/"", port2)).execute().get();
+    } catch (ExecutionException ex) {
+      e = ex;
+    }
+
+    // removed other assertion
+    Throwable cause = e.getCause();
+    assertTrue(cause instanceof ConnectException);
+  }
+",PerRequestRelative302Test::redirected302InvalidTest_2_oe
+async_165_3,"  @Test(groups = ""online"", enabled = false)
+  public void redirected302InvalidTest_3_oe() throws Exception {
+    isSet.getAndSet(false);
+    Exception e = null;
+
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      c.preparePost(getTargetUrl()).setFollowRedirect(true).setHeader(""X-redirect"", String.format(""http://localhost:%d/"", port2)).execute().get();
+    } catch (ExecutionException ex) {
+      e = ex;
+    }
+
+    // removed other assertion
+    Throwable cause = e.getCause();
+    // removed other assertion
+    assertTrue(cause.getMessage().contains("":"" + port2));
+  }
+",PerRequestRelative302Test::redirected302InvalidTest_3_oe
+async_327_2,"  @Test
+  public void testGetCompleteServicePrincipalName_2_oe() throws Exception {
+    {
+      SpnegoEngine spnegoEngine = new SpnegoEngine(null,
+          null,
+          ""bob"",
+          ""service.ws.apache.org"",
+          false,
+          null,
+          null,
+          null);
+      // removed other assertion
+    }
+    {
+      SpnegoEngine spnegoEngine = new SpnegoEngine(null,
+          null,
+          null,
+          ""service.ws.apache.org"",
+          true,
+          null,
+          null,
+          null);
+      Assert.assertNotEquals(""HTTP@localhost"", spnegoEngine.getCompleteServicePrincipalName(""localhost""));
+  }
+  }
+",SpnegoEngineTest::testGetCompleteServicePrincipalName_2_oe
+async_336_2,"  @Test
+  public void testPostCalculateSignature_2_oe() throws UnsupportedEncodingException {
+    StaticOAuthSignatureCalculator calc = //
+            new StaticOAuthSignatureCalculator(//
+                    new ConsumerKey(CONSUMER_KEY, CONSUMER_SECRET),
+                    new RequestToken(TOKEN_KEY, TOKEN_SECRET),
+                    NONCE,
+                    TIMESTAMP);
+
+    final Request req = post(""http://photos.example.net/photos"")
+            .addFormParam(""file"", ""vacation.jpg"")
+            .addFormParam(""size"", ""original"")
+            .setSignatureCalculator(calc)
+            .build();
+
+    // From the signature tester, POST should look like:
+    // normalized parameters:
+    // file=vacation.jpg&oauth_consumer_key=dpf43f3p2l4k3l03&oauth_nonce=kllo9940pd9333jh&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1191242096&oauth_token=nnch734d00sl2jdk&oauth_version=1.0&size=original
+    // signature base string:
+    // POST&http%3A%2F%2Fphotos.example.net%2Fphotos&file%3Dvacation.jpg%26oauth_consumer_key%3Ddpf43f3p2l4k3l03%26oauth_nonce%3Dkllo9940pd9333jh%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1191242096%26oauth_token%3Dnnch734d00sl2jdk%26oauth_version%3D1.0%26size%3Doriginal
+    // signature: wPkvxykrw+BTdCcGqKr+3I+PsiM=
+    // header: OAuth
+    // realm="""",oauth_version=""1.0"",oauth_consumer_key=""dpf43f3p2l4k3l03"",oauth_token=""nnch734d00sl2jdk"",oauth_timestamp=""1191242096"",oauth_nonce=""kllo9940pd9333jh"",oauth_signature_method=""HMAC-SHA1"",oauth_signature=""wPkvxykrw%2BBTdCcGqKr%2B3I%2BPsiM%3D""
+
+    String authHeader = req.getHeaders().get(AUTHORIZATION);
+    Matcher m = Pattern.compile(""oauth_signature=\""(.+?)\"""").matcher(authHeader);
+    // removed other assertion
+    String encodedSig = m.group(1);
+    String sig = URLDecoder.decode(encodedSig, ""UTF-8"");
+
+    assertEquals(sig, ""wPkvxykrw+BTdCcGqKr+3I+PsiM="");
+  }
+",OAuthSignatureCalculatorTest::testPostCalculateSignature_2_oe
+async_337_3,"  @Test
+  public void testGetWithRequestBuilder_3_oe() throws UnsupportedEncodingException {
+    StaticOAuthSignatureCalculator calc =
+            new StaticOAuthSignatureCalculator(
+                    new ConsumerKey(CONSUMER_KEY, CONSUMER_SECRET),
+                    new RequestToken(TOKEN_KEY, TOKEN_SECRET),
+                    NONCE,
+                    TIMESTAMP);
+
+    final Request req = get(""http://photos.example.net/photos"")
+            .addQueryParam(""file"", ""vacation.jpg"")
+            .addQueryParam(""size"", ""original"")
+            .setSignatureCalculator(calc)
+            .build();
+
+    final List<Param> params = req.getQueryParams();
+    // removed other assertion
+
+    // From the signature tester, the URL should look like:
+    // normalized parameters:
+    // file=vacation.jpg&oauth_consumer_key=dpf43f3p2l4k3l03&oauth_nonce=kllo9940pd9333jh&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1191242096&oauth_token=nnch734d00sl2jdk&oauth_version=1.0&size=original
+    // signature base string:
+    // GET&http%3A%2F%2Fphotos.example.net%2Fphotos&file%3Dvacation.jpg%26oauth_consumer_key%3Ddpf43f3p2l4k3l03%26oauth_nonce%3Dkllo9940pd9333jh%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1191242096%26oauth_token%3Dnnch734d00sl2jdk%26oauth_version%3D1.0%26size%3Doriginal
+    // signature: tR3+Ty81lMeYAr/Fid0kMTYa/WM=
+    // Authorization header: OAuth
+    // realm="""",oauth_version=""1.0"",oauth_consumer_key=""dpf43f3p2l4k3l03"",oauth_token=""nnch734d00sl2jdk"",oauth_timestamp=""1191242096"",oauth_nonce=""kllo9940pd9333jh"",oauth_signature_method=""HMAC-SHA1"",oauth_signature=""tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D""
+
+    String authHeader = req.getHeaders().get(AUTHORIZATION);
+    Matcher m = Pattern.compile(""oauth_signature=\""(.+?)\"""").matcher(authHeader);
+    // removed other assertion
+    String encodedSig = m.group(1);
+    String sig = URLDecoder.decode(encodedSig, ""UTF-8"");
+
+    assertEquals(sig, ""tR3+Ty81lMeYAr/Fid0kMTYa/WM="");
+  }
+",OAuthSignatureCalculatorTest::testGetWithRequestBuilder_3_oe
+async_337_4,"  @Test
+  public void testGetWithRequestBuilder_4_oe() throws UnsupportedEncodingException {
+    StaticOAuthSignatureCalculator calc =
+            new StaticOAuthSignatureCalculator(
+                    new ConsumerKey(CONSUMER_KEY, CONSUMER_SECRET),
+                    new RequestToken(TOKEN_KEY, TOKEN_SECRET),
+                    NONCE,
+                    TIMESTAMP);
+
+    final Request req = get(""http://photos.example.net/photos"")
+            .addQueryParam(""file"", ""vacation.jpg"")
+            .addQueryParam(""size"", ""original"")
+            .setSignatureCalculator(calc)
+            .build();
+
+    final List<Param> params = req.getQueryParams();
+    // removed other assertion
+
+    // From the signature tester, the URL should look like:
+    // normalized parameters:
+    // file=vacation.jpg&oauth_consumer_key=dpf43f3p2l4k3l03&oauth_nonce=kllo9940pd9333jh&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1191242096&oauth_token=nnch734d00sl2jdk&oauth_version=1.0&size=original
+    // signature base string:
+    // GET&http%3A%2F%2Fphotos.example.net%2Fphotos&file%3Dvacation.jpg%26oauth_consumer_key%3Ddpf43f3p2l4k3l03%26oauth_nonce%3Dkllo9940pd9333jh%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1191242096%26oauth_token%3Dnnch734d00sl2jdk%26oauth_version%3D1.0%26size%3Doriginal
+    // signature: tR3+Ty81lMeYAr/Fid0kMTYa/WM=
+    // Authorization header: OAuth
+    // realm="""",oauth_version=""1.0"",oauth_consumer_key=""dpf43f3p2l4k3l03"",oauth_token=""nnch734d00sl2jdk"",oauth_timestamp=""1191242096"",oauth_nonce=""kllo9940pd9333jh"",oauth_signature_method=""HMAC-SHA1"",oauth_signature=""tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D""
+
+    String authHeader = req.getHeaders().get(AUTHORIZATION);
+    Matcher m = Pattern.compile(""oauth_signature=\""(.+?)\"""").matcher(authHeader);
+    // removed other assertion
+    String encodedSig = m.group(1);
+    String sig = URLDecoder.decode(encodedSig, ""UTF-8"");
+
+    // removed other assertion
+    assertEquals(req.getUrl(), ""http://photos.example.net/photos?file=vacation.jpg&size=original"");
+  }
+",OAuthSignatureCalculatorTest::testGetWithRequestBuilder_4_oe
+async_338_3,"  @Test
+  public void testGetWithRequestBuilderAndQuery_3_oe() throws UnsupportedEncodingException {
+    StaticOAuthSignatureCalculator calc = //
+            new StaticOAuthSignatureCalculator(//
+                    new ConsumerKey(CONSUMER_KEY, CONSUMER_SECRET),
+                    new RequestToken(TOKEN_KEY, TOKEN_SECRET),
+                    NONCE,
+                    TIMESTAMP);
+
+    final Request req = get(""http://photos.example.net/photos?file=vacation.jpg&size=original"")
+            .setSignatureCalculator(calc)
+            .build();
+
+    final List<Param> params = req.getQueryParams();
+    // removed other assertion
+
+    // From the signature tester, the URL should look like:
+    // normalized parameters:
+    // file=vacation.jpg&oauth_consumer_key=dpf43f3p2l4k3l03&oauth_nonce=kllo9940pd9333jh&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1191242096&oauth_token=nnch734d00sl2jdk&oauth_version=1.0&size=original
+    // signature base string:
+    // GET&http%3A%2F%2Fphotos.example.net%2Fphotos&file%3Dvacation.jpg%26oauth_consumer_key%3Ddpf43f3p2l4k3l03%26oauth_nonce%3Dkllo9940pd9333jh%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1191242096%26oauth_token%3Dnnch734d00sl2jdk%26oauth_version%3D1.0%26size%3Doriginal
+    // signature: tR3+Ty81lMeYAr/Fid0kMTYa/WM=
+    // Authorization header: OAuth
+    // realm="""",oauth_version=""1.0"",oauth_consumer_key=""dpf43f3p2l4k3l03"",oauth_token=""nnch734d00sl2jdk"",oauth_timestamp=""1191242096"",oauth_nonce=""kllo9940pd9333jh"",oauth_signature_method=""HMAC-SHA1"",oauth_signature=""tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D""
+
+    String authHeader = req.getHeaders().get(AUTHORIZATION);
+    Matcher m = Pattern.compile(""oauth_signature=\""(.+?)\"""").matcher(authHeader);
+    // removed other assertion
+    String encodedSig = m.group(1);
+    String sig = URLDecoder.decode(encodedSig, ""UTF-8"");
+
+    assertEquals(sig, ""tR3+Ty81lMeYAr/Fid0kMTYa/WM="");
+  }
+",OAuthSignatureCalculatorTest::testGetWithRequestBuilderAndQuery_3_oe
+async_338_4,"  @Test
+  public void testGetWithRequestBuilderAndQuery_4_oe() throws UnsupportedEncodingException {
+    StaticOAuthSignatureCalculator calc = //
+            new StaticOAuthSignatureCalculator(//
+                    new ConsumerKey(CONSUMER_KEY, CONSUMER_SECRET),
+                    new RequestToken(TOKEN_KEY, TOKEN_SECRET),
+                    NONCE,
+                    TIMESTAMP);
+
+    final Request req = get(""http://photos.example.net/photos?file=vacation.jpg&size=original"")
+            .setSignatureCalculator(calc)
+            .build();
+
+    final List<Param> params = req.getQueryParams();
+    // removed other assertion
+
+    // From the signature tester, the URL should look like:
+    // normalized parameters:
+    // file=vacation.jpg&oauth_consumer_key=dpf43f3p2l4k3l03&oauth_nonce=kllo9940pd9333jh&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1191242096&oauth_token=nnch734d00sl2jdk&oauth_version=1.0&size=original
+    // signature base string:
+    // GET&http%3A%2F%2Fphotos.example.net%2Fphotos&file%3Dvacation.jpg%26oauth_consumer_key%3Ddpf43f3p2l4k3l03%26oauth_nonce%3Dkllo9940pd9333jh%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1191242096%26oauth_token%3Dnnch734d00sl2jdk%26oauth_version%3D1.0%26size%3Doriginal
+    // signature: tR3+Ty81lMeYAr/Fid0kMTYa/WM=
+    // Authorization header: OAuth
+    // realm="""",oauth_version=""1.0"",oauth_consumer_key=""dpf43f3p2l4k3l03"",oauth_token=""nnch734d00sl2jdk"",oauth_timestamp=""1191242096"",oauth_nonce=""kllo9940pd9333jh"",oauth_signature_method=""HMAC-SHA1"",oauth_signature=""tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D""
+
+    String authHeader = req.getHeaders().get(AUTHORIZATION);
+    Matcher m = Pattern.compile(""oauth_signature=\""(.+?)\"""").matcher(authHeader);
+    // removed other assertion
+    String encodedSig = m.group(1);
+    String sig = URLDecoder.decode(encodedSig, ""UTF-8"");
+
+    // removed other assertion
+    assertEquals(req.getUrl(), ""http://photos.example.net/photos?file=vacation.jpg&size=original"");
+  }
+",OAuthSignatureCalculatorTest::testGetWithRequestBuilderAndQuery_4_oe
+async_338_5,"  @Test
+  public void testGetWithRequestBuilderAndQuery_5_oe() throws UnsupportedEncodingException {
+    StaticOAuthSignatureCalculator calc = //
+            new StaticOAuthSignatureCalculator(//
+                    new ConsumerKey(CONSUMER_KEY, CONSUMER_SECRET),
+                    new RequestToken(TOKEN_KEY, TOKEN_SECRET),
+                    NONCE,
+                    TIMESTAMP);
+
+    final Request req = get(""http://photos.example.net/photos?file=vacation.jpg&size=original"")
+            .setSignatureCalculator(calc)
+            .build();
+
+    final List<Param> params = req.getQueryParams();
+    // removed other assertion
+
+    // From the signature tester, the URL should look like:
+    // normalized parameters:
+    // file=vacation.jpg&oauth_consumer_key=dpf43f3p2l4k3l03&oauth_nonce=kllo9940pd9333jh&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1191242096&oauth_token=nnch734d00sl2jdk&oauth_version=1.0&size=original
+    // signature base string:
+    // GET&http%3A%2F%2Fphotos.example.net%2Fphotos&file%3Dvacation.jpg%26oauth_consumer_key%3Ddpf43f3p2l4k3l03%26oauth_nonce%3Dkllo9940pd9333jh%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1191242096%26oauth_token%3Dnnch734d00sl2jdk%26oauth_version%3D1.0%26size%3Doriginal
+    // signature: tR3+Ty81lMeYAr/Fid0kMTYa/WM=
+    // Authorization header: OAuth
+    // realm="""",oauth_version=""1.0"",oauth_consumer_key=""dpf43f3p2l4k3l03"",oauth_token=""nnch734d00sl2jdk"",oauth_timestamp=""1191242096"",oauth_nonce=""kllo9940pd9333jh"",oauth_signature_method=""HMAC-SHA1"",oauth_signature=""tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D""
+
+    String authHeader = req.getHeaders().get(AUTHORIZATION);
+    Matcher m = Pattern.compile(""oauth_signature=\""(.+?)\"""").matcher(authHeader);
+    // removed other assertion
+    String encodedSig = m.group(1);
+    String sig = URLDecoder.decode(encodedSig, ""UTF-8"");
+
+    // removed other assertion
+    // removed other assertion
+    assertEquals(authHeader,""OAuth oauth_consumer_key=\""dpf43f3p2l4k3l03\"",oauth_token=\""nnch734d00sl2jdk\"",oauth_signature_method=\""HMAC-SHA1\"",oauth_signature=\""tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D\"",oauth_timestamp=\""1191242096\"",oauth_nonce=\""kllo9940pd9333jh\"",oauth_version=\""1.0\"""");
+  }
+",OAuthSignatureCalculatorTest::testGetWithRequestBuilderAndQuery_5_oe
+async_350_1,"  @Test(timeOut = 60000, expectedExceptions = {UnknownHostException.class, ConnectException.class})
+  public void onFailureTest_1_oe() throws Throwable {
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      c.prepareGet(""ws://abcdefg"").execute(new WebSocketUpgradeHandler.Builder().build()).get();
+    } catch (ExecutionException e) {
+
+      String expectedMessage = ""DNS name not found"";
+      assertTrue(e.getCause().toString().contains(expectedMessage));
+  }
+  }
+",TextMessageTest::onFailureTest_1_oe
+async_48_1_1,"  @Test
+  public void testGetAsyncHttpClientConfigWithBadAsyncHttpClient_1_oe_1_oe() throws IOException {
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, BAD_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      //
+    } catch (AsyncHttpClientImplException e) {
+            final AsyncHttpClientImplException e0 = e;
+      InvocationTargetException t0 = (InvocationTargetException) e0.getCause();
+          Assert.assertTrue(t0.getCause() instanceof BadAsyncHttpClientException0);
+  }
+  }
+",AbstractAsyncHttpClientFactoryTest::testGetAsyncHttpClientConfigWithBadAsyncHttpClient_1_oe_1_oe
+async_49_1_1,"  @Test
+  public void testGetAsyncHttpClientProviderWithBadAsyncHttpClient_1_oe_1_oe() throws IOException {
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, BAD_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      //
+    } catch (AsyncHttpClientImplException e) {
+            final AsyncHttpClientImplException e0 = e;
+      InvocationTargetException t0 = (InvocationTargetException) e0.getCause();
+          Assert.assertTrue(t0.getCause() instanceof BadAsyncHttpClientException0);
+  }
+  }
+",AbstractAsyncHttpClientFactoryTest::testGetAsyncHttpClientProviderWithBadAsyncHttpClient_1_oe_1_oe

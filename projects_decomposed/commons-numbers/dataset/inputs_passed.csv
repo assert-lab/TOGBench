@@ -1,0 +1,1626 @@
+id,test_prefix,test_name
+numb_28_1,"    @Test
+    void testLogGammaMinusLogGammaSum_1_oe() {
+        final int ulps = 4;
+        for (int i = 0; i < LOG_GAMMA_MINUS_LOG_GAMMA_SUM_REF.length; i++) {
+            final double[] ref = LOG_GAMMA_MINUS_LOG_GAMMA_SUM_REF[i];
+            final double a = ref[0];
+            final double b = ref[1];
+            final double expected = ref[2];
+            final double actual = logGammaMinusLogGammaSum(a, b);
+            final double tol = ulps * Math.ulp(expected);
+            final StringBuilder builder = new StringBuilder();
+            builder.append(a).append("", "").append(b);
+            Assertions.assertEquals(expected, actual, tol, builder.toString());
+    }
+    }
+",LogBetaTest::testLogGammaMinusLogGammaSum_1_oe
+numb_31_1,"    @Test
+    void testSumDeltaMinusDeltaSum_1_oe() {
+        final int ulps = 3;
+        for (int i = 0; i < SUM_DELTA_MINUS_DELTA_SUM_REF.length; i++) {
+            final double[] ref = SUM_DELTA_MINUS_DELTA_SUM_REF[i];
+            final double a = ref[0];
+            final double b = ref[1];
+            final double expected = ref[2];
+            final double actual = sumDeltaMinusDeltaSum(a, b);
+            final double tol = ulps * Math.ulp(expected);
+            final StringBuilder builder = new StringBuilder();
+            builder.append(a).append("", "").append(b);
+            Assertions.assertEquals(expected, actual, tol, builder.toString());
+    }
+    }
+",LogBetaTest::testSumDeltaMinusDeltaSum_1_oe
+numb_38_1,"    @Test
+    void testLogGammaPrecondition1_1_oe() {
+        Assertions.assertTrue(Double.isNaN(LogGamma.value(0.0)));
+    }
+",LogGammaTest::testLogGammaPrecondition1_1_oe
+numb_39_1,"    @Test
+    void testLogGammaPrecondition2_1_oe() {
+        Assertions.assertTrue(Double.isNaN(LogGamma.value(-1.0)));
+    }
+",LogGammaTest::testLogGammaPrecondition2_1_oe
+numb_318_1_3,"    @Test
+    void testConstructor_1_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = BigFraction.of(testCase.operandNumerator, testCase.operandDenominator);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testConstructor_1_oe_3_oe
+numb_318_2_3,"    @Test
+    void testConstructor_2_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Long/BigInteger arguments
+                final int expectedNumerator0 = 0;
+        final int expectedDenominator0 = 1;
+        final BigFraction actual0 = BigFraction.of(0L, 2L);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",BigFractionTest::testConstructor_2_oe_3_oe
+numb_318_4_3,"    @Test
+    void testConstructor_4_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Long/BigInteger arguments
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = 11;
+        final int expectedDenominator0 = 1;
+        final BigFraction actual0 = BigFraction.of(11L);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",BigFractionTest::testConstructor_4_oe_3_oe
+numb_318_5_3,"    @Test
+    void testConstructor_5_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Long/BigInteger arguments
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = 11;
+        final int expectedDenominator0 = 1;
+        final BigFraction actual0 = BigFraction.of(new BigInteger(""11""));
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",BigFractionTest::testConstructor_5_oe_3_oe
+numb_320_1_3,"    @Test
+    void testDoubleConstructor_1_oe_3_oe() throws Exception {
+        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = BigFraction.from(testCase.operand, 1.0e-5, 100);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testDoubleConstructor_1_oe_3_oe
+numb_321_1_3,"    @Test
+    void testDoubleConstructorWithMaxDenominator_1_oe_3_oe() throws Exception {
+        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleMaxDenomConstructorTestCases()) {
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = BigFraction.from(testCase.operand, testCase.maxDenominator);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testDoubleConstructorWithMaxDenominator_1_oe_3_oe
+numb_322_7_3,"    @Test
+    void testDoubleConstructorThrows_7_oe_3_oe() {
+        final double eps = 1e-5;
+        final int maxIterations = Integer.MAX_VALUE;
+        final int maxDenominator = Integer.MAX_VALUE;
+        for (final double value : new double[] {Double.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Test a zero epsilon is allowed
+                final int expectedNumerator0 = 1;
+        final int expectedDenominator0 = 1;
+        final BigFraction actual0 = BigFraction.from(1.0, 0, maxIterations);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",BigFractionTest::testDoubleConstructorThrows_7_oe_3_oe
+numb_326_1_3,"    @Test
+    void testDoubleConstructorWithEpsilonLimit_1_oe_3_oe() throws Exception {
+                final int expectedNumerator0 = 2;
+        final int expectedDenominator0 = 5;
+        final BigFraction actual0 = BigFraction.from(0.4, 1.0e-5, 100);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",BigFractionTest::testDoubleConstructorWithEpsilonLimit_1_oe_3_oe
+numb_326_2_1,"    @Test
+    void testDoubleConstructorWithEpsilonLimit_2_oe_1_oe() throws Exception {
+        // removed other assertion
+
+                final int expectedNumerator0 = 3;
+        final int expectedDenominator0 = 5;
+        final BigFraction actual0 = BigFraction.from(0.6152, 0.02, 100);
+        Assertions.assertEquals(expectedNumerator0, actual0.getNumeratorAsInt());
+    }
+",BigFractionTest::testDoubleConstructorWithEpsilonLimit_2_oe_1_oe
+numb_326_2_2,"    @Test
+    void testDoubleConstructorWithEpsilonLimit_2_oe_2_oe() throws Exception {
+        // removed other assertion
+
+                final int expectedNumerator0 = 3;
+        final int expectedDenominator0 = 5;
+        final BigFraction actual0 = BigFraction.from(0.6152, 0.02, 100);
+        // removed other assertion
+                Assertions.assertEquals(expectedDenominator0, actual0.getDenominatorAsInt());
+    }
+",BigFractionTest::testDoubleConstructorWithEpsilonLimit_2_oe_2_oe
+numb_326_2_3,"    @Test
+    void testDoubleConstructorWithEpsilonLimit_2_oe_3_oe() throws Exception {
+        // removed other assertion
+
+                final int expectedNumerator0 = 3;
+        final int expectedDenominator0 = 5;
+        final BigFraction actual0 = BigFraction.from(0.6152, 0.02, 100);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",BigFractionTest::testDoubleConstructorWithEpsilonLimit_2_oe_3_oe
+numb_326_3_3,"    @Test
+    void testDoubleConstructorWithEpsilonLimit_3_oe_3_oe() throws Exception {
+        // removed other assertion
+
+        // removed other assertion
+                final int expectedNumerator0 = 8;
+        final int expectedDenominator0 = 13;
+        final BigFraction actual0 = BigFraction.from(0.6152, 1.0e-3, 100);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",BigFractionTest::testDoubleConstructorWithEpsilonLimit_3_oe_3_oe
+numb_326_4_3,"    @Test
+    void testDoubleConstructorWithEpsilonLimit_4_oe_3_oe() throws Exception {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = 251;
+        final int expectedDenominator0 = 408;
+        final BigFraction actual0 = BigFraction.from(0.6152, 1.0e-4, 100);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",BigFractionTest::testDoubleConstructorWithEpsilonLimit_4_oe_3_oe
+numb_326_5_3,"    @Test
+    void testDoubleConstructorWithEpsilonLimit_5_oe_3_oe() throws Exception {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = 251;
+        final int expectedDenominator0 = 408;
+        final BigFraction actual0 = BigFraction.from(0.6152, 1.0e-5, 100);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",BigFractionTest::testDoubleConstructorWithEpsilonLimit_5_oe_3_oe
+numb_326_6_3,"    @Test
+    void testDoubleConstructorWithEpsilonLimit_6_oe_3_oe() throws Exception {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = 510;
+        final int expectedDenominator0 = 829;
+        final BigFraction actual0 = BigFraction.from(0.6152, 1.0e-6, 100);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",BigFractionTest::testDoubleConstructorWithEpsilonLimit_6_oe_3_oe
+numb_326_7_3,"    @Test
+    void testDoubleConstructorWithEpsilonLimit_7_oe_3_oe() throws Exception {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = 769;
+        final int expectedDenominator0 = 1250;
+        final BigFraction actual0 = BigFraction.from(0.6152, 1.0e-7, 100);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",BigFractionTest::testDoubleConstructorWithEpsilonLimit_7_oe_3_oe
+numb_339_1_3,"    @Test
+    void testAbs_1_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.absTestCases()) {
+            final BigFraction f = BigFraction.of(testCase.operandNumerator, testCase.operandDenominator);
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f.abs();
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testAbs_1_oe_3_oe
+numb_340_1_3,"    @Test
+    void testReciprocal_1_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.reciprocalTestCases()) {
+            final BigFraction f = BigFraction.of(testCase.operandNumerator, testCase.operandDenominator);
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f.reciprocal();
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testReciprocal_1_oe_3_oe
+numb_341_1_3,"    @Test
+    void testNegate_1_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.negateTestCases()) {
+            final BigFraction f = BigFraction.of(testCase.operandNumerator, testCase.operandDenominator);
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f.negate();
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testNegate_1_oe_3_oe
+numb_342_1_3,"    @Test
+    void testAdd_1_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.add(f2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testAdd_1_oe_3_oe
+numb_342_2_3,"    @Test
+    void testAdd_2_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.add(i2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testAdd_2_oe_3_oe
+numb_342_3_3,"    @Test
+    void testAdd_3_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.add((long) i2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testAdd_3_oe_3_oe
+numb_342_4_3,"    @Test
+    void testAdd_4_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+            // removed other assertion
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.add(BigInteger.valueOf(i2));
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testAdd_4_oe_3_oe
+numb_342_7_3,"    @Test
+    void testAdd_7_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // Special cases
+        final BigFraction f2 = BigFraction.of(1, 2);
+                final int expectedNumerator0 = 1;
+        final int expectedDenominator0 = 2;
+        final BigFraction actual0 = f2.add(BigInteger.ZERO);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",BigFractionTest::testAdd_7_oe_3_oe
+numb_342_8_3,"    @Test
+    void testAdd_8_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // Special cases
+        final BigFraction f2 = BigFraction.of(1, 2);
+        // removed other assertion
+                final int expectedNumerator0 = 12;
+        final int expectedDenominator0 = 1;
+        final BigFraction actual0 = BigFraction.ZERO.add(BigInteger.valueOf(12));
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",BigFractionTest::testAdd_8_oe_3_oe
+numb_343_1_3,"    @Test
+    void testDivide_1_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.divide(f2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testDivide_1_oe_3_oe
+numb_343_2_3,"    @Test
+    void testDivide_2_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.divideByIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.divide(i2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testDivide_2_oe_3_oe
+numb_343_3_3,"    @Test
+    void testDivide_3_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.divideByIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.divide((long) i2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testDivide_3_oe_3_oe
+numb_343_4_3,"    @Test
+    void testDivide_4_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.divideByIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+            // removed other assertion
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.divide(BigInteger.valueOf(i2));
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testDivide_4_oe_3_oe
+numb_343_11_3,"    @Test
+    void testDivide_11_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.divideByIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Special cases
+        final BigFraction f1 = BigFraction.of(Integer.MIN_VALUE, Integer.MAX_VALUE);
+                final int expectedNumerator0 = -1;
+        final int expectedDenominator0 = -Integer.MAX_VALUE;
+        final BigFraction actual0 = f1.divide(Integer.MIN_VALUE);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",BigFractionTest::testDivide_11_oe_3_oe
+numb_343_12_3,"    @Test
+    void testDivide_12_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.divideByIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Special cases
+        final BigFraction f1 = BigFraction.of(Integer.MIN_VALUE, Integer.MAX_VALUE);
+        // removed other assertion
+                final int expectedNumerator0 = -1;
+        final int expectedDenominator0 = -Integer.MAX_VALUE;
+        final BigFraction actual0 = f1.divide((long) Integer.MIN_VALUE);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",BigFractionTest::testDivide_12_oe_3_oe
+numb_343_13_3,"    @Test
+    void testDivide_13_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.divideByIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Special cases
+        final BigFraction f1 = BigFraction.of(Integer.MIN_VALUE, Integer.MAX_VALUE);
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = -1;
+        final int expectedDenominator0 = -Integer.MAX_VALUE;
+        final BigFraction actual0 = f1.divide(BigInteger.valueOf(Integer.MIN_VALUE));
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",BigFractionTest::testDivide_13_oe_3_oe
+numb_344_1_3,"    @Test
+    void testMultiply_1_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.multiplyByFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.multiply(f2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testMultiply_1_oe_3_oe
+numb_344_2_3,"    @Test
+    void testMultiply_2_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.multiplyByFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.multiplyByIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.multiply(i2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testMultiply_2_oe_3_oe
+numb_344_3_3,"    @Test
+    void testMultiply_3_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.multiplyByFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.multiplyByIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.multiply((long) i2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testMultiply_3_oe_3_oe
+numb_344_4_3,"    @Test
+    void testMultiply_4_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.multiplyByFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.multiplyByIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+            // removed other assertion
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.multiply(BigInteger.valueOf(i2));
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testMultiply_4_oe_3_oe
+numb_345_1_3,"    @Test
+    void testPow_1_oe_3_oe() {
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.powTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int exponent = testCase.secondOperand;
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.pow(exponent);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testPow_1_oe_3_oe
+numb_346_1_3,"    @Test
+    void testSubtract_1_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.subtract(f2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testSubtract_1_oe_3_oe
+numb_346_2_3,"    @Test
+    void testSubtract_2_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.subtractIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.subtract(i2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testSubtract_2_oe_3_oe
+numb_346_3_3,"    @Test
+    void testSubtract_3_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.subtractIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.subtract((long) i2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testSubtract_3_oe_3_oe
+numb_346_4_3,"    @Test
+    void testSubtract_4_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final BigFraction f2 = BigFraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.subtractIntTestCases()) {
+            final BigFraction f1 = BigFraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+            // removed other assertion
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final BigFraction actual0 = f1.subtract(BigInteger.valueOf(i2));
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",BigFractionTest::testSubtract_4_oe_3_oe
+numb_355_1_3,"    @Test
+    void testConstructor_1_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final Fraction actual0 = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",FractionTest::testConstructor_1_oe_3_oe
+numb_355_2_3,"    @Test
+    void testConstructor_2_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Special cases.
+                final int expectedNumerator0 = Integer.MIN_VALUE;
+        final int expectedDenominator0 = -1;
+        final Fraction actual0 = Fraction.of(Integer.MIN_VALUE, -1);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testConstructor_2_oe_3_oe
+numb_355_3_3,"    @Test
+    void testConstructor_3_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Special cases.
+        // removed other assertion
+                final int expectedNumerator0 = 1;
+        final int expectedDenominator0 = Integer.MIN_VALUE;
+        final Fraction actual0 = Fraction.of(1, Integer.MIN_VALUE);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testConstructor_3_oe_3_oe
+numb_355_4_3,"    @Test
+    void testConstructor_4_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Special cases.
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = -1;
+        final int expectedDenominator0 = Integer.MIN_VALUE;
+        final Fraction actual0 = Fraction.of(-1, Integer.MIN_VALUE);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testConstructor_4_oe_3_oe
+numb_355_5_3,"    @Test
+    void testConstructor_5_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Special cases.
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = 1;
+        final int expectedDenominator0 = 1;
+        final Fraction actual0 = Fraction.of(Integer.MIN_VALUE, Integer.MIN_VALUE);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testConstructor_5_oe_3_oe
+numb_357_1_3,"    @Test
+    void testDoubleConstructor_1_oe_3_oe() throws Exception  {
+        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final Fraction actual0 = Fraction.from(testCase.operand);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",FractionTest::testDoubleConstructor_1_oe_3_oe
+numb_357_2_3,"    @Test
+    void testDoubleConstructor_2_oe_3_oe() throws Exception  {
+        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Cases with different exact results from BigFraction
+                final int expectedNumerator0 = 1;
+        final int expectedDenominator0 = 3;
+        final Fraction actual0 = Fraction.from(1.0 / 3.0);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructor_2_oe_3_oe
+numb_357_3_3,"    @Test
+    void testDoubleConstructor_3_oe_3_oe() throws Exception  {
+        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Cases with different exact results from BigFraction
+        // removed other assertion
+                final int expectedNumerator0 = 17;
+        final int expectedDenominator0 = 100;
+        final Fraction actual0 = Fraction.from(17.0 / 100.0);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructor_3_oe_3_oe
+numb_357_4_3,"    @Test
+    void testDoubleConstructor_4_oe_3_oe() throws Exception  {
+        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Cases with different exact results from BigFraction
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = 317;
+        final int expectedDenominator0 = 100;
+        final Fraction actual0 = Fraction.from(317.0 / 100.0);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructor_4_oe_3_oe
+numb_357_5_3,"    @Test
+    void testDoubleConstructor_5_oe_3_oe() throws Exception  {
+        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Cases with different exact results from BigFraction
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = -1;
+        final int expectedDenominator0 = 3;
+        final Fraction actual0 = Fraction.from(-1.0 / 3.0);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructor_5_oe_3_oe
+numb_357_6_3,"    @Test
+    void testDoubleConstructor_6_oe_3_oe() throws Exception  {
+        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Cases with different exact results from BigFraction
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = -17;
+        final int expectedDenominator0 = 100;
+        final Fraction actual0 = Fraction.from(17.0 / -100.0);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructor_6_oe_3_oe
+numb_357_7_3,"    @Test
+    void testDoubleConstructor_7_oe_3_oe() throws Exception  {
+        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Cases with different exact results from BigFraction
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = -317;
+        final int expectedDenominator0 = 100;
+        final Fraction actual0 = Fraction.from(-317.0 / 100.0);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructor_7_oe_3_oe
+numb_358_1_3,"    @Test
+    void testDoubleConstructorWithMaxDenominator_1_oe_3_oe() throws Exception  {
+        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleMaxDenomConstructorTestCases()) {
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final Fraction actual0 = Fraction.from(testCase.operand, testCase.maxDenominator);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",FractionTest::testDoubleConstructorWithMaxDenominator_1_oe_3_oe
+numb_358_2_3,"    @Test
+    void testDoubleConstructorWithMaxDenominator_2_oe_3_oe() throws Exception  {
+        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleMaxDenomConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Cases with different exact results from BigFraction
+                final int expectedNumerator0 = Integer.MIN_VALUE;
+        final int expectedDenominator0 = -1;
+        final Fraction actual0 = Fraction.from(Integer.MIN_VALUE * -1.0, 2);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructorWithMaxDenominator_2_oe_3_oe
+numb_358_3_3,"    @Test
+    void testDoubleConstructorWithMaxDenominator_3_oe_3_oe() throws Exception  {
+        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleMaxDenomConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Cases with different exact results from BigFraction
+        // removed other assertion
+                final int expectedNumerator0 = Integer.MIN_VALUE;
+        final int expectedDenominator0 = -3;
+        final Fraction actual0 = Fraction.from(Integer.MIN_VALUE / -3.0, 10);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructorWithMaxDenominator_3_oe_3_oe
+numb_358_4_3,"    @Test
+    void testDoubleConstructorWithMaxDenominator_4_oe_3_oe() throws Exception  {
+        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleMaxDenomConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Cases with different exact results from BigFraction
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = 1;
+        final int expectedDenominator0 = Integer.MIN_VALUE;
+        final Fraction actual0 = Fraction.from(1.0 / Integer.MIN_VALUE, Integer.MIN_VALUE);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructorWithMaxDenominator_4_oe_3_oe
+numb_358_5_3,"    @Test
+    void testDoubleConstructorWithMaxDenominator_5_oe_3_oe() throws Exception  {
+        for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleMaxDenomConstructorTestCases()) {
+            // removed other assertion
+        }
+
+        // Cases with different exact results from BigFraction
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = -1;
+        final int expectedDenominator0 = Integer.MIN_VALUE;
+        final Fraction actual0 = Fraction.from(-1.0 / Integer.MIN_VALUE, Integer.MIN_VALUE);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructorWithMaxDenominator_5_oe_3_oe
+numb_359_7_3,"    @Test
+    void testDoubleConstructorThrows_7_oe_3_oe() {
+        final double eps = 1e-5;
+        final int maxIterations = Integer.MAX_VALUE;
+        final int maxDenominator = Integer.MAX_VALUE;
+        for (final double value : new double[] {Double.NaN, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // Test a zero epsilon is allowed
+                final int expectedNumerator0 = 1;
+        final int expectedDenominator0 = 1;
+        final Fraction actual0 = Fraction.from(1.0, 0, maxIterations);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructorThrows_7_oe_3_oe
+numb_363_1_3,"    @Test
+    void testDoubleConstructorWithEpsilonLimit_1_oe_3_oe() throws Exception  {
+                final int expectedNumerator0 = 2;
+        final int expectedDenominator0 = 5;
+        final Fraction actual0 = Fraction.from(0.4, 1.0e-5, 100);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructorWithEpsilonLimit_1_oe_3_oe
+numb_363_2_3,"    @Test
+    void testDoubleConstructorWithEpsilonLimit_2_oe_3_oe() throws Exception  {
+        // removed other assertion
+
+                final int expectedNumerator0 = 3;
+        final int expectedDenominator0 = 5;
+        final Fraction actual0 = Fraction.from(0.6152, 0.02, 100);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructorWithEpsilonLimit_2_oe_3_oe
+numb_363_3_3,"    @Test
+    void testDoubleConstructorWithEpsilonLimit_3_oe_3_oe() throws Exception  {
+        // removed other assertion
+
+        // removed other assertion
+                final int expectedNumerator0 = 8;
+        final int expectedDenominator0 = 13;
+        final Fraction actual0 = Fraction.from(0.6152, 1.0e-3, 100);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructorWithEpsilonLimit_3_oe_3_oe
+numb_363_4_3,"    @Test
+    void testDoubleConstructorWithEpsilonLimit_4_oe_3_oe() throws Exception  {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = 251;
+        final int expectedDenominator0 = 408;
+        final Fraction actual0 = Fraction.from(0.6152, 1.0e-4, 100);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructorWithEpsilonLimit_4_oe_3_oe
+numb_363_5_3,"    @Test
+    void testDoubleConstructorWithEpsilonLimit_5_oe_3_oe() throws Exception  {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = 251;
+        final int expectedDenominator0 = 408;
+        final Fraction actual0 = Fraction.from(0.6152, 1.0e-5, 100);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructorWithEpsilonLimit_5_oe_3_oe
+numb_363_6_3,"    @Test
+    void testDoubleConstructorWithEpsilonLimit_6_oe_3_oe() throws Exception  {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = 510;
+        final int expectedDenominator0 = 829;
+        final Fraction actual0 = Fraction.from(0.6152, 1.0e-6, 100);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructorWithEpsilonLimit_6_oe_3_oe
+numb_363_7_3,"    @Test
+    void testDoubleConstructorWithEpsilonLimit_7_oe_3_oe() throws Exception  {
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = 769;
+        final int expectedDenominator0 = 1250;
+        final Fraction actual0 = Fraction.from(0.6152, 1.0e-7, 100);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testDoubleConstructorWithEpsilonLimit_7_oe_3_oe
+numb_369_1_3,"    @Test
+    void testAbs_1_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.absTestCases()) {
+            final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final Fraction actual0 = f.abs();
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",FractionTest::testAbs_1_oe_3_oe
+numb_370_1_3,"    @Test
+    void testReciprocal_1_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.reciprocalTestCases()) {
+            final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final Fraction actual0 = f.reciprocal();
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",FractionTest::testReciprocal_1_oe_3_oe
+numb_371_1_3,"    @Test
+    void testNegate_1_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.negateTestCases()) {
+            final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final Fraction actual0 = f.negate();
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",FractionTest::testNegate_1_oe_3_oe
+numb_371_2_3,"    @Test
+    void testNegate_2_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.negateTestCases()) {
+            final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
+            // removed other assertion
+        }
+
+        // Test special cases of negation that differ from BigFraction.
+        final Fraction one = Fraction.of(Integer.MIN_VALUE, Integer.MIN_VALUE);
+                final int expectedNumerator0 = -1;
+        final int expectedDenominator0 = 1;
+        final Fraction actual0 = one.negate();
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testNegate_2_oe_3_oe
+numb_371_3_3,"    @Test
+    void testNegate_3_oe_3_oe() {
+        for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.negateTestCases()) {
+            final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
+            // removed other assertion
+        }
+
+        // Test special cases of negation that differ from BigFraction.
+        final Fraction one = Fraction.of(Integer.MIN_VALUE, Integer.MIN_VALUE);
+        // removed other assertion
+        // Special case where the negation of the numerator is not possible.
+        final Fraction minValue = Fraction.of(Integer.MIN_VALUE, 1);
+                final int expectedNumerator0 = Integer.MIN_VALUE;
+        final int expectedDenominator0 = -1;
+        final Fraction actual0 = minValue.negate();
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testNegate_3_oe_3_oe
+numb_372_1_3,"    @Test
+    void testAdd_1_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final Fraction actual0 = f1.add(f2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",FractionTest::testAdd_1_oe_3_oe
+numb_372_2_3,"    @Test
+    void testAdd_2_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final Fraction actual0 = f1.add(i2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",FractionTest::testAdd_2_oe_3_oe
+numb_372_6_3,"    @Test
+    void testAdd_6_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : addFractionOverflowTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : addIntOverflowTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+        }
+
+        // removed other assertion
+
+        // Edge case
+                final int expectedNumerator0 = Integer.MIN_VALUE;
+        final int expectedDenominator0 = -1;
+        final Fraction actual0 = Fraction.ZERO.add(Fraction.of(Integer.MIN_VALUE, -1));
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testAdd_6_oe_3_oe
+numb_372_7_3,"    @Test
+    void testAdd_7_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : addFractionOverflowTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : addIntOverflowTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+        }
+
+        // removed other assertion
+
+        // Edge case
+        // removed other assertion
+                final int expectedNumerator0 = Integer.MIN_VALUE;
+        final int expectedDenominator0 = 1;
+        final Fraction actual0 = Fraction.ZERO.add(Fraction.of(Integer.MIN_VALUE, 1));
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testAdd_7_oe_3_oe
+numb_372_8_3,"    @Test
+    void testAdd_8_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : addFractionOverflowTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : addIntOverflowTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+        }
+
+        // removed other assertion
+
+        // Edge case
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = Integer.MIN_VALUE;
+        final int expectedDenominator0 = 1;
+        final Fraction actual0 = Fraction.ZERO.add(Integer.MIN_VALUE);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testAdd_8_oe_3_oe
+numb_373_1_3,"    @Test
+    void testDivide_1_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final Fraction actual0 = f1.divide(f2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",FractionTest::testDivide_1_oe_3_oe
+numb_373_2_3,"    @Test
+    void testDivide_2_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.divideByIntTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final Fraction actual0 = f1.divide(i2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",FractionTest::testDivide_2_oe_3_oe
+numb_374_1_3,"    @Test
+    void testMultiply_1_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.multiplyByFractionTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final Fraction actual0 = f1.multiply(f2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",FractionTest::testMultiply_1_oe_3_oe
+numb_374_2_3,"    @Test
+    void testMultiply_2_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.multiplyByFractionTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.multiplyByIntTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final Fraction actual0 = f1.multiply(i2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",FractionTest::testMultiply_2_oe_3_oe
+numb_375_1_3,"    @Test
+    void testPow_1_oe_3_oe() {
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.powTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int exponent = testCase.secondOperand;
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final Fraction actual0 = f1.pow(exponent);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",FractionTest::testPow_1_oe_3_oe
+numb_376_1_3,"    @Test
+    void testSubtract_1_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final Fraction actual0 = f1.subtract(f2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",FractionTest::testSubtract_1_oe_3_oe
+numb_376_2_3,"    @Test
+    void testSubtract_2_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.subtractIntTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+                        final int expectedNumerator0 = testCase.expectedNumerator;
+            final int expectedDenominator0 = testCase.expectedDenominator;
+            final Fraction actual0 = f1.subtract(i2);
+            // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+    }
+",FractionTest::testSubtract_2_oe_3_oe
+numb_376_6_3,"    @Test
+    void testSubtract_6_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.subtractIntTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : subtractFractionOverflowTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : subtractIntOverflowTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+        }
+
+        // removed other assertion
+
+        // Edge case
+                final int expectedNumerator0 = Integer.MIN_VALUE;
+        final int expectedDenominator0 = 1;
+        final Fraction actual0 = Fraction.ZERO.subtract(Fraction.of(Integer.MIN_VALUE, -1));
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testSubtract_6_oe_3_oe
+numb_376_7_3,"    @Test
+    void testSubtract_7_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.subtractIntTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : subtractFractionOverflowTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : subtractIntOverflowTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+        }
+
+        // removed other assertion
+
+        // Edge case
+        // removed other assertion
+                final int expectedNumerator0 = Integer.MIN_VALUE;
+        final int expectedDenominator0 = -1;
+        final Fraction actual0 = Fraction.ZERO.subtract(Fraction.of(Integer.MIN_VALUE, 1));
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testSubtract_7_oe_3_oe
+numb_376_8_3,"    @Test
+    void testSubtract_8_oe_3_oe() {
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.subtractIntTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryOperatorTestCase testCase : subtractFractionOverflowTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
+            // removed other assertion
+        }
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : subtractIntOverflowTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int i2 = testCase.secondOperand;
+            // removed other assertion
+        }
+
+        // removed other assertion
+
+        // Edge case
+        // removed other assertion
+        // removed other assertion
+                final int expectedNumerator0 = Integer.MIN_VALUE;
+        final int expectedDenominator0 = -1;
+        final Fraction actual0 = Fraction.ZERO.subtract(Integer.MIN_VALUE);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testSubtract_8_oe_3_oe
+numb_383_1_3,"    @Test
+    void testMath1261_1_oe_3_oe() {
+        final Fraction a = Fraction.of(Integer.MAX_VALUE, 2);
+                final int expectedNumerator0 = Integer.MAX_VALUE;
+        final int expectedDenominator0 = 1;
+        final Fraction actual0 = a.multiply(2);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testMath1261_1_oe_3_oe
+numb_383_2_3,"    @Test
+    void testMath1261_2_oe_3_oe() {
+        final Fraction a = Fraction.of(Integer.MAX_VALUE, 2);
+        // removed other assertion
+
+        final Fraction b = Fraction.of(2, Integer.MAX_VALUE);
+                final int expectedNumerator0 = 1;
+        final int expectedDenominator0 = Integer.MAX_VALUE;
+        final Fraction actual0 = b.divide(2);
+        // removed other assertion
+                // removed other assertion
+                Assertions.assertEquals(Integer.signum(expectedNumerator0)* Integer.signum(expectedDenominator0),actual0.signum());
+    }
+",FractionTest::testMath1261_2_oe_3_oe
