@@ -371,3 +371,104 @@ lang_2637_2_3,"    @Test
                 assertEquals(expectedValue0, DateFormatUtils.format(cal0, pattern0, timeZone0));
     }
 ",DateFormatUtilsTest::testSMTP_2_oe_3_oe
+lang_left_2100_2,"@Test
+    public void testReflectionObjectArray_2_oe() {
+        Object[] array = new Object[] { null, base, new int[] { 3, 6 } };
+        final String baseString = this.toBaseString(array);
+        // removed other assertion
+        array = null;
+        assertReflectionArray(""<null>"", array);
+    }
+",ToStringBuilderTest::testReflectionObjectArray_2_oe
+lang_left_2520_2,"@DefaultLocale(language = ""en"", country = ""US"")
+    @Test
+    public void test_changeDefault_Locale_DateInstance_2_oe() {
+        final FastDateFormat format1 = FastDateFormat.getDateInstance(FastDateFormat.FULL, Locale.GERMANY);
+        final FastDateFormat format2 = FastDateFormat.getDateInstance(FastDateFormat.FULL);
+        Locale.setDefault(Locale.GERMANY);
+        final FastDateFormat format3 = FastDateFormat.getDateInstance(FastDateFormat.FULL);
+
+        // removed other assertion
+        assertEquals(Locale.US, format2.getLocale());
+    }
+",FastDateFormatTest::test_changeDefault_Locale_DateInstance_2_oe
+lang_left_2520_4,"@DefaultLocale(language = ""en"", country = ""US"")
+    @Test
+    public void test_changeDefault_Locale_DateInstance_4_oe() {
+        final FastDateFormat format1 = FastDateFormat.getDateInstance(FastDateFormat.FULL, Locale.GERMANY);
+        final FastDateFormat format2 = FastDateFormat.getDateInstance(FastDateFormat.FULL);
+        Locale.setDefault(Locale.GERMANY);
+        final FastDateFormat format3 = FastDateFormat.getDateInstance(FastDateFormat.FULL);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNotSame(format1, format2);
+    }
+",FastDateFormatTest::test_changeDefault_Locale_DateInstance_4_oe
+lang_left_2520_5,"@DefaultLocale(language = ""en"", country = ""US"")
+    @Test
+    public void test_changeDefault_Locale_DateInstance_5_oe() {
+        final FastDateFormat format1 = FastDateFormat.getDateInstance(FastDateFormat.FULL, Locale.GERMANY);
+        final FastDateFormat format2 = FastDateFormat.getDateInstance(FastDateFormat.FULL);
+        Locale.setDefault(Locale.GERMANY);
+        final FastDateFormat format3 = FastDateFormat.getDateInstance(FastDateFormat.FULL);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNotSame(format2, format3);
+    }
+",FastDateFormatTest::test_changeDefault_Locale_DateInstance_5_oe
+lang_left_2521_2,"@DefaultLocale(language = ""en"", country = ""US"")
+    @Test
+    public void test_changeDefault_Locale_DateTimeInstance_2_oe() {
+        final FastDateFormat format1 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL, Locale.GERMANY);
+        final FastDateFormat format2 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL);
+        Locale.setDefault(Locale.GERMANY);
+        final FastDateFormat format3 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL);
+
+        // removed other assertion
+        assertEquals(Locale.US, format2.getLocale());
+    }
+",FastDateFormatTest::test_changeDefault_Locale_DateTimeInstance_2_oe
+lang_left_2521_4,"@DefaultLocale(language = ""en"", country = ""US"")
+    @Test
+    public void test_changeDefault_Locale_DateTimeInstance_4_oe() {
+        final FastDateFormat format1 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL, Locale.GERMANY);
+        final FastDateFormat format2 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL);
+        Locale.setDefault(Locale.GERMANY);
+        final FastDateFormat format3 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNotSame(format1, format2);
+    }
+",FastDateFormatTest::test_changeDefault_Locale_DateTimeInstance_4_oe
+lang_left_2521_5,"@DefaultLocale(language = ""en"", country = ""US"")
+    @Test
+    public void test_changeDefault_Locale_DateTimeInstance_5_oe() {
+        final FastDateFormat format1 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL, Locale.GERMANY);
+        final FastDateFormat format2 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL);
+        Locale.setDefault(Locale.GERMANY);
+        final FastDateFormat format3 = FastDateFormat.getDateTimeInstance(FastDateFormat.FULL, FastDateFormat.FULL);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNotSame(format2, format3);
+    }
+",FastDateFormatTest::test_changeDefault_Locale_DateTimeInstance_5_oe
+lang_left_2524_1,"@DefaultLocale(language = ""en"", country = ""US"")
+    @Test
+    public void test_getInstance_String_Locale_1_oe() {
+        final FastDateFormat format1 = FastDateFormat.getInstance(""MM/DD/yyyy"", Locale.GERMANY);
+        final FastDateFormat format2 = FastDateFormat.getInstance(""MM/DD/yyyy"");
+        final FastDateFormat format3 = FastDateFormat.getInstance(""MM/DD/yyyy"", Locale.GERMANY);
+
+        assertNotSame(format1, format2);
+    }
+",FastDateFormatTest::test_getInstance_String_Locale_1_oe

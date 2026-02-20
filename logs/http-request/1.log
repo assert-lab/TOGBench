@@ -39,7 +39,7 @@
  T E S T S
 -------------------------------------------------------
 Running com.github.kevinsawicki.http.HttpRequestTest_OE25Dev
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.243 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.129 sec
 
 Results :
 
@@ -48,6 +48,6 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.946 s
-[INFO] Finished at: 2026-02-20T05:36:54-06:00
+[INFO] Total time:  11.202 s
+[INFO] Finished at: 2026-02-20T11:19:18-06:00
 [INFO] ------------------------------------------------------------------------

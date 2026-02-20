@@ -32,78 +32,78 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.jsoup.select.SelectorTest_OE25Dev
-[INFO] Tests run: 348, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.937 s - in org.jsoup.select.SelectorTest_OE25Dev
+[INFO] Tests run: 348, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.829 s - in org.jsoup.select.SelectorTest_OE25Dev
 [INFO] Running org.jsoup.select.CssTest_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 s - in org.jsoup.select.CssTest_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.jsoup.select.CssTest_OE25Dev
 [INFO] Running org.jsoup.select.QueryParserTest_OE25Dev
-[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.jsoup.select.QueryParserTest_OE25Dev
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.jsoup.select.QueryParserTest_OE25Dev
 [INFO] Running org.jsoup.select.ElementsTest_OE25Dev
-[INFO] Tests run: 131, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.132 s - in org.jsoup.select.ElementsTest_OE25Dev
+[INFO] Tests run: 131, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 s - in org.jsoup.select.ElementsTest_OE25Dev
 [INFO] Running org.jsoup.select.XpathTest_OE25Dev
-[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.248 s - in org.jsoup.select.XpathTest_OE25Dev
+[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.318 s - in org.jsoup.select.XpathTest_OE25Dev
 [INFO] Running org.jsoup.select.TraversorTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.jsoup.select.TraversorTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.jsoup.select.TraversorTest_OE25Dev
 [INFO] Running org.jsoup.parser.ParserTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.jsoup.parser.ParserTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.jsoup.parser.ParserTest_OE25Dev
 [INFO] Running org.jsoup.parser.TokeniserStateTest_OE25Dev
-[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in org.jsoup.parser.TokeniserStateTest_OE25Dev
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.jsoup.parser.TokeniserStateTest_OE25Dev
 [INFO] Running org.jsoup.parser.ParserSettingsTest_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.jsoup.parser.ParserSettingsTest_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.jsoup.parser.ParserSettingsTest_OE25Dev
 [INFO] Running org.jsoup.parser.HtmlTreeBuilderStateTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.jsoup.parser.HtmlTreeBuilderStateTest_OE25Dev
 [INFO] Running org.jsoup.parser.TagTest_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.jsoup.parser.TagTest_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.jsoup.parser.TagTest_OE25Dev
 [INFO] Running org.jsoup.parser.ParserIT_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.616 s - in org.jsoup.parser.ParserIT_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.442 s - in org.jsoup.parser.ParserIT_OE25Dev
 [INFO] Running org.jsoup.parser.TokeniserTest_OE25Dev
-[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s - in org.jsoup.parser.TokeniserTest_OE25Dev
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 s - in org.jsoup.parser.TokeniserTest_OE25Dev
 [INFO] Running org.jsoup.parser.HtmlTreeBuilderTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.jsoup.parser.HtmlTreeBuilderTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.jsoup.parser.HtmlTreeBuilderTest_OE25Dev
 [INFO] Running org.jsoup.parser.CharacterReaderTest_OE25Dev
-[INFO] Tests run: 133, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 s - in org.jsoup.parser.CharacterReaderTest_OE25Dev
+[INFO] Tests run: 133, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s - in org.jsoup.parser.CharacterReaderTest_OE25Dev
 [INFO] Running org.jsoup.parser.TokenQueueTest_OE25Dev
-[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.jsoup.parser.TokenQueueTest_OE25Dev
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.jsoup.parser.TokenQueueTest_OE25Dev
 [INFO] Running org.jsoup.parser.HtmlParserTest_OE25Dev
-[INFO] Tests run: 347, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.43 s - in org.jsoup.parser.HtmlParserTest_OE25Dev
+[INFO] Tests run: 347, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.343 s - in org.jsoup.parser.HtmlParserTest_OE25Dev
 [INFO] Running org.jsoup.parser.XmlTreeBuilderTest_OE25Dev
-[INFO] Tests run: 61, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.87 s - in org.jsoup.parser.XmlTreeBuilderTest_OE25Dev
+[INFO] Tests run: 61, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.844 s - in org.jsoup.parser.XmlTreeBuilderTest_OE25Dev
 [INFO] Running org.jsoup.parser.AttributeParseTest_OE25Dev
-[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.jsoup.parser.AttributeParseTest_OE25Dev
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.jsoup.parser.AttributeParseTest_OE25Dev
 [INFO] Running org.jsoup.safety.CleanerTest_OE25Dev
-[INFO] Tests run: 62, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in org.jsoup.safety.CleanerTest_OE25Dev
+[INFO] Tests run: 62, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s - in org.jsoup.safety.CleanerTest_OE25Dev
 [INFO] Running org.jsoup.safety.SafelistTest_OE25Dev
 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.jsoup.safety.SafelistTest_OE25Dev
 [INFO] Running org.jsoup.internal.StringUtilTest_OE25Dev
-[INFO] Tests run: 88, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.jsoup.internal.StringUtilTest_OE25Dev
+[INFO] Tests run: 88, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.jsoup.internal.StringUtilTest_OE25Dev
 [INFO] Running org.jsoup.nodes.PositionTest_OE25Dev
-[INFO] Tests run: 62, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.385 s - in org.jsoup.nodes.PositionTest_OE25Dev
+[INFO] Tests run: 62, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.434 s - in org.jsoup.nodes.PositionTest_OE25Dev
 [INFO] Running org.jsoup.nodes.LeafNodeTest_OE25Dev
 [INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.jsoup.nodes.LeafNodeTest_OE25Dev
 [INFO] Running org.jsoup.nodes.TextNodeTest_OE25Dev
 [INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.jsoup.nodes.TextNodeTest_OE25Dev
 [INFO] Running org.jsoup.nodes.ElementTest_OE25Dev
-[INFO] Tests run: 554, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.148 s - in org.jsoup.nodes.ElementTest_OE25Dev
+[INFO] Tests run: 554, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.138 s - in org.jsoup.nodes.ElementTest_OE25Dev
 [INFO] Running org.jsoup.nodes.CommentTest_OE25Dev
 [INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.jsoup.nodes.CommentTest_OE25Dev
 [INFO] Running org.jsoup.nodes.EntitiesTest_OE25Dev
-[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.jsoup.nodes.EntitiesTest_OE25Dev
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.jsoup.nodes.EntitiesTest_OE25Dev
 [INFO] Running org.jsoup.nodes.AttributesTest_OE25Dev
-[INFO] Tests run: 78, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.jsoup.nodes.AttributesTest_OE25Dev
+[INFO] Tests run: 78, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.jsoup.nodes.AttributesTest_OE25Dev
 [INFO] Running org.jsoup.nodes.DocumentTest_OE25Dev
-[INFO] Tests run: 100, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.681 s - in org.jsoup.nodes.DocumentTest_OE25Dev
+[INFO] Tests run: 100, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.667 s - in org.jsoup.nodes.DocumentTest_OE25Dev
 [INFO] Running org.jsoup.nodes.AttributeTest_OE25Dev
-[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.jsoup.nodes.AttributeTest_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.jsoup.nodes.AttributeTest_OE25Dev
 [INFO] Running org.jsoup.nodes.ElementIT_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.699 s - in org.jsoup.nodes.ElementIT_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.797 s - in org.jsoup.nodes.ElementIT_OE25Dev
 [INFO] Running org.jsoup.nodes.NodeTest_OE25Dev
-[INFO] Tests run: 103, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s - in org.jsoup.nodes.NodeTest_OE25Dev
+[INFO] Tests run: 103, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.jsoup.nodes.NodeTest_OE25Dev
 [INFO] Running org.jsoup.nodes.DocumentTypeTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.jsoup.nodes.DocumentTypeTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.jsoup.nodes.DocumentTypeTest_OE25Dev
 [INFO] Running org.jsoup.nodes.FormElementTest_OE25Dev
-[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.167 s - in org.jsoup.nodes.FormElementTest_OE25Dev
+[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s - in org.jsoup.nodes.FormElementTest_OE25Dev
 [INFO] Running org.jsoup.integration.SessionIT_OE25Dev
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 22.22 s <<< FAILURE! - in org.jsoup.integration.SessionIT_OE25Dev
-[ERROR] org.jsoup.integration.SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_2_oe  Time elapsed: 11.011 s  <<< FAILURE!
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 11.249 s <<< FAILURE! - in org.jsoup.integration.SessionIT_OE25Dev
+[ERROR] org.jsoup.integration.SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_3_oe  Time elapsed: 11.007 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <19> but was: <18>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -111,46 +111,46 @@ org.opentest4j.AssertionFailedError: expected: <19> but was: <18>
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
-	at org.jsoup.integration.SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_2_oe(SessionIT_OE25Dev.java:120)
+	at org.jsoup.integration.SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_3_oe(SessionIT_OE25Dev.java:121)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 
 [INFO] Running org.jsoup.integration.SafelistExtensionTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.jsoup.integration.SafelistExtensionTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.jsoup.integration.SafelistExtensionTest_OE25Dev
 [INFO] Running org.jsoup.integration.ConnectTest_OE25Dev
-[INFO] Tests run: 124, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.232 s - in org.jsoup.integration.ConnectTest_OE25Dev
+[INFO] Tests run: 123, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.228 s - in org.jsoup.integration.ConnectTest_OE25Dev
 [INFO] Running org.jsoup.integration.ParseTest_OE25Dev
-[INFO] Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 s - in org.jsoup.integration.ParseTest_OE25Dev
+[INFO] Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s - in org.jsoup.integration.ParseTest_OE25Dev
 [INFO] Running org.jsoup.integration.FuzzFixesTest_OE25Dev
-[WARNING] Tests run: 66, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.654 s - in org.jsoup.integration.FuzzFixesTest_OE25Dev
+[WARNING] Tests run: 66, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.624 s - in org.jsoup.integration.FuzzFixesTest_OE25Dev
 [INFO] Running org.jsoup.integration.SessionTest_OE25Dev
-[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in org.jsoup.integration.SessionTest_OE25Dev
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.jsoup.integration.SessionTest_OE25Dev
 [INFO] Running org.jsoup.integration.FuzzFixesIT_OE25Dev
-[INFO] Tests run: 124, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 41.05 s - in org.jsoup.integration.FuzzFixesIT_OE25Dev
+[INFO] Tests run: 124, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 33.363 s - in org.jsoup.integration.FuzzFixesIT_OE25Dev
 [INFO] Running org.jsoup.integration.ConnectIT_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.033 s - in org.jsoup.integration.ConnectIT_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 34.042 s - in org.jsoup.integration.ConnectIT_OE25Dev
 [INFO] Running org.jsoup.helper.W3CDomTest_OE25Dev
-[INFO] Tests run: 74, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 s - in org.jsoup.helper.W3CDomTest_OE25Dev
+[INFO] Tests run: 74, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s - in org.jsoup.helper.W3CDomTest_OE25Dev
 [INFO] Running org.jsoup.helper.HttpConnectionTest_OE25Dev
-[INFO] Tests run: 87, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.jsoup.helper.HttpConnectionTest_OE25Dev
+[INFO] Tests run: 87, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.jsoup.helper.HttpConnectionTest_OE25Dev
 [INFO] Running org.jsoup.helper.DataUtilTest_OE25Dev
-[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.jsoup.helper.DataUtilTest_OE25Dev
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.jsoup.helper.DataUtilTest_OE25Dev
 [INFO] Running org.jsoup.helper.ValidateTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.jsoup.helper.ValidateTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.jsoup.helper.ValidateTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
 [ERROR] Failures: 
-[ERROR]   SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_2_oe:120 expected: <19> but was: <18>
+[ERROR]   SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_3_oe:121 expected: <19> but was: <18>
 [INFO] 
-[ERROR] Tests run: 3159, Failures: 1, Errors: 0, Skipped: 1
+[ERROR] Tests run: 3157, Failures: 1, Errors: 0, Skipped: 1
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  02:01 min
-[INFO] Finished at: 2026-02-20T05:40:19-06:00
+[INFO] Total time:  01:38 min
+[INFO] Finished at: 2026-02-20T11:22:15-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project jsoup: There are test failures.
 [ERROR] 

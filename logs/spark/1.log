@@ -27,7 +27,7 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ spark-core ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 119 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/target/test-classes
+[INFO] Compiling 118 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/embeddedserver/EmbeddedServersTest_OE25Dev.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/embeddedserver/EmbeddedServersTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/QueryParamsMapTest.java: Some input files use or override a deprecated API that is marked for removal.
@@ -41,245 +41,83 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running spark.staticfiles.DisableMimeGuessingTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.405 s - in spark.staticfiles.DisableMimeGuessingTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.627 s - in spark.staticfiles.DisableMimeGuessingTest_OE25Dev
 [INFO] Running spark.staticfiles.StaticFilesTest_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.836 s - in spark.staticfiles.StaticFilesTest_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.795 s - in spark.staticfiles.StaticFilesTest_OE25Dev
 [INFO] Running spark.route.HttpMethodTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.149 s - in spark.route.HttpMethodTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.112 s - in spark.route.HttpMethodTest_OE25Dev
 [INFO] Running spark.route.RouteEntryTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.165 s - in spark.route.RouteEntryTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.147 s - in spark.route.RouteEntryTest_OE25Dev
 [INFO] Running spark.utils.ObjectUtilsTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.17 s - in spark.utils.ObjectUtilsTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in spark.utils.ObjectUtilsTest_OE25Dev
 [INFO] Running spark.utils.CollectionUtilsTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.132 s - in spark.utils.CollectionUtilsTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.178 s - in spark.utils.CollectionUtilsTest_OE25Dev
 [INFO] Running spark.utils.SparkUtilsTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.129 s - in spark.utils.SparkUtilsTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 s - in spark.utils.SparkUtilsTest_OE25Dev
 [INFO] Running spark.RedirectTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.564 s - in spark.RedirectTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.365 s - in spark.RedirectTest_OE25Dev
 [INFO] Running spark.ExceptionMapperTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.193 s - in spark.ExceptionMapperTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 s - in spark.ExceptionMapperTest_OE25Dev
 [INFO] Running spark.ServiceTest_OE25Dev
-[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.309 s - in spark.ServiceTest_OE25Dev
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.174 s - in spark.ServiceTest_OE25Dev
 [INFO] Running spark.serialization.InputStreamSerializerTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.133 s - in spark.serialization.InputStreamSerializerTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.116 s - in spark.serialization.InputStreamSerializerTest_OE25Dev
 [INFO] Running spark.BodyAvailabilityTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.981 s - in spark.BodyAvailabilityTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.929 s - in spark.BodyAvailabilityTest_OE25Dev
 [INFO] Running spark.UnmapTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.205 s - in spark.UnmapTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.117 s - in spark.UnmapTest_OE25Dev
 [INFO] Running spark.resource.UriPathTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.155 s - in spark.resource.UriPathTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.126 s - in spark.resource.UriPathTest_OE25Dev
 [INFO] Running spark.MultipleServicesTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.366 s - in spark.MultipleServicesTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.177 s - in spark.MultipleServicesTest_OE25Dev
 [INFO] Running spark.ServicePortIntegrationTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.201 s - in spark.ServicePortIntegrationTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.066 s - in spark.ServicePortIntegrationTest_OE25Dev
 [INFO] Running spark.customerrorpages.CustomErrorPagesTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.23 s - in spark.customerrorpages.CustomErrorPagesTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.925 s - in spark.customerrorpages.CustomErrorPagesTest_OE25Dev
 [INFO] Running spark.FilterImplTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.15 s - in spark.FilterImplTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.135 s - in spark.FilterImplTest_OE25Dev
 [INFO] Running spark.InitExceptionHandlerTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.643 s - in spark.InitExceptionHandlerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.382 s - in spark.InitExceptionHandlerTest_OE25Dev
 [INFO] Running spark.FilterTest_OE25Dev
 Filter matched
 response.status = 404
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.138 s - in spark.FilterTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.885 s - in spark.FilterTest_OE25Dev
 [INFO] Running spark.BooksIntegrationTest_OE25Dev
-[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.056 s - in spark.BooksIntegrationTest_OE25Dev
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.874 s - in spark.BooksIntegrationTest_OE25Dev
 [INFO] Running spark.GzipTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.826 s - in spark.GzipTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.599 s - in spark.GzipTest_OE25Dev
 [INFO] Running spark.GenericIntegrationTest_OE25Dev
-[INFO] Tests run: 73, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.66 s - in spark.GenericIntegrationTest_OE25Dev
-[INFO] Running spark.servlet.ServletTest_OE25Dev
-[ERROR] Tests run: 21, Failures: 0, Errors: 21, Skipped: 0, Time elapsed: 2.059 s <<< FAILURE! - in spark.servlet.ServletTest_OE25Dev
-[ERROR] testPost_1_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0.069 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testPost_1_oe(ServletTest_OE25Dev.java:164)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testPost_1_oe(ServletTest_OE25Dev.java:164)
-
-[ERROR] testPost_2_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testPost_2_oe(ServletTest_OE25Dev.java:170)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testPost_2_oe(ServletTest_OE25Dev.java:170)
-
-[ERROR] testNotFound_1_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0.004 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testNotFound_1_oe(ServletTest_OE25Dev.java:158)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testNotFound_1_oe(ServletTest_OE25Dev.java:158)
-
-[ERROR] testHiHead_1_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testHiHead_1_oe(ServletTest_OE25Dev.java:94)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testHiHead_1_oe(ServletTest_OE25Dev.java:94)
-
-[ERROR] testHiHead_2_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testHiHead_2_oe(ServletTest_OE25Dev.java:100)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testHiHead_2_oe(ServletTest_OE25Dev.java:100)
-
-[ERROR] testUnauthorized_1_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testUnauthorized_1_oe(ServletTest_OE25Dev.java:152)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testUnauthorized_1_oe(ServletTest_OE25Dev.java:152)
-
-[ERROR] testStaticWelcomeResource_1_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0.002 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testStaticWelcomeResource_1_oe(ServletTest_OE25Dev.java:190)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testStaticWelcomeResource_1_oe(ServletTest_OE25Dev.java:190)
-
-[ERROR] testStaticWelcomeResource_2_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testStaticWelcomeResource_2_oe(ServletTest_OE25Dev.java:196)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testStaticWelcomeResource_2_oe(ServletTest_OE25Dev.java:196)
-
-[ERROR] testGetRoot_1_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testGetRoot_1_oe(ServletTest_OE25Dev.java:113)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testGetRoot_1_oe(ServletTest_OE25Dev.java:113)
-
-[ERROR] testGetRoot_2_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testGetRoot_2_oe(ServletTest_OE25Dev.java:119)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testGetRoot_2_oe(ServletTest_OE25Dev.java:119)
-
-[ERROR] testGetHiAfterFilter_1_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testGetHiAfterFilter_1_oe(ServletTest_OE25Dev.java:107)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testGetHiAfterFilter_1_oe(ServletTest_OE25Dev.java:107)
-
-[ERROR] testExternalStaticFile_1_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testExternalStaticFile_1_oe(ServletTest_OE25Dev.java:203)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testExternalStaticFile_1_oe(ServletTest_OE25Dev.java:203)
-
-[ERROR] testExternalStaticFile_2_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testExternalStaticFile_2_oe(ServletTest_OE25Dev.java:209)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testExternalStaticFile_2_oe(ServletTest_OE25Dev.java:209)
-
-[ERROR] testGetHi_1_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testGetHi_1_oe(ServletTest_OE25Dev.java:81)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testGetHi_1_oe(ServletTest_OE25Dev.java:81)
-
-[ERROR] testGetHi_2_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testGetHi_2_oe(ServletTest_OE25Dev.java:87)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testGetHi_2_oe(ServletTest_OE25Dev.java:87)
-
-[ERROR] testEchoParam1_1_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0.014 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testEchoParam1_1_oe(ServletTest_OE25Dev.java:126)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testEchoParam1_1_oe(ServletTest_OE25Dev.java:126)
-
-[ERROR] testEchoParam1_2_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testEchoParam1_2_oe(ServletTest_OE25Dev.java:132)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testEchoParam1_2_oe(ServletTest_OE25Dev.java:132)
-
-[ERROR] testEchoParam2_1_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testEchoParam2_1_oe(ServletTest_OE25Dev.java:139)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testEchoParam2_1_oe(ServletTest_OE25Dev.java:139)
-
-[ERROR] testEchoParam2_2_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testEchoParam2_2_oe(ServletTest_OE25Dev.java:145)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testEchoParam2_2_oe(ServletTest_OE25Dev.java:145)
-
-[ERROR] testStaticResource_1_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0.02 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testStaticResource_1_oe(ServletTest_OE25Dev.java:177)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testStaticResource_1_oe(ServletTest_OE25Dev.java:177)
-
-[ERROR] testStaticResource_2_oe(spark.servlet.ServletTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-org.apache.http.conn.HttpHostConnectException: Connect to localhost:9393 [localhost/127.0.0.1] failed: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testStaticResource_2_oe(ServletTest_OE25Dev.java:183)
-Caused by: java.net.ConnectException: Connection refused
-	at spark.servlet.ServletTest_OE25Dev.testStaticResource_2_oe(ServletTest_OE25Dev.java:183)
-
+[INFO] Tests run: 73, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.024 s - in spark.GenericIntegrationTest_OE25Dev
 [INFO] Running spark.StaticFilesMemberTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.894 s - in spark.StaticFilesMemberTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.446 s - in spark.StaticFilesMemberTest_OE25Dev
 [INFO] Running spark.embeddedserver.EmbeddedServersTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.435 s - in spark.embeddedserver.EmbeddedServersTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.505 s - in spark.embeddedserver.EmbeddedServersTest_OE25Dev
 [INFO] Running spark.embeddedserver.jetty.websocket.WebSocketCreatorFactoryTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.127 s - in spark.embeddedserver.jetty.websocket.WebSocketCreatorFactoryTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 s - in spark.embeddedserver.jetty.websocket.WebSocketCreatorFactoryTest_OE25Dev
 [INFO] Running spark.embeddedserver.jetty.SocketConnectorFactoryTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.309 s - in spark.embeddedserver.jetty.SocketConnectorFactoryTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.235 s - in spark.embeddedserver.jetty.SocketConnectorFactoryTest_OE25Dev
 [INFO] Running spark.embeddedserver.jetty.JettyServerTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.239 s - in spark.embeddedserver.jetty.JettyServerTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.226 s - in spark.embeddedserver.jetty.JettyServerTest_OE25Dev
 [INFO] Running spark.GenericSecureIntegrationTest_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.305 s - in spark.GenericSecureIntegrationTest_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.304 s - in spark.GenericSecureIntegrationTest_OE25Dev
 [INFO] Running spark.util.ResourceUtilsTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in spark.util.ResourceUtilsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 s - in spark.util.ResourceUtilsTest_OE25Dev
 [INFO] Running spark.RouteImplTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.15 s - in spark.RouteImplTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 s - in spark.RouteImplTest_OE25Dev
 [INFO] Running spark.ResponseWrapperDelegationTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.338 s - in spark.ResponseWrapperDelegationTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.948 s - in spark.ResponseWrapperDelegationTest_OE25Dev
 [INFO] Running spark.Base64Test_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in spark.Base64Test_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 s - in spark.Base64Test_OE25Dev
 [INFO] Running spark.QueryParamsMapTest_OE25Dev
-[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in spark.QueryParamsMapTest_OE25Dev
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.154 s - in spark.QueryParamsMapTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[ERROR] Errors: 
-[ERROR]   ServletTest_OE25Dev.testEchoParam1_1_oe:126 » HttpHostConnect Connect to local...
-[ERROR]   ServletTest_OE25Dev.testEchoParam1_2_oe:132 » HttpHostConnect Connect to local...
-[ERROR]   ServletTest_OE25Dev.testEchoParam2_1_oe:139 » HttpHostConnect Connect to local...
-[ERROR]   ServletTest_OE25Dev.testEchoParam2_2_oe:145 » HttpHostConnect Connect to local...
-[ERROR]   ServletTest_OE25Dev.testExternalStaticFile_1_oe:203 » HttpHostConnect Connect ...
-[ERROR]   ServletTest_OE25Dev.testExternalStaticFile_2_oe:209 » HttpHostConnect Connect ...
-[ERROR]   ServletTest_OE25Dev.testGetHiAfterFilter_1_oe:107 » HttpHostConnect Connect to...
-[ERROR]   ServletTest_OE25Dev.testGetHi_1_oe:81 » HttpHostConnect Connect to localhost:9...
-[ERROR]   ServletTest_OE25Dev.testGetHi_2_oe:87 » HttpHostConnect Connect to localhost:9...
-[ERROR]   ServletTest_OE25Dev.testGetRoot_1_oe:113 » HttpHostConnect Connect to localhos...
-[ERROR]   ServletTest_OE25Dev.testGetRoot_2_oe:119 » HttpHostConnect Connect to localhos...
-[ERROR]   ServletTest_OE25Dev.testHiHead_1_oe:94 » HttpHostConnect Connect to localhost:...
-[ERROR]   ServletTest_OE25Dev.testHiHead_2_oe:100 » HttpHostConnect Connect to localhost...
-[ERROR]   ServletTest_OE25Dev.testNotFound_1_oe:158 » HttpHostConnect Connect to localho...
-[ERROR]   ServletTest_OE25Dev.testPost_1_oe:164 » HttpHostConnect Connect to localhost:9...
-[ERROR]   ServletTest_OE25Dev.testPost_2_oe:170 » HttpHostConnect Connect to localhost:9...
-[ERROR]   ServletTest_OE25Dev.testStaticResource_1_oe:177 » HttpHostConnect Connect to l...
-[ERROR]   ServletTest_OE25Dev.testStaticResource_2_oe:183 » HttpHostConnect Connect to l...
-[ERROR]   ServletTest_OE25Dev.testStaticWelcomeResource_1_oe:190 » HttpHostConnect Conne...
-[ERROR]   ServletTest_OE25Dev.testStaticWelcomeResource_2_oe:196 » HttpHostConnect Conne...
-[ERROR]   ServletTest_OE25Dev.testUnauthorized_1_oe:152 » HttpHostConnect Connect to loc...
-[INFO] 
-[ERROR] Tests run: 379, Failures: 0, Errors: 21, Skipped: 0
+[INFO] Tests run: 358, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  01:35 min
-[INFO] Finished at: 2026-02-20T05:38:46-06:00
+[INFO] Total time:  01:00 min
+[INFO] Finished at: 2026-02-20T11:20:34-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project spark-core: There are test failures.
-[ERROR] 
-[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/target/surefire-reports for the individual test results.
-[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

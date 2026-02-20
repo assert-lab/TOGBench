@@ -34114,40 +34114,6 @@ jsoup_837_2,"    @Test
         assertEquals(0, catcher.exceptionCount.get());
     }
 ",SessionIT::multiThread_2_oe
-jsoup_838_2,"    @Test
-    public void multiThreadWithoutNewRequestBlowsUp_2_oe() throws InterruptedException {
-        int numThreads = 20;
-        String url = SlowRider.Url + ""?"" + SlowRider.MaxTimeParam + ""=10000""; // this makes sure that the first req is still executing whilst the others run
-        String title = ""Slow Rider"";
-
-        ThreadCatcher catcher = new ThreadCatcher();
-        Connection session = Jsoup.newSession();
-
-        Thread[] threads = new Thread[numThreads];
-        for (int threadNum = 0; threadNum < numThreads; threadNum++) {
-            Thread thread = new Thread(() -> {
-                try {
-                    Document doc = session.url(url).get();
-                    // removed other assertion
-                } catch (IOException e) {
-                    throw new UncheckedIOException(e);
-                }
-            });
-            thread.setName(""Runner-"" + threadNum);
-            thread.start();
-            thread.setUncaughtExceptionHandler(catcher);
-            threads[threadNum] = thread;
-        }
-
-        // now join them all
-        for (Thread thread : threads) {
-            thread.join();
-        }
-
-        // only one should have passed, rest should have blown up (assuming the started whilst other was running)
-        assertEquals(numThreads - 1, catcher.multiThreadExceptions.get());
-    }
-",SessionIT::multiThreadWithoutNewRequestBlowsUp_2_oe
 jsoup_838_3,"    @Test
     public void multiThreadWithoutNewRequestBlowsUp_3_oe() throws InterruptedException {
         int numThreads = 20;
@@ -38733,24 +38699,6 @@ jsoup_865_5,"    @Test
     }
     }
 ",ConnectIT::noLimitAfterFirstRead_5_oe
-jsoup_809_4,"    @Test
-    public void throwsExceptionOn404_4_oe() {
-        String url = EchoServlet.Url;
-        Connection con = Jsoup.connect(url).header(EchoServlet.CodeParam, ""404"");
-
-        boolean threw = false;
-        try {
-            Document doc = con.get();
-        } catch (HttpStatusException e) {
-            threw = true;
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        } catch (IOException e) {
-        }
-        assertTrue(threw);
-    }
-",ConnectTest::throwsExceptionOn404_4_oe
 jsoup_left_55_1,"@MultiLocaleTest
     public void containsOwn_1_oe(Locale locale) {
         Locale.setDefault(locale);

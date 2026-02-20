@@ -299,7 +299,7 @@ def process_test_file(project_dir, test_file_path, test_class, entry, id_to_pref
 
 def main():
 
-    target = "commons-lang3"
+    target = "http-request"
 
     for project in sorted(os.listdir(PROJECTS_DIR)):
         if project != target:

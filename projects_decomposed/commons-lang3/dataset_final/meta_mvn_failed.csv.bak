@@ -38,3 +38,11 @@ lang_2637_1_3,commons-lang3,DateFormatUtilsTest,testSMTP_1_oe_3_oe,src/test/java
 lang_2637_2_1,commons-lang3,DateFormatUtilsTest,testSMTP_2_oe_1_oe,src/test/java/org/apache/commons/lang3/time/DateFormatUtilsTest.java,,,,assert,unknown,standard,assertEquals
 lang_2637_2_2,commons-lang3,DateFormatUtilsTest,testSMTP_2_oe_2_oe,src/test/java/org/apache/commons/lang3/time/DateFormatUtilsTest.java,,,,assert,unknown,standard,assertEquals
 lang_2637_2_3,commons-lang3,DateFormatUtilsTest,testSMTP_2_oe_3_oe,src/test/java/org/apache/commons/lang3/time/DateFormatUtilsTest.java,,,,assert,unknown,standard,assertEquals
+lang_left_2100_2,commons-lang3,ToStringBuilderTest,testReflectionObjectArray_2_oe,src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest.java,,,,assert,unknown,custom,assertReflectionArray
+lang_left_2520_2,commons-lang3,FastDateFormatTest,test_changeDefault_Locale_DateInstance_2_oe,src/test/java/org/apache/commons/lang3/time/FastDateFormatTest.java,,,,assert,unknown,standard,assertEquals
+lang_left_2520_4,commons-lang3,FastDateFormatTest,test_changeDefault_Locale_DateInstance_4_oe,src/test/java/org/apache/commons/lang3/time/FastDateFormatTest.java,,,,assert,unknown,standard,assertNotSame
+lang_left_2520_5,commons-lang3,FastDateFormatTest,test_changeDefault_Locale_DateInstance_5_oe,src/test/java/org/apache/commons/lang3/time/FastDateFormatTest.java,,,,assert,unknown,standard,assertNotSame
+lang_left_2521_2,commons-lang3,FastDateFormatTest,test_changeDefault_Locale_DateTimeInstance_2_oe,src/test/java/org/apache/commons/lang3/time/FastDateFormatTest.java,,,,assert,unknown,standard,assertEquals
+lang_left_2521_4,commons-lang3,FastDateFormatTest,test_changeDefault_Locale_DateTimeInstance_4_oe,src/test/java/org/apache/commons/lang3/time/FastDateFormatTest.java,,,,assert,unknown,standard,assertNotSame
+lang_left_2521_5,commons-lang3,FastDateFormatTest,test_changeDefault_Locale_DateTimeInstance_5_oe,src/test/java/org/apache/commons/lang3/time/FastDateFormatTest.java,,,,assert,unknown,standard,assertNotSame
+lang_left_2524_1,commons-lang3,FastDateFormatTest,test_getInstance_String_Locale_1_oe,src/test/java/org/apache/commons/lang3/time/FastDateFormatTest.java,,,,assert,unknown,standard,assertNotSame

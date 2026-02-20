@@ -100047,16 +100047,6 @@ coll_left_216_1,"@Test
     }
     }
 ",ClosureUtilsTest::testSingletonPatternInSerialization_1_oe
-coll_left_227_3,"@Test
-    public void instantiateFactorySimple_3_oe() {
-        final Factory<Mock3> factory = FactoryUtils.instantiateFactory(Mock3.class);
-        // removed other assertion
-        Mock3 created = factory.create();
-        // removed other assertion
-        created = factory.create();
-        assertEquals(1, created.getValue());
-    }
-",FactoryUtilsTest::instantiateFactorySimple_3_oe
 coll_left_229_1,"@Test
     public void testSingletonPatternInSerialization_1_oe() {
         final Object[] singletones = new Object[] {

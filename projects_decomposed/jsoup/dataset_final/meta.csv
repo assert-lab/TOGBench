@@ -2562,7 +2562,6 @@ jsoup_834_3,jsoup,ConnectTest,doesPostFor307_3_oe,src/test/java/org/jsoup/integr
 jsoup_835_1,jsoup,ConnectTest,getUtf8Bom_1_oe,src/test/java/org/jsoup/integration/ConnectTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_835_2,jsoup,ConnectTest,getUtf8Bom_2_oe,src/test/java/org/jsoup/integration/ConnectTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_837_2,jsoup,SessionIT,multiThread_2_oe,src/test/java/org/jsoup/integration/SessionIT.java,,,,assert,unknown,standard,assertEquals
-jsoup_838_2,jsoup,SessionIT,multiThreadWithoutNewRequestBlowsUp_2_oe,src/test/java/org/jsoup/integration/SessionIT.java,,,,assert,unknown,standard,assertEquals
 jsoup_838_3,jsoup,SessionIT,multiThreadWithoutNewRequestBlowsUp_3_oe,src/test/java/org/jsoup/integration/SessionIT.java,,,,assert,unknown,standard,assertEquals
 jsoup_839_1,jsoup,SafelistExtensionTest,canCustomizeSafeTests_1_oe,src/test/java/org/jsoup/integration/SafelistExtensionTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_839_2,jsoup,SafelistExtensionTest,canCustomizeSafeTests_2_oe,src/test/java/org/jsoup/integration/SafelistExtensionTest.java,,,,assert,unknown,standard,assertEquals
@@ -2838,7 +2837,6 @@ jsoup_865_2,jsoup,ConnectIT,noLimitAfterFirstRead_2_oe,src/test/java/org/jsoup/i
 jsoup_865_3,jsoup,ConnectIT,noLimitAfterFirstRead_3_oe,src/test/java/org/jsoup/integration/ConnectIT.java,,,,assert,unknown,standard,assertEquals
 jsoup_865_4,jsoup,ConnectIT,noLimitAfterFirstRead_4_oe,src/test/java/org/jsoup/integration/ConnectIT.java,,,,assert,unknown,standard,assertEquals
 jsoup_865_5,jsoup,ConnectIT,noLimitAfterFirstRead_5_oe,src/test/java/org/jsoup/integration/ConnectIT.java,,,,assert,unknown,standard,assertTrue
-jsoup_809_4,jsoup,ConnectTest,throwsExceptionOn404_4_oe,src/test/java/org/jsoup/integration/ConnectTest.java,,,,assert,unknown,standard,assertTrue
 jsoup_left_55_1,jsoup,SelectorTest,containsOwn_1_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_left_55_2,jsoup,SelectorTest,containsOwn_2_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
 jsoup_left_55_3,jsoup,SelectorTest,containsOwn_3_oe,src/test/java/org/jsoup/select/SelectorTest.java,,,,assert,unknown,standard,assertEquals
