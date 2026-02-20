@@ -1,3 +1,0 @@
-id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
-lang_1_1,commons-lang3,ClassLoaderUtilsTest,testToString_ClassLoader_1_oe,src/test/java/org/apache/commons/lang3/ClassLoaderUtilsTest.java,,,,assert,unknown,standard,assertEquals
-lang_2_1,commons-lang3,ClassLoaderUtilsTest,testToString_URLClassLoader_1_oe,src/test/java/org/apache/commons/lang3/ClassLoaderUtilsTest.java,,,,assert,unknown,standard,assertEquals

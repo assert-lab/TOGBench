@@ -1,0 +1,4 @@
+folder,line
+JSON-java,JSONObjectTest_OE25Dev.testSingletonBean_7_oe:15119 expected:<0> but was:<42>
+JSON-java,JSONObjectTest_OE25Dev.testSingletonEnumBean_7_oe:15139 expected:<0> but was:<42>
+JSON-java,"Tests run: 1172, Failures: 2, Errors: 0, Skipped: 0"

@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-gamma ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma
-[INFO] Storing buildNumber: 6bed6c7a9de6bbb121f1f9c7448490bc0b83b132 at timestamp: 1771608016624
+[INFO] Storing buildNumber: 4d9d360d35cef158270763ad03ba8e5d93c07475 at timestamp: 1771613845607
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -68,37 +68,37 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.ErfDifferenceTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.numbers.gamma.ErfDifferenceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in org.apache.commons.numbers.gamma.ErfDifferenceTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.RegularizedGammaTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.numbers.gamma.RegularizedGammaTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.numbers.gamma.RegularizedGammaTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.InverseErfcTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.numbers.gamma.InverseErfcTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.apache.commons.numbers.gamma.InverseErfcTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.InvGamma1pm1Test_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.numbers.gamma.InvGamma1pm1Test_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.numbers.gamma.InvGamma1pm1Test_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.LogGammaSumTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.numbers.gamma.LogGammaSumTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.numbers.gamma.LogGammaSumTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.LogGamma1pTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.numbers.gamma.LogGamma1pTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.numbers.gamma.LogGamma1pTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.RegularizedBetaTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.numbers.gamma.RegularizedBetaTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.numbers.gamma.RegularizedBetaTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.InverseErfTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.apache.commons.numbers.gamma.InverseErfTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.numbers.gamma.InverseErfTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.LanczosApproximationTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.gamma.LanczosApproximationTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.numbers.gamma.LanczosApproximationTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.ErfcTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.numbers.gamma.ErfcTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.gamma.ErfcTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.ErfTest_OE25Dev
-[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.284 s - in org.apache.commons.numbers.gamma.ErfTest_OE25Dev
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.258 s - in org.apache.commons.numbers.gamma.ErfTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.GammaTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.numbers.gamma.GammaTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.numbers.gamma.GammaTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.TrigammaTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.numbers.gamma.TrigammaTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.numbers.gamma.TrigammaTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.DigammaTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.numbers.gamma.DigammaTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.numbers.gamma.DigammaTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -107,6 +107,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.836 s
-[INFO] Finished at: 2026-02-20T11:20:25-06:00
+[INFO] Total time:  10.844 s
+[INFO] Finished at: 2026-02-20T12:57:33-06:00
 [INFO] ------------------------------------------------------------------------

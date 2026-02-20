@@ -36,7 +36,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-vfs2 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2
-[INFO] Storing buildNumber: 6bed6c7a9de6bbb121f1f9c7448490bc0b83b132 at timestamp: 1771607977300
+[INFO] Storing buildNumber: 4d9d360d35cef158270763ad03ba8e5d93c07475 at timestamp: 1771613807206
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -91,147 +91,150 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.vfs2.FileIteratorTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.46 s - in org.apache.commons.vfs2.FileIteratorTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.389 s - in org.apache.commons.vfs2.FileIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.FileTypeSelectorTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.FileTypeSelectorTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileTypeSelectorTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.PatternFileSelectorTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.PatternFileSelectorTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.PatternFileSelectorTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.operations.BasicOperationsTestCase_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in org.apache.commons.vfs2.operations.BasicOperationsTestCase_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.apache.commons.vfs2.operations.BasicOperationsTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http4s.Http4sGetContentInfoTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.482 s - in org.apache.commons.vfs2.provider.http4s.Http4sGetContentInfoTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.376 s - in org.apache.commons.vfs2.provider.http4s.Http4sGetContentInfoTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev
-[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.091 s - in org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 s - in org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.ram.RamFileRandomAccessContentTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.vfs2.provider.ram.RamFileRandomAccessContentTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.ram.RamFileRandomAccessContentTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev
-[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.873 s - in org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.787 s - in org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.jar.JarAttributesTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.vfs2.provider.jar.JarAttributesTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.vfs2.provider.jar.JarAttributesTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http.HttpProviderTestCase_OE25Dev
 VfsClassLoaderTests no layered .jar provider, skipping.
-Threads still running (2) at 2026-02-20T17:20:13.752234800Z, live threads:
-	Thread[0]  ID 256, Thread[MultiThreadedHttpConnectionManager cleanup,5,main],	WAITING,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
-[INFO] Tests run: 111, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.409 s - in org.apache.commons.vfs2.provider.http.HttpProviderTestCase_OE25Dev
+Threads still running (2) at 2026-02-20T18:57:21.813542627Z, live threads:
+	Thread[0]  ID 255, Thread[MultiThreadedHttpConnectionManager cleanup,5,main],	WAITING,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[1]  ID 259, Thread[org.apache.commons.vfs2.cache.SoftRefFilesCache$ReleaseThread,5,main],	WAITING,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+[INFO] Tests run: 111, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.031 s - in org.apache.commons.vfs2.provider.http.HttpProviderTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http.GetContentInfoFunctionalTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.http.GetContentInfoFunctionalTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.http.GetContentInfoFunctionalTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http.HttpFilesCacheTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.http.HttpFilesCacheTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.provider.http.HttpFilesCacheTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http4.Http4FilesCacheTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.provider.http4.Http4FilesCacheTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.vfs2.provider.http4.Http4FilesCacheTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http4.Http4ProviderTestCase_OE25Dev
 VfsClassLoaderTests no layered .jar provider, skipping.
-[INFO] Tests run: 113, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.03 s - in org.apache.commons.vfs2.provider.http4.Http4ProviderTestCase_OE25Dev
+[INFO] Tests run: 113, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.704 s - in org.apache.commons.vfs2.provider.http4.Http4ProviderTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http4.Http4GetContentInfoTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.provider.http4.Http4GetContentInfoTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.vfs2.provider.http4.Http4GetContentInfoTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.local.ConversionTestCase_OE25Dev
-[WARNING] Tests run: 5, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 0.003 s - in org.apache.commons.vfs2.provider.local.ConversionTestCase_OE25Dev
+[WARNING] Tests run: 5, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 0.005 s - in org.apache.commons.vfs2.provider.local.ConversionTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.local.TempFileTests_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.vfs2.provider.local.TempFileTests_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.vfs2.provider.local.TempFileTests_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.local.LocalFileRandomAccessContentTestCase_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.local.LocalFileRandomAccessContentTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.ftp.FtpFileSystemConfigBuilderTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.provider.ftp.FtpFileSystemConfigBuilderTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.ftp.FtpFileSystemConfigBuilderTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.AbstractFileNameTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.AbstractFileNameTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.AbstractFileNameTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.zip.ZipFileObjectTestCase_OE25Dev
-[WARNING] Tests run: 12, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.035 s - in org.apache.commons.vfs2.provider.zip.ZipFileObjectTestCase_OE25Dev
+[WARNING] Tests run: 12, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.011 s - in org.apache.commons.vfs2.provider.zip.ZipFileObjectTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.088 s - in org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.135 s - in org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.zip.FileLockTestCase_OE25Dev
-[WARNING] Tests run: 14, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.091 s - in org.apache.commons.vfs2.provider.zip.FileLockTestCase_OE25Dev
+[WARNING] Tests run: 14, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.083 s - in org.apache.commons.vfs2.provider.zip.FileLockTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.res.Vfs444TestCase_OE25Dev
 VfsClassLoaderTests no layered .jar provider, skipping.
-[INFO] Tests run: 94, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.305 s - in org.apache.commons.vfs2.provider.res.Vfs444TestCase_OE25Dev
+[INFO] Tests run: 94, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.363 s - in org.apache.commons.vfs2.provider.res.Vfs444TestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.tar.CreateFileSystemTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 s - in org.apache.commons.vfs2.provider.tar.CreateFileSystemTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.128 s - in org.apache.commons.vfs2.provider.tar.CreateFileSystemTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.tar.LargeTarTestCase_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.079 s - in org.apache.commons.vfs2.provider.tar.LargeTarTestCase_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.962 s - in org.apache.commons.vfs2.provider.tar.LargeTarTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.bzip2.Bzip2TestCase_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.bzip2.Bzip2TestCase_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.vfs2.provider.bzip2.Bzip2TestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.UriParserTestCase_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.UriParserTestCase_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.UriParserTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilderTestCase_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilderTestCase_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilderTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.test.GenericFileNameTestCase_OE25Dev
-[INFO] Tests run: 49, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.provider.test.GenericFileNameTestCase_OE25Dev
+[INFO] Tests run: 49, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.vfs2.provider.test.GenericFileNameTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.test.FileObjectSortTestCase_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.test.FileObjectSortTestCase_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.vfs2.provider.test.FileObjectSortTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http5.Http5ProviderTestCase_OE25Dev
 VfsClassLoaderTests no layered .jar provider, skipping.
-[INFO] Tests run: 109, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.782 s - in org.apache.commons.vfs2.provider.http5.Http5ProviderTestCase_OE25Dev
+Threads still running (1) at 2026-02-20T18:57:50.117599493Z, live threads:
+	Thread[0]  ID 329, Thread[org.apache.commons.vfs2.cache.SoftRefFilesCache$ReleaseThread,5,main],	BLOCKED,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+[INFO] Tests run: 109, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.692 s - in org.apache.commons.vfs2.provider.http5.Http5ProviderTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http5.Http5FilesCacheTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.vfs2.provider.http5.Http5FilesCacheTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.vfs2.provider.http5.Http5FilesCacheTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http5.Http5GetContentInfoTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.http5.Http5GetContentInfoTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.vfs2.provider.http5.Http5GetContentInfoTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.provider.http5s.Http5sGetContentInfoTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.118 s - in org.apache.commons.vfs2.provider.http5s.Http5sGetContentInfoTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.173 s - in org.apache.commons.vfs2.provider.http5s.Http5sGetContentInfoTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.FileTypeTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.FileTypeTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.FileTypeTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.FileChangeEventTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.FileChangeEventTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileChangeEventTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.VFSTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.apache.commons.vfs2.VFSTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in org.apache.commons.vfs2.VFSTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.auth.StaticUserAuthenticatorTestCase_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.vfs2.auth.StaticUserAuthenticatorTestCase_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.vfs2.auth.StaticUserAuthenticatorTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.FileSystemExceptionTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileSystemExceptionTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.vfs2.FileSystemExceptionTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.NotFileFilterTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.vfs2.filter.NotFileFilterTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.filter.NotFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.CanExecuteFileFilterTest_OE25Dev
-[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.02 s - in org.apache.commons.vfs2.filter.CanExecuteFileFilterTest_OE25Dev
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.CanExecuteFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.SymbolicLinkFileFilterTest_OE25Dev
-[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.002 s - in org.apache.commons.vfs2.filter.SymbolicLinkFileFilterTest_OE25Dev
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.009 s - in org.apache.commons.vfs2.filter.SymbolicLinkFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.SizeFileFilterTest_OE25Dev
-[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s - in org.apache.commons.vfs2.filter.SizeFileFilterTest_OE25Dev
+[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.vfs2.filter.SizeFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.AndFileFilterTest_OE25Dev
-[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.vfs2.filter.AndFileFilterTest_OE25Dev
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.filter.AndFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.SuffixFileFilterTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.vfs2.filter.SuffixFileFilterTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.filter.SuffixFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.WildcardFileFilterTest_OE25Dev
-[INFO] Tests run: 66, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.vfs2.filter.WildcardFileFilterTest_OE25Dev
+[INFO] Tests run: 66, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.vfs2.filter.WildcardFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.AgeFileFilterTest_OE25Dev
-[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.vfs2.filter.AgeFileFilterTest_OE25Dev
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.filter.AgeFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.HiddenFileFilterTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.vfs2.filter.HiddenFileFilterTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.vfs2.filter.HiddenFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.RegexFileFilterTestCase_OE25Dev
-[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.vfs2.filter.RegexFileFilterTestCase_OE25Dev
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.vfs2.filter.RegexFileFilterTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.OrFileFilterTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.filter.OrFileFilterTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.vfs2.filter.OrFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.DirectoryAndFileFilterTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.vfs2.filter.DirectoryAndFileFilterTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.apache.commons.vfs2.filter.DirectoryAndFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.EmptyFileFilterTest_OE25Dev
 [INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.vfs2.filter.EmptyFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.NameFileFilterTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.vfs2.filter.NameFileFilterTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.vfs2.filter.NameFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.CanWriteFileFilterTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.vfs2.filter.CanWriteFileFilterTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.filter.CanWriteFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.PrefixFileFilterTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.vfs2.filter.PrefixFileFilterTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.PrefixFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.filter.CanReadFileFilterTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.vfs2.filter.CanReadFileFilterTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.vfs2.filter.CanReadFileFilterTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.UserAuthenticationDataTestCase_OE25Dev
 [INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.UserAuthenticationDataTestCase_OE25Dev
 [INFO] Running org.apache.commons.vfs2.FileSystemOptionsTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.FileSystemOptionsTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.vfs2.FileSystemOptionsTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.impl.StandardFileSystemManagerTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.vfs2.impl.StandardFileSystemManagerTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.impl.StandardFileSystemManagerTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.573 s - in org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.789 s - in org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.InvertIncludeFileSelectorTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.vfs2.InvertIncludeFileSelectorTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.vfs2.InvertIncludeFileSelectorTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.util.DelegatingFileSystemOptionsBuilderTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 s - in org.apache.commons.vfs2.util.DelegatingFileSystemOptionsBuilderTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in org.apache.commons.vfs2.util.DelegatingFileSystemOptionsBuilderTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.util.FileObjectUtilsTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.vfs2.util.FileObjectUtilsTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.vfs2.util.FileObjectUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.util.EncryptDecryptTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.vfs2.util.EncryptDecryptTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.vfs2.util.EncryptDecryptTest_OE25Dev
 [INFO] Running org.apache.commons.vfs2.FileExtensionSelectorTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.vfs2.FileExtensionSelectorTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileExtensionSelectorTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -240,6 +243,6 @@ VfsClassLoaderTests no layered .jar provider, skipping.
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  01:11 min
-[INFO] Finished at: 2026-02-20T11:20:43-06:00
+[INFO] Total time:  01:09 min
+[INFO] Finished at: 2026-02-20T12:57:51-06:00
 [INFO] ------------------------------------------------------------------------

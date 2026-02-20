@@ -1,0 +1,36 @@
+id,test_prefix,test_name
+jsoup_838_3,"    @Test
+    public void multiThreadWithoutNewRequestBlowsUp_3_oe() throws InterruptedException {
+        int numThreads = 20;
+        String url = SlowRider.Url + ""?"" + SlowRider.MaxTimeParam + ""=10000""; // this makes sure that the first req is still executing whilst the others run
+        String title = ""Slow Rider"";
+
+        ThreadCatcher catcher = new ThreadCatcher();
+        Connection session = Jsoup.newSession();
+
+        Thread[] threads = new Thread[numThreads];
+        for (int threadNum = 0; threadNum < numThreads; threadNum++) {
+            Thread thread = new Thread(() -> {
+                try {
+                    Document doc = session.url(url).get();
+                    // removed other assertion
+                } catch (IOException e) {
+                    throw new UncheckedIOException(e);
+                }
+            });
+            thread.setName(""Runner-"" + threadNum);
+            thread.start();
+            thread.setUncaughtExceptionHandler(catcher);
+            threads[threadNum] = thread;
+        }
+
+        // now join them all
+        for (Thread thread : threads) {
+            thread.join();
+        }
+
+        // only one should have passed, rest should have blown up (assuming the started whilst other was running)
+        // removed other assertion
+        assertEquals(numThreads - 1, catcher.exceptionCount.get());
+    }
+",SessionIT::multiThreadWithoutNewRequestBlowsUp_3_oe

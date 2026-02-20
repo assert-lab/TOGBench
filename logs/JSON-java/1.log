@@ -29,38 +29,38 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.json.junit.JSONMLTest_OE25Dev
-[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.181 s - in org.json.junit.JSONMLTest_OE25Dev
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 s - in org.json.junit.JSONMLTest_OE25Dev
 [INFO] Running org.json.junit.JSONArrayTest_OE25Dev
-[INFO] Tests run: 197, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.305 s - in org.json.junit.JSONArrayTest_OE25Dev
+[INFO] Tests run: 197, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.202 s - in org.json.junit.JSONArrayTest_OE25Dev
 [INFO] Running org.json.junit.CookieListTest_OE25Dev
-[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.json.junit.CookieListTest_OE25Dev
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.CookieListTest_OE25Dev
 [INFO] Running org.json.junit.XMLTest_OE25Dev
-[INFO] Tests run: 97, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.123 s - in org.json.junit.XMLTest_OE25Dev
+[INFO] Tests run: 97, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s - in org.json.junit.XMLTest_OE25Dev
 [INFO] Running org.json.junit.HTTPTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.HTTPTest_OE25Dev
 [INFO] Running org.json.junit.EnumTest_OE25Dev
-[INFO] Tests run: 82, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in org.json.junit.EnumTest_OE25Dev
+[INFO] Tests run: 82, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.json.junit.EnumTest_OE25Dev
 [INFO] Running org.json.junit.JSONObjectLocaleTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.json.junit.JSONObjectLocaleTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.JSONObjectLocaleTest_OE25Dev
 [INFO] Running org.json.junit.PropertyTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.json.junit.PropertyTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.PropertyTest_OE25Dev
 [INFO] Running org.json.junit.JSONStringTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.json.junit.JSONStringTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.json.junit.JSONStringTest_OE25Dev
 [INFO] Running org.json.junit.JSONPointerTest_OE25Dev
-[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.json.junit.JSONPointerTest_OE25Dev
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.json.junit.JSONPointerTest_OE25Dev
 [INFO] Running org.json.junit.XMLConfigurationTest_OE25Dev
 [INFO] Tests run: 84, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.json.junit.XMLConfigurationTest_OE25Dev
 [INFO] Running org.json.junit.JSONStringerTest_OE25Dev
-[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 s - in org.json.junit.JSONStringerTest_OE25Dev
+[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.json.junit.JSONStringerTest_OE25Dev
 [INFO] Running org.json.junit.CookieTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.CookieTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.json.junit.CookieTest_OE25Dev
 [INFO] Running org.json.junit.JSONTokenerTest_OE25Dev
 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.JSONTokenerTest_OE25Dev
 [INFO] Running org.json.junit.CDLTest_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.json.junit.CDLTest_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.CDLTest_OE25Dev
 [INFO] Running org.json.junit.JSONObjectTest_OE25Dev
-[ERROR] Tests run: 501, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.218 s <<< FAILURE! - in org.json.junit.JSONObjectTest_OE25Dev
-[ERROR] testSingletonEnumBean_7_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.01 s  <<< FAILURE!
+[ERROR] Tests run: 501, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.191 s <<< FAILURE! - in org.json.junit.JSONObjectTest_OE25Dev
+[ERROR] testSingletonEnumBean_7_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.007 s  <<< FAILURE!
 java.lang.AssertionError: expected:<0> but was:<42>
 	at org.json.junit.JSONObjectTest_OE25Dev.testSingletonEnumBean_7_oe(JSONObjectTest_OE25Dev.java:15139)
 
@@ -80,8 +80,8 @@ java.lang.AssertionError: expected:<0> but was:<42>
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.083 s
-[INFO] Finished at: 2026-02-20T11:20:10-06:00
+[INFO] Total time:  9.807 s
+[INFO] Finished at: 2026-02-20T12:57:17-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project json: There are test failures.
 [ERROR] 

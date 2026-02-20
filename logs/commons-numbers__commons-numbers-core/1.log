@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core
-[INFO] Storing buildNumber: 6bed6c7a9de6bbb121f1f9c7448490bc0b83b132 at timestamp: 1771608035368
+[INFO] Storing buildNumber: 4d9d360d35cef158270763ad03ba8e5d93c07475 at timestamp: 1771613863279
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -68,17 +68,17 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.core.EpsilonDoubleEquivalenceTest_OE25Dev
-[INFO] Tests run: 90, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.135 s - in org.apache.commons.numbers.core.EpsilonDoubleEquivalenceTest_OE25Dev
+[INFO] Tests run: 90, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s - in org.apache.commons.numbers.core.EpsilonDoubleEquivalenceTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.core.PrecisionTest_OE25Dev
-[INFO] Tests run: 313, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.252 s - in org.apache.commons.numbers.core.PrecisionTest_OE25Dev
+[INFO] Tests run: 313, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.276 s - in org.apache.commons.numbers.core.PrecisionTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.core.SumTest_OE25Dev
-[INFO] Tests run: 89, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.numbers.core.SumTest_OE25Dev
+[INFO] Tests run: 89, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s - in org.apache.commons.numbers.core.SumTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.core.NormTest_OE25Dev
-[INFO] Tests run: 125, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.652 s - in org.apache.commons.numbers.core.NormTest_OE25Dev
+[INFO] Tests run: 125, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.909 s - in org.apache.commons.numbers.core.NormTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.core.ExtendedPrecisionTest_OE25Dev
 [INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.core.ExtendedPrecisionTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
-[INFO] Tests run: 123, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 s - in org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
+[INFO] Tests run: 123, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -87,6 +87,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.631 s
-[INFO] Finished at: 2026-02-20T11:20:45-06:00
+[INFO] Total time:  13.354 s
+[INFO] Finished at: 2026-02-20T12:57:54-06:00
 [INFO] ------------------------------------------------------------------------

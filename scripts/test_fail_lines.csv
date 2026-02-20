@@ -1,8 +1,0 @@
-folder,line
-JSON-java,JSONObjectTest_OE25Dev.testSingletonBean_7_oe:15119 expected:<0> but was:<42>
-JSON-java,JSONObjectTest_OE25Dev.testSingletonEnumBean_7_oe:15139 expected:<0> but was:<42>
-JSON-java,"Tests run: 1172, Failures: 2, Errors: 0, Skipped: 0"
-commons-rng__commons-rng-core,ProvidersCommonParametricTest_OE25Dev.testUniformNextBytesPartialBuffer_1_oe:622 org.apache.commons.rng.core.source64.XoRoShiRo128Plus ==> expected: <true> but was: <false>
-commons-rng__commons-rng-core,"Tests run: 953, Failures: 1, Errors: 0, Skipped: 4"
-jsoup,SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_3_oe:121 expected: <19> but was: <18>
-jsoup,"Tests run: 3157, Failures: 1, Errors: 0, Skipped: 1"

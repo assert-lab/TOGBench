@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-quaternion ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-quaternion' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-quaternion
-[INFO] Storing buildNumber: 6bed6c7a9de6bbb121f1f9c7448490bc0b83b132 at timestamp: 1771608031021
+[INFO] Storing buildNumber: 4d9d360d35cef158270763ad03ba8e5d93c07475 at timestamp: 1771613859986
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -68,9 +68,9 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.quaternion.QuaternionTest_OE25Dev
-[INFO] Tests run: 135, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.297 s - in org.apache.commons.numbers.quaternion.QuaternionTest_OE25Dev
+[INFO] Tests run: 135, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.349 s - in org.apache.commons.numbers.quaternion.QuaternionTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.quaternion.SlerpTest_OE25Dev
-[INFO] Tests run: 122, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s - in org.apache.commons.numbers.quaternion.SlerpTest_OE25Dev
+[INFO] Tests run: 122, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.144 s - in org.apache.commons.numbers.quaternion.SlerpTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -79,6 +79,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  10.404 s
-[INFO] Finished at: 2026-02-20T11:20:38-06:00
+[INFO] Total time:  9.800 s
+[INFO] Finished at: 2026-02-20T12:57:47-06:00
 [INFO] ------------------------------------------------------------------------

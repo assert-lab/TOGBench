@@ -54,10 +54,7 @@ find projects_decomposed -type f -name "*_OE25Dev*.java" -delete
 
 # python3 scripts/dataset_post_process.py
 
-# python3 scripts/2_filter_compilable_tests.py
-
 # python3 scripts/try_catch_filter.py
-
 
 # ==== try-catch conversion start ====
 
@@ -76,28 +73,6 @@ find projects_decomposed -type f -name "*_OE25Dev*.java" -delete
 # done
 
 # ==== try-catch conversion ends ====
-
-# merge all successful tests
-# for p in projects_decomposed/*; do
-#   f1="$p/dataset_final/inputs_final.csv"
-#   f2="$p/dataset_left/inputs_passed.csv"
-#   out="$p/dataset_final/inputs.csv"
-
-#   if [ -f "$f1" ] && [ -f "$f2" ]; then
-#     awk 'FNR==1 && NR!=1 {next} {print}' "$f1" "$f2" > "$out"
-#     echo "[inputs merged] $(basename "$p")"
-#   fi
-
-#   m1="$p/dataset_final/meta_final.csv"
-#   m2="$p/dataset_left/meta_passed.csv"
-#   mout="$p/dataset_final/meta.csv"
-
-#   if [ -f "$m1" ] && [ -f "$m2" ]; then
-#     awk 'FNR==1 && NR!=1 {next} {print}' "$m1" "$m2" > "$mout"
-#     echo "[meta merged] $(basename "$p")"
-#   fi
-# done
-
 
 # ls -1 projects_decomposed | xargs -n 1 -P 4 -I{} python3 scripts/test_failed_tests.py --project "{}"
 
@@ -129,7 +104,6 @@ find projects_decomposed -type f -name "*_OE25Dev*.java" -delete
 
 python3 scripts/dedup_dataset_final.py
 # first run to keep all logs - error and running
-# python3 scripts/3_rebuild_tests.py
 python3 scripts/3_rebuild_decomposed.py
 
 # run each projects' fix.sh before running mvn test
@@ -137,31 +111,15 @@ python3 scripts/3_rebuild_decomposed.py
 
 ./scripts/clean_loop.sh
 
-# cd projects_decomposed/commons-lang3
-# mvn clean test -Dtest="*_OE25Dev#*_oe" --color=never 2>&1 | tee mvn.log
-
 # ======== map muts ========
 python3 scripts/collect_methods.py
 python3 scripts/map_mut.py
 
 
-
-# python3 scripts/filter_running_tests.py
-
-# # second run with all passed tests
-# find projects_decomposed -type f -name "*_OE25Dev.java" -delete
-# python3 scripts/3_rebuild_decomposed.py
-
-
-# ./scripts/clean_loop.sh projects_decomposed/commons-lang3
-# ./scripts/clean_loop.sh projects_decomposed/commons-jcs3/commons-jcs-core
 python3 scripts/count_custom.py
 python3 scripts/test_count.py
 
-# python3 scripts/filter_by_logs.py
-
 # # ./scripts/final_mvn_run.sh
 
-
-# find . -type f -name "*.bak" -delete
+find . -type f -name "*.bak" -delete
  

@@ -30,7 +30,7 @@
 [INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/src/test/resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ http-request ---
-[INFO] Compiling 4 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/target/test-classes
+[INFO] Compiling 5 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/target/test-classes
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ http-request ---
 [INFO] Surefire report directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/http-request/target/surefire-reports
@@ -38,16 +38,18 @@
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
+Running com.github.kevinsawicki.http.EncodeTest_OE25Dev
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.135 sec
 Running com.github.kevinsawicki.http.HttpRequestTest_OE25Dev
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.129 sec
+Tests run: 312, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 134.474 sec
 
 Results :
 
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 332, Failures: 0, Errors: 0, Skipped: 0
 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.202 s
-[INFO] Finished at: 2026-02-20T11:19:18-06:00
+[INFO] Total time:  02:25 min
+[INFO] Finished at: 2026-02-20T12:58:41-06:00
 [INFO] ------------------------------------------------------------------------

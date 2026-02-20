@@ -58,9 +58,9 @@ def canonical_test_name(name: str) -> str:
 
 
 def load_inputs_and_meta(project_dir):
-    dataset_dir = os.path.join(project_dir, "dataset_final")
-    inputs_path = os.path.join(dataset_dir, "inputs.csv")
-    meta_path = os.path.join(dataset_dir, "meta.csv")
+    dataset_dir = os.path.join(project_dir, "dataset_multiple")
+    inputs_path = os.path.join(dataset_dir, "inputs_multiple.csv")
+    meta_path = os.path.join(dataset_dir, "meta_multiple.csv")
 
     if not (os.path.exists(inputs_path) and os.path.exists(meta_path)):
         return None, None
@@ -299,8 +299,8 @@ def process_test_file(project_dir, test_file_path, test_class, entry, id_to_pref
 
 def main():
 
-    target = "http-request"
-
+    # per-project test
+    target = "jsoup"
     for project in sorted(os.listdir(PROJECTS_DIR)):
         if project != target:
             continue
@@ -310,7 +310,7 @@ def main():
         if not os.path.isdir(project_dir):
             continue
 
-        dataset_dir = os.path.join(project_dir, "dataset_final")
+        dataset_dir = os.path.join(project_dir, "dataset_multiple")
         if not os.path.exists(dataset_dir):
             continue
 

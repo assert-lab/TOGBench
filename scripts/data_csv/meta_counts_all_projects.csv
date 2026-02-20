@@ -18,10 +18,10 @@ commons-rng,914,165,749
 commons-validator,2199,0,2199
 commons-vfs,774,20,754
 commons-weaver,105,0,105
-http-request,358,0,358
+http-request,332,0,332
 joda-time,17477,96,17381
 jsoup,3040,17,3023
 scribejava,216,0,216
 spark,363,0,363
 springside4,835,2,833
-TOTAL,76324,3456,72868
+TOTAL,76298,3456,72842

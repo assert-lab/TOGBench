@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-pool2 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2
-[INFO] Storing buildNumber: 6bed6c7a9de6bbb121f1f9c7448490bc0b83b132 at timestamp: 1771607978585
+[INFO] Storing buildNumber: 4d9d360d35cef158270763ad03ba8e5d93c07475 at timestamp: 1771613809191
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -74,27 +74,27 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] -------------------------------------------------------
 [ERROR] OpenJDK 64-Bit Server VM warning: Ignoring option --illegal-access=permit; support was removed in 17.0
 [INFO] Running org.apache.commons.pool2.TestPoolUtils_OE25Dev
-[INFO] Tests run: 67, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 44.962 s - in org.apache.commons.pool2.TestPoolUtils_OE25Dev
+[INFO] Tests run: 67, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 45.001 s - in org.apache.commons.pool2.TestPoolUtils_OE25Dev
 [INFO] Running org.apache.commons.pool2.TestBaseKeyedPoolableObjectFactory_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.pool2.TestBaseKeyedPoolableObjectFactory_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.pool2.TestBaseKeyedPoolableObjectFactory_OE25Dev
 [INFO] Running org.apache.commons.pool2.TestBasePoolableObjectFactory_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.pool2.TestBasePoolableObjectFactory_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.pool2.TestBasePoolableObjectFactory_OE25Dev
 [INFO] Running org.apache.commons.pool2.impl.TestGenericObjectPoolFactoryCreateFailure_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.024 s - in org.apache.commons.pool2.impl.TestGenericObjectPoolFactoryCreateFailure_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.023 s - in org.apache.commons.pool2.impl.TestGenericObjectPoolFactoryCreateFailure_OE25Dev
 [INFO] Running org.apache.commons.pool2.impl.NoOpCallStackTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.pool2.impl.NoOpCallStackTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.pool2.impl.NoOpCallStackTest_OE25Dev
 [INFO] Running org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev
-[INFO] Tests run: 376, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 157.526 s - in org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev
+[INFO] Tests run: 376, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 157.867 s - in org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev
 [INFO] Running org.apache.commons.pool2.impl.TestDefaultPooledObject_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.412 s - in org.apache.commons.pool2.impl.TestDefaultPooledObject_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.345 s - in org.apache.commons.pool2.impl.TestDefaultPooledObject_OE25Dev
 [INFO] Running org.apache.commons.pool2.impl.TestGenericObjectPoolClassLoaders_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.81 s - in org.apache.commons.pool2.impl.TestGenericObjectPoolClassLoaders_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.609 s - in org.apache.commons.pool2.impl.TestGenericObjectPoolClassLoaders_OE25Dev
 [INFO] Running org.apache.commons.pool2.impl.TestSoftRefOutOfMemory_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 s - in org.apache.commons.pool2.impl.TestSoftRefOutOfMemory_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 s - in org.apache.commons.pool2.impl.TestSoftRefOutOfMemory_OE25Dev
 [INFO] Running org.apache.commons.pool2.impl.TestEvictionConfig_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.pool2.impl.TestEvictionConfig_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.pool2.impl.TestEvictionConfig_OE25Dev
 [INFO] Running org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev
-[INFO] Tests run: 234, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 150.54 s - in org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev
+[INFO] Tests run: 234, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 150.555 s - in org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev
 [INFO] Running org.apache.commons.pool2.impl.TestAbandonedKeyedObjectPool_OE25Dev
 [INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.143 s - in org.apache.commons.pool2.impl.TestAbandonedKeyedObjectPool_OE25Dev
 [INFO] Running org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev

@@ -33,7 +33,7 @@
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core
-[INFO] Storing buildNumber: 6bed6c7a9de6bbb121f1f9c7448490bc0b83b132 at timestamp: 1771607951471
+[INFO] Storing buildNumber: 4d9d360d35cef158270763ad03ba8e5d93c07475 at timestamp: 1771613781528
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -76,123 +76,123 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.jcs3.engine.logging.CacheEventLoggerDebugLoggerUnitTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.103 s - in org.apache.commons.jcs3.engine.logging.CacheEventLoggerDebugLoggerUnitTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 s - in org.apache.commons.jcs3.engine.logging.CacheEventLoggerDebugLoggerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.756 s - in org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.403 s - in org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.137 s - in org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.181 s - in org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.memory.fifo.FIFOMemoryCacheUnitTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.jcs3.engine.memory.fifo.FIFOMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.jcs3.engine.memory.fifo.FIFOMemoryCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.054 s - in org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.045 s - in org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.211 s - in org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.197 s - in org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.match.KeyMatcherPatternImpllUnitTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.match.KeyMatcherPatternImpllUnitTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.jcs3.engine.match.KeyMatcherPatternImpllUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocalUnitTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocalUnitTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocalUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.CacheEventQueueFactoryUnitTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s - in org.apache.commons.jcs3.engine.CacheEventQueueFactoryUnitTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 s - in org.apache.commons.jcs3.engine.CacheEventQueueFactoryUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.control.CacheManagerStatsUnitTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.jcs3.engine.control.CacheManagerStatsUnitTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.jcs3.engine.control.CacheManagerStatsUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheUnitTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s - in org.apache.commons.jcs3.engine.control.CompositeCacheUnitTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 s - in org.apache.commons.jcs3.engine.control.CompositeCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.serialization.StandardSerializerUnitTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.jcs3.utils.serialization.StandardSerializerUnitTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.serialization.StandardSerializerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.serialization.EncryptingSerializerUnitTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.229 s - in org.apache.commons.jcs3.utils.serialization.EncryptingSerializerUnitTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.314 s - in org.apache.commons.jcs3.utils.serialization.EncryptingSerializerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 s - in org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.net.HostNameUtilUnitTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.jcs3.utils.net.HostNameUtilUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.jcs3.utils.net.HostNameUtilUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.config.PropertySetterUnitTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.apache.commons.jcs3.utils.config.PropertySetterUnitTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.127 s - in org.apache.commons.jcs3.utils.config.PropertySetterUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.struct.DoubleLinkedListDumpUnitTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.DoubleLinkedListDumpUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.struct.JCSvsCommonsLRUMapPerformanceTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.jcs3.utils.struct.JCSvsCommonsLRUMapPerformanceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.apache.commons.jcs3.utils.struct.JCSvsCommonsLRUMapPerformanceTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.struct.LRUMapUnitTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.jcs3.utils.struct.LRUMapUnitTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.LRUMapUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.struct.DoubleLinkedListUnitTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.utils.struct.DoubleLinkedListUnitTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.jcs3.utils.struct.DoubleLinkedListUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.zip.CompressionUtilUnitTest_OE25Dev
 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.zip.CompressionUtilUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.utils.discovery.UDPDiscoveryServiceUnitTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.216 s - in org.apache.commons.jcs3.utils.discovery.UDPDiscoveryServiceUnitTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.211 s - in org.apache.commons.jcs3.utils.discovery.UDPDiscoveryServiceUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.access.CacheAccessUnitTest_OE25Dev
-[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in org.apache.commons.jcs3.access.CacheAccessUnitTest_OE25Dev
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 s - in org.apache.commons.jcs3.access.CacheAccessUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.access.GroupCacheAccessUnitTest_OE25Dev
-[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in org.apache.commons.jcs3.access.GroupCacheAccessUnitTest_OE25Dev
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in org.apache.commons.jcs3.access.GroupCacheAccessUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.JCSUnitTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.jcs3.JCSUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.jcs3.JCSUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.TestTCPLateralUnitTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.24 s - in org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.TestTCPLateralUnitTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.92 s - in org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.TestTCPLateralUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPDiscoveryListenerUnitTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.118 s - in org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPDiscoveryListenerUnitTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 s - in org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPDiscoveryListenerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.lateral.LateralCacheNoWaitFacadeUnitTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in org.apache.commons.jcs3.auxiliary.lateral.LateralCacheNoWaitFacadeUnitTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 s - in org.apache.commons.jcs3.auxiliary.lateral.LateralCacheNoWaitFacadeUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.util.ScheduleParserUtilUnitTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.util.ScheduleParserUtilUnitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.util.ScheduleParserUtilUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.MySQLDiskCacheUnitTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.MySQLDiskCacheUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.MySQLDiskCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheRemovalUnitTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.233 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheRemovalUnitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.384 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheRemovalUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheUnitTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheUnitTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheShrinkUnitTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.048 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheShrinkUnitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.085 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheShrinkUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDataSourceFactoryUnitTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.116 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDataSourceFactoryUnitTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.131 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDataSourceFactoryUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheUnitTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheUnitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.disk.AbstractDiskCacheUnitTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.239 s - in org.apache.commons.jcs3.auxiliary.disk.AbstractDiskCacheUnitTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.261 s - in org.apache.commons.jcs3.auxiliary.disk.AbstractDiskCacheUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.disk.indexed.IndexDiskCacheSizeUnitTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in org.apache.commons.jcs3.auxiliary.disk.indexed.IndexDiskCacheSizeUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.jcs3.auxiliary.disk.indexed.IndexDiskCacheSizeUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.disk.indexed.IndexDiskCacheCountUnitTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.jcs3.auxiliary.disk.indexed.IndexDiskCacheCountUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.jcs3.auxiliary.disk.indexed.IndexDiskCacheCountUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCacheKeyStoreUnitTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.227 s - in org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCacheKeyStoreUnitTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.169 s - in org.apache.commons.jcs3.auxiliary.disk.indexed.IndexedDiskCacheKeyStoreUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.disk.PurgatoryElementUnitTest_OE25Dev
 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.disk.PurgatoryElementUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.111 s - in org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.101 s - in org.apache.commons.jcs3.auxiliary.remote.http.server.RemoteHttpCacheServletUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.remote.http.client.RemoteHttpCacheFactoryUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.remote.RemoteUtilsUnitTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.jcs3.auxiliary.remote.RemoteUtilsUnitTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.remote.RemoteUtilsUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.remote.server.BasicRemoteCacheClientServerUnitTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.877 s - in org.apache.commons.jcs3.auxiliary.remote.server.BasicRemoteCacheClientServerUnitTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.022 s - in org.apache.commons.jcs3.auxiliary.remote.server.BasicRemoteCacheClientServerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerAttributesUnitTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerAttributesUnitTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerAttributesUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerFactoryUnitTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerFactoryUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerFactoryUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev
-[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.493 s - in org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.037 s - in org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServerUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.209 s - in org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.207 s - in org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.admin.CountingStreamUnitTest_OE25Dev
 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.admin.CountingStreamUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.JCSLightLoadUnitTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.464 s - in org.apache.commons.jcs3.JCSLightLoadUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.341 s - in org.apache.commons.jcs3.JCSLightLoadUnitTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.JCSThrashTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.jcs3.JCSThrashTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.jcs3.JCSThrashTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.JCSvsHashtablePerformanceTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.JCSvsHashtablePerformanceTest_OE25Dev
 [INFO] 
@@ -203,6 +203,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  56.122 s
-[INFO] Finished at: 2026-02-20T11:20:03-06:00
+[INFO] Total time:  54.539 s
+[INFO] Finished at: 2026-02-20T12:57:11-06:00
 [INFO] ------------------------------------------------------------------------

@@ -30,7 +30,7 @@
  T E S T S
 -------------------------------------------------------
 Running TestSuite
-Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.14 sec - in TestSuite
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.761 sec - in TestSuite
 
 Results :
 
@@ -39,6 +39,6 @@ Tests run: 37, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  18.328 s
-[INFO] Finished at: 2026-02-20T11:19:46-06:00
+[INFO] Total time:  16.258 s
+[INFO] Finished at: 2026-02-20T12:56:54-06:00
 [INFO] ------------------------------------------------------------------------

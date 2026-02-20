@@ -11,12 +11,13 @@ python3 - << 'PY'
 from pathlib import Path
 import csv
 
-dataset = Path("dataset_final")
+dataset = Path("dataset")
 meta_path = dataset / "meta.csv"
 inputs_path = dataset / "inputs.csv"
 
 fail_list = [
 "ProvidersCommonParametricTest.testUniformNextBytesFullBuffer_1_oe",
+"ProvidersCommonParametricTest.testUniformNextBytesPartialBuffer_1_oe",
 ]
 
 patterns = []
