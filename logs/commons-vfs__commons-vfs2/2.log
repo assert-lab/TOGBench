@@ -1,0 +1,262 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.commons:commons-vfs2 >-------------------
+[INFO] Building Apache Commons VFS 2.9.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-vfs2 ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-vfs2 ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (vfs-jar-manifest) @ commons-vfs2 ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/osgi
+    [touch] Creating /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/osgi/MANIFEST.MF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-vfs2 ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-vfs2 ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2
+[INFO] Storing buildNumber: 3205504c15924548e27a9939e60e263ddbfc7698 at timestamp: 1771584604100
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
+
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2
+[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-vfs2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-vfs2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 293 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/https/HttpsFileNameParser.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/https/HttpsFileNameParser.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/AbstractFileObject.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/AbstractFileObject.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/FileSystemOptions.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/FileSystemOptions.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.2:manifest (bundle-manifest) @ commons-vfs2 ---
+[WARNING] Manifest org.apache.commons:commons-vfs2:jar:2.9.0 : Unused Import-Package instructions: [org.apache.jackrabbit.*] 
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-vfs2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 64 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-vfs2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 219 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/util/NHttpFileServer.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/util/NHttpFileServer.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpProviderTestCase.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpProviderTestCase.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (default) @ commons-vfs2 ---
+[INFO] Executing tasks
+
+main:
+     [move] Moving 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/test-classes/test-data/code
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-vfs2 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ commons-vfs2 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.vfs2.FileIteratorTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.482 s - in org.apache.commons.vfs2.FileIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.FileTypeSelectorTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.vfs2.FileTypeSelectorTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.PatternFileSelectorTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.PatternFileSelectorTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.operations.BasicOperationsTestCase_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.vfs2.operations.BasicOperationsTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.171 s - in org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.705 s - in org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.jar.JarAttributesTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.vfs2.provider.jar.JarAttributesTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.http.HttpProviderTestCase_OE25Dev
+VfsClassLoaderTests no layered .jar provider, skipping.
+Threads still running (2) at 2026-02-20T10:50:36.827075683Z, live threads:
+	Thread[0]  ID 255, Thread[MultiThreadedHttpConnectionManager cleanup,5,main],	WAITING,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+[INFO] Tests run: 111, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.347 s - in org.apache.commons.vfs2.provider.http.HttpProviderTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.http4.Http4FilesCacheTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s - in org.apache.commons.vfs2.provider.http4.Http4FilesCacheTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.http4.Http4ProviderTestCase_OE25Dev
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 113, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.818 s - in org.apache.commons.vfs2.provider.http4.Http4ProviderTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.local.ConversionTestCase_OE25Dev
+[WARNING] Tests run: 5, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.local.ConversionTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.local.TempFileTests_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.vfs2.provider.local.TempFileTests_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.ftp.FtpFileSystemConfigBuilderTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.ftp.FtpFileSystemConfigBuilderTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.AbstractFileNameTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.AbstractFileNameTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.res.Vfs444TestCase_OE25Dev
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 94, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.338 s - in org.apache.commons.vfs2.provider.res.Vfs444TestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.tar.LargeTarTestCase_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.911 s - in org.apache.commons.vfs2.provider.tar.LargeTarTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.UriParserTestCase_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.vfs2.provider.UriParserTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilderTestCase_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilderTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.test.GenericFileNameTestCase_OE25Dev
+[INFO] Tests run: 49, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.vfs2.provider.test.GenericFileNameTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.test.FileObjectSortTestCase_OE25Dev
+[ERROR] Tests run: 7, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! - in org.apache.commons.vfs2.provider.test.FileObjectSortTestCase_OE25Dev
+[ERROR] org.apache.commons.vfs2.provider.test.FileObjectSortTestCase_OE25Dev.testSortArrayMoveAll_1_oe  Time elapsed: 0.008 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertFalse(Assert.java:65)
+	at org.junit.Assert.assertFalse(Assert.java:75)
+	at org.apache.commons.vfs2.provider.test.FileObjectSortTestCase_OE25Dev.testSortArrayMoveAll_1_oe(FileObjectSortTestCase_OE25Dev.java:152)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+
+[INFO] Running org.apache.commons.vfs2.provider.http5.Http5ProviderTestCase_OE25Dev
+VfsClassLoaderTests no layered .jar provider, skipping.
+Threads still running (1) at 2026-02-20T10:51:05.116669870Z, live threads:
+	Thread[0]  ID 329, Thread[org.apache.commons.vfs2.cache.SoftRefFilesCache$ReleaseThread,5,main],	WAITING,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+[INFO] Tests run: 109, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.982 s - in org.apache.commons.vfs2.provider.http5.Http5ProviderTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.provider.http5.Http5FilesCacheTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.vfs2.provider.http5.Http5FilesCacheTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.FileTypeTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.vfs2.FileTypeTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.auth.StaticUserAuthenticatorTestCase_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.auth.StaticUserAuthenticatorTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.FileSystemExceptionTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileSystemExceptionTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.NotFileFilterTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.filter.NotFileFilterTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.CanExecuteFileFilterTest_OE25Dev
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.CanExecuteFileFilterTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.SymbolicLinkFileFilterTest_OE25Dev
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.SymbolicLinkFileFilterTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.SizeFileFilterTest_OE25Dev
+[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s - in org.apache.commons.vfs2.filter.SizeFileFilterTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.AndFileFilterTest_OE25Dev
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.vfs2.filter.AndFileFilterTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.SuffixFileFilterTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.filter.SuffixFileFilterTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.WildcardFileFilterTest_OE25Dev
+[INFO] Tests run: 66, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.vfs2.filter.WildcardFileFilterTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.AgeFileFilterTest_OE25Dev
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.vfs2.filter.AgeFileFilterTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.HiddenFileFilterTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.vfs2.filter.HiddenFileFilterTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.RegexFileFilterTestCase_OE25Dev
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.filter.RegexFileFilterTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.OrFileFilterTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.vfs2.filter.OrFileFilterTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.DirectoryAndFileFilterTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.vfs2.filter.DirectoryAndFileFilterTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.EmptyFileFilterTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.vfs2.filter.EmptyFileFilterTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.NameFileFilterTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.vfs2.filter.NameFileFilterTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.CanWriteFileFilterTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.vfs2.filter.CanWriteFileFilterTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.PrefixFileFilterTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.filter.PrefixFileFilterTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.filter.CanReadFileFilterTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.vfs2.filter.CanReadFileFilterTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.UserAuthenticationDataTestCase_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.UserAuthenticationDataTestCase_OE25Dev
+[INFO] Running org.apache.commons.vfs2.FileSystemOptionsTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.FileSystemOptionsTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.InvertIncludeFileSelectorTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.vfs2.InvertIncludeFileSelectorTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.util.DelegatingFileSystemOptionsBuilderTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in org.apache.commons.vfs2.util.DelegatingFileSystemOptionsBuilderTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.util.FileObjectUtilsTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.apache.commons.vfs2.util.FileObjectUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.util.EncryptDecryptTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.vfs2.util.EncryptDecryptTest_OE25Dev
+[INFO] Running org.apache.commons.vfs2.FileExtensionSelectorTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.apache.commons.vfs2.FileExtensionSelectorTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   FileObjectSortTestCase_OE25Dev.testSortArrayMoveAll_1_oe:152
+[INFO] 
+[ERROR] Tests run: 1035, Failures: 1, Errors: 0, Skipped: 7
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:06 min
+[INFO] Finished at: 2026-02-20T04:51:05-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project commons-vfs2: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

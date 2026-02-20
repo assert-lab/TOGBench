@@ -1,0 +1,187 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.jexl3;
+
+import org.apache.commons.jexl3.junit.Asserter;
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * Tests for the bitwise operators.
+ * @since 1.1
+ */
+@SuppressWarnings({"UnnecessaryBoxing", "AssertEqualsBetweenInconvertibleTypes"})
+public class BitwiseOperatorTest_OE25Dev extends JexlTestCase {
+    private Asserter asserter;
+
+    @Override
+    @Before
+    public void setUp() {
+        asserter = new Asserter(JEXL);
+        asserter.setStrict(false, false);
+    }
+
+    /**
+     * Create the named test.
+     */
+    public BitwiseOperatorTest_OE25Dev() {
+        super("BitwiseOperatorTest_OE25Dev");
+    }
+
+@Test
+    public void testAndWithTwoNulls_1_oe() throws Exception {
+        asserter.assertExpression("null & null", new Long(0));
+    }
+
+@Test
+    public void testAndWithLeftNull_1_oe() throws Exception {
+        asserter.assertExpression("null & 1", new Long(0));
+    }
+
+@Test
+    public void testAndWithRightNull_1_oe() throws Exception {
+        asserter.assertExpression("1 & null", new Long(0));
+    }
+
+@Test
+    public void testAndSimple_1_oe() throws Exception {
+        asserter.assertExpression("15 & 3", new Long(15 & 3));
+    }
+
+@Test
+    public void testAndVariableNumberCoercion_1_oe() throws Exception {
+        asserter.setVariable("x", new Integer(15));
+        asserter.setVariable("y", new Short((short) 7));
+        asserter.assertExpression("x & y", new Long(15 & 7));
+    }
+
+@Test
+    public void testAndVariableStringCoercion_1_oe() throws Exception {
+        asserter.setVariable("x", new Integer(15));
+        asserter.setVariable("y", "7");
+        asserter.assertExpression("x & y", new Long(15 & 7));
+    }
+
+@Test
+    public void testComplementWithNull_1_oe() throws Exception {
+        asserter.assertExpression("~null", new Long(-1));
+    }
+
+@Test
+    public void testComplementSimple_1_oe() throws Exception {
+        asserter.assertExpression("~128", new Long(-129));
+    }
+
+@Test
+    public void testComplementVariableNumberCoercion_1_oe() throws Exception {
+        asserter.setVariable("x", new Integer(15));
+        asserter.assertExpression("~x", new Long(~15));
+    }
+
+@Test
+    public void testComplementVariableStringCoercion_1_oe() throws Exception {
+        asserter.setVariable("x", "15");
+        asserter.assertExpression("~x", new Long(~15));
+    }
+
+@Test
+    public void testOrWithTwoNulls_1_oe() throws Exception {
+        asserter.assertExpression("null | null", new Long(0));
+    }
+
+@Test
+    public void testOrWithLeftNull_1_oe() throws Exception {
+        asserter.assertExpression("null | 1", new Long(1));
+    }
+
+@Test
+    public void testOrWithRightNull_1_oe() throws Exception {
+        asserter.assertExpression("1 | null", new Long(1));
+    }
+
+@Test
+    public void testOrSimple_1_oe() throws Exception {
+        asserter.assertExpression("12 | 3", new Long(15));
+    }
+
+@Test
+    public void testOrVariableNumberCoercion_1_oe() throws Exception {
+        asserter.setVariable("x", new Integer(12));
+        asserter.setVariable("y", new Short((short) 3));
+        asserter.assertExpression("x | y", new Long(15));
+    }
+
+@Test
+    public void testOrVariableStringCoercion_1_oe() throws Exception {
+        asserter.setVariable("x", new Integer(12));
+        asserter.setVariable("y", "3");
+        asserter.assertExpression("x | y", new Long(15));
+    }
+
+@Test
+    public void testXorWithTwoNulls_1_oe() throws Exception {
+        asserter.assertExpression("null ^ null", new Long(0));
+    }
+
+@Test
+    public void testXorWithLeftNull_1_oe() throws Exception {
+        asserter.assertExpression("null ^ 1", new Long(1));
+    }
+
+@Test
+    public void testXorWithRightNull_1_oe() throws Exception {
+        asserter.assertExpression("1 ^ null", new Long(1));
+    }
+
+@Test
+    public void testXorSimple_1_oe() throws Exception {
+        asserter.assertExpression("1 ^ 3", new Long(1 ^ 3));
+    }
+
+@Test
+    public void testXorVariableNumberCoercion_1_oe() throws Exception {
+        asserter.setVariable("x", new Integer(1));
+        asserter.setVariable("y", new Short((short) 3));
+        asserter.assertExpression("x ^ y", new Long(1 ^ 3));
+    }
+
+@Test
+    public void testXorVariableStringCoercion_1_oe() throws Exception {
+        asserter.setVariable("x", new Integer(1));
+        asserter.setVariable("y", "3");
+        asserter.assertExpression("x ^ y", new Long(1 ^ 3));
+    }
+
+@Test
+    public void testParenthesized_1_oe() throws Exception {
+        asserter.assertExpression("(2 | 1) & 3", Long.valueOf(3L));
+    }
+
+@Test
+    public void testParenthesized_2_oe() throws Exception {
+        // removed other assertion
+        asserter.assertExpression("(2 & 1) | 3", Long.valueOf(3L));
+    }
+
+@Test
+    public void testParenthesized_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("~(120 | 42)", new Long(~(120 | 42)));
+    }
+
+}

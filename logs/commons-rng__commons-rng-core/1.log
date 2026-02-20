@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core
-[INFO] Storing buildNumber: 50aa6cd9f431bb44559fe7dfd9d95d6e4a9269eb at timestamp: 2026-02-20 04:40:43-0600
+[INFO] Storing buildNumber: 3205504c15924548e27a9939e60e263ddbfc7698 at timestamp: 2026-02-20 04:50:10-0600
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -54,7 +54,10 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-rng-core ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 54 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/test-classes
+[INFO] Compiling 104 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/test-classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[43,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[44,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[51,41] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
@@ -67,21 +70,35 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[64,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[65,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[66,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[INFO] 
-[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-rng-core ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-rng-core ---
-[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/jacoco.exec
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-rng-core ---
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[113,36] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[114,36] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[121,36] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[122,36] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[129,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[136,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[144,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[153,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[163,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[174,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[186,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[199,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[INFO] 24 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[765,10] method testUniformNextBytesFullBuffer_1_oe(org.apache.commons.rng.UniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  16.178 s
-[INFO] Finished at: 2026-02-20T04:40:54-06:00
+[INFO] Total time:  11.279 s
+[INFO] Finished at: 2026-02-20T04:50:18-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-rng-core: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-rng-core: Compilation failure
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[765,10] method testUniformNextBytesFullBuffer_1_oe(org.apache.commons.rng.UniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

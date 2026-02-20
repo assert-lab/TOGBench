@@ -1,4 +1,9 @@
 folder,line
+JSON-java,JSONObjectTest_OE25Dev.testSingletonBean_7_oe:15119 expected:<0> but was:<42>
+JSON-java,JSONObjectTest_OE25Dev.testSingletonEnumBean_7_oe:15139 expected:<0> but was:<42>
+JSON-java,"Tests run: 1172, Failures: 2, Errors: 0, Skipped: 0"
+commons-collections4,FactoryUtilsTest_OE25Dev.instantiateFactorySimple_3_oe:380 expected:<1> but was:<2>
+commons-collections4,"Tests run: 3811, Failures: 1, Errors: 0, Skipped: 0"
 commons-jcs3__commons-jcs-jcache,CacheTest_OE25Dev.getPut_1_oe:94 » Cache cache default already exists
 commons-jcs3__commons-jcs-jcache,CacheTest_OE25Dev.getPut_2_oe:103 » Cache cache default already exists
 commons-jcs3__commons-jcs-jcache,CacheTest_OE25Dev.getPut_3_oe:114 » Cache cache default already exists
@@ -18,3 +23,7 @@ commons-jcs3__commons-jcs-jcache,NotSerializableTest_OE25Dev.run_2_oe:60 » Cach
 commons-jcs3__commons-jcs-jcache,NotSerializableTest_OE25Dev.run_3_oe:72 » Cache cache default already exists
 commons-jcs3__commons-jcs-jcache,NotSerializableTest_OE25Dev.run_4_oe:85 » Cache cache default already exists
 commons-jcs3__commons-jcs-jcache,"Tests run: 23, Failures: 0, Errors: 18, Skipped: 0"
+commons-vfs__commons-vfs2,FileObjectSortTestCase_OE25Dev.testSortArrayMoveAll_1_oe:152
+commons-vfs__commons-vfs2,"Tests run: 1035, Failures: 1, Errors: 0, Skipped: 7"
+jsoup,SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_2_oe:120 expected: <19> but was: <16>
+jsoup,"Tests run: 3159, Failures: 1, Errors: 0, Skipped: 1"

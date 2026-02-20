@@ -155,7 +155,7 @@ python3 scripts/map_mut.py
 
 # ./scripts/clean_loop.sh projects_decomposed/commons-lang3
 # ./scripts/clean_loop.sh projects_decomposed/commons-jcs3/commons-jcs-core
-
+python3 scripts/count_custom.py
 python3 scripts/test_count.py
 
 # python3 scripts/filter_by_logs.py

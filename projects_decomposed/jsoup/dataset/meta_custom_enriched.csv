@@ -1,6 +1,0 @@
-id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name,custom_assert_name
-jsoup_840_5,jsoup,SessionTest,testPathScopedCookies_5_oe,src/test/java/org/jsoup/integration/SessionTest.java,,,,assert,unknown,custom,assertCookieServlet,assertCookieServlet
-jsoup_840_6,jsoup,SessionTest,testPathScopedCookies_6_oe,src/test/java/org/jsoup/integration/SessionTest.java,,,,assert,unknown,custom,assertEchoServlet,assertEchoServlet
-jsoup_841_2,jsoup,SessionTest,testPathScopedCookiesOnRedirect_2_oe,src/test/java/org/jsoup/integration/SessionTest.java,,,,assert,unknown,custom,assertEchoServlet,assertEchoServlet
-jsoup_841_3,jsoup,SessionTest,testPathScopedCookiesOnRedirect_3_oe,src/test/java/org/jsoup/integration/SessionTest.java,,,,assert,unknown,custom,assertEchoServlet,assertEchoServlet
-jsoup_841_4,jsoup,SessionTest,testPathScopedCookiesOnRedirect_4_oe,src/test/java/org/jsoup/integration/SessionTest.java,,,,assert,unknown,custom,assertCookieServlet,assertCookieServlet

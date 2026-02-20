@@ -1,6 +1,0 @@
-id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
-coll_left_122_1,commons-collections4,TransformerUtilsTest,testSingletonPatternInSerialization_1_oe,src/test/java/org/apache/commons/collections4/TransformerUtilsTest.java,,,,assert,unknown,custom,assertSameAfterSerialization
-coll_left_216_1,commons-collections4,ClosureUtilsTest,testSingletonPatternInSerialization_1_oe,src/test/java/org/apache/commons/collections4/ClosureUtilsTest.java,,,,assert,unknown,custom,assertSameAfterSerialization
-coll_left_227_3,commons-collections4,FactoryUtilsTest,instantiateFactorySimple_3_oe,src/test/java/org/apache/commons/collections4/FactoryUtilsTest.java,,,,assert,unknown,standard,assertEquals
-coll_left_229_1,commons-collections4,FactoryUtilsTest,testSingletonPatternInSerialization_1_oe,src/test/java/org/apache/commons/collections4/FactoryUtilsTest.java,,,,assert,unknown,custom,assertSameAfterSerialization
-coll_left_260_1,commons-collections4,PredicateUtilsTest,testSingletonPatternInSerialization_1_oe,src/test/java/org/apache/commons/collections4/PredicateUtilsTest.java,,,,assert,unknown,custom,assertSameAfterSerialization

@@ -47,7 +47,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-weaver-normalizer ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer
-[INFO] Storing buildNumber: 50aa6cd9f431bb44559fe7dfd9d95d6e4a9269eb at timestamp: 1771584030196
+[INFO] Storing buildNumber: 3205504c15924548e27a9939e60e263ddbfc7698 at timestamp: 1771584596867
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -80,21 +80,25 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ commons-weaver-normalizer ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 1 source file to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/test-classes
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/src/test/java/org/apache/commons/weaver/normalizer/UtilsTest.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/src/test/java/org/apache/commons/weaver/normalizer/UtilsTest.java uses unchecked or unsafe operations.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/src/test/java/org/apache/commons/weaver/normalizer/UtilsTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] Compiling 2 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/src/test/java/org/apache/commons/weaver/normalizer/UtilsTest_OE25Dev.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/src/test/java/org/apache/commons/weaver/normalizer/UtilsTest_OE25Dev.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-weaver-normalizer ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.17 s - in org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  14.728 s
-[INFO] Finished at: 2026-02-20T04:40:39-06:00
+[INFO] Total time:  11.614 s
+[INFO] Finished at: 2026-02-20T04:50:04-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-weaver-normalizer: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

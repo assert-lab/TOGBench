@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core
-[INFO] Storing buildNumber: 50aa6cd9f431bb44559fe7dfd9d95d6e4a9269eb at timestamp: 1771584061277
+[INFO] Storing buildNumber: 3205504c15924548e27a9939e60e263ddbfc7698 at timestamp: 1771584645478
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -46,3 +46,47 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] Compiling 9 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/target/classes
 [INFO] 
 [INFO] --- maven-bundle-plugin:4.2.1:manifest (bundle-manifest) @ commons-numbers-core ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.18:check (checkAPIcompatibility) @ commons-numbers-core ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-numbers-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-numbers-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 14 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/target/test-classes
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-core ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-numbers-core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.numbers.core.EpsilonDoubleEquivalenceTest_OE25Dev
+[INFO] Tests run: 90, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.122 s - in org.apache.commons.numbers.core.EpsilonDoubleEquivalenceTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.core.PrecisionTest_OE25Dev
+[INFO] Tests run: 313, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.26 s - in org.apache.commons.numbers.core.PrecisionTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.core.SumTest_OE25Dev
+[INFO] Tests run: 89, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.numbers.core.SumTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.core.NormTest_OE25Dev
+[INFO] Tests run: 125, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.662 s - in org.apache.commons.numbers.core.NormTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.core.ExtendedPrecisionTest_OE25Dev
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.numbers.core.ExtendedPrecisionTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
+[INFO] Tests run: 123, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s - in org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 774, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  15.032 s
+[INFO] Finished at: 2026-02-20T04:50:57-06:00
+[INFO] ------------------------------------------------------------------------

@@ -1,4 +1,0 @@
-id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
-pool_153_1,commons-pool2,TestGenericObjectPool,testSetConfig_1_oe,src/test/java/org/apache/commons/pool2/impl/TestGenericObjectPool.java,,,,assert,unknown,custom,assertConfiguration
-pool_153_2,commons-pool2,TestGenericObjectPool,testSetConfig_2_oe,src/test/java/org/apache/commons/pool2/impl/TestGenericObjectPool.java,,,,assert,unknown,custom,assertConfiguration
-pool_165_1,commons-pool2,TestGenericObjectPool,testDefaultConfiguration_1_oe,src/test/java/org/apache/commons/pool2/impl/TestGenericObjectPool.java,,,,assert,unknown,custom,assertConfiguration

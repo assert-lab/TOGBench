@@ -36,7 +36,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-spherical ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical
-[INFO] Storing buildNumber: 50aa6cd9f431bb44559fe7dfd9d95d6e4a9269eb at timestamp: 1771583995439
+[INFO] Storing buildNumber: 3205504c15924548e27a9939e60e263ddbfc7698 at timestamp: 1771584551598
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -77,41 +77,41 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.geometry.spherical.DocumentationExamplesTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.644 s - in org.apache.commons.geometry.spherical.DocumentationExamplesTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.529 s - in org.apache.commons.geometry.spherical.DocumentationExamplesTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.InteriorAngleGreatArcConnectorTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.176 s - in org.apache.commons.geometry.spherical.twod.InteriorAngleGreatArcConnectorTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in org.apache.commons.geometry.spherical.twod.InteriorAngleGreatArcConnectorTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.GreatArcPathTest_OE25Dev
-[INFO] Tests run: 164, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.409 s - in org.apache.commons.geometry.spherical.twod.GreatArcPathTest_OE25Dev
+[INFO] Tests run: 164, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.557 s - in org.apache.commons.geometry.spherical.twod.GreatArcPathTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.Point2STest_OE25Dev
-[INFO] Tests run: 69, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.29 s - in org.apache.commons.geometry.spherical.twod.Point2STest_OE25Dev
+[INFO] Tests run: 69, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.41 s - in org.apache.commons.geometry.spherical.twod.Point2STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.BoundaryList2STest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.geometry.spherical.twod.BoundaryList2STest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.geometry.spherical.twod.BoundaryList2STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.AbstractGreatArcPathConnectorTest_OE25Dev
-[INFO] Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.091 s - in org.apache.commons.geometry.spherical.twod.AbstractGreatArcPathConnectorTest_OE25Dev
+[INFO] Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 s - in org.apache.commons.geometry.spherical.twod.AbstractGreatArcPathConnectorTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.RegionBSPTree2STest_OE25Dev
-[INFO] Tests run: 124, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.254 s - in org.apache.commons.geometry.spherical.twod.RegionBSPTree2STest_OE25Dev
+[INFO] Tests run: 124, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.955 s - in org.apache.commons.geometry.spherical.twod.RegionBSPTree2STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.EmbeddedTreeSubGreatCircleTest_OE25Dev
-[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.129 s - in org.apache.commons.geometry.spherical.twod.EmbeddedTreeSubGreatCircleTest_OE25Dev
+[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.116 s - in org.apache.commons.geometry.spherical.twod.EmbeddedTreeSubGreatCircleTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.Transform2STest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.geometry.spherical.twod.Transform2STest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.geometry.spherical.twod.Transform2STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev
-[INFO] Tests run: 128, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.132 s - in org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev
+[INFO] Tests run: 128, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.16 s - in org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev
-[INFO] Tests run: 106, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.39 s - in org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev
+[INFO] Tests run: 106, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.457 s - in org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.GreatArcTest_OE25Dev
-[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 s - in org.apache.commons.geometry.spherical.twod.GreatArcTest_OE25Dev
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in org.apache.commons.geometry.spherical.twod.GreatArcTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.twod.BoundarySource2STest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.geometry.spherical.twod.BoundarySource2STest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.geometry.spherical.twod.BoundarySource2STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.oned.Transform1STest_OE25Dev
-[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.apache.commons.geometry.spherical.oned.Transform1STest_OE25Dev
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.geometry.spherical.oned.Transform1STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev
-[INFO] Tests run: 84, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.139 s - in org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev
+[INFO] Tests run: 84, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.183 s - in org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.oned.RegionBSPTree1STest_OE25Dev
-[INFO] Tests run: 133, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.219 s - in org.apache.commons.geometry.spherical.oned.RegionBSPTree1STest_OE25Dev
+[INFO] Tests run: 133, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.19 s - in org.apache.commons.geometry.spherical.oned.RegionBSPTree1STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.oned.Point1STest_OE25Dev
-[INFO] Tests run: 86, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 s - in org.apache.commons.geometry.spherical.oned.Point1STest_OE25Dev
+[INFO] Tests run: 86, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.111 s - in org.apache.commons.geometry.spherical.oned.Point1STest_OE25Dev
 [INFO] Running org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev
-[INFO] Tests run: 67, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 s - in org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev
+[INFO] Tests run: 67, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -120,6 +120,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  32.598 s
-[INFO] Finished at: 2026-02-20T04:40:23-06:00
+[INFO] Total time:  30.595 s
+[INFO] Finished at: 2026-02-20T04:49:37-06:00
 [INFO] ------------------------------------------------------------------------

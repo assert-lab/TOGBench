@@ -21,16 +21,73 @@
 [INFO] Copying 5 resources from src/test/resources to target/test-classes
 [INFO] 
 [INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ json ---
-[INFO] Compiling 41 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/test-classes
+[INFO] Compiling 57 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/test-classes
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ json ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.json.junit.JSONMLTest_OE25Dev
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.179 s - in org.json.junit.JSONMLTest_OE25Dev
+[INFO] Running org.json.junit.JSONArrayTest_OE25Dev
+[INFO] Tests run: 197, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.386 s - in org.json.junit.JSONArrayTest_OE25Dev
+[INFO] Running org.json.junit.CookieListTest_OE25Dev
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.CookieListTest_OE25Dev
+[INFO] Running org.json.junit.XMLTest_OE25Dev
+[INFO] Tests run: 97, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.json.junit.XMLTest_OE25Dev
+[INFO] Running org.json.junit.HTTPTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.HTTPTest_OE25Dev
+[INFO] Running org.json.junit.EnumTest_OE25Dev
+[INFO] Tests run: 82, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in org.json.junit.EnumTest_OE25Dev
+[INFO] Running org.json.junit.JSONObjectLocaleTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.JSONObjectLocaleTest_OE25Dev
+[INFO] Running org.json.junit.PropertyTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.json.junit.PropertyTest_OE25Dev
+[INFO] Running org.json.junit.JSONStringTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.json.junit.JSONStringTest_OE25Dev
+[INFO] Running org.json.junit.JSONPointerTest_OE25Dev
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.json.junit.JSONPointerTest_OE25Dev
+[INFO] Running org.json.junit.XMLConfigurationTest_OE25Dev
+[INFO] Tests run: 84, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s - in org.json.junit.XMLConfigurationTest_OE25Dev
+[INFO] Running org.json.junit.JSONStringerTest_OE25Dev
+[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.json.junit.JSONStringerTest_OE25Dev
+[INFO] Running org.json.junit.CookieTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.CookieTest_OE25Dev
+[INFO] Running org.json.junit.JSONTokenerTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.json.junit.JSONTokenerTest_OE25Dev
+[INFO] Running org.json.junit.CDLTest_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.json.junit.CDLTest_OE25Dev
+[INFO] Running org.json.junit.JSONObjectTest_OE25Dev
+[ERROR] Tests run: 501, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.318 s <<< FAILURE! - in org.json.junit.JSONObjectTest_OE25Dev
+[ERROR] testSingletonEnumBean_7_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.012 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<42>
+	at org.json.junit.JSONObjectTest_OE25Dev.testSingletonEnumBean_7_oe(JSONObjectTest_OE25Dev.java:15139)
+
+[ERROR] testSingletonBean_7_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<42>
+	at org.json.junit.JSONObjectTest_OE25Dev.testSingletonBean_7_oe(JSONObjectTest_OE25Dev.java:15119)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   JSONObjectTest_OE25Dev.testSingletonBean_7_oe:15119 expected:<0> but was:<42>
+[ERROR]   JSONObjectTest_OE25Dev.testSingletonEnumBean_7_oe:15139 expected:<0> but was:<42>
+[INFO] 
+[ERROR] Tests run: 1172, Failures: 2, Errors: 0, Skipped: 0
+[INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  13.056 s
-[INFO] Finished at: 2026-02-20T04:40:41-06:00
+[INFO] Total time:  13.983 s
+[INFO] Finished at: 2026-02-20T04:50:16-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project json: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project json: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

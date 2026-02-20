@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-pool2 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2
-[INFO] Storing buildNumber: 50aa6cd9f431bb44559fe7dfd9d95d6e4a9269eb at timestamp: 1771584019776
+[INFO] Storing buildNumber: 3205504c15924548e27a9939e60e263ddbfc7698 at timestamp: 1771584583080
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -58,26 +58,44 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-pool2 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 46 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/target/test-classes
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/test/java/org/apache/commons/pool2/impl/PooledTestObject.java: Some input files use or override a deprecated API.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/test/java/org/apache/commons/pool2/impl/PooledTestObject.java: Recompile with -Xlint:deprecation for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/test/java/org/apache/commons/pool2/TestPoolUtils.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/test/java/org/apache/commons/pool2/TestPoolUtils.java uses unchecked or unsafe operations.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/test/java/org/apache/commons/pool2/TestPoolUtils.java: Recompile with -Xlint:unchecked for details.
+[INFO] Compiling 72 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/test/java/org/apache/commons/pool2/impl/TestGenericObjectPool_OE25Dev.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/test/java/org/apache/commons/pool2/impl/TestGenericObjectPool_OE25Dev.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/test/java/org/apache/commons/pool2/impl/TestGenericObjectPool_OE25Dev.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-pool2/src/test/java/org/apache/commons/pool2/impl/TestGenericObjectPool_OE25Dev.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- animal-sniffer-maven-plugin:1.20:check (checkAPIcompatibility) @ commons-pool2 ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
 [INFO] 
 [INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ commons-pool2 ---
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  21.532 s
-[INFO] Finished at: 2026-02-20T04:40:36-06:00
-[INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project commons-pool2: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[ERROR] OpenJDK 64-Bit Server VM warning: Ignoring option --illegal-access=permit; support was removed in 17.0
+[INFO] Running org.apache.commons.pool2.TestPoolUtils_OE25Dev
+[INFO] Tests run: 67, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 45.054 s - in org.apache.commons.pool2.TestPoolUtils_OE25Dev
+[INFO] Running org.apache.commons.pool2.TestBaseKeyedPoolableObjectFactory_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.pool2.TestBaseKeyedPoolableObjectFactory_OE25Dev
+[INFO] Running org.apache.commons.pool2.TestBasePoolableObjectFactory_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.pool2.TestBasePoolableObjectFactory_OE25Dev
+[INFO] Running org.apache.commons.pool2.impl.TestGenericObjectPoolFactoryCreateFailure_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.034 s - in org.apache.commons.pool2.impl.TestGenericObjectPoolFactoryCreateFailure_OE25Dev
+[INFO] Running org.apache.commons.pool2.impl.NoOpCallStackTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.pool2.impl.NoOpCallStackTest_OE25Dev
+[INFO] Running org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev
+[INFO] Tests run: 376, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 158.594 s - in org.apache.commons.pool2.impl.TestGenericObjectPool_OE25Dev
+[INFO] Running org.apache.commons.pool2.impl.TestDefaultPooledObject_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.648 s - in org.apache.commons.pool2.impl.TestDefaultPooledObject_OE25Dev
+[INFO] Running org.apache.commons.pool2.impl.TestGenericObjectPoolClassLoaders_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.807 s - in org.apache.commons.pool2.impl.TestGenericObjectPoolClassLoaders_OE25Dev
+[INFO] Running org.apache.commons.pool2.impl.TestSoftRefOutOfMemory_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 s - in org.apache.commons.pool2.impl.TestSoftRefOutOfMemory_OE25Dev
+[INFO] Running org.apache.commons.pool2.impl.TestEvictionConfig_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.pool2.impl.TestEvictionConfig_OE25Dev
+[INFO] Running org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev
+[INFO] Tests run: 234, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 150.153 s - in org.apache.commons.pool2.impl.TestGenericKeyedObjectPool_OE25Dev
+[INFO] Running org.apache.commons.pool2.impl.TestAbandonedKeyedObjectPool_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.135 s - in org.apache.commons.pool2.impl.TestAbandonedKeyedObjectPool_OE25Dev
+[INFO] Running org.apache.commons.pool2.impl.TestLinkedBlockingDeque_OE25Dev
+TIMEOUT

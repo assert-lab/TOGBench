@@ -27,25 +27,99 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ spark-core ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 84 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/target/test-classes
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/embeddedserver/EmbeddedServersTest.java: Some input files use or override a deprecated API.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/embeddedserver/EmbeddedServersTest.java: Recompile with -Xlint:deprecation for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/QueryParamsMapTest.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/QueryParamsMapTest.java uses or overrides a deprecated API that is marked for removal.
+[INFO] Compiling 119 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/embeddedserver/EmbeddedServersTest_OE25Dev.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/embeddedserver/EmbeddedServersTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/QueryParamsMapTest.java: Some input files use or override a deprecated API that is marked for removal.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/QueryParamsMapTest.java: Recompile with -Xlint:removal for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/StaticFilesMemberTest.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/StaticFilesMemberTest.java uses unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/StaticFilesMemberTest.java: Some input files use unchecked or unsafe operations.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/StaticFilesMemberTest.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ spark-core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running spark.staticfiles.DisableMimeGuessingTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.436 s - in spark.staticfiles.DisableMimeGuessingTest_OE25Dev
+[INFO] Running spark.staticfiles.StaticFilesTest_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.418 s - in spark.staticfiles.StaticFilesTest_OE25Dev
+[INFO] Running spark.route.HttpMethodTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.137 s - in spark.route.HttpMethodTest_OE25Dev
+[INFO] Running spark.route.RouteEntryTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.182 s - in spark.route.RouteEntryTest_OE25Dev
+[INFO] Running spark.utils.ObjectUtilsTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.139 s - in spark.utils.ObjectUtilsTest_OE25Dev
+[INFO] Running spark.utils.CollectionUtilsTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.13 s - in spark.utils.CollectionUtilsTest_OE25Dev
+[INFO] Running spark.utils.SparkUtilsTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.134 s - in spark.utils.SparkUtilsTest_OE25Dev
+[INFO] Running spark.RedirectTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.294 s - in spark.RedirectTest_OE25Dev
+[INFO] Running spark.ExceptionMapperTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.131 s - in spark.ExceptionMapperTest_OE25Dev
+[INFO] Running spark.ServiceTest_OE25Dev
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.207 s - in spark.ServiceTest_OE25Dev
+[INFO] Running spark.serialization.InputStreamSerializerTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.116 s - in spark.serialization.InputStreamSerializerTest_OE25Dev
+[INFO] Running spark.BodyAvailabilityTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.118 s - in spark.BodyAvailabilityTest_OE25Dev
+[INFO] Running spark.UnmapTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.215 s - in spark.UnmapTest_OE25Dev
+[INFO] Running spark.resource.UriPathTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.153 s - in spark.resource.UriPathTest_OE25Dev
+[INFO] Running spark.MultipleServicesTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.058 s - in spark.MultipleServicesTest_OE25Dev
+[INFO] Running spark.ServicePortIntegrationTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.183 s - in spark.ServicePortIntegrationTest_OE25Dev
+[INFO] Running spark.customerrorpages.CustomErrorPagesTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.301 s - in spark.customerrorpages.CustomErrorPagesTest_OE25Dev
+[INFO] Running spark.FilterImplTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.24 s - in spark.FilterImplTest_OE25Dev
+[INFO] Running spark.InitExceptionHandlerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.485 s - in spark.InitExceptionHandlerTest_OE25Dev
+[INFO] Running spark.FilterTest_OE25Dev
+Filter matched
+response.status = 404
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.078 s - in spark.FilterTest_OE25Dev
+[INFO] Running spark.BooksIntegrationTest_OE25Dev
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.014 s - in spark.BooksIntegrationTest_OE25Dev
+[INFO] Running spark.GzipTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.612 s - in spark.GzipTest_OE25Dev
+[INFO] Running spark.GenericIntegrationTest_OE25Dev
+[INFO] Tests run: 73, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.31 s - in spark.GenericIntegrationTest_OE25Dev
+[INFO] Running spark.servlet.ServletTest_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.061 s - in spark.servlet.ServletTest_OE25Dev
+[INFO] Running spark.StaticFilesMemberTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.053 s - in spark.StaticFilesMemberTest_OE25Dev
+[INFO] Running spark.embeddedserver.EmbeddedServersTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.659 s - in spark.embeddedserver.EmbeddedServersTest_OE25Dev
+[INFO] Running spark.embeddedserver.jetty.websocket.WebSocketCreatorFactoryTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.153 s - in spark.embeddedserver.jetty.websocket.WebSocketCreatorFactoryTest_OE25Dev
+[INFO] Running spark.embeddedserver.jetty.SocketConnectorFactoryTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.376 s - in spark.embeddedserver.jetty.SocketConnectorFactoryTest_OE25Dev
+[INFO] Running spark.embeddedserver.jetty.JettyServerTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.194 s - in spark.embeddedserver.jetty.JettyServerTest_OE25Dev
+[INFO] Running spark.GenericSecureIntegrationTest_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.688 s - in spark.GenericSecureIntegrationTest_OE25Dev
+[INFO] Running spark.util.ResourceUtilsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.151 s - in spark.util.ResourceUtilsTest_OE25Dev
+[INFO] Running spark.RouteImplTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.088 s - in spark.RouteImplTest_OE25Dev
+[INFO] Running spark.ResponseWrapperDelegationTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.023 s - in spark.ResponseWrapperDelegationTest_OE25Dev
+[INFO] Running spark.Base64Test_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in spark.Base64Test_OE25Dev
+[INFO] Running spark.QueryParamsMapTest_OE25Dev
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in spark.QueryParamsMapTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 379, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  13.782 s
-[INFO] Finished at: 2026-02-20T04:40:27-06:00
+[INFO] Total time:  01:03 min
+[INFO] Finished at: 2026-02-20T04:50:40-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project spark-core: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

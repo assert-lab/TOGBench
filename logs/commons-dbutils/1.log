@@ -22,7 +22,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-dbutils ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils
-[INFO] Storing buildNumber: 50aa6cd9f431bb44559fe7dfd9d95d6e4a9269eb at timestamp: 1771584025030
+[INFO] Storing buildNumber: 3205504c15924548e27a9939e60e263ddbfc7698 at timestamp: 1771584584251
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -55,23 +55,83 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ commons-dbutils ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 50 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/target/test-classes
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/MockResultSet.java: Some input files use or override a deprecated API that is marked for removal.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/MockResultSet.java: Recompile with -Xlint:removal for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java uses unchecked or unsafe operations.
+[INFO] Compiling 80 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/ColumnListHandlerTest_OE25Dev.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/ColumnListHandlerTest_OE25Dev.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: Some input files use unchecked or unsafe operations.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-dbutils ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.dbutils.OutParameterTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.539 s - in org.apache.commons.dbutils.OutParameterTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetTest_OE25Dev
+[INFO] Tests run: 286, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.393 s - in org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.GenerousBeanProcessorTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.144 s - in org.apache.commons.dbutils.GenerousBeanProcessorTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.handlers.BeanListHandlerTest_OE25Dev
+[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 s - in org.apache.commons.dbutils.handlers.BeanListHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.handlers.KeyedHandlerTest_OE25Dev
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.dbutils.handlers.KeyedHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.handlers.MapListHandlerTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.dbutils.handlers.MapListHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.handlers.BeanMapHandlerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in org.apache.commons.dbutils.handlers.BeanMapHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.handlers.ArrayListHandlerTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.dbutils.handlers.ArrayListHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.handlers.MapHandlerTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.MapHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.handlers.properties.PropertyHandlerTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.properties.PropertyHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandlerTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.handlers.properties.DatePropertyHandlerTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.dbutils.handlers.properties.DatePropertyHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.handlers.ArrayHandlerTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.dbutils.handlers.ArrayHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.handlers.BeanHandlerTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.dbutils.handlers.BeanHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.handlers.ColumnListHandlerTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.dbutils.handlers.ColumnListHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.handlers.ScalarHandlerTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.dbutils.handlers.ScalarHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.ProxyFactoryTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.103 s - in org.apache.commons.dbutils.ProxyFactoryTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.ResultSetIteratorTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.dbutils.ResultSetIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.DbUtilsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.dbutils.DbUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.BaseTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.BaseTestCase_OE25Dev
+[INFO] Running org.apache.commons.dbutils.BeanProcessorTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.dbutils.BeanProcessorTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.QueryLoaderTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.QueryLoaderTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.BaseResultSetHandlerTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.dbutils.BaseResultSetHandlerTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.StatementConfigurationTest_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.dbutils.StatementConfigurationTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.ServiceLoaderTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.ServiceLoaderTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.272 s - in org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev
+[INFO] Running org.apache.commons.dbutils.QueryRunnerTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.332 s - in org.apache.commons.dbutils.QueryRunnerTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 558, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  16.352 s
-[INFO] Finished at: 2026-02-20T04:40:36-06:00
+[INFO] Total time:  19.450 s
+[INFO] Finished at: 2026-02-20T04:50:00-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-dbutils: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

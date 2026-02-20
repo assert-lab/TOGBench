@@ -29,7 +29,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-lang3 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3
-[INFO] Storing buildNumber: 50aa6cd9f431bb44559fe7dfd9d95d6e4a9269eb at timestamp: 1771583995664
+[INFO] Storing buildNumber: 3205504c15924548e27a9939e60e263ddbfc7698 at timestamp: 1771584551583
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -71,16 +71,21 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrBuilderTest.java:1841: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrBuilderTest.java:1891: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.6:prepare-agent (prepare-agent) @ commons-lang3 ---
+[INFO] Skipping JaCoCo execution because property jacoco.skip is set.
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ commons-lang3 ---
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  43.276 s
-[INFO] Finished at: 2026-02-20T04:40:34-06:00
+[INFO] Total time:  41.684 s
+[INFO] Finished at: 2026-02-20T04:49:48-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.codehaus.mojo:animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) on project commons-lang3: Execution checkAPIcompatibility of goal org.codehaus.mojo:animal-sniffer-maven-plugin:1.19:check failed: Index 6 out of bounds for length 0 -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project commons-lang3: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.
 [ERROR] 
 [ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
