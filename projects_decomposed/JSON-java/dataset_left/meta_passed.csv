@@ -1,0 +1,3 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
+json_left_183_7,JSON-java,JSONObjectTest,testSingletonBean_7_oe,src/test/java/org/json/junit/JSONObjectTest.java,,,,assert,unknown,standard,assertEquals
+json_left_184_7,JSON-java,JSONObjectTest,testSingletonEnumBean_7_oe,src/test/java/org/json/junit/JSONObjectTest.java,,,,assert,unknown,standard,assertEquals

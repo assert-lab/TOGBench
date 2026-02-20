@@ -1,0 +1,27 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest_OE25Dev_dbut_left_17_9.java:[553,9] cannot find symbol
+  symbol:   method callGoodExecute()
+  location: class org.apache.commons.dbutils.QueryRunnerTest_OE25Dev_dbut_left_17_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest_OE25Dev_dbut_left_17_9.java:[559,9] cannot find symbol
+  symbol:   method callGoodExecute(java.sql.Connection)
+  location: class org.apache.commons.dbutils.QueryRunnerTest_OE25Dev_dbut_left_17_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest_OE25Dev_dbut_left_17_9.java:[565,9] cannot find symbol
+  symbol:   method callGoodExecute(java.sql.Connection)
+  location: class org.apache.commons.dbutils.QueryRunnerTest_OE25Dev_dbut_left_17_9
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.5.1:testCompile (default-testCompile) on project commons-dbutils: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest_OE25Dev_dbut_left_17_9.java:[553,9] cannot find symbol
+[ERROR]   symbol:   method callGoodExecute()
+[ERROR]   location: class org.apache.commons.dbutils.QueryRunnerTest_OE25Dev_dbut_left_17_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest_OE25Dev_dbut_left_17_9.java:[559,9] cannot find symbol
+[ERROR]   symbol:   method callGoodExecute(java.sql.Connection)
+[ERROR]   location: class org.apache.commons.dbutils.QueryRunnerTest_OE25Dev_dbut_left_17_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest_OE25Dev_dbut_left_17_9.java:[565,9] cannot find symbol
+[ERROR]   symbol:   method callGoodExecute(java.sql.Connection)
+[ERROR]   location: class org.apache.commons.dbutils.QueryRunnerTest_OE25Dev_dbut_left_17_9
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -88,21 +88,6 @@ class LineSpanningSubsetTest_OE25Dev {
     }
 
     @Test
-    void testClassify() {
-        // arrange
-        final LineConvexSubset span =
-                Lines.fromPointAndDirection(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, TEST_PRECISION).span();
-
-        // act/assert
-        for (double x = -10; x <= 10; x += 1) {
-            EuclideanTestUtils.assertRegionLocation(span, RegionLocation.INSIDE, Vector2D.of(x, 1 + 1e-11));
-
-            EuclideanTestUtils.assertRegionLocation(span, RegionLocation.OUTSIDE,
-                    Vector2D.of(x, 0), Vector2D.of(x, 2));
-        }
-    }
-
-    @Test
     void testGetInterval() {
         // arrange
         final LineConvexSubset span =
@@ -460,6 +445,20 @@ class LineSpanningSubsetTest_OE25Dev {
         split = span.split(Lines.fromPointAndDirection(pt, Vector2D.Unit.PLUS_X, TEST_PRECISION));
         // removed other assertion
         Assertions.assertNull(split.getPlus());
+    }
+
+@Test
+    void testClassify_2_oe() {
+        // arrange
+        final LineConvexSubset span =
+                Lines.fromPointAndDirection(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, TEST_PRECISION).span();
+
+        // act/assert
+        for (double x = -10; x <= 10; x += 1) {
+            // removed other assertion
+
+            EuclideanTestUtils.assertRegionLocation(span, RegionLocation.OUTSIDE, Vector2D.of(x, 0), Vector2D.of(x, 2));
+    }
     }
 
 }

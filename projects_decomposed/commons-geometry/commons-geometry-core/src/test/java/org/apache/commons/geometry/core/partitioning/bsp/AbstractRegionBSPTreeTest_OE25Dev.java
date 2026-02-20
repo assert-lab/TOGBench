@@ -154,104 +154,6 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         Assertions.assertEquals(RegionLocation.INSIDE, node.getPlus().getLocation());
     }
 
-    @Test
-    void testSetLocation_invalidArgs() {
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> root.setLocation(null),
-                IllegalArgumentException.class, "Invalid node location: null");
-        GeometryTestUtils.assertThrowsWithMessage(() -> root.setLocation(RegionLocation.BOUNDARY),
-                IllegalArgumentException.class, "Invalid node location: BOUNDARY");
-    }
-
-    @Test
-    void testGetCentroid() {
-        // act/assert
-        // make sure our stub value is pulled
-        PartitionTestUtils.assertPointsEqual(new TestPoint2D(12, 34), tree.getCentroid());
-    }
-
-    @Test
-    void testExtract() {
-        // arrange
-        insertSkewedBowtie(tree);
-
-        final TestRegionBSPTree result = fullTree();
-
-        final TestPoint2D pt = new TestPoint2D(2, 2);
-
-        // act
-        result.extract(tree.findNode(pt));
-
-        // assert
-        PartitionTestUtils.assertPointLocations(result, RegionLocation.INSIDE,
-                new TestPoint2D(0, 0.5), new TestPoint2D(2, 2));
-        PartitionTestUtils.assertPointLocations(result, RegionLocation.OUTSIDE,
-                new TestPoint2D(-2, 2),
-                new TestPoint2D(-2, -2), new TestPoint2D(0, -0.5), new TestPoint2D(-2, 2));
-
-        PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE,
-                new TestPoint2D(0, 0.5), new TestPoint2D(2, 2),
-                new TestPoint2D(-2, -2), new TestPoint2D(0, -0.5));
-        PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE,
-                new TestPoint2D(2, -2), new TestPoint2D(-2, 2));
-    }
-
-    @Test
-    void testExtract_complementedTree() {
-        // arrange
-        insertSkewedBowtie(tree);
-        tree.complement();
-
-        final TestRegionBSPTree result = fullTree();
-
-        final TestPoint2D pt = new TestPoint2D(2, 2);
-
-        // act
-        result.extract(tree.findNode(pt));
-
-        // assert
-        PartitionTestUtils.assertPointLocations(result, RegionLocation.OUTSIDE,
-                new TestPoint2D(0, 0.5), new TestPoint2D(2, 2));
-        PartitionTestUtils.assertPointLocations(result, RegionLocation.INSIDE,
-                new TestPoint2D(-2, 2),
-                new TestPoint2D(-2, -2), new TestPoint2D(0, -0.5), new TestPoint2D(-2, 2));
-
-        PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE,
-                new TestPoint2D(0, 0.5), new TestPoint2D(2, 2),
-                new TestPoint2D(-2, -2), new TestPoint2D(0, -0.5));
-        PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE,
-                new TestPoint2D(2, -2), new TestPoint2D(-2, 2));
-    }
-
-    @Test
-    void testProject_halfSpace() {
-        // arrange
-        tree.getRoot().cut(TestLine.X_AXIS);
-
-        // act/assert
-        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, tree.project(TestPoint2D.ZERO));
-
-        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, tree.project(new TestPoint2D(0, 7)));
-        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, tree.project(new TestPoint2D(0, -7)));
-
-        PartitionTestUtils.assertPointsEqual(new TestPoint2D(4, 0), tree.project(new TestPoint2D(4, 10)));
-        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-5, 0), tree.project(new TestPoint2D(-5, -2)));
-    }
-
-    @Test
-    void testProject_box() {
-        // arrange
-        insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
-
-        // act/assert
-        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, tree.project(TestPoint2D.ZERO));
-        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, tree.project(new TestPoint2D(-1, -4)));
-
-        PartitionTestUtils.assertPointsEqual(new TestPoint2D(1, 1), tree.project(new TestPoint2D(2, 9)));
-
-        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0.5, 1), tree.project(new TestPoint2D(0.5, 3)));
-    }
-
     private static void insertBox(final TestRegionBSPTree tree, final TestPoint2D upperLeft,
             final TestPoint2D lowerRight) {
         final TestPoint2D upperRight = new TestPoint2D(lowerRight.getX(), upperLeft.getY());
@@ -6226,6 +6128,949 @@ class AbstractRegionBSPTreeTest_OE25Dev {
                 final TestLineSegment segment0 = (TestLineSegment) boundaries0.get(0);
                 // removed other assertion
                 PartitionTestUtils.assertPointsEqual(end0, segment0.getEndPoint());
+    }
+
+@Test
+    void testSetLocation_invalidArgs_1_oe() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> root.setLocation(null), IllegalArgumentException.class, "Invalid node location: null");
+    }
+
+@Test
+    void testSetLocation_invalidArgs_2_oe() {
+        // act/assert
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage(() -> root.setLocation(RegionLocation.BOUNDARY), IllegalArgumentException.class, "Invalid node location: BOUNDARY");
+    }
+
+@Test
+    void testGetRegionSizeProperties_cachesValueBasedOnVersion_4_oe() {
+        // act
+        final RegionSizeProperties<TestPoint2D> first = tree.getRegionSizeProperties();
+        final RegionSizeProperties<TestPoint2D> second = tree.getRegionSizeProperties();
+        tree.getRoot().cut(TestLine.X_AXIS);
+        final RegionSizeProperties<TestPoint2D> third = tree.getRegionSizeProperties();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(12, 34), first.getCentroid());
+    }
+
+@Test
+    void testGetCentroid_1_oe() {
+        // act/assert
+        // make sure our stub value is pulled
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(12, 34), tree.getCentroid());
+    }
+
+@Test
+    void testTransform_singleCut_3_oe() {
+        // arrange
+        tree.getRoot().insertCut(TestLine.X_AXIS);
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(p.getX(), p.getY() + 2));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(0, -1), TestPoint2D.ZERO, new TestPoint2D(0, 1));
+    }
+
+@Test
+    void testTransform_singleCut_5_oe() {
+        // arrange
+        tree.getRoot().insertCut(TestLine.X_AXIS);
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(p.getX(), p.getY() + 2));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE, new TestPoint2D(0, 3), new TestPoint2D(0, 4));
+    }
+
+@Test
+    void testTransform_multipleCuts_3_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(0.5 * p.getX(), p.getY() + 5));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE, new TestPoint2D(0, 5), new TestPoint2D(-1, 4), new TestPoint2D(1, 6));
+    }
+
+@Test
+    void testTransform_multipleCuts_4_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(0.5 * p.getX(), p.getY() + 5));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.BOUNDARY, new TestPoint2D(-2, 4), new TestPoint2D(2, 6));
+    }
+
+@Test
+    void testTransform_multipleCuts_5_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(0.5 * p.getX(), p.getY() + 5));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(-3, 5), new TestPoint2D(3, 5));
+    }
+
+@Test
+    void testTransform_xAxisReflection_3_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(-p.getX(), p.getY()));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE, TestPoint2D.ZERO, new TestPoint2D(-1, 1), new TestPoint2D(1, -1));
+    }
+
+@Test
+    void testTransform_xAxisReflection_4_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(-p.getX(), p.getY()));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.BOUNDARY, new TestPoint2D(0, 1), new TestPoint2D(0, -1), new TestPoint2D(-4, 0), new TestPoint2D(4, 0));
+    }
+
+@Test
+    void testTransform_xAxisReflection_5_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(-p.getX(), p.getY()));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(1, 1), new TestPoint2D(-1, -1));
+    }
+
+@Test
+    void testTransform_yAxisReflection_3_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(p.getX(), -p.getY()));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE, TestPoint2D.ZERO, new TestPoint2D(1, -1), new TestPoint2D(-1, 1));
+    }
+
+@Test
+    void testTransform_yAxisReflection_4_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(p.getX(), -p.getY()));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.BOUNDARY, new TestPoint2D(0, 1), new TestPoint2D(0, -1), new TestPoint2D(-4, 0), new TestPoint2D(4, 0));
+    }
+
+@Test
+    void testTransform_yAxisReflection_5_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(p.getX(), -p.getY()));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(-1, -1), new TestPoint2D(1, 1));
+    }
+
+@Test
+    void testTransform_xAndYAxisReflection_3_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(-p.getX(), -p.getY()));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE, TestPoint2D.ZERO, new TestPoint2D(1, 1), new TestPoint2D(-1, -1));
+    }
+
+@Test
+    void testTransform_xAndYAxisReflection_4_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(-p.getX(), -p.getY()));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.BOUNDARY, new TestPoint2D(0, 1), new TestPoint2D(0, -1), new TestPoint2D(-4, 0), new TestPoint2D(4, 0));
+    }
+
+@Test
+    void testTransform_xAndYAxisReflection_5_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(-p.getX(), -p.getY()));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(-1, 1), new TestPoint2D(1, -1));
+    }
+
+@Test
+    void testComplement_getCutBoundary_4_oe() {
+        // arrange
+        tree.insert(Arrays.asList(
+                new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(1, 0)),
+                new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(0, 1))));
+        tree.complement();
+
+        // act
+        final RegionCutBoundary<TestPoint2D> xAxisBoundary = root.getCutBoundary();
+        final RegionCutBoundary<TestPoint2D> yAxisBoundary = root.getMinus().getCutBoundary();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final List<HyperplaneConvexSubset<TestPoint2D>> xAxisInsideFacing = xAxisBoundary.getInsideFacing();
+        // removed other assertion
+
+        final TestLineSegment xAxisSeg = (TestLineSegment) xAxisInsideFacing.get(0);
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(Double.NEGATIVE_INFINITY, 0), xAxisSeg.getStartPoint());
+    }
+
+@Test
+    void testComplement_getCutBoundary_5_oe() {
+        // arrange
+        tree.insert(Arrays.asList(
+                new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(1, 0)),
+                new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(0, 1))));
+        tree.complement();
+
+        // act
+        final RegionCutBoundary<TestPoint2D> xAxisBoundary = root.getCutBoundary();
+        final RegionCutBoundary<TestPoint2D> yAxisBoundary = root.getMinus().getCutBoundary();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final List<HyperplaneConvexSubset<TestPoint2D>> xAxisInsideFacing = xAxisBoundary.getInsideFacing();
+        // removed other assertion
+
+        final TestLineSegment xAxisSeg = (TestLineSegment) xAxisInsideFacing.get(0);
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, xAxisSeg.getEndPoint());
+    }
+
+@Test
+    void testComplement_getCutBoundary_9_oe() {
+        // arrange
+        tree.insert(Arrays.asList(
+                new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(1, 0)),
+                new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(0, 1))));
+        tree.complement();
+
+        // act
+        final RegionCutBoundary<TestPoint2D> xAxisBoundary = root.getCutBoundary();
+        final RegionCutBoundary<TestPoint2D> yAxisBoundary = root.getMinus().getCutBoundary();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final List<HyperplaneConvexSubset<TestPoint2D>> xAxisInsideFacing = xAxisBoundary.getInsideFacing();
+        // removed other assertion
+
+        final TestLineSegment xAxisSeg = (TestLineSegment) xAxisInsideFacing.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final List<HyperplaneConvexSubset<TestPoint2D>> yAxisInsideFacing = yAxisBoundary.getInsideFacing();
+        // removed other assertion
+
+        final TestLineSegment yAxisSeg = (TestLineSegment) yAxisInsideFacing.get(0);
+        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, yAxisSeg.getStartPoint());
+    }
+
+@Test
+    void testComplement_getCutBoundary_10_oe() {
+        // arrange
+        tree.insert(Arrays.asList(
+                new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(1, 0)),
+                new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(0, 1))));
+        tree.complement();
+
+        // act
+        final RegionCutBoundary<TestPoint2D> xAxisBoundary = root.getCutBoundary();
+        final RegionCutBoundary<TestPoint2D> yAxisBoundary = root.getMinus().getCutBoundary();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final List<HyperplaneConvexSubset<TestPoint2D>> xAxisInsideFacing = xAxisBoundary.getInsideFacing();
+        // removed other assertion
+
+        final TestLineSegment xAxisSeg = (TestLineSegment) xAxisInsideFacing.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final List<HyperplaneConvexSubset<TestPoint2D>> yAxisInsideFacing = yAxisBoundary.getInsideFacing();
+        // removed other assertion
+
+        final TestLineSegment yAxisSeg = (TestLineSegment) yAxisInsideFacing.get(0);
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, Double.POSITIVE_INFINITY), yAxisSeg.getEndPoint());
+    }
+
+@Test
+    void testExtract_1_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+
+        final TestRegionBSPTree result = fullTree();
+
+        final TestPoint2D pt = new TestPoint2D(2, 2);
+
+        // act
+        result.extract(tree.findNode(pt));
+
+        // assert
+        PartitionTestUtils.assertPointLocations(result, RegionLocation.INSIDE, new TestPoint2D(0, 0.5), new TestPoint2D(2, 2));
+    }
+
+@Test
+    void testExtract_2_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+
+        final TestRegionBSPTree result = fullTree();
+
+        final TestPoint2D pt = new TestPoint2D(2, 2);
+
+        // act
+        result.extract(tree.findNode(pt));
+
+        // assert
+        // removed other assertion
+        PartitionTestUtils.assertPointLocations(result, RegionLocation.OUTSIDE, new TestPoint2D(-2, 2), new TestPoint2D(-2, -2), new TestPoint2D(0, -0.5), new TestPoint2D(-2, 2));
+    }
+
+@Test
+    void testExtract_3_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+
+        final TestRegionBSPTree result = fullTree();
+
+        final TestPoint2D pt = new TestPoint2D(2, 2);
+
+        // act
+        result.extract(tree.findNode(pt));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE, new TestPoint2D(0, 0.5), new TestPoint2D(2, 2), new TestPoint2D(-2, -2), new TestPoint2D(0, -0.5));
+    }
+
+@Test
+    void testExtract_4_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+
+        final TestRegionBSPTree result = fullTree();
+
+        final TestPoint2D pt = new TestPoint2D(2, 2);
+
+        // act
+        result.extract(tree.findNode(pt));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(2, -2), new TestPoint2D(-2, 2));
+    }
+
+@Test
+    void testExtract_complementedTree_1_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+        tree.complement();
+
+        final TestRegionBSPTree result = fullTree();
+
+        final TestPoint2D pt = new TestPoint2D(2, 2);
+
+        // act
+        result.extract(tree.findNode(pt));
+
+        // assert
+        PartitionTestUtils.assertPointLocations(result, RegionLocation.OUTSIDE, new TestPoint2D(0, 0.5), new TestPoint2D(2, 2));
+    }
+
+@Test
+    void testExtract_complementedTree_2_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+        tree.complement();
+
+        final TestRegionBSPTree result = fullTree();
+
+        final TestPoint2D pt = new TestPoint2D(2, 2);
+
+        // act
+        result.extract(tree.findNode(pt));
+
+        // assert
+        // removed other assertion
+        PartitionTestUtils.assertPointLocations(result, RegionLocation.INSIDE, new TestPoint2D(-2, 2), new TestPoint2D(-2, -2), new TestPoint2D(0, -0.5), new TestPoint2D(-2, 2));
+    }
+
+@Test
+    void testExtract_complementedTree_3_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+        tree.complement();
+
+        final TestRegionBSPTree result = fullTree();
+
+        final TestPoint2D pt = new TestPoint2D(2, 2);
+
+        // act
+        result.extract(tree.findNode(pt));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.OUTSIDE, new TestPoint2D(0, 0.5), new TestPoint2D(2, 2), new TestPoint2D(-2, -2), new TestPoint2D(0, -0.5));
+    }
+
+@Test
+    void testExtract_complementedTree_4_oe() {
+        // arrange
+        insertSkewedBowtie(tree);
+        tree.complement();
+
+        final TestRegionBSPTree result = fullTree();
+
+        final TestPoint2D pt = new TestPoint2D(2, 2);
+
+        // act
+        result.extract(tree.findNode(pt));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        PartitionTestUtils.assertPointLocations(tree, RegionLocation.INSIDE, new TestPoint2D(2, -2), new TestPoint2D(-2, 2));
+    }
+
+@Test
+    void testProject_halfSpace_1_oe() {
+        // arrange
+        tree.getRoot().cut(TestLine.X_AXIS);
+
+        // act/assert
+        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, tree.project(TestPoint2D.ZERO));
+    }
+
+@Test
+    void testProject_halfSpace_2_oe() {
+        // arrange
+        tree.getRoot().cut(TestLine.X_AXIS);
+
+        // act/assert
+        // removed other assertion
+
+        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, tree.project(new TestPoint2D(0, 7)));
+    }
+
+@Test
+    void testProject_halfSpace_3_oe() {
+        // arrange
+        tree.getRoot().cut(TestLine.X_AXIS);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, tree.project(new TestPoint2D(0, -7)));
+    }
+
+@Test
+    void testProject_halfSpace_4_oe() {
+        // arrange
+        tree.getRoot().cut(TestLine.X_AXIS);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(4, 0), tree.project(new TestPoint2D(4, 10)));
+    }
+
+@Test
+    void testProject_halfSpace_5_oe() {
+        // arrange
+        tree.getRoot().cut(TestLine.X_AXIS);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-5, 0), tree.project(new TestPoint2D(-5, -2)));
+    }
+
+@Test
+    void testProject_box_1_oe() {
+        // arrange
+        insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
+
+        // act/assert
+        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, tree.project(TestPoint2D.ZERO));
+    }
+
+@Test
+    void testProject_box_2_oe() {
+        // arrange
+        insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
+
+        // act/assert
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, tree.project(new TestPoint2D(-1, -4)));
+    }
+
+@Test
+    void testProject_box_3_oe() {
+        // arrange
+        insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(1, 1), tree.project(new TestPoint2D(2, 9)));
+    }
+
+@Test
+    void testProject_box_4_oe() {
+        // arrange
+        insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0.5, 1), tree.project(new TestPoint2D(0.5, 3)));
+    }
+
+@Test
+    void testSplit_full_2_oe() {
+        // arrange
+        tree = fullTree();
+
+        // act
+        final Split<TestRegionBSPTree> split = tree.split(TestLine.X_AXIS);
+
+        // assert
+        // removed other assertion
+
+        final TestRegionBSPTree minus = split.getMinus();
+        PartitionTestUtils.assertPointLocations(minus, RegionLocation.INSIDE, new TestPoint2D(-1, 1), new TestPoint2D(0, 1), new TestPoint2D(1, 1));
+    }
+
+@Test
+    void testSplit_full_3_oe() {
+        // arrange
+        tree = fullTree();
+
+        // act
+        final Split<TestRegionBSPTree> split = tree.split(TestLine.X_AXIS);
+
+        // assert
+        // removed other assertion
+
+        final TestRegionBSPTree minus = split.getMinus();
+        // removed other assertion
+        PartitionTestUtils.assertPointLocations(minus, RegionLocation.BOUNDARY, new TestPoint2D(-1, 0), new TestPoint2D(0, 0), new TestPoint2D(1, 0));
+    }
+
+@Test
+    void testSplit_full_4_oe() {
+        // arrange
+        tree = fullTree();
+
+        // act
+        final Split<TestRegionBSPTree> split = tree.split(TestLine.X_AXIS);
+
+        // assert
+        // removed other assertion
+
+        final TestRegionBSPTree minus = split.getMinus();
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointLocations(minus, RegionLocation.OUTSIDE, new TestPoint2D(-1, -1), new TestPoint2D(0, -1), new TestPoint2D(1, -1));
+    }
+
+@Test
+    void testSplit_full_5_oe() {
+        // arrange
+        tree = fullTree();
+
+        // act
+        final Split<TestRegionBSPTree> split = tree.split(TestLine.X_AXIS);
+
+        // assert
+        // removed other assertion
+
+        final TestRegionBSPTree minus = split.getMinus();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final TestRegionBSPTree plus = split.getPlus();
+        PartitionTestUtils.assertPointLocations(plus, RegionLocation.OUTSIDE, new TestPoint2D(-1, 1), new TestPoint2D(0, 1), new TestPoint2D(1, 1));
+    }
+
+@Test
+    void testSplit_full_6_oe() {
+        // arrange
+        tree = fullTree();
+
+        // act
+        final Split<TestRegionBSPTree> split = tree.split(TestLine.X_AXIS);
+
+        // assert
+        // removed other assertion
+
+        final TestRegionBSPTree minus = split.getMinus();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final TestRegionBSPTree plus = split.getPlus();
+        // removed other assertion
+        PartitionTestUtils.assertPointLocations(plus, RegionLocation.BOUNDARY, new TestPoint2D(-1, 0), new TestPoint2D(0, 0), new TestPoint2D(1, 0));
+    }
+
+@Test
+    void testSplit_full_7_oe() {
+        // arrange
+        tree = fullTree();
+
+        // act
+        final Split<TestRegionBSPTree> split = tree.split(TestLine.X_AXIS);
+
+        // assert
+        // removed other assertion
+
+        final TestRegionBSPTree minus = split.getMinus();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final TestRegionBSPTree plus = split.getPlus();
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointLocations(plus, RegionLocation.INSIDE, new TestPoint2D(-1, -1), new TestPoint2D(0, -1), new TestPoint2D(1, -1));
+    }
+
+@Test
+    void testSplit_halfSpace_3_oe() {
+        // arrange
+        tree.getRoot().insertCut(TestLine.X_AXIS);
+
+        final TestLine splitter = TestLine.Y_AXIS;
+
+        // act
+        final Split<TestRegionBSPTree> split = tree.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final TestRegionBSPTree minus = split.getMinus();
+        // removed other assertion
+        PartitionTestUtils.assertPointLocations(minus, RegionLocation.OUTSIDE, new TestPoint2D(1, 1), new TestPoint2D(-1, -1), new TestPoint2D(1, -1));
+    }
+
+@Test
+    void testSplit_halfSpace_5_oe() {
+        // arrange
+        tree.getRoot().insertCut(TestLine.X_AXIS);
+
+        final TestLine splitter = TestLine.Y_AXIS;
+
+        // act
+        final Split<TestRegionBSPTree> split = tree.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final TestRegionBSPTree minus = split.getMinus();
+        // removed other assertion
+        // removed other assertion
+
+        final TestRegionBSPTree plus = split.getPlus();
+        // removed other assertion
+        PartitionTestUtils.assertPointLocations(plus, RegionLocation.OUTSIDE, new TestPoint2D(-1, 1), new TestPoint2D(-1, -1), new TestPoint2D(1, -1));
+    }
+
+@Test
+    void testSplit_box_3_oe() {
+        // arrange
+        insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
+
+        final TestLine splitter = new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, 1));
+
+        // act
+        final Split<TestRegionBSPTree> split = tree.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final TestRegionBSPTree minus = split.getMinus();
+        // removed other assertion
+        PartitionTestUtils.assertPointLocations(minus, RegionLocation.BOUNDARY, new TestPoint2D(0.5, 0), new TestPoint2D(0, 0.5));
+    }
+
+@Test
+    void testSplit_box_4_oe() {
+        // arrange
+        insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
+
+        final TestLine splitter = new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, 1));
+
+        // act
+        final Split<TestRegionBSPTree> split = tree.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final TestRegionBSPTree minus = split.getMinus();
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointLocations(minus, RegionLocation.OUTSIDE, new TestPoint2D(1, 0.5), new TestPoint2D(0.5, 1), new TestPoint2D(0.75, 0.75));
+    }
+
+@Test
+    void testSplit_box_6_oe() {
+        // arrange
+        insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
+
+        final TestLine splitter = new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, 1));
+
+        // act
+        final Split<TestRegionBSPTree> split = tree.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final TestRegionBSPTree minus = split.getMinus();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final TestRegionBSPTree plus = split.getPlus();
+        // removed other assertion
+        PartitionTestUtils.assertPointLocations(plus, RegionLocation.OUTSIDE, new TestPoint2D(0.5, 0), new TestPoint2D(0, 0.5), new TestPoint2D(0.25, 0.25));
+    }
+
+@Test
+    void testSplit_box_7_oe() {
+        // arrange
+        insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
+
+        final TestLine splitter = new TestLine(new TestPoint2D(1, 0), new TestPoint2D(0, 1));
+
+        // act
+        final Split<TestRegionBSPTree> split = tree.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final TestRegionBSPTree minus = split.getMinus();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final TestRegionBSPTree plus = split.getPlus();
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointLocations(plus, RegionLocation.BOUNDARY, new TestPoint2D(1, 0.5), new TestPoint2D(0.5, 1));
+    }
+
+@Test
+    void testSplit_box_onMinusOnly_3_oe() {
+        // arrange
+        insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
+
+        final TestLine splitter = new TestLine(new TestPoint2D(2, 0), new TestPoint2D(1, 1));
+
+        // act
+        final Split<TestRegionBSPTree> split = tree.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final TestRegionBSPTree minus = split.getMinus();
+        // removed other assertion
+        PartitionTestUtils.assertPointLocations(minus, RegionLocation.BOUNDARY, new TestPoint2D(0.5, 0), new TestPoint2D(0, 0.5), new TestPoint2D(1, 0.5), new TestPoint2D(0.5, 1));
+    }
+
+@Test
+    void testSplit_box_onPlusOnly_4_oe() {
+        // arrange
+        insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
+
+        final TestLine splitter = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(-1, 1));
+
+        // act
+        final Split<TestRegionBSPTree> split = tree.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+
+        final TestRegionBSPTree plus = split.getPlus();
+        // removed other assertion
+        PartitionTestUtils.assertPointLocations(plus, RegionLocation.BOUNDARY, new TestPoint2D(0.5, 0), new TestPoint2D(0, 0.5), new TestPoint2D(1, 0.5), new TestPoint2D(0.5, 1));
     }
 
 }

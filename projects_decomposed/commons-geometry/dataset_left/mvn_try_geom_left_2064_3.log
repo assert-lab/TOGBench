@@ -1,0 +1,315 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[37,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[39,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[40,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[42,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[43,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[45,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[47,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[50,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[52,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[55,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[58,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[76,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[77,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[94,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[97,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[101,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[104,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[108,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[111,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[114,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[118,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[121,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[124,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[158,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[159,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[160,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[174,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[177,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[178,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[179,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[192,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[195,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[196,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[197,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[588,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[590,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[593,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[596,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[606,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[608,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[611,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[628,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[629,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[645,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[646,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[662,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[663,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[680,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[681,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[761,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[779,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-euclidean: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[37,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[39,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[40,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[42,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[43,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[45,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[47,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[50,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[52,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[55,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[58,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[76,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[77,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[94,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[97,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[101,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[104,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[108,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[111,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[114,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[118,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[121,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[124,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[158,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[159,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[160,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[174,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[177,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[178,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[179,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[192,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[195,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[196,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[197,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[588,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[590,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[593,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[596,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[606,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[608,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[611,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[628,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[629,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[645,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[646,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[662,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[663,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[680,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[681,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[761,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/IntervalTest_OE25Dev_geom_left_2064_3.java:[779,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev_geom_left_2064_3
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

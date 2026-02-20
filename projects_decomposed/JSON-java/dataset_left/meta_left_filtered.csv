@@ -1,0 +1,11 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
+json_left_1_1,JSON-java,Util,compareActualVsExpectedJsonArrays_1_oe,src/test/java/org/json/junit/Util.java,,,,assert,unknown,standard,assertTrue
+json_left_2_1,JSON-java,Util,compareActualVsExpectedJsonObjects_1_oe,src/test/java/org/json/junit/Util.java,,,,assert,unknown,standard,assertTrue
+json_left_3_1,JSON-java,Util,compareActualVsExpectedObjects_1_oe,src/test/java/org/json/junit/Util.java,,,,assert,unknown,standard,assertEquals
+json_left_3_2,JSON-java,Util,compareActualVsExpectedObjects_2_oe,src/test/java/org/json/junit/Util.java,,,,assert,unknown,standard,assertEquals
+json_left_4_1,JSON-java,Util,checkJSONObjectsMaps_1_oe,src/test/java/org/json/junit/Util.java,,,,assert,unknown,standard,assertTrue
+json_left_5_1,JSON-java,Util,checkJSONObjectMaps_1_oe,src/test/java/org/json/junit/Util.java,,,,assert,unknown,standard,assertTrue
+json_left_84_1,JSON-java,XMLTest,compareFileToJSONObject_1_oe,src/test/java/org/json/junit/XMLTest.java,,,,assert,unknown,standard,fail
+json_left_117_1,JSON-java,XMLConfigurationTest,compareReaderToJSONObject_1_oe,src/test/java/org/json/junit/XMLConfigurationTest.java,,,,assert,unknown,standard,assertTrue
+json_left_118_1,JSON-java,XMLConfigurationTest,compareFileToJSONObject_1_oe,src/test/java/org/json/junit/XMLConfigurationTest.java,,,,assert,unknown,standard,assertTrue
+json_left_212_1,JSON-java,JSONTokenerTest,checkError_1_oe,src/test/java/org/json/junit/JSONTokenerTest.java,,,,assert,unknown,standard,fail

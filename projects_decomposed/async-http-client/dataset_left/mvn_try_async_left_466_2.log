@@ -1,0 +1,27 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/netty/channel/SemaphoreTest_OE25Dev_async_left_466_2.java:[109,5] cannot find symbol
+  symbol:   method checkRelease(org.asynchttpclient.netty.channel.MaxConnectionSemaphore)
+  location: class org.asynchttpclient.netty.channel.SemaphoreTest_OE25Dev_async_left_466_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/netty/channel/SemaphoreTest_OE25Dev_async_left_466_2.java:[114,5] cannot find symbol
+  symbol:   method checkRelease(org.asynchttpclient.netty.channel.PerHostConnectionSemaphore)
+  location: class org.asynchttpclient.netty.channel.SemaphoreTest_OE25Dev_async_left_466_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/netty/channel/SemaphoreTest_OE25Dev_async_left_466_2.java:[119,5] cannot find symbol
+  symbol:   method checkRelease(org.asynchttpclient.netty.channel.CombinedConnectionSemaphore)
+  location: class org.asynchttpclient.netty.channel.SemaphoreTest_OE25Dev_async_left_466_2
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project async-http-client: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/netty/channel/SemaphoreTest_OE25Dev_async_left_466_2.java:[109,5] cannot find symbol
+[ERROR]   symbol:   method checkRelease(org.asynchttpclient.netty.channel.MaxConnectionSemaphore)
+[ERROR]   location: class org.asynchttpclient.netty.channel.SemaphoreTest_OE25Dev_async_left_466_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/netty/channel/SemaphoreTest_OE25Dev_async_left_466_2.java:[114,5] cannot find symbol
+[ERROR]   symbol:   method checkRelease(org.asynchttpclient.netty.channel.PerHostConnectionSemaphore)
+[ERROR]   location: class org.asynchttpclient.netty.channel.SemaphoreTest_OE25Dev_async_left_466_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/netty/channel/SemaphoreTest_OE25Dev_async_left_466_2.java:[119,5] cannot find symbol
+[ERROR]   symbol:   method checkRelease(org.asynchttpclient.netty.channel.CombinedConnectionSemaphore)
+[ERROR]   location: class org.asynchttpclient.netty.channel.SemaphoreTest_OE25Dev_async_left_466_2
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

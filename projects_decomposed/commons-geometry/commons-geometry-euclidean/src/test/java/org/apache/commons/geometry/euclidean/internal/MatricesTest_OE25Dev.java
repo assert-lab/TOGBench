@@ -25,42 +25,6 @@ class MatricesTest_OE25Dev {
     private static final double EPS = 1e-12;
 
     @Test
-    void testCheckDeterminantForInverse_invalid() {
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Matrices.checkDeterminantForInverse(0);
-        }, IllegalStateException.class, "Matrix is not invertible; matrix determinant is 0.0");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Matrices.checkDeterminantForInverse(Double.NaN);
-        }, IllegalStateException.class, "Matrix is not invertible; matrix determinant is NaN");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Matrices.checkDeterminantForInverse(Double.POSITIVE_INFINITY);
-        }, IllegalStateException.class, "Matrix is not invertible; matrix determinant is Infinity");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Matrices.checkDeterminantForInverse(Double.NEGATIVE_INFINITY);
-        }, IllegalStateException.class, "Matrix is not invertible; matrix determinant is -Infinity");
-    }
-
-    @Test
-    void testCheckElementForInverse_invalid() {
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Matrices.checkElementForInverse(Double.NaN);
-        }, IllegalStateException.class, "Matrix is not invertible; invalid matrix element: NaN");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Matrices.checkElementForInverse(Double.POSITIVE_INFINITY);
-        }, IllegalStateException.class, "Matrix is not invertible; invalid matrix element: Infinity");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Matrices.checkElementForInverse(Double.NEGATIVE_INFINITY);
-        }, IllegalStateException.class, "Matrix is not invertible; invalid matrix element: -Infinity");
-    }
-
-    @Test
     void testDeterminant_2x2_1_oe() {
         // act/assert
         Assertions.assertEquals(1,Matrices.determinant(1,0,0,1),EPS);
@@ -210,6 +174,66 @@ class MatricesTest_OE25Dev {
 
         // removed other assertion
         Assertions.assertEquals(-1.0, Matrices.checkElementForInverse(-1.0), EPS);
+    }
+
+@Test
+    void testCheckDeterminantForInverse_invalid_1_oe() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Matrices.checkDeterminantForInverse(0); }, IllegalStateException.class, "Matrix is not invertible; matrix determinant is 0.0");
+    }
+
+@Test
+    void testCheckDeterminantForInverse_invalid_2_oe() {
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Matrices.checkDeterminantForInverse(Double.NaN); }, IllegalStateException.class, "Matrix is not invertible; matrix determinant is NaN");
+    }
+
+@Test
+    void testCheckDeterminantForInverse_invalid_3_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Matrices.checkDeterminantForInverse(Double.POSITIVE_INFINITY); }, IllegalStateException.class, "Matrix is not invertible; matrix determinant is Infinity");
+    }
+
+@Test
+    void testCheckDeterminantForInverse_invalid_4_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Matrices.checkDeterminantForInverse(Double.NEGATIVE_INFINITY); }, IllegalStateException.class, "Matrix is not invertible; matrix determinant is -Infinity");
+    }
+
+@Test
+    void testCheckElementForInverse_invalid_1_oe() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Matrices.checkElementForInverse(Double.NaN); }, IllegalStateException.class, "Matrix is not invertible; invalid matrix element: NaN");
+    }
+
+@Test
+    void testCheckElementForInverse_invalid_2_oe() {
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Matrices.checkElementForInverse(Double.POSITIVE_INFINITY); }, IllegalStateException.class, "Matrix is not invertible; invalid matrix element: Infinity");
+    }
+
+@Test
+    void testCheckElementForInverse_invalid_3_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Matrices.checkElementForInverse(Double.NEGATIVE_INFINITY); }, IllegalStateException.class, "Matrix is not invertible; invalid matrix element: -Infinity");
     }
 
 }

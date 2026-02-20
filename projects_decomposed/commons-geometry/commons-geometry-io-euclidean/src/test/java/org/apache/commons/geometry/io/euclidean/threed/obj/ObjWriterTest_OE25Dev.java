@@ -56,106 +56,6 @@ class ObjWriterTest_OE25Dev {
     }
 
     @Test
-    void testWriteFace_invalidVertexNumber() {
-        // arrange
-        final StringWriter writer = new StringWriter();
-
-        // act
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            try (ObjWriter objWriter = new ObjWriter(writer)) {
-                objWriter.writeFace(1, 2);
-            }
-        }, IllegalArgumentException.class, "Face must have more than 3 vertices; found 2");
-    }
-
-    @Test
-    void testWriteFace_vertexIndexOutOfBounds() {
-        // arrange
-        final StringWriter writer = new StringWriter();
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            try (ObjWriter objWriter = new ObjWriter(writer)) {
-                objWriter.writeVertex(Vector3D.ZERO);
-                objWriter.writeVertex(Vector3D.of(1, 1, 1));
-
-                objWriter.writeFace(0, 1, 2);
-            }
-        }, IndexOutOfBoundsException.class, "Vertex index out of bounds: 2");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            try (ObjWriter objWriter = new ObjWriter(writer)) {
-                objWriter.writeVertex(Vector3D.ZERO);
-                objWriter.writeVertex(Vector3D.of(1, 1, 1));
-
-                objWriter.writeFace(0, -1, 1);
-            }
-        }, IndexOutOfBoundsException.class, "Vertex index out of bounds: -1");
-    }
-
-    @Test
-    void testWriteFace_normalIndexOutOfBounds() {
-        // arrange
-        final StringWriter writer = new StringWriter();
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            try (ObjWriter objWriter = new ObjWriter(writer)) {
-                objWriter.writeVertex(Vector3D.ZERO);
-                objWriter.writeVertex(Vector3D.of(1, 1, 1));
-                objWriter.writeVertex(Vector3D.of(0, 2, 0));
-
-                objWriter.writeVertexNormal(Vector3D.Unit.PLUS_Z);
-
-                objWriter.writeFace(new int[] {0, 1, 2}, 1);
-            }
-        }, IndexOutOfBoundsException.class, "Normal index out of bounds: 1");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            try (ObjWriter objWriter = new ObjWriter(writer)) {
-                objWriter.writeVertex(Vector3D.ZERO);
-                objWriter.writeVertex(Vector3D.of(1, 1, 1));
-                objWriter.writeVertex(Vector3D.of(0, 2, 0));
-
-                objWriter.writeVertexNormal(Vector3D.Unit.PLUS_Z);
-
-                objWriter.writeFace(new int[] {0, 1, 2}, -1);
-            }
-        }, IndexOutOfBoundsException.class, "Normal index out of bounds: -1");
-    }
-
-    @Test
-    void testWriteFace_invalidVertexAndNormalCountMismatch() {
-        // arrange
-        final StringWriter writer = new StringWriter();
-
-        // act
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            try (ObjWriter objWriter = new ObjWriter(writer)) {
-                objWriter.writeFace(new int[] {0, 1, 2, 3}, new int[] {0, 1, 2});
-            }
-        }, IllegalArgumentException.class, "Face normal index count must equal vertex index count; expected 4 but was 3");
-    }
-
-    @Test
-    void testWriteBoundaries_infiniteBoundary() {
-        // arrange
-        final BoundarySource3D src = BoundarySource3D.of(
-                    Planes.triangleFromVertices(Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0), TEST_PRECISION),
-                    Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION).span()
-                );
-
-        final StringWriter writer = new StringWriter();
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            try (ObjWriter objWriter = new ObjWriter(writer)) {
-                objWriter.writeBoundaries(src);
-            }
-        }, IllegalArgumentException.class, Pattern.compile("^OBJ input geometry cannot be infinite: .*"));
-    }
-
-    @Test
     void testPropertyDefaults_1_oe() {
         // arrange
         final StringWriter writer = new StringWriter();
@@ -688,6 +588,78 @@ class ObjWriterTest_OE25Dev {
 
         // assert
         Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 0.0 1.0 0.0\n" + "f 1 2 3\n" + "v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 0.0 0.0 1.0\n" + "f 4 5 6\n",writer.getBuffer().toString());
+    }
+
+@Test
+    void testWriteFace_invalidVertexNumber_1_oe() {
+        // arrange
+        final StringWriter writer = new StringWriter();
+
+        // act
+        GeometryTestUtils.assertThrowsWithMessage(() -> { try (ObjWriter objWriter = new ObjWriter(writer)) { objWriter.writeFace(1, 2); } }, IllegalArgumentException.class, "Face must have more than 3 vertices; found 2");
+    }
+
+@Test
+    void testWriteFace_vertexIndexOutOfBounds_1_oe() {
+        // arrange
+        final StringWriter writer = new StringWriter();
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { try (ObjWriter objWriter = new ObjWriter(writer)) { objWriter.writeVertex(Vector3D.ZERO); objWriter.writeVertex(Vector3D.of(1, 1, 1)); objWriter.writeFace(0, 1, 2); } }, IndexOutOfBoundsException.class, "Vertex index out of bounds: 2");
+    }
+
+@Test
+    void testWriteFace_vertexIndexOutOfBounds_2_oe() {
+        // arrange
+        final StringWriter writer = new StringWriter();
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { try (ObjWriter objWriter = new ObjWriter(writer)) { objWriter.writeVertex(Vector3D.ZERO); objWriter.writeVertex(Vector3D.of(1, 1, 1)); objWriter.writeFace(0, -1, 1); } }, IndexOutOfBoundsException.class, "Vertex index out of bounds: -1");
+    }
+
+@Test
+    void testWriteFace_normalIndexOutOfBounds_1_oe() {
+        // arrange
+        final StringWriter writer = new StringWriter();
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { try (ObjWriter objWriter = new ObjWriter(writer)) { objWriter.writeVertex(Vector3D.ZERO); objWriter.writeVertex(Vector3D.of(1, 1, 1)); objWriter.writeVertex(Vector3D.of(0, 2, 0)); objWriter.writeVertexNormal(Vector3D.Unit.PLUS_Z); objWriter.writeFace(new int[] {0, 1, 2}, 1); } }, IndexOutOfBoundsException.class, "Normal index out of bounds: 1");
+    }
+
+@Test
+    void testWriteFace_normalIndexOutOfBounds_2_oe() {
+        // arrange
+        final StringWriter writer = new StringWriter();
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { try (ObjWriter objWriter = new ObjWriter(writer)) { objWriter.writeVertex(Vector3D.ZERO); objWriter.writeVertex(Vector3D.of(1, 1, 1)); objWriter.writeVertex(Vector3D.of(0, 2, 0)); objWriter.writeVertexNormal(Vector3D.Unit.PLUS_Z); objWriter.writeFace(new int[] {0, 1, 2}, -1); } }, IndexOutOfBoundsException.class, "Normal index out of bounds: -1");
+    }
+
+@Test
+    void testWriteFace_invalidVertexAndNormalCountMismatch_1_oe() {
+        // arrange
+        final StringWriter writer = new StringWriter();
+
+        // act
+        GeometryTestUtils.assertThrowsWithMessage(() -> { try (ObjWriter objWriter = new ObjWriter(writer)) { objWriter.writeFace(new int[] {0, 1, 2, 3}, new int[] {0, 1, 2}); } }, IllegalArgumentException.class, "Face normal index count must equal vertex index count; expected 4 but was 3");
+    }
+
+@Test
+    void testWriteBoundaries_infiniteBoundary_1_oe() {
+        // arrange
+        final BoundarySource3D src = BoundarySource3D.of(
+                    Planes.triangleFromVertices(Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0), TEST_PRECISION),
+                    Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION).span()
+                );
+
+        final StringWriter writer = new StringWriter();
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { try (ObjWriter objWriter = new ObjWriter(writer)) { objWriter.writeBoundaries(src); } }, IllegalArgumentException.class, Pattern.compile("^OBJ input geometry cannot be infinite: .*"));
     }
 
 }

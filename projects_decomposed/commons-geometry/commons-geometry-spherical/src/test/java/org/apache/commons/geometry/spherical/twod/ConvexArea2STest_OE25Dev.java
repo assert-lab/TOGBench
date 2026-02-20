@@ -1914,4 +1914,53 @@ class ConvexArea2STest_OE25Dev {
         Assertions.assertEquals(area.getSize(), tree.getSize(), TEST_EPS);
     }
 
+@Test
+    void testSplit_both_2_oe() {
+        // arrange
+        final GreatCircle c1 = GreatCircles.fromPole(Vector3D.Unit.MINUS_X, TEST_PRECISION);
+        final GreatCircle c2 = GreatCircles.fromPole(Vector3D.of(1, 1, 0), TEST_PRECISION);
+
+        final ConvexArea2S area = ConvexArea2S.fromBounds(c1, c2);
+
+        final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(-1, 0, 1), TEST_PRECISION);
+
+        // act
+        final Split<ConvexArea2S> split = area.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final Point2S p1 = c1.intersection(splitter);
+        final Point2S p2 = splitter.intersection(c2);
+
+        final ConvexArea2S minus = split.getMinus();
+        assertPath(minus.getBoundaryPath(), Point2S.PLUS_K, p1, p2, Point2S.PLUS_K);
+    }
+
+@Test
+    void testSplit_both_3_oe() {
+        // arrange
+        final GreatCircle c1 = GreatCircles.fromPole(Vector3D.Unit.MINUS_X, TEST_PRECISION);
+        final GreatCircle c2 = GreatCircles.fromPole(Vector3D.of(1, 1, 0), TEST_PRECISION);
+
+        final ConvexArea2S area = ConvexArea2S.fromBounds(c1, c2);
+
+        final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(-1, 0, 1), TEST_PRECISION);
+
+        // act
+        final Split<ConvexArea2S> split = area.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final Point2S p1 = c1.intersection(splitter);
+        final Point2S p2 = splitter.intersection(c2);
+
+        final ConvexArea2S minus = split.getMinus();
+        // removed other assertion
+
+        final ConvexArea2S plus = split.getPlus();
+        assertPath(plus.getBoundaryPath(), p1, Point2S.MINUS_K, p2, p1);
+    }
+
 }

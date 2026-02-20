@@ -149,4 +149,64 @@ class EmbeddingTest_OE25Dev {
         Assertions.assertEquals(3, result.size());
     }
 
+@Test
+    void testToSpace_collection_2_oe() {
+        // arrange
+        final List<TestPoint1D> pts = Arrays.asList(
+                    new TestPoint1D(0),
+                    new TestPoint1D(1),
+                    new TestPoint1D(0.5)
+                );
+
+        final TestLine line = TestLine.Y_AXIS;
+
+        // act
+        final List<TestPoint2D> result = line.toSpace(pts);
+
+        // assert
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 0), result.get(0));
+    }
+
+@Test
+    void testToSpace_collection_3_oe() {
+        // arrange
+        final List<TestPoint1D> pts = Arrays.asList(
+                    new TestPoint1D(0),
+                    new TestPoint1D(1),
+                    new TestPoint1D(0.5)
+                );
+
+        final TestLine line = TestLine.Y_AXIS;
+
+        // act
+        final List<TestPoint2D> result = line.toSpace(pts);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 1), result.get(1));
+    }
+
+@Test
+    void testToSpace_collection_4_oe() {
+        // arrange
+        final List<TestPoint1D> pts = Arrays.asList(
+                    new TestPoint1D(0),
+                    new TestPoint1D(1),
+                    new TestPoint1D(0.5)
+                );
+
+        final TestLine line = TestLine.Y_AXIS;
+
+        // act
+        final List<TestPoint2D> result = line.toSpace(pts);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 0.5), result.get(2));
+    }
+
 }

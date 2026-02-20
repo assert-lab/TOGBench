@@ -1229,4 +1229,743 @@ class AbstractConvexHyperplaneBoundedRegionTest_OE25Dev {
         Assertions.assertEquals("StubRegion[boundaries= []]", str);
     }
 
+@Test
+    void testProject_3_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion full = new StubRegion(Collections.emptyList());
+        final StubRegion halfSpace = new StubRegion(Collections.singletonList(TestLine.X_AXIS.span()));
+        final StubRegion triangle = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, halfSpace.project(new TestPoint2D(0, 1)));
+    }
+
+@Test
+    void testProject_4_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion full = new StubRegion(Collections.emptyList());
+        final StubRegion halfSpace = new StubRegion(Collections.singletonList(TestLine.X_AXIS.span()));
+        final StubRegion triangle = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, halfSpace.project(new TestPoint2D(0, 0)));
+    }
+
+@Test
+    void testProject_5_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion full = new StubRegion(Collections.emptyList());
+        final StubRegion halfSpace = new StubRegion(Collections.singletonList(TestLine.X_AXIS.span()));
+        final StubRegion triangle = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, halfSpace.project(new TestPoint2D(0, -1)));
+    }
+
+@Test
+    void testProject_6_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion full = new StubRegion(Collections.emptyList());
+        final StubRegion halfSpace = new StubRegion(Collections.singletonList(TestLine.X_AXIS.span()));
+        final StubRegion triangle = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(1.25, 0), triangle.project(new TestPoint2D(1.25, 0.1)));
+    }
+
+@Test
+    void testProject_7_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion full = new StubRegion(Collections.emptyList());
+        final StubRegion halfSpace = new StubRegion(Collections.singletonList(TestLine.X_AXIS.span()));
+        final StubRegion triangle = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(p1, triangle.project(TestPoint2D.ZERO));
+    }
+
+@Test
+    void testProject_8_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion full = new StubRegion(Collections.emptyList());
+        final StubRegion halfSpace = new StubRegion(Collections.singletonList(TestLine.X_AXIS.span()));
+        final StubRegion triangle = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(p3, triangle.project(new TestPoint2D(0, 10)));
+    }
+
+@Test
+    void testTrim_2_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(2, 1);
+        final TestPoint2D p4 = new TestPoint2D(1, 1);
+
+        final StubRegion full = new StubRegion(Collections.emptyList());
+        final StubRegion halfSpace = new StubRegion(Collections.singletonList(TestLine.Y_AXIS.span()));
+        final StubRegion square = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p4),
+                new TestLineSegment(p4, p1)
+            ));
+
+        final TestLineSegment segment = new TestLineSegment(new TestPoint2D(-1, 0.5), new TestPoint2D(4, 0.5));
+
+        // act/assert
+        // removed other assertion
+
+        final TestLineSegment trimmedA = halfSpace.trim(segment);
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-1, 0.5), trimmedA.getStartPoint());
+    }
+
+@Test
+    void testTrim_3_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(2, 1);
+        final TestPoint2D p4 = new TestPoint2D(1, 1);
+
+        final StubRegion full = new StubRegion(Collections.emptyList());
+        final StubRegion halfSpace = new StubRegion(Collections.singletonList(TestLine.Y_AXIS.span()));
+        final StubRegion square = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p4),
+                new TestLineSegment(p4, p1)
+            ));
+
+        final TestLineSegment segment = new TestLineSegment(new TestPoint2D(-1, 0.5), new TestPoint2D(4, 0.5));
+
+        // act/assert
+        // removed other assertion
+
+        final TestLineSegment trimmedA = halfSpace.trim(segment);
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 0.5), trimmedA.getEndPoint());
+    }
+
+@Test
+    void testTrim_4_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(2, 1);
+        final TestPoint2D p4 = new TestPoint2D(1, 1);
+
+        final StubRegion full = new StubRegion(Collections.emptyList());
+        final StubRegion halfSpace = new StubRegion(Collections.singletonList(TestLine.Y_AXIS.span()));
+        final StubRegion square = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p4),
+                new TestLineSegment(p4, p1)
+            ));
+
+        final TestLineSegment segment = new TestLineSegment(new TestPoint2D(-1, 0.5), new TestPoint2D(4, 0.5));
+
+        // act/assert
+        // removed other assertion
+
+        final TestLineSegment trimmedA = halfSpace.trim(segment);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment trimmedB = square.trim(segment);
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(1, 0.5), trimmedB.getStartPoint());
+    }
+
+@Test
+    void testTrim_5_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(2, 1);
+        final TestPoint2D p4 = new TestPoint2D(1, 1);
+
+        final StubRegion full = new StubRegion(Collections.emptyList());
+        final StubRegion halfSpace = new StubRegion(Collections.singletonList(TestLine.Y_AXIS.span()));
+        final StubRegion square = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p4),
+                new TestLineSegment(p4, p1)
+            ));
+
+        final TestLineSegment segment = new TestLineSegment(new TestPoint2D(-1, 0.5), new TestPoint2D(4, 0.5));
+
+        // act/assert
+        // removed other assertion
+
+        final TestLineSegment trimmedA = halfSpace.trim(segment);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment trimmedB = square.trim(segment);
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(2, 0.5), trimmedB.getEndPoint());
+    }
+
+@Test
+    void testSplit_inconsistentBoundarySplitLocations_minus_1_oe() {
+        // arrange
+        final TestLine a = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 1));
+        final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(0, 0));
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                    new TestLineSegment(-1e-8, Double.POSITIVE_INFINITY, a),
+                    new TestLineSegment(Double.NEGATIVE_INFINITY, 1e-8, b)
+                ));
+
+        final List<TestLineSegment> segments = region.getBoundaries();
+        PartitionTestUtils.assertPointsEqual(segments.get(0).getStartPoint(), segments.get(1).getEndPoint());
+    }
+
+@Test
+    void testSplit_inconsistentBoundarySplitLocations_plus_1_oe() {
+        // arrange
+        final TestLine a = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 1));
+        final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(0, 0));
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                    new TestLineSegment(-1e-8, Double.POSITIVE_INFINITY, a),
+                    new TestLineSegment(Double.NEGATIVE_INFINITY, 1e-8, b)
+                ));
+
+        final List<TestLineSegment> segments = region.getBoundaries();
+        PartitionTestUtils.assertPointsEqual(segments.get(0).getStartPoint(), segments.get(1).getEndPoint());
+    }
+
+@Test
+    void testSplit_inconsistentBoundarySplitLocations_trimmedNotNull_minus_1_oe() {
+        // arrange
+        final TestLine a = new TestLine(new TestPoint2D(1e-8, 0), new TestPoint2D(1, 1));
+        final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(-1e-8, 0));
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                    new TestLineSegment(1e-8, Double.POSITIVE_INFINITY, a),
+                    new TestLineSegment(Double.NEGATIVE_INFINITY, -1e-8, b)
+                ));
+
+        final List<TestLineSegment> segments = region.getBoundaries();
+        PartitionTestUtils.assertPointsEqual(segments.get(0).getStartPoint(), segments.get(1).getEndPoint());
+    }
+
+@Test
+    void testSplit_inconsistentBoundarySplitLocations_trimmedNotNull_plus_1_oe() {
+        // arrange
+        final TestLine a = new TestLine(new TestPoint2D(1e-8, 0), new TestPoint2D(1, 1));
+        final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(-1e-8, 0));
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                    new TestLineSegment(1e-8, Double.POSITIVE_INFINITY, a),
+                    new TestLineSegment(Double.NEGATIVE_INFINITY, -1e-8, b)
+                ));
+
+        final List<TestLineSegment> segments = region.getBoundaries();
+        PartitionTestUtils.assertPointsEqual(segments.get(0).getStartPoint(), segments.get(1).getEndPoint());
+    }
+
+@Test
+    void testSplit_inconsistentBoundarySplitLocations_trimmedNotNull_neither_1_oe() {
+        // arrange
+        final TestLine a = new TestLine(new TestPoint2D(1e-8, 0), new TestPoint2D(1, 1));
+        final TestLine b = new TestLine(new TestPoint2D(-1, 1), new TestPoint2D(-1e-8, 0));
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                    new TestLineSegment(0, 0, a),
+                    new TestLineSegment(0, 0, b)
+                ));
+
+        final List<TestLineSegment> segments = region.getBoundaries();
+        PartitionTestUtils.assertPointsEqual(segments.get(0).getStartPoint(), segments.get(1).getEndPoint());
+    }
+
+@Test
+    void testTransform_infinite_2_oe() {
+        // arrange
+        final TestLine line = TestLine.Y_AXIS;
+
+        final StubRegion region = new StubRegion(Collections.singletonList(line.span()));
+
+        final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
+
+        // act
+        final StubRegion transformed = region.transform(transform);
+
+        // assert
+        final List<TestLineSegment> boundaries = transformed.getBoundaries();
+
+        // removed other assertion
+
+        final TestLineSegment a = boundaries.get(0);
+        final TestLine aLine = a.getHyperplane();
+        PartitionTestUtils.assertPointsEqual(aLine.getOrigin(), new TestPoint2D(1, 0));
+    }
+
+@Test
+    void testTransform_finite_2_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
+
+        // act
+        final StubRegion transformed = region.transform(transform);
+
+        // assert
+        final List<TestLineSegment> boundaries = transformed.getBoundaries();
+
+        // removed other assertion
+
+        final TestLineSegment a = boundaries.get(0);
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(2, 2), a.getStartPoint());
+    }
+
+@Test
+    void testTransform_finite_3_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
+
+        // act
+        final StubRegion transformed = region.transform(transform);
+
+        // assert
+        final List<TestLineSegment> boundaries = transformed.getBoundaries();
+
+        // removed other assertion
+
+        final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(3, 2), a.getEndPoint());
+    }
+
+@Test
+    void testTransform_finite_4_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
+
+        // act
+        final StubRegion transformed = region.transform(transform);
+
+        // assert
+        final List<TestLineSegment> boundaries = transformed.getBoundaries();
+
+        // removed other assertion
+
+        final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment b = boundaries.get(1);
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(3, 2), b.getStartPoint());
+    }
+
+@Test
+    void testTransform_finite_5_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
+
+        // act
+        final StubRegion transformed = region.transform(transform);
+
+        // assert
+        final List<TestLineSegment> boundaries = transformed.getBoundaries();
+
+        // removed other assertion
+
+        final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment b = boundaries.get(1);
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(2, 3), b.getEndPoint());
+    }
+
+@Test
+    void testTransform_finite_6_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
+
+        // act
+        final StubRegion transformed = region.transform(transform);
+
+        // assert
+        final List<TestLineSegment> boundaries = transformed.getBoundaries();
+
+        // removed other assertion
+
+        final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment b = boundaries.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment c = boundaries.get(2);
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(2, 3), c.getStartPoint());
+    }
+
+@Test
+    void testTransform_finite_7_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(p.getX() + 1, p.getY() + 2));
+
+        // act
+        final StubRegion transformed = region.transform(transform);
+
+        // assert
+        final List<TestLineSegment> boundaries = transformed.getBoundaries();
+
+        // removed other assertion
+
+        final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment b = boundaries.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment c = boundaries.get(2);
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(2, 2), c.getEndPoint());
+    }
+
+@Test
+    void testTransform_reflection_2_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(-p.getX(), p.getY()));
+
+        // act
+        final StubRegion transformed = region.transform(transform);
+
+        // assert
+        final List<TestLineSegment> boundaries = transformed.getBoundaries();
+
+        // removed other assertion
+
+        final TestLineSegment a = boundaries.get(0);
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-2, 0), a.getStartPoint());
+    }
+
+@Test
+    void testTransform_reflection_3_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(-p.getX(), p.getY()));
+
+        // act
+        final StubRegion transformed = region.transform(transform);
+
+        // assert
+        final List<TestLineSegment> boundaries = transformed.getBoundaries();
+
+        // removed other assertion
+
+        final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-1, 0), a.getEndPoint());
+    }
+
+@Test
+    void testTransform_reflection_4_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(-p.getX(), p.getY()));
+
+        // act
+        final StubRegion transformed = region.transform(transform);
+
+        // assert
+        final List<TestLineSegment> boundaries = transformed.getBoundaries();
+
+        // removed other assertion
+
+        final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment b = boundaries.get(1);
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-1, 1), b.getStartPoint());
+    }
+
+@Test
+    void testTransform_reflection_5_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(-p.getX(), p.getY()));
+
+        // act
+        final StubRegion transformed = region.transform(transform);
+
+        // assert
+        final List<TestLineSegment> boundaries = transformed.getBoundaries();
+
+        // removed other assertion
+
+        final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment b = boundaries.get(1);
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-2, 0), b.getEndPoint());
+    }
+
+@Test
+    void testTransform_reflection_6_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(-p.getX(), p.getY()));
+
+        // act
+        final StubRegion transformed = region.transform(transform);
+
+        // assert
+        final List<TestLineSegment> boundaries = transformed.getBoundaries();
+
+        // removed other assertion
+
+        final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment b = boundaries.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment c = boundaries.get(2);
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-1, 0), c.getStartPoint());
+    }
+
+@Test
+    void testTransform_reflection_7_oe() {
+        // arrange
+        final TestPoint2D p1 = new TestPoint2D(1, 0);
+        final TestPoint2D p2 = new TestPoint2D(2, 0);
+        final TestPoint2D p3 = new TestPoint2D(1, 1);
+
+        final StubRegion region = new StubRegion(Arrays.asList(
+                new TestLineSegment(p1, p2),
+                new TestLineSegment(p2, p3),
+                new TestLineSegment(p3, p1)
+            ));
+
+        final Transform<TestPoint2D> transform = new TestTransform2D(p -> new TestPoint2D(-p.getX(), p.getY()));
+
+        // act
+        final StubRegion transformed = region.transform(transform);
+
+        // assert
+        final List<TestLineSegment> boundaries = transformed.getBoundaries();
+
+        // removed other assertion
+
+        final TestLineSegment a = boundaries.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment b = boundaries.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment c = boundaries.get(2);
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-1, 1), c.getEndPoint());
+    }
+
 }

@@ -1,0 +1,123 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[261,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,int,int)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[262,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,int,int)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[263,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,int,int)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[264,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,int,int)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[265,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,int,int)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[272,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,long,long)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[278,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,long,long)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[283,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,long,long)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[292,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[299,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[304,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[309,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[315,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[320,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[327,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[341,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[346,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[388,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[397,9] cannot find symbol
+  symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+  location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-numbers-fraction: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[261,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,int,int)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[262,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,int,int)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[263,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,int,int)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[264,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,int,int)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[265,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,int,int)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[272,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,long,long)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[278,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,long,long)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[283,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,long,long)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[292,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[299,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[304,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[309,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[315,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[320,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[327,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[341,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[346,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[388,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/java/org/apache/commons/numbers/fraction/BigFractionTest_OE25Dev_numb_left_359_1.java:[397,9] cannot find symbol
+[ERROR]   symbol:   method assertDoubleValue(double,java.math.BigInteger,java.math.BigInteger)
+[ERROR]   location: class org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev_numb_left_359_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

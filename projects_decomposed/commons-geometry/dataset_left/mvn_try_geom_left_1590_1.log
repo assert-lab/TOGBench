@@ -1,0 +1,183 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[44,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[45,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[47,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[48,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[50,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[51,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[66,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[68,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[70,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[91,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[94,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[141,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[162,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[193,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[196,13] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[203,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[210,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[217,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[225,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[233,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[241,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[249,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[258,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[420,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[543,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[561,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[580,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[599,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[614,9] cannot find symbol
+  symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-euclidean: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[44,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[45,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[47,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[48,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[50,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[51,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[66,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[68,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[70,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[91,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[94,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[141,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[162,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[193,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[196,13] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[203,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[210,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[217,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[225,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[233,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[241,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[249,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[258,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[420,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[543,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[561,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[580,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[599,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/PlaneTest_OE25Dev_geom_left_1590_1.java:[614,9] cannot find symbol
+[ERROR]   symbol:   method checkPlane(org.apache.commons.geometry.euclidean.threed.Plane,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev_geom_left_1590_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

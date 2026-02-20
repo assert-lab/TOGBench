@@ -1,0 +1,497 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/CharSetTest.java:[40,38] cannot access org.apache.commons.lang3.CharSet
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/CharSet.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/CharSet.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/CallableBackgroundInitializerTest.java:[42,60] cannot access org.apache.commons.lang3.concurrent.CallableBackgroundInitializer
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/concurrent/CallableBackgroundInitializer.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/concurrent/CallableBackgroundInitializer.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/reflect/TypeLiteralTest.java:[32,55] cannot access org.apache.commons.lang3.reflect.TypeLiteral
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/reflect/TypeLiteral.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/reflect/TypeLiteral.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest.java:[69,64] cannot access org.apache.commons.lang3.concurrent.ConcurrentRuntimeException
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/concurrent/ConcurrentRuntimeException.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/concurrent/ConcurrentRuntimeException.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest.java:[93,20] cannot access org.apache.commons.lang3.concurrent.ConcurrentUtils
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/concurrent/ConcurrentUtils.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/concurrent/ConcurrentUtils.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/mutable/MutableFloatTest.java:[35,15] cannot access org.apache.commons.lang3.mutable.MutableFloat
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/mutable/MutableFloat.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/mutable/MutableFloat.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/EnumUtilsTest.java:[44,13] cannot access org.apache.commons.lang3.EnumUtils
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/EnumUtils.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/EnumUtils.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/FormattableUtilsTest.java:[35,29] cannot access org.apache.commons.lang3.text.FormattableUtils
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/text/FormattableUtils.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/text/FormattableUtils.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ClassPathUtilsTest.java:[36,27] cannot access org.apache.commons.lang3.ClassPathUtils
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/ClassPathUtils.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/ClassPathUtils.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/RegExUtilsTest.java:[35,20] cannot access org.apache.commons.lang3.RegExUtils
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/RegExUtils.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/RegExUtils.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/AnnotationUtilsTest.java:[413,20] cannot access org.apache.commons.lang3.AnnotationUtils
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/AnnotationUtils.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/AnnotationUtils.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/translate/UnicodeEscaperTest.java:[32,15] cannot access org.apache.commons.lang3.text.translate.UnicodeEscaper
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/text/translate/UnicodeEscaper.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/text/translate/UnicodeEscaper.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/translate/LookupTranslatorTest.java:[35,15] cannot access org.apache.commons.lang3.text.translate.LookupTranslator
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/text/translate/LookupTranslator.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/text/translate/LookupTranslator.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/CharSequenceUtilsTest.java:[47,27] cannot access org.apache.commons.lang3.CharSequenceUtils
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/CharSequenceUtils.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/CharSequenceUtils.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[286,27] cannot access org.apache.commons.lang3.function.FailableLongConsumer
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongConsumer.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongConsumer.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[289,64] cannot access org.apache.commons.lang3.function.FailableDoubleConsumer
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleConsumer.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleConsumer.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[306,79] cannot access org.apache.commons.lang3.function.FailableLongConsumer
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongConsumer.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongConsumer.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[310,64] cannot access org.apache.commons.lang3.function.FailableDoubleConsumer
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleConsumer.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleConsumer.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[491,27] cannot access org.apache.commons.lang3.function.FailableBiFunction
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableBiFunction.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableBiFunction.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[512,27] cannot access org.apache.commons.lang3.function.FailableDoubleBinaryOperator
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleBinaryOperator.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleBinaryOperator.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[547,15] cannot access org.apache.commons.lang3.function.FailableCallable
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableCallable.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableCallable.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[588,43] cannot access org.apache.commons.lang3.function.FailableRunnable
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableRunnable.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableRunnable.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[714,15] cannot access org.apache.commons.lang3.function.FailableBiPredicate
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableBiPredicate.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableBiPredicate.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[810,15] cannot access org.apache.commons.lang3.function.FailableDoublePredicate
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoublePredicate.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoublePredicate.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[852,15] cannot access org.apache.commons.lang3.function.FailableDoubleUnaryOperator
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleUnaryOperator.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleUnaryOperator.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[973,27] cannot access org.apache.commons.lang3.function.FailableBooleanSupplier
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableBooleanSupplier.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableBooleanSupplier.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[995,27] cannot access org.apache.commons.lang3.function.FailableDoubleSupplier
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleSupplier.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleSupplier.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1016,79] cannot access org.apache.commons.lang3.function.FailableIntSupplier
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntSupplier.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntSupplier.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1039,27] cannot access org.apache.commons.lang3.function.FailableLongSupplier
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongSupplier.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongSupplier.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1062,27] cannot access org.apache.commons.lang3.function.FailableShortSupplier
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableShortSupplier.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableShortSupplier.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1138,15] cannot access org.apache.commons.lang3.function.FailableIntPredicate
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntPredicate.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntPredicate.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1180,15] cannot access org.apache.commons.lang3.function.FailableIntUnaryOperator
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntUnaryOperator.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntUnaryOperator.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1245,15] cannot access org.apache.commons.lang3.function.FailableLongPredicate
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongPredicate.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongPredicate.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1283,15] cannot access org.apache.commons.lang3.function.FailableLongUnaryOperator
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongUnaryOperator.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongUnaryOperator.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1384,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1399,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1415,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1430,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1445,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1460,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1475,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1490,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1505,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1520,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1567,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1582,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1597,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1612,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1626,13] cannot access org.apache.commons.lang3.function.FailableDoubleFunction
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleFunction.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleFunction.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1628,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1643,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1658,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1673,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1686,13] cannot access org.apache.commons.lang3.function.FailableDoubleToIntFunction
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleToIntFunction.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleToIntFunction.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1688,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1703,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1716,13] cannot access org.apache.commons.lang3.function.FailableDoubleToLongFunction
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleToLongFunction.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleToLongFunction.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1718,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1733,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1776,13] cannot access org.apache.commons.lang3.function.FailableIntBinaryOperator
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntBinaryOperator.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntBinaryOperator.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1778,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1793,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1808,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1823,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1837,13] cannot access org.apache.commons.lang3.function.FailableIntFunction
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntFunction.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntFunction.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1839,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1854,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1869,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1884,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1897,13] cannot access org.apache.commons.lang3.function.FailableIntToDoubleFunction
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntToDoubleFunction.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntToDoubleFunction.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1899,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1914,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1927,13] cannot access org.apache.commons.lang3.function.FailableIntToLongFunction
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntToLongFunction.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntToLongFunction.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1929,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1944,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1957,13] cannot access org.apache.commons.lang3.function.FailableLongBinaryOperator
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongBinaryOperator.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongBinaryOperator.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1959,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1974,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1989,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2005,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2019,13] cannot access org.apache.commons.lang3.function.FailableLongFunction
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongFunction.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongFunction.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2021,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2036,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2051,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2066,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2079,13] cannot access org.apache.commons.lang3.function.FailableLongToDoubleFunction
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongToDoubleFunction.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongToDoubleFunction.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2081,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2096,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2109,13] cannot access org.apache.commons.lang3.function.FailableLongToIntFunction
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongToIntFunction.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongToIntFunction.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2111,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2126,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2139,13] cannot access org.apache.commons.lang3.function.FailableObjDoubleConsumer
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableObjDoubleConsumer.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableObjDoubleConsumer.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2141,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2157,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2170,13] cannot access org.apache.commons.lang3.function.FailableObjIntConsumer
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableObjIntConsumer.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableObjIntConsumer.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2172,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2188,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2201,13] cannot access org.apache.commons.lang3.function.FailableObjLongConsumer
+  bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableObjLongConsumer.class
+    unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableObjLongConsumer.class
+    Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2203,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2219,13] method does not override or implement a method from a supertype
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-lang3: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/CharSetTest.java:[40,38] cannot access org.apache.commons.lang3.CharSet
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/CharSet.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/CharSet.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/CallableBackgroundInitializerTest.java:[42,60] cannot access org.apache.commons.lang3.concurrent.CallableBackgroundInitializer
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/concurrent/CallableBackgroundInitializer.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/concurrent/CallableBackgroundInitializer.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/reflect/TypeLiteralTest.java:[32,55] cannot access org.apache.commons.lang3.reflect.TypeLiteral
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/reflect/TypeLiteral.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/reflect/TypeLiteral.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest.java:[69,64] cannot access org.apache.commons.lang3.concurrent.ConcurrentRuntimeException
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/concurrent/ConcurrentRuntimeException.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/concurrent/ConcurrentRuntimeException.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/concurrent/ConcurrentUtilsTest.java:[93,20] cannot access org.apache.commons.lang3.concurrent.ConcurrentUtils
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/concurrent/ConcurrentUtils.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/concurrent/ConcurrentUtils.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/mutable/MutableFloatTest.java:[35,15] cannot access org.apache.commons.lang3.mutable.MutableFloat
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/mutable/MutableFloat.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/mutable/MutableFloat.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/EnumUtilsTest.java:[44,13] cannot access org.apache.commons.lang3.EnumUtils
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/EnumUtils.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/EnumUtils.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/FormattableUtilsTest.java:[35,29] cannot access org.apache.commons.lang3.text.FormattableUtils
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/text/FormattableUtils.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/text/FormattableUtils.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/ClassPathUtilsTest.java:[36,27] cannot access org.apache.commons.lang3.ClassPathUtils
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/ClassPathUtils.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/ClassPathUtils.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/RegExUtilsTest.java:[35,20] cannot access org.apache.commons.lang3.RegExUtils
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/RegExUtils.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/RegExUtils.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/AnnotationUtilsTest.java:[413,20] cannot access org.apache.commons.lang3.AnnotationUtils
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/AnnotationUtils.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/AnnotationUtils.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/translate/UnicodeEscaperTest.java:[32,15] cannot access org.apache.commons.lang3.text.translate.UnicodeEscaper
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/text/translate/UnicodeEscaper.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/text/translate/UnicodeEscaper.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/translate/LookupTranslatorTest.java:[35,15] cannot access org.apache.commons.lang3.text.translate.LookupTranslator
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/text/translate/LookupTranslator.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/text/translate/LookupTranslator.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/CharSequenceUtilsTest.java:[47,27] cannot access org.apache.commons.lang3.CharSequenceUtils
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/CharSequenceUtils.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/CharSequenceUtils.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[286,27] cannot access org.apache.commons.lang3.function.FailableLongConsumer
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongConsumer.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongConsumer.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[289,64] cannot access org.apache.commons.lang3.function.FailableDoubleConsumer
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleConsumer.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleConsumer.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[306,79] cannot access org.apache.commons.lang3.function.FailableLongConsumer
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongConsumer.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongConsumer.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[310,64] cannot access org.apache.commons.lang3.function.FailableDoubleConsumer
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleConsumer.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleConsumer.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[491,27] cannot access org.apache.commons.lang3.function.FailableBiFunction
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableBiFunction.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableBiFunction.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[512,27] cannot access org.apache.commons.lang3.function.FailableDoubleBinaryOperator
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleBinaryOperator.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleBinaryOperator.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[547,15] cannot access org.apache.commons.lang3.function.FailableCallable
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableCallable.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableCallable.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[588,43] cannot access org.apache.commons.lang3.function.FailableRunnable
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableRunnable.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableRunnable.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[714,15] cannot access org.apache.commons.lang3.function.FailableBiPredicate
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableBiPredicate.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableBiPredicate.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[810,15] cannot access org.apache.commons.lang3.function.FailableDoublePredicate
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoublePredicate.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoublePredicate.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[852,15] cannot access org.apache.commons.lang3.function.FailableDoubleUnaryOperator
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleUnaryOperator.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleUnaryOperator.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[973,27] cannot access org.apache.commons.lang3.function.FailableBooleanSupplier
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableBooleanSupplier.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableBooleanSupplier.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[995,27] cannot access org.apache.commons.lang3.function.FailableDoubleSupplier
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleSupplier.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleSupplier.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1016,79] cannot access org.apache.commons.lang3.function.FailableIntSupplier
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntSupplier.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntSupplier.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1039,27] cannot access org.apache.commons.lang3.function.FailableLongSupplier
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongSupplier.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongSupplier.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1062,27] cannot access org.apache.commons.lang3.function.FailableShortSupplier
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableShortSupplier.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableShortSupplier.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1138,15] cannot access org.apache.commons.lang3.function.FailableIntPredicate
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntPredicate.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntPredicate.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1180,15] cannot access org.apache.commons.lang3.function.FailableIntUnaryOperator
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntUnaryOperator.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntUnaryOperator.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1245,15] cannot access org.apache.commons.lang3.function.FailableLongPredicate
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongPredicate.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongPredicate.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1283,15] cannot access org.apache.commons.lang3.function.FailableLongUnaryOperator
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongUnaryOperator.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongUnaryOperator.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1384,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1399,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1415,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1430,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1445,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1460,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1475,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1490,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1505,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1520,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1567,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1582,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1597,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1612,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1626,13] cannot access org.apache.commons.lang3.function.FailableDoubleFunction
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleFunction.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleFunction.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1628,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1643,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1658,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1673,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1686,13] cannot access org.apache.commons.lang3.function.FailableDoubleToIntFunction
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleToIntFunction.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleToIntFunction.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1688,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1703,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1716,13] cannot access org.apache.commons.lang3.function.FailableDoubleToLongFunction
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleToLongFunction.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableDoubleToLongFunction.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1718,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1733,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1776,13] cannot access org.apache.commons.lang3.function.FailableIntBinaryOperator
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntBinaryOperator.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntBinaryOperator.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1778,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1793,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1808,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1823,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1837,13] cannot access org.apache.commons.lang3.function.FailableIntFunction
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntFunction.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntFunction.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1839,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1854,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1869,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1884,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1897,13] cannot access org.apache.commons.lang3.function.FailableIntToDoubleFunction
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntToDoubleFunction.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntToDoubleFunction.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1899,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1914,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1927,13] cannot access org.apache.commons.lang3.function.FailableIntToLongFunction
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntToLongFunction.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableIntToLongFunction.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1929,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1944,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1957,13] cannot access org.apache.commons.lang3.function.FailableLongBinaryOperator
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongBinaryOperator.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongBinaryOperator.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1959,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1974,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[1989,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2005,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2019,13] cannot access org.apache.commons.lang3.function.FailableLongFunction
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongFunction.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongFunction.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2021,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2036,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2051,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2066,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2079,13] cannot access org.apache.commons.lang3.function.FailableLongToDoubleFunction
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongToDoubleFunction.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongToDoubleFunction.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2081,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2096,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2109,13] cannot access org.apache.commons.lang3.function.FailableLongToIntFunction
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongToIntFunction.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableLongToIntFunction.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2111,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2126,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2139,13] cannot access org.apache.commons.lang3.function.FailableObjDoubleConsumer
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableObjDoubleConsumer.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableObjDoubleConsumer.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2141,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2157,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2170,13] cannot access org.apache.commons.lang3.function.FailableObjIntConsumer
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableObjIntConsumer.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableObjIntConsumer.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2172,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2188,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2201,13] cannot access org.apache.commons.lang3.function.FailableObjLongConsumer
+[ERROR]   bad class file: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableObjLongConsumer.class
+[ERROR]     unable to access file: java.nio.file.NoSuchFileException: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes/org/apache/commons/lang3/function/FailableObjLongConsumer.class
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the classpath.
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2203,13] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/function/FailableFunctionsTest.java:[2219,13] method does not override or implement a method from a supertype
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -156,118 +156,6 @@ class ConvexAreaTest_OE25Dev {
             .whenGiven(Lines.segmentFromPoints(Vector2D.of(0.5, 0.5), Vector2D.of(1, 1), TEST_PRECISION));
     }
 
-    @Test
-    void testConvexPolygonFromVertices_notEnoughUniqueVertices() {
-        // arrange
-        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
-
-        final Pattern unclosedPattern = Pattern.compile("Cannot construct convex polygon from unclosed path.*");
-        final Pattern notEnoughElementsPattern =
-                Pattern.compile("Cannot construct convex polygon from path with less than 3 elements.*");
-        final Pattern nonConvexPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
-
-        final Pattern singleVertexPattern =
-                Pattern.compile("Unable to create line path; only a single unique vertex provided.*");
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            ConvexArea.convexPolygonFromVertices(Collections.emptyList(), precision);
-        }, IllegalArgumentException.class, unclosedPattern);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            ConvexArea.convexPolygonFromVertices(Collections.singletonList(Vector2D.ZERO), precision);
-        }, IllegalStateException.class, singleVertexPattern);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            ConvexArea.convexPolygonFromVertices(Arrays.asList(Vector2D.ZERO, Vector2D.of(1e-4, 1e-4)), precision);
-        }, IllegalStateException.class, singleVertexPattern);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            ConvexArea.convexPolygonFromVertices(Arrays.asList(Vector2D.ZERO, Vector2D.Unit.PLUS_X), precision);
-        }, IllegalArgumentException.class, notEnoughElementsPattern);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            ConvexArea.convexPolygonFromVertices(
-                    Arrays.asList(Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.of(1, 1e-4)), precision);
-        }, IllegalArgumentException.class, notEnoughElementsPattern);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            ConvexArea.convexPolygonFromVertices(
-                    Arrays.asList(Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.of(1, -1)), precision);
-        }, IllegalArgumentException.class, nonConvexPattern);
-    }
-
-    @Test
-    void testConvexPolygonFromVertices_notConvex() {
-        // arrange
-        final Pattern msgPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            ConvexArea.convexPolygonFromVertices(Arrays.asList(
-                        Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 0)
-                    ), TEST_PRECISION);
-        }, IllegalArgumentException.class, msgPattern);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            ConvexArea.convexPolygonFromVertices(Arrays.asList(
-                        Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(1, -1)
-                    ), TEST_PRECISION);
-        }, IllegalArgumentException.class, msgPattern);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            ConvexArea.convexPolygonFromVertices(
-                    Arrays.asList(
-                            Vector2D.ZERO,
-                            Vector2D.Unit.PLUS_Y,
-                            Vector2D.of(1, 1),
-                            Vector2D.Unit.PLUS_X
-                    ), TEST_PRECISION);
-        }, IllegalArgumentException.class, msgPattern);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            ConvexArea.convexPolygonFromVertices(Arrays.asList(
-                        Vector2D.ZERO, Vector2D.of(2, 0),
-                        Vector2D.of(2, 2), Vector2D.of(1, 1),
-                        Vector2D.of(1.5, 1)
-                    ), TEST_PRECISION);
-        }, IllegalArgumentException.class, msgPattern);
-    }
-
-    @Test
-    void testConvexPolygonFromPath_invalidPaths() {
-        // arrange
-        final Pattern unclosedPattern = Pattern.compile("Cannot construct convex polygon from unclosed path.*");
-        final Pattern notEnoughElementsPattern =
-                Pattern.compile("Cannot construct convex polygon from path with less than 3 elements.*");
-        final Pattern nonConvexPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            ConvexArea.convexPolygonFromPath(LinePath.empty());
-        }, IllegalArgumentException.class, unclosedPattern);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            ConvexArea.convexPolygonFromPath(LinePath.fromVertices(
-                    Arrays.asList(Vector2D.ZERO, Vector2D.Unit.PLUS_X), TEST_PRECISION));
-        }, IllegalArgumentException.class, unclosedPattern);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            ConvexArea.convexPolygonFromPath(LinePath.fromVertices(
-                    Arrays.asList(Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.ZERO), TEST_PRECISION));
-        }, IllegalArgumentException.class, notEnoughElementsPattern);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            ConvexArea.convexPolygonFromPath(LinePath.fromVertexLoop(
-                    Arrays.asList(
-                            Vector2D.ZERO,
-                            Vector2D.Unit.PLUS_Y,
-                            Vector2D.of(1, 1),
-                            Vector2D.Unit.PLUS_X
-                    ), TEST_PRECISION));
-        }, IllegalArgumentException.class, nonConvexPattern);
-    }
-
     private static List<Line> createSquareBoundingLines(final Vector2D lowerLeft, final double width, final double height) {
         final Vector2D lowerRight = Vector2D.of(lowerLeft.getX() + width, lowerLeft.getY());
         final Vector2D upperRight = Vector2D.of(lowerLeft.getX() + width, lowerLeft.getY() + height);
@@ -3914,6 +3802,724 @@ class ConvexAreaTest_OE25Dev {
     fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+@Test
+    void testTransform_finite_6_oe() {
+        // arrange
+        final AffineTransformMatrix2D mat = AffineTransformMatrix2D.createScale(Vector2D.of(1, 2));
+
+        final ConvexArea area = ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.of(1, 1), Vector2D.of(2, 1),
+                    Vector2D.of(2, 2), Vector2D.of(1, 2)
+                ), TEST_PRECISION);
+
+        // act
+        final ConvexArea transformed = area.transform(mat);
+
+        // assert
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = transformed.getBoundaries();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(transformed, RegionLocation.BOUNDARY, Vector2D.of(1, 2), Vector2D.of(2, 2), Vector2D.of(2, 4), Vector2D.of(1, 4));
+    }
+
+@Test
+    void testTransform_finite_withSingleReflection_6_oe() {
+        // arrange
+        final AffineTransformMatrix2D mat = AffineTransformMatrix2D.createScale(Vector2D.of(-1, 2));
+
+        final ConvexArea area = ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.of(1, 1), Vector2D.of(2, 1),
+                    Vector2D.of(2, 2), Vector2D.of(1, 2)
+                ), TEST_PRECISION);
+
+        // act
+        final ConvexArea transformed = area.transform(mat);
+
+        // assert
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = transformed.getBoundaries();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(transformed, RegionLocation.BOUNDARY, Vector2D.of(-1, 2), Vector2D.of(-2, 2), Vector2D.of(-2, 4), Vector2D.of(-1, 4));
+    }
+
+@Test
+    void testTransform_finite_withDoubleReflection_6_oe() {
+        // arrange
+        final AffineTransformMatrix2D mat = AffineTransformMatrix2D.createScale(Vector2D.of(-1, -2));
+
+        final ConvexArea area = ConvexArea.convexPolygonFromVertices(Arrays.asList(
+                    Vector2D.of(1, 1), Vector2D.of(2, 1),
+                    Vector2D.of(2, 2), Vector2D.of(1, 2)
+                ), TEST_PRECISION);
+
+        // act
+        final ConvexArea transformed = area.transform(mat);
+
+        // assert
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = transformed.getBoundaries();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(transformed, RegionLocation.BOUNDARY, Vector2D.of(-1, -2), Vector2D.of(-2, -2), Vector2D.of(-2, -4), Vector2D.of(-1, -4));
+    }
+
+@Test
+    void testConvexPolygonFromVertices_notEnoughUniqueVertices_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
+
+        final Pattern unclosedPattern = Pattern.compile("Cannot construct convex polygon from unclosed path.*");
+        final Pattern notEnoughElementsPattern =
+                Pattern.compile("Cannot construct convex polygon from path with less than 3 elements.*");
+        final Pattern nonConvexPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
+
+        final Pattern singleVertexPattern =
+                Pattern.compile("Unable to create line path; only a single unique vertex provided.*");
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { ConvexArea.convexPolygonFromVertices(Collections.emptyList(), precision); }, IllegalArgumentException.class, unclosedPattern);
+    }
+
+@Test
+    void testConvexPolygonFromVertices_notEnoughUniqueVertices_2_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
+
+        final Pattern unclosedPattern = Pattern.compile("Cannot construct convex polygon from unclosed path.*");
+        final Pattern notEnoughElementsPattern =
+                Pattern.compile("Cannot construct convex polygon from path with less than 3 elements.*");
+        final Pattern nonConvexPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
+
+        final Pattern singleVertexPattern =
+                Pattern.compile("Unable to create line path; only a single unique vertex provided.*");
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { ConvexArea.convexPolygonFromVertices(Collections.singletonList(Vector2D.ZERO), precision); }, IllegalStateException.class, singleVertexPattern);
+    }
+
+@Test
+    void testConvexPolygonFromVertices_notEnoughUniqueVertices_3_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
+
+        final Pattern unclosedPattern = Pattern.compile("Cannot construct convex polygon from unclosed path.*");
+        final Pattern notEnoughElementsPattern =
+                Pattern.compile("Cannot construct convex polygon from path with less than 3 elements.*");
+        final Pattern nonConvexPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
+
+        final Pattern singleVertexPattern =
+                Pattern.compile("Unable to create line path; only a single unique vertex provided.*");
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { ConvexArea.convexPolygonFromVertices(Arrays.asList(Vector2D.ZERO, Vector2D.of(1e-4, 1e-4)), precision); }, IllegalStateException.class, singleVertexPattern);
+    }
+
+@Test
+    void testConvexPolygonFromVertices_notEnoughUniqueVertices_4_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
+
+        final Pattern unclosedPattern = Pattern.compile("Cannot construct convex polygon from unclosed path.*");
+        final Pattern notEnoughElementsPattern =
+                Pattern.compile("Cannot construct convex polygon from path with less than 3 elements.*");
+        final Pattern nonConvexPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
+
+        final Pattern singleVertexPattern =
+                Pattern.compile("Unable to create line path; only a single unique vertex provided.*");
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { ConvexArea.convexPolygonFromVertices(Arrays.asList(Vector2D.ZERO, Vector2D.Unit.PLUS_X), precision); }, IllegalArgumentException.class, notEnoughElementsPattern);
+    }
+
+@Test
+    void testConvexPolygonFromVertices_notEnoughUniqueVertices_5_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
+
+        final Pattern unclosedPattern = Pattern.compile("Cannot construct convex polygon from unclosed path.*");
+        final Pattern notEnoughElementsPattern =
+                Pattern.compile("Cannot construct convex polygon from path with less than 3 elements.*");
+        final Pattern nonConvexPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
+
+        final Pattern singleVertexPattern =
+                Pattern.compile("Unable to create line path; only a single unique vertex provided.*");
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { ConvexArea.convexPolygonFromVertices( Arrays.asList(Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.of(1, 1e-4)), precision); }, IllegalArgumentException.class, notEnoughElementsPattern);
+    }
+
+@Test
+    void testConvexPolygonFromVertices_notEnoughUniqueVertices_6_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
+
+        final Pattern unclosedPattern = Pattern.compile("Cannot construct convex polygon from unclosed path.*");
+        final Pattern notEnoughElementsPattern =
+                Pattern.compile("Cannot construct convex polygon from path with less than 3 elements.*");
+        final Pattern nonConvexPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
+
+        final Pattern singleVertexPattern =
+                Pattern.compile("Unable to create line path; only a single unique vertex provided.*");
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { ConvexArea.convexPolygonFromVertices( Arrays.asList(Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.of(1, -1)), precision); }, IllegalArgumentException.class, nonConvexPattern);
+    }
+
+@Test
+    void testConvexPolygonFromVertices_notConvex_1_oe() {
+        // arrange
+        final Pattern msgPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { ConvexArea.convexPolygonFromVertices(Arrays.asList( Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(2, 0) ), TEST_PRECISION); }, IllegalArgumentException.class, msgPattern);
+    }
+
+@Test
+    void testConvexPolygonFromVertices_notConvex_2_oe() {
+        // arrange
+        final Pattern msgPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { ConvexArea.convexPolygonFromVertices(Arrays.asList( Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(1, -1) ), TEST_PRECISION); }, IllegalArgumentException.class, msgPattern);
+    }
+
+@Test
+    void testConvexPolygonFromVertices_notConvex_3_oe() {
+        // arrange
+        final Pattern msgPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { ConvexArea.convexPolygonFromVertices( Arrays.asList( Vector2D.ZERO, Vector2D.Unit.PLUS_Y, Vector2D.of(1, 1), Vector2D.Unit.PLUS_X ), TEST_PRECISION); }, IllegalArgumentException.class, msgPattern);
+    }
+
+@Test
+    void testConvexPolygonFromVertices_notConvex_4_oe() {
+        // arrange
+        final Pattern msgPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { ConvexArea.convexPolygonFromVertices(Arrays.asList( Vector2D.ZERO, Vector2D.of(2, 0), Vector2D.of(2, 2), Vector2D.of(1, 1), Vector2D.of(1.5, 1) ), TEST_PRECISION); }, IllegalArgumentException.class, msgPattern);
+    }
+
+@Test
+    void testConvexPolygonFromPath_invalidPaths_1_oe() {
+        // arrange
+        final Pattern unclosedPattern = Pattern.compile("Cannot construct convex polygon from unclosed path.*");
+        final Pattern notEnoughElementsPattern =
+                Pattern.compile("Cannot construct convex polygon from path with less than 3 elements.*");
+        final Pattern nonConvexPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { ConvexArea.convexPolygonFromPath(LinePath.empty()); }, IllegalArgumentException.class, unclosedPattern);
+    }
+
+@Test
+    void testConvexPolygonFromPath_invalidPaths_2_oe() {
+        // arrange
+        final Pattern unclosedPattern = Pattern.compile("Cannot construct convex polygon from unclosed path.*");
+        final Pattern notEnoughElementsPattern =
+                Pattern.compile("Cannot construct convex polygon from path with less than 3 elements.*");
+        final Pattern nonConvexPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { ConvexArea.convexPolygonFromPath(LinePath.fromVertices( Arrays.asList(Vector2D.ZERO, Vector2D.Unit.PLUS_X), TEST_PRECISION)); }, IllegalArgumentException.class, unclosedPattern);
+    }
+
+@Test
+    void testConvexPolygonFromPath_invalidPaths_3_oe() {
+        // arrange
+        final Pattern unclosedPattern = Pattern.compile("Cannot construct convex polygon from unclosed path.*");
+        final Pattern notEnoughElementsPattern =
+                Pattern.compile("Cannot construct convex polygon from path with less than 3 elements.*");
+        final Pattern nonConvexPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { ConvexArea.convexPolygonFromPath(LinePath.fromVertices( Arrays.asList(Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.ZERO), TEST_PRECISION)); }, IllegalArgumentException.class, notEnoughElementsPattern);
+    }
+
+@Test
+    void testConvexPolygonFromPath_invalidPaths_4_oe() {
+        // arrange
+        final Pattern unclosedPattern = Pattern.compile("Cannot construct convex polygon from unclosed path.*");
+        final Pattern notEnoughElementsPattern =
+                Pattern.compile("Cannot construct convex polygon from path with less than 3 elements.*");
+        final Pattern nonConvexPattern = Pattern.compile("Cannot construct convex polygon from non-convex path.*");
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { ConvexArea.convexPolygonFromPath(LinePath.fromVertexLoop( Arrays.asList( Vector2D.ZERO, Vector2D.Unit.PLUS_Y, Vector2D.of(1, 1), Vector2D.Unit.PLUS_X ), TEST_PRECISION)); }, IllegalArgumentException.class, nonConvexPattern);
+    }
+
+@Test
+    void testFromBounds_singleLine_8_oe() {
+        // arrange
+        final Line line = Lines.fromPoints(Vector2D.of(0, 1), Vector2D.of(1, 3), TEST_PRECISION);
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(line);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(area, RegionLocation.INSIDE, Vector2D.of(-1, 1), Vector2D.of(0, 2));
+    }
+
+@Test
+    void testFromBounds_singleLine_9_oe() {
+        // arrange
+        final Line line = Lines.fromPoints(Vector2D.of(0, 1), Vector2D.of(1, 3), TEST_PRECISION);
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(line);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(area, RegionLocation.BOUNDARY, Vector2D.of(0, 1), Vector2D.of(2, 5));
+    }
+
+@Test
+    void testFromBounds_singleLine_10_oe() {
+        // arrange
+        final Line line = Lines.fromPoints(Vector2D.of(0, 1), Vector2D.of(1, 3), TEST_PRECISION);
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(line);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(area, RegionLocation.OUTSIDE, Vector2D.ZERO, Vector2D.of(2, 3));
+    }
+
+@Test
+    void testFromBounds_twoLines_8_oe() {
+        // arrange
+        final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION);
+        final Line b = Lines.fromPointAndAngle(Vector2D.ZERO, Math.PI, TEST_PRECISION);
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(a, b);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        // removed other assertion
+
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(area, RegionLocation.BOUNDARY, Vector2D.ZERO, Vector2D.of(-1, 0), Vector2D.of(0, -1));
+    }
+
+@Test
+    void testFromBounds_twoLines_9_oe() {
+        // arrange
+        final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION);
+        final Line b = Lines.fromPointAndAngle(Vector2D.ZERO, Math.PI, TEST_PRECISION);
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(a, b);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(area, RegionLocation.OUTSIDE, Vector2D.of(-1, 1), Vector2D.of(1, 1), Vector2D.of(1, -1));
+    }
+
+@Test
+    void testFromBounds_triangle_8_oe() {
+        // arrange
+        final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION);
+        final Line b = Lines.fromPointAndAngle(Vector2D.ZERO, Math.PI, TEST_PRECISION);
+        final Line c = Lines.fromPointAndAngle(Vector2D.of(-2, 0), -0.25 * Math.PI, TEST_PRECISION);
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(a, b, c);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        // removed other assertion
+
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(area, RegionLocation.BOUNDARY, Vector2D.ZERO, Vector2D.of(-1, 0), Vector2D.of(0, -1));
+    }
+
+@Test
+    void testFromBounds_triangle_9_oe() {
+        // arrange
+        final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION);
+        final Line b = Lines.fromPointAndAngle(Vector2D.ZERO, Math.PI, TEST_PRECISION);
+        final Line c = Lines.fromPointAndAngle(Vector2D.of(-2, 0), -0.25 * Math.PI, TEST_PRECISION);
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(a, b, c);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(area, RegionLocation.OUTSIDE, Vector2D.of(-1, 1), Vector2D.of(1, 1), Vector2D.of(1, -1), Vector2D.of(-2, -2));
+    }
+
+@Test
+    void testFromBounds_square_8_oe() {
+        // arrange
+        final List<Line> square = createSquareBoundingLines(Vector2D.ZERO, 1, 1);
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(square);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        // removed other assertion
+
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(area, RegionLocation.BOUNDARY, Vector2D.ZERO, Vector2D.of(1, 1), Vector2D.of(0.5, 0), Vector2D.of(0.5, 1), Vector2D.of(0, 0.5), Vector2D.of(1, 0.5));
+    }
+
+@Test
+    void testFromBounds_square_9_oe() {
+        // arrange
+        final List<Line> square = createSquareBoundingLines(Vector2D.ZERO, 1, 1);
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(square);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(area, RegionLocation.OUTSIDE, Vector2D.of(-1, -1), Vector2D.of(2, 2));
+    }
+
+@Test
+    void testFromBounds_square_extraLines_8_oe() {
+        // arrange
+        final List<Line> extraLines = new ArrayList<>();
+        extraLines.add(Lines.fromPoints(Vector2D.of(10, 10), Vector2D.of(10, 11), TEST_PRECISION));
+        extraLines.add(Lines.fromPoints(Vector2D.of(-10, 10), Vector2D.of(-10, 9), TEST_PRECISION));
+        extraLines.add(Lines.fromPoints(Vector2D.of(0, 10), Vector2D.of(-1, 11), TEST_PRECISION));
+        extraLines.addAll(createSquareBoundingLines(Vector2D.ZERO, 1, 1));
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(extraLines);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        // removed other assertion
+
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(area, RegionLocation.BOUNDARY, Vector2D.ZERO, Vector2D.of(1, 1), Vector2D.of(0.5, 0), Vector2D.of(0.5, 1), Vector2D.of(0, 0.5), Vector2D.of(1, 0.5));
+    }
+
+@Test
+    void testFromBounds_square_extraLines_9_oe() {
+        // arrange
+        final List<Line> extraLines = new ArrayList<>();
+        extraLines.add(Lines.fromPoints(Vector2D.of(10, 10), Vector2D.of(10, 11), TEST_PRECISION));
+        extraLines.add(Lines.fromPoints(Vector2D.of(-10, 10), Vector2D.of(-10, 9), TEST_PRECISION));
+        extraLines.add(Lines.fromPoints(Vector2D.of(0, 10), Vector2D.of(-1, 11), TEST_PRECISION));
+        extraLines.addAll(createSquareBoundingLines(Vector2D.ZERO, 1, 1));
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(extraLines);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(area, RegionLocation.OUTSIDE, Vector2D.of(-1, -1), Vector2D.of(2, 2));
+    }
+
+@Test
+    void testFromBounds_square_duplicateLines_8_oe() {
+        // arrange
+        final List<Line> duplicateLines = new ArrayList<>();
+        duplicateLines.addAll(createSquareBoundingLines(Vector2D.ZERO, 1, 1));
+        duplicateLines.addAll(createSquareBoundingLines(Vector2D.ZERO, 1, 1));
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(duplicateLines);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        // removed other assertion
+
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(area, RegionLocation.BOUNDARY, Vector2D.ZERO, Vector2D.of(1, 1), Vector2D.of(0.5, 0), Vector2D.of(0.5, 1), Vector2D.of(0, 0.5), Vector2D.of(1, 0.5));
+    }
+
+@Test
+    void testFromBounds_square_duplicateLines_9_oe() {
+        // arrange
+        final List<Line> duplicateLines = new ArrayList<>();
+        duplicateLines.addAll(createSquareBoundingLines(Vector2D.ZERO, 1, 1));
+        duplicateLines.addAll(createSquareBoundingLines(Vector2D.ZERO, 1, 1));
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(duplicateLines);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(area, RegionLocation.OUTSIDE, Vector2D.of(-1, -1), Vector2D.of(2, 2));
+    }
+
+@Test
+    void testFromBounds_duplicateLines_similarOrientation_7_oe() {
+        // arrange
+        final Line a = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
+        final Line b = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
+        final Line c = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(a, b, c);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(area, RegionLocation.BOUNDARY, Vector2D.of(0, 1), Vector2D.of(1, 1), Vector2D.of(-1, 1));
+    }
+
+@Test
+    void testFromBounds_duplicateLines_similarOrientation_8_oe() {
+        // arrange
+        final Line a = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
+        final Line b = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
+        final Line c = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(a, b, c);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        // removed other assertion
+
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(area, RegionLocation.INSIDE, Vector2D.of(0, 2), Vector2D.of(1, 2), Vector2D.of(-1, 2));
+    }
+
+@Test
+    void testFromBounds_duplicateLines_similarOrientation_9_oe() {
+        // arrange
+        final Line a = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
+        final Line b = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
+        final Line c = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(a, b, c);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(area, RegionLocation.OUTSIDE, Vector2D.of(0, 0), Vector2D.of(1, 0), Vector2D.of(-1, 0));
     }
 
 }

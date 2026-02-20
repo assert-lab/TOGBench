@@ -1,0 +1,873 @@
+id,test_prefix,test_name
+spark_left_7_1,"@Test
+    public void filters_should_be_accept_type_aware_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/protected/resource"", null, ""application/json"");
+        Assert.assertTrue(response.status == 401);
+    }
+",GenericIntegrationTest::filters_should_be_accept_type_aware_1_oe
+spark_left_7_2,"@Test
+    public void filters_should_be_accept_type_aware_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/protected/resource"", null, ""application/json"");
+        // removed other assertion
+        Assert.assertEquals(""{\""message\"": \""Go Away!\""}"", response.body);
+    }
+",GenericIntegrationTest::filters_should_be_accept_type_aware_2_oe
+spark_left_8_1,"@Test
+    public void routes_should_be_accept_type_aware_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null, ""application/json"");
+        Assert.assertEquals(200, response.status);
+    }
+",GenericIntegrationTest::routes_should_be_accept_type_aware_1_oe
+spark_left_8_2,"@Test
+    public void routes_should_be_accept_type_aware_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null, ""application/json"");
+        // removed other assertion
+        Assert.assertEquals(""{\""message\"": \""Hello World\""}"", response.body);
+    }
+",GenericIntegrationTest::routes_should_be_accept_type_aware_2_oe
+spark_left_9_1,"@Test
+    public void template_view_should_be_rendered_with_given_model_view_object_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/templateView"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericIntegrationTest::template_view_should_be_rendered_with_given_model_view_object_1_oe
+spark_left_9_2,"@Test
+    public void template_view_should_be_rendered_with_given_model_view_object_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/templateView"", null);
+        // removed other assertion
+        Assert.assertEquals(""Hello from my view"", response.body);
+    }
+",GenericIntegrationTest::template_view_should_be_rendered_with_given_model_view_object_2_oe
+spark_left_10_1,"@Test
+    public void testGetHi_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericIntegrationTest::testGetHi_1_oe
+spark_left_10_2,"@Test
+    public void testGetHi_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null);
+        // removed other assertion
+        Assert.assertEquals(""Hello World!"", response.body);
+    }
+",GenericIntegrationTest::testGetHi_2_oe
+spark_left_14_1,"@Test
+    public void testHiHead_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""HEAD"", ""/hi"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericIntegrationTest::testHiHead_1_oe
+spark_left_14_2,"@Test
+    public void testHiHead_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""HEAD"", ""/hi"", null);
+        // removed other assertion
+        Assert.assertEquals("""", response.body);
+    }
+",GenericIntegrationTest::testHiHead_2_oe
+spark_left_15_1,"@Test
+    public void testGetHiAfterFilter_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null);
+        Assert.assertTrue(response.headers.get(""after"").contains(""foobar""));
+    }
+",GenericIntegrationTest::testGetHiAfterFilter_1_oe
+spark_left_16_1,"@Test
+    public void testXForwardedFor_1_oe() throws Exception {
+        final String xForwardedFor = ""XXX.XXX.XXX.XXX"";
+        Map<String, String> headers = new HashMap<>();
+        headers.put(""X-Forwarded-For"", xForwardedFor);
+
+        UrlResponse response = testUtil.doMethod(""GET"", ""/ip"", null, false, ""text/html"", headers);
+        Assert.assertEquals(xForwardedFor, response.body);
+    }
+",GenericIntegrationTest::testXForwardedFor_1_oe
+spark_left_16_2,"@Test
+    public void testXForwardedFor_2_oe() throws Exception {
+        final String xForwardedFor = ""XXX.XXX.XXX.XXX"";
+        Map<String, String> headers = new HashMap<>();
+        headers.put(""X-Forwarded-For"", xForwardedFor);
+
+        UrlResponse response = testUtil.doMethod(""GET"", ""/ip"", null, false, ""text/html"", headers);
+        // removed other assertion
+
+        response = testUtil.doMethod(""GET"", ""/ip"", null, false, ""text/html"", null);
+        Assert.assertNotEquals(xForwardedFor, response.body);
+    }
+",GenericIntegrationTest::testXForwardedFor_2_oe
+spark_left_17_1,"@Test
+    public void testGetRoot_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericIntegrationTest::testGetRoot_1_oe
+spark_left_17_2,"@Test
+    public void testGetRoot_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/"", null);
+        // removed other assertion
+        Assert.assertEquals(""Hello Root!"", response.body);
+    }
+",GenericIntegrationTest::testGetRoot_2_oe
+spark_left_18_1,"@Test
+    public void testParamAndWild_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/paramandwild/thedude/stuff/andits"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericIntegrationTest::testParamAndWild_1_oe
+spark_left_18_2,"@Test
+    public void testParamAndWild_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/paramandwild/thedude/stuff/andits"", null);
+        // removed other assertion
+        Assert.assertEquals(""paramandwild: thedudeandits"", response.body);
+    }
+",GenericIntegrationTest::testParamAndWild_2_oe
+spark_left_19_1,"@Test
+    public void testEchoParam1_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/shizzy"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericIntegrationTest::testEchoParam1_1_oe
+spark_left_19_2,"@Test
+    public void testEchoParam1_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/shizzy"", null);
+        // removed other assertion
+        Assert.assertEquals(""echo: shizzy"", response.body);
+    }
+",GenericIntegrationTest::testEchoParam1_2_oe
+spark_left_20_1,"@Test
+    public void testEchoParam2_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/gunit"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericIntegrationTest::testEchoParam2_1_oe
+spark_left_20_2,"@Test
+    public void testEchoParam2_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/gunit"", null);
+        // removed other assertion
+        Assert.assertEquals(""echo: gunit"", response.body);
+    }
+",GenericIntegrationTest::testEchoParam2_2_oe
+spark_left_21_1,"@Test
+    public void testEchoParam3_1_oe() throws Exception {
+        String polyglot = ""жξ Ä 聊"";
+        String encoded = URIUtil.encodePath(polyglot);
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/"" + encoded, null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericIntegrationTest::testEchoParam3_1_oe
+spark_left_21_2,"@Test
+    public void testEchoParam3_2_oe() throws Exception {
+        String polyglot = ""жξ Ä 聊"";
+        String encoded = URIUtil.encodePath(polyglot);
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/"" + encoded, null);
+        // removed other assertion
+        Assert.assertEquals(""echo: "" + polyglot, response.body);
+    }
+",GenericIntegrationTest::testEchoParam3_2_oe
+spark_left_22_1,"@Test
+    public void testPathParamsWithPlusSign_1_oe() throws Exception {
+        String pathParamWithPlusSign = ""not+broken+path+param"";
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/"" + pathParamWithPlusSign, null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericIntegrationTest::testPathParamsWithPlusSign_1_oe
+spark_left_22_2,"@Test
+    public void testPathParamsWithPlusSign_2_oe() throws Exception {
+        String pathParamWithPlusSign = ""not+broken+path+param"";
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/"" + pathParamWithPlusSign, null);
+        // removed other assertion
+        Assert.assertEquals(""echo: "" + pathParamWithPlusSign, response.body);
+    }
+",GenericIntegrationTest::testPathParamsWithPlusSign_2_oe
+spark_left_23_1,"@Test
+    public void testParamWithEncodedSlash_1_oe() throws Exception {
+        String polyglot = ""te/st"";
+        String encoded = URLEncoder.encode(polyglot, ""UTF-8"");
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/"" + encoded, null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericIntegrationTest::testParamWithEncodedSlash_1_oe
+spark_left_23_2,"@Test
+    public void testParamWithEncodedSlash_2_oe() throws Exception {
+        String polyglot = ""te/st"";
+        String encoded = URLEncoder.encode(polyglot, ""UTF-8"");
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/"" + encoded, null);
+        // removed other assertion
+        Assert.assertEquals(""echo: "" + polyglot, response.body);
+    }
+",GenericIntegrationTest::testParamWithEncodedSlash_2_oe
+spark_left_24_1,"@Test
+    public void testSplatWithEncodedSlash_1_oe() throws Exception {
+        String param = ""fo/shizzle"";
+        String encodedParam = URLEncoder.encode(param, ""UTF-8"");
+        String splat = ""mah/FRIEND"";
+        String encodedSplat = URLEncoder.encode(splat, ""UTF-8"");
+        UrlResponse response = testUtil.doMethod(""GET"",
+                                                 ""/paramandwild/"" + encodedParam + ""/stuff/"" + encodedSplat, null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericIntegrationTest::testSplatWithEncodedSlash_1_oe
+spark_left_24_2,"@Test
+    public void testSplatWithEncodedSlash_2_oe() throws Exception {
+        String param = ""fo/shizzle"";
+        String encodedParam = URLEncoder.encode(param, ""UTF-8"");
+        String splat = ""mah/FRIEND"";
+        String encodedSplat = URLEncoder.encode(splat, ""UTF-8"");
+        UrlResponse response = testUtil.doMethod(""GET"",
+                                                 ""/paramandwild/"" + encodedParam + ""/stuff/"" + encodedSplat, null);
+        // removed other assertion
+        Assert.assertEquals(""paramandwild: "" + param + splat, response.body);
+    }
+",GenericIntegrationTest::testSplatWithEncodedSlash_2_oe
+spark_left_25_1,"@Test
+    public void testEchoParamWithUpperCaseInValue_1_oe() throws Exception {
+        final String camelCased = ""ThisIsAValueAndSparkShouldRetainItsUpperCasedCharacters"";
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/"" + camelCased, null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericIntegrationTest::testEchoParamWithUpperCaseInValue_1_oe
+spark_left_25_2,"@Test
+    public void testEchoParamWithUpperCaseInValue_2_oe() throws Exception {
+        final String camelCased = ""ThisIsAValueAndSparkShouldRetainItsUpperCasedCharacters"";
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/"" + camelCased, null);
+        // removed other assertion
+        Assert.assertEquals(""echo: "" + camelCased, response.body);
+    }
+",GenericIntegrationTest::testEchoParamWithUpperCaseInValue_2_oe
+spark_left_26_1,"@Test
+    public void testTwoRoutesWithDifferentCaseButSameName_1_oe() throws Exception {
+        String lowerCasedRoutePart = ""param"";
+        String upperCasedRoutePart = ""PARAM"";
+
+        registerEchoRoute(lowerCasedRoutePart);
+        registerEchoRoute(upperCasedRoutePart);
+        assertEchoRoute(lowerCasedRoutePart);
+    }
+",GenericIntegrationTest::testTwoRoutesWithDifferentCaseButSameName_1_oe
+spark_left_26_2,"@Test
+    public void testTwoRoutesWithDifferentCaseButSameName_2_oe() throws Exception {
+        String lowerCasedRoutePart = ""param"";
+        String upperCasedRoutePart = ""PARAM"";
+
+        registerEchoRoute(lowerCasedRoutePart);
+        registerEchoRoute(upperCasedRoutePart);
+        // removed other assertion
+        assertEchoRoute(upperCasedRoutePart);
+    }
+",GenericIntegrationTest::testTwoRoutesWithDifferentCaseButSameName_2_oe
+spark_left_28_1,"@Test
+    public void testEchoParamWithMaj_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/paramwithmaj/plop"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericIntegrationTest::testEchoParamWithMaj_1_oe
+spark_left_28_2,"@Test
+    public void testEchoParamWithMaj_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/paramwithmaj/plop"", null);
+        // removed other assertion
+        Assert.assertEquals(""echo: plop"", response.body);
+    }
+",GenericIntegrationTest::testEchoParamWithMaj_2_oe
+spark_left_29_1,"@Test
+    public void testUnauthorized_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/secretcontent/whateva"", null);
+        Assert.assertTrue(response.status == 401);
+    }
+",GenericIntegrationTest::testUnauthorized_1_oe
+spark_left_30_1,"@Test
+    public void testNotFound_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/no/resource"", null);
+        Assert.assertTrue(response.status == 404);
+    }
+",GenericIntegrationTest::testNotFound_1_oe
+spark_left_31_1,"@Test
+    public void testPost_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""POST"", ""/poster"", ""Fo shizzy"");
+        LOGGER.info(response.body);
+        Assert.assertEquals(201, response.status);
+    }
+",GenericIntegrationTest::testPost_1_oe
+spark_left_31_2,"@Test
+    public void testPost_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""POST"", ""/poster"", ""Fo shizzy"");
+        LOGGER.info(response.body);
+        // removed other assertion
+        Assert.assertTrue(response.body.contains(""Fo shizzy""));
+    }
+",GenericIntegrationTest::testPost_2_oe
+spark_left_86_1,"@Test
+    public void testConstructor_1_oe(){
+        FilterImpl filter = new FilterImpl(PATH_TEST, ACCEPT_TYPE_TEST) {
+            @Override
+            public void handle(Request request, Response response) throws Exception {
+            }
+        };
+        assertEquals(""Should return path specified"", PATH_TEST, filter.getPath());
+    }
+",FilterImplTest::testConstructor_1_oe
+spark_left_86_2,"@Test
+    public void testConstructor_2_oe(){
+        FilterImpl filter = new FilterImpl(PATH_TEST, ACCEPT_TYPE_TEST) {
+            @Override
+            public void handle(Request request, Response response) throws Exception {
+            }
+        };
+        // removed other assertion
+        assertEquals(""Should return accept type specified"", ACCEPT_TYPE_TEST, filter.getAcceptType());
+    }
+",FilterImplTest::testConstructor_2_oe
+spark_left_87_1,"@Test
+    public void testGets_thenReturnGetPathAndGetAcceptTypeSuccessfully_1_oe() throws Exception {
+        filter = FilterImpl.create(PATH_TEST, ACCEPT_TYPE_TEST, null);
+        assertEquals(""Should return path specified"", PATH_TEST, filter.getPath());
+    }
+",FilterImplTest::testGets_thenReturnGetPathAndGetAcceptTypeSuccessfully_1_oe
+spark_left_87_2,"@Test
+    public void testGets_thenReturnGetPathAndGetAcceptTypeSuccessfully_2_oe() throws Exception {
+        filter = FilterImpl.create(PATH_TEST, ACCEPT_TYPE_TEST, null);
+        // removed other assertion
+        assertEquals(""Should return accept type specified"", ACCEPT_TYPE_TEST, filter.getAcceptType());
+    }
+",FilterImplTest::testGets_thenReturnGetPathAndGetAcceptTypeSuccessfully_2_oe
+spark_left_88_1,"@Test
+    public void testCreate_whenOutAssignAcceptTypeInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_1_oe(){
+        filter = FilterImpl.create(PATH_TEST, null);
+        assertEquals(""Should return path specified"", PATH_TEST, filter.getPath());
+    }
+",FilterImplTest::testCreate_whenOutAssignAcceptTypeInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_1_oe
+spark_left_88_2,"@Test
+    public void testCreate_whenOutAssignAcceptTypeInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_2_oe(){
+        filter = FilterImpl.create(PATH_TEST, null);
+        // removed other assertion
+        assertEquals(""Should return accept type specified"", RouteImpl.DEFAULT_ACCEPT_TYPE, filter.getAcceptType());
+    }
+",FilterImplTest::testCreate_whenOutAssignAcceptTypeInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_2_oe
+spark_left_89_1,"@Test
+    public void testCreate_whenAcceptTypeNullValueInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_1_oe(){
+        filter = FilterImpl.create(PATH_TEST, null, null);
+        assertEquals(""Should return path specified"", PATH_TEST, filter.getPath());
+    }
+",FilterImplTest::testCreate_whenAcceptTypeNullValueInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_1_oe
+spark_left_89_2,"@Test
+    public void testCreate_whenAcceptTypeNullValueInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_2_oe(){
+        filter = FilterImpl.create(PATH_TEST, null, null);
+        // removed other assertion
+        assertEquals(""Should return accept type specified"", RouteImpl.DEFAULT_ACCEPT_TYPE, filter.getAcceptType());
+    }
+",FilterImplTest::testCreate_whenAcceptTypeNullValueInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_2_oe
+spark_left_90_1,"@Test
+    public void testStaticFileCssStyleCss_1_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/css/style.css"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",StaticFilesMemberTest::testStaticFileCssStyleCss_1_oe
+spark_left_90_2,"@Test
+    public void testStaticFileCssStyleCss_2_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/css/style.css"", null);
+        // removed other assertion
+        Assert.assertEquals(""Content of css file"", response.body);
+    }
+",StaticFilesMemberTest::testStaticFileCssStyleCss_2_oe
+spark_left_91_1,"@Test
+    public void testStaticFileMjs_1_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/js/module.mjs"", null);
+
+        String expectedContentType = response.headers.get(""Content-Type"");
+        Assert.assertEquals(expectedContentType, ""application/javascript"");
+    }
+",StaticFilesMemberTest::testStaticFileMjs_1_oe
+spark_left_91_2,"@Test
+    public void testStaticFileMjs_2_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/js/module.mjs"", null);
+
+        String expectedContentType = response.headers.get(""Content-Type"");
+        // removed other assertion
+
+        String body = response.body;
+        Assert.assertEquals(""export default function () { console.log(\""Hello, I'm a .mjs file\""); }\n"", body);
+    }
+",StaticFilesMemberTest::testStaticFileMjs_2_oe
+spark_left_92_1,"@Test
+    public void testStaticFilePagesIndexHtml_1_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/pages/index.html"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",StaticFilesMemberTest::testStaticFilePagesIndexHtml_1_oe
+spark_left_92_2,"@Test
+    public void testStaticFilePagesIndexHtml_2_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/pages/index.html"", null);
+        // removed other assertion
+        Assert.assertEquals(""<html><body>Hello Static World!</body></html>"", response.body);
+    }
+",StaticFilesMemberTest::testStaticFilePagesIndexHtml_2_oe
+spark_left_93_1,"@Test
+    public void testStaticFilePageHtml_1_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/page.html"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",StaticFilesMemberTest::testStaticFilePageHtml_1_oe
+spark_left_93_2,"@Test
+    public void testStaticFilePageHtml_2_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/page.html"", null);
+        // removed other assertion
+        Assert.assertEquals(""<html><body>Hello Static Files World!</body></html>"", response.body);
+    }
+",StaticFilesMemberTest::testStaticFilePageHtml_2_oe
+spark_left_94_1,"@Test
+    public void testExternalStaticFile_1_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/externalFile.html"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",StaticFilesMemberTest::testExternalStaticFile_1_oe
+spark_left_94_2,"@Test
+    public void testExternalStaticFile_2_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/externalFile.html"", null);
+        // removed other assertion
+        Assert.assertEquals(""Content of external file"", response.body);
+    }
+",StaticFilesMemberTest::testExternalStaticFile_2_oe
+spark_left_95_1,"@Test
+    public void testStaticFileHeaders_1_oe() throws Exception {
+        staticFiles.headers(new HashMap() {
+            {
+                put(""Server"", ""Microsoft Word"");
+                put(""Cache-Control"", ""private, max-age=600"");
+            }
+        });
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/pages/index.html"", null);
+        Assert.assertEquals(""Microsoft Word"", response.headers.get(""Server""));
+    }
+",StaticFilesMemberTest::testStaticFileHeaders_1_oe
+spark_left_95_2,"@Test
+    public void testStaticFileHeaders_2_oe() throws Exception {
+        staticFiles.headers(new HashMap() {
+            {
+                put(""Server"", ""Microsoft Word"");
+                put(""Cache-Control"", ""private, max-age=600"");
+            }
+        });
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/pages/index.html"", null);
+        // removed other assertion
+        Assert.assertEquals(""private, max-age=600"", response.headers.get(""Cache-Control""));
+    }
+",StaticFilesMemberTest::testStaticFileHeaders_2_oe
+spark_left_96_1,"@Test
+    public void testStaticFileExpireTime_1_oe() throws Exception {
+        staticFiles.expireTime(600);
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/pages/index.html"", null);
+        Assert.assertEquals(""private, max-age=600"", response.headers.get(""Cache-Control""));
+    }
+",StaticFilesMemberTest::testStaticFileExpireTime_1_oe
+spark_left_145_1,"@Test
+    public void testGetHi_1_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericSecureIntegrationTest::testGetHi_1_oe
+spark_left_145_2,"@Test
+    public void testGetHi_2_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
+        // removed other assertion
+        Assert.assertEquals(""Hello World!"", response.body);
+    }
+",GenericSecureIntegrationTest::testGetHi_2_oe
+spark_left_146_1,"@Test
+    public void testXForwardedFor_1_oe() throws Exception {
+        final String xForwardedFor = ""XXX.XXX.XXX.XXX"";
+        Map<String, String> headers = new HashMap<>();
+        headers.put(""X-Forwarded-For"", xForwardedFor);
+
+        UrlResponse response = testUtil.doMethod(""GET"", ""/ip"", null, true, ""text/html"", headers);
+        Assert.assertEquals(xForwardedFor, response.body);
+    }
+",GenericSecureIntegrationTest::testXForwardedFor_1_oe
+spark_left_146_2,"@Test
+    public void testXForwardedFor_2_oe() throws Exception {
+        final String xForwardedFor = ""XXX.XXX.XXX.XXX"";
+        Map<String, String> headers = new HashMap<>();
+        headers.put(""X-Forwarded-For"", xForwardedFor);
+
+        UrlResponse response = testUtil.doMethod(""GET"", ""/ip"", null, true, ""text/html"", headers);
+        // removed other assertion
+
+        response = testUtil.doMethod(""GET"", ""/ip"", null, true, ""text/html"", null);
+        Assert.assertNotEquals(xForwardedFor, response.body);
+    }
+",GenericSecureIntegrationTest::testXForwardedFor_2_oe
+spark_left_147_1,"@Test
+    public void testHiHead_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""HEAD"", ""/hi"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericSecureIntegrationTest::testHiHead_1_oe
+spark_left_147_2,"@Test
+    public void testHiHead_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""HEAD"", ""/hi"", null);
+        // removed other assertion
+        Assert.assertEquals("""", response.body);
+    }
+",GenericSecureIntegrationTest::testHiHead_2_oe
+spark_left_148_1,"@Test
+    public void testGetHiAfterFilter_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
+        Assert.assertTrue(response.headers.get(""after"").contains(""foobar""));
+    }
+",GenericSecureIntegrationTest::testGetHiAfterFilter_1_oe
+spark_left_149_1,"@Test
+    public void testGetRoot_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""GET"", ""/"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericSecureIntegrationTest::testGetRoot_1_oe
+spark_left_149_2,"@Test
+    public void testGetRoot_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""GET"", ""/"", null);
+        // removed other assertion
+        Assert.assertEquals(""Hello Root!"", response.body);
+    }
+",GenericSecureIntegrationTest::testGetRoot_2_oe
+spark_left_150_1,"@Test
+    public void testEchoParam1_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""GET"", ""/shizzy"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericSecureIntegrationTest::testEchoParam1_1_oe
+spark_left_150_2,"@Test
+    public void testEchoParam1_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""GET"", ""/shizzy"", null);
+        // removed other assertion
+        Assert.assertEquals(""echo: shizzy"", response.body);
+    }
+",GenericSecureIntegrationTest::testEchoParam1_2_oe
+spark_left_151_1,"@Test
+    public void testEchoParam2_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""GET"", ""/gunit"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericSecureIntegrationTest::testEchoParam2_1_oe
+spark_left_151_2,"@Test
+    public void testEchoParam2_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""GET"", ""/gunit"", null);
+        // removed other assertion
+        Assert.assertEquals(""echo: gunit"", response.body);
+    }
+",GenericSecureIntegrationTest::testEchoParam2_2_oe
+spark_left_152_1,"@Test
+    public void testEchoParamWithMaj_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""GET"", ""/paramwithmaj/plop"", null);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericSecureIntegrationTest::testEchoParamWithMaj_1_oe
+spark_left_152_2,"@Test
+    public void testEchoParamWithMaj_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""GET"", ""/paramwithmaj/plop"", null);
+        // removed other assertion
+        Assert.assertEquals(""echo: plop"", response.body);
+    }
+",GenericSecureIntegrationTest::testEchoParamWithMaj_2_oe
+spark_left_153_1,"@Test
+    public void testUnauthorized_1_oe() throws Exception {
+        UrlResponse urlResponse = testUtil.doMethodSecure(""GET"", ""/protected/resource"", null);
+        Assert.assertTrue(urlResponse.status == 401);
+    }
+",GenericSecureIntegrationTest::testUnauthorized_1_oe
+spark_left_154_1,"@Test
+    public void testNotFound_1_oe() throws Exception {
+        UrlResponse urlResponse = testUtil.doMethodSecure(""GET"", ""/no/resource"", null);
+        Assert.assertTrue(urlResponse.status == 404);
+    }
+",GenericSecureIntegrationTest::testNotFound_1_oe
+spark_left_155_1,"@Test
+    public void testPost_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""POST"", ""/poster"", ""Fo shizzy"");
+        LOGGER.info(response.body);
+        Assert.assertEquals(201, response.status);
+    }
+",GenericSecureIntegrationTest::testPost_1_oe
+spark_left_155_2,"@Test
+    public void testPost_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""POST"", ""/poster"", ""Fo shizzy"");
+        LOGGER.info(response.body);
+        // removed other assertion
+        Assert.assertTrue(response.body.contains(""Fo shizzy""));
+    }
+",GenericSecureIntegrationTest::testPost_2_oe
+spark_left_156_1,"@Test
+    public void testPatch_1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""PATCH"", ""/patcher"", ""Fo shizzy"");
+        LOGGER.info(response.body);
+        Assert.assertEquals(200, response.status);
+    }
+",GenericSecureIntegrationTest::testPatch_1_oe
+spark_left_156_2,"@Test
+    public void testPatch_2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""PATCH"", ""/patcher"", ""Fo shizzy"");
+        LOGGER.info(response.body);
+        // removed other assertion
+        Assert.assertTrue(response.body.contains(""Fo shizzy""));
+    }
+",GenericSecureIntegrationTest::testPatch_2_oe
+spark_left_196_1,"@Test
+    public void testMimeTypes_1_oe() throws Exception {
+        Assert.assertNull(doGet(""/pages/index.html"").headers.get(""Content-Type""));
+    }
+",DisableMimeGuessingTest::testMimeTypes_1_oe
+spark_left_196_2,"@Test
+    public void testMimeTypes_2_oe() throws Exception {
+        // removed other assertion
+        Assert.assertNull(doGet(""/js/scripts.js"").headers.get(""Content-Type""));
+    }
+",DisableMimeGuessingTest::testMimeTypes_2_oe
+spark_left_196_3,"@Test
+    public void testMimeTypes_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        Assert.assertNull(doGet(""/css/style.css"").headers.get(""Content-Type""));
+    }
+",DisableMimeGuessingTest::testMimeTypes_3_oe
+spark_left_196_4,"@Test
+    public void testMimeTypes_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertNull(doGet(""/img/sparklogo.png"").headers.get(""Content-Type""));
+    }
+",DisableMimeGuessingTest::testMimeTypes_4_oe
+spark_left_196_5,"@Test
+    public void testMimeTypes_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertNull(doGet(""/img/sparklogo.svg"").headers.get(""Content-Type""));
+    }
+",DisableMimeGuessingTest::testMimeTypes_5_oe
+spark_left_196_6,"@Test
+    public void testMimeTypes_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertNull(doGet(""/img/sparklogoPng"").headers.get(""Content-Type""));
+    }
+",DisableMimeGuessingTest::testMimeTypes_6_oe
+spark_left_196_7,"@Test
+    public void testMimeTypes_7_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertNull(doGet(""/img/sparklogoSvg"").headers.get(""Content-Type""));
+    }
+",DisableMimeGuessingTest::testMimeTypes_7_oe
+spark_left_196_8,"@Test
+    public void testMimeTypes_8_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertNull(doGet(""/externalFile.html"").headers.get(""Content-Type""));
+    }
+",DisableMimeGuessingTest::testMimeTypes_8_oe
+spark_left_197_1,"@Test
+    public void testCustomMimeType_1_oe() throws Exception {
+        staticFiles.registerMimeType(""cxt"", ""custom-extension-type"");
+        Assert.assertNull(doGet(""/img/file.cxt"").headers.get(""Content-Type""));
+    }
+",DisableMimeGuessingTest::testCustomMimeType_1_oe
+spark_left_201_1,"@Test
+    public void testMimeTypes_1_oe() throws Exception {
+        Assert.assertEquals(""text/html"", doGet(""/pages/index.html"").headers.get(""Content-Type""));
+    }
+",StaticFilesTest::testMimeTypes_1_oe
+spark_left_201_2,"@Test
+    public void testMimeTypes_2_oe() throws Exception {
+        // removed other assertion
+        Assert.assertEquals(""application/javascript"", doGet(""/js/scripts.js"").headers.get(""Content-Type""));
+    }
+",StaticFilesTest::testMimeTypes_2_oe
+spark_left_201_3,"@Test
+    public void testMimeTypes_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(""text/css"", doGet(""/css/style.css"").headers.get(""Content-Type""));
+    }
+",StaticFilesTest::testMimeTypes_3_oe
+spark_left_201_4,"@Test
+    public void testMimeTypes_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(""image/png"", doGet(""/img/sparklogo.png"").headers.get(""Content-Type""));
+    }
+",StaticFilesTest::testMimeTypes_4_oe
+spark_left_201_5,"@Test
+    public void testMimeTypes_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(""image/svg+xml"", doGet(""/img/sparklogo.svg"").headers.get(""Content-Type""));
+    }
+",StaticFilesTest::testMimeTypes_5_oe
+spark_left_201_6,"@Test
+    public void testMimeTypes_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(""application/octet-stream"", doGet(""/img/sparklogoPng"").headers.get(""Content-Type""));
+    }
+",StaticFilesTest::testMimeTypes_6_oe
+spark_left_201_7,"@Test
+    public void testMimeTypes_7_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(""application/octet-stream"", doGet(""/img/sparklogoSvg"").headers.get(""Content-Type""));
+    }
+",StaticFilesTest::testMimeTypes_7_oe
+spark_left_201_8,"@Test
+    public void testMimeTypes_8_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(""text/html"", doGet(""/externalFile.html"").headers.get(""Content-Type""));
+    }
+",StaticFilesTest::testMimeTypes_8_oe
+spark_left_202_1,"@Test
+    public void testCustomMimeType_1_oe() throws Exception {
+        staticFiles.registerMimeType(""cxt"", ""custom-extension-type"");
+        Assert.assertEquals(""custom-extension-type"", doGet(""/img/file.cxt"").headers.get(""Content-Type""));
+    }
+",StaticFilesTest::testCustomMimeType_1_oe
+spark_left_203_1,"@Test
+    public void testStaticFileCssStyleCss_1_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/css/style.css"");
+        Assert.assertEquals(200, response.status);
+    }
+",StaticFilesTest::testStaticFileCssStyleCss_1_oe
+spark_left_203_2,"@Test
+    public void testStaticFileCssStyleCss_2_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/css/style.css"");
+        // removed other assertion
+        Assert.assertEquals(""text/css"", response.headers.get(""Content-Type""));
+    }
+",StaticFilesTest::testStaticFileCssStyleCss_2_oe
+spark_left_203_3,"@Test
+    public void testStaticFileCssStyleCss_3_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/css/style.css"");
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(""Content of css file"", response.body);
+    }
+",StaticFilesTest::testStaticFileCssStyleCss_3_oe
+spark_left_204_1,"@Test
+    public void testStaticFilePagesIndexHtml_1_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/pages/index.html"");
+        Assert.assertEquals(200, response.status);
+    }
+",StaticFilesTest::testStaticFilePagesIndexHtml_1_oe
+spark_left_204_2,"@Test
+    public void testStaticFilePagesIndexHtml_2_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/pages/index.html"");
+        // removed other assertion
+        Assert.assertEquals(""<html><body>Hello Static World!</body></html>"", response.body);
+    }
+",StaticFilesTest::testStaticFilePagesIndexHtml_2_oe
+spark_left_205_1,"@Test
+    public void testStaticFilePageHtml_1_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/page.html"");
+        Assert.assertEquals(200, response.status);
+    }
+",StaticFilesTest::testStaticFilePageHtml_1_oe
+spark_left_205_2,"@Test
+    public void testStaticFilePageHtml_2_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/page.html"");
+        // removed other assertion
+        Assert.assertEquals(""<html><body>Hello Static Files World!</body></html>"", response.body);
+    }
+",StaticFilesTest::testStaticFilePageHtml_2_oe
+spark_left_206_1,"@Test
+    public void testDirectoryTraversalProtectionLocal_1_oe() throws Exception {
+        String path = ""/"" + URLEncoder.encode(""..\\spark\\"", ""UTF-8"") + ""Spark.class"";
+        SparkTestUtil.UrlResponse response = doGet(path);
+
+        Assert.assertEquals(400, response.status);
+    }
+",StaticFilesTest::testDirectoryTraversalProtectionLocal_1_oe
+spark_left_207_1,"@Test
+    public void testExternalStaticFile_1_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/externalFile.html"");
+        Assert.assertEquals(200, response.status);
+    }
+",StaticFilesTest::testExternalStaticFile_1_oe
+spark_left_207_2,"@Test
+    public void testExternalStaticFile_2_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/externalFile.html"");
+        // removed other assertion
+        Assert.assertEquals(CONTENT_OF_EXTERNAL_FILE, response.body);
+    }
+",StaticFilesTest::testExternalStaticFile_2_oe
+spark_left_212_1,"@Test
+    public void testMatches_NotAllPathsAndDidNotMatchHttpMethod_1_oe() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.post;
+        entry.path = ""/test"";
+
+        assertFalse(""Should return false because path names did not match"",entry.matches(HttpMethod.get,""/path""));
+    }
+",RouteEntryTest::testMatches_NotAllPathsAndDidNotMatchHttpMethod_1_oe
+spark_left_213_1,"@Test
+    public void testMatches_RouteDoesNotEndWithSlash_1_oe() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.get;
+        entry.path = ""/test"";
+
+        assertFalse(""Should return false because route path does not end with a slash,does not end with "" + ""a wildcard,and the route pah supplied ends with a slash "",entry.matches(HttpMethod.get,""/test/""));
+    }
+",RouteEntryTest::testMatches_RouteDoesNotEndWithSlash_1_oe
+spark_left_214_1,"@Test
+    public void testMatches_PathDoesNotEndInSlash_1_oe() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.get;
+        entry.path = ""/test/"";
+
+        assertFalse(""Should return false because route path ends with a slash while path supplied as parameter does"" + ""not end with a slash"",entry.matches(HttpMethod.get,""/test""));
+    }
+",RouteEntryTest::testMatches_PathDoesNotEndInSlash_1_oe
+spark_left_215_1,"@Test
+    public void testMatches_MatchingPaths_1_oe() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.get;
+        entry.path = ""/test/"";
+
+        assertTrue(""Should return true because route path and path is exactly the same"",entry.matches(HttpMethod.get,""/test/""));
+    }
+",RouteEntryTest::testMatches_MatchingPaths_1_oe
+spark_left_216_1,"@Test
+    public void testMatches_PathsDoNotMatch_1_oe() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.get;
+        entry.path = ""/test/me"";
+
+        assertFalse(""Should return false because path does not match route path"",entry.matches(HttpMethod.get,""/test/other""));
+    }
+",RouteEntryTest::testMatches_PathsDoNotMatch_1_oe

@@ -1,0 +1,69 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[60,5] cannot find symbol
+  symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+  location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[66,5] cannot find symbol
+  symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+  location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[72,5] cannot find symbol
+  symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+  location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[78,5] cannot find symbol
+  symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+  location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[84,5] cannot find symbol
+  symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+  location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[90,5] cannot find symbol
+  symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+  location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[96,5] cannot find symbol
+  symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+  location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[102,5] cannot find symbol
+  symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+  location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[108,5] cannot find symbol
+  symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+  location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[114,5] cannot find symbol
+  symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+  location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project async-http-client: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[60,5] cannot find symbol
+[ERROR]   symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+[ERROR]   location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[66,5] cannot find symbol
+[ERROR]   symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+[ERROR]   location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[72,5] cannot find symbol
+[ERROR]   symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+[ERROR]   location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[78,5] cannot find symbol
+[ERROR]   symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+[ERROR]   location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[84,5] cannot find symbol
+[ERROR]   symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+[ERROR]   location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[90,5] cannot find symbol
+[ERROR]   symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+[ERROR]   location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[96,5] cannot find symbol
+[ERROR]   symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+[ERROR]   location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[102,5] cannot find symbol
+[ERROR]   symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+[ERROR]   location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[108,5] cannot find symbol
+[ERROR]   symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+[ERROR]   location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/uri/UriParserTest_OE25Dev_async_left_384_1.java:[114,5] cannot find symbol
+[ERROR]   symbol:   method validateAgainstRelativeURI(org.asynchttpclient.uri.Uri,java.lang.String,java.lang.String)
+[ERROR]   location: class org.asynchttpclient.uri.UriParserTest_OE25Dev_async_left_384_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

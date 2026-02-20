@@ -52,15 +52,6 @@ class LineTest_OE25Dev {
     }
 
     @Test
-    void testFromPoints_pointsTooClose() {
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> Lines.fromPoints(Vector2D.Unit.PLUS_X, Vector2D.Unit.PLUS_X, TEST_PRECISION),
-                IllegalArgumentException.class, "Line direction cannot be zero");
-        GeometryTestUtils.assertThrowsWithMessage(() -> Lines.fromPoints(Vector2D.Unit.PLUS_X, Vector2D.of(1 + 1e-11, 1e-11), TEST_PRECISION),
-                IllegalArgumentException.class, "Line direction cannot be zero");
-    }
-
-    @Test
     void testFromPointAndDirection() {
         // act/assert
         checkLine(Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION),
@@ -74,15 +65,6 @@ class LineTest_OE25Dev {
                 Vector2D.of(-1, 1), Vector2D.of(1, 1).normalize());
         checkLine(Lines.fromPointAndDirection(Vector2D.of(0, 2), Vector2D.of(-1, -1), TEST_PRECISION),
                 Vector2D.of(-1, 1), Vector2D.of(-1, -1).normalize());
-    }
-
-    @Test
-    void testFromPointAndDirection_directionIsZero() {
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> Lines.fromPointAndDirection(Vector2D.Unit.PLUS_X, Vector2D.ZERO, TEST_PRECISION),
-                IllegalArgumentException.class, "Line direction cannot be zero");
-        GeometryTestUtils.assertThrowsWithMessage(() -> Lines.fromPointAndDirection(Vector2D.Unit.PLUS_X, Vector2D.of(1e-11, -1e-12), TEST_PRECISION),
-                IllegalArgumentException.class, "Line direction cannot be zero");
     }
 
     @Test
@@ -326,18 +308,6 @@ class LineTest_OE25Dev {
             final Vector2D vec = lineOrigin.vectorTo(pt).reject(line.getDirection());
             Assertions.assertEquals(vec.norm(), dist, TEST_EPS);
         });
-    }
-
-    @Test
-    void testTransform_collapsedPoints() {
-        // arrange
-        final AffineTransformMatrix2D scaleCollapse = AffineTransformMatrix2D.createScale(0, 1);
-        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            line.transform(scaleCollapse);
-        }, IllegalArgumentException.class, "Line direction cannot be zero");
     }
 
     @Test
@@ -3889,6 +3859,42 @@ class LineTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         Assertions.assertTrue(str.contains("direction= (1.0, 0.0)"));
+    }
+
+@Test
+    void testFromPoints_pointsTooClose_1_oe() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> Lines.fromPoints(Vector2D.Unit.PLUS_X, Vector2D.Unit.PLUS_X, TEST_PRECISION), IllegalArgumentException.class, "Line direction cannot be zero");
+    }
+
+@Test
+    void testFromPoints_pointsTooClose_2_oe() {
+        // act/assert
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage(() -> Lines.fromPoints(Vector2D.Unit.PLUS_X, Vector2D.of(1 + 1e-11, 1e-11), TEST_PRECISION), IllegalArgumentException.class, "Line direction cannot be zero");
+    }
+
+@Test
+    void testFromPointAndDirection_directionIsZero_1_oe() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> Lines.fromPointAndDirection(Vector2D.Unit.PLUS_X, Vector2D.ZERO, TEST_PRECISION), IllegalArgumentException.class, "Line direction cannot be zero");
+    }
+
+@Test
+    void testFromPointAndDirection_directionIsZero_2_oe() {
+        // act/assert
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage(() -> Lines.fromPointAndDirection(Vector2D.Unit.PLUS_X, Vector2D.of(1e-11, -1e-12), TEST_PRECISION), IllegalArgumentException.class, "Line direction cannot be zero");
+    }
+
+@Test
+    void testTransform_collapsedPoints_1_oe() {
+        // arrange
+        final AffineTransformMatrix2D scaleCollapse = AffineTransformMatrix2D.createScale(0, 1);
+        final Line line = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { line.transform(scaleCollapse); }, IllegalArgumentException.class, "Line direction cannot be zero");
     }
 
 }

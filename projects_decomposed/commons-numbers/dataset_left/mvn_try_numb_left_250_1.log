@@ -1,0 +1,63 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1280,9] cannot find symbol
+  symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::add,ComplexTes[...]fReal,Complex::add,long)
+  location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1283,9] cannot find symbol
+  symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::a[...]inary,ComplexTes[...]inary,Complex::add,long)
+  location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1286,9] cannot find symbol
+  symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::subtract,ComplexTes[...]fReal,Complex::subtract,int)
+  location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1288,9] cannot find symbol
+  symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::s[...]inary,ComplexTes[...]inary,Complex::subtract,int)
+  location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1291,9] cannot find symbol
+  symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::s[...]tFrom,ComplexTes[...]fReal,(y,z)->z.s[...]ct(y),long)
+  location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1294,9] cannot find symbol
+  symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::s[...]inary,ComplexTes[...]inary,(y,z)->z.s[...]ct(y),long)
+  location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1305,9] cannot find symbol
+  symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::multiply,ComplexTes[...]fReal,Complex::multiply,long)
+  location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1316,9] cannot find symbol
+  symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::m[...]inary,ComplexTes[...]inary,Complex::multiply,long)
+  location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1323,9] cannot find symbol
+  symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::divide,ComplexTes[...]fReal,Complex::divide,long)
+  location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-numbers-complex: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1280,9] cannot find symbol
+[ERROR]   symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::add,ComplexTes[...]fReal,Complex::add,long)
+[ERROR]   location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1283,9] cannot find symbol
+[ERROR]   symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::a[...]inary,ComplexTes[...]inary,Complex::add,long)
+[ERROR]   location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1286,9] cannot find symbol
+[ERROR]   symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::subtract,ComplexTes[...]fReal,Complex::subtract,int)
+[ERROR]   location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1288,9] cannot find symbol
+[ERROR]   symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::s[...]inary,ComplexTes[...]inary,Complex::subtract,int)
+[ERROR]   location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1291,9] cannot find symbol
+[ERROR]   symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::s[...]tFrom,ComplexTes[...]fReal,(y,z)->z.s[...]ct(y),long)
+[ERROR]   location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1294,9] cannot find symbol
+[ERROR]   symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::s[...]inary,ComplexTes[...]inary,(y,z)->z.s[...]ct(y),long)
+[ERROR]   location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1305,9] cannot find symbol
+[ERROR]   symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::multiply,ComplexTes[...]fReal,Complex::multiply,long)
+[ERROR]   location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1316,9] cannot find symbol
+[ERROR]   symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::m[...]inary,ComplexTes[...]inary,Complex::multiply,long)
+[ERROR]   location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_250_1.java:[1323,9] cannot find symbol
+[ERROR]   symbol:   method assertSignedZeroArithmetic(java.lang.String,Complex::divide,ComplexTes[...]fReal,Complex::divide,long)
+[ERROR]   location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_250_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

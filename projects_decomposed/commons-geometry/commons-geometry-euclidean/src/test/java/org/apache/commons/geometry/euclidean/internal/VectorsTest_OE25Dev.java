@@ -605,4 +605,128 @@ class VectorsTest_OE25Dev {
         Assertions.assertEquals(1589.0, Vectors.normSq(-22.0, -23.0, -24.0), EPS);
     }
 
+@Test
+    void testCheckedNorm_normArg_7_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> Vectors.checkedNorm(0.0), IllegalArgumentException.class, "Illegal norm: 0.0");
+    }
+
+@Test
+    void testCheckedNorm_normArg_8_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage(() -> Vectors.checkedNorm(Double.NaN), IllegalArgumentException.class, "Illegal norm: NaN");
+    }
+
+@Test
+    void testCheckedNorm_normArg_9_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage(() -> Vectors.checkedNorm(Double.POSITIVE_INFINITY), IllegalArgumentException.class, "Illegal norm: Infinity");
+    }
+
+@Test
+    void testCheckedNorm_normArg_10_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage(() -> Vectors.checkedNorm(Double.NEGATIVE_INFINITY), IllegalArgumentException.class, "Illegal norm: -Infinity");
+    }
+
+@Test
+    void testCheckedNorm_vectorArg_7_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> Vectors.checkedNorm(Vector3D.ZERO), IllegalArgumentException.class, "Illegal norm: 0.0");
+    }
+
+@Test
+    void testCheckedNorm_vectorArg_8_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage(() -> Vectors.checkedNorm(Vector3D.NaN), IllegalArgumentException.class, "Illegal norm: NaN");
+    }
+
+@Test
+    void testCheckedNorm_vectorArg_9_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage(() -> Vectors.checkedNorm(Vector3D.POSITIVE_INFINITY), IllegalArgumentException.class, "Illegal norm: Infinity");
+    }
+
+@Test
+    void testCheckedNorm_vectorArg_10_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage(() -> Vectors.checkedNorm(Vector3D.NEGATIVE_INFINITY), IllegalArgumentException.class, "Illegal norm: Infinity");
+    }
+
 }

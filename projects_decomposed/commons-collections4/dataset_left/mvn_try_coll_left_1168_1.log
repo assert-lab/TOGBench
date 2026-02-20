@@ -1,0 +1,27 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev_coll_left_1168_1.java:[789,1] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev_coll_left_1168_1.java:[798,46] cannot find symbol
+  symbol:   method interrupted()
+  location: class org.apache.commons.collections4.map.LRUMapTest_OE25Dev_coll_left_1168_1<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev_coll_left_1168_1.java:[800,70] incompatible types: java.lang.String cannot be converted to K
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev_coll_left_1168_1.java:[804,78] cannot find symbol
+  symbol:   method mapIterator()
+  location: variable map of type java.util.Map<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev_coll_left_1168_1.java:[806,53] incomparable types: java.lang.Thread and org.apache.commons.collections4.map.LRUMapTest_OE25Dev_coll_left_1168_1<K,V>
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:testCompile (default-testCompile) on project commons-collections4: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev_coll_left_1168_1.java:[789,1] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev_coll_left_1168_1.java:[798,46] cannot find symbol
+[ERROR]   symbol:   method interrupted()
+[ERROR]   location: class org.apache.commons.collections4.map.LRUMapTest_OE25Dev_coll_left_1168_1<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev_coll_left_1168_1.java:[800,70] incompatible types: java.lang.String cannot be converted to K
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev_coll_left_1168_1.java:[804,78] cannot find symbol
+[ERROR]   symbol:   method mapIterator()
+[ERROR]   location: variable map of type java.util.Map<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev_coll_left_1168_1.java:[806,53] incomparable types: java.lang.Thread and org.apache.commons.collections4.map.LRUMapTest_OE25Dev_coll_left_1168_1<K,V>
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,57 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2.java:[79,9] cannot find symbol
+  symbol:   method check(org.apache.commons.jxpath.JXPathContext,java.lang.String,java.lang.String[])
+  location: class org.apache.commons.configuration2.TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2.java:[80,9] cannot find symbol
+  symbol:   method check(org.apache.commons.jxpath.JXPathContext,java.lang.String,java.lang.String[])
+  location: class org.apache.commons.configuration2.TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2.java:[81,9] cannot find symbol
+  symbol:   method check(org.apache.commons.jxpath.JXPathContext,java.lang.String,java.lang.String)
+  location: class org.apache.commons.configuration2.TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2.java:[82,9] cannot find symbol
+  symbol:   method check(org.apache.commons.jxpath.JXPathContext,java.lang.String,java.lang.String)
+  location: class org.apache.commons.configuration2.TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2.java:[83,9] cannot find symbol
+  symbol:   method check(org.apache.commons.jxpath.JXPathContext,java.lang.String,java.lang.String)
+  location: class org.apache.commons.configuration2.TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2.java:[84,9] cannot find symbol
+  symbol:   method check(org.apache.commons.jxpath.JXPathContext,java.lang.String,java.lang.String)
+  location: class org.apache.commons.configuration2.TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2.java:[85,9] cannot find symbol
+  symbol:   method check(org.apache.commons.jxpath.JXPathContext,java.lang.String,java.lang.String)
+  location: class org.apache.commons.configuration2.TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2.java:[86,9] cannot find symbol
+  symbol:   method check(org.apache.commons.jxpath.JXPathContext,java.lang.String,java.lang.String)
+  location: class org.apache.commons.configuration2.TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project commons-configuration2: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2.java:[79,9] cannot find symbol
+[ERROR]   symbol:   method check(org.apache.commons.jxpath.JXPathContext,java.lang.String,java.lang.String[])
+[ERROR]   location: class org.apache.commons.configuration2.TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2.java:[80,9] cannot find symbol
+[ERROR]   symbol:   method check(org.apache.commons.jxpath.JXPathContext,java.lang.String,java.lang.String[])
+[ERROR]   location: class org.apache.commons.configuration2.TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2.java:[81,9] cannot find symbol
+[ERROR]   symbol:   method check(org.apache.commons.jxpath.JXPathContext,java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.configuration2.TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2.java:[82,9] cannot find symbol
+[ERROR]   symbol:   method check(org.apache.commons.jxpath.JXPathContext,java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.configuration2.TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2.java:[83,9] cannot find symbol
+[ERROR]   symbol:   method check(org.apache.commons.jxpath.JXPathContext,java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.configuration2.TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2.java:[84,9] cannot find symbol
+[ERROR]   symbol:   method check(org.apache.commons.jxpath.JXPathContext,java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.configuration2.TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2.java:[85,9] cannot find symbol
+[ERROR]   symbol:   method check(org.apache.commons.jxpath.JXPathContext,java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.configuration2.TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2.java:[86,9] cannot find symbol
+[ERROR]   symbol:   method check(org.apache.commons.jxpath.JXPathContext,java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.configuration2.TestBaseConfigurationXMLReader_OE25Dev_conf_left_735_2
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,23 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_187_4.java:[2157,14] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_187_4.java:[2157,28] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_187_4.java:[2158,14] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_187_4.java:[2158,26] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_187_4.java:[2160,9] switch expressions are not supported in -source 8
+  (use -source 14 or higher to enable switch expressions)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_187_4.java:[2166,2] <identifier> expected
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-numbers-complex: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_187_4.java:[2157,14] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_187_4.java:[2157,28] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_187_4.java:[2158,14] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_187_4.java:[2158,26] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_187_4.java:[2160,9] switch expressions are not supported in -source 8
+[ERROR]   (use -source 14 or higher to enable switch expressions)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_187_4.java:[2166,2] <identifier> expected
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,63 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[597,9] cannot find symbol
+  symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+  location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[599,9] cannot find symbol
+  symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+  location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[600,9] cannot find symbol
+  symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+  location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[602,9] cannot find symbol
+  symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+  location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[603,9] cannot find symbol
+  symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+  location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[605,9] cannot find symbol
+  symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+  location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[606,9] cannot find symbol
+  symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+  location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[607,9] cannot find symbol
+  symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+  location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[608,9] cannot find symbol
+  symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+  location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-euclidean: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[597,9] cannot find symbol
+[ERROR]   symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[599,9] cannot find symbol
+[ERROR]   symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[600,9] cannot find symbol
+[ERROR]   symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[602,9] cannot find symbol
+[ERROR]   symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[603,9] cannot find symbol
+[ERROR]   symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[605,9] cannot find symbol
+[ERROR]   symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[606,9] cannot find symbol
+[ERROR]   symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[607,9] cannot find symbol
+[ERROR]   symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1.java:[608,9] cannot find symbol
+[ERROR]   symbol:   method checkNormalTransform(org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev_geom_left_2195_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

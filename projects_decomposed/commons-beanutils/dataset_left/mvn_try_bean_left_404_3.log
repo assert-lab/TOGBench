@@ -1,0 +1,57 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanUtilsTestCase_OE25Dev_bean_left_404_3.java:[1229,9] cannot find symbol
+  symbol:   method checkIntArray(int[],int[])
+  location: class org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev_bean_left_404_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanUtilsTestCase_OE25Dev_bean_left_404_3.java:[1231,9] cannot find symbol
+  symbol:   method checkIntArray(int[],int[])
+  location: class org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev_bean_left_404_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanUtilsTestCase_OE25Dev_bean_left_404_3.java:[1235,9] cannot find symbol
+  symbol:   method checkIntArray(int[],int[])
+  location: class org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev_bean_left_404_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanUtilsTestCase_OE25Dev_bean_left_404_3.java:[1237,9] cannot find symbol
+  symbol:   method checkIntArray(int[],int[])
+  location: class org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev_bean_left_404_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanUtilsTestCase_OE25Dev_bean_left_404_3.java:[1241,9] cannot find symbol
+  symbol:   method checkIntArray(int[],int[])
+  location: class org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev_bean_left_404_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanUtilsTestCase_OE25Dev_bean_left_404_3.java:[1243,9] cannot find symbol
+  symbol:   method checkIntArray(int[],int[])
+  location: class org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev_bean_left_404_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanUtilsTestCase_OE25Dev_bean_left_404_3.java:[1247,9] cannot find symbol
+  symbol:   method checkIntArray(int[],int[])
+  location: class org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev_bean_left_404_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanUtilsTestCase_OE25Dev_bean_left_404_3.java:[1249,9] cannot find symbol
+  symbol:   method checkIntArray(int[],int[])
+  location: class org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev_bean_left_404_3
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.7.0:testCompile (default-testCompile) on project commons-beanutils: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanUtilsTestCase_OE25Dev_bean_left_404_3.java:[1229,9] cannot find symbol
+[ERROR]   symbol:   method checkIntArray(int[],int[])
+[ERROR]   location: class org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev_bean_left_404_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanUtilsTestCase_OE25Dev_bean_left_404_3.java:[1231,9] cannot find symbol
+[ERROR]   symbol:   method checkIntArray(int[],int[])
+[ERROR]   location: class org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev_bean_left_404_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanUtilsTestCase_OE25Dev_bean_left_404_3.java:[1235,9] cannot find symbol
+[ERROR]   symbol:   method checkIntArray(int[],int[])
+[ERROR]   location: class org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev_bean_left_404_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanUtilsTestCase_OE25Dev_bean_left_404_3.java:[1237,9] cannot find symbol
+[ERROR]   symbol:   method checkIntArray(int[],int[])
+[ERROR]   location: class org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev_bean_left_404_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanUtilsTestCase_OE25Dev_bean_left_404_3.java:[1241,9] cannot find symbol
+[ERROR]   symbol:   method checkIntArray(int[],int[])
+[ERROR]   location: class org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev_bean_left_404_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanUtilsTestCase_OE25Dev_bean_left_404_3.java:[1243,9] cannot find symbol
+[ERROR]   symbol:   method checkIntArray(int[],int[])
+[ERROR]   location: class org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev_bean_left_404_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanUtilsTestCase_OE25Dev_bean_left_404_3.java:[1247,9] cannot find symbol
+[ERROR]   symbol:   method checkIntArray(int[],int[])
+[ERROR]   location: class org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev_bean_left_404_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanUtilsTestCase_OE25Dev_bean_left_404_3.java:[1249,9] cannot find symbol
+[ERROR]   symbol:   method checkIntArray(int[],int[])
+[ERROR]   location: class org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev_bean_left_404_3
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

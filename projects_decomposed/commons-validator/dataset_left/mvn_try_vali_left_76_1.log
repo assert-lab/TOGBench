@@ -1,0 +1,51 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/ParameterTest_OE25Dev_vali_left_76_1.java:[87,9] cannot find symbol
+  symbol:   method assertParameterValue(org.apache.commons.validator.Validator,java.lang.String,java.lang.Class<java.lang.Object>)
+  location: class org.apache.commons.validator.ParameterTest_OE25Dev_vali_left_76_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/ParameterTest_OE25Dev_vali_left_76_1.java:[88,9] cannot find symbol
+  symbol:   method assertParameterValue(org.apache.commons.validator.Validator,java.lang.String,java.lang.Class<org.apache.commons.validator.Field>)
+  location: class org.apache.commons.validator.ParameterTest_OE25Dev_vali_left_76_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/ParameterTest_OE25Dev_vali_left_76_1.java:[89,9] cannot find symbol
+  symbol:   method assertParameterValue(org.apache.commons.validator.Validator,java.lang.String,java.lang.Class<org.apache.commons.validator.Form>)
+  location: class org.apache.commons.validator.ParameterTest_OE25Dev_vali_left_76_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/ParameterTest_OE25Dev_vali_left_76_1.java:[90,9] cannot find symbol
+  symbol:   method assertParameterValue(org.apache.commons.validator.Validator,java.lang.String,java.lang.Class<java.util.Locale>)
+  location: class org.apache.commons.validator.ParameterTest_OE25Dev_vali_left_76_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/ParameterTest_OE25Dev_vali_left_76_1.java:[91,9] cannot find symbol
+  symbol:   method assertParameterValue(org.apache.commons.validator.Validator,java.lang.String,java.lang.Class<org.apache.commons.validator.ValidatorAction>)
+  location: class org.apache.commons.validator.ParameterTest_OE25Dev_vali_left_76_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/ParameterTest_OE25Dev_vali_left_76_1.java:[93,9] cannot find symbol
+  symbol:   method assertParameterValue(org.apache.commons.validator.Validator,java.lang.String,java.lang.Class<org.apache.commons.validator.Validator>)
+  location: class org.apache.commons.validator.ParameterTest_OE25Dev_vali_left_76_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/ParameterTest_OE25Dev_vali_left_76_1.java:[95,9] cannot find symbol
+  symbol:   method assertParameterValue(org.apache.commons.validator.Validator,java.lang.String,java.lang.Class<org.apache.commons.validator.ValidatorResults>)
+  location: class org.apache.commons.validator.ParameterTest_OE25Dev_vali_left_76_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-validator: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/ParameterTest_OE25Dev_vali_left_76_1.java:[87,9] cannot find symbol
+[ERROR]   symbol:   method assertParameterValue(org.apache.commons.validator.Validator,java.lang.String,java.lang.Class<java.lang.Object>)
+[ERROR]   location: class org.apache.commons.validator.ParameterTest_OE25Dev_vali_left_76_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/ParameterTest_OE25Dev_vali_left_76_1.java:[88,9] cannot find symbol
+[ERROR]   symbol:   method assertParameterValue(org.apache.commons.validator.Validator,java.lang.String,java.lang.Class<org.apache.commons.validator.Field>)
+[ERROR]   location: class org.apache.commons.validator.ParameterTest_OE25Dev_vali_left_76_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/ParameterTest_OE25Dev_vali_left_76_1.java:[89,9] cannot find symbol
+[ERROR]   symbol:   method assertParameterValue(org.apache.commons.validator.Validator,java.lang.String,java.lang.Class<org.apache.commons.validator.Form>)
+[ERROR]   location: class org.apache.commons.validator.ParameterTest_OE25Dev_vali_left_76_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/ParameterTest_OE25Dev_vali_left_76_1.java:[90,9] cannot find symbol
+[ERROR]   symbol:   method assertParameterValue(org.apache.commons.validator.Validator,java.lang.String,java.lang.Class<java.util.Locale>)
+[ERROR]   location: class org.apache.commons.validator.ParameterTest_OE25Dev_vali_left_76_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/ParameterTest_OE25Dev_vali_left_76_1.java:[91,9] cannot find symbol
+[ERROR]   symbol:   method assertParameterValue(org.apache.commons.validator.Validator,java.lang.String,java.lang.Class<org.apache.commons.validator.ValidatorAction>)
+[ERROR]   location: class org.apache.commons.validator.ParameterTest_OE25Dev_vali_left_76_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/ParameterTest_OE25Dev_vali_left_76_1.java:[93,9] cannot find symbol
+[ERROR]   symbol:   method assertParameterValue(org.apache.commons.validator.Validator,java.lang.String,java.lang.Class<org.apache.commons.validator.Validator>)
+[ERROR]   location: class org.apache.commons.validator.ParameterTest_OE25Dev_vali_left_76_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-validator/src/test/java/org/apache/commons/validator/ParameterTest_OE25Dev_vali_left_76_1.java:[95,9] cannot find symbol
+[ERROR]   symbol:   method assertParameterValue(org.apache.commons.validator.Validator,java.lang.String,java.lang.Class<org.apache.commons.validator.ValidatorResults>)
+[ERROR]   location: class org.apache.commons.validator.ParameterTest_OE25Dev_vali_left_76_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

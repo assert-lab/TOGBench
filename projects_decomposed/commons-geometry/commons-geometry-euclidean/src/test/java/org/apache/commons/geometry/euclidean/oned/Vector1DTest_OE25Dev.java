@@ -143,22 +143,6 @@ class Vector1DTest_OE25Dev {
     }
 
     @Test
-    void testNormalize_illegalNorm() {
-        // arrange
-        final Pattern illegalNorm = Pattern.compile("^Illegal norm: (0\\.0|-?Infinity|NaN)");
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(Vector1D.ZERO::normalize,
-                IllegalArgumentException.class, illegalNorm);
-        GeometryTestUtils.assertThrowsWithMessage(Vector1D.NaN::normalize,
-                IllegalArgumentException.class, illegalNorm);
-        GeometryTestUtils.assertThrowsWithMessage(Vector1D.POSITIVE_INFINITY::normalize,
-                IllegalArgumentException.class, illegalNorm);
-        GeometryTestUtils.assertThrowsWithMessage(Vector1D.NEGATIVE_INFINITY::normalize,
-                IllegalArgumentException.class, illegalNorm);
-    }
-
-    @Test
     void testNegate() {
         // act/assert
         checkVector(Vector1D.of(0.1).negate(), -0.1);
@@ -2148,6 +2132,48 @@ class Vector1DTest_OE25Dev {
         // An already normalized vector will avoid unnecessary creation.
         final Vector1D v = Vector1D.of(3).normalize();
         Assertions.assertSame(v, v.normalize());
+    }
+
+@Test
+    void testNormalize_illegalNorm_1_oe() {
+        // arrange
+        final Pattern illegalNorm = Pattern.compile("^Illegal norm: (0\\.0|-?Infinity|NaN)");
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(Vector1D.ZERO::normalize, IllegalArgumentException.class, illegalNorm);
+    }
+
+@Test
+    void testNormalize_illegalNorm_2_oe() {
+        // arrange
+        final Pattern illegalNorm = Pattern.compile("^Illegal norm: (0\\.0|-?Infinity|NaN)");
+
+        // act/assert
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage(Vector1D.NaN::normalize, IllegalArgumentException.class, illegalNorm);
+    }
+
+@Test
+    void testNormalize_illegalNorm_3_oe() {
+        // arrange
+        final Pattern illegalNorm = Pattern.compile("^Illegal norm: (0\\.0|-?Infinity|NaN)");
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage(Vector1D.POSITIVE_INFINITY::normalize, IllegalArgumentException.class, illegalNorm);
+    }
+
+@Test
+    void testNormalize_illegalNorm_4_oe() {
+        // arrange
+        final Pattern illegalNorm = Pattern.compile("^Illegal norm: (0\\.0|-?Infinity|NaN)");
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage(Vector1D.NEGATIVE_INFINITY::normalize, IllegalArgumentException.class, illegalNorm);
     }
 
 }

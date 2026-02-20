@@ -91,28 +91,6 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(4, 2), subset.closest(Vector2D.of(5, 3)), TEST_EPS);
     }
 
-    @Test
-    void testClassify() {
-        // arrange
-        final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
-        subRegion.add(Interval.of(0, 2, TEST_PRECISION));
-        subRegion.add(Interval.of(3, 4, TEST_PRECISION));
-
-        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 2), 0.0, TEST_PRECISION);
-        final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(line, subRegion);
-
-        // act/assert
-        EuclideanTestUtils.assertRegionLocation(subset, RegionLocation.INSIDE,
-                Vector2D.of(1, 2), Vector2D.of(3.5, 2));
-
-        EuclideanTestUtils.assertRegionLocation(subset, RegionLocation.BOUNDARY,
-                Vector2D.of(0, 2), Vector2D.of(2, 2), Vector2D.of(3, 2), Vector2D.of(4, 2));
-
-        EuclideanTestUtils.assertRegionLocation(subset, RegionLocation.OUTSIDE,
-                Vector2D.of(-1, 2), Vector2D.of(2.5, 2), Vector2D.of(5, 2),
-                Vector2D.of(1, 3), Vector2D.of(3.5, 1));
-    }
-
     private static void checkFiniteSegment(final LineConvexSubset segment, final Vector2D start, final Vector2D end) {
         Assertions.assertFalse(segment.isInfinite());
 
@@ -1644,6 +1622,54 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         Assertions.assertTrue(str.contains(", region= "));
+    }
+
+@Test
+    void testClassify_1_oe() {
+        // arrange
+        final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
+        subRegion.add(Interval.of(0, 2, TEST_PRECISION));
+        subRegion.add(Interval.of(3, 4, TEST_PRECISION));
+
+        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 2), 0.0, TEST_PRECISION);
+        final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(line, subRegion);
+
+        // act/assert
+        EuclideanTestUtils.assertRegionLocation(subset, RegionLocation.INSIDE, Vector2D.of(1, 2), Vector2D.of(3.5, 2));
+    }
+
+@Test
+    void testClassify_2_oe() {
+        // arrange
+        final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
+        subRegion.add(Interval.of(0, 2, TEST_PRECISION));
+        subRegion.add(Interval.of(3, 4, TEST_PRECISION));
+
+        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 2), 0.0, TEST_PRECISION);
+        final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(line, subRegion);
+
+        // act/assert
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(subset, RegionLocation.BOUNDARY, Vector2D.of(0, 2), Vector2D.of(2, 2), Vector2D.of(3, 2), Vector2D.of(4, 2));
+    }
+
+@Test
+    void testClassify_3_oe() {
+        // arrange
+        final RegionBSPTree1D subRegion = RegionBSPTree1D.empty();
+        subRegion.add(Interval.of(0, 2, TEST_PRECISION));
+        subRegion.add(Interval.of(3, 4, TEST_PRECISION));
+
+        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 2), 0.0, TEST_PRECISION);
+        final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(line, subRegion);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(subset, RegionLocation.OUTSIDE, Vector2D.of(-1, 2), Vector2D.of(2.5, 2), Vector2D.of(5, 2), Vector2D.of(1, 3), Vector2D.of(3.5, 1));
     }
 
 }

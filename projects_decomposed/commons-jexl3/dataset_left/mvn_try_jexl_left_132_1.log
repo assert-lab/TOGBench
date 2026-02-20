@@ -1,0 +1,69 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[463,9] cannot find symbol
+  symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.AssignNullTask>,int,boolean)
+  location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[468,9] cannot find symbol
+  symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.AssignNullTask>,int,boolean)
+  location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[473,9] cannot find symbol
+  symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.AssignTask>,int,boolean)
+  location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[478,9] cannot find symbol
+  symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.AssignTask>,int,boolean)
+  location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[483,9] cannot find symbol
+  symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.AssignBooleanTask>,int,boolean)
+  location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[488,9] cannot find symbol
+  symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.AssignBooleanTask>,int,boolean)
+  location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[493,9] cannot find symbol
+  symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.AssignListTask>,int,boolean)
+  location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[498,9] cannot find symbol
+  symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.AssignListTask>,int,boolean)
+  location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[583,9] cannot find symbol
+  symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.ComputeTask>,int,boolean)
+  location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[588,9] cannot find symbol
+  symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.ComputeTask>,int,boolean)
+  location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-jexl3: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[463,9] cannot find symbol
+[ERROR]   symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.AssignNullTask>,int,boolean)
+[ERROR]   location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[468,9] cannot find symbol
+[ERROR]   symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.AssignNullTask>,int,boolean)
+[ERROR]   location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[473,9] cannot find symbol
+[ERROR]   symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.AssignTask>,int,boolean)
+[ERROR]   location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[478,9] cannot find symbol
+[ERROR]   symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.AssignTask>,int,boolean)
+[ERROR]   location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[483,9] cannot find symbol
+[ERROR]   symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.AssignBooleanTask>,int,boolean)
+[ERROR]   location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[488,9] cannot find symbol
+[ERROR]   symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.AssignBooleanTask>,int,boolean)
+[ERROR]   location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[493,9] cannot find symbol
+[ERROR]   symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.AssignListTask>,int,boolean)
+[ERROR]   location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[498,9] cannot find symbol
+[ERROR]   symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.AssignListTask>,int,boolean)
+[ERROR]   location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[583,9] cannot find symbol
+[ERROR]   symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.ComputeTask>,int,boolean)
+[ERROR]   location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jexl3/src/test/java/org/apache/commons/jexl3/CacheTest_OE25Dev_jexl_left_132_1.java:[588,9] cannot find symbol
+[ERROR]   symbol:   method runThreaded(java.lang.Class<org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1.ComputeTask>,int,boolean)
+[ERROR]   location: class org.apache.commons.jexl3.CacheTest_OE25Dev_jexl_left_132_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

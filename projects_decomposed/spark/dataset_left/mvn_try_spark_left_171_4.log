@@ -1,0 +1,51 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/ResponseTest_OE25Dev_spark_left_171_4.java:[138,9] cannot find symbol
+  symbol:   method validateCookieContent(javax.servlet.http.Cookie,java.lang.String,java.lang.String,java.lang.String,int,boolean,boolean)
+  location: class spark.ResponseTest_OE25Dev_spark_left_171_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/ResponseTest_OE25Dev_spark_left_171_4.java:[155,9] cannot find symbol
+  symbol:   method validateCookieContent(javax.servlet.http.Cookie,java.lang.String,java.lang.String,java.lang.String,int,boolean,boolean)
+  location: class spark.ResponseTest_OE25Dev_spark_left_171_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/ResponseTest_OE25Dev_spark_left_171_4.java:[171,9] cannot find symbol
+  symbol:   method validateCookieContent(javax.servlet.http.Cookie,java.lang.String,java.lang.String,java.lang.String,int,boolean,boolean)
+  location: class spark.ResponseTest_OE25Dev_spark_left_171_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/ResponseTest_OE25Dev_spark_left_171_4.java:[187,9] cannot find symbol
+  symbol:   method validateCookieContent(javax.servlet.http.Cookie,java.lang.String,java.lang.String,java.lang.String,int,boolean,boolean)
+  location: class spark.ResponseTest_OE25Dev_spark_left_171_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/ResponseTest_OE25Dev_spark_left_171_4.java:[203,9] cannot find symbol
+  symbol:   method validateCookieContent(javax.servlet.http.Cookie,java.lang.String,java.lang.String,java.lang.String,int,boolean,boolean)
+  location: class spark.ResponseTest_OE25Dev_spark_left_171_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/ResponseTest_OE25Dev_spark_left_171_4.java:[219,9] cannot find symbol
+  symbol:   method validateCookieContent(javax.servlet.http.Cookie,java.lang.String,java.lang.String,java.lang.String,int,boolean,boolean)
+  location: class spark.ResponseTest_OE25Dev_spark_left_171_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/ResponseTest_OE25Dev_spark_left_171_4.java:[235,9] cannot find symbol
+  symbol:   method validateCookieContent(javax.servlet.http.Cookie,java.lang.String,java.lang.String,java.lang.String,int,boolean,boolean)
+  location: class spark.ResponseTest_OE25Dev_spark_left_171_4
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:testCompile (default-testCompile) on project spark-core: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/ResponseTest_OE25Dev_spark_left_171_4.java:[138,9] cannot find symbol
+[ERROR]   symbol:   method validateCookieContent(javax.servlet.http.Cookie,java.lang.String,java.lang.String,java.lang.String,int,boolean,boolean)
+[ERROR]   location: class spark.ResponseTest_OE25Dev_spark_left_171_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/ResponseTest_OE25Dev_spark_left_171_4.java:[155,9] cannot find symbol
+[ERROR]   symbol:   method validateCookieContent(javax.servlet.http.Cookie,java.lang.String,java.lang.String,java.lang.String,int,boolean,boolean)
+[ERROR]   location: class spark.ResponseTest_OE25Dev_spark_left_171_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/ResponseTest_OE25Dev_spark_left_171_4.java:[171,9] cannot find symbol
+[ERROR]   symbol:   method validateCookieContent(javax.servlet.http.Cookie,java.lang.String,java.lang.String,java.lang.String,int,boolean,boolean)
+[ERROR]   location: class spark.ResponseTest_OE25Dev_spark_left_171_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/ResponseTest_OE25Dev_spark_left_171_4.java:[187,9] cannot find symbol
+[ERROR]   symbol:   method validateCookieContent(javax.servlet.http.Cookie,java.lang.String,java.lang.String,java.lang.String,int,boolean,boolean)
+[ERROR]   location: class spark.ResponseTest_OE25Dev_spark_left_171_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/ResponseTest_OE25Dev_spark_left_171_4.java:[203,9] cannot find symbol
+[ERROR]   symbol:   method validateCookieContent(javax.servlet.http.Cookie,java.lang.String,java.lang.String,java.lang.String,int,boolean,boolean)
+[ERROR]   location: class spark.ResponseTest_OE25Dev_spark_left_171_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/ResponseTest_OE25Dev_spark_left_171_4.java:[219,9] cannot find symbol
+[ERROR]   symbol:   method validateCookieContent(javax.servlet.http.Cookie,java.lang.String,java.lang.String,java.lang.String,int,boolean,boolean)
+[ERROR]   location: class spark.ResponseTest_OE25Dev_spark_left_171_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/ResponseTest_OE25Dev_spark_left_171_4.java:[235,9] cannot find symbol
+[ERROR]   symbol:   method validateCookieContent(javax.servlet.http.Cookie,java.lang.String,java.lang.String,java.lang.String,int,boolean,boolean)
+[ERROR]   location: class spark.ResponseTest_OE25Dev_spark_left_171_4
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

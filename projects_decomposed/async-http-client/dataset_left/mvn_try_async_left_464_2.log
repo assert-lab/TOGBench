@@ -1,0 +1,39 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/netty/channel/SemaphoreTest_OE25Dev_async_left_464_2.java:[40,5] cannot find symbol
+  symbol:   method allSemaphoresCheckPermitCount(org.asynchttpclient.netty.channel.MaxConnectionSemaphore,int,int)
+  location: class org.asynchttpclient.netty.channel.SemaphoreTest_OE25Dev_async_left_464_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/netty/channel/SemaphoreTest_OE25Dev_async_left_464_2.java:[45,5] cannot find symbol
+  symbol:   method allSemaphoresCheckPermitCount(org.asynchttpclient.netty.channel.PerHostConnectionSemaphore,int,int)
+  location: class org.asynchttpclient.netty.channel.SemaphoreTest_OE25Dev_async_left_464_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/netty/channel/SemaphoreTest_OE25Dev_async_left_464_2.java:[50,5] cannot find symbol
+  symbol:   method allSemaphoresCheckPermitCount(org.asynchttpclient.netty.channel.CombinedConnectionSemaphore,int,int)
+  location: class org.asynchttpclient.netty.channel.SemaphoreTest_OE25Dev_async_left_464_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/netty/channel/SemaphoreTest_OE25Dev_async_left_464_2.java:[51,5] cannot find symbol
+  symbol:   method allSemaphoresCheckPermitCount(org.asynchttpclient.netty.channel.CombinedConnectionSemaphore,int,int)
+  location: class org.asynchttpclient.netty.channel.SemaphoreTest_OE25Dev_async_left_464_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/netty/channel/SemaphoreTest_OE25Dev_async_left_464_2.java:[52,5] cannot find symbol
+  symbol:   method allSemaphoresCheckPermitCount(org.asynchttpclient.netty.channel.CombinedConnectionSemaphore,int,int)
+  location: class org.asynchttpclient.netty.channel.SemaphoreTest_OE25Dev_async_left_464_2
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project async-http-client: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/netty/channel/SemaphoreTest_OE25Dev_async_left_464_2.java:[40,5] cannot find symbol
+[ERROR]   symbol:   method allSemaphoresCheckPermitCount(org.asynchttpclient.netty.channel.MaxConnectionSemaphore,int,int)
+[ERROR]   location: class org.asynchttpclient.netty.channel.SemaphoreTest_OE25Dev_async_left_464_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/netty/channel/SemaphoreTest_OE25Dev_async_left_464_2.java:[45,5] cannot find symbol
+[ERROR]   symbol:   method allSemaphoresCheckPermitCount(org.asynchttpclient.netty.channel.PerHostConnectionSemaphore,int,int)
+[ERROR]   location: class org.asynchttpclient.netty.channel.SemaphoreTest_OE25Dev_async_left_464_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/netty/channel/SemaphoreTest_OE25Dev_async_left_464_2.java:[50,5] cannot find symbol
+[ERROR]   symbol:   method allSemaphoresCheckPermitCount(org.asynchttpclient.netty.channel.CombinedConnectionSemaphore,int,int)
+[ERROR]   location: class org.asynchttpclient.netty.channel.SemaphoreTest_OE25Dev_async_left_464_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/netty/channel/SemaphoreTest_OE25Dev_async_left_464_2.java:[51,5] cannot find symbol
+[ERROR]   symbol:   method allSemaphoresCheckPermitCount(org.asynchttpclient.netty.channel.CombinedConnectionSemaphore,int,int)
+[ERROR]   location: class org.asynchttpclient.netty.channel.SemaphoreTest_OE25Dev_async_left_464_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/netty/channel/SemaphoreTest_OE25Dev_async_left_464_2.java:[52,5] cannot find symbol
+[ERROR]   symbol:   method allSemaphoresCheckPermitCount(org.asynchttpclient.netty.channel.CombinedConnectionSemaphore,int,int)
+[ERROR]   location: class org.asynchttpclient.netty.channel.SemaphoreTest_OE25Dev_async_left_464_2
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

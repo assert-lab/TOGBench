@@ -1,0 +1,1316 @@
+id,test_prefix,test_name
+dbut_left_11_1,"private void callBatchWithException_1_oe(String sql, Object[][] params) throws Exception {
+        boolean caught = false;
+
+        try {
+            runner.batch(sql, params);
+
+            verify(stmt, times(2)).addBatch();
+            verify(stmt, times(1)).executeBatch();
+            verify(stmt, times(1)).close();    // make sure the statement is closed
+            verify(conn, times(1)).close();    // make sure the connection is closed
+        } catch(SQLException e) {
+            caught = true;
+        }
+
+        if(!caught) {
+            fail(""Exception never thrown, but expected"");
+}
+}
+",QueryRunnerTest::callBatchWithException_1_oe
+dbut_left_12_1,"private void callQueryWithException_1_oe(Object... params) throws Exception {
+        boolean caught = false;
+
+        try {
+            when(meta.getParameterCount()).thenReturn(2);
+            runner.query(""select * from blah where ? = ?"", handler, params);
+
+            verify(stmt, never()).close();    // make sure the statement is still open
+            verify(stmt, times(1)).executeQuery();
+            verify(results, times(1)).close();
+            verify(stmt, times(1)).close();    // make sure we closed the statement
+            verify(conn, times(1)).close();    // make sure we closed the connection
+        } catch(SQLException e) {
+            caught = true;
+        }
+
+        if(!caught) {
+            fail(""Exception never thrown, but expected"");
+}
+}
+",QueryRunnerTest::callQueryWithException_1_oe
+dbut_left_15_1,"private void callUpdateWithException_1_oe(Object... params) throws Exception {
+        boolean caught = false;
+
+        try {
+            when(meta.getParameterCount()).thenReturn(2);
+            runner.update(""select * from blah where ? = ?"", params);
+
+            verify(stmt, times(1)).executeUpdate();
+            verify(stmt, times(1)).close();    // make sure we closed the statement
+            verify(conn, times(1)).close();    // make sure we closed the connection
+        } catch(SQLException e) {
+            caught = true;
+        }
+
+        if(!caught) {
+            fail(""Exception never thrown, but expected"");
+}
+}
+",QueryRunnerTest::callUpdateWithException_1_oe
+dbut_left_16_1,"private void callGoodExecute_1_oe(Connection conn) throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(conn, ""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        Assert.assertEquals(3, result);
+}
+",QueryRunnerTest::callGoodExecute_1_oe
+dbut_left_16_2,"private void callGoodExecute_2_oe(Connection conn) throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(conn, ""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(1)).execute();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        result = runner.execute(conn, ""{call my_proc()}"");
+
+        Assert.assertEquals(3, result);
+}
+",QueryRunnerTest::callGoodExecute_2_oe
+dbut_left_16_3,"private void callGoodExecute_3_oe(Connection conn) throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(conn, ""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(1)).execute();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        result = runner.execute(conn, ""{call my_proc()}"");
+
+        // removed other assertion
+
+        verify(call, times(2)).execute();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        result = runner.execute(conn, ""{?= call my_proc()}"", intParam);
+
+        Assert.assertEquals(42, intParam.getValue().intValue());
+}
+",QueryRunnerTest::callGoodExecute_3_oe
+dbut_left_16_4,"private void callGoodExecute_4_oe(Connection conn) throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(conn, ""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(1)).execute();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        result = runner.execute(conn, ""{call my_proc()}"");
+
+        // removed other assertion
+
+        verify(call, times(2)).execute();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        result = runner.execute(conn, ""{?= call my_proc()}"", intParam);
+
+        // removed other assertion
+        Assert.assertEquals(3, result);
+}
+",QueryRunnerTest::callGoodExecute_4_oe
+dbut_left_16_5,"private void callGoodExecute_5_oe(Connection conn) throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(conn, ""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(1)).execute();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        result = runner.execute(conn, ""{call my_proc()}"");
+
+        // removed other assertion
+
+        verify(call, times(2)).execute();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        result = runner.execute(conn, ""{?= call my_proc()}"", intParam);
+
+        // removed other assertion
+        // removed other assertion
+
+        verify(call, times(3)).execute();
+        verify(call, times(3)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test OUT parameters with IN parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(4242);
+        intParam.setValue(null);
+        result = runner.execute(conn, ""{?= call my_proc(?, ?)}"", intParam, ""unit"", ""test"");
+
+        Assert.assertEquals(4242, intParam.getValue().intValue());
+}
+",QueryRunnerTest::callGoodExecute_5_oe
+dbut_left_16_6,"private void callGoodExecute_6_oe(Connection conn) throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(conn, ""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(1)).execute();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        result = runner.execute(conn, ""{call my_proc()}"");
+
+        // removed other assertion
+
+        verify(call, times(2)).execute();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        result = runner.execute(conn, ""{?= call my_proc()}"", intParam);
+
+        // removed other assertion
+        // removed other assertion
+
+        verify(call, times(3)).execute();
+        verify(call, times(3)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test OUT parameters with IN parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(4242);
+        intParam.setValue(null);
+        result = runner.execute(conn, ""{?= call my_proc(?, ?)}"", intParam, ""unit"", ""test"");
+
+        // removed other assertion
+        Assert.assertEquals(3, result);
+}
+",QueryRunnerTest::callGoodExecute_6_oe
+dbut_left_16_7,"private void callGoodExecute_7_oe(Connection conn) throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(conn, ""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(1)).execute();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        result = runner.execute(conn, ""{call my_proc()}"");
+
+        // removed other assertion
+
+        verify(call, times(2)).execute();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        result = runner.execute(conn, ""{?= call my_proc()}"", intParam);
+
+        // removed other assertion
+        // removed other assertion
+
+        verify(call, times(3)).execute();
+        verify(call, times(3)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test OUT parameters with IN parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(4242);
+        intParam.setValue(null);
+        result = runner.execute(conn, ""{?= call my_proc(?, ?)}"", intParam, ""unit"", ""test"");
+
+        // removed other assertion
+        // removed other assertion
+
+        verify(call, times(4)).execute();
+        verify(call, times(4)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test INOUT parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(24);
+        when(call.getObject(3)).thenReturn(""out"");
+        intParam.setValue(null);
+        OutParameter<String> stringParam =
+            new OutParameter<String>(Types.VARCHAR, String.class, ""in"");
+        result = runner.execute(conn, ""{?= call my_proc(?, ?)}"", intParam, ""test"", stringParam);
+
+        Assert.assertEquals(24, intParam.getValue().intValue());
+}
+",QueryRunnerTest::callGoodExecute_7_oe
+dbut_left_16_8,"private void callGoodExecute_8_oe(Connection conn) throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(conn, ""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(1)).execute();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        result = runner.execute(conn, ""{call my_proc()}"");
+
+        // removed other assertion
+
+        verify(call, times(2)).execute();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        result = runner.execute(conn, ""{?= call my_proc()}"", intParam);
+
+        // removed other assertion
+        // removed other assertion
+
+        verify(call, times(3)).execute();
+        verify(call, times(3)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test OUT parameters with IN parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(4242);
+        intParam.setValue(null);
+        result = runner.execute(conn, ""{?= call my_proc(?, ?)}"", intParam, ""unit"", ""test"");
+
+        // removed other assertion
+        // removed other assertion
+
+        verify(call, times(4)).execute();
+        verify(call, times(4)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test INOUT parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(24);
+        when(call.getObject(3)).thenReturn(""out"");
+        intParam.setValue(null);
+        OutParameter<String> stringParam =
+            new OutParameter<String>(Types.VARCHAR, String.class, ""in"");
+        result = runner.execute(conn, ""{?= call my_proc(?, ?)}"", intParam, ""test"", stringParam);
+
+        // removed other assertion
+        Assert.assertEquals(""out"", stringParam.getValue());
+}
+",QueryRunnerTest::callGoodExecute_8_oe
+dbut_left_16_9,"private void callGoodExecute_9_oe(Connection conn) throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(conn, ""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(1)).execute();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        result = runner.execute(conn, ""{call my_proc()}"");
+
+        // removed other assertion
+
+        verify(call, times(2)).execute();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        result = runner.execute(conn, ""{?= call my_proc()}"", intParam);
+
+        // removed other assertion
+        // removed other assertion
+
+        verify(call, times(3)).execute();
+        verify(call, times(3)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test OUT parameters with IN parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(4242);
+        intParam.setValue(null);
+        result = runner.execute(conn, ""{?= call my_proc(?, ?)}"", intParam, ""unit"", ""test"");
+
+        // removed other assertion
+        // removed other assertion
+
+        verify(call, times(4)).execute();
+        verify(call, times(4)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test INOUT parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(24);
+        when(call.getObject(3)).thenReturn(""out"");
+        intParam.setValue(null);
+        OutParameter<String> stringParam =
+            new OutParameter<String>(Types.VARCHAR, String.class, ""in"");
+        result = runner.execute(conn, ""{?= call my_proc(?, ?)}"", intParam, ""test"", stringParam);
+
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(3, result);
+}
+",QueryRunnerTest::callGoodExecute_9_oe
+dbut_left_17_1,"private void callGoodExecute_1_oe() throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        Assert.assertEquals(3, result);
+}
+",QueryRunnerTest::callGoodExecute_1_oe
+dbut_left_17_2,"private void callGoodExecute_2_oe() throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(1)).execute();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        result = runner.execute(""{call my_proc()}"");
+
+        Assert.assertEquals(3, result);
+}
+",QueryRunnerTest::callGoodExecute_2_oe
+dbut_left_17_3,"private void callGoodExecute_3_oe() throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(1)).execute();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        result = runner.execute(""{call my_proc()}"");
+
+        // removed other assertion
+
+        verify(call, times(2)).execute();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(2)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        result = runner.execute(""{?= call my_proc()}"", intParam);
+
+        Assert.assertEquals(42, intParam.getValue().intValue());
+}
+",QueryRunnerTest::callGoodExecute_3_oe
+dbut_left_17_4,"private void callGoodExecute_4_oe() throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(1)).execute();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        result = runner.execute(""{call my_proc()}"");
+
+        // removed other assertion
+
+        verify(call, times(2)).execute();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(2)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        result = runner.execute(""{?= call my_proc()}"", intParam);
+
+        // removed other assertion
+        Assert.assertEquals(3, result);
+}
+",QueryRunnerTest::callGoodExecute_4_oe
+dbut_left_17_5,"private void callGoodExecute_5_oe() throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(1)).execute();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        result = runner.execute(""{call my_proc()}"");
+
+        // removed other assertion
+
+        verify(call, times(2)).execute();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(2)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        result = runner.execute(""{?= call my_proc()}"", intParam);
+
+        // removed other assertion
+        // removed other assertion
+
+        verify(call, times(3)).execute();
+        verify(call, times(3)).close();    // make sure we closed the statement
+        verify(conn, times(3)).close();    // make sure we do not close the connection
+
+        // Test OUT parameters with IN parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(4242);
+        intParam.setValue(null);
+        result = runner.execute(""{?= call my_proc(?, ?)}"", intParam, ""unit"", ""test"");
+
+        Assert.assertEquals(4242, intParam.getValue().intValue());
+}
+",QueryRunnerTest::callGoodExecute_5_oe
+dbut_left_17_6,"private void callGoodExecute_6_oe() throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(1)).execute();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        result = runner.execute(""{call my_proc()}"");
+
+        // removed other assertion
+
+        verify(call, times(2)).execute();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(2)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        result = runner.execute(""{?= call my_proc()}"", intParam);
+
+        // removed other assertion
+        // removed other assertion
+
+        verify(call, times(3)).execute();
+        verify(call, times(3)).close();    // make sure we closed the statement
+        verify(conn, times(3)).close();    // make sure we do not close the connection
+
+        // Test OUT parameters with IN parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(4242);
+        intParam.setValue(null);
+        result = runner.execute(""{?= call my_proc(?, ?)}"", intParam, ""unit"", ""test"");
+
+        // removed other assertion
+        Assert.assertEquals(3, result);
+}
+",QueryRunnerTest::callGoodExecute_6_oe
+dbut_left_17_7,"private void callGoodExecute_7_oe() throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(1)).execute();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        result = runner.execute(""{call my_proc()}"");
+
+        // removed other assertion
+
+        verify(call, times(2)).execute();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(2)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        result = runner.execute(""{?= call my_proc()}"", intParam);
+
+        // removed other assertion
+        // removed other assertion
+
+        verify(call, times(3)).execute();
+        verify(call, times(3)).close();    // make sure we closed the statement
+        verify(conn, times(3)).close();    // make sure we do not close the connection
+
+        // Test OUT parameters with IN parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(4242);
+        intParam.setValue(null);
+        result = runner.execute(""{?= call my_proc(?, ?)}"", intParam, ""unit"", ""test"");
+
+        // removed other assertion
+        // removed other assertion
+
+        verify(call, times(4)).execute();
+        verify(call, times(4)).close();    // make sure we closed the statement
+        verify(conn, times(4)).close();    // make sure we do not close the connection
+
+        // Test INOUT parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(24);
+        when(call.getObject(3)).thenReturn(""out"");
+        intParam.setValue(null);
+        OutParameter<String> stringParam =
+            new OutParameter<String>(Types.VARCHAR, String.class, ""in"");
+        result = runner.execute(""{?= call my_proc(?, ?)}"", intParam, ""test"", stringParam);
+
+        Assert.assertEquals(24, intParam.getValue().intValue());
+}
+",QueryRunnerTest::callGoodExecute_7_oe
+dbut_left_17_8,"private void callGoodExecute_8_oe() throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(1)).execute();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        result = runner.execute(""{call my_proc()}"");
+
+        // removed other assertion
+
+        verify(call, times(2)).execute();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(2)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        result = runner.execute(""{?= call my_proc()}"", intParam);
+
+        // removed other assertion
+        // removed other assertion
+
+        verify(call, times(3)).execute();
+        verify(call, times(3)).close();    // make sure we closed the statement
+        verify(conn, times(3)).close();    // make sure we do not close the connection
+
+        // Test OUT parameters with IN parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(4242);
+        intParam.setValue(null);
+        result = runner.execute(""{?= call my_proc(?, ?)}"", intParam, ""unit"", ""test"");
+
+        // removed other assertion
+        // removed other assertion
+
+        verify(call, times(4)).execute();
+        verify(call, times(4)).close();    // make sure we closed the statement
+        verify(conn, times(4)).close();    // make sure we do not close the connection
+
+        // Test INOUT parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(24);
+        when(call.getObject(3)).thenReturn(""out"");
+        intParam.setValue(null);
+        OutParameter<String> stringParam =
+            new OutParameter<String>(Types.VARCHAR, String.class, ""in"");
+        result = runner.execute(""{?= call my_proc(?, ?)}"", intParam, ""test"", stringParam);
+
+        // removed other assertion
+        Assert.assertEquals(""out"", stringParam.getValue());
+}
+",QueryRunnerTest::callGoodExecute_8_oe
+dbut_left_17_9,"private void callGoodExecute_9_oe() throws Exception {
+        when(call.execute()).thenReturn(false);
+        when(call.getUpdateCount()).thenReturn(3);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        int result = runner.execute(""{call my_proc(?, ?)}"", ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(1)).execute();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        result = runner.execute(""{call my_proc()}"");
+
+        // removed other assertion
+
+        verify(call, times(2)).execute();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(2)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        result = runner.execute(""{?= call my_proc()}"", intParam);
+
+        // removed other assertion
+        // removed other assertion
+
+        verify(call, times(3)).execute();
+        verify(call, times(3)).close();    // make sure we closed the statement
+        verify(conn, times(3)).close();    // make sure we do not close the connection
+
+        // Test OUT parameters with IN parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(4242);
+        intParam.setValue(null);
+        result = runner.execute(""{?= call my_proc(?, ?)}"", intParam, ""unit"", ""test"");
+
+        // removed other assertion
+        // removed other assertion
+
+        verify(call, times(4)).execute();
+        verify(call, times(4)).close();    // make sure we closed the statement
+        verify(conn, times(4)).close();    // make sure we do not close the connection
+
+        // Test INOUT parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(24);
+        when(call.getObject(3)).thenReturn(""out"");
+        intParam.setValue(null);
+        OutParameter<String> stringParam =
+            new OutParameter<String>(Types.VARCHAR, String.class, ""in"");
+        result = runner.execute(""{?= call my_proc(?, ?)}"", intParam, ""test"", stringParam);
+
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(3, result);
+}
+",QueryRunnerTest::callGoodExecute_9_oe
+dbut_left_18_1,"private void callExecuteWithException_1_oe(Object... params) throws Exception {
+        boolean caught = false;
+
+        try {
+            when(call.execute()).thenReturn(false);
+            when(meta.getParameterCount()).thenReturn(2);
+            runner.query(""{call my_proc(?, ?)}"", handler, params);
+
+        } catch(SQLException e) {
+            caught = true;
+        }
+
+        if(!caught) {
+            fail(""Exception never thrown, but expected"");
+}
+}
+",QueryRunnerTest::callExecuteWithException_1_oe
+dbut_left_20_1,"private void callGoodExecuteWithResultSet_1_oe(Connection conn) throws Exception {
+        when(call.execute()).thenReturn(true);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        runner.execute(conn, ""{call my_proc(?, ?)}"", handler, ""unit"", ""test"");
+
+        verify(call, times(1)).execute();
+        verify(results, times(1)).close();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        runner.execute(conn, ""{call my_proc()}"", handler);
+
+        verify(call, times(2)).execute();
+        verify(results, times(2)).close();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        runner.execute(conn, ""{?= call my_proc()}"", handler, intParam);
+
+        Assert.assertEquals(42, intParam.getValue().intValue());
+}
+",QueryRunnerTest::callGoodExecuteWithResultSet_1_oe
+dbut_left_20_2,"private void callGoodExecuteWithResultSet_2_oe(Connection conn) throws Exception {
+        when(call.execute()).thenReturn(true);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        runner.execute(conn, ""{call my_proc(?, ?)}"", handler, ""unit"", ""test"");
+
+        verify(call, times(1)).execute();
+        verify(results, times(1)).close();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        runner.execute(conn, ""{call my_proc()}"", handler);
+
+        verify(call, times(2)).execute();
+        verify(results, times(2)).close();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        runner.execute(conn, ""{?= call my_proc()}"", handler, intParam);
+
+        // removed other assertion
+
+        verify(call, times(3)).execute();
+        verify(results, times(3)).close();
+        verify(call, times(3)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test OUT parameters with IN parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(4242);
+        intParam.setValue(null);
+        runner.execute(conn, ""{?= call my_proc(?, ?)}"", handler, intParam, ""unit"", ""test"");
+
+        Assert.assertEquals(4242, intParam.getValue().intValue());
+}
+",QueryRunnerTest::callGoodExecuteWithResultSet_2_oe
+dbut_left_20_3,"private void callGoodExecuteWithResultSet_3_oe(Connection conn) throws Exception {
+        when(call.execute()).thenReturn(true);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        runner.execute(conn, ""{call my_proc(?, ?)}"", handler, ""unit"", ""test"");
+
+        verify(call, times(1)).execute();
+        verify(results, times(1)).close();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        runner.execute(conn, ""{call my_proc()}"", handler);
+
+        verify(call, times(2)).execute();
+        verify(results, times(2)).close();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        runner.execute(conn, ""{?= call my_proc()}"", handler, intParam);
+
+        // removed other assertion
+
+        verify(call, times(3)).execute();
+        verify(results, times(3)).close();
+        verify(call, times(3)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test OUT parameters with IN parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(4242);
+        intParam.setValue(null);
+        runner.execute(conn, ""{?= call my_proc(?, ?)}"", handler, intParam, ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(4)).execute();
+        verify(results, times(4)).close();
+        verify(call, times(4)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test INOUT parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(24);
+        when(call.getObject(3)).thenReturn(""out"");
+        intParam.setValue(null);
+        OutParameter<String> stringParam =
+            new OutParameter<String>(Types.VARCHAR, String.class, ""in"");
+        runner.execute(conn, ""{?= call my_proc(?, ?)}"", handler, intParam, ""test"", stringParam);
+
+        Assert.assertEquals(24, intParam.getValue().intValue());
+}
+",QueryRunnerTest::callGoodExecuteWithResultSet_3_oe
+dbut_left_20_4,"private void callGoodExecuteWithResultSet_4_oe(Connection conn) throws Exception {
+        when(call.execute()).thenReturn(true);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        runner.execute(conn, ""{call my_proc(?, ?)}"", handler, ""unit"", ""test"");
+
+        verify(call, times(1)).execute();
+        verify(results, times(1)).close();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        runner.execute(conn, ""{call my_proc()}"", handler);
+
+        verify(call, times(2)).execute();
+        verify(results, times(2)).close();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        runner.execute(conn, ""{?= call my_proc()}"", handler, intParam);
+
+        // removed other assertion
+
+        verify(call, times(3)).execute();
+        verify(results, times(3)).close();
+        verify(call, times(3)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test OUT parameters with IN parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(4242);
+        intParam.setValue(null);
+        runner.execute(conn, ""{?= call my_proc(?, ?)}"", handler, intParam, ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(4)).execute();
+        verify(results, times(4)).close();
+        verify(call, times(4)).close();    // make sure we closed the statement
+        verify(conn, times(0)).close();    // make sure we do not close the connection
+
+        // Test INOUT parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(24);
+        when(call.getObject(3)).thenReturn(""out"");
+        intParam.setValue(null);
+        OutParameter<String> stringParam =
+            new OutParameter<String>(Types.VARCHAR, String.class, ""in"");
+        runner.execute(conn, ""{?= call my_proc(?, ?)}"", handler, intParam, ""test"", stringParam);
+
+        // removed other assertion
+        Assert.assertEquals(""out"", stringParam.getValue());
+}
+",QueryRunnerTest::callGoodExecuteWithResultSet_4_oe
+dbut_left_21_1,"private void callGoodExecuteWithResultSet_1_oe() throws Exception {
+        when(call.execute()).thenReturn(true);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        runner.execute(""{call my_proc(?, ?)}"", handler, ""unit"", ""test"");
+
+        verify(call, times(1)).execute();
+        verify(results, times(1)).close();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        runner.execute(""{call my_proc()}"", handler);
+
+        verify(call, times(2)).execute();
+        verify(results, times(2)).close();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(2)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        runner.execute(""{?= call my_proc()}"", handler, intParam);
+
+        Assert.assertEquals(42, intParam.getValue().intValue());
+}
+",QueryRunnerTest::callGoodExecuteWithResultSet_1_oe
+dbut_left_21_2,"private void callGoodExecuteWithResultSet_2_oe() throws Exception {
+        when(call.execute()).thenReturn(true);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        runner.execute(""{call my_proc(?, ?)}"", handler, ""unit"", ""test"");
+
+        verify(call, times(1)).execute();
+        verify(results, times(1)).close();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        runner.execute(""{call my_proc()}"", handler);
+
+        verify(call, times(2)).execute();
+        verify(results, times(2)).close();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(2)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        runner.execute(""{?= call my_proc()}"", handler, intParam);
+
+        // removed other assertion
+
+        verify(call, times(3)).execute();
+        verify(results, times(3)).close();
+        verify(call, times(3)).close();    // make sure we closed the statement
+        verify(conn, times(3)).close();    // make sure we do not close the connection
+
+        // Test OUT parameters with IN parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(4242);
+        intParam.setValue(null);
+        runner.execute(""{?= call my_proc(?, ?)}"", handler, intParam, ""unit"", ""test"");
+
+        Assert.assertEquals(4242, intParam.getValue().intValue());
+}
+",QueryRunnerTest::callGoodExecuteWithResultSet_2_oe
+dbut_left_21_3,"private void callGoodExecuteWithResultSet_3_oe() throws Exception {
+        when(call.execute()).thenReturn(true);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        runner.execute(""{call my_proc(?, ?)}"", handler, ""unit"", ""test"");
+
+        verify(call, times(1)).execute();
+        verify(results, times(1)).close();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        runner.execute(""{call my_proc()}"", handler);
+
+        verify(call, times(2)).execute();
+        verify(results, times(2)).close();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(2)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        runner.execute(""{?= call my_proc()}"", handler, intParam);
+
+        // removed other assertion
+
+        verify(call, times(3)).execute();
+        verify(results, times(3)).close();
+        verify(call, times(3)).close();    // make sure we closed the statement
+        verify(conn, times(3)).close();    // make sure we do not close the connection
+
+        // Test OUT parameters with IN parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(4242);
+        intParam.setValue(null);
+        runner.execute(""{?= call my_proc(?, ?)}"", handler, intParam, ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(4)).execute();
+        verify(results, times(4)).close();
+        verify(call, times(4)).close();    // make sure we closed the statement
+        verify(conn, times(4)).close();    // make sure we do not close the connection
+
+        // Test INOUT parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(24);
+        when(call.getObject(3)).thenReturn(""out"");
+        intParam.setValue(null);
+        OutParameter<String> stringParam =
+            new OutParameter<String>(Types.VARCHAR, String.class, ""in"");
+        runner.execute(""{?= call my_proc(?, ?)}"", handler, intParam, ""test"", stringParam);
+
+        Assert.assertEquals(24, intParam.getValue().intValue());
+}
+",QueryRunnerTest::callGoodExecuteWithResultSet_3_oe
+dbut_left_21_4,"private void callGoodExecuteWithResultSet_4_oe() throws Exception {
+        when(call.execute()).thenReturn(true);
+
+        when(meta.getParameterCount()).thenReturn(2);
+        runner.execute(""{call my_proc(?, ?)}"", handler, ""unit"", ""test"");
+
+        verify(call, times(1)).execute();
+        verify(results, times(1)).close();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we do not close the connection
+
+        // call the other variation of query
+        when(meta.getParameterCount()).thenReturn(0);
+        runner.execute(""{call my_proc()}"", handler);
+
+        verify(call, times(2)).execute();
+        verify(results, times(2)).close();
+        verify(call, times(2)).close();    // make sure we closed the statement
+        verify(conn, times(2)).close();    // make sure we do not close the connection
+
+        // Test single OUT parameter
+        when(meta.getParameterCount()).thenReturn(1);
+        when(call.getObject(1)).thenReturn(42);
+        OutParameter<Integer> intParam =
+            new OutParameter<Integer>(Types.INTEGER, Integer.class);
+        runner.execute(""{?= call my_proc()}"", handler, intParam);
+
+        // removed other assertion
+
+        verify(call, times(3)).execute();
+        verify(results, times(3)).close();
+        verify(call, times(3)).close();    // make sure we closed the statement
+        verify(conn, times(3)).close();    // make sure we do not close the connection
+
+        // Test OUT parameters with IN parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(4242);
+        intParam.setValue(null);
+        runner.execute(""{?= call my_proc(?, ?)}"", handler, intParam, ""unit"", ""test"");
+
+        // removed other assertion
+
+        verify(call, times(4)).execute();
+        verify(results, times(4)).close();
+        verify(call, times(4)).close();    // make sure we closed the statement
+        verify(conn, times(4)).close();    // make sure we do not close the connection
+
+        // Test INOUT parameters
+        when(meta.getParameterCount()).thenReturn(3);
+        when(call.getObject(1)).thenReturn(24);
+        when(call.getObject(3)).thenReturn(""out"");
+        intParam.setValue(null);
+        OutParameter<String> stringParam =
+            new OutParameter<String>(Types.VARCHAR, String.class, ""in"");
+        runner.execute(""{?= call my_proc(?, ?)}"", handler, intParam, ""test"", stringParam);
+
+        // removed other assertion
+        Assert.assertEquals(""out"", stringParam.getValue());
+}
+",QueryRunnerTest::callGoodExecuteWithResultSet_4_oe
+dbut_left_22_1,"private void callExecuteWithResultSetWithException_1_oe(Object... params) throws Exception {
+        boolean caught = false;
+
+        try {
+            when(call.execute()).thenReturn(true);
+            when(meta.getParameterCount()).thenReturn(2);
+            runner.query(""{call my_proc(?, ?)}"", handler, params);
+
+        } catch(SQLException e) {
+            caught = true;
+        }
+
+        if(!caught) {
+            fail(""Exception never thrown, but expected"");
+}
+}
+",QueryRunnerTest::callExecuteWithResultSetWithException_1_oe
+dbut_left_34_1,"private void callBatchWithException_1_oe(String sql, Object[][] params) throws Exception {
+        Future<int[]> future = null;
+        boolean caught = false;
+
+        try {
+            future = runner.batch(sql, params);
+            
+            future.get();
+            
+            verify(stmt, times(2)).addBatch();
+            verify(stmt, times(1)).executeBatch();
+            verify(stmt, times(1)).close();    // make sure the statement is closed
+            verify(conn, times(1)).close();    // make sure the connection is closed
+        } catch(Exception e) {
+            caught = true;
+        }
+
+        if(!caught) {
+            fail(""Exception never thrown, but expected"");
+}
+}
+",AsyncQueryRunnerTest::callBatchWithException_1_oe
+dbut_left_35_1,"private void callQueryWithException_1_oe(Object... params) throws Exception {
+        boolean caught = false;
+
+        try {
+            when(meta.getParameterCount()).thenReturn(2);
+            runner.query(""select * from blah where ? = ?"", handler, params).get();
+
+            verify(stmt, times(1)).executeQuery();
+            verify(results, times(1)).close();
+            verify(stmt, times(1)).close();    // make sure we closed the statement
+            verify(conn, times(1)).close();    // make sure we closed the connection
+        } catch(Exception e) {
+            caught = true;
+        }
+
+        if(!caught) {
+            fail(""Exception never thrown, but expected"");
+}
+}
+",AsyncQueryRunnerTest::callQueryWithException_1_oe
+dbut_left_36_1,"private void callUpdateWithException_1_oe(Object... params) throws Exception {
+        boolean caught = false;
+
+        try {
+            when(meta.getParameterCount()).thenReturn(2);
+            runner.update(""select * from blah where ? = ?"", params).get();
+
+            verify(stmt, times(1)).executeUpdate();
+            verify(stmt, times(1)).close();    // make sure we closed the statement
+            verify(conn, times(1)).close();    // make sure we closed the connection
+        } catch(Exception e) {
+            caught = true;
+        }
+
+        if(!caught) {
+            fail(""Exception never thrown, but expected"");
+}
+}
+",AsyncQueryRunnerTest::callUpdateWithException_1_oe
+dbut_left_64_1,"private static void assertArrayEquals_1_oe(byte[] expected, byte[] actual) { if (expected == actual) { return;
+}
+}
+",SqlNullCheckedResultSetTest::assertArrayEquals_1_oe
+dbut_left_64_2,"// removed other assertion
+        }
+        if (expected.length != actual.length) {
+            failNotEquals(null, Arrays.toString(expected), Arrays.toString(actual));
+        }
+        for (int i = 0; i < expected.length; i++) {
+            byte expectedItem = expected[i];
+            byte actualItem = actual[i];
+            assertEquals(""Array not equal at index "" + i, expectedItem, actualItem);
+",SqlNullCheckedResultSetTest::assertArrayEquals_2_oe
+dbut_left_127_1,"private void handle_1_oe() throws Exception {
+        res = bmh.handle(rs);
+        assertNotNull(res.get(Long.valueOf(23L)));
+}
+",BeanMapHandlerTest::handle_1_oe

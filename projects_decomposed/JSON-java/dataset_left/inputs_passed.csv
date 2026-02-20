@@ -1,0 +1,41 @@
+id,test_prefix,test_name
+json_left_183_7,"@SuppressWarnings(""boxing"")
+    @Test
+    public void testSingletonBean_7_oe() {
+        final JSONObject jo = new JSONObject(Singleton.getInstance());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        
+        // Update the singleton values
+        Singleton.getInstance().setSomeInt(42);
+        Singleton.getInstance().setSomeString(""Something"");
+        final JSONObject jo2 = new JSONObject(Singleton.getInstance());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ensure our original jo hasn't changed.
+        assertEquals(0, jo.get(""someInt""));
+    }
+",JSONObjectTest::testSingletonBean_7_oe
+json_left_184_7,"@SuppressWarnings(""boxing"")
+    @Test
+    public void testSingletonEnumBean_7_oe() {
+        final JSONObject jo = new JSONObject(SingletonEnum.getInstance());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        
+        // Update the singleton values
+        SingletonEnum.getInstance().setSomeInt(42);
+        SingletonEnum.getInstance().setSomeString(""Something"");
+        final JSONObject jo2 = new JSONObject(SingletonEnum.getInstance());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // ensure our original jo hasn't changed.
+        assertEquals(0, jo.get(""someInt""));
+    }
+",JSONObjectTest::testSingletonEnumBean_7_oe

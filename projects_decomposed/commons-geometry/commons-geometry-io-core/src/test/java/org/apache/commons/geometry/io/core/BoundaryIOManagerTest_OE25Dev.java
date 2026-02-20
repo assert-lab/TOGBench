@@ -56,38 +56,6 @@ class BoundaryIOManagerTest_OE25Dev {
 
     private final TestManager manager = new TestManager();
 
-    @Test
-    void testRegisterReadHandler_illegalArgs() {
-        // arrange
-        final StubReadHandler nullFmt = new StubReadHandler(null);
-        final StubReadHandler nullFmtName = new StubReadHandler(new StubGeometryFormat(null));
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> manager.registerReadHandler(null),
-                NullPointerException.class, "Handler cannot be null");
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> manager.registerReadHandler(nullFmt),
-                NullPointerException.class, "Format cannot be null");
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> manager.registerReadHandler(nullFmtName),
-                NullPointerException.class, "Format name cannot be null");
-    }
-
-    @Test
-    void testRegisterWriteHandler_illegalArgs() {
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> manager.registerWriteHandler(null),
-                NullPointerException.class, "Handler cannot be null");
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> manager.registerWriteHandler(new StubWriteHandler(null)),
-                NullPointerException.class, "Format cannot be null");
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> manager.registerWriteHandler(new StubWriteHandler(new StubGeometryFormat(null))),
-                NullPointerException.class, "Format name cannot be null");
-    }
-
     private static final class TestManager
         extends BoundaryIOManager<TestLineSegment, TestBoundaryList, StubReadHandler, StubWriteHandler> {
     }
@@ -1985,6 +1953,236 @@ class BoundaryIOManagerTest_OE25Dev {
     fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+@Test
+    void testRegisterReadHandler_illegalArgs_1_oe() {
+        // arrange
+        final StubReadHandler nullFmt = new StubReadHandler(null);
+        final StubReadHandler nullFmtName = new StubReadHandler(new StubGeometryFormat(null));
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage( () -> manager.registerReadHandler(null), NullPointerException.class, "Handler cannot be null");
+    }
+
+@Test
+    void testRegisterReadHandler_illegalArgs_2_oe() {
+        // arrange
+        final StubReadHandler nullFmt = new StubReadHandler(null);
+        final StubReadHandler nullFmtName = new StubReadHandler(new StubGeometryFormat(null));
+
+        // act/assert
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage( () -> manager.registerReadHandler(nullFmt), NullPointerException.class, "Format cannot be null");
+    }
+
+@Test
+    void testRegisterReadHandler_illegalArgs_3_oe() {
+        // arrange
+        final StubReadHandler nullFmt = new StubReadHandler(null);
+        final StubReadHandler nullFmtName = new StubReadHandler(new StubGeometryFormat(null));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage( () -> manager.registerReadHandler(nullFmtName), NullPointerException.class, "Format name cannot be null");
+    }
+
+@Test
+    void testRequireReadHandler_4_oe() {
+        // arrange
+        final StubReadHandler r1 = new StubReadHandler(FMT_A);
+        final GeometryInput aInput = new StubGeometryInput("/some/path/to/a/file.AEXT");
+        final GeometryInput bInput = new StubGeometryInput("/some/path/to/a/file.b");
+        final GeometryInput noFileExt = new StubGeometryInput("/some/path/to/a/file");
+        final GeometryInput nullFileName = new StubGeometryInput(null);
+
+        manager.registerReadHandler(r1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage( () -> manager.requireReadHandler(aInput, FMT_B), IllegalArgumentException.class, "Failed to find handler for format \"testB\"");
+    }
+
+@Test
+    void testRequireReadHandler_5_oe() {
+        // arrange
+        final StubReadHandler r1 = new StubReadHandler(FMT_A);
+        final GeometryInput aInput = new StubGeometryInput("/some/path/to/a/file.AEXT");
+        final GeometryInput bInput = new StubGeometryInput("/some/path/to/a/file.b");
+        final GeometryInput noFileExt = new StubGeometryInput("/some/path/to/a/file");
+        final GeometryInput nullFileName = new StubGeometryInput(null);
+
+        manager.registerReadHandler(r1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage( () -> manager.requireReadHandler(bInput, null), IllegalArgumentException.class, "Failed to find handler for file extension \"b\"");
+    }
+
+@Test
+    void testRequireReadHandler_6_oe() {
+        // arrange
+        final StubReadHandler r1 = new StubReadHandler(FMT_A);
+        final GeometryInput aInput = new StubGeometryInput("/some/path/to/a/file.AEXT");
+        final GeometryInput bInput = new StubGeometryInput("/some/path/to/a/file.b");
+        final GeometryInput noFileExt = new StubGeometryInput("/some/path/to/a/file");
+        final GeometryInput nullFileName = new StubGeometryInput(null);
+
+        manager.registerReadHandler(r1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage( () -> manager.requireReadHandler(noFileExt, null), IllegalArgumentException.class, "Failed to find handler: no format specified and no file extension available");
+    }
+
+@Test
+    void testRequireReadHandler_7_oe() {
+        // arrange
+        final StubReadHandler r1 = new StubReadHandler(FMT_A);
+        final GeometryInput aInput = new StubGeometryInput("/some/path/to/a/file.AEXT");
+        final GeometryInput bInput = new StubGeometryInput("/some/path/to/a/file.b");
+        final GeometryInput noFileExt = new StubGeometryInput("/some/path/to/a/file");
+        final GeometryInput nullFileName = new StubGeometryInput(null);
+
+        manager.registerReadHandler(r1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage( () -> manager.requireReadHandler(nullFileName, null), IllegalArgumentException.class, "Failed to find handler: no format specified and no file extension available");
+    }
+
+@Test
+    void testRegisterWriteHandler_illegalArgs_1_oe() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage( () -> manager.registerWriteHandler(null), NullPointerException.class, "Handler cannot be null");
+    }
+
+@Test
+    void testRegisterWriteHandler_illegalArgs_2_oe() {
+        // act/assert
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage( () -> manager.registerWriteHandler(new StubWriteHandler(null)), NullPointerException.class, "Format cannot be null");
+    }
+
+@Test
+    void testRegisterWriteHandler_illegalArgs_3_oe() {
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage( () -> manager.registerWriteHandler(new StubWriteHandler(new StubGeometryFormat(null))), NullPointerException.class, "Format name cannot be null");
+    }
+
+@Test
+    void testRequireWriteHandler_4_oe() {
+        // arrange
+        final StubWriteHandler w1 = new StubWriteHandler(FMT_A);
+        final GeometryOutput aInput = new StubGeometryOutput("/some/path/to/a/file.AEXT");
+        final GeometryOutput bInput = new StubGeometryOutput("/some/path/to/a/file.b");
+        final GeometryOutput noFileExt = new StubGeometryOutput("/some/path/to/a/file");
+        final GeometryOutput nullFileName = new StubGeometryOutput(null);
+
+        manager.registerWriteHandler(w1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage( () -> manager.requireWriteHandler(aInput, FMT_B), IllegalArgumentException.class, "Failed to find handler for format \"testB\"");
+    }
+
+@Test
+    void testRequireWriteHandler_5_oe() {
+        // arrange
+        final StubWriteHandler w1 = new StubWriteHandler(FMT_A);
+        final GeometryOutput aInput = new StubGeometryOutput("/some/path/to/a/file.AEXT");
+        final GeometryOutput bInput = new StubGeometryOutput("/some/path/to/a/file.b");
+        final GeometryOutput noFileExt = new StubGeometryOutput("/some/path/to/a/file");
+        final GeometryOutput nullFileName = new StubGeometryOutput(null);
+
+        manager.registerWriteHandler(w1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage( () -> manager.requireWriteHandler(bInput, null), IllegalArgumentException.class, "Failed to find handler for file extension \"b\"");
+    }
+
+@Test
+    void testRequireWriteHandler_6_oe() {
+        // arrange
+        final StubWriteHandler w1 = new StubWriteHandler(FMT_A);
+        final GeometryOutput aInput = new StubGeometryOutput("/some/path/to/a/file.AEXT");
+        final GeometryOutput bInput = new StubGeometryOutput("/some/path/to/a/file.b");
+        final GeometryOutput noFileExt = new StubGeometryOutput("/some/path/to/a/file");
+        final GeometryOutput nullFileName = new StubGeometryOutput(null);
+
+        manager.registerWriteHandler(w1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage( () -> manager.requireWriteHandler(noFileExt, null), IllegalArgumentException.class, "Failed to find handler: no format specified and no file extension available");
+    }
+
+@Test
+    void testRequireWriteHandler_7_oe() {
+        // arrange
+        final StubWriteHandler w1 = new StubWriteHandler(FMT_A);
+        final GeometryOutput aInput = new StubGeometryOutput("/some/path/to/a/file.AEXT");
+        final GeometryOutput bInput = new StubGeometryOutput("/some/path/to/a/file.b");
+        final GeometryOutput noFileExt = new StubGeometryOutput("/some/path/to/a/file");
+        final GeometryOutput nullFileName = new StubGeometryOutput(null);
+
+        manager.registerWriteHandler(w1);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage( () -> manager.requireWriteHandler(nullFileName, null), IllegalArgumentException.class, "Failed to find handler: no format specified and no file extension available");
     }
 
 }

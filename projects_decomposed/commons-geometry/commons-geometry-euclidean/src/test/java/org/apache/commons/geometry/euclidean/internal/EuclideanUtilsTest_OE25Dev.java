@@ -37,25 +37,6 @@ class EuclideanUtilsTest_OE25Dev {
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
     @Test
-    void testConvexPolygonToTriangleFan_notEnoughVertices() {
-        // arrange
-        final String baseMsg = "Cannot create triangle fan: 3 or more vertices are required but found only ";
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            EuclideanUtils.convexPolygonToTriangleFan(Collections.emptyList(), Function.identity());
-        }, IllegalArgumentException.class, baseMsg + "0");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            EuclideanUtils.convexPolygonToTriangleFan(Collections.singletonList(Vector3D.ZERO), Function.identity());
-        }, IllegalArgumentException.class, baseMsg + "1");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            EuclideanUtils.convexPolygonToTriangleFan(Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 0, 0)), Function.identity());
-        }, IllegalArgumentException.class, baseMsg + "2");
-    }
-
-    @Test
     void testConvexPolygonToTriangleFan_threeVertices_1_oe() {
         // arrange
         final Vector3D p1 = Vector3D.ZERO;
@@ -143,6 +124,39 @@ class EuclideanUtilsTest_OE25Dev {
 
         // assert
         Assertions.assertEquals(4, tris.size());
+    }
+
+@Test
+    void testConvexPolygonToTriangleFan_notEnoughVertices_1_oe() {
+        // arrange
+        final String baseMsg = "Cannot create triangle fan: 3 or more vertices are required but found only ";
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { EuclideanUtils.convexPolygonToTriangleFan(Collections.emptyList(), Function.identity()); }, IllegalArgumentException.class, baseMsg + "0");
+    }
+
+@Test
+    void testConvexPolygonToTriangleFan_notEnoughVertices_2_oe() {
+        // arrange
+        final String baseMsg = "Cannot create triangle fan: 3 or more vertices are required but found only ";
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { EuclideanUtils.convexPolygonToTriangleFan(Collections.singletonList(Vector3D.ZERO), Function.identity()); }, IllegalArgumentException.class, baseMsg + "1");
+    }
+
+@Test
+    void testConvexPolygonToTriangleFan_notEnoughVertices_3_oe() {
+        // arrange
+        final String baseMsg = "Cannot create triangle fan: 3 or more vertices are required but found only ";
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { EuclideanUtils.convexPolygonToTriangleFan(Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 0, 0)), Function.identity()); }, IllegalArgumentException.class, baseMsg + "2");
     }
 
 }

@@ -34,37 +34,6 @@ class Ray3DTest_OE25Dev {
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
     @Test
-    void testFromPointAndDirection_invalidArgs() {
-        // arrange
-        final Vector3D pt = Vector3D.of(0, 2, 4);
-        final Vector3D dir = Vector3D.of(1e-11, 0, 0);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines3D.rayFromPointAndDirection(pt, dir, TEST_PRECISION);
-        }, IllegalArgumentException.class, "Line direction cannot be zero");
-    }
-
-    @Test
-    void testFromPoint_invalidArgs() {
-        // arrange
-        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines3D.rayFromPoint(line, Vector3D.NaN);
-        }, IllegalArgumentException.class, "Invalid ray start location: NaN");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines3D.rayFromPoint(line, Vector3D.NEGATIVE_INFINITY);
-        }, IllegalArgumentException.class, "Invalid ray start location: NaN");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines3D.rayFromPoint(line, Vector3D.POSITIVE_INFINITY);
-        }, IllegalArgumentException.class, "Invalid ray start location: NaN");
-    }
-
-    @Test
     void testToString() {
         // arrange
         final Ray3D ray = Lines3D.rayFromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -570,6 +539,49 @@ class Ray3DTest_OE25Dev {
         // removed other assertion
 
         Assertions.assertSame(ray.getLine().getPrecision(), interval.getMinBoundary().getPrecision());
+    }
+
+@Test
+    void testFromPointAndDirection_invalidArgs_1_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(0, 2, 4);
+        final Vector3D dir = Vector3D.of(1e-11, 0, 0);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines3D.rayFromPointAndDirection(pt, dir, TEST_PRECISION); }, IllegalArgumentException.class, "Line direction cannot be zero");
+    }
+
+@Test
+    void testFromPoint_invalidArgs_1_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines3D.rayFromPoint(line, Vector3D.NaN); }, IllegalArgumentException.class, "Invalid ray start location: NaN");
+    }
+
+@Test
+    void testFromPoint_invalidArgs_2_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines3D.rayFromPoint(line, Vector3D.NEGATIVE_INFINITY); }, IllegalArgumentException.class, "Invalid ray start location: NaN");
+    }
+
+@Test
+    void testFromPoint_invalidArgs_3_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines3D.rayFromPoint(line, Vector3D.POSITIVE_INFINITY); }, IllegalArgumentException.class, "Invalid ray start location: NaN");
     }
 
 }

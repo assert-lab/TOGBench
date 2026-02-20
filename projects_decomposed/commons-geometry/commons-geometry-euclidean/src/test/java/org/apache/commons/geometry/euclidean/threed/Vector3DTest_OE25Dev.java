@@ -149,22 +149,6 @@ class Vector3DTest_OE25Dev {
     }
 
     @Test
-    void testNormalize_illegalNorm() {
-        // arrange
-        final Pattern illegalNorm = Pattern.compile("^Illegal norm: (0\\.0|-?Infinity|NaN)");
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(Vector3D.ZERO::normalize,
-                IllegalArgumentException.class, illegalNorm);
-        GeometryTestUtils.assertThrowsWithMessage(Vector3D.NaN::normalize,
-                IllegalArgumentException.class, illegalNorm);
-        GeometryTestUtils.assertThrowsWithMessage(Vector3D.POSITIVE_INFINITY::normalize,
-                IllegalArgumentException.class, illegalNorm);
-        GeometryTestUtils.assertThrowsWithMessage(Vector3D.NEGATIVE_INFINITY::normalize,
-                IllegalArgumentException.class, illegalNorm);
-    }
-
-    @Test
     void testOrthogonal_givenDirection() {
         // arrange
         final double invSqrt2 = 1.0 / Math.sqrt(2.0);
@@ -471,17 +455,6 @@ class Vector3DTest_OE25Dev {
     }
 
     @Test
-    void testMax_noPointsGiven() {
-        // arrange
-        final String msg = "Cannot compute vector max: no vectors given";
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Vector3D.max(new ArrayList<>());
-        }, IllegalArgumentException.class, msg);
-    }
-
-    @Test
     void testMin() {
         // act/assert
         EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-100, 1, 100),
@@ -492,17 +465,6 @@ class Vector3DTest_OE25Dev {
 
         EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-10, -10, 0),
                 Vector3D.min(Vector3D.of(-2, 0, 0), Vector3D.of(-1, -5, 1), Vector3D.of(-10, -10, 2)), EPS);
-    }
-
-    @Test
-    void testMin_noPointsGiven() {
-        // arrange
-        final String msg = "Cannot compute vector min: no vectors given";
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Vector3D.min(new ArrayList<>());
-        }, IllegalArgumentException.class, msg);
     }
 
     @Test
@@ -521,17 +483,6 @@ class Vector3DTest_OE25Dev {
         EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0.5, 1, 1.5),
                 Vector3D.centroid(Arrays.asList(Vector3D.of(1, 2, 3), Vector3D.of(1, 2, 3),
                         Vector3D.ZERO, Vector3D.ZERO)), EPS);
-    }
-
-    @Test
-    void testCentroid_noPointsGiven() {
-        // arrange
-        final String msg = "Cannot compute centroid: no points given";
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Vector3D.centroid(new ArrayList<>());
-        }, IllegalArgumentException.class, msg);
     }
 
     @Test
@@ -4040,6 +3991,75 @@ class Vector3DTest_OE25Dev {
         // An already normalized vector will avoid unnecessary creation.
         final Vector3D v = Vector3D.of(3, 4, 5).normalize();
         Assertions.assertSame(v, v.normalize());
+    }
+
+@Test
+    void testNormalize_illegalNorm_1_oe() {
+        // arrange
+        final Pattern illegalNorm = Pattern.compile("^Illegal norm: (0\\.0|-?Infinity|NaN)");
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(Vector3D.ZERO::normalize, IllegalArgumentException.class, illegalNorm);
+    }
+
+@Test
+    void testNormalize_illegalNorm_2_oe() {
+        // arrange
+        final Pattern illegalNorm = Pattern.compile("^Illegal norm: (0\\.0|-?Infinity|NaN)");
+
+        // act/assert
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage(Vector3D.NaN::normalize, IllegalArgumentException.class, illegalNorm);
+    }
+
+@Test
+    void testNormalize_illegalNorm_3_oe() {
+        // arrange
+        final Pattern illegalNorm = Pattern.compile("^Illegal norm: (0\\.0|-?Infinity|NaN)");
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage(Vector3D.POSITIVE_INFINITY::normalize, IllegalArgumentException.class, illegalNorm);
+    }
+
+@Test
+    void testNormalize_illegalNorm_4_oe() {
+        // arrange
+        final Pattern illegalNorm = Pattern.compile("^Illegal norm: (0\\.0|-?Infinity|NaN)");
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage(Vector3D.NEGATIVE_INFINITY::normalize, IllegalArgumentException.class, illegalNorm);
+    }
+
+@Test
+    void testMax_noPointsGiven_1_oe() {
+        // arrange
+        final String msg = "Cannot compute vector max: no vectors given";
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Vector3D.max(new ArrayList<>()); }, IllegalArgumentException.class, msg);
+    }
+
+@Test
+    void testMin_noPointsGiven_1_oe() {
+        // arrange
+        final String msg = "Cannot compute vector min: no vectors given";
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Vector3D.min(new ArrayList<>()); }, IllegalArgumentException.class, msg);
+    }
+
+@Test
+    void testCentroid_noPointsGiven_1_oe() {
+        // arrange
+        final String msg = "Cannot compute centroid: no points given";
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Vector3D.centroid(new ArrayList<>()); }, IllegalArgumentException.class, msg);
     }
 
 }

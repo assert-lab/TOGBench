@@ -63,14 +63,6 @@ class StlBoundaryWriteHandler3DTest_OE25Dev {
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
     @Test
-    void setInitialBufferSize_invalidArg() {
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> handler.setInitialBufferSize(0),
-                IllegalArgumentException.class, "Buffer size must be greater than 0");
-    }
-
-    @Test
     void testWrite_boundaryList() {
         // arrange
         final BoundarySource3D src = EuclideanIOTestUtils.cubeMinusSphere(TEST_PRECISION);
@@ -93,30 +85,6 @@ class StlBoundaryWriteHandler3DTest_OE25Dev {
 
         // assert
         EuclideanIOTestUtils.assertCubeMinusSphere(readOutput(), MODEL_TEST_EPS);
-    }
-
-    @Test
-    void testWriteStream_ioException() {
-        // arrange
-        final Stream<PlaneConvexSubset> stream = EuclideanIOTestUtils.cubeMinusSphere(TEST_PRECISION).boundaryStream();
-        final OutputStream failOut = new OutputStream() {
-            @Override
-            public void write(final int b) throws IOException {
-                // do nothing
-            }
-
-            @Override
-            public void close() throws IOException {
-                throw new IOException("close");
-            }
-        };
-        final GeometryOutput output = new StreamGeometryOutput(failOut);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> handler.write(stream, output),
-                UncheckedIOException.class,
-                "IOException: close");
     }
 
     @Test
@@ -221,6 +189,33 @@ class StlBoundaryWriteHandler3DTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         Assertions.assertEquals(attr, result.getAttributeValue());
+    }
+
+@Test
+    void setInitialBufferSize_invalidArg_1_oe() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage( () -> handler.setInitialBufferSize(0), IllegalArgumentException.class, "Buffer size must be greater than 0");
+    }
+
+@Test
+    void testWriteStream_ioException_1_oe() {
+        // arrange
+        final Stream<PlaneConvexSubset> stream = EuclideanIOTestUtils.cubeMinusSphere(TEST_PRECISION).boundaryStream();
+        final OutputStream failOut = new OutputStream() {
+            @Override
+            public void write(final int b) throws IOException {
+                // do nothing
+            }
+
+            @Override
+            public void close() throws IOException {
+                throw new IOException("close");
+            }
+        };
+        final GeometryOutput output = new StreamGeometryOutput(failOut);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage( () -> handler.write(stream, output), UncheckedIOException.class, "IOException: close");
     }
 
 }

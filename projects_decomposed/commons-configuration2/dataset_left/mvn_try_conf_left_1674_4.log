@@ -1,0 +1,51 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestBeanHelper_OE25Dev_conf_left_1674_4.java:[207,9] cannot find symbol
+  symbol:   method checkBean(org.apache.commons.configuration2.beanutils.BeanCreationTestBean)
+  location: class org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev_conf_left_1674_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestBeanHelper_OE25Dev_conf_left_1674_4.java:[220,9] cannot find symbol
+  symbol:   method checkBean(org.apache.commons.configuration2.beanutils.BeanCreationTestBean)
+  location: class org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev_conf_left_1674_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestBeanHelper_OE25Dev_conf_left_1674_4.java:[230,9] cannot find symbol
+  symbol:   method checkBean(org.apache.commons.configuration2.beanutils.BeanCreationTestBean)
+  location: class org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev_conf_left_1674_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestBeanHelper_OE25Dev_conf_left_1674_4.java:[257,9] cannot find symbol
+  symbol:   method checkBean(org.apache.commons.configuration2.beanutils.BeanCreationTestBean)
+  location: class org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev_conf_left_1674_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestBeanHelper_OE25Dev_conf_left_1674_4.java:[283,9] cannot find symbol
+  symbol:   method checkBean(org.apache.commons.configuration2.beanutils.BeanCreationTestBeanWithListChild)
+  location: class org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev_conf_left_1674_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestBeanHelper_OE25Dev_conf_left_1674_4.java:[318,9] cannot find symbol
+  symbol:   method checkBean(org.apache.commons.configuration2.beanutils.BeanCreationTestBean)
+  location: class org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev_conf_left_1674_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestBeanHelper_OE25Dev_conf_left_1674_4.java:[405,9] cannot find symbol
+  symbol:   method checkBean(org.apache.commons.configuration2.beanutils.BeanCreationTestBean)
+  location: class org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev_conf_left_1674_4
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project commons-configuration2: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestBeanHelper_OE25Dev_conf_left_1674_4.java:[207,9] cannot find symbol
+[ERROR]   symbol:   method checkBean(org.apache.commons.configuration2.beanutils.BeanCreationTestBean)
+[ERROR]   location: class org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev_conf_left_1674_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestBeanHelper_OE25Dev_conf_left_1674_4.java:[220,9] cannot find symbol
+[ERROR]   symbol:   method checkBean(org.apache.commons.configuration2.beanutils.BeanCreationTestBean)
+[ERROR]   location: class org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev_conf_left_1674_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestBeanHelper_OE25Dev_conf_left_1674_4.java:[230,9] cannot find symbol
+[ERROR]   symbol:   method checkBean(org.apache.commons.configuration2.beanutils.BeanCreationTestBean)
+[ERROR]   location: class org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev_conf_left_1674_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestBeanHelper_OE25Dev_conf_left_1674_4.java:[257,9] cannot find symbol
+[ERROR]   symbol:   method checkBean(org.apache.commons.configuration2.beanutils.BeanCreationTestBean)
+[ERROR]   location: class org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev_conf_left_1674_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestBeanHelper_OE25Dev_conf_left_1674_4.java:[283,9] cannot find symbol
+[ERROR]   symbol:   method checkBean(org.apache.commons.configuration2.beanutils.BeanCreationTestBeanWithListChild)
+[ERROR]   location: class org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev_conf_left_1674_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestBeanHelper_OE25Dev_conf_left_1674_4.java:[318,9] cannot find symbol
+[ERROR]   symbol:   method checkBean(org.apache.commons.configuration2.beanutils.BeanCreationTestBean)
+[ERROR]   location: class org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev_conf_left_1674_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestBeanHelper_OE25Dev_conf_left_1674_4.java:[405,9] cannot find symbol
+[ERROR]   symbol:   method checkBean(org.apache.commons.configuration2.beanutils.BeanCreationTestBean)
+[ERROR]   location: class org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev_conf_left_1674_4
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

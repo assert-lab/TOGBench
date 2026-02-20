@@ -1,0 +1,75 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[416,9] cannot find symbol
+  symbol:   method checkCombinedRootNotConstructed()
+  location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[674,9] cannot find symbol
+  symbol:   method checkCombinedRootNotConstructed()
+  location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[685,9] cannot find symbol
+  symbol:   method checkCombinedRootNotConstructed()
+  location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[710,9] cannot find symbol
+  symbol:   method checkCombinedRootNotConstructed()
+  location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[721,9] cannot find symbol
+  symbol:   method checkCombinedRootNotConstructed()
+  location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[745,9] cannot find symbol
+  symbol:   method checkCombinedRootNotConstructed()
+  location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[756,9] cannot find symbol
+  symbol:   method checkCombinedRootNotConstructed()
+  location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[767,9] cannot find symbol
+  symbol:   method checkCombinedRootNotConstructed()
+  location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[778,9] cannot find symbol
+  symbol:   method checkCombinedRootNotConstructed()
+  location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[1038,9] cannot find symbol
+  symbol:   method checkCombinedRootNotConstructed()
+  location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[1060,9] cannot find symbol
+  symbol:   method checkCombinedRootNotConstructed()
+  location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project commons-configuration2: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[416,9] cannot find symbol
+[ERROR]   symbol:   method checkCombinedRootNotConstructed()
+[ERROR]   location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[674,9] cannot find symbol
+[ERROR]   symbol:   method checkCombinedRootNotConstructed()
+[ERROR]   location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[685,9] cannot find symbol
+[ERROR]   symbol:   method checkCombinedRootNotConstructed()
+[ERROR]   location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[710,9] cannot find symbol
+[ERROR]   symbol:   method checkCombinedRootNotConstructed()
+[ERROR]   location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[721,9] cannot find symbol
+[ERROR]   symbol:   method checkCombinedRootNotConstructed()
+[ERROR]   location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[745,9] cannot find symbol
+[ERROR]   symbol:   method checkCombinedRootNotConstructed()
+[ERROR]   location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[756,9] cannot find symbol
+[ERROR]   symbol:   method checkCombinedRootNotConstructed()
+[ERROR]   location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[767,9] cannot find symbol
+[ERROR]   symbol:   method checkCombinedRootNotConstructed()
+[ERROR]   location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[778,9] cannot find symbol
+[ERROR]   symbol:   method checkCombinedRootNotConstructed()
+[ERROR]   location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[1038,9] cannot find symbol
+[ERROR]   symbol:   method checkCombinedRootNotConstructed()
+[ERROR]   location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestCombinedConfiguration_OE25Dev_conf_left_158_1.java:[1060,9] cannot find symbol
+[ERROR]   symbol:   method checkCombinedRootNotConstructed()
+[ERROR]   location: class org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev_conf_left_158_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

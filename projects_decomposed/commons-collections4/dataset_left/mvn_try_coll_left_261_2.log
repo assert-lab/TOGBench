@@ -1,0 +1,25 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/TestUtils_OE25Dev_coll_left_261_2.java:[59,28] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/TestUtils_OE25Dev_coll_left_261_2.java:[59,30] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/TestUtils_OE25Dev_coll_left_261_2.java:[60,22] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/TestUtils_OE25Dev_coll_left_261_2.java:[66,22] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/TestUtils_OE25Dev_coll_left_261_2.java:[69,13] invalid method declaration; return type required
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/TestUtils_OE25Dev_coll_left_261_2.java:[69,27] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/TestUtils_OE25Dev_coll_left_261_2.java:[69,30] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/TestUtils_OE25Dev_coll_left_261_2.java:[69,38] <identifier> expected
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:testCompile (default-testCompile) on project commons-collections4: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/TestUtils_OE25Dev_coll_left_261_2.java:[59,28] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/TestUtils_OE25Dev_coll_left_261_2.java:[59,30] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/TestUtils_OE25Dev_coll_left_261_2.java:[60,22] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/TestUtils_OE25Dev_coll_left_261_2.java:[66,22] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/TestUtils_OE25Dev_coll_left_261_2.java:[69,13] invalid method declaration; return type required
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/TestUtils_OE25Dev_coll_left_261_2.java:[69,27] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/TestUtils_OE25Dev_coll_left_261_2.java:[69,30] <identifier> expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/TestUtils_OE25Dev_coll_left_261_2.java:[69,38] <identifier> expected
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

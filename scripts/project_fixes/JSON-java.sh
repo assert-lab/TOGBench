@@ -3,9 +3,9 @@ set -euo pipefail
 echo $PWD
 
 ROOT="$PWD/projects_decomposed/JSON-java"
-DATASET_DIR="$ROOT/dataset_final"
-META="$DATASET_DIR/meta_final.csv"
-INPUTS="$DATASET_DIR/inputs_final.csv"
+DATASET_DIR="$ROOT/dataset_left"
+META="$DATASET_DIR/meta_passed.csv"
+INPUTS="$DATASET_DIR/inputs_passed.csv"
 
 cd "$ROOT"
 
@@ -21,6 +21,8 @@ fail_list = [
 "JSONObjectTest.testSingletonBean_7_oe",
 "JSONObjectTest.testSingletonBean_8_oe",
 "JSONObjectTest.testSingletonEnumBean_7_oe",
+"JSONObjectTest.testSingletonEnumBean_8_oe",
+"JSONObjectTest.testSingletonBean_8_oe",
 "JSONObjectTest.testSingletonEnumBean_8_oe",
 ]
 

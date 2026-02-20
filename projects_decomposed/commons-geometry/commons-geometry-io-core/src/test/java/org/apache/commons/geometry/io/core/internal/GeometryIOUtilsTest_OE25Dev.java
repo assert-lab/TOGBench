@@ -45,99 +45,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 class GeometryIOUtilsTest_OE25Dev {
 
-    @Test
-    void testGetUnchecked_failure() {
-        // arrange
-        final IOSupplier<String> supplier = () -> {
-            throw new IOException("test");
-        };
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> GeometryIOUtils.getUnchecked(supplier),
-                UncheckedIOException.class,
-                "IOException: test");
-    }
-
-    @Test
-    void testAcceptUnchecked_failure() {
-        // arrange
-        final IOConsumer<String> consumer = str -> {
-            throw new IOException(str);
-        };
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> GeometryIOUtils.acceptUnchecked(consumer, "arg"),
-                UncheckedIOException.class,
-                "IOException: arg");
-    }
-
-    @Test
-    void testApplyAsIntUnchecked_failure() {
-        // arrange
-        final IOToIntFunction<String> consumer = str -> {
-            throw new IOException(str);
-        };
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> GeometryIOUtils.applyAsIntUnchecked(consumer, "arg"),
-                UncheckedIOException.class,
-                "IOException: arg");
-    }
-
-    @Test
-    void testTryApplyCloseable_supplierThrows_ioException() {
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            GeometryIOUtils.tryApplyCloseable(i -> {
-                throw new IOException("fn");
-            }, () -> {
-                throw new IOException("supplier");
-            });
-        }, UncheckedIOException.class, "IOException: supplier");
-    }
-
-    @Test
-    void testTryApplyCloseable_supplierThrows_runtimeException() {
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            GeometryIOUtils.tryApplyCloseable(i -> {
-                throw new IOException("fn");
-            }, () -> {
-                throw new RuntimeException("supplier");
-            });
-        }, RuntimeException.class, "supplier");
-    }
-
-
-    @Test
-    void testTryApplyCloseable_functionThrows() {
-        // arrange
-        final CloseCountInputStream in = new CloseCountInputStream(new ByteArrayInputStream(new byte[0]));
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            GeometryIOUtils.tryApplyCloseable(i -> {
-                throw new IOException("fn");
-            }, () -> in);
-        }, UncheckedIOException.class, "IOException: fn");
-
-        Assertions.assertEquals(1, in.getCloseCount());
-    }
-
-    @Test
-    void testCreateCloseableStream_closeThrows() {
-        // arrange
-        final CloseCountInputStream in = new CloseCountInputStream(new CloseFailByteArrayInputStream(new byte[0]));
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> GeometryIOUtils.createCloseableStream(i -> Stream.of("a"), () -> in).close(),
-                UncheckedIOException.class, "IOException: close");
-    }
-
     private static final class CloseFailByteArrayInputStream extends ByteArrayInputStream {
 
         CloseFailByteArrayInputStream(final byte[] buf) {
@@ -641,6 +548,69 @@ class GeometryIOUtilsTest_OE25Dev {
         }
 
         Assertions.assertEquals(1, in.getCloseCount());
+    }
+
+@Test
+    void testGetUnchecked_failure_1_oe() {
+        // arrange
+        final IOSupplier<String> supplier = () -> {
+            throw new IOException("test");
+        };
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage( () -> GeometryIOUtils.getUnchecked(supplier), UncheckedIOException.class, "IOException: test");
+    }
+
+@Test
+    void testAcceptUnchecked_failure_1_oe() {
+        // arrange
+        final IOConsumer<String> consumer = str -> {
+            throw new IOException(str);
+        };
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage( () -> GeometryIOUtils.acceptUnchecked(consumer, "arg"), UncheckedIOException.class, "IOException: arg");
+    }
+
+@Test
+    void testApplyAsIntUnchecked_failure_1_oe() {
+        // arrange
+        final IOToIntFunction<String> consumer = str -> {
+            throw new IOException(str);
+        };
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage( () -> GeometryIOUtils.applyAsIntUnchecked(consumer, "arg"), UncheckedIOException.class, "IOException: arg");
+    }
+
+@Test
+    void testTryApplyCloseable_supplierThrows_ioException_1_oe() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { GeometryIOUtils.tryApplyCloseable(i -> { throw new IOException("fn"); }, () -> { throw new IOException("supplier"); }); }, UncheckedIOException.class, "IOException: supplier");
+    }
+
+@Test
+    void testTryApplyCloseable_supplierThrows_runtimeException_1_oe() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { GeometryIOUtils.tryApplyCloseable(i -> { throw new IOException("fn"); }, () -> { throw new RuntimeException("supplier"); }); }, RuntimeException.class, "supplier");
+    }
+
+@Test
+    void testTryApplyCloseable_functionThrows_1_oe() {
+        // arrange
+        final CloseCountInputStream in = new CloseCountInputStream(new ByteArrayInputStream(new byte[0]));
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { GeometryIOUtils.tryApplyCloseable(i -> { throw new IOException("fn"); }, () -> in); }, UncheckedIOException.class, "IOException: fn");
+    }
+
+@Test
+    void testCreateCloseableStream_closeThrows_1_oe() {
+        // arrange
+        final CloseCountInputStream in = new CloseCountInputStream(new CloseFailByteArrayInputStream(new byte[0]));
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage( () -> GeometryIOUtils.createCloseableStream(i -> Stream.of("a"), () -> in).close(), UncheckedIOException.class, "IOException: close");
     }
 
 }

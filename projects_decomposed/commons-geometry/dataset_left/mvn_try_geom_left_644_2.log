@@ -1,0 +1,201 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[134,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[135,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[169,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[170,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[210,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[211,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[212,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[261,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[262,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[263,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[304,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[305,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[306,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[307,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[353,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[354,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[355,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[396,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[397,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[435,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[436,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[437,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[506,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[507,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[508,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[682,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[683,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[684,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[709,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[712,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[715,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[720,9] cannot find symbol
+  symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+  location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-spherical: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[134,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[135,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[169,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[170,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[210,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[211,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[212,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[261,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[262,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[263,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[304,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[305,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[306,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[307,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[353,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[354,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[355,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[396,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[397,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[435,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[436,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[437,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[506,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[507,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[508,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[682,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[683,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[684,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[709,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[712,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[715,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/ConvexArea2STest_OE25Dev_geom_left_644_2.java:[720,9] cannot find symbol
+[ERROR]   symbol:   method checkArc(org.apache.commons.geometry.spherical.twod.GreatArc,org.apache.commons.geometry.spherical.twod.Point2S,org.apache.commons.geometry.spherical.twod.Point2S)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.ConvexArea2STest_OE25Dev_geom_left_644_2
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

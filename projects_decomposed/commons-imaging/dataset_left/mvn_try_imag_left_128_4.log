@@ -1,0 +1,15 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/icns/IcnsRoundTripTest_OE25Dev_imag_left_128_4.java:[419,9] cannot find symbol
+  symbol:   method verify(java.awt.image.BufferedImage,int,int)
+  location: class org.apache.commons.imaging.formats.icns.IcnsRoundTripTest_OE25Dev_imag_left_128_4
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-imaging: Compilation failure
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/icns/IcnsRoundTripTest_OE25Dev_imag_left_128_4.java:[419,9] cannot find symbol
+[ERROR]   symbol:   method verify(java.awt.image.BufferedImage,int,int)
+[ERROR]   location: class org.apache.commons.imaging.formats.icns.IcnsRoundTripTest_OE25Dev_imag_left_128_4
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

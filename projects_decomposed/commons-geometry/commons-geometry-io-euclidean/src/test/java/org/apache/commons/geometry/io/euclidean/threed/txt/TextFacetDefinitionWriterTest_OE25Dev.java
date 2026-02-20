@@ -54,41 +54,6 @@ class TextFacetDefinitionWriterTest_OE25Dev {
     }
 
     @Test
-    void testSetFacetVertexCount_invalidArgs() {
-        // arrange
-        final String baseMsg = "Facet vertex count must be less than 0 or greater than 2; was ";
-
-        // act
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            fdWriter.setFacetVertexCount(0);
-        }, IllegalArgumentException.class, baseMsg + "0");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            fdWriter.setFacetVertexCount(1);
-        }, IllegalArgumentException.class, baseMsg + "1");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            fdWriter.setFacetVertexCount(2);
-        }, IllegalArgumentException.class, baseMsg + "2");
-    }
-
-    @Test
-    void testSetCommentToken_invalidArgs() {
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            fdWriter.setCommentToken("");
-        }, IllegalArgumentException.class, "Comment token cannot be empty");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            fdWriter.setCommentToken(" ");
-        }, IllegalArgumentException.class, "Comment token cannot begin with whitespace");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            fdWriter.setCommentToken("\n \t");
-        }, IllegalArgumentException.class, "Comment token cannot begin with whitespace");
-    }
-
-    @Test
     void testWriteComment() {
         // arrange
         fdWriter.setCommentToken("-- ");
@@ -101,17 +66,6 @@ class TextFacetDefinitionWriterTest_OE25Dev {
 
         // assert
         Assertions.assertEquals("-- first line\r\n" + "-- second line \r\n" + "-- third line \r\n" + "-- fourth line\r\n",writer.toString());
-    }
-
-    @Test
-    void testWriteComment_noCommentToken() {
-        // arrange
-        fdWriter.setCommentToken(null);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            fdWriter.writeComment("comment");
-        }, IllegalStateException.class, "Cannot write comment: no comment token configured");
     }
 
     @Test
@@ -128,25 +82,6 @@ class TextFacetDefinitionWriterTest_OE25Dev {
 
         // assert
         Assertions.assertEquals("0.0 0.0 0.0;0.5 0.0 0.0;0.0 -0.5 0.0\n" + "0.5 0.7 1.2;10.01 -4.0 2.0;-3.3333333333333335 0.0 0.0;0.0 0.0 0.0\n",writer.toString());
-    }
-
-    @Test
-    void testWriteVertices_invalidCount() {
-        // arrange
-        fdWriter.setFacetVertexCount(4);
-        final List<Vector3D> notEnough = Arrays.asList(Vector3D.ZERO, Vector3D.Unit.PLUS_X);
-        final List<Vector3D> tooMany = Arrays.asList(
-                Vector3D.ZERO, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y,
-                Vector3D.Unit.MINUS_X, Vector3D.Unit.MINUS_Y);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            fdWriter.write(notEnough);
-        }, IllegalArgumentException.class, "At least 3 vertices are required per facet; found 2");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            fdWriter.write(tooMany);
-        }, IllegalArgumentException.class, "Writer requires 4 vertices per facet; found 5");
     }
 
     @Test
@@ -168,20 +103,6 @@ class TextFacetDefinitionWriterTest_OE25Dev {
 
         // assert
         Assertions.assertEquals("0.0 0.0 0.0;0.5 0.0 0.0;0.0 -0.5 0.0\n" + "0.5 0.7 1.2;10.01 -4.0 2.0;-3.333 0.0 0.0;0.0 0.0 0.0\n",writer.toString());
-    }
-
-    @Test
-    void testWriteFacetDefinition_invalidCount() {
-        // arrange
-        fdWriter.setFacetVertexCount(4);
-        final SimpleFacetDefinition tooMany = new SimpleFacetDefinition(Arrays.asList(
-                Vector3D.ZERO, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y,
-                Vector3D.Unit.MINUS_X, Vector3D.Unit.MINUS_Y));
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            fdWriter.write(tooMany);
-        }, IllegalArgumentException.class, "Writer requires 4 vertices per facet; found 5");
     }
 
     @Test
@@ -216,17 +137,6 @@ class TextFacetDefinitionWriterTest_OE25Dev {
 
         // assert
         Assertions.assertEquals("0.0 0.0 0.0;0.0 1.0 0.0;0.0 1.0 1.0\n" + "0.0 0.0 0.0;0.0 1.0 1.0;0.0 0.0 1.0\n",writer.toString());
-    }
-
-    @Test
-    void testWritePlaneConvexSubset_infinite() {
-        // arrange
-        final PlaneConvexSubset inf = Planes.fromNormal(Vector3D.Unit.PLUS_X, TEST_PRECISION).span();
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            fdWriter.write(inf);
-        }, IllegalArgumentException.class, "Cannot write infinite convex subset");
     }
 
     @Test
@@ -401,6 +311,121 @@ class TextFacetDefinitionWriterTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         Assertions.assertNull(csvWriter.getCommentToken());
+    }
+
+@Test
+    void testSetFacetVertexCount_invalidArgs_1_oe() {
+        // arrange
+        final String baseMsg = "Facet vertex count must be less than 0 or greater than 2; was ";
+
+        // act
+        GeometryTestUtils.assertThrowsWithMessage(() -> { fdWriter.setFacetVertexCount(0); }, IllegalArgumentException.class, baseMsg + "0");
+    }
+
+@Test
+    void testSetFacetVertexCount_invalidArgs_2_oe() {
+        // arrange
+        final String baseMsg = "Facet vertex count must be less than 0 or greater than 2; was ";
+
+        // act
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { fdWriter.setFacetVertexCount(1); }, IllegalArgumentException.class, baseMsg + "1");
+    }
+
+@Test
+    void testSetFacetVertexCount_invalidArgs_3_oe() {
+        // arrange
+        final String baseMsg = "Facet vertex count must be less than 0 or greater than 2; was ";
+
+        // act
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { fdWriter.setFacetVertexCount(2); }, IllegalArgumentException.class, baseMsg + "2");
+    }
+
+@Test
+    void testSetCommentToken_invalidArgs_1_oe() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { fdWriter.setCommentToken(""); }, IllegalArgumentException.class, "Comment token cannot be empty");
+    }
+
+@Test
+    void testSetCommentToken_invalidArgs_2_oe() {
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { fdWriter.setCommentToken(" "); }, IllegalArgumentException.class, "Comment token cannot begin with whitespace");
+    }
+
+@Test
+    void testSetCommentToken_invalidArgs_3_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { fdWriter.setCommentToken("\n \t"); }, IllegalArgumentException.class, "Comment token cannot begin with whitespace");
+    }
+
+@Test
+    void testWriteComment_noCommentToken_1_oe() {
+        // arrange
+        fdWriter.setCommentToken(null);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { fdWriter.writeComment("comment"); }, IllegalStateException.class, "Cannot write comment: no comment token configured");
+    }
+
+@Test
+    void testWriteVertices_invalidCount_1_oe() {
+        // arrange
+        fdWriter.setFacetVertexCount(4);
+        final List<Vector3D> notEnough = Arrays.asList(Vector3D.ZERO, Vector3D.Unit.PLUS_X);
+        final List<Vector3D> tooMany = Arrays.asList(
+                Vector3D.ZERO, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y,
+                Vector3D.Unit.MINUS_X, Vector3D.Unit.MINUS_Y);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { fdWriter.write(notEnough); }, IllegalArgumentException.class, "At least 3 vertices are required per facet; found 2");
+    }
+
+@Test
+    void testWriteVertices_invalidCount_2_oe() {
+        // arrange
+        fdWriter.setFacetVertexCount(4);
+        final List<Vector3D> notEnough = Arrays.asList(Vector3D.ZERO, Vector3D.Unit.PLUS_X);
+        final List<Vector3D> tooMany = Arrays.asList(
+                Vector3D.ZERO, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y,
+                Vector3D.Unit.MINUS_X, Vector3D.Unit.MINUS_Y);
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { fdWriter.write(tooMany); }, IllegalArgumentException.class, "Writer requires 4 vertices per facet; found 5");
+    }
+
+@Test
+    void testWriteFacetDefinition_invalidCount_1_oe() {
+        // arrange
+        fdWriter.setFacetVertexCount(4);
+        final SimpleFacetDefinition tooMany = new SimpleFacetDefinition(Arrays.asList(
+                Vector3D.ZERO, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y,
+                Vector3D.Unit.MINUS_X, Vector3D.Unit.MINUS_Y));
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { fdWriter.write(tooMany); }, IllegalArgumentException.class, "Writer requires 4 vertices per facet; found 5");
+    }
+
+@Test
+    void testWritePlaneConvexSubset_infinite_1_oe() {
+        // arrange
+        final PlaneConvexSubset inf = Planes.fromNormal(Vector3D.Unit.PLUS_X, TEST_PRECISION).span();
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { fdWriter.write(inf); }, IllegalArgumentException.class, "Cannot write infinite convex subset");
     }
 
 }

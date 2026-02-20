@@ -1,0 +1,159 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[111,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,int,int)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[112,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,int)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[113,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[114,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[115,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[117,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,int,int)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[118,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,int)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[119,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[120,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[121,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[123,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,int,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[124,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[125,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[126,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,int)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[127,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[129,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,int,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[130,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[131,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[132,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,int)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[133,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[135,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,int,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[136,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[137,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,int)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[138,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[139,9] cannot find symbol
+  symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-spherical: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[111,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,int,int)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[112,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,int)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[113,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[114,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[115,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[117,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,int,int)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[118,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,int)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[119,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[120,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[121,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[123,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,int,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[124,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[125,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[126,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,int)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[127,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[129,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,int,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[130,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[131,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[132,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,int)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[133,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[135,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,int,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[136,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[137,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,int)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[138,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/CutAngleTest_OE25Dev_geom_left_664_1.java:[139,9] cannot find symbol
+[ERROR]   symbol:   method checkOffset(org.apache.commons.geometry.spherical.oned.CutAngle,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.CutAngleTest_OE25Dev_geom_left_664_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

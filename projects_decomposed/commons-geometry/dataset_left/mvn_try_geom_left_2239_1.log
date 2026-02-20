@@ -1,0 +1,45 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2239_1.java:[182,9] cannot find symbol
+  symbol:   method assertClassify(org.apache.commons.geometry.core.partitioning.HyperplaneLocation,org.apache.commons.geometry.euclidean.oned.OrientedPoint,double,int,int,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2239_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2239_1.java:[184,9] cannot find symbol
+  symbol:   method assertClassify(org.apache.commons.geometry.core.partitioning.HyperplaneLocation,org.apache.commons.geometry.euclidean.oned.OrientedPoint,double,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2239_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2239_1.java:[186,9] cannot find symbol
+  symbol:   method assertClassify(org.apache.commons.geometry.core.partitioning.HyperplaneLocation,org.apache.commons.geometry.euclidean.oned.OrientedPoint,double,int,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2239_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2239_1.java:[189,9] cannot find symbol
+  symbol:   method assertClassify(org.apache.commons.geometry.core.partitioning.HyperplaneLocation,org.apache.commons.geometry.euclidean.oned.OrientedPoint,double,int,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2239_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2239_1.java:[191,9] cannot find symbol
+  symbol:   method assertClassify(org.apache.commons.geometry.core.partitioning.HyperplaneLocation,org.apache.commons.geometry.euclidean.oned.OrientedPoint,double,double,int,double,double)
+  location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2239_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2239_1.java:[193,9] cannot find symbol
+  symbol:   method assertClassify(org.apache.commons.geometry.core.partitioning.HyperplaneLocation,org.apache.commons.geometry.euclidean.oned.OrientedPoint,double,int,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2239_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-euclidean: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2239_1.java:[182,9] cannot find symbol
+[ERROR]   symbol:   method assertClassify(org.apache.commons.geometry.core.partitioning.HyperplaneLocation,org.apache.commons.geometry.euclidean.oned.OrientedPoint,double,int,int,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2239_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2239_1.java:[184,9] cannot find symbol
+[ERROR]   symbol:   method assertClassify(org.apache.commons.geometry.core.partitioning.HyperplaneLocation,org.apache.commons.geometry.euclidean.oned.OrientedPoint,double,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2239_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2239_1.java:[186,9] cannot find symbol
+[ERROR]   symbol:   method assertClassify(org.apache.commons.geometry.core.partitioning.HyperplaneLocation,org.apache.commons.geometry.euclidean.oned.OrientedPoint,double,int,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2239_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2239_1.java:[189,9] cannot find symbol
+[ERROR]   symbol:   method assertClassify(org.apache.commons.geometry.core.partitioning.HyperplaneLocation,org.apache.commons.geometry.euclidean.oned.OrientedPoint,double,int,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2239_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2239_1.java:[191,9] cannot find symbol
+[ERROR]   symbol:   method assertClassify(org.apache.commons.geometry.core.partitioning.HyperplaneLocation,org.apache.commons.geometry.euclidean.oned.OrientedPoint,double,double,int,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2239_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2239_1.java:[193,9] cannot find symbol
+[ERROR]   symbol:   method assertClassify(org.apache.commons.geometry.core.partitioning.HyperplaneLocation,org.apache.commons.geometry.euclidean.oned.OrientedPoint,double,int,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2239_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

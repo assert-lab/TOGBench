@@ -151,54 +151,6 @@ class LinePathTest_OE25Dev {
         GeometryTestUtils.assertContains("LinePath[vertexSequence= ", nonOpenStr);
     }
 
-    @Test
-    void testBuilder_prependAndAppend_noPrecisionSpecified() {
-        // arrange
-        final Vector2D p = Vector2D.ZERO;
-        final Builder builder = LinePath.builder(null);
-
-        final String msg = "Unable to create line segment: no vertex precision specified";
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            builder.append(p);
-        }, IllegalStateException.class, msg);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            builder.prepend(p);
-        }, IllegalStateException.class, msg);
-    }
-
-    @Test
-    void testBuilder_close_infiniteSegmentAtStart() {
-        // arrange
-        final Builder builder = LinePath.builder(TEST_PRECISION);
-
-        builder.append(Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION)
-                .reverseRayTo(1))
-            .append(Vector2D.of(1, 1));
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(builder::close, IllegalStateException.class,
-                "Unable to close line path: line path is infinite");
-    }
-
-    @Test
-    void testBuilder_close_infiniteSegmentAtEnd() {
-        // arrange
-        final Builder builder = LinePath.builder(TEST_PRECISION);
-
-        builder
-            .append(Vector2D.ZERO)
-            .append(Vector2D.Unit.PLUS_X)
-            .append(Lines.fromPointAndAngle(Vector2D.Unit.PLUS_X, Angle.PI_OVER_TWO, TEST_PRECISION)
-                .rayFrom(0));
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(builder::close, IllegalStateException.class,
-                "Unable to close line path: line path is infinite");
-    }
-
     private static void assertFiniteSegment(final LineConvexSubset segment, final Vector2D start, final Vector2D end) {
         Assertions.assertFalse(segment.isInfinite());
         Assertions.assertTrue(segment.isFinite());
@@ -12303,6 +12255,60 @@ class LinePathTest_OE25Dev {
         
                 // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
+    }
+
+@Test
+    void testBuilder_prependAndAppend_noPrecisionSpecified_1_oe() {
+        // arrange
+        final Vector2D p = Vector2D.ZERO;
+        final Builder builder = LinePath.builder(null);
+
+        final String msg = "Unable to create line segment: no vertex precision specified";
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.append(p); }, IllegalStateException.class, msg);
+    }
+
+@Test
+    void testBuilder_prependAndAppend_noPrecisionSpecified_2_oe() {
+        // arrange
+        final Vector2D p = Vector2D.ZERO;
+        final Builder builder = LinePath.builder(null);
+
+        final String msg = "Unable to create line segment: no vertex precision specified";
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.prepend(p); }, IllegalStateException.class, msg);
+    }
+
+@Test
+    void testBuilder_close_infiniteSegmentAtStart_1_oe() {
+        // arrange
+        final Builder builder = LinePath.builder(TEST_PRECISION);
+
+        builder.append(Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION)
+                .reverseRayTo(1))
+            .append(Vector2D.of(1, 1));
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(builder::close, IllegalStateException.class, "Unable to close line path: line path is infinite");
+    }
+
+@Test
+    void testBuilder_close_infiniteSegmentAtEnd_1_oe() {
+        // arrange
+        final Builder builder = LinePath.builder(TEST_PRECISION);
+
+        builder
+            .append(Vector2D.ZERO)
+            .append(Vector2D.Unit.PLUS_X)
+            .append(Lines.fromPointAndAngle(Vector2D.Unit.PLUS_X, Angle.PI_OVER_TWO, TEST_PRECISION)
+                .rayFrom(0));
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(builder::close, IllegalStateException.class, "Unable to close line path: line path is infinite");
     }
 
 }

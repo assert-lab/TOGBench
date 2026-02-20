@@ -1,0 +1,35 @@
+id,test_prefix,test_name
+bcel_left_75_9,"public void testTransformClassToClassGen_ArrayAndAnnotationTypes_9_oe()
+            throws ClassNotFoundException
+    {
+        final JavaClass jc = getTestClass(PACKAGE_BASE_NAME+"".data.AnnotatedWithCombinedAnnotation"");
+        final ClassGen cgen = new ClassGen(jc);
+        // Check annotations are correctly preserved
+        final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+        // removed other assertion
+        final AnnotationEntryGen a = annotations[0];
+        // removed other assertion
+        final ElementValuePairGen nvp = a.getValues().get(0);
+        final ElementValueGen value = nvp.getValue();
+        // removed other assertion
+        final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+        // removed other assertion
+        final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+        // removed other assertion
+        final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+        // removed other assertion
+
+        // check the three methods
+        final Method[] methods = cgen.getMethods();
+        // removed other assertion
+        for (final Method method : methods)
+        {
+            final String methodName= method.getName();
+            if(methodName.equals(""<init>""))
+            {
+                // removed other assertion
+                assertParameterAnnotations(method, 0, 1);
+}
+}
+}
+",GeneratingAnnotatedClassesTestCase::testTransformClassToClassGen_ArrayAndAnnotationTypes_9_oe

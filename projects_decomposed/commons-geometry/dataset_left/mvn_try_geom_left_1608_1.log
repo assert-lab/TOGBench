@@ -1,0 +1,297 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[40,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[41,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[43,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[45,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[52,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[53,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,int)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[54,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,int)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[55,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,int)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[61,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[63,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[64,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[66,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[67,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[69,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[70,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[72,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[73,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[88,13] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[97,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[98,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[100,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[101,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[103,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[104,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[110,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[112,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[114,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[124,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[126,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,int,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[127,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[129,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[130,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[132,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[133,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,int,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[135,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[136,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[145,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[147,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,int,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[148,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[150,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[151,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[153,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[154,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,int,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[156,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[157,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[358,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[359,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[360,9] cannot find symbol
+  symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-euclidean: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[40,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[41,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[43,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[45,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[52,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[53,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[54,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[55,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[61,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[63,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[64,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[66,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[67,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[69,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[70,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[72,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[73,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[88,13] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[97,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[98,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[100,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[101,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[103,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[104,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[110,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[112,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[114,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[124,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[126,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[127,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[129,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[130,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[132,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[133,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[135,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[136,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[145,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[147,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[148,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[150,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[151,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[153,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[154,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[156,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[157,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[358,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[359,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,int,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/SphericalCoordinatesTest_OE25Dev_geom_left_1608_1.java:[360,9] cannot find symbol
+[ERROR]   symbol:   method checkSpherical(org.apache.commons.geometry.euclidean.threed.SphericalCoordinates,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev_geom_left_1608_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

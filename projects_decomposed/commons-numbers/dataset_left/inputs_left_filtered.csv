@@ -1,0 +1,2604 @@
+id,test_prefix,test_name
+numb_left_4_1,"private void checkRelativeError_1_oe(String msg,
+                                    double expected,
+                                    double actual,
+                                    double tolerance) {
+        Assertions.assertEquals(expected, actual, Math.abs(tolerance * actual), msg);
+}
+",DigammaTest::checkRelativeError_1_oe
+numb_left_7_1,"private void testRegularizedBeta_1_oe(double expected,
+                                     double x,
+                                     double a,
+                                     double b) {
+        final double actual = RegularizedBeta.value(x, a, b);
+        Assertions.assertEquals(expected, actual, 1e-15);
+}
+",RegularizedBetaTest::testRegularizedBeta_1_oe
+numb_left_16_1,"private void testRegularizedGamma_1_oe(double expected, double a, double x) {
+        double actualP = RegularizedGamma.P.value(a, x);
+        double actualQ = RegularizedGamma.Q.value(a, x);
+        Assertions.assertEquals(expected, actualP, 1e-15);
+}
+",RegularizedGammaTest::testRegularizedGamma_1_oe
+numb_left_16_2,"private void testRegularizedGamma_2_oe(double expected, double a, double x) {
+        double actualP = RegularizedGamma.P.value(a, x);
+        double actualQ = RegularizedGamma.Q.value(a, x);
+        // removed other assertion
+        Assertions.assertEquals(actualP, 1 - actualQ, 1e-15);
+}
+",RegularizedGammaTest::testRegularizedGamma_2_oe
+numb_left_32_1,"private static double logGammaMinusLogGammaSum_1_oe(final double a,
+                                                   final double b) {
+        /*
+         * Use reflection to access private method.
+         */
+        try {
+            final Method m = LogBeta.class.getDeclaredMethod(""logGammaMinusLogGammaSum"",
+                                                             Double.TYPE, Double.TYPE);
+            m.setAccessible(true);
+            return ((Double) m.invoke(null, a, b)).doubleValue();
+        } catch (NoSuchMethodException e) {
+            Assertions.fail(e.getMessage());
+}
+}
+",LogBetaTest::logGammaMinusLogGammaSum_1_oe
+numb_left_32_2,"private static double logGammaMinusLogGammaSum_2_oe(final double a,
+                                                   final double b) {
+        /*
+         * Use reflection to access private method.
+         */
+        try {
+            final Method m = LogBeta.class.getDeclaredMethod(""logGammaMinusLogGammaSum"",
+                                                             Double.TYPE, Double.TYPE);
+            m.setAccessible(true);
+            return ((Double) m.invoke(null, a, b)).doubleValue();
+        } catch (NoSuchMethodException e) {
+            // removed other assertion
+        } catch (IllegalAccessException e) {
+            Assertions.fail(e.getMessage());
+}
+}
+",LogBetaTest::logGammaMinusLogGammaSum_2_oe
+numb_left_32_3,"private static double logGammaMinusLogGammaSum_3_oe(final double a,
+                                                   final double b) {
+        /*
+         * Use reflection to access private method.
+         */
+        try {
+            final Method m = LogBeta.class.getDeclaredMethod(""logGammaMinusLogGammaSum"",
+                                                             Double.TYPE, Double.TYPE);
+            m.setAccessible(true);
+            return ((Double) m.invoke(null, a, b)).doubleValue();
+        } catch (NoSuchMethodException e) {
+            // removed other assertion
+        } catch (IllegalAccessException e) {
+            // removed other assertion
+        } catch (InvocationTargetException e) {
+            if (e.getTargetException() instanceof GammaException) {
+                throw (GammaException) e.getTargetException();
+            } else {
+                Assertions.fail(e.getTargetException().getMessage());
+}
+}
+}
+",LogBetaTest::logGammaMinusLogGammaSum_3_oe
+numb_left_36_1,"private static double sumDeltaMinusDeltaSum_1_oe(final double a,
+                                                final double b) {
+
+        /*
+         * Use reflection to access private method.
+         */
+        try {
+            final Method m = LogBeta.class.getDeclaredMethod(""sumDeltaMinusDeltaSum"",
+                                                             Double.TYPE, Double.TYPE);
+            m.setAccessible(true);
+            return ((Double) m.invoke(null, a, b)).doubleValue();
+        } catch (NoSuchMethodException e) {
+            Assertions.fail(e.getMessage());
+}
+}
+",LogBetaTest::sumDeltaMinusDeltaSum_1_oe
+numb_left_36_2,"private static double sumDeltaMinusDeltaSum_2_oe(final double a,
+                                                final double b) {
+
+        /*
+         * Use reflection to access private method.
+         */
+        try {
+            final Method m = LogBeta.class.getDeclaredMethod(""sumDeltaMinusDeltaSum"",
+                                                             Double.TYPE, Double.TYPE);
+            m.setAccessible(true);
+            return ((Double) m.invoke(null, a, b)).doubleValue();
+        } catch (NoSuchMethodException e) {
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            Assertions.fail(e.getMessage());
+}
+}
+",LogBetaTest::sumDeltaMinusDeltaSum_2_oe
+numb_left_36_3,"private static double sumDeltaMinusDeltaSum_3_oe(final double a,
+                                                final double b) {
+
+        /*
+         * Use reflection to access private method.
+         */
+        try {
+            final Method m = LogBeta.class.getDeclaredMethod(""sumDeltaMinusDeltaSum"",
+                                                             Double.TYPE, Double.TYPE);
+            m.setAccessible(true);
+            return ((Double) m.invoke(null, a, b)).doubleValue();
+        } catch (NoSuchMethodException e) {
+            // removed other assertion
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            if (e.getTargetException() instanceof GammaException) {
+                throw (GammaException) e.getTargetException();
+            }
+            Assertions.fail(e.getTargetException().getMessage());
+}
+}
+",LogBetaTest::sumDeltaMinusDeltaSum_3_oe
+numb_left_74_1,"private static void checkLexicographicIterator_1_oe(int n,
+                                                   int k) {
+        int[] lastIterate = null;
+
+        long numIterates = 0;
+        final Comparator<int[]> comp = Combinations.of(n, k).comparator();
+        for (int[] iterate : Combinations.of(n, k)) {
+            Assertions.assertEquals(k, iterate.length);
+}
+}
+",CombinationsTest::checkLexicographicIterator_1_oe
+numb_left_74_2,"private static void checkLexicographicIterator_2_oe(int n,
+                                                   int k) {
+        int[] lastIterate = null;
+
+        long numIterates = 0;
+        final Comparator<int[]> comp = Combinations.of(n, k).comparator();
+        for (int[] iterate : Combinations.of(n, k)) {
+            // removed other assertion
+
+            // Check that the sequence of iterates is ordered.
+            if (lastIterate != null) {
+                Assertions.assertEquals(1, comp.compare(iterate, lastIterate));
+}
+}
+}
+",CombinationsTest::checkLexicographicIterator_2_oe
+numb_left_74_3,"private static void checkLexicographicIterator_3_oe(int n,
+                                                   int k) {
+        int[] lastIterate = null;
+
+        long numIterates = 0;
+        final Comparator<int[]> comp = Combinations.of(n, k).comparator();
+        for (int[] iterate : Combinations.of(n, k)) {
+            // removed other assertion
+
+            // Check that the sequence of iterates is ordered.
+            if (lastIterate != null) {
+                // removed other assertion
+            }
+
+            // Check that each iterate is ordered.
+            for (int i = 1; i < iterate.length; i++) {
+                Assertions.assertTrue(iterate[i] > iterate[i - 1]);
+}
+}
+}
+",CombinationsTest::checkLexicographicIterator_3_oe
+numb_left_74_4,"private static void checkLexicographicIterator_4_oe(int n,
+                                                   int k) {
+        int[] lastIterate = null;
+
+        long numIterates = 0;
+        final Comparator<int[]> comp = Combinations.of(n, k).comparator();
+        for (int[] iterate : Combinations.of(n, k)) {
+            // removed other assertion
+
+            // Check that the sequence of iterates is ordered.
+            if (lastIterate != null) {
+                // removed other assertion
+            }
+
+            // Check that each iterate is ordered.
+            for (int i = 1; i < iterate.length; i++) {
+                // removed other assertion
+            }
+
+            lastIterate = iterate;
+            ++numIterates;
+        }
+
+        // Check the number of iterates.
+        Assertions.assertEquals(BinomialCoefficient.value(n, k), numIterates);
+}
+",CombinationsTest::checkLexicographicIterator_4_oe
+numb_left_75_1,"private static void checkLexicographicIteratorThrows_1_oe(int n,
+                                                         int k) {
+        Iterator<int[]> iter = Combinations.of(n, k).iterator();
+
+        // First call
+        iter.next();
+        // Check remove is not supported
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> iter.remove());
+}
+",CombinationsTest::checkLexicographicIteratorThrows_1_oe
+numb_left_75_2,"private static void checkLexicographicIteratorThrows_2_oe(int n,
+                                                         int k) {
+        Iterator<int[]> iter = Combinations.of(n, k).iterator();
+
+        // First call
+        iter.next();
+        // Check remove is not supported
+        // removed other assertion
+
+        // Consume the rest
+        final long numIterates = BinomialCoefficient.value(n, k);
+        for (long i = 1; i < numIterates; i++) {
+            iter.next();
+        }
+        Assertions.assertThrows(NoSuchElementException.class, () -> iter.next());
+}
+",CombinationsTest::checkLexicographicIteratorThrows_2_oe
+numb_left_116_1,"static void assertEquals_1_oe(Supplier<String> msg, double expected, double actual, long maxUlps) { final long e = Double.doubleToLongBits(expected);
+}
+",CReferenceTest::assertEquals_1_oe
+numb_left_116_2,"// removed other assertion
+        final long a = Double.doubleToLongBits(actual);
+
+        // Code adapted from Precision#equals(double, double, int) so we maintain the delta
+        // for the message.
+
+        long delta;
+        boolean equal;
+        if (e == a) {
+            // Binary equal
+            equal = true;
+            delta = 0;
+        } else if ((a ^ e) < 0L) {
+            // Opposite signs are never equal.
+            equal = false;
+            // The difference is the count of numbers between each and zero.
+            // This may overflow but we report it using an unsigned formatter.
+            if (a < e) {
+                delta = (e - POSITIVE_ZERO_DOUBLE_BITS) + (a - NEGATIVE_ZERO_DOUBLE_BITS) + 1;
+            } else {
+                delta = (a - POSITIVE_ZERO_DOUBLE_BITS) + (e - NEGATIVE_ZERO_DOUBLE_BITS) + 1;
+            }
+        } else {
+            delta = Math.abs(e - a);
+            // Allow input of a negative maximum ULPs
+            equal = delta <= ((maxUlps < 0) ? (-maxUlps - 1) : maxUlps);
+        }
+
+        // DEBUG:
+        if (maxUlps < 0) {
+            // CHECKSTYLE: stop Regex
+            if (!equal) {
+                System.out.printf(""%s: expected <%s> != actual <%s> (ulps=%s)%n"",
+                        msg.get(), expected, actual, Long.toUnsignedString(delta));
+            } else if (reportAllDeviations) {
+                System.out.printf(""%s: expected <%s> == actual <%s> (ulps=0)%n"",
+                    msg.get(), expected, actual);
+            }
+            // CHECKSTYLE: resume Regex
+            return;
+        }
+
+        if (!equal) {
+            Assertions.fail(String.format(""%s: expected <%s> != actual <%s>(ulps=%s)"",msg.get(),expected,actual,Long.toUnsignedString(delta)));
+}
+",CReferenceTest::assertEquals_2_oe
+numb_left_117_1,"static void assertComplex_1_oe(Complex c, String name, UnaryOperator<Complex> operation, Complex expected, long maxUlps) { final Complex z = operation.apply(c);
+}
+",CReferenceTest::assertComplex_1_oe
+numb_left_117_2,"// removed other assertion
+        assertEquals(() -> c + ""."" + name + ""(): real"", expected.real(), z.real(), maxUlps);
+",CReferenceTest::assertComplex_2_oe
+numb_left_117_3,"// removed other assertion
+        // removed other assertion
+        assertEquals(() -> c + ""."" + name + ""(): imaginary"", expected.imag(), z.imag(), maxUlps);
+",CReferenceTest::assertComplex_3_oe
+numb_left_118_1,"static void assertComplex_1_oe(Complex c1, Complex c2, String name, BiFunction<Complex, Complex, Complex> operation, Complex expected, long maxUlps) { final Complex z = operation.apply(c1, c2);
+}
+",CReferenceTest::assertComplex_1_oe
+numb_left_118_2,"// removed other assertion
+        assertEquals(() -> c1 + ""."" + name + c2 + "": real"", expected.real(), z.real(), maxUlps);
+",CReferenceTest::assertComplex_2_oe
+numb_left_118_3,"// removed other assertion
+        // removed other assertion
+        assertEquals(() -> c1 + ""."" + name + c2 + "": imaginary"", expected.imag(), z.imag(), maxUlps);
+",CReferenceTest::assertComplex_3_oe
+numb_left_119_1,"private static void assertOperation_1_oe(String name, UnaryOperator<Complex> operation, long maxUlps) { final List<Complex[]> data = loadTestData(name);
+}
+",CReferenceTest::assertOperation_1_oe
+numb_left_119_2,"// removed other assertion
+        final long ulps = getTestUlps(maxUlps);
+        for (final Complex[] pair : data) {
+            assertComplex(pair[0], name, operation, pair[1], ulps);
+}
+",CReferenceTest::assertOperation_2_oe
+numb_left_120_1,"private static void assertBiOperation_1_oe(String name, BiFunction<Complex, Complex, Complex> operation, long maxUlps) { final List<Complex[]> data = loadTestData(name);
+}
+",CReferenceTest::assertBiOperation_1_oe
+numb_left_120_2,"// removed other assertion
+        final long ulps = getTestUlps(maxUlps);
+        for (final Complex[] triple : data) {
+            assertComplex(triple[0], triple[1], name, operation, triple[2], ulps);
+}
+",CReferenceTest::assertBiOperation_2_oe
+numb_left_134_1,"private static void assertComplex_1_oe(Complex c1, Complex c2) { // Use a delta of zero to allow comparison of -0.0 to 0.0 Assertions.assertEquals(c2.getReal(), c1.getReal(), 0.0, ""real"");
+}
+",CStandardTest::assertComplex_1_oe
+numb_left_134_2,"// removed other assertion
+        Assertions.assertEquals(c2.getImaginary(), c1.getImaginary(), 0.0, ""imaginary"");
+",CStandardTest::assertComplex_2_oe
+numb_left_135_1,"private static void assertOperation_1_oe(Complex c1, Complex c2, BiFunction<Complex, Complex, Complex> operation, String operationName, Predicate<Complex> expected, String expectedName) { final Complex z = operation.apply(c1, c2);
+}
+",CStandardTest::assertOperation_1_oe
+numb_left_135_2,"// removed other assertion
+        Assertions.assertTrue(expected.test(z),()-> String.format(""%s expected: %s %s %s = %s"",expectedName,c1,operationName,c2,z));
+",CStandardTest::assertOperation_2_oe
+numb_left_136_1,"private static void assertConjugateEquality_1_oe(UnaryOperator<Complex> operation) { // Edge cases. Inf/NaN are specifically handled in the C99 test cases // but are repeated here to enforce the conjugate equality even when the C99 // standard does not specify a sign. This may be revised in the future. final double[] parts = {Double.NEGATIVE_INFINITY, -1, -0.0, 0.0, 1, Double.POSITIVE_INFINITY, Double.NaN};
+}
+",CStandardTest::assertConjugateEquality_1_oe
+numb_left_136_2,"// removed other assertion
+        for (final double x : parts) {
+            for (final double y : parts) {
+                // No conjugate for imaginary NaN
+                if (!Double.isNaN(y)) {
+                    assertConjugateEquality(complex(x, y), operation, UnspecifiedSign.NONE);
+}
+}
+}
+",CStandardTest::assertConjugateEquality_2_oe
+numb_left_136_3,"// removed other assertion
+        for (final double x : parts) {
+            for (final double y : parts) {
+                // No conjugate for imaginary NaN
+                if (!Double.isNaN(y)) {
+                    // removed other assertion
+                }
+            }
+        }
+        // Random numbers
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.SPLIT_MIX_64);
+        for (int i = 0; i < 100; i++) {
+            final double x = next(rng);
+            final double y = next(rng);
+            assertConjugateEquality(complex(x, y), operation, UnspecifiedSign.NONE);
+}
+",CStandardTest::assertConjugateEquality_3_oe
+numb_left_137_1,"private static void assertConjugateEquality_1_oe(Complex z, UnaryOperator<Complex> operation, UnspecifiedSign sign) { final Complex c1 = operation.apply(z.conj());
+}
+",CStandardTest::assertConjugateEquality_1_oe
+numb_left_137_2,"// removed other assertion
+        final Complex c2 = operation.apply(z).conj();
+        final Complex t1 = sign.removeSign(c1);
+        final Complex t2 = sign.removeSign(c2);
+
+        // Test for binary equality
+        if (!equals(t1.getReal(), t2.getReal()) ||
+            !equals(t1.getImaginary(), t2.getImaginary())) {
+            Assertions.fail(String.format(""Conjugate equality failed(z=%s). Expected: %s but was: %s(Unspecified sign = %s)"",z,c1,c2,sign));
+}
+",CStandardTest::assertConjugateEquality_2_oe
+numb_left_138_1,"private static void assertFunctionType_1_oe(UnaryOperator<Complex> operation, FunctionType type) { // Note: It may not be possible to satisfy the conjugate equality // and be an odd/even function with regard to zero. // The C99 standard allows for these cases to have unspecified sign. // This test ignores parts that can result in unspecified signed results. // The valid edge cases should be tested for each function separately. if (type == FunctionType.NONE) { return;
+}
+",CStandardTest::assertFunctionType_1_oe
+numb_left_138_2,"// removed other assertion
+        }
+
+        // Edge cases around zero.
+        final double[] parts = {-2, -1, -0.0, 0.0, 1, 2};
+        for (final double x : parts) {
+            for (final double y : parts) {
+                assertFunctionType(complex(x, y), operation, type, UnspecifiedSign.NONE);
+}
+",CStandardTest::assertFunctionType_2_oe
+numb_left_138_3,"// removed other assertion
+        }
+
+        // Edge cases around zero.
+        final double[] parts = {-2, -1, -0.0, 0.0, 1, 2};
+        for (final double x : parts) {
+            for (final double y : parts) {
+                // removed other assertion
+            }
+        }
+        // Random numbers
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.SPLIT_MIX_64);
+        for (int i = 0; i < 100; i++) {
+            final double x = next(rng);
+            final double y = next(rng);
+            assertFunctionType(complex(x, y), operation, type, UnspecifiedSign.NONE);
+",CStandardTest::assertFunctionType_3_oe
+numb_left_139_1,"private static void assertFunctionType_1_oe(Complex z, UnaryOperator<Complex> operation, FunctionType type, UnspecifiedSign sign) { final Complex c1 = operation.apply(z);
+}
+",CStandardTest::assertFunctionType_1_oe
+numb_left_139_2,"// removed other assertion
+        Complex c2 = operation.apply(z.negate());
+        if (type == FunctionType.ODD) {
+            c2 = c2.negate();
+        }
+        final Complex t1 = sign.removeSign(c1);
+        final Complex t2 = sign.removeSign(c2);
+
+        // Test for binary equality
+        if (!equals(t1.getReal(), t2.getReal()) ||
+            !equals(t1.getImaginary(), t2.getImaginary())) {
+            Assertions.fail(String.format(""%s equality failed(z=%s,-z=%s). Expected: %s but was: %s(Unspecified sign = %s)"",type,z,z.negate(),c1,c2,sign));
+}
+",CStandardTest::assertFunctionType_2_oe
+numb_left_140_1,"private static void assertComplex_1_oe(Complex z, UnaryOperator<Complex> operation, Complex expected) { assertComplex(z, operation, expected, FunctionType.NONE, UnspecifiedSign.NONE);
+}
+",CStandardTest::assertComplex_1_oe
+numb_left_141_1,"private static void assertComplex_1_oe(Complex z, UnaryOperator<Complex> operation, Complex expected, UnspecifiedSign sign) { assertComplex(z, operation, expected, FunctionType.NONE, sign);
+}
+",CStandardTest::assertComplex_1_oe
+numb_left_142_1,"private static void assertComplex_1_oe(Complex z, UnaryOperator<Complex> operation, Complex expected, FunctionType type) { assertComplex(z, operation, expected, type, UnspecifiedSign.NONE);
+}
+",CStandardTest::assertComplex_1_oe
+numb_left_143_1,"private static void assertComplex_1_oe(Complex z, UnaryOperator<Complex> operation, Complex expected, FunctionType type, UnspecifiedSign sign) { // Developer note: Set the sign specification to UnspecifiedSign.NONE // to see which equalities fail. They should be for input defined // in ISO C99 with an unspecified output sign, e.g. // sign = UnspecifiedSign.NONE // Test the operation final Complex c = operation.apply(z);
+}
+",CStandardTest::assertComplex_1_oe
+numb_left_143_2,"// removed other assertion
+        final Complex t1 = sign.removeSign(c);
+        final Complex t2 = sign.removeSign(expected);
+        if (!equals(t1.getReal(), t2.getReal()) ||
+            !equals(t1.getImaginary(), t2.getImaginary())) {
+            Assertions.fail(String.format(""Operation failed(z=%s). Expected: %s but was: %s(Unspecified sign = %s)"",z,expected,c,sign));
+}
+",CStandardTest::assertComplex_2_oe
+numb_left_143_3,"// removed other assertion
+        final Complex t1 = sign.removeSign(c);
+        final Complex t2 = sign.removeSign(expected);
+        if (!equals(t1.getReal(), t2.getReal()) ||
+            !equals(t1.getImaginary(), t2.getImaginary())) {
+            // removed other assertion
+        }
+
+        if (!Double.isNaN(z.getImaginary())) {
+            assertConjugateEquality(z, operation, sign);
+}
+",CStandardTest::assertComplex_3_oe
+numb_left_143_4,"// removed other assertion
+        final Complex t1 = sign.removeSign(c);
+        final Complex t2 = sign.removeSign(expected);
+        if (!equals(t1.getReal(), t2.getReal()) ||
+            !equals(t1.getImaginary(), t2.getImaginary())) {
+            // removed other assertion
+        }
+
+        if (!Double.isNaN(z.getImaginary())) {
+            // removed other assertion
+        }
+
+        if (type != FunctionType.NONE) {
+            assertFunctionType(z, operation, type, sign);
+}
+",CStandardTest::assertComplex_4_oe
+numb_left_143_5,"// removed other assertion
+        final Complex t1 = sign.removeSign(c);
+        final Complex t2 = sign.removeSign(expected);
+        if (!equals(t1.getReal(), t2.getReal()) ||
+            !equals(t1.getImaginary(), t2.getImaginary())) {
+            // removed other assertion
+        }
+
+        if (!Double.isNaN(z.getImaginary())) {
+            // removed other assertion
+        }
+
+        if (type != FunctionType.NONE) {
+            // removed other assertion
+
+            // An odd/even function should satisfy the conjugate equality
+            // on the negated complex. This ensures testing the equalities
+            // hold for:
+            // (re, im) =  (re, -im)
+            // (re, im) =  (-re, -im) (even)
+            //          = -(-re, -im) (odd)
+            // (-re, -im) = (-re, im)
+            if (!Double.isNaN(z.getImaginary())) {
+                assertConjugateEquality(z.negate(), operation, sign);
+}
+}
+",CStandardTest::assertComplex_5_oe
+numb_left_144_1,"private static void assertAbs_1_oe(Complex z, int ulps) { double x = z.getReal();
+}
+",CStandardTest::assertAbs_1_oe
+numb_left_144_2,"// removed other assertion
+        double y = z.getImaginary();
+        // For speed use Math.hypot as the reference, not BigDecimal computation.
+        final double expected = Math.hypot(x, y);
+        final double observed = z.abs();
+        if (expected == observed) {
+            // This condition will occur in the majority of cases.
+            return;
+        }
+        // Compute the 'exact' result.
+        // JDK 9 BigDecimal.sqrt() is not available so compute the standard sqrt of the
+        // high precision sum. Do scaling as the high precision sum may not be in the
+        // range of a double.
+        int scale = 0;
+        x = Math.abs(x);
+        y = Math.abs(y);
+        if (Math.max(x, y) > 0x1.0p+500) {
+            scale = Math.getExponent(Math.max(x, y));
+        } else if (Math.min(x, y) < 0x1.0p-500) {
+            scale = Math.getExponent(Math.min(x, y));
+        }
+        if (scale != 0) {
+            x = Math.scalb(x, -scale);
+            y = Math.scalb(y, -scale);
+        }
+        // Compute and re-scale. 'exact' must be effectively final for use in the
+        // assertion message supplier.
+        final double result = Math.sqrt(new BigDecimal(x).pow(2).add(new BigDecimal(y).pow(2)).doubleValue());
+        final double exact = scale != 0 ? Math.scalb(result, scale) : result;
+        if (exact == observed) {
+            // Different from Math.hypot but matches the 'exact' result
+            return;
+        }
+        // Distance from the 'exact' result should be within tolerance.
+        final long obsBits = Double.doubleToLongBits(observed);
+        final long exactBits = Double.doubleToLongBits(exact);
+        final long obsUlp = Math.abs(exactBits - obsBits);
+        Assertions.assertTrue(obsUlp <= ulps, () -> { // Compute for Math.hypot for reference. final long expBits = Double.doubleToLongBits(expected); final long expUlp = Math.abs(exactBits - expBits); return String.format(""%s.abs(). Expected %s, was %s (%d ulps). hypot %s (%d ulps)"", z, exact, observed, obsUlp, expected, expUlp); });
+}
+",CStandardTest::assertAbs_2_oe
+numb_left_145_1,"private static void assertAbs_1_oe(UniformRandomProvider rng, ToDoubleFunction<UniformRandomProvider> fx, ToDoubleFunction<UniformRandomProvider> fy, int samples) { for (int i = 0; i < samples; i++) {;
+}
+}
+",CStandardTest::assertAbs_1_oe
+numb_left_145_2,"// removed other assertion
+            double x = fx.applyAsDouble(rng);
+            double y = fy.applyAsDouble(rng);
+            assertAbs(Complex.ofCartesian(x, y), 1);
+",CStandardTest::assertAbs_2_oe
+numb_left_183_1,"private static void assertArgument_1_oe(double expected, Complex complex, double delta) { final double actual = complex.arg();
+}
+",ComplexTest::assertArgument_1_oe
+numb_left_183_2,"// removed other assertion
+        Assertions.assertEquals(expected, actual, delta);
+",ComplexTest::assertArgument_2_oe
+numb_left_183_3,"// removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(actual, complex.arg(), delta);
+",ComplexTest::assertArgument_3_oe
+numb_left_187_1,"private static void assertNumberType_1_oe(double real, double imaginary, NumberType type) { final Complex z = Complex.ofCartesian(real, imaginary);
+}
+",ComplexTest::assertNumberType_1_oe
+numb_left_187_2,"// removed other assertion
+        final boolean isNaN = z.isNaN();
+        final boolean isInfinite = z.isInfinite();
+        final boolean isFinite = z.isFinite();
+        // A number can be only one
+        int count = isNaN ? 1 : 0;
+        count += isInfinite ? 1 : 0;
+        count += isFinite ? 1 : 0;
+        Assertions.assertEquals(1,count,()-> String.format(""Complex can be only one type: isNaN=%s,isInfinite=%s,isFinite=%s: %s"",isNaN,isInfinite,isFinite,z));
+",ComplexTest::assertNumberType_2_oe
+numb_left_187_3,"// removed other assertion
+        final boolean isNaN = z.isNaN();
+        final boolean isInfinite = z.isInfinite();
+        final boolean isFinite = z.isFinite();
+        // A number can be only one
+        int count = isNaN ? 1 : 0;
+        count += isInfinite ? 1 : 0;
+        count += isFinite ? 1 : 0;
+        // removed other assertion
+        switch (type) {
+        case FINITE:
+            Assertions.assertTrue(isFinite, () -> ""not finite: "" + z);
+}
+",ComplexTest::assertNumberType_3_oe
+numb_left_187_4,"// removed other assertion
+        final boolean isNaN = z.isNaN();
+        final boolean isInfinite = z.isInfinite();
+        final boolean isFinite = z.isFinite();
+        // A number can be only one
+        int count = isNaN ? 1 : 0;
+        count += isInfinite ? 1 : 0;
+        count += isFinite ? 1 : 0;
+        // removed other assertion
+        switch (type) {
+        case FINITE:
+            // removed other assertion
+            break;
+        case INFINITE:
+            Assertions.assertTrue(isInfinite, () -> ""not infinite: "" + z);
+}
+",ComplexTest::assertNumberType_4_oe
+numb_left_187_5,"// removed other assertion
+        final boolean isNaN = z.isNaN();
+        final boolean isInfinite = z.isInfinite();
+        final boolean isFinite = z.isFinite();
+        // A number can be only one
+        int count = isNaN ? 1 : 0;
+        count += isInfinite ? 1 : 0;
+        count += isFinite ? 1 : 0;
+        // removed other assertion
+        switch (type) {
+        case FINITE:
+            // removed other assertion
+            break;
+        case INFINITE:
+            // removed other assertion
+            break;
+        case NAN:
+            Assertions.assertTrue(isNaN, () -> ""not nan: "" + z);
+}
+",ComplexTest::assertNumberType_5_oe
+numb_left_187_6,"// removed other assertion
+        final boolean isNaN = z.isNaN();
+        final boolean isInfinite = z.isInfinite();
+        final boolean isFinite = z.isFinite();
+        // A number can be only one
+        int count = isNaN ? 1 : 0;
+        count += isInfinite ? 1 : 0;
+        count += isFinite ? 1 : 0;
+        // removed other assertion
+        switch (type) {
+        case FINITE:
+            // removed other assertion
+            break;
+        case INFINITE:
+            // removed other assertion
+            break;
+        case NAN:
+            // removed other assertion
+            break;
+        default:
+            Assertions.fail(""Unknown number type"");
+}
+",ComplexTest::assertNumberType_6_oe
+numb_left_250_1,"private static void assertSignedZeroArithmetic_1_oe(String name, BiFunction<Complex, Double, Complex> doubleOperation, DoubleFunction<Complex> doubleToComplex, BiFunction<Complex, Complex, Complex> complexOperation, long expectedFailures) { // With an operation on zero or non-zero arguments final double[] arguments = {-0.0, 0.0, -2, 3};
+}
+",ComplexTest::assertSignedZeroArithmetic_1_oe
+numb_left_250_2,"// removed other assertion
+        for (final double a : arguments) {
+            for (final double b : arguments) {
+                final Complex c = Complex.ofCartesian(a, b);
+                for (final double arg : arguments) {
+                    final Complex y = doubleOperation.apply(c, arg);
+                    final Complex z = complexOperation.apply(c, doubleToComplex.apply(arg));
+                    final boolean expectedFailure = (expectedFailures & 0x1) == 1;
+                    expectedFailures >>>= 1;
+                    // Check the same answer. Sign is allowed to be different for zero.
+                    Assertions.assertEquals(y.getReal(), z.getReal(), 0, () -> c + "" "" + name + "" "" + arg + "": real"");
+}
+}
+}
+",ComplexTest::assertSignedZeroArithmetic_2_oe
+numb_left_250_3,"// removed other assertion
+        for (final double a : arguments) {
+            for (final double b : arguments) {
+                final Complex c = Complex.ofCartesian(a, b);
+                for (final double arg : arguments) {
+                    final Complex y = doubleOperation.apply(c, arg);
+                    final Complex z = complexOperation.apply(c, doubleToComplex.apply(arg));
+                    final boolean expectedFailure = (expectedFailures & 0x1) == 1;
+                    expectedFailures >>>= 1;
+                    // Check the same answer. Sign is allowed to be different for zero.
+                    // removed other assertion
+                    Assertions.assertEquals(y.getImaginary(),z.getImaginary(),0,()-> c + "" "" + name + "" "" + arg + "": imaginary"");
+}
+}
+}
+",ComplexTest::assertSignedZeroArithmetic_3_oe
+numb_left_250_4,"// removed other assertion
+        for (final double a : arguments) {
+            for (final double b : arguments) {
+                final Complex c = Complex.ofCartesian(a, b);
+                for (final double arg : arguments) {
+                    final Complex y = doubleOperation.apply(c, arg);
+                    final Complex z = complexOperation.apply(c, doubleToComplex.apply(arg));
+                    final boolean expectedFailure = (expectedFailures & 0x1) == 1;
+                    expectedFailures >>>= 1;
+                    // Check the same answer. Sign is allowed to be different for zero.
+                    // removed other assertion
+                    // removed other assertion
+                    Assertions.assertEquals(expectedFailure,!y.equals(z),()-> c + "" "" + name + "" "" + arg + "": sign-difference"");
+}
+}
+}
+",ComplexTest::assertSignedZeroArithmetic_4_oe
+numb_left_256_1,"private static void assertPowComplexZeroBase_1_oe(double re, double im, Complex expected) { final Complex z = Complex.ofCartesian(re, im);
+}
+",ComplexTest::assertPowComplexZeroBase_1_oe
+numb_left_256_2,"// removed other assertion
+        final Complex c = Complex.ZERO.pow(z);
+        Assertions.assertEquals(expected, c);
+",ComplexTest::assertPowComplexZeroBase_2_oe
+numb_left_259_1,"private static void assertPowScalarZeroBase_1_oe(double exp, Complex expected) { final Complex c = Complex.ZERO.pow(exp);
+}
+",ComplexTest::assertPowScalarZeroBase_1_oe
+numb_left_259_2,"// removed other assertion
+        Assertions.assertEquals(expected, c);
+",ComplexTest::assertPowScalarZeroBase_2_oe
+numb_left_279_1,"private static void assertEqualsIsConsistentWithArraysEquals_1_oe(Complex c1, Complex c2, String msg) { final boolean expected = Arrays.equals(new double[] {c1.getReal(), c1.getImaginary()}, new double[] {c2.getReal(), c2.getImaginary()});
+}
+",ComplexTest::assertEqualsIsConsistentWithArraysEquals_1_oe
+numb_left_279_2,"// removed other assertion
+        final boolean actual = c1.equals(c2);
+        Assertions.assertEquals(expected,actual,()-> String.format(""equals(Object)is not consistent with Arrays.equals: %s. %s vs %s"",msg,c1,c2));
+",ComplexTest::assertEqualsIsConsistentWithArraysEquals_2_oe
+numb_left_287_1,"private static void assertAbsVsSqrt_1_oe(int samples, Supplier<Complex> supplier) { // Note: All methods implement scaling to ensure the magnitude can be computed. // Try very large or small numbers that will over/underflow to test that the // scaling // is consistent. for (int i = 0; i < samples; i++) {;
+}
+",ComplexTest::assertAbsVsSqrt_1_oe
+numb_left_287_2,"// removed other assertion
+            final Complex z = supplier.get();
+            final double abs = z.abs();
+            final double x = Math.abs(z.getReal());
+            final double y = Math.abs(z.getImaginary());
+
+            // Target the formula provided in the documentation for sqrt:
+            // sqrt(x + iy)
+            // t = sqrt( 2 (|x| + |x + iy|) )
+            // if x >= 0: (t/2, y/t)
+            // else : (|y| / t, t/2 * sgn(y))
+            // Note this is not the definitional polar computation using absolute and
+            // argument:
+            // real = sqrt(|z|) * cos(0.5 * arg(z))
+            // imag = sqrt(|z|) * sin(0.5 * arg(z))
+            final Complex c = z.sqrt();
+            final double t = Math.sqrt(2 * (x + abs));
+            if (z.getReal() >= 0) {
+                Assertions.assertEquals(t / 2, c.getReal());
+}
+",ComplexTest::assertAbsVsSqrt_2_oe
+numb_left_287_3,"// removed other assertion
+            final Complex z = supplier.get();
+            final double abs = z.abs();
+            final double x = Math.abs(z.getReal());
+            final double y = Math.abs(z.getImaginary());
+
+            // Target the formula provided in the documentation for sqrt:
+            // sqrt(x + iy)
+            // t = sqrt( 2 (|x| + |x + iy|) )
+            // if x >= 0: (t/2, y/t)
+            // else : (|y| / t, t/2 * sgn(y))
+            // Note this is not the definitional polar computation using absolute and
+            // argument:
+            // real = sqrt(|z|) * cos(0.5 * arg(z))
+            // imag = sqrt(|z|) * sin(0.5 * arg(z))
+            final Complex c = z.sqrt();
+            final double t = Math.sqrt(2 * (x + abs));
+            if (z.getReal() >= 0) {
+                // removed other assertion
+                Assertions.assertEquals(z.getImaginary() / t, c.getImaginary());
+}
+",ComplexTest::assertAbsVsSqrt_3_oe
+numb_left_287_4,"// removed other assertion
+            final Complex z = supplier.get();
+            final double abs = z.abs();
+            final double x = Math.abs(z.getReal());
+            final double y = Math.abs(z.getImaginary());
+
+            // Target the formula provided in the documentation for sqrt:
+            // sqrt(x + iy)
+            // t = sqrt( 2 (|x| + |x + iy|) )
+            // if x >= 0: (t/2, y/t)
+            // else : (|y| / t, t/2 * sgn(y))
+            // Note this is not the definitional polar computation using absolute and
+            // argument:
+            // real = sqrt(|z|) * cos(0.5 * arg(z))
+            // imag = sqrt(|z|) * sin(0.5 * arg(z))
+            final Complex c = z.sqrt();
+            final double t = Math.sqrt(2 * (x + abs));
+            if (z.getReal() >= 0) {
+                // removed other assertion
+                // removed other assertion
+            } else {
+                Assertions.assertEquals(y / t, c.getReal());
+}
+",ComplexTest::assertAbsVsSqrt_4_oe
+numb_left_287_5,"// removed other assertion
+            final Complex z = supplier.get();
+            final double abs = z.abs();
+            final double x = Math.abs(z.getReal());
+            final double y = Math.abs(z.getImaginary());
+
+            // Target the formula provided in the documentation for sqrt:
+            // sqrt(x + iy)
+            // t = sqrt( 2 (|x| + |x + iy|) )
+            // if x >= 0: (t/2, y/t)
+            // else : (|y| / t, t/2 * sgn(y))
+            // Note this is not the definitional polar computation using absolute and
+            // argument:
+            // real = sqrt(|z|) * cos(0.5 * arg(z))
+            // imag = sqrt(|z|) * sin(0.5 * arg(z))
+            final Complex c = z.sqrt();
+            final double t = Math.sqrt(2 * (x + abs));
+            if (z.getReal() >= 0) {
+                // removed other assertion
+                // removed other assertion
+            } else {
+                // removed other assertion
+                Assertions.assertEquals(Math.copySign(t / 2, z.getImaginary()), c.getImaginary());
+}
+",ComplexTest::assertAbsVsSqrt_5_oe
+numb_left_289_1,"private static void assertAbsVsLog_1_oe(int samples, Supplier<Complex> supplier) { // Note: All methods implement scaling to ensure the magnitude can be computed. // Try very large or small numbers that will over/underflow to test that the // scaling // is consistent. for (int i = 0; i < samples; i++) {;
+}
+",ComplexTest::assertAbsVsLog_1_oe
+numb_left_289_2,"// removed other assertion
+            final Complex z = supplier.get();
+            final double abs = z.abs();
+            final double x = Math.abs(z.getReal());
+            final double y = Math.abs(z.getImaginary());
+
+            // log(x + iy) = log(|x + i y|) + i arg(x + i y)
+            // Only test the real component
+            final Complex c = z.log();
+            Assertions.assertEquals(Math.log(abs), c.getReal());
+",ComplexTest::assertAbsVsLog_2_oe
+numb_left_290_1,"public static void assertSame_1_oe(Complex expected, Complex actual) { Assertions.assertEquals(expected.getReal(), actual.getReal());
+}
+",TestUtils::assertSame_1_oe
+numb_left_290_2,"// removed other assertion
+        Assertions.assertEquals(expected.getImaginary(), actual.getImaginary());
+",TestUtils::assertSame_2_oe
+numb_left_291_1,"public static void assertEquals_1_oe(Complex expected, Complex actual, double delta) { Assertions.assertEquals(expected.getReal(), actual.getReal(), delta);
+}
+",TestUtils::assertEquals_1_oe
+numb_left_291_2,"// removed other assertion
+        Assertions.assertEquals(expected.getImaginary(), actual.getImaginary(), delta);
+",TestUtils::assertEquals_2_oe
+numb_left_292_1,"public static void checkSerializedEquality_1_oe(Object object) {
+        final Object object2 = serializeAndRecover(object);
+        Assertions.assertEquals(object, object2, ""Equals check"");
+}
+",TestUtils::checkSerializedEquality_1_oe
+numb_left_292_2,"public static void checkSerializedEquality_2_oe(Object object) {
+        final Object object2 = serializeAndRecover(object);
+        // removed other assertion
+        Assertions.assertEquals(object.hashCode(), object2.hashCode(), ""HashCode check"");
+}
+",TestUtils::checkSerializedEquality_2_oe
+numb_left_293_1,"public static void assertRelativelyEquals_1_oe(double expected, double actual, double relativeError) { assertRelativelyEquals(null, expected, actual, relativeError);
+}
+",TestUtils::assertRelativelyEquals_1_oe
+numb_left_294_1,"public static void assertRelativelyEquals_1_oe(String msg, double expected, double actual, double relativeError) { if (Double.isNaN(expected)) { Assertions.assertTrue(Double.isNaN(actual), msg);
+}
+}
+",TestUtils::assertRelativelyEquals_1_oe
+numb_left_294_2,"// removed other assertion
+        } else if (Double.isNaN(actual)) {
+            Assertions.assertTrue(Double.isNaN(expected), msg);
+",TestUtils::assertRelativelyEquals_2_oe
+numb_left_294_3,"// removed other assertion
+        } else if (Double.isNaN(actual)) {
+            // removed other assertion
+        } else if (Double.isInfinite(actual) || Double.isInfinite(expected)) {
+            Assertions.assertEquals(expected, actual, relativeError);
+",TestUtils::assertRelativelyEquals_3_oe
+numb_left_294_4,"// removed other assertion
+        } else if (Double.isNaN(actual)) {
+            // removed other assertion
+        } else if (Double.isInfinite(actual) || Double.isInfinite(expected)) {
+            // removed other assertion
+        } else if (expected == 0.0) {
+            Assertions.assertEquals(actual, expected, relativeError, msg);
+",TestUtils::assertRelativelyEquals_4_oe
+numb_left_294_5,"// removed other assertion
+        } else if (Double.isNaN(actual)) {
+            // removed other assertion
+        } else if (Double.isInfinite(actual) || Double.isInfinite(expected)) {
+            // removed other assertion
+        } else if (expected == 0.0) {
+            // removed other assertion
+        } else {
+            final double absError = Math.abs(expected) * relativeError;
+            Assertions.assertEquals(expected, actual, absError, msg);
+",TestUtils::assertRelativelyEquals_5_oe
+numb_left_295_1,"public static void assertContains_1_oe(String msg, Complex[] values, Complex z, double epsilon) { for (final Complex value : values) { if (Precision.equals(value.getReal(), z.getReal(), epsilon) && Precision.equals(value.getImaginary(), z.getImaginary(), epsilon)) { return;
+}
+}
+}
+",TestUtils::assertContains_1_oe
+numb_left_295_2,"// removed other assertion
+            }
+        }
+        Assertions.fail(msg + "" Unable to find "" + z);
+",TestUtils::assertContains_2_oe
+numb_left_296_1,"public static void assertContains_1_oe(Complex[] values, Complex z, double epsilon) { assertContains(null, values, z, epsilon);
+}
+",TestUtils::assertContains_1_oe
+numb_left_297_1,"public static void assertContains_1_oe(String msg, double[] values, double x, double epsilon) { for (final double value : values) { if (Precision.equals(value, x, epsilon)) { return;
+}
+}
+}
+",TestUtils::assertContains_1_oe
+numb_left_297_2,"// removed other assertion
+            }
+        }
+        Assertions.fail(msg + "" Unable to find "" + x);
+",TestUtils::assertContains_2_oe
+numb_left_298_1,"public static void assertContains_1_oe(double[] values, double x, double epsilon) { assertContains(null, values, x, epsilon);
+}
+",TestUtils::assertContains_1_oe
+numb_left_299_1,"public static void assertEquals_1_oe(String msg, Complex[] expected, Complex[] observed, double tolerance) { final StringBuilder out = new StringBuilder(msg);
+}
+",TestUtils::assertEquals_1_oe
+numb_left_299_2,"// removed other assertion
+        if (expected.length != observed.length) {
+            out.append(""\n Arrays not same length. \n"");
+            out.append(""expected has length "");
+            out.append(expected.length);
+            out.append("" observed length = "");
+            out.append(observed.length);
+            Assertions.fail(out.toString());
+}
+",TestUtils::assertEquals_2_oe
+numb_left_299_3,"// removed other assertion
+        if (expected.length != observed.length) {
+            out.append(""\n Arrays not same length. \n"");
+            out.append(""expected has length "");
+            out.append(expected.length);
+            out.append("" observed length = "");
+            out.append(observed.length);
+            // removed other assertion
+        }
+        boolean failure = false;
+        for (int i = 0; i < expected.length; i++) {
+            if (!Precision.equalsIncludingNaN(expected[i].getReal(), observed[i].getReal(), tolerance)) {
+                failure = true;
+                out.append(""\n Real elements at index "");
+                out.append(i);
+                out.append("" differ. "");
+                out.append("" expected = "");
+                out.append(expected[i].getReal());
+                out.append("" observed = "");
+                out.append(observed[i].getReal());
+            }
+            if (!Precision.equalsIncludingNaN(expected[i].getImaginary(), observed[i].getImaginary(), tolerance)) {
+                failure = true;
+                out.append(""\n Imaginary elements at index "");
+                out.append(i);
+                out.append("" differ. "");
+                out.append("" expected = "");
+                out.append(expected[i].getImaginary());
+                out.append("" observed = "");
+                out.append(observed[i].getImaginary());
+            }
+        }
+        if (failure) {
+            Assertions.fail(out.toString());
+}
+",TestUtils::assertEquals_3_oe
+numb_left_300_1,"public static List<Complex[]> loadTestData_1_oe(String name, TestDataFlagOption option,
+            Consumer<String> flaggedDataConsumer) {
+        final List<Complex[]> data = new ArrayList<>();
+        try (BufferedReader input = new BufferedReader(
+                new InputStreamReader(Thread.currentThread().getContextClassLoader().getResourceAsStream(name)))) {
+            for  (String line = input.readLine(); line != null; line = input.readLine()) {
+                line = preprocessTestData(line, option, flaggedDataConsumer);
+                if (line == null) {
+                    continue;
+                }
+                final String[] parts = line.split("" "");
+                if ((parts.length & 0x1) == 1) {
+                    Assertions.fail(""Odd count of numbers on the line: "" + line);
+}
+}
+}
+}
+",TestUtils::loadTestData_1_oe
+numb_left_300_2,"public static List<Complex[]> loadTestData_2_oe(String name, TestDataFlagOption option,
+            Consumer<String> flaggedDataConsumer) {
+        final List<Complex[]> data = new ArrayList<>();
+        try (BufferedReader input = new BufferedReader(
+                new InputStreamReader(Thread.currentThread().getContextClassLoader().getResourceAsStream(name)))) {
+            for  (String line = input.readLine(); line != null; line = input.readLine()) {
+                line = preprocessTestData(line, option, flaggedDataConsumer);
+                if (line == null) {
+                    continue;
+                }
+                final String[] parts = line.split("" "");
+                if ((parts.length & 0x1) == 1) {
+                    // removed other assertion
+                }
+                final Complex[] numbers = new Complex[parts.length / 2];
+                for (int i = 0; i < parts.length; i += 2) {
+                    final double a = Double.parseDouble(parts[i]);
+                    final double b = Double.parseDouble(parts[i + 1]);
+                    numbers[i / 2] = Complex.ofCartesian(a, b);
+                }
+                data.add(numbers);
+            }
+        } catch (NumberFormatException | IOException e) {
+            Assertions.fail(""Failed to load test data: "" + name, e);
+}
+}
+",TestUtils::loadTestData_2_oe
+numb_left_301_1,"private static void assertComplex_1_oe(double a, double b, String name, UnaryOperator<Complex> operation, double x, double y) { assertComplex(a, b, name, operation, x, y, 1);
+}
+",ComplexEdgeCaseTest::assertComplex_1_oe
+numb_left_302_1,"private static void assertComplex_1_oe(double a, double b, String name, UnaryOperator<Complex> operation, double x, double y, long maxUlps) { final Complex c = Complex.ofCartesian(a, b);
+}
+",ComplexEdgeCaseTest::assertComplex_1_oe
+numb_left_302_2,"// removed other assertion
+        final Complex e = Complex.ofCartesian(x, y);
+        CReferenceTest.assertComplex(c, name, operation, e, maxUlps);
+",ComplexEdgeCaseTest::assertComplex_2_oe
+numb_left_303_1,"private static void assertComplex_1_oe(double a, double b, double c, double d, String name, BiFunction<Complex, Complex, Complex> operation, double x, double y) { assertComplex(a, b, c, d, name, operation, x, y, 1);
+}
+",ComplexEdgeCaseTest::assertComplex_1_oe
+numb_left_304_1,"private static void assertComplex_1_oe(double a, double b, double c, double d, String name, BiFunction<Complex, Complex, Complex> operation, double x, double y, long maxUlps) { final Complex c1 = Complex.ofCartesian(a, b);
+}
+",ComplexEdgeCaseTest::assertComplex_1_oe
+numb_left_304_2,"// removed other assertion
+        final Complex c2 = Complex.ofCartesian(c, d);
+        final Complex e = Complex.ofCartesian(x, y);
+        CReferenceTest.assertComplex(c1, c2, name, operation, e, maxUlps);
+",ComplexEdgeCaseTest::assertComplex_2_oe
+numb_left_313_1,"private static void assertLog_1_oe(double x, double y, long maxUlps) { // Compute the best value we can final BigDecimal bx = new BigDecimal(x);
+}
+",ComplexEdgeCaseTest::assertLog_1_oe
+numb_left_313_2,"// removed other assertion
+        final BigDecimal by = new BigDecimal(y);
+        final BigDecimal exact = bx.multiply(bx).add(by.multiply(by)).subtract(BigDecimal.ONE);
+        final double real = 0.5 * Math.log1p(exact.doubleValue());
+        final double imag = Math.atan2(y, x);
+        assertComplex(x, y, ""log"", Complex::log, real, imag, maxUlps);
+",ComplexEdgeCaseTest::assertLog_2_oe
+numb_left_354_1,"private static <T extends Throwable> T assertOperationThrows_1_oe(Class<T> expectedType, Fraction f, UnaryOperator<Fraction> operation) { return assertThrows(expectedType, () -> operation.apply(f));
+}
+",CommonsLangPortedFractionTest::assertOperationThrows_1_oe
+numb_left_355_1,"private static <T extends Throwable> T assertOperationThrows_1_oe(Class<T> expectedType, Fraction f1, Fraction f2, BiFunction<Fraction, Fraction, Fraction> operation) { return assertThrows(expectedType, () -> operation.apply(f1, f2));
+}
+",CommonsLangPortedFractionTest::assertOperationThrows_1_oe
+numb_left_356_1,"private static void assertFraction_1_oe(int expectedNumerator, int expectedDenominator, BigFraction actual) { Assertions.assertEquals(expectedNumerator, actual.getNumeratorAsInt());
+}
+",BigFractionTest::assertFraction_1_oe
+numb_left_356_2,"// removed other assertion
+        Assertions.assertEquals(expectedDenominator, actual.getDenominatorAsInt());
+",BigFractionTest::assertFraction_2_oe
+numb_left_356_3,"// removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(Integer.signum(expectedNumerator)* Integer.signum(expectedDenominator),actual.signum());
+",BigFractionTest::assertFraction_3_oe
+numb_left_357_1,"private static void assertFraction_1_oe(long expectedNumerator, long expectedDenominator, BigFraction actual) { Assertions.assertEquals(expectedNumerator, actual.getNumeratorAsLong());
+}
+",BigFractionTest::assertFraction_1_oe
+numb_left_357_2,"// removed other assertion
+        Assertions.assertEquals(expectedDenominator, actual.getDenominatorAsLong());
+",BigFractionTest::assertFraction_2_oe
+numb_left_357_3,"// removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(Long.signum(expectedNumerator)* Long.signum(expectedDenominator),actual.signum());
+",BigFractionTest::assertFraction_3_oe
+numb_left_358_1,"private static void assertFraction_1_oe(BigInteger expectedNumerator, BigInteger expectedDenominator, BigFraction actual) { Assertions.assertEquals(expectedNumerator, actual.getNumerator());
+}
+",BigFractionTest::assertFraction_1_oe
+numb_left_358_2,"// removed other assertion
+        Assertions.assertEquals(expectedDenominator, actual.getDenominator());
+",BigFractionTest::assertFraction_2_oe
+numb_left_358_3,"// removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(expectedNumerator.signum()* expectedDenominator.signum(),actual.signum());
+",BigFractionTest::assertFraction_3_oe
+numb_left_359_1,"private static void assertDoubleValue_1_oe(double expected, BigInteger numerator, BigInteger denominator) { final BigFraction f = BigFraction.of(numerator, denominator);
+}
+",BigFractionTest::assertDoubleValue_1_oe
+numb_left_359_2,"// removed other assertion
+        Assertions.assertEquals(expected, f.doubleValue());
+",BigFractionTest::assertDoubleValue_2_oe
+numb_left_360_1,"private static void assertDoubleValue_1_oe(double expected, long numerator, long denominator) { assertDoubleValue(expected, BigInteger.valueOf(numerator), BigInteger.valueOf(denominator));
+}
+",BigFractionTest::assertDoubleValue_1_oe
+numb_left_369_1,"private void assertDoubleConstructorOverflow_1_oe(final double a) { Assertions.assertThrows(ArithmeticException.class, () -> BigFraction.from(a, 1.0e-12, 1000) );
+}
+",BigFractionTest::assertDoubleConstructorOverflow_1_oe
+numb_left_392_1,"private static void assertEqualAndHashCodeEqual_1_oe(BigFraction f1, BigFraction f2) { Assertions.assertEquals(f1, f2);
+}
+",BigFractionTest::assertEqualAndHashCodeEqual_1_oe
+numb_left_392_2,"// removed other assertion
+        Assertions.assertEquals(f1.hashCode(), f2.hashCode(), ""Equal fractions have different hashCode"");
+",BigFractionTest::assertEqualAndHashCodeEqual_2_oe
+numb_left_392_3,"// removed other assertion
+        // removed other assertion
+        // Check the computation matches the result of Arrays.hashCode and the signum.
+        // This is not mandated but is a recommendation.
+        final int expected = f1.signum() *
+                             Arrays.hashCode(new Object[] {f1.getNumerator().abs(),
+                                                           f1.getDenominator().abs()});
+        Assertions.assertEquals(expected, f1.hashCode(), ""Hashcode not equal to using Arrays.hashCode"");
+",BigFractionTest::assertEqualAndHashCodeEqual_3_oe
+numb_left_400_1,"private static void assertFraction_1_oe(int expectedNumerator, int expectedDenominator, Fraction actual) { Assertions.assertEquals(expectedNumerator, actual.getNumerator());
+}
+",FractionTest::assertFraction_1_oe
+numb_left_400_2,"// removed other assertion
+        Assertions.assertEquals(expectedDenominator, actual.getDenominator());
+",FractionTest::assertFraction_2_oe
+numb_left_400_3,"// removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(Integer.signum(expectedNumerator)* Integer.signum(expectedDenominator),actual.signum());
+",FractionTest::assertFraction_3_oe
+numb_left_401_1,"private static void assertDoubleValue_1_oe(double expected, int numerator, int denominator) { final Fraction f = Fraction.of(numerator, denominator);
+}
+",FractionTest::assertDoubleValue_1_oe
+numb_left_401_2,"// removed other assertion
+        Assertions.assertEquals(expected, f.doubleValue());
+",FractionTest::assertDoubleValue_2_oe
+numb_left_410_1,"private void assertDoubleConstructorOverflow_1_oe(final double a) { Assertions.assertThrows(ArithmeticException.class, () -> Fraction.from(a, 1.0e-12, 1000) );
+}
+",FractionTest::assertDoubleConstructorOverflow_1_oe
+numb_left_426_1,"private static void assertEqualAndHashCodeEqual_1_oe(Fraction f1, Fraction f2) { Assertions.assertEquals(f1, f2);
+}
+",FractionTest::assertEqualAndHashCodeEqual_1_oe
+numb_left_426_2,"// removed other assertion
+        Assertions.assertEquals(f1.hashCode(), f2.hashCode(), ""Equal fractions have different hashCode"");
+",FractionTest::assertEqualAndHashCodeEqual_2_oe
+numb_left_426_3,"// removed other assertion
+        // removed other assertion
+        // Check the computation matches the result of Arrays.hashCode and the signum.
+        // This is not mandated but is a recommendation.
+        final int expected = f1.signum() *
+                             Arrays.hashCode(new int[] {Math.abs(f1.getNumerator()),
+                                                        Math.abs(f1.getDenominator())});
+        Assertions.assertEquals(expected, f1.hashCode(), ""Hashcode not equal to using Arrays.hashCode"");
+",FractionTest::assertEqualAndHashCodeEqual_3_oe
+numb_left_439_1,"private static void assertExceptionMessageContains_1_oe(Throwable t, String text) { Assertions.assertTrue(t.getMessage().toLowerCase(Locale.ROOT).contains(text),()-> ""Missing '"" + text + ""' from exception message: "" + t.getMessage());
+}
+",ContinuedFractionTest::assertExceptionMessageContains_1_oe
+numb_left_452_1,"void assertPrimeFactorsException_1_oe(int n, String expected) { try { Primes.primeFactors(n);
+}
+}
+",PrimesTest::assertPrimeFactorsException_1_oe
+numb_left_452_2,"// removed other assertion
+            Assertions.fail(""Exception not thrown"");
+",PrimesTest::assertPrimeFactorsException_2_oe
+numb_left_452_3,"// removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            Assertions.assertEquals(expected, e.getMessage());
+",PrimesTest::assertPrimeFactorsException_3_oe
+numb_left_453_1,"void assertNextPrimeException_1_oe(int n, String expected) { try { Primes.nextPrime(n);
+}
+}
+",PrimesTest::assertNextPrimeException_1_oe
+numb_left_453_2,"// removed other assertion
+            Assertions.fail(""Exception not thrown"");
+",PrimesTest::assertNextPrimeException_2_oe
+numb_left_453_3,"// removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            Assertions.assertEquals(expected, e.getMessage());
+",PrimesTest::assertNextPrimeException_3_oe
+numb_left_456_1,"static void checkPrimeFactors_1_oe(List<Integer> factors) {
+        for (int p : factors) {
+            if (!PRIMES_SET.contains(p)) {
+                Assertions.fail(""Not found in primes list: "" + p);
+}
+}
+}
+",PrimesTest::checkPrimeFactors_1_oe
+numb_left_482_1,"private void checkSlerpCombination_1_oe(Quaternion start, Quaternion end) {
+        Slerp slerp = new Slerp(start, end);
+
+        double[] vec = {1, 2, 3};
+        double vecNorm = norm(vec);
+
+        double[] startVec = transformVector(start, vec);
+        double[] endVec = transformVector(end, vec);
+
+        // check start and end values
+        Assertions.assertArrayEquals(startVec, transformVector(slerp.apply(0), vec), EPS);
+}
+",SlerpTest::checkSlerpCombination_1_oe
+numb_left_482_2,"private void checkSlerpCombination_2_oe(Quaternion start, Quaternion end) {
+        Slerp slerp = new Slerp(start, end);
+
+        double[] vec = {1, 2, 3};
+        double vecNorm = norm(vec);
+
+        double[] startVec = transformVector(start, vec);
+        double[] endVec = transformVector(end, vec);
+
+        // check start and end values
+        // removed other assertion
+        Assertions.assertArrayEquals(endVec, transformVector(slerp.apply(1), vec), EPS);
+}
+",SlerpTest::checkSlerpCombination_2_oe
+numb_left_482_3,"private void checkSlerpCombination_3_oe(Quaternion start, Quaternion end) {
+        Slerp slerp = new Slerp(start, end);
+
+        double[] vec = {1, 2, 3};
+        double vecNorm = norm(vec);
+
+        double[] startVec = transformVector(start, vec);
+        double[] endVec = transformVector(end, vec);
+
+        // check start and end values
+        // removed other assertion
+        // removed other assertion
+
+        // check intermediate values
+        double prevAngle = -1;
+        final int numSteps = 100;
+        final double delta = 1.0 / numSteps;
+        for (int step = 0; step <= numSteps; ++step) {
+            final double t = step * delta;
+            Quaternion result = slerp.apply(t);
+
+            double[] slerpVec = transformVector(result, vec);
+
+            // the transformation should not effect the vector magnitude
+            Assertions.assertEquals(vecNorm, norm(slerpVec), EPS);
+}
+}
+",SlerpTest::checkSlerpCombination_3_oe
+numb_left_482_4,"private void checkSlerpCombination_4_oe(Quaternion start, Quaternion end) {
+        Slerp slerp = new Slerp(start, end);
+
+        double[] vec = {1, 2, 3};
+        double vecNorm = norm(vec);
+
+        double[] startVec = transformVector(start, vec);
+        double[] endVec = transformVector(end, vec);
+
+        // check start and end values
+        // removed other assertion
+        // removed other assertion
+
+        // check intermediate values
+        double prevAngle = -1;
+        final int numSteps = 100;
+        final double delta = 1.0 / numSteps;
+        for (int step = 0; step <= numSteps; ++step) {
+            final double t = step * delta;
+            Quaternion result = slerp.apply(t);
+
+            double[] slerpVec = transformVector(result, vec);
+
+            // the transformation should not effect the vector magnitude
+            // removed other assertion
+
+            // make sure that we're steadily progressing to the end angle
+            double angle = angle(slerpVec, startVec);
+            Assertions.assertTrue(Precision.compareTo(angle,prevAngle,EPS)>= 0,""Expected slerp angle to continuously increase;previous angle was "" + prevAngle + "" and new angle is "" + angle);
+}
+}
+",SlerpTest::checkSlerpCombination_4_oe
+numb_left_484_1,"private static void assertQuaternion_1_oe(Quaternion expected, Quaternion actual) { String msg = ""Expected quaternion to equal "" + expected + "" but was "" + actual;
+}
+",SlerpTest::assertQuaternion_1_oe
+numb_left_484_2,"// removed other assertion
+
+        Assertions.assertEquals(expected.getW(), actual.getW(), EPS, msg);
+",SlerpTest::assertQuaternion_2_oe
+numb_left_484_3,"// removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+",SlerpTest::assertQuaternion_3_oe
+numb_left_484_4,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+",SlerpTest::assertQuaternion_4_oe
+numb_left_484_5,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(expected.getZ(), actual.getZ(), EPS, msg);
+",SlerpTest::assertQuaternion_5_oe
+numb_left_533_1,"private void assertEquals_1_oe(Quaternion actual, Quaternion expected, double tolerance) { Assertions.assertTrue(actual.equals(expected, tolerance), ""expecting "" + expected + "" but got "" + actual);
+}
+",QuaternionTest::assertEquals_1_oe
+numb_left_557_1,"private static void assertEquals_1_oe(Object a, Object b) { Assertions.assertEquals(a, b, a + "" != "" + b);
+}
+",FieldParametricTest::assertEquals_1_oe
+numb_left_579_1,"private static void assertSumExact_1_oe(final double... values) { final double exact = exactSum(values);
+}
+",SumTest::assertSumExact_1_oe
+numb_left_579_2,"// removed other assertion
+        assertSum(exact, values);
+",SumTest::assertSumExact_2_oe
+numb_left_580_1,"private static void assertSum_1_oe(final double expected, final double... values) { // check non-array method variants final int len = values.length;
+}
+",SumTest::assertSum_1_oe
+numb_left_580_2,"// removed other assertion
+        if (len == 1) {
+            Assertions.assertEquals(expected, Sum.of(values[0]).getAsDouble());
+}
+",SumTest::assertSum_2_oe
+numb_left_580_3,"// removed other assertion
+        if (len == 1) {
+            // removed other assertion
+        } else if (len == 2) {
+            Assertions.assertEquals(expected, Sum.of(values[0], values[1]).getAsDouble());
+}
+",SumTest::assertSum_3_oe
+numb_left_580_4,"// removed other assertion
+        if (len == 1) {
+            // removed other assertion
+        } else if (len == 2) {
+            // removed other assertion
+        } else if (len == 3) {
+            Assertions.assertEquals(expected, Sum.of(values[0], values[1], values[2]).getAsDouble());
+}
+",SumTest::assertSum_4_oe
+numb_left_580_5,"// removed other assertion
+        if (len == 1) {
+            // removed other assertion
+        } else if (len == 2) {
+            // removed other assertion
+        } else if (len == 3) {
+            // removed other assertion
+        } else if (len == 4) {
+            Assertions.assertEquals(expected, Sum.of(values[0], values[1], values[2], values[3]).getAsDouble());
+}
+",SumTest::assertSum_5_oe
+numb_left_580_6,"// removed other assertion
+        if (len == 1) {
+            // removed other assertion
+        } else if (len == 2) {
+            // removed other assertion
+        } else if (len == 3) {
+            // removed other assertion
+        } else if (len == 4) {
+            // removed other assertion
+        }
+
+        // check use with add()
+        final Sum addAccumulator = Sum.create();
+        for (int i = 0; i < len; ++i) {
+            addAccumulator.add(values[i]);
+        }
+        Assertions.assertEquals(expected, addAccumulator.getAsDouble());
+",SumTest::assertSum_6_oe
+numb_left_580_7,"// removed other assertion
+        if (len == 1) {
+            // removed other assertion
+        } else if (len == 2) {
+            // removed other assertion
+        } else if (len == 3) {
+            // removed other assertion
+        } else if (len == 4) {
+            // removed other assertion
+        }
+
+        // check use with add()
+        final Sum addAccumulator = Sum.create();
+        for (int i = 0; i < len; ++i) {
+            addAccumulator.add(values[i]);
+        }
+        // removed other assertion
+
+        // check with accept()
+        final Sum acceptAccumulator = Sum.create();
+        for (int i = 0; i < len; ++i) {
+            acceptAccumulator.accept(values[i]);
+        }
+        Assertions.assertEquals(expected, acceptAccumulator.getAsDouble());
+",SumTest::assertSum_7_oe
+numb_left_580_8,"// removed other assertion
+        if (len == 1) {
+            // removed other assertion
+        } else if (len == 2) {
+            // removed other assertion
+        } else if (len == 3) {
+            // removed other assertion
+        } else if (len == 4) {
+            // removed other assertion
+        }
+
+        // check use with add()
+        final Sum addAccumulator = Sum.create();
+        for (int i = 0; i < len; ++i) {
+            addAccumulator.add(values[i]);
+        }
+        // removed other assertion
+
+        // check with accept()
+        final Sum acceptAccumulator = Sum.create();
+        for (int i = 0; i < len; ++i) {
+            acceptAccumulator.accept(values[i]);
+        }
+        // removed other assertion
+
+        // check using stream
+        final Sum streamAccumulator = Sum.create();
+        Arrays.stream(values).forEach(streamAccumulator);
+        Assertions.assertEquals(expected, streamAccumulator.getAsDouble());
+",SumTest::assertSum_8_oe
+numb_left_580_9,"// removed other assertion
+        if (len == 1) {
+            // removed other assertion
+        } else if (len == 2) {
+            // removed other assertion
+        } else if (len == 3) {
+            // removed other assertion
+        } else if (len == 4) {
+            // removed other assertion
+        }
+
+        // check use with add()
+        final Sum addAccumulator = Sum.create();
+        for (int i = 0; i < len; ++i) {
+            addAccumulator.add(values[i]);
+        }
+        // removed other assertion
+
+        // check with accept()
+        final Sum acceptAccumulator = Sum.create();
+        for (int i = 0; i < len; ++i) {
+            acceptAccumulator.accept(values[i]);
+        }
+        // removed other assertion
+
+        // check using stream
+        final Sum streamAccumulator = Sum.create();
+        Arrays.stream(values).forEach(streamAccumulator);
+        // removed other assertion
+
+        // check array instance method
+        Assertions.assertEquals(expected, Sum.create().add(values).getAsDouble());
+",SumTest::assertSum_9_oe
+numb_left_580_10,"// removed other assertion
+        if (len == 1) {
+            // removed other assertion
+        } else if (len == 2) {
+            // removed other assertion
+        } else if (len == 3) {
+            // removed other assertion
+        } else if (len == 4) {
+            // removed other assertion
+        }
+
+        // check use with add()
+        final Sum addAccumulator = Sum.create();
+        for (int i = 0; i < len; ++i) {
+            addAccumulator.add(values[i]);
+        }
+        // removed other assertion
+
+        // check with accept()
+        final Sum acceptAccumulator = Sum.create();
+        for (int i = 0; i < len; ++i) {
+            acceptAccumulator.accept(values[i]);
+        }
+        // removed other assertion
+
+        // check using stream
+        final Sum streamAccumulator = Sum.create();
+        Arrays.stream(values).forEach(streamAccumulator);
+        // removed other assertion
+
+        // check array instance method
+        // removed other assertion
+
+        // check array factory method
+        Assertions.assertEquals(expected, Sum.of(values).getAsDouble());
+",SumTest::assertSum_10_oe
+numb_left_581_1,"private static void assertSumOfProducts_1_oe(final double expected, final double... args) { final int halfLen = args.length / 2;
+}
+",SumTest::assertSumOfProducts_1_oe
+numb_left_581_2,"// removed other assertion
+
+        final double[] a = new double[halfLen];
+        final double[] b = new double[halfLen];
+        for (int i = 0; i < halfLen; ++i) {
+            a[i] = args[2 * i];
+            b[i] = args[(2 * i) + 1];
+        }
+
+        assertSumOfProducts(expected, a, b);
+",SumTest::assertSumOfProducts_2_oe
+numb_left_582_1,"private static void assertSumOfProducts_1_oe(final double expected, final double[] a, final double[] b) { final int len = a.length;
+}
+",SumTest::assertSumOfProducts_1_oe
+numb_left_582_2,"// removed other assertion
+
+        // check use of addProduct()
+        final Sum accumulator = Sum.create();
+        for (int i = 0; i < len; ++i) {
+            accumulator.addProduct(a[i], b[i]);
+        }
+        Assertions.assertEquals(expected, accumulator.getAsDouble());
+",SumTest::assertSumOfProducts_2_oe
+numb_left_582_3,"// removed other assertion
+
+        // check use of addProduct()
+        final Sum accumulator = Sum.create();
+        for (int i = 0; i < len; ++i) {
+            accumulator.addProduct(a[i], b[i]);
+        }
+        // removed other assertion
+
+        // check use of array instance method
+        Assertions.assertEquals(expected, Sum.create().addProducts(a, b).getAsDouble());
+",SumTest::assertSumOfProducts_3_oe
+numb_left_582_4,"// removed other assertion
+
+        // check use of addProduct()
+        final Sum accumulator = Sum.create();
+        for (int i = 0; i < len; ++i) {
+            accumulator.addProduct(a[i], b[i]);
+        }
+        // removed other assertion
+
+        // check use of array instance method
+        // removed other assertion
+
+        // check use of array factory method
+        Assertions.assertEquals(expected, Sum.ofProducts(a, b).getAsDouble());
+",SumTest::assertSumOfProducts_4_oe
+numb_left_587_1,"private static void assertEqualsWithAllowedDelta_1_oe(EqualsWithDelta fun, boolean nanAreEqual) { Assertions.assertTrue(fun.equals(153.0000, 153.0000, .0625));
+}
+",PrecisionTest::assertEqualsWithAllowedDelta_1_oe
+numb_left_587_2,"// removed other assertion
+        Assertions.assertTrue(fun.equals(153.0000, 153.0625, .0625));
+",PrecisionTest::assertEqualsWithAllowedDelta_2_oe
+numb_left_587_3,"// removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(fun.equals(152.9375, 153.0000, .0625));
+",PrecisionTest::assertEqualsWithAllowedDelta_3_oe
+numb_left_587_4,"// removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(fun.equals(153.0000, 153.0625, .0624));
+",PrecisionTest::assertEqualsWithAllowedDelta_4_oe
+numb_left_587_5,"// removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(fun.equals(152.9374, 153.0000, .0625));
+",PrecisionTest::assertEqualsWithAllowedDelta_5_oe
+numb_left_587_6,"// removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(nanAreEqual, fun.equals(Double.NaN, Double.NaN, 1.0));
+",PrecisionTest::assertEqualsWithAllowedDelta_6_oe
+numb_left_587_7,"// removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(fun.equals(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, 1.0));
+",PrecisionTest::assertEqualsWithAllowedDelta_7_oe
+numb_left_587_8,"// removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(fun.equals(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, 1.0));
+",PrecisionTest::assertEqualsWithAllowedDelta_8_oe
+numb_left_587_9,"// removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(fun.equals(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, 1.0));
+",PrecisionTest::assertEqualsWithAllowedDelta_9_oe
+numb_left_591_1,"private static void assertEqualsIncludingNaNWithAllowedUlps_1_oe(EqualsWithUlps fun, boolean nanAreEqual, boolean fixed1Ulp) { Assertions.assertTrue(fun.equals(0.0, -0.0, 1));
+}
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_1_oe
+numb_left_591_2,"// removed other assertion
+
+        Assertions.assertTrue(fun.equals(1.0, 1 + Math.ulp(1d), 1));
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_2_oe
+numb_left_591_3,"// removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(fun.equals(1.0, 1 + 2 * Math.ulp(1d), 1));
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_3_oe
+numb_left_591_4,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            Assertions.assertTrue(fun.equals(value, value, 1));
+}
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_4_oe
+numb_left_591_5,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            Assertions.assertTrue(fun.equals(value, Math.nextUp(value), 1));
+}
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_5_oe
+numb_left_591_6,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertFalse(fun.equals(value, Math.nextUp(Math.nextUp(value)), 1));
+}
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_6_oe
+numb_left_591_7,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertTrue(fun.equals(value, Math.nextDown(value), 1));
+}
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_7_oe
+numb_left_591_8,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertFalse(fun.equals(value, Math.nextDown(Math.nextDown(value)), 1));
+}
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_8_oe
+numb_left_591_9,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                Assertions.assertFalse(fun.equals(value, Math.nextUp(value), 0));
+}
+}
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_9_oe
+numb_left_591_10,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                Assertions.assertTrue(fun.equals(value, Math.nextUp(Math.nextUp(value)), 2));
+}
+}
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_10_oe
+numb_left_591_11,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertTrue(fun.equals(value, Math.nextDown(Math.nextDown(value)), 2));
+}
+}
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_11_oe
+numb_left_591_12,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        Assertions.assertTrue(fun.equals(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, 1));
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_12_oe
+numb_left_591_13,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        Assertions.assertTrue(fun.equals(Double.MAX_VALUE, Double.POSITIVE_INFINITY, 1));
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_13_oe
+numb_left_591_14,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertTrue(fun.equals(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, 1));
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_14_oe
+numb_left_591_15,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertTrue(fun.equals(-Double.MAX_VALUE, Double.NEGATIVE_INFINITY, 1));
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_15_oe
+numb_left_591_16,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(nanAreEqual, fun.equals(Double.NaN, Double.NaN, 1));
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_16_oe
+numb_left_591_17,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(nanAreEqual, fun.equals(Double.NaN, Double.NaN, 0));
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_17_oe
+numb_left_591_18,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(fun.equals(Double.NaN, 0, 0));
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_18_oe
+numb_left_591_19,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(fun.equals(0, Double.NaN, 0));
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_19_oe
+numb_left_591_20,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(fun.equals(Double.NaN, Double.POSITIVE_INFINITY, 0));
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_20_oe
+numb_left_591_21,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(fun.equals(Double.NaN, Double.NEGATIVE_INFINITY, 0));
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_21_oe
+numb_left_591_22,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (double value : new double[] {153.0, -128.0, 0.0, 1.0}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(fun.equals(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, 100000));
+",PrecisionTest::assertEqualsIncludingNaNWithAllowedUlps_22_oe
+numb_left_595_1,"private static void assertFloatEqualsWithAllowedDelta_1_oe(FloatEqualsWithDelta fun, boolean nanAreEqual) { Assertions.assertTrue(fun.equals(153.0000f, 153.0000f, .0625f));
+}
+",PrecisionTest::assertFloatEqualsWithAllowedDelta_1_oe
+numb_left_595_2,"// removed other assertion
+        Assertions.assertTrue(fun.equals(153.0000f, 153.0625f, .0625f));
+",PrecisionTest::assertFloatEqualsWithAllowedDelta_2_oe
+numb_left_595_3,"// removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(fun.equals(152.9375f, 153.0000f, .0625f));
+",PrecisionTest::assertFloatEqualsWithAllowedDelta_3_oe
+numb_left_595_4,"// removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(fun.equals(153.0000f, 153.0625f, .0624f));
+",PrecisionTest::assertFloatEqualsWithAllowedDelta_4_oe
+numb_left_595_5,"// removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(fun.equals(152.9374f, 153.0000f, .0625f));
+",PrecisionTest::assertFloatEqualsWithAllowedDelta_5_oe
+numb_left_595_6,"// removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertEquals(nanAreEqual, fun.equals(Float.NaN, Float.NaN, 1.0f));
+",PrecisionTest::assertFloatEqualsWithAllowedDelta_6_oe
+numb_left_595_7,"// removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(fun.equals(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY, 1.0f));
+",PrecisionTest::assertFloatEqualsWithAllowedDelta_7_oe
+numb_left_595_8,"// removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(fun.equals(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY, 1.0f));
+",PrecisionTest::assertFloatEqualsWithAllowedDelta_8_oe
+numb_left_595_9,"// removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(fun.equals(Float.NEGATIVE_INFINITY, Float.POSITIVE_INFINITY, 1.0f));
+",PrecisionTest::assertFloatEqualsWithAllowedDelta_9_oe
+numb_left_599_1,"private static void assertFloatEqualsIncludingNaNWithAllowedUlps_1_oe(FloatEqualsWithUlps fun, boolean nanAreEqual, boolean fixed1Ulp) { Assertions.assertTrue(fun.equals(0.0f, -0.0f, 1));
+}
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_1_oe
+numb_left_599_2,"// removed other assertion
+
+        Assertions.assertTrue(fun.equals(1.0f, 1f + Math.ulp(1f), 1));
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_2_oe
+numb_left_599_3,"// removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(fun.equals(1.0f, 1f + 2 * Math.ulp(1f), 1));
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_3_oe
+numb_left_599_4,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            Assertions.assertTrue(fun.equals(value, value, 1));
+}
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_4_oe
+numb_left_599_5,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            Assertions.assertTrue(fun.equals(value, Math.nextUp(value), 1));
+}
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_5_oe
+numb_left_599_6,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertFalse(fun.equals(value, Math.nextUp(Math.nextUp(value)), 1));
+}
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_6_oe
+numb_left_599_7,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertTrue(fun.equals(value, Math.nextDown(value), 1));
+}
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_7_oe
+numb_left_599_8,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertFalse(fun.equals(value, Math.nextDown(Math.nextDown(value)), 1));
+}
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_8_oe
+numb_left_599_9,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                Assertions.assertFalse(fun.equals(value, Math.nextUp(value), 0));
+}
+}
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_9_oe
+numb_left_599_10,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                Assertions.assertTrue(fun.equals(value, Math.nextUp(Math.nextUp(value)), 2));
+}
+}
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_10_oe
+numb_left_599_11,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                Assertions.assertTrue(fun.equals(value, Math.nextDown(Math.nextDown(value)), 2));
+}
+}
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_11_oe
+numb_left_599_12,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        Assertions.assertTrue(fun.equals(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY, 1));
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_12_oe
+numb_left_599_13,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        Assertions.assertTrue(fun.equals(Float.MAX_VALUE, Float.POSITIVE_INFINITY, 1));
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_13_oe
+numb_left_599_14,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertTrue(fun.equals(Float.NEGATIVE_INFINITY, Float.NEGATIVE_INFINITY, 1));
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_14_oe
+numb_left_599_15,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertTrue(fun.equals(-Float.MAX_VALUE, Float.NEGATIVE_INFINITY, 1));
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_15_oe
+numb_left_599_16,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(nanAreEqual, fun.equals(Float.NaN, Float.NaN, 1));
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_16_oe
+numb_left_599_17,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(nanAreEqual, fun.equals(Float.NaN, Float.NaN, 0));
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_17_oe
+numb_left_599_18,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(fun.equals(Float.NaN, 0, 0));
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_18_oe
+numb_left_599_19,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(fun.equals(0, Float.NaN, 0));
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_19_oe
+numb_left_599_20,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(fun.equals(Float.NaN, Float.POSITIVE_INFINITY, 0));
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_20_oe
+numb_left_599_21,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(fun.equals(Float.NaN, Float.NEGATIVE_INFINITY, 0));
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_21_oe
+numb_left_599_22,"// removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        for (float value : new float[] {153.0f, -128.0f, 0.0f, 1.0f}) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // This test is conditional
+            if (!fixed1Ulp) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(fun.equals(Float.NEGATIVE_INFINITY, Float.POSITIVE_INFINITY, 100000));
+",PrecisionTest::assertFloatEqualsIncludingNaNWithAllowedUlps_22_oe
+numb_left_617_1,"private static void assertEuclidean2dVersusHypot_1_oe(final int minExp, final int maxExp, final int samples, final UniformRandomProvider rng) { // generate random inputs final double[][] inputs = new double[samples][];
+}
+",NormTest::assertEuclidean2dVersusHypot_1_oe
+numb_left_617_2,"// removed other assertion
+        for (int i = 0; i < samples; ++i) {
+            inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng);
+        }
+
+        // compute exact results
+        final double[] exactResults = new double[samples];
+        for (int i = 0; i < samples; ++i) {
+            exactResults[i] = exactEuclideanNorm(inputs[i]);
+        }
+
+        // compute the std devs
+        final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+        final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+
+        // ensure that we are within the ballpark of Math.hypot
+        Assertions.assertTrue(normStats.getMean()<=(hypotStats.getMean()+ HYPOT_COMPARE_EPS),()-> ""Expected 2D norm result to have similar error mean to Math.hypot(): hypot error mean= "" + hypotStats.getMean()+ "",norm error mean= "" + normStats.getMean());
+",NormTest::assertEuclidean2dVersusHypot_2_oe
+numb_left_617_3,"// removed other assertion
+        for (int i = 0; i < samples; ++i) {
+            inputs[i] = DoubleTestUtils.randomArray(2, minExp, maxExp, rng);
+        }
+
+        // compute exact results
+        final double[] exactResults = new double[samples];
+        for (int i = 0; i < samples; ++i) {
+            exactResults[i] = exactEuclideanNorm(inputs[i]);
+        }
+
+        // compute the std devs
+        final UlpErrorStats hypotStats = computeUlpErrorStats(inputs, exactResults, v -> Math.hypot(v[0], v[1]));
+        final UlpErrorStats normStats = computeUlpErrorStats(inputs, exactResults, v -> Norm.L2.of(v[0], v[1]));
+
+        // ensure that we are within the ballpark of Math.hypot
+        // removed other assertion
+
+        Assertions.assertTrue(normStats.getStdDev()<=(hypotStats.getStdDev()+ HYPOT_COMPARE_EPS),()-> ""Expected 2D norm result to have similar std deviation to Math.hypot(): hypot std dev= "" + hypotStats.getStdDev()+ "",norm std dev= "" + normStats.getStdDev());
+",NormTest::assertEuclidean2dVersusHypot_3_oe
+numb_left_624_1,"private static void checkEuclideanRandom_1_oe(final int len,
+                                             final int minExp,
+                                             final int maxExp,
+                                             final UniformRandomProvider rng) {
+        for (int i = 0; i < RAND_VECTOR_CNT; ++i) {
+            // arrange
+            final double[] v = DoubleTestUtils.randomArray(len, minExp, maxExp, rng);
+
+            final double exact = exactEuclideanNorm(v);
+            final double direct = directEuclideanNorm(v);
+
+            // act
+            final double actual = Norm.L2.of(v);
+
+            // assert
+            Assertions.assertTrue(Double.isFinite(actual),()-> ""Computed norm was not finite;vector= "" + Arrays.toString(v)+ "",exact= "" + exact + "",direct= "" + direct + "",actual= "" + actual);
+}
+}
+",NormTest::checkEuclideanRandom_1_oe
+numb_left_624_2,"private static void checkEuclideanRandom_2_oe(final int len,
+                                             final int minExp,
+                                             final int maxExp,
+                                             final UniformRandomProvider rng) {
+        for (int i = 0; i < RAND_VECTOR_CNT; ++i) {
+            // arrange
+            final double[] v = DoubleTestUtils.randomArray(len, minExp, maxExp, rng);
+
+            final double exact = exactEuclideanNorm(v);
+            final double direct = directEuclideanNorm(v);
+
+            // act
+            final double actual = Norm.L2.of(v);
+
+            // assert
+            // removed other assertion
+
+            final int ulpError = Math.abs(DoubleTestUtils.computeUlpDifference(exact, actual));
+
+            Assertions.assertTrue(ulpError <= MAX_ULP_ERR,()-> ""Computed norm ulp error exceeds bounds;vector= "" + Arrays.toString(v)+ "",exact= "" + exact + "",actual= "" + actual + "",ulpError= "" + ulpError);
+}
+}
+",NormTest::checkEuclideanRandom_2_oe
+numb_left_625_1,"private static void checkScaledEuclideanNorm_1_oe(final double[] v,
+                                                 final int scaleExp) {
+
+        final double scale = Math.scalb(1d, scaleExp);
+        final double[] scaledV = new double[v.length];
+        for (int i = 0; i < v.length; ++i) {
+            scaledV[i] = v[i] * scale;
+        }
+
+        final double norm = directEuclideanNorm(v);
+        final double scaledNorm = Norm.L2.of(scaledV);
+
+        Assertions.assertEquals(norm * scale, scaledNorm);
+}
+",NormTest::checkScaledEuclideanNorm_1_oe
+numb_left_642_1,"private static void assertProductLow_1_oe(double expected, double x, double y) { // Requires a delta of 0.0 to assert -0.0 == 0.0 Assertions.assertEquals(expected, ExtendedPrecision.productLow(x, y, x * y), 0.0);
+}
+",ExtendedPrecisionTest::assertProductLow_1_oe
+numb_left_646_1,"private static void assertSquareLowUnscaled_1_oe(final double expected, final double x) { Assertions.assertEquals(expected, ExtendedPrecision.squareLowUnscaled(x, x * x));
+}
+",ExtendedPrecisionTest::assertSquareLowUnscaled_1_oe
+numb_left_680_1,"private static void assertProductLow_1_oe(double expected, double x, double y) { // Requires a delta of 0.0 to assert -0.0 == 0.0 Assertions.assertEquals(expected, DoublePrecision.productLow(x, y, x * y), 0.0);
+}
+",DoublePrecisionTest::assertProductLow_1_oe
+numb_left_690_1,"private static void assertValue_1_oe(double value, double[] a, double[] b) { final double expected = computeValue(a, b);
+}
+",LinearCombinationsTest::assertValue_1_oe
+numb_left_690_2,"// removed other assertion
+        Assertions.assertEquals(expected,value,Math.ulp(expected),()-> ""Difference in Ulps = "" + ulps(expected,value));
+",LinearCombinationsTest::assertValue_2_oe

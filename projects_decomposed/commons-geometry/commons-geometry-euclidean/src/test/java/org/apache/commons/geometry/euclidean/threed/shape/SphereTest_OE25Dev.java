@@ -231,43 +231,6 @@ class SphereTest_OE25Dev {
         checkLinecast(s, line.segment(end, 5), Vector3D.of(end, 0, 3));
     }
 
-    @Test
-    void testToTree_subdivideFails() {
-        // arrange
-        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-5);
-        final Sphere s = Sphere.from(Vector3D.ZERO, 1, precision);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            s.toTree(6);
-        }, IllegalStateException.class,
-                Pattern.compile("^Failed to construct sphere approximation with subdivision count 6:.*"));
-    }
-
-    @Test
-    void testToTree_invalidArgs() {
-        // arrange
-        final Sphere s = Sphere.from(Vector3D.of(2, 1, 3), 2, TEST_PRECISION);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            s.toTree(-1);
-        }, IllegalArgumentException.class,
-                "Number of sphere approximation subdivisions must be greater than or equal to zero; was -1");
-    }
-
-    @Test
-    void testToMesh_invalidArgs() {
-        // arrange
-        final Sphere s = Sphere.from(Vector3D.of(2, 1, 3), 2, TEST_PRECISION);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            s.toTriangleMesh(-1);
-        }, IllegalArgumentException.class,
-                "Number of sphere approximation subdivisions must be greater than or equal to zero; was -1");
-    }
-
     private static void checkContains(final Sphere sphere, final boolean contains, final Vector3D... pts) {
         for (final Vector3D pt : pts) {
             Assertions.assertEquals(contains,sphere.contains(pt),"Expected circle to " +(contains ? "" : "not")+ "contain point " + pt);
@@ -1273,6 +1236,34 @@ class SphereTest_OE25Dev {
 
         // assert
         Assertions.assertEquals("Sphere[center= (1.0, 2.0, 3.0), radius= 3.0]", str);
+    }
+
+@Test
+    void testToTree_subdivideFails_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-5);
+        final Sphere s = Sphere.from(Vector3D.ZERO, 1, precision);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { s.toTree(6); }, IllegalStateException.class, Pattern.compile("^Failed to construct sphere approximation with subdivision count 6:.*"));
+    }
+
+@Test
+    void testToTree_invalidArgs_1_oe() {
+        // arrange
+        final Sphere s = Sphere.from(Vector3D.of(2, 1, 3), 2, TEST_PRECISION);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { s.toTree(-1); }, IllegalArgumentException.class, "Number of sphere approximation subdivisions must be greater than or equal to zero; was -1");
+    }
+
+@Test
+    void testToMesh_invalidArgs_1_oe() {
+        // arrange
+        final Sphere s = Sphere.from(Vector3D.of(2, 1, 3), 2, TEST_PRECISION);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { s.toTriangleMesh(-1); }, IllegalArgumentException.class, "Number of sphere approximation subdivisions must be greater than or equal to zero; was -1");
     }
 
 }

@@ -1,0 +1,27 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/FileSystemManagerFactoryTestCase_OE25Dev_vfs_left_148_8.java:[40,9] cannot find symbol
+  symbol:   method check(org.apache.commons.vfs2.FileSystemManager,org.apache.commons.vfs2.FileObject)
+  location: class org.apache.commons.vfs2.FileSystemManagerFactoryTestCase_OE25Dev_vfs_left_148_8
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/FileSystemManagerFactoryTestCase_OE25Dev_vfs_left_148_8.java:[43,9] cannot find symbol
+  symbol:   method check(org.apache.commons.vfs2.FileSystemManager,org.apache.commons.vfs2.FileObject)
+  location: class org.apache.commons.vfs2.FileSystemManagerFactoryTestCase_OE25Dev_vfs_left_148_8
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/FileSystemManagerFactoryTestCase_OE25Dev_vfs_left_148_8.java:[46,9] cannot find symbol
+  symbol:   method check(org.apache.commons.vfs2.FileSystemManager,org.apache.commons.vfs2.FileObject)
+  location: class org.apache.commons.vfs2.FileSystemManagerFactoryTestCase_OE25Dev_vfs_left_148_8
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-vfs2: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/FileSystemManagerFactoryTestCase_OE25Dev_vfs_left_148_8.java:[40,9] cannot find symbol
+[ERROR]   symbol:   method check(org.apache.commons.vfs2.FileSystemManager,org.apache.commons.vfs2.FileObject)
+[ERROR]   location: class org.apache.commons.vfs2.FileSystemManagerFactoryTestCase_OE25Dev_vfs_left_148_8
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/FileSystemManagerFactoryTestCase_OE25Dev_vfs_left_148_8.java:[43,9] cannot find symbol
+[ERROR]   symbol:   method check(org.apache.commons.vfs2.FileSystemManager,org.apache.commons.vfs2.FileObject)
+[ERROR]   location: class org.apache.commons.vfs2.FileSystemManagerFactoryTestCase_OE25Dev_vfs_left_148_8
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/FileSystemManagerFactoryTestCase_OE25Dev_vfs_left_148_8.java:[46,9] cannot find symbol
+[ERROR]   symbol:   method check(org.apache.commons.vfs2.FileSystemManager,org.apache.commons.vfs2.FileObject)
+[ERROR]   location: class org.apache.commons.vfs2.FileSystemManagerFactoryTestCase_OE25Dev_vfs_left_148_8
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

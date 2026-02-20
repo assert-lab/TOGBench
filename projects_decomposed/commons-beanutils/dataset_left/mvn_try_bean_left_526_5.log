@@ -1,0 +1,51 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/PropertyUtilsTestCase_OE25Dev_bean_left_526_5.java:[1757,9] cannot find symbol
+  symbol:   method testGetReadMethod(org.apache.commons.beanutils.TestBean,java.lang.String[],java.lang.String)
+  location: class org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev_bean_left_526_5
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/PropertyUtilsTestCase_OE25Dev_bean_left_526_5.java:[1769,9] cannot find symbol
+  symbol:   method testGetReadMethod(org.apache.commons.beanutils.TestBeanPackageSubclass,java.lang.String[],java.lang.String)
+  location: class org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev_bean_left_526_5
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/PropertyUtilsTestCase_OE25Dev_bean_left_526_5.java:[1783,9] cannot find symbol
+  symbol:   method testGetReadMethod(org.apache.commons.beanutils.priv.PrivateDirect,java.lang.String[],java.lang.String)
+  location: class org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev_bean_left_526_5
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/PropertyUtilsTestCase_OE25Dev_bean_left_526_5.java:[1786,9] cannot find symbol
+  symbol:   method testGetReadMethod(org.apache.commons.beanutils.priv.PrivateDirect,java.lang.String[],java.lang.String)
+  location: class org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev_bean_left_526_5
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/PropertyUtilsTestCase_OE25Dev_bean_left_526_5.java:[1793,9] cannot find symbol
+  symbol:   method testGetReadMethod(org.apache.commons.beanutils.priv.PrivateDirect,java.lang.String[],java.lang.String)
+  location: class org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev_bean_left_526_5
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/PropertyUtilsTestCase_OE25Dev_bean_left_526_5.java:[1796,9] cannot find symbol
+  symbol:   method testGetReadMethod(org.apache.commons.beanutils.priv.PrivateDirect,java.lang.String[],java.lang.String)
+  location: class org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev_bean_left_526_5
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/PropertyUtilsTestCase_OE25Dev_bean_left_526_5.java:[1832,9] cannot find symbol
+  symbol:   method testGetReadMethod(org.apache.commons.beanutils.TestBeanPublicSubclass,java.lang.String[],java.lang.String)
+  location: class org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev_bean_left_526_5
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.7.0:testCompile (default-testCompile) on project commons-beanutils: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/PropertyUtilsTestCase_OE25Dev_bean_left_526_5.java:[1757,9] cannot find symbol
+[ERROR]   symbol:   method testGetReadMethod(org.apache.commons.beanutils.TestBean,java.lang.String[],java.lang.String)
+[ERROR]   location: class org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev_bean_left_526_5
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/PropertyUtilsTestCase_OE25Dev_bean_left_526_5.java:[1769,9] cannot find symbol
+[ERROR]   symbol:   method testGetReadMethod(org.apache.commons.beanutils.TestBeanPackageSubclass,java.lang.String[],java.lang.String)
+[ERROR]   location: class org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev_bean_left_526_5
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/PropertyUtilsTestCase_OE25Dev_bean_left_526_5.java:[1783,9] cannot find symbol
+[ERROR]   symbol:   method testGetReadMethod(org.apache.commons.beanutils.priv.PrivateDirect,java.lang.String[],java.lang.String)
+[ERROR]   location: class org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev_bean_left_526_5
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/PropertyUtilsTestCase_OE25Dev_bean_left_526_5.java:[1786,9] cannot find symbol
+[ERROR]   symbol:   method testGetReadMethod(org.apache.commons.beanutils.priv.PrivateDirect,java.lang.String[],java.lang.String)
+[ERROR]   location: class org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev_bean_left_526_5
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/PropertyUtilsTestCase_OE25Dev_bean_left_526_5.java:[1793,9] cannot find symbol
+[ERROR]   symbol:   method testGetReadMethod(org.apache.commons.beanutils.priv.PrivateDirect,java.lang.String[],java.lang.String)
+[ERROR]   location: class org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev_bean_left_526_5
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/PropertyUtilsTestCase_OE25Dev_bean_left_526_5.java:[1796,9] cannot find symbol
+[ERROR]   symbol:   method testGetReadMethod(org.apache.commons.beanutils.priv.PrivateDirect,java.lang.String[],java.lang.String)
+[ERROR]   location: class org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev_bean_left_526_5
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/PropertyUtilsTestCase_OE25Dev_bean_left_526_5.java:[1832,9] cannot find symbol
+[ERROR]   symbol:   method testGetReadMethod(org.apache.commons.beanutils.TestBeanPublicSubclass,java.lang.String[],java.lang.String)
+[ERROR]   location: class org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev_bean_left_526_5
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,99 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[49,9] cannot find symbol
+  symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+  location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[50,9] cannot find symbol
+  symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+  location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[51,9] cannot find symbol
+  symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+  location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[53,9] cannot find symbol
+  symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+  location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[54,9] cannot find symbol
+  symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+  location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[55,9] cannot find symbol
+  symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+  location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[57,9] cannot find symbol
+  symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+  location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[58,9] cannot find symbol
+  symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+  location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[59,9] cannot find symbol
+  symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+  location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[61,9] cannot find symbol
+  symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+  location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[62,9] cannot find symbol
+  symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+  location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[63,9] cannot find symbol
+  symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+  location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[65,9] cannot find symbol
+  symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+  location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[66,9] cannot find symbol
+  symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+  location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[67,9] cannot find symbol
+  symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+  location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-core: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[49,9] cannot find symbol
+[ERROR]   symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[50,9] cannot find symbol
+[ERROR]   symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[51,9] cannot find symbol
+[ERROR]   symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[53,9] cannot find symbol
+[ERROR]   symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[54,9] cannot find symbol
+[ERROR]   symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[55,9] cannot find symbol
+[ERROR]   symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[57,9] cannot find symbol
+[ERROR]   symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[58,9] cannot find symbol
+[ERROR]   symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[59,9] cannot find symbol
+[ERROR]   symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[61,9] cannot find symbol
+[ERROR]   symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[62,9] cannot find symbol
+[ERROR]   symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[63,9] cannot find symbol
+[ERROR]   symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[65,9] cannot find symbol
+[ERROR]   symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[66,9] cannot find symbol
+[ERROR]   symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/BSPTreeVisitorTest_OE25Dev_geom_left_1007_1.java:[67,9] cannot find symbol
+[ERROR]   symbol:   method checkClosestFirst(org.apache.commons.geometry.core.partitioning.test.TestPoint2D,org.apache.commons.geometry.core.partitioning.test.TestBSPTree.TestNode,org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitor.Order)
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev_geom_left_1007_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

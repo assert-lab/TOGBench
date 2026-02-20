@@ -1,0 +1,291 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[35,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[37,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[38,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[39,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[40,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[46,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[47,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[48,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[49,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[68,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[70,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[71,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[72,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[74,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[75,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[76,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[82,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[83,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[84,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[85,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[91,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,int)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[92,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[93,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,int)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[95,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[96,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[97,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[106,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[108,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[109,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[110,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[112,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[113,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[114,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[116,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[117,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[126,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[128,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[129,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[130,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[132,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[133,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[134,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[136,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[137,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[345,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[346,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[347,9] cannot find symbol
+  symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+  location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-euclidean: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[35,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[37,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[38,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[39,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[40,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[46,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[47,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[48,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[49,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[68,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[70,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[71,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[72,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[74,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[75,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[76,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[82,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[83,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[84,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[85,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[91,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[92,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[93,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[95,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[96,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[97,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[106,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[108,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[109,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[110,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[112,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[113,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[114,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[116,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[117,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[126,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[128,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[129,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[130,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[132,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[133,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[134,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[136,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[137,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[345,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[346,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/PolarCoordinatesTest_OE25Dev_geom_left_1088_1.java:[347,9] cannot find symbol
+[ERROR]   symbol:   method checkPolar(org.apache.commons.geometry.euclidean.twod.PolarCoordinates,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev_geom_left_1088_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

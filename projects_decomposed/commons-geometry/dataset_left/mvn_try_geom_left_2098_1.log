@@ -1,0 +1,609 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[36,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[37,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[38,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[39,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[40,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[41,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[129,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[130,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[170,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[172,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[173,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[175,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[176,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[194,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[195,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[210,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[211,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[212,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[213,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[224,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[225,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[226,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[228,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[229,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[230,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[241,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[242,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[243,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[244,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[255,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[256,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[257,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[259,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[260,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[261,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[267,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[268,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[269,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[270,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[272,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[273,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[275,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[276,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[302,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[308,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[309,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[311,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[312,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[314,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[315,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[317,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[318,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[333,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[339,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[340,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[350,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[351,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[357,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[358,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[360,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[361,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[461,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[462,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[463,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[465,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[466,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[468,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[469,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[471,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[472,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[483,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[484,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[486,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[487,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[511,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[512,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[514,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[515,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[516,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[517,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[518,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[519,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[520,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[522,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[523,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[524,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[525,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[526,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[540,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[541,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[654,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[655,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[657,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[658,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[660,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[662,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[663,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[675,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[676,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[677,9] cannot find symbol
+  symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+  location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-euclidean: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[36,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[37,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[38,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[39,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[40,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[41,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[129,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[130,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[170,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[172,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[173,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[175,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[176,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[194,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[195,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[210,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[211,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[212,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[213,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[224,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[225,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[226,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[228,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[229,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[230,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[241,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[242,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[243,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[244,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[255,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[256,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[257,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[259,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[260,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[261,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[267,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[268,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[269,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[270,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[272,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[273,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[275,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[276,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[302,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[308,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[309,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[311,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[312,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[314,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[315,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[317,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[318,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[333,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[339,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[340,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[350,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[351,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[357,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[358,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[360,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[361,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[461,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[462,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[463,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[465,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[466,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[468,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[469,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[471,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[472,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[483,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[484,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[486,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[487,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D.Unit,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[511,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[512,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[514,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[515,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[516,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[517,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[518,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[519,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[520,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[522,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[523,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[524,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[525,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[526,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[540,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[541,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[654,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[655,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[657,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[658,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[660,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[662,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[663,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[675,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[676,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/Vector1DTest_OE25Dev_geom_left_2098_1.java:[677,9] cannot find symbol
+[ERROR]   symbol:   method checkVector(org.apache.commons.geometry.euclidean.oned.Vector1D,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev_geom_left_2098_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

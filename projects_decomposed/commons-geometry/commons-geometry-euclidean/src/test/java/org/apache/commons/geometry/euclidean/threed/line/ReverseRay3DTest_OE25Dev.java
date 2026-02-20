@@ -34,37 +34,6 @@ class ReverseRay3DTest_OE25Dev {
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
     @Test
-    void testFromPointAndDirection_invalidArgs() {
-        // arrange
-        final Vector3D pt = Vector3D.of(0, 2, 4);
-        final Vector3D dir = Vector3D.of(1e-11, 0, 0);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines3D.reverseRayFromPointAndDirection(pt, dir, TEST_PRECISION);
-        }, IllegalArgumentException.class, "Line direction cannot be zero");
-    }
-
-    @Test
-    void testFromPoint_invalidArgs() {
-        // arrange
-        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines3D.reverseRayFromPoint(line, Vector3D.NaN);
-        }, IllegalArgumentException.class, "Invalid reverse ray end location: NaN");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines3D.reverseRayFromPoint(line, Vector3D.NEGATIVE_INFINITY);
-        }, IllegalArgumentException.class, "Invalid reverse ray end location: NaN");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines3D.reverseRayFromPoint(line, Vector3D.POSITIVE_INFINITY);
-        }, IllegalArgumentException.class, "Invalid reverse ray end location: NaN");
-    }
-
-    @Test
     void testToString() {
         // arrange
         final ReverseRay3D revRay = Lines3D.reverseRayFromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
@@ -569,6 +538,49 @@ class ReverseRay3DTest_OE25Dev {
         // removed other assertion
 
         Assertions.assertSame(revRay.getLine().getPrecision(), interval.getMaxBoundary().getPrecision());
+    }
+
+@Test
+    void testFromPointAndDirection_invalidArgs_1_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(0, 2, 4);
+        final Vector3D dir = Vector3D.of(1e-11, 0, 0);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines3D.reverseRayFromPointAndDirection(pt, dir, TEST_PRECISION); }, IllegalArgumentException.class, "Line direction cannot be zero");
+    }
+
+@Test
+    void testFromPoint_invalidArgs_1_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines3D.reverseRayFromPoint(line, Vector3D.NaN); }, IllegalArgumentException.class, "Invalid reverse ray end location: NaN");
+    }
+
+@Test
+    void testFromPoint_invalidArgs_2_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines3D.reverseRayFromPoint(line, Vector3D.NEGATIVE_INFINITY); }, IllegalArgumentException.class, "Invalid reverse ray end location: NaN");
+    }
+
+@Test
+    void testFromPoint_invalidArgs_3_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines3D.reverseRayFromPoint(line, Vector3D.POSITIVE_INFINITY); }, IllegalArgumentException.class, "Invalid reverse ray end location: NaN");
     }
 
 }

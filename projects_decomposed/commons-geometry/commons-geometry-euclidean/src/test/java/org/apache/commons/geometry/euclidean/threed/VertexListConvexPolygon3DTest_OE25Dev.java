@@ -49,14 +49,6 @@ class VertexListConvexPolygon3DTest_OE25Dev {
             Arrays.asList(Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1));
 
     @Test
-    void testCtor_validatesVertexListSize() {
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            new VertexListConvexPolygon3D(XY_PLANE_Z1, Arrays.asList(Vector3D.ZERO, Vector3D.Unit.PLUS_X));
-        }, IllegalArgumentException.class, "Convex polygon requires at least 3 points; found 2");
-    }
-
-    @Test
     void testGetCentroid_linearVertices() {
         // this should not happen with all of the checks in place for constructing these
         // instances; this test is to ensure that the centroid computation can still handle
@@ -801,6 +793,12 @@ class VertexListConvexPolygon3DTest_OE25Dev {
 
         // removed other assertion
         Assertions.assertNull(split.getPlus());
+    }
+
+@Test
+    void testCtor_validatesVertexListSize_1_oe() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { new VertexListConvexPolygon3D(XY_PLANE_Z1, Arrays.asList(Vector3D.ZERO, Vector3D.Unit.PLUS_X)); }, IllegalArgumentException.class, "Convex polygon requires at least 3 points; found 2");
     }
 
 }

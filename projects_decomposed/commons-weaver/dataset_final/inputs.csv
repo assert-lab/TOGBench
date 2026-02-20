@@ -1,0 +1,896 @@
+id,test_prefix,test_name
+weav_3_1,"    @Test
+    public void testFindAssignableTypes_1_oe() throws IOException {
+        addClassForScanning(TestBeanInterface.class);
+        addClassForScanning(AbstractTestBean.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+
+        final Set<Class<?>> implementors = new HashSet<Class<?>>();
+        for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(TestBeanInterface.class)) {
+            implementors.add(annotated.get());
+        }
+        assertEquals(1, implementors.size());
+    }
+",FinderTest::testFindAssignableTypes_1_oe
+weav_3_2,"    @Test
+    public void testFindAssignableTypes_2_oe() throws IOException {
+        addClassForScanning(TestBeanInterface.class);
+        addClassForScanning(AbstractTestBean.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+
+        final Set<Class<?>> implementors = new HashSet<Class<?>>();
+        for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(TestBeanInterface.class)) {
+            implementors.add(annotated.get());
+        }
+        // removed other assertion
+        assertTrue(implementors.contains(TestBeanWithClassAnnotation.class));
+    }
+",FinderTest::testFindAssignableTypes_2_oe
+weav_3_3,"    @Test
+    public void testFindAssignableTypes_3_oe() throws IOException {
+        addClassForScanning(TestBeanInterface.class);
+        addClassForScanning(AbstractTestBean.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+
+        final Set<Class<?>> implementors = new HashSet<Class<?>>();
+        for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(TestBeanInterface.class)) {
+            implementors.add(annotated.get());
+        }
+        // removed other assertion
+        // removed other assertion
+
+        final Set<Class<?>> subclasses = new HashSet<Class<?>>();
+        for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(AbstractTestBean.class)) {
+            subclasses.add(annotated.get());
+        }
+        assertEquals(2, subclasses.size());
+    }
+",FinderTest::testFindAssignableTypes_3_oe
+weav_3_4,"    @Test
+    public void testFindAssignableTypes_4_oe() throws IOException {
+        addClassForScanning(TestBeanInterface.class);
+        addClassForScanning(AbstractTestBean.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+
+        final Set<Class<?>> implementors = new HashSet<Class<?>>();
+        for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(TestBeanInterface.class)) {
+            implementors.add(annotated.get());
+        }
+        // removed other assertion
+        // removed other assertion
+
+        final Set<Class<?>> subclasses = new HashSet<Class<?>>();
+        for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(AbstractTestBean.class)) {
+            subclasses.add(annotated.get());
+        }
+        // removed other assertion
+        assertTrue(subclasses.contains(TestBeanWithClassAnnotation.class));
+    }
+",FinderTest::testFindAssignableTypes_4_oe
+weav_3_5,"    @Test
+    public void testFindAssignableTypes_5_oe() throws IOException {
+        addClassForScanning(TestBeanInterface.class);
+        addClassForScanning(AbstractTestBean.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+
+        final Set<Class<?>> implementors = new HashSet<Class<?>>();
+        for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(TestBeanInterface.class)) {
+            implementors.add(annotated.get());
+        }
+        // removed other assertion
+        // removed other assertion
+
+        final Set<Class<?>> subclasses = new HashSet<Class<?>>();
+        for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(AbstractTestBean.class)) {
+            subclasses.add(annotated.get());
+        }
+        // removed other assertion
+        // removed other assertion
+        assertTrue(subclasses.contains(TestBeanWithMethodAnnotation.class));
+    }
+",FinderTest::testFindAssignableTypes_5_oe
+weav_4_1,"    @Test
+    public void testFindAllTypes_1_oe() throws IOException {
+        addClassForScanning(TestBeanInterface.class);
+        addClassForScanning(AbstractTestBean.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+
+        List<Annotated<Class<?>>> allClasses = finder().withAnnotations().getAllClasses();
+        assertThat(extract(allClasses),Matchers.<Class<?>> containsInAnyOrder(TestBeanInterface.class,AbstractTestBean.class,TestBeanWithClassAnnotation.class,TestBeanWithMethodAnnotation.class));
+    }
+",FinderTest::testFindAllTypes_1_oe
+weav_5_1,"    @Test
+    public void testCompare_1_oe() {
+        assertTrue(Args.compare(ArrayUtils.EMPTY_CLASS_ARRAY, ArrayUtils.EMPTY_CLASS_ARRAY) == 0);
+    }
+",ArgsTest::testCompare_1_oe
+weav_5_2,"    @Test
+    public void testCompare_2_oe() {
+        // removed other assertion
+        assertTrue(Args.compare(ArrayUtils.EMPTY_CLASS_ARRAY, new Class[] { String.class }) < 0);
+    }
+",ArgsTest::testCompare_2_oe
+weav_5_3,"    @Test
+    public void testCompare_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertTrue(Args.compare(new Class[] { String.class }, ArrayUtils.EMPTY_CLASS_ARRAY) > 0);
+    }
+",ArgsTest::testCompare_3_oe
+weav_5_4,"    @Test
+    public void testCompare_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(Args.compare(new Class[] { String.class }, new Class[] { String.class }) == 0);
+    }
+",ArgsTest::testCompare_4_oe
+weav_5_5,"    @Test
+    public void testCompare_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(Args.compare(new Class[] { int.class }, new Class[] { String.class }) < 0);
+    }
+",ArgsTest::testCompare_5_oe
+weav_5_6,"    @Test
+    public void testCompare_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(Args.compare(new Class[] { String.class }, new Class[] { int.class }) > 0);
+    }
+",ArgsTest::testCompare_6_oe
+weav_5_7,"    @Test
+    public void testCompare_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(Args.compare(new Class[] { int.class, String.class }, new Class[] { int.class, String.class}) == 0);
+    }
+",ArgsTest::testCompare_7_oe
+weav_5_8,"    @Test
+    public void testCompare_8_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(Args.compare(new Class[] { String.class, String.class }, new Class[] { String.class, String.class}) == 0);
+    }
+",ArgsTest::testCompare_8_oe
+weav_5_9,"    @Test
+    public void testCompare_9_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(Args.compare(new Class[] { String.class, int.class }, new Class[] { String.class, String.class}) < 0);
+    }
+",ArgsTest::testCompare_9_oe
+weav_5_10,"    @Test
+    public void testCompare_10_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(Args.compare(new Class[] { String.class, String.class }, new Class[] { String.class, int.class}) > 0);
+    }
+",ArgsTest::testCompare_10_oe
+weav_6_1,"    @Test
+    public void testSort_1_oe() {
+        assertThat(Providers.sort(Arrays.asList(b, a, c)), IsIterableContainingInOrder.contains(a, b, c));
+    }
+",ProvidersTest::testSort_1_oe
+weav_6_2,"    @Test
+    public void testSort_2_oe() {
+        // removed other assertion
+        assertThat(Providers.sort(Arrays.asList(y, w, x, z)), IsIterableContainingInOrder.contains(z, y, x, w));
+    }
+",ProvidersTest::testSort_2_oe
+weav_7_1,"    @Test
+    public void testWeaveVisiting_1_oe() throws Exception {
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+
+        final Properties config = new Properties();
+        config.put(""configKey"", ""configValue"");
+
+        WeaveProcessor wp = new WeaveProcessor(getClassPathEntries(), getTargetFolder(), config);
+
+        TestWeaver.wovenClasses.clear();
+        TestWeaver.wovenMethods.clear();
+
+        wp.weave();
+
+        Assert.assertEquals(1, TestWeaver.wovenClasses.size());
+    }
+",WeaveProcessorTest::testWeaveVisiting_1_oe
+weav_7_2,"    @Test
+    public void testWeaveVisiting_2_oe() throws Exception {
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+
+        final Properties config = new Properties();
+        config.put(""configKey"", ""configValue"");
+
+        WeaveProcessor wp = new WeaveProcessor(getClassPathEntries(), getTargetFolder(), config);
+
+        TestWeaver.wovenClasses.clear();
+        TestWeaver.wovenMethods.clear();
+
+        wp.weave();
+
+        // removed other assertion
+        Assert.assertEquals(TestBeanWithClassAnnotation.class, TestWeaver.wovenClasses.get(0));
+    }
+",WeaveProcessorTest::testWeaveVisiting_2_oe
+weav_7_3,"    @Test
+    public void testWeaveVisiting_3_oe() throws Exception {
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+
+        final Properties config = new Properties();
+        config.put(""configKey"", ""configValue"");
+
+        WeaveProcessor wp = new WeaveProcessor(getClassPathEntries(), getTargetFolder(), config);
+
+        TestWeaver.wovenClasses.clear();
+        TestWeaver.wovenMethods.clear();
+
+        wp.weave();
+
+        // removed other assertion
+        // removed other assertion
+
+        Assert.assertEquals(1, TestWeaver.wovenMethods.size());
+    }
+",WeaveProcessorTest::testWeaveVisiting_3_oe
+weav_7_4,"    @Test
+    public void testWeaveVisiting_4_oe() throws Exception {
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+
+        final Properties config = new Properties();
+        config.put(""configKey"", ""configValue"");
+
+        WeaveProcessor wp = new WeaveProcessor(getClassPathEntries(), getTargetFolder(), config);
+
+        TestWeaver.wovenClasses.clear();
+        TestWeaver.wovenMethods.clear();
+
+        wp.weave();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assert.assertEquals(TestBeanWithMethodAnnotation.class, TestWeaver.wovenMethods.get(0).getDeclaringClass());
+    }
+",WeaveProcessorTest::testWeaveVisiting_4_oe
+weav_7_6,"    @Test
+    public void testWeaveVisiting_6_oe() throws Exception {
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+
+        final Properties config = new Properties();
+        config.put(""configKey"", ""configValue"");
+
+        WeaveProcessor wp = new WeaveProcessor(getClassPathEntries(), getTargetFolder(), config);
+
+        TestWeaver.wovenClasses.clear();
+        TestWeaver.wovenMethods.clear();
+
+        wp.weave();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        
+        // removed other assertion
+        Assert.assertEquals(TestBeanWithClassAnnotation.class, TestWeaver.implementors.get(0));
+    }
+",WeaveProcessorTest::testWeaveVisiting_6_oe
+weav_7_8,"    @Test
+    public void testWeaveVisiting_8_oe() throws Exception {
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+
+        final Properties config = new Properties();
+        config.put(""configKey"", ""configValue"");
+
+        WeaveProcessor wp = new WeaveProcessor(getClassPathEntries(), getTargetFolder(), config);
+
+        TestWeaver.wovenClasses.clear();
+        TestWeaver.wovenMethods.clear();
+
+        wp.weave();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        
+        // removed other assertion
+        // removed other assertion
+        
+        // removed other assertion
+        Assert.assertTrue(TestWeaver.subclasses.containsAll(Arrays.<Class<?>> asList(TestBeanWithClassAnnotation.class,TestBeanWithMethodAnnotation.class)));
+    }
+",WeaveProcessorTest::testWeaveVisiting_8_oe
+weav_8_1,"    @Test
+    public void testWeaveVisiting_1_oe() throws Exception {
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+
+        final Properties config = new Properties();
+        config.put(""configKey"", ""configValue"");
+
+        final CleanProcessor cp = new CleanProcessor(getClassPathEntries(), getTargetFolder(), config);
+        cp.clean();
+
+        Assert.assertFalse(new File(getTargetFolder(),TestBeanWithMethodAnnotation.class.getName().replace('.',File.separatorChar)+ "".class"").exists());
+    }
+",CleanProcessorTest::testWeaveVisiting_1_oe
+weav_8_2,"    @Test
+    public void testWeaveVisiting_2_oe() throws Exception {
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+
+        final Properties config = new Properties();
+        config.put(""configKey"", ""configValue"");
+
+        final CleanProcessor cp = new CleanProcessor(getClassPathEntries(), getTargetFolder(), config);
+        cp.clean();
+
+        // removed other assertion
+        Assert.assertFalse(new File(getTargetFolder(),TestBeanWithClassAnnotation.class.getName().replace('.',File.separatorChar)+ "".class"").exists());
+    }
+",CleanProcessorTest::testWeaveVisiting_2_oe
+weav_9_1,"    @Test
+    public void testValidatePackageName_1_oe() {
+        assertEquals("""", Utils.validatePackageName(""""));
+    }
+",UtilsTest::testValidatePackageName_1_oe
+weav_9_2,"    @Test
+    public void testValidatePackageName_2_oe() {
+        // removed other assertion
+        assertEquals("""", Utils.validatePackageName(""    ""));
+    }
+",UtilsTest::testValidatePackageName_2_oe
+weav_9_3,"    @Test
+    public void testValidatePackageName_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""foo"", Utils.validatePackageName(""foo""));
+    }
+",UtilsTest::testValidatePackageName_3_oe
+weav_9_4,"    @Test
+    public void testValidatePackageName_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""foo/bar"", Utils.validatePackageName(""foo.bar""));
+    }
+",UtilsTest::testValidatePackageName_4_oe
+weav_9_5,"    @Test
+    public void testValidatePackageName_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""foo/bar"", Utils.validatePackageName(""foo/bar""));
+    }
+",UtilsTest::testValidatePackageName_5_oe
+weav_9_6,"    @Test
+    public void testValidatePackageName_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""foo/bar/baz"", Utils.validatePackageName(""foo.bar.baz""));
+    }
+",UtilsTest::testValidatePackageName_6_oe
+weav_9_7,"    @Test
+    public void testValidatePackageName_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""foo/bar/baz"", Utils.validatePackageName(""foo.bar/baz""));
+    }
+",UtilsTest::testValidatePackageName_7_oe
+weav_9_8,"    @Test
+    public void testValidatePackageName_8_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""foo/bar/baz"", Utils.validatePackageName(""foo/bar.baz""));
+    }
+",UtilsTest::testValidatePackageName_8_oe
+weav_9_9,"    @Test
+    public void testValidatePackageName_9_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""foo/bar/baz"", Utils.validatePackageName(""foo/bar/baz""));
+    }
+",UtilsTest::testValidatePackageName_9_oe
+weav_9_10,"    @Test
+    public void testValidatePackageName_10_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""$foo"", Utils.validatePackageName(""$foo""));
+    }
+",UtilsTest::testValidatePackageName_10_oe
+weav_9_11,"    @Test
+    public void testValidatePackageName_11_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""_foo"", Utils.validatePackageName(""_foo""));
+    }
+",UtilsTest::testValidatePackageName_11_oe
+weav_9_12,"    @Test
+    public void testValidatePackageName_12_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""foo2"", Utils.validatePackageName(""foo2""));
+    }
+",UtilsTest::testValidatePackageName_12_oe
+weav_11_1,"    @Test
+    public void testGetProperty_1_oe() {
+        assertEquals(""foo-value"", usingArgs.getProperty(""foo""));
+    }
+",UsingArgsTest::testGetProperty_1_oe
+weav_11_2,"    @Test
+    public void testGetProperty_2_oe() {
+        // removed other assertion
+        assertEquals(""bar-value"", usingArgs.getProperty(""bar""));
+    }
+",UsingArgsTest::testGetProperty_2_oe
+weav_11_3,"    @Test
+    public void testGetProperty_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""baz-value"", usingArgs.getProperty(""baz""));
+    }
+",UsingArgsTest::testGetProperty_3_oe
+weav_12_1,"    @Test
+    public void testGetProperties_1_oe() {
+        assertTrue(Arrays.equals(new String[] { ""foo-value"", ""bar-value"", ""baz-value"" }, usingArgs.getProperties(""foo"", ""bar"", ""baz"")));
+    }
+",UsingArgsTest::testGetProperties_1_oe
+weav_12_2,"    @Test
+    public void testGetProperties_2_oe() {
+        // removed other assertion
+        assertEquals(0, usingArgs.getProperties().length);
+    }
+",UsingArgsTest::testGetProperties_2_oe
+weav_12_3,"    @Test
+    public void testGetProperties_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertNull(usingArgs.getProperties((String[]) null));
+    }
+",UsingArgsTest::testGetProperties_3_oe
+weav_13_1,"    @Test
+    public void testAssembleAndGetProperty_1_oe() {
+        assertEquals(""foo-value"", usingArgs.assembleAndGetProperty('f', new StringBuilder().append('o'), 'o'));
+    }
+",UsingArgsTest::testAssembleAndGetProperty_1_oe
+weav_13_2,"    @Test
+    public void testAssembleAndGetProperty_2_oe() {
+        // removed other assertion
+        assertEquals(""bar-value"", usingArgs.assembleAndGetProperty('b', new StringBuilder().append('a'), 'r'));
+    }
+",UsingArgsTest::testAssembleAndGetProperty_2_oe
+weav_13_3,"    @Test
+    public void testAssembleAndGetProperty_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""baz-value"", usingArgs.assembleAndGetProperty('b', new StringBuilder().append('a'), 'z'));
+    }
+",UsingArgsTest::testAssembleAndGetProperty_3_oe
+weav_14_1,"    @Test
+    public void testThrowingCheckedException_1_oe() throws CheckedException1, CheckedException2 {
+        assertEquals(0, usingArgs.throwingCheckedException(0, ""foo""));
+    }
+",UsingArgsTest::testThrowingCheckedException_1_oe
+weav_15_1,"    @Test
+    public void testUtilsReadPublicConstant_1_oe() {
+        assertEquals(Utils.FOO, methodReferencesUsingBlueprints.utilsReadPublicConstant());
+    }
+",MethodReferencesUsingBlueprintsTest::testUtilsReadPublicConstant_1_oe
+weav_16_1,"    @Test
+    public void testUtilsReadPrivateField_1_oe() {
+        assertEquals(999, methodReferencesUsingBlueprints.utilsReadPrivateField());
+    }
+",MethodReferencesUsingBlueprintsTest::testUtilsReadPrivateField_1_oe
+weav_17_1,"    @Test
+    public void testUtilsGetProperty_1_oe() {
+        assertEquals(""foo-value"", methodReferencesUsingBlueprints.utilsGetProperty());
+    }
+",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_1_oe
+weav_18_1,"    @Test
+    public void testUtilsGetProperty_String_1_oe() {
+        assertEquals(""foo-value"", methodReferencesUsingBlueprints.utilsGetProperty(""foo""));
+    }
+",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_String_1_oe
+weav_18_2,"    @Test
+    public void testUtilsGetProperty_String_2_oe() {
+        // removed other assertion
+        assertEquals(""bar-value"", methodReferencesUsingBlueprints.utilsGetProperty(""bar""));
+    }
+",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_String_2_oe
+weav_18_3,"    @Test
+    public void testUtilsGetProperty_String_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""baz-value"", methodReferencesUsingBlueprints.utilsGetProperty(""baz""));
+    }
+",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_String_3_oe
+weav_19_1,"    @Test
+    public void testUtilsGetProperty_int_String_1_oe() {
+        assertEquals(""foo-value"", methodReferencesUsingBlueprints.utilsGetProperty(2, ""foo""));
+    }
+",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_int_String_1_oe
+weav_19_2,"    @Test
+    public void testUtilsGetProperty_int_String_2_oe() {
+        // removed other assertion
+        assertEquals(""bar-value"", methodReferencesUsingBlueprints.utilsGetProperty(2, ""bar""));
+    }
+",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_int_String_2_oe
+weav_19_3,"    @Test
+    public void testUtilsGetProperty_int_String_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""baz-value"", methodReferencesUsingBlueprints.utilsGetProperty(2, ""baz""));
+    }
+",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_int_String_3_oe
+weav_20_1,"    @Test
+    public void testMoreGetProperty_1_oe() {
+        assertEquals(""bar-value"", methodReferencesUsingBlueprints.moreGetProperty());
+    }
+",MethodReferencesUsingBlueprintsTest::testMoreGetProperty_1_oe
+weav_21_1,"    @Test
+    public void testMoreGetTopStackElementClassName_1_oe() {
+        assumeTrue(StringUtils.containsIgnoreCase(SystemUtils.JAVA_VENDOR, ""oracle""));
+        assertEquals(Utils.More.class.getName(), methodReferencesUsingBlueprints.moreGetTopStackElementClassName());
+    }
+",MethodReferencesUsingBlueprintsTest::testMoreGetTopStackElementClassName_1_oe
+weav_22_1,"    @Test
+    public void testGet_1_oe() {
+        assertEquals(""foo-value"", StaticPrivateMethods.get(""foo""));
+    }
+",StaticPrivateMethodsTest::testGet_1_oe
+weav_22_2,"    @Test
+    public void testGet_2_oe() {
+        // removed other assertion
+        assertEquals(""bar-value"", StaticPrivateMethods.get(""bar""));
+    }
+",StaticPrivateMethodsTest::testGet_2_oe
+weav_22_3,"    @Test
+    public void testGet_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""baz-value"", StaticPrivateMethods.get(""baz""));
+    }
+",StaticPrivateMethodsTest::testGet_3_oe
+weav_23_1,"    @Test
+    public void testGetFoo_1_oe() {
+        assertEquals(""foo-value"", StaticNoArgs.getFoo());
+    }
+",StaticNoArgsTest::testGetFoo_1_oe
+weav_24_1,"    @Test
+    public void testGetTrue_1_oe() {
+        assertSame(Boolean.TRUE, StaticNoArgs.getTrue());
+    }
+",StaticNoArgsTest::testGetTrue_1_oe
+weav_25_1,"    @Test
+    public void testGetFalse_1_oe() {
+        assertFalse(StaticNoArgs.getFalse());
+    }
+",StaticNoArgsTest::testGetFalse_1_oe
+weav_27_1,"    @Test
+    public void testThrowingCheckedException2_1_oe() {
+        try {
+            StaticNoArgs.throwingCheckedException2();
+        } catch (CheckedException1 e) {
+        } catch (CheckedException2 e) {
+            return;
+        }
+        fail();
+    }
+",StaticNoArgsTest::testThrowingCheckedException2_1_oe
+weav_28_1,"    @Test
+    public void testGet_1_oe() {
+        assertEquals(""foo-value"", privateMethods.get(""foo""));
+    }
+",PrivateMethodsTest::testGet_1_oe
+weav_28_2,"    @Test
+    public void testGet_2_oe() {
+        // removed other assertion
+        assertEquals(""bar-value"", privateMethods.get(""bar""));
+    }
+",PrivateMethodsTest::testGet_2_oe
+weav_28_3,"    @Test
+    public void testGet_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""baz-value"", privateMethods.get(""baz""));
+    }
+",PrivateMethodsTest::testGet_3_oe
+weav_29_1,"    @Test
+    public void testGetProperty_1_oe() {
+        assertEquals(""foo-value"", StaticUsingArgs.getProperty(""foo""));
+    }
+",StaticUsingArgsTest::testGetProperty_1_oe
+weav_29_2,"    @Test
+    public void testGetProperty_2_oe() {
+        // removed other assertion
+        assertEquals(""bar-value"", StaticUsingArgs.getProperty(""bar""));
+    }
+",StaticUsingArgsTest::testGetProperty_2_oe
+weav_29_3,"    @Test
+    public void testGetProperty_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""baz-value"", StaticUsingArgs.getProperty(""baz""));
+    }
+",StaticUsingArgsTest::testGetProperty_3_oe
+weav_30_1,"    @Test
+    public void testGetProperties_1_oe() {
+        assertTrue(Arrays.equals(new String[] { ""foo-value"", ""bar-value"", ""baz-value"" }, StaticUsingArgs.getProperties(""foo"", ""bar"", ""baz"")));
+    }
+",StaticUsingArgsTest::testGetProperties_1_oe
+weav_30_2,"    @Test
+    public void testGetProperties_2_oe() {
+        // removed other assertion
+        assertEquals(0, StaticUsingArgs.getProperties().length);
+    }
+",StaticUsingArgsTest::testGetProperties_2_oe
+weav_30_3,"    @Test
+    public void testGetProperties_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertNull(StaticUsingArgs.getProperties((String[]) null));
+    }
+",StaticUsingArgsTest::testGetProperties_3_oe
+weav_31_1,"    @Test
+    public void testAssembleAndGetProperty_1_oe() {
+        assertEquals(""foo-value"", StaticUsingArgs.assembleAndGetProperty('f', new StringBuilder().append('o'), 'o'));
+    }
+",StaticUsingArgsTest::testAssembleAndGetProperty_1_oe
+weav_31_2,"    @Test
+    public void testAssembleAndGetProperty_2_oe() {
+        // removed other assertion
+        assertEquals(""bar-value"", StaticUsingArgs.assembleAndGetProperty('b', new StringBuilder().append('a'), 'r'));
+    }
+",StaticUsingArgsTest::testAssembleAndGetProperty_2_oe
+weav_31_3,"    @Test
+    public void testAssembleAndGetProperty_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""baz-value"", StaticUsingArgs.assembleAndGetProperty('b', new StringBuilder().append('a'), 'z'));
+    }
+",StaticUsingArgsTest::testAssembleAndGetProperty_3_oe
+weav_32_1,"    @Test
+    public void testThrowingCheckedException_1_oe() throws CheckedException1, CheckedException2 {
+        assertEquals(0, StaticUsingArgs.throwingCheckedException(0, ""foo""));
+    }
+",StaticUsingArgsTest::testThrowingCheckedException_1_oe
+weav_33_1,"    @Test
+    public void testGetFoo_1_oe() {
+        assertEquals(""foo-value"", noArgs.getFoo());
+    }
+",NoArgsTest::testGetFoo_1_oe
+weav_34_1,"    @Test
+    public void testGetTrue_1_oe() {
+        assertSame(Boolean.TRUE, noArgs.getTrue());
+    }
+",NoArgsTest::testGetTrue_1_oe
+weav_35_1,"    @Test
+    public void testGetFalse_1_oe() {
+        assertFalse(noArgs.getFalse());
+    }
+",NoArgsTest::testGetFalse_1_oe
+weav_37_1,"    @Test
+    public void testThrowingCheckedException2_1_oe() {
+        try {
+            noArgs.throwingCheckedException2();
+        } catch (CheckedException1 e) {
+        } catch (CheckedException2 e) {
+            return;
+        }
+        fail();
+    }
+",NoArgsTest::testThrowingCheckedException2_1_oe
+weav_38_1,"    @Test
+    public void testUtilsReadPublicConstant_1_oe() {
+        assertEquals(Utils.FOO, usingBlueprints.utilsReadPublicConstant());
+    }
+",UsingBlueprintsTest::testUtilsReadPublicConstant_1_oe
+weav_39_1,"    @Test
+    public void testUtilsReadPrivateField_1_oe() {
+        assertEquals(999, usingBlueprints.utilsReadPrivateField());
+    }
+",UsingBlueprintsTest::testUtilsReadPrivateField_1_oe
+weav_40_1,"    @Test
+    public void testUtilsGetProperty_1_oe() {
+        assertEquals(""foo-value"", usingBlueprints.utilsGetProperty());
+    }
+",UsingBlueprintsTest::testUtilsGetProperty_1_oe
+weav_41_1,"    @Test
+    public void testUtilsGetProperty_String_1_oe() {
+        assertEquals(""foo-value"", usingBlueprints.utilsGetProperty(""foo""));
+    }
+",UsingBlueprintsTest::testUtilsGetProperty_String_1_oe
+weav_41_2,"    @Test
+    public void testUtilsGetProperty_String_2_oe() {
+        // removed other assertion
+        assertEquals(""bar-value"", usingBlueprints.utilsGetProperty(""bar""));
+    }
+",UsingBlueprintsTest::testUtilsGetProperty_String_2_oe
+weav_41_3,"    @Test
+    public void testUtilsGetProperty_String_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""baz-value"", usingBlueprints.utilsGetProperty(""baz""));
+    }
+",UsingBlueprintsTest::testUtilsGetProperty_String_3_oe
+weav_42_1,"    @Test
+    public void testUtilsGetProperty_int_String_1_oe() {
+        assertEquals(""foo-value"", usingBlueprints.utilsGetProperty(2, ""foo""));
+    }
+",UsingBlueprintsTest::testUtilsGetProperty_int_String_1_oe
+weav_42_2,"    @Test
+    public void testUtilsGetProperty_int_String_2_oe() {
+        // removed other assertion
+        assertEquals(""bar-value"", usingBlueprints.utilsGetProperty(2, ""bar""));
+    }
+",UsingBlueprintsTest::testUtilsGetProperty_int_String_2_oe
+weav_42_3,"    @Test
+    public void testUtilsGetProperty_int_String_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""baz-value"", usingBlueprints.utilsGetProperty(2, ""baz""));
+    }
+",UsingBlueprintsTest::testUtilsGetProperty_int_String_3_oe
+weav_43_1,"    @Test
+    public void testMoreGetProperty_1_oe() {
+        assertEquals(""bar-value"", usingBlueprints.moreGetProperty());
+    }
+",UsingBlueprintsTest::testMoreGetProperty_1_oe
+weav_44_1,"    @Test
+    public void testMoreGetTopStackElementClassName_1_oe() {
+        assumeTrue(StringUtils.containsIgnoreCase(SystemUtils.JAVA_VENDOR, ""oracle""));
+        assertEquals(Utils.More.class.getName(), usingBlueprints.moreGetTopStackElementClassName());
+    }
+",UsingBlueprintsTest::testMoreGetTopStackElementClassName_1_oe
+weav_45_1,"    @Test
+    public void testNoArgs_1_oe() {
+        assertEquals(""foo-value"", overloading.get());
+    }
+",OverloadingTest::testNoArgs_1_oe
+weav_46_1,"    @Test
+    public void testStringArg_1_oe() {
+        assertEquals(""bar-value"", overloading.get(""bar""));
+    }
+",OverloadingTest::testStringArg_1_oe
+weav_47_1,"    @Test
+    public void testCharishArgs_1_oe() {
+        assertEquals(""baz-value"", overloading.get('b', 'a', (short) 'z'));
+    }
+",OverloadingTest::testCharishArgs_1_oe
+weav_48_1,"    @Test
+    public void testNoArgs_1_oe() {
+        assertEquals(""foo-value"", StaticOverloading.get());
+    }
+",StaticOverloadingTest::testNoArgs_1_oe
+weav_49_1,"    @Test
+    public void testStringArg_1_oe() {
+        assertEquals(""bar-value"", StaticOverloading.get(""bar""));
+    }
+",StaticOverloadingTest::testStringArg_1_oe
+weav_50_1,"    @Test
+    public void testCharishArgs_1_oe() {
+        assertEquals(""baz-value"", StaticOverloading.get('b', 'a', (short) 'z'));
+    }
+",StaticOverloadingTest::testCharishArgs_1_oe
+weav_left_11_1,"@Test
+    public void testParseTypes_1_oe() {
+        assertContainsInOrder(Utils.parseTypes("" java.lang.Number "", getClass().getClassLoader()), Number.class);
+    }
+",UtilsTest::testParseTypes_1_oe
+weav_left_11_2,"@Test
+    public void testParseTypes_2_oe() {
+        // removed other assertion
+        assertContainsInOrder( Utils.parseTypes(""java.lang.Number,java.lang.String,java.util.Map"", getClass().getClassLoader()), Number.class, String.class, Map.class);
+    }
+",UtilsTest::testParseTypes_2_oe
+weav_left_11_3,"@Test
+    public void testParseTypes_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertContainsInOrder( Utils.parseTypes(""java.lang.Number, java.lang.String, java.util.Map"", getClass().getClassLoader()), Number.class, String.class, Map.class);
+    }
+",UtilsTest::testParseTypes_3_oe
+weav_left_11_4,"@Test
+    public void testParseTypes_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertContainsInOrder( Utils.parseTypes(""java/lang/Number, java/lang/String, java/util/Map"", getClass().getClassLoader()), Number.class, String.class, Map.class);
+    }
+",UtilsTest::testParseTypes_4_oe
+weav_left_11_5,"@Test
+    public void testParseTypes_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertContainsInOrder( Utils.parseTypes(""java.lang.Number,\njava.lang.String,\njava.util.Map"", getClass().getClassLoader()), Number.class, String.class, Map.class);
+    }
+",UtilsTest::testParseTypes_5_oe

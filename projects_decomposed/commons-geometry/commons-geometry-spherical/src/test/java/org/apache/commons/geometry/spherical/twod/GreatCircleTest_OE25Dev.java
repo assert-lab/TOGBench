@@ -3139,4 +3139,40 @@ class GreatCircleTest_OE25Dev {
         Assertions.assertEquals(e, a);
     }
 
+@Test
+    void testFromPoints_invalidPoints_1_oe() {
+        // arrange
+        final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
+        final Point2S p2 = Point2S.of(Math.PI, Angle.PI_OVER_TWO);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { GreatCircles.fromPoints(p1, p1, TEST_PRECISION); }, IllegalArgumentException.class, Pattern.compile("^.*points are equal$"));
+    }
+
+@Test
+    void testFromPoints_invalidPoints_2_oe() {
+        // arrange
+        final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
+        final Point2S p2 = Point2S.of(Math.PI, Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { GreatCircles.fromPoints(p1, Point2S.of(1e-12, Angle.PI_OVER_TWO), TEST_PRECISION); }, IllegalArgumentException.class, Pattern.compile("^.*points are equal$"));
+    }
+
+@Test
+    void testFromPoints_invalidPoints_3_oe() {
+        // arrange
+        final Point2S p1 = Point2S.of(0, Angle.PI_OVER_TWO);
+        final Point2S p2 = Point2S.of(Math.PI, Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { GreatCircles.fromPoints( Point2S.from(Vector3D.Unit.PLUS_X), Point2S.from(Vector3D.Unit.MINUS_X), TEST_PRECISION); }, IllegalArgumentException.class, Pattern.compile("^.*points are antipodal$"));
+    }
+
 }

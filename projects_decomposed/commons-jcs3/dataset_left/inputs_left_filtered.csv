@@ -1,0 +1,3686 @@
+id,test_prefix,test_name
+jcs3_left_1_1,"public void runTestForRegion_1_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            assertEquals( region + "" data "" + i, value );
+}
+}
+",TestTCPLateralCache::runTestForRegion_1_oe
+jcs3_left_1_2,"public void runTestForRegion_2_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Remove all the items
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.remove( i + "":key"" );
+        }
+
+        // Verify removal
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            assertNull( ""Removed key should be null: "" + i + "":key"", jcs.get( i + "":key"" ) );
+}
+}
+",TestTCPLateralCache::runTestForRegion_2_oe
+jcs3_left_9_1,"public void runTestPutThenRemoveCategorical_1_oe( final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( ""testCache1"" );
+
+        for ( int i = start; i <= end; i++ )
+        {
+            jcs.put( i + "":key"", ""data"" + i );
+        }
+
+        for ( int i = end; i >= start; i-- )
+        {
+            final String res = jcs.get( i + "":key"" );
+            assertNotNull( ""["" + i + "":key] should not be null"", res );
+}
+}
+",RemovalTestUtil::runTestPutThenRemoveCategorical_1_oe
+jcs3_left_9_2,"public void runTestPutThenRemoveCategorical_2_oe( final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( ""testCache1"" );
+
+        for ( int i = start; i <= end; i++ )
+        {
+            jcs.put( i + "":key"", ""data"" + i );
+        }
+
+        for ( int i = end; i >= start; i-- )
+        {
+            final String res = jcs.get( i + "":key"" );
+            // removed other assertion
+        }
+
+        for ( int i = start; i <= end; i++ )
+        {
+            jcs.remove( i + "":"" );
+            assertNull( jcs.get( i + "":key"" ) );
+}
+}
+",RemovalTestUtil::runTestPutThenRemoveCategorical_2_oe
+jcs3_left_10_1,"public void runPutInRange_1_oe( final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( ""testCache1"" );
+
+        for ( int i = start; i <= end; i++ )
+        {
+            jcs.put( i + "":key"", ""data"" + i );
+        }
+
+        for ( int i = end; i >= start; i-- )
+        {
+            final String res = jcs.get( i + "":key"" );
+            assertNotNull( ""["" + i + "":key] should not be null"", res );
+}
+}
+",RemovalTestUtil::runPutInRange_1_oe
+jcs3_left_11_1,"public void runGetInRange_1_oe( final int start, final int end, final boolean check )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( ""testCache1"" );
+
+        // don't care if they are found
+        for ( int i = end; i >= start; i-- )
+        {
+            final String res = jcs.get( i + "":key"" );
+            if ( check )
+            {
+                assertNotNull( ""["" + i + "":key] should not be null"", res );
+}
+}
+}
+",RemovalTestUtil::runGetInRange_1_oe
+jcs3_left_26_1,"public void runPutTest_1_oe( final int end, final int expectedPutCount )
+        throws Exception
+    {
+        for ( int i = 0; i <= end; i++ )
+        {
+            final CacheElement<String, String> elem = new CacheElement<>( ""testCache1"", i + "":key"", i + ""data"" );
+            queue.addPutEvent( elem );
+        }
+
+        while ( !queue.isEmpty() )
+        {
+            synchronized ( this )
+            {
+                System.out.println( ""queue is still busy, waiting 250 millis"" );
+                this.wait( 250 );
+            }
+        }
+        System.out.println( ""queue is empty, comparing putCount"" );
+
+        // this becomes less accurate with each test. It should never fail. If
+        // it does things are very off.
+        assertTrue(""The put count ["" + listen.putCount + ""] is below the expected minimum threshold ["" + expectedPutCount + ""]"",listen.putCount >=(expectedPutCount - 1));
+}
+",EventQueueConcurrentLoadTest::runPutTest_1_oe
+jcs3_left_27_1,"public void runPutDelayTest_1_oe( final int end, final int expectedPutCount )
+        throws Exception
+    {
+        while ( !queue.isEmpty() )
+        {
+            synchronized ( this )
+            {
+                System.out.println( ""queue is busy, waiting 250 millis to begin"" );
+                this.wait( 250 );
+            }
+        }
+        System.out.println( ""queue is empty, begin"" );
+
+        // get it going
+        final CacheElement<String, String> elem = new CacheElement<>( ""testCache1"", ""a:key"", ""adata"" );
+        queue.addPutEvent( elem );
+
+        for ( int i = 0; i <= end; i++ )
+        {
+            synchronized ( this )
+            {
+                if ( i % 2 == 0 )
+                {
+                    this.wait( idleTime );
+                }
+                else
+                {
+                    this.wait( idleTime / 2 );
+                }
+            }
+            final CacheElement<String, String> elem2 = new CacheElement<>( ""testCache1"", i + "":key"", i + ""data"" );
+            queue.addPutEvent( elem2 );
+        }
+
+        while ( !queue.isEmpty() )
+        {
+            synchronized ( this )
+            {
+                System.out.println( ""queue is still busy, waiting 250 millis"" );
+                this.wait( 250 );
+            }
+        }
+        System.out.println( ""queue is empty, comparing putCount"" );
+
+        Thread.sleep( 1000 );
+
+        // this becomes less accurate with each test. It should never fail. If
+        // it does things are very off.
+        assertTrue(""The put count ["" + listen.putCount + ""] is below the expected minimum threshold ["" + expectedPutCount + ""]"",listen.putCount >=(expectedPutCount - 1));
+}
+",EventQueueConcurrentLoadTest::runPutDelayTest_1_oe
+jcs3_left_104_1,"public void runTestForRegion_1_oe( final String region )
+        throws Exception
+    {
+        final CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
+        cacheMgr.configure( ""/TestDiskCache.ccf"" );
+        final CompositeCache<String, String> cache = cacheMgr.getCache( region );
+
+        final LRUMemoryCache<String, String> lru = new LRUMemoryCache<>();
+        lru.initialize( cache );
+
+        // Add items to cache
+
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> ice = new CacheElement<>( cache.getCacheName(), i + "":key"", region + "" data "" + i );
+            ice.setElementAttributes( cache.getElementAttributes() );
+            lru.update( ice );
+        }
+
+        // Test that initial items have been purged
+        for ( int i = 0; i < 100; i++ )
+        {
+            assertNull( ""Should not have "" + i + "":key"", lru.get( i + "":key"" ) );
+}
+}
+",LRUMemoryCacheConcurrentUnitTest::runTestForRegion_1_oe
+jcs3_left_104_2,"public void runTestForRegion_2_oe( final String region )
+        throws Exception
+    {
+        final CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
+        cacheMgr.configure( ""/TestDiskCache.ccf"" );
+        final CompositeCache<String, String> cache = cacheMgr.getCache( region );
+
+        final LRUMemoryCache<String, String> lru = new LRUMemoryCache<>();
+        lru.initialize( cache );
+
+        // Add items to cache
+
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> ice = new CacheElement<>( cache.getCacheName(), i + "":key"", region + "" data "" + i );
+            ice.setElementAttributes( cache.getElementAttributes() );
+            lru.update( ice );
+        }
+
+        // Test that initial items have been purged
+        for ( int i = 0; i < 100; i++ )
+        {
+            // removed other assertion
+        }
+
+        // Test that last items are in cache
+        for ( int i = 100; i < items; i++ )
+        {
+            final String value = lru.get( i + "":key"" ).getVal();
+            assertEquals( region + "" data "" + i, value );
+}
+}
+",LRUMemoryCacheConcurrentUnitTest::runTestForRegion_2_oe
+jcs3_left_104_3,"public void runTestForRegion_3_oe( final String region )
+        throws Exception
+    {
+        final CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
+        cacheMgr.configure( ""/TestDiskCache.ccf"" );
+        final CompositeCache<String, String> cache = cacheMgr.getCache( region );
+
+        final LRUMemoryCache<String, String> lru = new LRUMemoryCache<>();
+        lru.initialize( cache );
+
+        // Add items to cache
+
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> ice = new CacheElement<>( cache.getCacheName(), i + "":key"", region + "" data "" + i );
+            ice.setElementAttributes( cache.getElementAttributes() );
+            lru.update( ice );
+        }
+
+        // Test that initial items have been purged
+        for ( int i = 0; i < 100; i++ )
+        {
+            // removed other assertion
+        }
+
+        // Test that last items are in cache
+        for ( int i = 100; i < items; i++ )
+        {
+            final String value = lru.get( i + "":key"" ).getVal();
+            // removed other assertion
+        }
+
+        // Test that getMultiple returns all the items remaining in cache and none of the missing ones
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = lru.getMultiple( keys );
+        for ( int i = 0; i < 100; i++ )
+        {
+            assertNull( ""Should not have "" + i + "":key"", elements.get( i + "":key"" ) );
+}
+}
+",LRUMemoryCacheConcurrentUnitTest::runTestForRegion_3_oe
+jcs3_left_104_4,"public void runTestForRegion_4_oe( final String region )
+        throws Exception
+    {
+        final CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
+        cacheMgr.configure( ""/TestDiskCache.ccf"" );
+        final CompositeCache<String, String> cache = cacheMgr.getCache( region );
+
+        final LRUMemoryCache<String, String> lru = new LRUMemoryCache<>();
+        lru.initialize( cache );
+
+        // Add items to cache
+
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> ice = new CacheElement<>( cache.getCacheName(), i + "":key"", region + "" data "" + i );
+            ice.setElementAttributes( cache.getElementAttributes() );
+            lru.update( ice );
+        }
+
+        // Test that initial items have been purged
+        for ( int i = 0; i < 100; i++ )
+        {
+            // removed other assertion
+        }
+
+        // Test that last items are in cache
+        for ( int i = 100; i < items; i++ )
+        {
+            final String value = lru.get( i + "":key"" ).getVal();
+            // removed other assertion
+        }
+
+        // Test that getMultiple returns all the items remaining in cache and none of the missing ones
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = lru.getMultiple( keys );
+        for ( int i = 0; i < 100; i++ )
+        {
+            // removed other assertion
+        }
+        for ( int i = 100; i < items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            assertNotNull( ""element "" + i + "":key is missing"", element );
+}
+}
+",LRUMemoryCacheConcurrentUnitTest::runTestForRegion_4_oe
+jcs3_left_104_5,"public void runTestForRegion_5_oe( final String region )
+        throws Exception
+    {
+        final CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
+        cacheMgr.configure( ""/TestDiskCache.ccf"" );
+        final CompositeCache<String, String> cache = cacheMgr.getCache( region );
+
+        final LRUMemoryCache<String, String> lru = new LRUMemoryCache<>();
+        lru.initialize( cache );
+
+        // Add items to cache
+
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> ice = new CacheElement<>( cache.getCacheName(), i + "":key"", region + "" data "" + i );
+            ice.setElementAttributes( cache.getElementAttributes() );
+            lru.update( ice );
+        }
+
+        // Test that initial items have been purged
+        for ( int i = 0; i < 100; i++ )
+        {
+            // removed other assertion
+        }
+
+        // Test that last items are in cache
+        for ( int i = 100; i < items; i++ )
+        {
+            final String value = lru.get( i + "":key"" ).getVal();
+            // removed other assertion
+        }
+
+        // Test that getMultiple returns all the items remaining in cache and none of the missing ones
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = lru.getMultiple( keys );
+        for ( int i = 0; i < 100; i++ )
+        {
+            // removed other assertion
+        }
+        for ( int i = 100; i < items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            assertEquals( ""value "" + i + "":key"", region + "" data "" + i, element.getVal() );
+}
+}
+",LRUMemoryCacheConcurrentUnitTest::runTestForRegion_5_oe
+jcs3_left_104_6,"public void runTestForRegion_6_oe( final String region )
+        throws Exception
+    {
+        final CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
+        cacheMgr.configure( ""/TestDiskCache.ccf"" );
+        final CompositeCache<String, String> cache = cacheMgr.getCache( region );
+
+        final LRUMemoryCache<String, String> lru = new LRUMemoryCache<>();
+        lru.initialize( cache );
+
+        // Add items to cache
+
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> ice = new CacheElement<>( cache.getCacheName(), i + "":key"", region + "" data "" + i );
+            ice.setElementAttributes( cache.getElementAttributes() );
+            lru.update( ice );
+        }
+
+        // Test that initial items have been purged
+        for ( int i = 0; i < 100; i++ )
+        {
+            // removed other assertion
+        }
+
+        // Test that last items are in cache
+        for ( int i = 100; i < items; i++ )
+        {
+            final String value = lru.get( i + "":key"" ).getVal();
+            // removed other assertion
+        }
+
+        // Test that getMultiple returns all the items remaining in cache and none of the missing ones
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = lru.getMultiple( keys );
+        for ( int i = 0; i < 100; i++ )
+        {
+            // removed other assertion
+        }
+        for ( int i = 100; i < items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Remove all the items
+        for ( int i = 0; i < items; i++ )
+        {
+            lru.remove( i + "":key"" );
+        }
+
+        // Verify removal
+        for ( int i = 0; i < items; i++ )
+        {
+            assertNull( ""Removed key should be null: "" + i + "":key"", lru.get( i + "":key"" ) );
+}
+}
+",LRUMemoryCacheConcurrentUnitTest::runTestForRegion_6_oe
+jcs3_left_113_1,"public void runTestForRegion_1_oe( final String region )
+        throws Exception
+    {
+        final CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
+        cacheMgr.configure( ""/TestLHMLRUCache.ccf"" );
+        final CompositeCache<String, String> cache = cacheMgr.getCache( region );
+
+        final LRUMemoryCache<String, String> lru = new LRUMemoryCache<>();
+        lru.initialize( cache );
+
+        // Add items to cache
+
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> ice = new CacheElement<>( cache.getCacheName(), i + "":key"", region + "" data "" + i );
+            ice.setElementAttributes( cache.getElementAttributes() );
+            lru.update( ice );
+        }
+
+        // Test that initial items have been purged
+        for ( int i = 0; i < 100; i++ )
+        {
+            assertNull( ""Should not have "" + i + "":key"", lru.get( i + "":key"" ) );
+}
+}
+",LHMLRUMemoryCacheConcurrentUnitTest::runTestForRegion_1_oe
+jcs3_left_113_2,"public void runTestForRegion_2_oe( final String region )
+        throws Exception
+    {
+        final CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
+        cacheMgr.configure( ""/TestLHMLRUCache.ccf"" );
+        final CompositeCache<String, String> cache = cacheMgr.getCache( region );
+
+        final LRUMemoryCache<String, String> lru = new LRUMemoryCache<>();
+        lru.initialize( cache );
+
+        // Add items to cache
+
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> ice = new CacheElement<>( cache.getCacheName(), i + "":key"", region + "" data "" + i );
+            ice.setElementAttributes( cache.getElementAttributes() );
+            lru.update( ice );
+        }
+
+        // Test that initial items have been purged
+        for ( int i = 0; i < 100; i++ )
+        {
+            // removed other assertion
+        }
+
+        // Test that last items are in cache
+        for ( int i = 100; i < items; i++ )
+        {
+            final String value = lru.get( i + "":key"" ).getVal();
+            assertEquals( region + "" data "" + i, value );
+}
+}
+",LHMLRUMemoryCacheConcurrentUnitTest::runTestForRegion_2_oe
+jcs3_left_113_3,"public void runTestForRegion_3_oe( final String region )
+        throws Exception
+    {
+        final CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
+        cacheMgr.configure( ""/TestLHMLRUCache.ccf"" );
+        final CompositeCache<String, String> cache = cacheMgr.getCache( region );
+
+        final LRUMemoryCache<String, String> lru = new LRUMemoryCache<>();
+        lru.initialize( cache );
+
+        // Add items to cache
+
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> ice = new CacheElement<>( cache.getCacheName(), i + "":key"", region + "" data "" + i );
+            ice.setElementAttributes( cache.getElementAttributes() );
+            lru.update( ice );
+        }
+
+        // Test that initial items have been purged
+        for ( int i = 0; i < 100; i++ )
+        {
+            // removed other assertion
+        }
+
+        // Test that last items are in cache
+        for ( int i = 100; i < items; i++ )
+        {
+            final String value = lru.get( i + "":key"" ).getVal();
+            // removed other assertion
+        }
+
+        // Test that getMultiple returns all the items remaining in cache and none of the missing ones
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = lru.getMultiple( keys );
+        for ( int i = 0; i < 100; i++ )
+        {
+            assertNull( ""Should not have "" + i + "":key"", elements.get( i + "":key"" ) );
+}
+}
+",LHMLRUMemoryCacheConcurrentUnitTest::runTestForRegion_3_oe
+jcs3_left_113_4,"public void runTestForRegion_4_oe( final String region )
+        throws Exception
+    {
+        final CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
+        cacheMgr.configure( ""/TestLHMLRUCache.ccf"" );
+        final CompositeCache<String, String> cache = cacheMgr.getCache( region );
+
+        final LRUMemoryCache<String, String> lru = new LRUMemoryCache<>();
+        lru.initialize( cache );
+
+        // Add items to cache
+
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> ice = new CacheElement<>( cache.getCacheName(), i + "":key"", region + "" data "" + i );
+            ice.setElementAttributes( cache.getElementAttributes() );
+            lru.update( ice );
+        }
+
+        // Test that initial items have been purged
+        for ( int i = 0; i < 100; i++ )
+        {
+            // removed other assertion
+        }
+
+        // Test that last items are in cache
+        for ( int i = 100; i < items; i++ )
+        {
+            final String value = lru.get( i + "":key"" ).getVal();
+            // removed other assertion
+        }
+
+        // Test that getMultiple returns all the items remaining in cache and none of the missing ones
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = lru.getMultiple( keys );
+        for ( int i = 0; i < 100; i++ )
+        {
+            // removed other assertion
+        }
+        for ( int i = 100; i < items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            assertNotNull( ""element "" + i + "":key is missing"", element );
+}
+}
+",LHMLRUMemoryCacheConcurrentUnitTest::runTestForRegion_4_oe
+jcs3_left_113_5,"public void runTestForRegion_5_oe( final String region )
+        throws Exception
+    {
+        final CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
+        cacheMgr.configure( ""/TestLHMLRUCache.ccf"" );
+        final CompositeCache<String, String> cache = cacheMgr.getCache( region );
+
+        final LRUMemoryCache<String, String> lru = new LRUMemoryCache<>();
+        lru.initialize( cache );
+
+        // Add items to cache
+
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> ice = new CacheElement<>( cache.getCacheName(), i + "":key"", region + "" data "" + i );
+            ice.setElementAttributes( cache.getElementAttributes() );
+            lru.update( ice );
+        }
+
+        // Test that initial items have been purged
+        for ( int i = 0; i < 100; i++ )
+        {
+            // removed other assertion
+        }
+
+        // Test that last items are in cache
+        for ( int i = 100; i < items; i++ )
+        {
+            final String value = lru.get( i + "":key"" ).getVal();
+            // removed other assertion
+        }
+
+        // Test that getMultiple returns all the items remaining in cache and none of the missing ones
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = lru.getMultiple( keys );
+        for ( int i = 0; i < 100; i++ )
+        {
+            // removed other assertion
+        }
+        for ( int i = 100; i < items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            assertEquals( ""value "" + i + "":key"", region + "" data "" + i, element.getVal() );
+}
+}
+",LHMLRUMemoryCacheConcurrentUnitTest::runTestForRegion_5_oe
+jcs3_left_113_6,"public void runTestForRegion_6_oe( final String region )
+        throws Exception
+    {
+        final CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
+        cacheMgr.configure( ""/TestLHMLRUCache.ccf"" );
+        final CompositeCache<String, String> cache = cacheMgr.getCache( region );
+
+        final LRUMemoryCache<String, String> lru = new LRUMemoryCache<>();
+        lru.initialize( cache );
+
+        // Add items to cache
+
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> ice = new CacheElement<>( cache.getCacheName(), i + "":key"", region + "" data "" + i );
+            ice.setElementAttributes( cache.getElementAttributes() );
+            lru.update( ice );
+        }
+
+        // Test that initial items have been purged
+        for ( int i = 0; i < 100; i++ )
+        {
+            // removed other assertion
+        }
+
+        // Test that last items are in cache
+        for ( int i = 100; i < items; i++ )
+        {
+            final String value = lru.get( i + "":key"" ).getVal();
+            // removed other assertion
+        }
+
+        // Test that getMultiple returns all the items remaining in cache and none of the missing ones
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = lru.getMultiple( keys );
+        for ( int i = 0; i < 100; i++ )
+        {
+            // removed other assertion
+        }
+        for ( int i = 100; i < items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Remove all the items
+
+        for ( int i = 0; i < items; i++ )
+        {
+            lru.remove( i + "":key"" );
+        }
+
+        // Verify removal
+
+        for ( int i = 0; i < items; i++ )
+        {
+            assertNull( ""Removed key should be null: "" + i + "":key"", lru.get( i + "":key"" ) );
+}
+}
+",LHMLRUMemoryCacheConcurrentUnitTest::runTestForRegion_6_oe
+jcs3_left_148_1,"public void runConcurrentPutGetTests_1_oe( final LRUMap<String, String> map, final int items )
+        throws Exception
+    {
+        for ( int i = 0; i < items; i++ )
+        {
+            map.put( i + "":key"", ""data"" + i );
+        }
+
+        for ( int i = items - 1; i >= 0; i-- )
+        {
+            final String res = map.get( i + "":key"" );
+            assertNotNull( ""["" + i + "":key] should not be null"", res );
+}
+}
+",LRUMapConcurrentUnitTest::runConcurrentPutGetTests_1_oe
+jcs3_left_149_1,"public void runConcurrentRangeTests_1_oe( final LRUMap<String, String> map, final int start, final int end )
+        throws Exception
+    {
+        for ( int i = start; i < end; i++ )
+        {
+            map.put( i + "":key"", ""data"" + i );
+        }
+
+        for ( int i = end - 1; i >= start; i-- )
+        {
+            final String res = map.get( i + "":key"" );
+            assertNotNull( ""["" + i + "":key] should not be null"", res );
+}
+}
+",LRUMapConcurrentUnitTest::runConcurrentRangeTests_1_oe
+jcs3_left_149_2,"public void runConcurrentRangeTests_2_oe( final LRUMap<String, String> map, final int start, final int end )
+        throws Exception
+    {
+        for ( int i = start; i < end; i++ )
+        {
+            map.put( i + "":key"", ""data"" + i );
+        }
+
+        for ( int i = end - 1; i >= start; i-- )
+        {
+            final String res = map.get( i + "":key"" );
+            // removed other assertion
+        }
+
+        // test removal
+        map.remove( start + "":key"" );
+        assertNull( map.get( start + "":key"" ) );
+}
+",LRUMapConcurrentUnitTest::runConcurrentRangeTests_2_oe
+jcs3_left_164_1,"public final void testDecompressByteArray_failure_1_oe()
+    {
+        try
+        {
+            // DO WORK
+            CompressionUtil.decompressByteArray( null );
+
+            // VERIFY
+            fail( ""excepted an IllegalArgumentException"" );
+}
+}
+",CompressionUtilUnitTest::testDecompressByteArray_failure_1_oe
+jcs3_left_171_1,"private void simpleUDPDiscovery_1_oe(String discoveryAddress)
+        throws Exception
+    {
+        final UDPDiscoveryAttributes attributes = new UDPDiscoveryAttributes();
+        attributes.setUdpDiscoveryAddr(discoveryAddress);
+        attributes.setUdpDiscoveryPort(6789);
+        attributes.setServicePort(1000);
+        attributes.setUdpTTL(4); /* datagram TTL */
+
+        // create the service
+        final UDPDiscoveryService service = new UDPDiscoveryService(attributes, new StandardSerializer());
+        service.startup();
+        service.addParticipatingCacheName( ""testCache1"" );
+
+        final MockDiscoveryListener discoveryListener = new MockDiscoveryListener();
+        service.addDiscoveryListener( discoveryListener );
+
+        // create a receiver with the service
+        final UDPDiscoveryReceiver receiver = new UDPDiscoveryReceiver( service,
+                null,
+                attributes.getUdpDiscoveryAddr(),
+                attributes.getUdpDiscoveryPort() );
+        final Thread t = new Thread( receiver );
+        t.start();
+
+        // create a sender
+        try (final UDPDiscoverySender sender = new UDPDiscoverySender(
+                attributes, service.getSerializer()))
+        {
+            // create more names than we have no wait facades for
+            // the only one that gets added should be testCache1
+            final ArrayList<String> cacheNames = new ArrayList<>();
+            final int numJunk = 10;
+            for ( int i = 0; i < numJunk; i++ )
+            {
+                cacheNames.add( ""junkCacheName"" + i );
+            }
+            cacheNames.add( ""testCache1"" );
+
+            // send max messages
+            final int max = 10;
+            int cnt = 0;
+            for ( ; cnt < max; cnt++ )
+            {
+                sender.passiveBroadcast( ""localhost"", 1111, cacheNames, 1 );
+                SleepUtil.sleepAtLeast( 20 );
+            }
+
+            SleepUtil.sleepAtLeast( 200 );
+
+            // check to see that we got 10 messages
+            //System.out.println( ""Receiver count = "" + receiver.getCnt() );
+
+            // request braodcasts change things.
+            assertTrue(""Receiver count ["" + receiver.getCnt()+ ""] should be the at least the number sent ["" + cnt + ""]."",cnt <= receiver.getCnt());
+}
+}
+",UDPDiscoveryUnitTest::simpleUDPDiscovery_1_oe
+jcs3_left_223_1,"public void runTestForRegion_1_oe( final String region, final int range, final int numOps, final int testNum )
+        throws Exception
+    {
+        final CacheAccess<String, String> cache = JCS.getInstance( region );
+
+        Thread.sleep( 100 );
+
+        final TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
+        lattr2.setTcpListenerPort( 1102 );
+        lattr2.setTransmissionType(LateralCacheAttributes.Type.TCP);
+        lattr2.setTcpServer( ""localhost:"" + serverPort );
+        lattr2.setIssueRemoveOnPut( true );
+        // should still try to remove
+        lattr2.setAllowPut( false );
+
+        // Using the lateral, this service will put to and remove from
+        // the cache instance above.
+        // The cache thinks it is different since the listenerid is different
+        final LateralTCPService<String, String> service =
+                new LateralTCPService<>( lattr2,  new StandardSerializer());
+        service.setListenerId( 123456 );
+
+        final String keyToBeRemovedOnPut = ""test1"";
+        cache.put( keyToBeRemovedOnPut, ""this should get removed."" );
+
+        final ICacheElement<String, String> element1 = new CacheElement<>( region, keyToBeRemovedOnPut, region
+            + "":data-this shouldn't get there"" );
+        service.update( element1 );
+
+        try
+        {
+            for ( int i = 1; i < numOps; i++ )
+            {
+                final Random ran = new Random( i );
+                final int n = ran.nextInt( 4 );
+                final int kn = ran.nextInt( range );
+                final String key = ""key"" + kn;
+
+                final ICacheElement<String, String> element = new CacheElement<>( region, key, region + "":data"" + i
+                    + "" junk asdfffffffadfasdfasf "" + kn + "":"" + n );
+                service.update( element );
+                p(""put "" + key);
+
+                if (i % 100 == 0)
+                {
+                    p(cache.getStats());
+                }
+
+            }
+            p(""Finished cycle of "" + numOps);
+        }
+        catch ( final Exception e )
+        {
+            p( e.toString() );
+            throw e;
+        }
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final String key = ""testKey"" + testNum;
+        final String data = ""testData"" + testNum;
+        jcs.put( key, data );
+        final String value = jcs.get( key );
+        assertEquals( ""Couldn't put normally."", data, value );
+}
+",LateralTCPIssueRemoveOnPutUnitTest::runTestForRegion_1_oe
+jcs3_left_223_2,"public void runTestForRegion_2_oe( final String region, final int range, final int numOps, final int testNum )
+        throws Exception
+    {
+        final CacheAccess<String, String> cache = JCS.getInstance( region );
+
+        Thread.sleep( 100 );
+
+        final TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
+        lattr2.setTcpListenerPort( 1102 );
+        lattr2.setTransmissionType(LateralCacheAttributes.Type.TCP);
+        lattr2.setTcpServer( ""localhost:"" + serverPort );
+        lattr2.setIssueRemoveOnPut( true );
+        // should still try to remove
+        lattr2.setAllowPut( false );
+
+        // Using the lateral, this service will put to and remove from
+        // the cache instance above.
+        // The cache thinks it is different since the listenerid is different
+        final LateralTCPService<String, String> service =
+                new LateralTCPService<>( lattr2,  new StandardSerializer());
+        service.setListenerId( 123456 );
+
+        final String keyToBeRemovedOnPut = ""test1"";
+        cache.put( keyToBeRemovedOnPut, ""this should get removed."" );
+
+        final ICacheElement<String, String> element1 = new CacheElement<>( region, keyToBeRemovedOnPut, region
+            + "":data-this shouldn't get there"" );
+        service.update( element1 );
+
+        try
+        {
+            for ( int i = 1; i < numOps; i++ )
+            {
+                final Random ran = new Random( i );
+                final int n = ran.nextInt( 4 );
+                final int kn = ran.nextInt( range );
+                final String key = ""key"" + kn;
+
+                final ICacheElement<String, String> element = new CacheElement<>( region, key, region + "":data"" + i
+                    + "" junk asdfffffffadfasdfasf "" + kn + "":"" + n );
+                service.update( element );
+                p(""put "" + key);
+
+                if (i % 100 == 0)
+                {
+                    p(cache.getStats());
+                }
+
+            }
+            p(""Finished cycle of "" + numOps);
+        }
+        catch ( final Exception e )
+        {
+            p( e.toString() );
+            throw e;
+        }
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final String key = ""testKey"" + testNum;
+        final String data = ""testData"" + testNum;
+        jcs.put( key, data );
+        final String value = jcs.get( key );
+        // removed other assertion
+
+        // make sure the items we can find are in the correct region.
+        for ( int i = 1; i < numOps; i++ )
+        {
+            final String keyL = ""key"" + i;
+            final String dataL = jcs.get( keyL );
+            if ( dataL != null )
+            {
+                assertTrue( ""Incorrect region detected."", dataL.startsWith( region ) );
+}
+}
+}
+",LateralTCPIssueRemoveOnPutUnitTest::runTestForRegion_2_oe
+jcs3_left_223_3,"public void runTestForRegion_3_oe( final String region, final int range, final int numOps, final int testNum )
+        throws Exception
+    {
+        final CacheAccess<String, String> cache = JCS.getInstance( region );
+
+        Thread.sleep( 100 );
+
+        final TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
+        lattr2.setTcpListenerPort( 1102 );
+        lattr2.setTransmissionType(LateralCacheAttributes.Type.TCP);
+        lattr2.setTcpServer( ""localhost:"" + serverPort );
+        lattr2.setIssueRemoveOnPut( true );
+        // should still try to remove
+        lattr2.setAllowPut( false );
+
+        // Using the lateral, this service will put to and remove from
+        // the cache instance above.
+        // The cache thinks it is different since the listenerid is different
+        final LateralTCPService<String, String> service =
+                new LateralTCPService<>( lattr2,  new StandardSerializer());
+        service.setListenerId( 123456 );
+
+        final String keyToBeRemovedOnPut = ""test1"";
+        cache.put( keyToBeRemovedOnPut, ""this should get removed."" );
+
+        final ICacheElement<String, String> element1 = new CacheElement<>( region, keyToBeRemovedOnPut, region
+            + "":data-this shouldn't get there"" );
+        service.update( element1 );
+
+        try
+        {
+            for ( int i = 1; i < numOps; i++ )
+            {
+                final Random ran = new Random( i );
+                final int n = ran.nextInt( 4 );
+                final int kn = ran.nextInt( range );
+                final String key = ""key"" + kn;
+
+                final ICacheElement<String, String> element = new CacheElement<>( region, key, region + "":data"" + i
+                    + "" junk asdfffffffadfasdfasf "" + kn + "":"" + n );
+                service.update( element );
+                p(""put "" + key);
+
+                if (i % 100 == 0)
+                {
+                    p(cache.getStats());
+                }
+
+            }
+            p(""Finished cycle of "" + numOps);
+        }
+        catch ( final Exception e )
+        {
+            p( e.toString() );
+            throw e;
+        }
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final String key = ""testKey"" + testNum;
+        final String data = ""testData"" + testNum;
+        jcs.put( key, data );
+        final String value = jcs.get( key );
+        // removed other assertion
+
+        // make sure the items we can find are in the correct region.
+        for ( int i = 1; i < numOps; i++ )
+        {
+            final String keyL = ""key"" + i;
+            final String dataL = jcs.get( keyL );
+            if ( dataL != null )
+            {
+                // removed other assertion
+            }
+
+        }
+
+        Thread.sleep( 200 );
+
+        final Object testObj = cache.get( keyToBeRemovedOnPut );
+        p( ""runTestForRegion, test object = "" + testObj );
+        assertNull( ""The test object should have been removed by a put."", testObj );
+}
+",LateralTCPIssueRemoveOnPutUnitTest::runTestForRegion_3_oe
+jcs3_left_224_1,"public void runTestForRegion_1_oe( final String region, final int range, final int numOps, final int testNum )
+        throws Exception
+    {
+        final boolean show = true;//false;
+
+        final CacheAccess<String, String> cache = JCS.getInstance( region );
+
+        final TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
+        lattr2.setTcpListenerPort( 1103 );
+        lattr2.setTransmissionType(LateralCacheAttributes.Type.TCP);
+        lattr2.setTcpServer( ""localhost:1102"" );
+
+        // this service will put and remove using the lateral to
+        // the cache instance above
+        // the cache thinks it is different since the listenerid is different
+        final LateralTCPService<String, String> service =
+                new LateralTCPService<>(lattr2,  new StandardSerializer());
+        service.setListenerId( 123456 );
+
+        try
+        {
+            for ( int i = 1; i < numOps; i++ )
+            {
+                final Random ran = new Random( i );
+                final int n = ran.nextInt( 4 );
+                final int kn = ran.nextInt( range );
+                final String key = ""key"" + kn;
+                if ( n == 1 )
+                {
+                    final ICacheElement<String, String> element = new CacheElement<>( region, key, region + "":data"" + i
+                        + "" junk asdfffffffadfasdfasf "" + kn + "":"" + n );
+                    service.update( element );
+                    if ( show )
+                    {
+                        p( ""put "" + key );
+                    }
+                }
+                /**/
+                else if ( n == 2 )
+                {
+                    service.remove( region, key );
+                    if ( show )
+                    {
+                        p( ""removed "" + key );
+                    }
+                }
+                /**/
+                else
+                {
+                    // slightly greater chance of get
+                    try
+                    {
+                        final Object obj = service.get( region, key );
+                        if ( show && obj != null )
+                        {
+                            p( obj.toString() );
+                        }
+                    }
+                    catch ( final Exception e )
+                    {
+                        // consider failing, some timeouts are expected
+                        e.printStackTrace();
+                    }
+                }
+
+                if ( i % 100 == 0 )
+                {
+                    p( cache.getStats() );
+                }
+
+            }
+            p( ""Finished random cycle of "" + numOps );
+        }
+        catch ( final Exception e )
+        {
+            p( e.toString() );
+            e.printStackTrace( System.out );
+            throw e;
+        }
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final String key = ""testKey"" + testNum;
+        final String data = ""testData"" + testNum;
+        jcs.put( key, data );
+        final String value = jcs.get( key );
+        assertEquals( ""Couldn't put normally."", data, value );
+}
+",LateralTCPConcurrentRandomTestUtil::runTestForRegion_1_oe
+jcs3_left_224_2,"public void runTestForRegion_2_oe( final String region, final int range, final int numOps, final int testNum )
+        throws Exception
+    {
+        final boolean show = true;//false;
+
+        final CacheAccess<String, String> cache = JCS.getInstance( region );
+
+        final TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
+        lattr2.setTcpListenerPort( 1103 );
+        lattr2.setTransmissionType(LateralCacheAttributes.Type.TCP);
+        lattr2.setTcpServer( ""localhost:1102"" );
+
+        // this service will put and remove using the lateral to
+        // the cache instance above
+        // the cache thinks it is different since the listenerid is different
+        final LateralTCPService<String, String> service =
+                new LateralTCPService<>(lattr2,  new StandardSerializer());
+        service.setListenerId( 123456 );
+
+        try
+        {
+            for ( int i = 1; i < numOps; i++ )
+            {
+                final Random ran = new Random( i );
+                final int n = ran.nextInt( 4 );
+                final int kn = ran.nextInt( range );
+                final String key = ""key"" + kn;
+                if ( n == 1 )
+                {
+                    final ICacheElement<String, String> element = new CacheElement<>( region, key, region + "":data"" + i
+                        + "" junk asdfffffffadfasdfasf "" + kn + "":"" + n );
+                    service.update( element );
+                    if ( show )
+                    {
+                        p( ""put "" + key );
+                    }
+                }
+                /**/
+                else if ( n == 2 )
+                {
+                    service.remove( region, key );
+                    if ( show )
+                    {
+                        p( ""removed "" + key );
+                    }
+                }
+                /**/
+                else
+                {
+                    // slightly greater chance of get
+                    try
+                    {
+                        final Object obj = service.get( region, key );
+                        if ( show && obj != null )
+                        {
+                            p( obj.toString() );
+                        }
+                    }
+                    catch ( final Exception e )
+                    {
+                        // consider failing, some timeouts are expected
+                        e.printStackTrace();
+                    }
+                }
+
+                if ( i % 100 == 0 )
+                {
+                    p( cache.getStats() );
+                }
+
+            }
+            p( ""Finished random cycle of "" + numOps );
+        }
+        catch ( final Exception e )
+        {
+            p( e.toString() );
+            e.printStackTrace( System.out );
+            throw e;
+        }
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final String key = ""testKey"" + testNum;
+        final String data = ""testData"" + testNum;
+        jcs.put( key, data );
+        final String value = jcs.get( key );
+        // removed other assertion
+
+        // make sure the items we can find are in the correct region.
+        for ( int i = 1; i < numOps; i++ )
+        {
+            final String keyL = ""key"" + i;
+            final String dataL = jcs.get( keyL );
+            if ( dataL != null )
+            {
+                assertTrue( ""Incorrect region detected."", dataL.startsWith( region ) );
+}
+}
+}
+",LateralTCPConcurrentRandomTestUtil::runTestForRegion_2_oe
+jcs3_left_232_1,"public void runTestForRegion_1_oe( final String region, final int numOps, final int testNum )
+        throws Exception
+    {
+        final CacheAccess<String, Serializable> cache = JCS.getInstance( region );
+
+        Thread.sleep( 100 );
+
+        final TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
+        lattr2.setTcpListenerPort( 1102 );
+        lattr2.setTransmissionType(LateralCacheAttributes.Type.TCP);
+        lattr2.setTcpServer( ""localhost:"" + serverPort );
+        lattr2.setIssueRemoveOnPut( true );
+        // should still try to remove
+        lattr2.setAllowPut( false );
+
+        // this service will put and remove using the lateral to
+        // the cache instance above
+        // the cache thinks it is different since the listenerid is different
+        final LateralTCPService<String, Serializable> service =
+                new LateralTCPService<>(lattr2,  new StandardSerializer());
+        service.setListenerId( 123456 );
+
+        final String keyToBeRemovedOnPut = ""test1"";
+
+        final String keyToNotBeRemovedOnPut = ""test2"";
+
+        final Serializable dataToPassHashCodeCompare = new Serializable()
+        {
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            public int hashCode()
+            {
+                return 1;
+            }
+        };
+        //String dataToPassHashCodeCompare = ""this should be the same and not
+        // get removed."";
+        //p( ""dataToPassHashCodeCompare hashcode = "" + +
+        // dataToPassHashCodeCompare.hashCode() );
+
+        cache.put( keyToBeRemovedOnPut, ""this should get removed."" );
+        final ICacheElement<String, Serializable> element1 = new CacheElement<>( region, keyToBeRemovedOnPut, region
+            + "":data-this shouldn't get there"" );
+        service.update( element1 );
+
+        cache.put( keyToNotBeRemovedOnPut, dataToPassHashCodeCompare );
+        final ICacheElement<String, Serializable> element2 = new CacheElement<>( region, keyToNotBeRemovedOnPut, dataToPassHashCodeCompare );
+        service.update( element2 );
+
+        /*
+         * try { for ( int i = 1; i < numOps; i++ ) { Random ran = new Random( i );
+         * int n = ran.nextInt( 4 ); int kn = ran.nextInt( range ); String key =
+         * ""key"" + kn;
+         *
+         * ICacheElement<String, String> element = new CacheElement( region, key, region +
+         * "":data"" + i + "" junk asdfffffffadfasdfasf "" + kn + "":"" + n );
+         * service.update( element ); if ( show ) { p( ""put "" + key ); }
+         *
+         * if ( i % 100 == 0 ) { System.out.println( cache.getStats() ); }
+         *  } p( ""Finished cycle of "" + numOps ); } catch ( Exception e ) { p(
+         * e.toString() ); e.printStackTrace( System.out ); throw e; }
+         */
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final String key = ""testKey"" + testNum;
+        final String data = ""testData"" + testNum;
+        jcs.put( key, data );
+        final String value = jcs.get( key );
+        assertEquals( ""Couldn't put normally."", data, value );
+}
+",LateralTCPFilterRemoveHashCodeUnitTest::runTestForRegion_1_oe
+jcs3_left_232_2,"public void runTestForRegion_2_oe( final String region, final int numOps, final int testNum )
+        throws Exception
+    {
+        final CacheAccess<String, Serializable> cache = JCS.getInstance( region );
+
+        Thread.sleep( 100 );
+
+        final TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
+        lattr2.setTcpListenerPort( 1102 );
+        lattr2.setTransmissionType(LateralCacheAttributes.Type.TCP);
+        lattr2.setTcpServer( ""localhost:"" + serverPort );
+        lattr2.setIssueRemoveOnPut( true );
+        // should still try to remove
+        lattr2.setAllowPut( false );
+
+        // this service will put and remove using the lateral to
+        // the cache instance above
+        // the cache thinks it is different since the listenerid is different
+        final LateralTCPService<String, Serializable> service =
+                new LateralTCPService<>(lattr2,  new StandardSerializer());
+        service.setListenerId( 123456 );
+
+        final String keyToBeRemovedOnPut = ""test1"";
+
+        final String keyToNotBeRemovedOnPut = ""test2"";
+
+        final Serializable dataToPassHashCodeCompare = new Serializable()
+        {
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            public int hashCode()
+            {
+                return 1;
+            }
+        };
+        //String dataToPassHashCodeCompare = ""this should be the same and not
+        // get removed."";
+        //p( ""dataToPassHashCodeCompare hashcode = "" + +
+        // dataToPassHashCodeCompare.hashCode() );
+
+        cache.put( keyToBeRemovedOnPut, ""this should get removed."" );
+        final ICacheElement<String, Serializable> element1 = new CacheElement<>( region, keyToBeRemovedOnPut, region
+            + "":data-this shouldn't get there"" );
+        service.update( element1 );
+
+        cache.put( keyToNotBeRemovedOnPut, dataToPassHashCodeCompare );
+        final ICacheElement<String, Serializable> element2 = new CacheElement<>( region, keyToNotBeRemovedOnPut, dataToPassHashCodeCompare );
+        service.update( element2 );
+
+        /*
+         * try { for ( int i = 1; i < numOps; i++ ) { Random ran = new Random( i );
+         * int n = ran.nextInt( 4 ); int kn = ran.nextInt( range ); String key =
+         * ""key"" + kn;
+         *
+         * ICacheElement<String, String> element = new CacheElement( region, key, region +
+         * "":data"" + i + "" junk asdfffffffadfasdfasf "" + kn + "":"" + n );
+         * service.update( element ); if ( show ) { p( ""put "" + key ); }
+         *
+         * if ( i % 100 == 0 ) { System.out.println( cache.getStats() ); }
+         *  } p( ""Finished cycle of "" + numOps ); } catch ( Exception e ) { p(
+         * e.toString() ); e.printStackTrace( System.out ); throw e; }
+         */
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final String key = ""testKey"" + testNum;
+        final String data = ""testData"" + testNum;
+        jcs.put( key, data );
+        final String value = jcs.get( key );
+        // removed other assertion
+
+        // make sure the items we can find are in the correct region.
+        for ( int i = 1; i < numOps; i++ )
+        {
+            final String keyL = ""key"" + i;
+            final String dataL = jcs.get( keyL );
+            if ( dataL != null )
+            {
+                assertTrue( ""Incorrect region detected."", dataL.startsWith( region ) );
+}
+}
+}
+",LateralTCPFilterRemoveHashCodeUnitTest::runTestForRegion_2_oe
+jcs3_left_232_3,"public void runTestForRegion_3_oe( final String region, final int numOps, final int testNum )
+        throws Exception
+    {
+        final CacheAccess<String, Serializable> cache = JCS.getInstance( region );
+
+        Thread.sleep( 100 );
+
+        final TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
+        lattr2.setTcpListenerPort( 1102 );
+        lattr2.setTransmissionType(LateralCacheAttributes.Type.TCP);
+        lattr2.setTcpServer( ""localhost:"" + serverPort );
+        lattr2.setIssueRemoveOnPut( true );
+        // should still try to remove
+        lattr2.setAllowPut( false );
+
+        // this service will put and remove using the lateral to
+        // the cache instance above
+        // the cache thinks it is different since the listenerid is different
+        final LateralTCPService<String, Serializable> service =
+                new LateralTCPService<>(lattr2,  new StandardSerializer());
+        service.setListenerId( 123456 );
+
+        final String keyToBeRemovedOnPut = ""test1"";
+
+        final String keyToNotBeRemovedOnPut = ""test2"";
+
+        final Serializable dataToPassHashCodeCompare = new Serializable()
+        {
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            public int hashCode()
+            {
+                return 1;
+            }
+        };
+        //String dataToPassHashCodeCompare = ""this should be the same and not
+        // get removed."";
+        //p( ""dataToPassHashCodeCompare hashcode = "" + +
+        // dataToPassHashCodeCompare.hashCode() );
+
+        cache.put( keyToBeRemovedOnPut, ""this should get removed."" );
+        final ICacheElement<String, Serializable> element1 = new CacheElement<>( region, keyToBeRemovedOnPut, region
+            + "":data-this shouldn't get there"" );
+        service.update( element1 );
+
+        cache.put( keyToNotBeRemovedOnPut, dataToPassHashCodeCompare );
+        final ICacheElement<String, Serializable> element2 = new CacheElement<>( region, keyToNotBeRemovedOnPut, dataToPassHashCodeCompare );
+        service.update( element2 );
+
+        /*
+         * try { for ( int i = 1; i < numOps; i++ ) { Random ran = new Random( i );
+         * int n = ran.nextInt( 4 ); int kn = ran.nextInt( range ); String key =
+         * ""key"" + kn;
+         *
+         * ICacheElement<String, String> element = new CacheElement( region, key, region +
+         * "":data"" + i + "" junk asdfffffffadfasdfasf "" + kn + "":"" + n );
+         * service.update( element ); if ( show ) { p( ""put "" + key ); }
+         *
+         * if ( i % 100 == 0 ) { System.out.println( cache.getStats() ); }
+         *  } p( ""Finished cycle of "" + numOps ); } catch ( Exception e ) { p(
+         * e.toString() ); e.printStackTrace( System.out ); throw e; }
+         */
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final String key = ""testKey"" + testNum;
+        final String data = ""testData"" + testNum;
+        jcs.put( key, data );
+        final String value = jcs.get( key );
+        // removed other assertion
+
+        // make sure the items we can find are in the correct region.
+        for ( int i = 1; i < numOps; i++ )
+        {
+            final String keyL = ""key"" + i;
+            final String dataL = jcs.get( keyL );
+            if ( dataL != null )
+            {
+                // removed other assertion
+            }
+
+        }
+
+        Thread.sleep( 200 );
+
+        final Object testObj1 = cache.get( keyToBeRemovedOnPut );
+        p( ""test object1 = "" + testObj1 );
+        assertNull( ""The test object should have been remvoed by a put."", testObj1 );
+}
+",LateralTCPFilterRemoveHashCodeUnitTest::runTestForRegion_3_oe
+jcs3_left_232_4,"public void runTestForRegion_4_oe( final String region, final int numOps, final int testNum )
+        throws Exception
+    {
+        final CacheAccess<String, Serializable> cache = JCS.getInstance( region );
+
+        Thread.sleep( 100 );
+
+        final TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
+        lattr2.setTcpListenerPort( 1102 );
+        lattr2.setTransmissionType(LateralCacheAttributes.Type.TCP);
+        lattr2.setTcpServer( ""localhost:"" + serverPort );
+        lattr2.setIssueRemoveOnPut( true );
+        // should still try to remove
+        lattr2.setAllowPut( false );
+
+        // this service will put and remove using the lateral to
+        // the cache instance above
+        // the cache thinks it is different since the listenerid is different
+        final LateralTCPService<String, Serializable> service =
+                new LateralTCPService<>(lattr2,  new StandardSerializer());
+        service.setListenerId( 123456 );
+
+        final String keyToBeRemovedOnPut = ""test1"";
+
+        final String keyToNotBeRemovedOnPut = ""test2"";
+
+        final Serializable dataToPassHashCodeCompare = new Serializable()
+        {
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            public int hashCode()
+            {
+                return 1;
+            }
+        };
+        //String dataToPassHashCodeCompare = ""this should be the same and not
+        // get removed."";
+        //p( ""dataToPassHashCodeCompare hashcode = "" + +
+        // dataToPassHashCodeCompare.hashCode() );
+
+        cache.put( keyToBeRemovedOnPut, ""this should get removed."" );
+        final ICacheElement<String, Serializable> element1 = new CacheElement<>( region, keyToBeRemovedOnPut, region
+            + "":data-this shouldn't get there"" );
+        service.update( element1 );
+
+        cache.put( keyToNotBeRemovedOnPut, dataToPassHashCodeCompare );
+        final ICacheElement<String, Serializable> element2 = new CacheElement<>( region, keyToNotBeRemovedOnPut, dataToPassHashCodeCompare );
+        service.update( element2 );
+
+        /*
+         * try { for ( int i = 1; i < numOps; i++ ) { Random ran = new Random( i );
+         * int n = ran.nextInt( 4 ); int kn = ran.nextInt( range ); String key =
+         * ""key"" + kn;
+         *
+         * ICacheElement<String, String> element = new CacheElement( region, key, region +
+         * "":data"" + i + "" junk asdfffffffadfasdfasf "" + kn + "":"" + n );
+         * service.update( element ); if ( show ) { p( ""put "" + key ); }
+         *
+         * if ( i % 100 == 0 ) { System.out.println( cache.getStats() ); }
+         *  } p( ""Finished cycle of "" + numOps ); } catch ( Exception e ) { p(
+         * e.toString() ); e.printStackTrace( System.out ); throw e; }
+         */
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final String key = ""testKey"" + testNum;
+        final String data = ""testData"" + testNum;
+        jcs.put( key, data );
+        final String value = jcs.get( key );
+        // removed other assertion
+
+        // make sure the items we can find are in the correct region.
+        for ( int i = 1; i < numOps; i++ )
+        {
+            final String keyL = ""key"" + i;
+            final String dataL = jcs.get( keyL );
+            if ( dataL != null )
+            {
+                // removed other assertion
+            }
+
+        }
+
+        Thread.sleep( 200 );
+
+        final Object testObj1 = cache.get( keyToBeRemovedOnPut );
+        p( ""test object1 = "" + testObj1 );
+        // removed other assertion
+
+        final Object testObj2 = cache.get( keyToNotBeRemovedOnPut );
+        p( ""test object2 = "" + testObj2 + "" hashCode = "" );
+        if ( testObj2 != null )
+        {
+            p( ""test2 hashcode = "" + +testObj2.hashCode() );
+        }
+        assertNotNull( ""This should not have been removed, since the hascode were the same."", testObj2 );
+}
+",LateralTCPFilterRemoveHashCodeUnitTest::runTestForRegion_4_oe
+jcs3_left_233_1,"public void runTestForRegion_1_oe( final String region, final int items )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+//        System.out.println( ""BEFORE PUT \n"" + jcs.getStats() );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        Thread.sleep( 1000 );
+
+//        System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            assertEquals( ""key = ["" + i + "":key] value = ["" + value + ""]"", region + "" data "" + i, value );
+}
+}
+",JDBCDiskCacheUnitTest::runTestForRegion_1_oe
+jcs3_left_233_2,"public void runTestForRegion_2_oe( final String region, final int items )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+//        System.out.println( ""BEFORE PUT \n"" + jcs.getStats() );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        Thread.sleep( 1000 );
+
+//        System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            assertNotNull( ""element "" + i + "":key is missing"", element );
+}
+}
+",JDBCDiskCacheUnitTest::runTestForRegion_2_oe
+jcs3_left_233_3,"public void runTestForRegion_3_oe( final String region, final int items )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+//        System.out.println( ""BEFORE PUT \n"" + jcs.getStats() );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        Thread.sleep( 1000 );
+
+//        System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            assertEquals( ""value "" + i + "":key"", region + "" data "" + i, element.getVal() );
+}
+}
+",JDBCDiskCacheUnitTest::runTestForRegion_3_oe
+jcs3_left_233_4,"public void runTestForRegion_4_oe( final String region, final int items )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+//        System.out.println( ""BEFORE PUT \n"" + jcs.getStats() );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        Thread.sleep( 1000 );
+
+//        System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Remove all the items
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.remove( i + "":key"" );
+        }
+
+        // Verify removal
+        for ( int i = 0; i <= items; i++ )
+        {
+            assertNull( ""Removed key should be null: "" + i + "":key"", jcs.get( i + "":key"" ) );
+}
+}
+",JDBCDiskCacheUnitTest::runTestForRegion_4_oe
+jcs3_left_235_1,"public void runTestForRegion_1_oe( final String region, final int items )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+//        System.out.println( ""BEFORE PUT \n"" + jcs.getStats() );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        Thread.sleep( 1000 );
+
+//        System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            assertEquals( ""key = ["" + i + "":key] value = ["" + value + ""]"", region + "" data "" + i, value );
+}
+}
+",JDBCDiskCacheSharedPoolUnitTest::runTestForRegion_1_oe
+jcs3_left_235_2,"public void runTestForRegion_2_oe( final String region, final int items )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+//        System.out.println( ""BEFORE PUT \n"" + jcs.getStats() );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        Thread.sleep( 1000 );
+
+//        System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            assertNotNull( ""element "" + i + "":key is missing"", element );
+}
+}
+",JDBCDiskCacheSharedPoolUnitTest::runTestForRegion_2_oe
+jcs3_left_235_3,"public void runTestForRegion_3_oe( final String region, final int items )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+//        System.out.println( ""BEFORE PUT \n"" + jcs.getStats() );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        Thread.sleep( 1000 );
+
+//        System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            assertEquals( ""value "" + i + "":key"", region + "" data "" + i, element.getVal() );
+}
+}
+",JDBCDiskCacheSharedPoolUnitTest::runTestForRegion_3_oe
+jcs3_left_235_4,"public void runTestForRegion_4_oe( final String region, final int items )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+//        System.out.println( ""BEFORE PUT \n"" + jcs.getStats() );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        Thread.sleep( 1000 );
+
+//        System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Remove all the items
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.remove( i + "":key"" );
+        }
+
+        // Verify removal
+        for ( int i = 0; i <= items; i++ )
+        {
+            assertNull( ""Removed key should be null: "" + i + "":key"", jcs.get( i + "":key"" ) );
+}
+}
+",JDBCDiskCacheSharedPoolUnitTest::runTestForRegion_4_oe
+jcs3_left_268_1,"public void oneLoadFromDisk_1_oe() throws Exception
+    {
+        // initialize object to be stored
+        String string = ""IÒtÎrn‚tiÙn‡lizÊti¯n"";
+        final StringBuilder sb = new StringBuilder();
+        sb.append(string);
+        for (int i = 0; i < 4; i++)
+        {
+            sb.append(sb.toString()); // big string
+        }
+        string = sb.toString();
+
+        // initialize cache
+        final String cacheName = ""testLoadFromDisk"";
+        final IndexedDiskCacheAttributes cattr = getCacheAttributes();
+        cattr.setCacheName(cacheName);
+        cattr.setMaxKeySize(100);
+        cattr.setDiskPath(""target/test-sandbox/IndexDiskCacheUnitTest"");
+        IndexedDiskCache<String, String> diskCache = new IndexedDiskCache<>(cattr);
+
+        // DO WORK
+        for (int i = 0; i < 50; i++)
+        {
+            diskCache.update(new CacheElement<>(cacheName, ""x"" + i, string));
+        }
+        // Thread.sleep(1000);
+        // VERIFY
+        diskCache.dispose();
+        // Thread.sleep(1000);
+
+        diskCache = new IndexedDiskCache<>(cattr);
+
+        for (int i = 0; i < 50; i++)
+        {
+            final ICacheElement<String, String> afterElement = diskCache.get(""x"" + i);
+            assertNotNull(""Missing element from cache. Cache size: "" + diskCache.getSize() + "" element: x"" + i, afterElement);
+}
+}
+",IndexDiskCacheUnitTestAbstract::oneLoadFromDisk_1_oe
+jcs3_left_268_2,"public void oneLoadFromDisk_2_oe() throws Exception
+    {
+        // initialize object to be stored
+        String string = ""IÒtÎrn‚tiÙn‡lizÊti¯n"";
+        final StringBuilder sb = new StringBuilder();
+        sb.append(string);
+        for (int i = 0; i < 4; i++)
+        {
+            sb.append(sb.toString()); // big string
+        }
+        string = sb.toString();
+
+        // initialize cache
+        final String cacheName = ""testLoadFromDisk"";
+        final IndexedDiskCacheAttributes cattr = getCacheAttributes();
+        cattr.setCacheName(cacheName);
+        cattr.setMaxKeySize(100);
+        cattr.setDiskPath(""target/test-sandbox/IndexDiskCacheUnitTest"");
+        IndexedDiskCache<String, String> diskCache = new IndexedDiskCache<>(cattr);
+
+        // DO WORK
+        for (int i = 0; i < 50; i++)
+        {
+            diskCache.update(new CacheElement<>(cacheName, ""x"" + i, string));
+        }
+        // Thread.sleep(1000);
+        // VERIFY
+        diskCache.dispose();
+        // Thread.sleep(1000);
+
+        diskCache = new IndexedDiskCache<>(cattr);
+
+        for (int i = 0; i < 50; i++)
+        {
+            final ICacheElement<String, String> afterElement = diskCache.get(""x"" + i);
+            // removed other assertion
+            assertEquals(""wrong string after retrieval"", string, afterElement.getVal());
+}
+}
+",IndexDiskCacheUnitTestAbstract::oneLoadFromDisk_2_oe
+jcs3_left_270_1,"public void runTestForRegion_1_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            assertEquals( region + "" data "" + i, value );
+}
+}
+",IndexedDiskCacheConcurrentUnitTest::runTestForRegion_1_oe
+jcs3_left_270_2,"public void runTestForRegion_2_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            assertNotNull( ""element "" + i + "":key is missing"", element );
+}
+}
+",IndexedDiskCacheConcurrentUnitTest::runTestForRegion_2_oe
+jcs3_left_270_3,"public void runTestForRegion_3_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            assertEquals( ""value "" + i + "":key"", region + "" data "" + i, element.getVal() );
+}
+}
+",IndexedDiskCacheConcurrentUnitTest::runTestForRegion_3_oe
+jcs3_left_270_4,"public void runTestForRegion_4_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Remove all the items
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.remove( i + "":key"" );
+        }
+
+        // Verify removal
+        // another thread may have inserted since
+        for ( int i = 0; i <= items; i++ )
+        {
+            assertNull(""Removed key should be null: "" + i + "":key"" + ""\n stats "" + jcs.getStats(),jcs .get(i + "":key""));
+}
+}
+",IndexedDiskCacheConcurrentUnitTest::runTestForRegion_4_oe
+jcs3_left_271_1,"public void runTestForRegionInRange_1_oe( final String region, final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = start; i <= end; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = start; i <= end; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            assertEquals( region + "" data "" + i, value );
+}
+}
+",IndexedDiskCacheConcurrentUnitTest::runTestForRegionInRange_1_oe
+jcs3_left_271_2,"public void runTestForRegionInRange_2_oe( final String region, final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = start; i <= end; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = start; i <= end; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = start; i <= end; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = start; i <= end; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            assertNotNull( ""element "" + i + "":key is missing"", element );
+}
+}
+",IndexedDiskCacheConcurrentUnitTest::runTestForRegionInRange_2_oe
+jcs3_left_271_3,"public void runTestForRegionInRange_3_oe( final String region, final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = start; i <= end; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = start; i <= end; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = start; i <= end; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = start; i <= end; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            assertEquals( ""value "" + i + "":key"", region + "" data "" + i, element.getVal() );
+}
+}
+",IndexedDiskCacheConcurrentUnitTest::runTestForRegionInRange_3_oe
+jcs3_left_271_4,"public void runTestForRegionInRange_4_oe( final String region, final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = start; i <= end; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = start; i <= end; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = start; i <= end; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = start; i <= end; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Remove all the items
+        for ( int i = start; i <= end; i++ )
+        {
+            jcs.remove( i + "":key"" );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        // Verify removal
+        // another thread may have inserted since
+        for ( int i = start; i <= end; i++ )
+        {
+            assertNull(""Removed key should be null: "" + i + "":key "" + ""\n stats "" + jcs.getStats(),jcs.get(i + "":key""));
+}
+}
+",IndexedDiskCacheConcurrentUnitTest::runTestForRegionInRange_4_oe
+jcs3_left_274_1,"public void runTestForRegion_1_oe( final String region, final int range, final int numOps, final int testNum )
+        throws Exception
+    {
+        // run a rondom operation test to detect deadlocks
+        final TestCacheAccess tca = new TestCacheAccess( ""/TestDiskCacheCon.ccf"" );
+        tca.setRegion( region );
+        tca.random( range, numOps );
+
+        // make sure a simple put then get works
+        // this may fail if the other tests are flooding the disk cache
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final String key = ""testKey"" + testNum;
+        final String data = ""testData"" + testNum;
+        jcs.put( key, data );
+        final String value = jcs.get( key );
+        assertEquals( data, value );
+}
+",IndexedDiskCacheRandomConcurrentTestUtil::runTestForRegion_1_oe
+jcs3_left_276_1,"public void runTestForRegion_1_oe( final String region, final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+
+        for ( int i = start; i <= end; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+
+        for ( int i = start; i <= end; i++ )
+        {
+            final String key = i + "":key"";
+            final String value = jcs.get( key );
+
+            assertEquals( ""Wrong value for key ["" + key + ""]"", region + "" data "" + i, value );
+}
+}
+",IndexedDiskCacheSameRegionConcurrentUnitTest::runTestForRegion_1_oe
+jcs3_left_276_2,"public void runTestForRegion_2_oe( final String region, final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+
+        for ( int i = start; i <= end; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+
+        for ( int i = start; i <= end; i++ )
+        {
+            final String key = i + "":key"";
+            final String value = jcs.get( key );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = start; i <= end; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = start; i <= end; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            assertNotNull( ""element "" + i + "":key is missing"", element );
+}
+}
+",IndexedDiskCacheSameRegionConcurrentUnitTest::runTestForRegion_2_oe
+jcs3_left_276_3,"public void runTestForRegion_3_oe( final String region, final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+
+        for ( int i = start; i <= end; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+
+        for ( int i = start; i <= end; i++ )
+        {
+            final String key = i + "":key"";
+            final String value = jcs.get( key );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = start; i <= end; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = start; i <= end; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            assertEquals( ""value "" + i + "":key"", region + "" data "" + i, element.getVal() );
+}
+}
+",IndexedDiskCacheSameRegionConcurrentUnitTest::runTestForRegion_3_oe
+jcs3_left_278_1,"public void runTestForRegion_1_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            assertEquals( region + "" data "" + i, value );
+}
+}
+",IndexedDiskCacheNoMemoryUnitTest::runTestForRegion_1_oe
+jcs3_left_278_2,"public void runTestForRegion_2_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            assertNotNull( ""element "" + i + "":key is missing"", element );
+}
+}
+",IndexedDiskCacheNoMemoryUnitTest::runTestForRegion_2_oe
+jcs3_left_278_3,"public void runTestForRegion_3_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            assertEquals( ""value "" + i + "":key"", region + "" data "" + i, element.getVal() );
+}
+}
+",IndexedDiskCacheNoMemoryUnitTest::runTestForRegion_3_oe
+jcs3_left_278_4,"public void runTestForRegion_4_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Remove all the items
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.remove( i + "":key"" );
+        }
+
+        // Verify removal
+        for ( int i = 0; i <= items; i++ )
+        {
+            assertNull( ""Removed key should be null: "" + i + "":key"" + ""\n stats "" + jcs.getStats(), jcs.get( i + "":key"" ) );
+}
+}
+",IndexedDiskCacheNoMemoryUnitTest::runTestForRegion_4_oe
+jcs3_left_279_1,"public void runTestForRegion_1_oe( final String region, final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+
+        for ( int i = start; i <= end; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i + ""-"" + region );
+        }
+
+        // Test that all items are in cache
+
+        for ( int i = start; i <= end; i++ )
+        {
+            final String key = i + "":key"";
+            final String value = jcs.get( key );
+
+            assertEquals( ""Wrong value for key ["" + key + ""]"", region + "" data "" + i + ""-"" + region, value );
+}
+}
+",BlockDiskCacheSameRegionConcurrentUnitTest::runTestForRegion_1_oe
+jcs3_left_279_2,"public void runTestForRegion_2_oe( final String region, final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+
+        for ( int i = start; i <= end; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i + ""-"" + region );
+        }
+
+        // Test that all items are in cache
+
+        for ( int i = start; i <= end; i++ )
+        {
+            final String key = i + "":key"";
+            final String value = jcs.get( key );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = start; i <= end; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = start; i <= end; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            assertNotNull( ""element "" + i + "":key is missing"", element );
+}
+}
+",BlockDiskCacheSameRegionConcurrentUnitTest::runTestForRegion_2_oe
+jcs3_left_279_3,"public void runTestForRegion_3_oe( final String region, final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+
+        for ( int i = start; i <= end; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i + ""-"" + region );
+        }
+
+        // Test that all items are in cache
+
+        for ( int i = start; i <= end; i++ )
+        {
+            final String key = i + "":key"";
+            final String value = jcs.get( key );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = start; i <= end; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = start; i <= end; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            assertEquals( ""value "" + i + "":key"", region + "" data "" + i + ""-"" + region, element.getVal() );
+}
+}
+",BlockDiskCacheSameRegionConcurrentUnitTest::runTestForRegion_3_oe
+jcs3_left_300_1,"public void oneLoadFromDisk_1_oe() throws Exception
+    {
+        // initialize object to be stored
+        final X before = new X();
+        String string = ""IÒtÎrn‚tiÙn‡lizÊti¯n"";
+        final StringBuilder sb = new StringBuilder();
+        sb.append(string);
+        for (int i = 0; i < 4; i++)
+        {
+            sb.append(sb.toString()); // big string
+        }
+        string = sb.toString();
+        before.string = string;
+        before.bytes = string.getBytes(StandardCharsets.UTF_8);
+
+        // initialize cache
+        final String cacheName = ""testLoadFromDisk"";
+        final BlockDiskCacheAttributes cattr = getCacheAttributes();
+        cattr.setCacheName(cacheName);
+        cattr.setMaxKeySize(100);
+        cattr.setBlockSizeBytes(500);
+        cattr.setDiskPath(""target/test-sandbox/BlockDiskCacheUnitTest"");
+        BlockDiskCache<String, X> diskCache = new BlockDiskCache<>(cattr);
+
+        // DO WORK
+        for (int i = 0; i < 50; i++)
+        {
+            diskCache.update(new CacheElement<>(cacheName, ""x"" + i, before));
+        }
+        diskCache.dispose();
+
+        // VERIFY
+        diskCache = new BlockDiskCache<>(cattr);
+
+        for (int i = 0; i < 50; i++)
+        {
+            final ICacheElement<String, X> afterElement = diskCache.get(""x"" + i);
+            assertNotNull(""Missing element from cache. Cache size: "" + diskCache.getSize() + "" element: x"" + i, afterElement);
+}
+}
+",BlockDiskCacheUnitTestAbstract::oneLoadFromDisk_1_oe
+jcs3_left_300_2,"public void oneLoadFromDisk_2_oe() throws Exception
+    {
+        // initialize object to be stored
+        final X before = new X();
+        String string = ""IÒtÎrn‚tiÙn‡lizÊti¯n"";
+        final StringBuilder sb = new StringBuilder();
+        sb.append(string);
+        for (int i = 0; i < 4; i++)
+        {
+            sb.append(sb.toString()); // big string
+        }
+        string = sb.toString();
+        before.string = string;
+        before.bytes = string.getBytes(StandardCharsets.UTF_8);
+
+        // initialize cache
+        final String cacheName = ""testLoadFromDisk"";
+        final BlockDiskCacheAttributes cattr = getCacheAttributes();
+        cattr.setCacheName(cacheName);
+        cattr.setMaxKeySize(100);
+        cattr.setBlockSizeBytes(500);
+        cattr.setDiskPath(""target/test-sandbox/BlockDiskCacheUnitTest"");
+        BlockDiskCache<String, X> diskCache = new BlockDiskCache<>(cattr);
+
+        // DO WORK
+        for (int i = 0; i < 50; i++)
+        {
+            diskCache.update(new CacheElement<>(cacheName, ""x"" + i, before));
+        }
+        diskCache.dispose();
+
+        // VERIFY
+        diskCache = new BlockDiskCache<>(cattr);
+
+        for (int i = 0; i < 50; i++)
+        {
+            final ICacheElement<String, X> afterElement = diskCache.get(""x"" + i);
+            // removed other assertion
+            final X after = (afterElement.getVal());
+
+            assertNotNull(after);
+}
+}
+",BlockDiskCacheUnitTestAbstract::oneLoadFromDisk_2_oe
+jcs3_left_300_3,"public void oneLoadFromDisk_3_oe() throws Exception
+    {
+        // initialize object to be stored
+        final X before = new X();
+        String string = ""IÒtÎrn‚tiÙn‡lizÊti¯n"";
+        final StringBuilder sb = new StringBuilder();
+        sb.append(string);
+        for (int i = 0; i < 4; i++)
+        {
+            sb.append(sb.toString()); // big string
+        }
+        string = sb.toString();
+        before.string = string;
+        before.bytes = string.getBytes(StandardCharsets.UTF_8);
+
+        // initialize cache
+        final String cacheName = ""testLoadFromDisk"";
+        final BlockDiskCacheAttributes cattr = getCacheAttributes();
+        cattr.setCacheName(cacheName);
+        cattr.setMaxKeySize(100);
+        cattr.setBlockSizeBytes(500);
+        cattr.setDiskPath(""target/test-sandbox/BlockDiskCacheUnitTest"");
+        BlockDiskCache<String, X> diskCache = new BlockDiskCache<>(cattr);
+
+        // DO WORK
+        for (int i = 0; i < 50; i++)
+        {
+            diskCache.update(new CacheElement<>(cacheName, ""x"" + i, before));
+        }
+        diskCache.dispose();
+
+        // VERIFY
+        diskCache = new BlockDiskCache<>(cattr);
+
+        for (int i = 0; i < 50; i++)
+        {
+            final ICacheElement<String, X> afterElement = diskCache.get(""x"" + i);
+            // removed other assertion
+            final X after = (afterElement.getVal());
+
+            // removed other assertion
+            assertEquals(""wrong string after retrieval"", string, after.string);
+}
+}
+",BlockDiskCacheUnitTestAbstract::oneLoadFromDisk_3_oe
+jcs3_left_300_4,"public void oneLoadFromDisk_4_oe() throws Exception
+    {
+        // initialize object to be stored
+        final X before = new X();
+        String string = ""IÒtÎrn‚tiÙn‡lizÊti¯n"";
+        final StringBuilder sb = new StringBuilder();
+        sb.append(string);
+        for (int i = 0; i < 4; i++)
+        {
+            sb.append(sb.toString()); // big string
+        }
+        string = sb.toString();
+        before.string = string;
+        before.bytes = string.getBytes(StandardCharsets.UTF_8);
+
+        // initialize cache
+        final String cacheName = ""testLoadFromDisk"";
+        final BlockDiskCacheAttributes cattr = getCacheAttributes();
+        cattr.setCacheName(cacheName);
+        cattr.setMaxKeySize(100);
+        cattr.setBlockSizeBytes(500);
+        cattr.setDiskPath(""target/test-sandbox/BlockDiskCacheUnitTest"");
+        BlockDiskCache<String, X> diskCache = new BlockDiskCache<>(cattr);
+
+        // DO WORK
+        for (int i = 0; i < 50; i++)
+        {
+            diskCache.update(new CacheElement<>(cacheName, ""x"" + i, before));
+        }
+        diskCache.dispose();
+
+        // VERIFY
+        diskCache = new BlockDiskCache<>(cattr);
+
+        for (int i = 0; i < 50; i++)
+        {
+            final ICacheElement<String, X> afterElement = diskCache.get(""x"" + i);
+            // removed other assertion
+            final X after = (afterElement.getVal());
+
+            // removed other assertion
+            // removed other assertion
+            assertEquals(""wrong bytes after retrieval"", string, new String(after.bytes, StandardCharsets.UTF_8));
+}
+}
+",BlockDiskCacheUnitTestAbstract::oneLoadFromDisk_4_oe
+jcs3_left_304_1,"public void runTestForRegion_1_oe( final String region, final int range, final int numOps, final int testNum )
+        throws Exception
+    {
+        // run a rondom operation test to detect deadlocks
+        final TestCacheAccess tca = new TestCacheAccess( ""/TestBlockDiskCacheCon.ccf"" );
+        tca.setRegion( region );
+        tca.random( range, numOps );
+
+        // make sure a simple put then get works
+        // this may fail if the other tests are flooding the disk cache
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final String key = ""testKey"" + testNum;
+        final String data = ""testData"" + testNum;
+        jcs.put( key, data );
+        final String value = jcs.get( key );
+        assertEquals( data, value );
+}
+",BlockDiskCacheRandomConcurrentTestUtil::runTestForRegion_1_oe
+jcs3_left_306_1,"private void innerTestPutKeys_1_oe(final BlockDiskCacheAttributes attributes)
+    {
+        final BlockDiskCache<String, String> blockDiskCache = new BlockDiskCache<>(attributes);
+        final BlockDiskKeyStore<String> keyStore = new BlockDiskKeyStore<>(attributes, blockDiskCache);
+
+        // DO WORK
+        final int numElements = 100;
+        for (int i = 0; i < numElements; i++)
+        {
+            keyStore.put(String.valueOf(i), new int[i]);
+        }
+        // System.out.println( ""testPutKeys "" + keyStore );
+
+        // VERIFY
+        assertEquals(""Wrong number of keys"", numElements, keyStore.size());
+}
+",BlockDiskCacheKeyStoreUnitTest::innerTestPutKeys_1_oe
+jcs3_left_306_2,"private void innerTestPutKeys_2_oe(final BlockDiskCacheAttributes attributes)
+    {
+        final BlockDiskCache<String, String> blockDiskCache = new BlockDiskCache<>(attributes);
+        final BlockDiskKeyStore<String> keyStore = new BlockDiskKeyStore<>(attributes, blockDiskCache);
+
+        // DO WORK
+        final int numElements = 100;
+        for (int i = 0; i < numElements; i++)
+        {
+            keyStore.put(String.valueOf(i), new int[i]);
+        }
+        // System.out.println( ""testPutKeys "" + keyStore );
+
+        // VERIFY
+        // removed other assertion
+        for (int i = 0; i < numElements; i++)
+        {
+            final int[] result = keyStore.get(String.valueOf(i));
+            assertEquals(""Wrong array returned."", i, result.length);
+}
+}
+",BlockDiskCacheKeyStoreUnitTest::innerTestPutKeys_2_oe
+jcs3_left_307_1,"private void testSaveLoadKeysInner_1_oe(final BlockDiskCacheAttributes attributes)
+    {
+        final BlockDiskKeyStore<String> keyStore = new BlockDiskKeyStore<>(attributes, null);
+
+        // DO WORK
+        final int numElements = 1000;
+        int blockIndex = 0;
+        // Random random = new Random( 89 );
+        for (int i = 0; i < numElements; i++)
+        {
+            final int blocks = i;// random.nextInt( 10 );
+
+            // fill with reasonable data to make verify() happy
+            final int[] block1 = new int[blocks];
+            final int[] block2 = new int[blocks];
+            for (int j = 0; j < blocks; j++)
+            {
+                block1[j] = blockIndex++;
+                block2[j] = blockIndex++;
+            }
+            keyStore.put(String.valueOf(i), block1);
+            keyStore.put(String.valueOf(i), block2);
+        }
+        // System.out.println( ""testSaveLoadKeys "" + keyStore );
+
+        // VERIFY
+        assertEquals(""Wrong number of keys"", numElements, keyStore.size());
+}
+",BlockDiskCacheKeyStoreUnitTest::testSaveLoadKeysInner_1_oe
+jcs3_left_307_2,"private void testSaveLoadKeysInner_2_oe(final BlockDiskCacheAttributes attributes)
+    {
+        final BlockDiskKeyStore<String> keyStore = new BlockDiskKeyStore<>(attributes, null);
+
+        // DO WORK
+        final int numElements = 1000;
+        int blockIndex = 0;
+        // Random random = new Random( 89 );
+        for (int i = 0; i < numElements; i++)
+        {
+            final int blocks = i;// random.nextInt( 10 );
+
+            // fill with reasonable data to make verify() happy
+            final int[] block1 = new int[blocks];
+            final int[] block2 = new int[blocks];
+            for (int j = 0; j < blocks; j++)
+            {
+                block1[j] = blockIndex++;
+                block2[j] = blockIndex++;
+            }
+            keyStore.put(String.valueOf(i), block1);
+            keyStore.put(String.valueOf(i), block2);
+        }
+        // System.out.println( ""testSaveLoadKeys "" + keyStore );
+
+        // VERIFY
+        // removed other assertion
+
+        // DO WORK
+        keyStore.saveKeys();
+        keyStore.clearMemoryMap();
+
+        // VERIFY
+        assertEquals(""Wrong number of keys after clearing memory"", 0, keyStore.size());
+}
+",BlockDiskCacheKeyStoreUnitTest::testSaveLoadKeysInner_2_oe
+jcs3_left_307_3,"private void testSaveLoadKeysInner_3_oe(final BlockDiskCacheAttributes attributes)
+    {
+        final BlockDiskKeyStore<String> keyStore = new BlockDiskKeyStore<>(attributes, null);
+
+        // DO WORK
+        final int numElements = 1000;
+        int blockIndex = 0;
+        // Random random = new Random( 89 );
+        for (int i = 0; i < numElements; i++)
+        {
+            final int blocks = i;// random.nextInt( 10 );
+
+            // fill with reasonable data to make verify() happy
+            final int[] block1 = new int[blocks];
+            final int[] block2 = new int[blocks];
+            for (int j = 0; j < blocks; j++)
+            {
+                block1[j] = blockIndex++;
+                block2[j] = blockIndex++;
+            }
+            keyStore.put(String.valueOf(i), block1);
+            keyStore.put(String.valueOf(i), block2);
+        }
+        // System.out.println( ""testSaveLoadKeys "" + keyStore );
+
+        // VERIFY
+        // removed other assertion
+
+        // DO WORK
+        keyStore.saveKeys();
+        keyStore.clearMemoryMap();
+
+        // VERIFY
+        // removed other assertion
+
+        // DO WORK
+        keyStore.loadKeys();
+
+        // VERIFY
+        assertEquals(""Wrong number of keys after loading"", numElements, keyStore.size());
+}
+",BlockDiskCacheKeyStoreUnitTest::testSaveLoadKeysInner_3_oe
+jcs3_left_307_4,"private void testSaveLoadKeysInner_4_oe(final BlockDiskCacheAttributes attributes)
+    {
+        final BlockDiskKeyStore<String> keyStore = new BlockDiskKeyStore<>(attributes, null);
+
+        // DO WORK
+        final int numElements = 1000;
+        int blockIndex = 0;
+        // Random random = new Random( 89 );
+        for (int i = 0; i < numElements; i++)
+        {
+            final int blocks = i;// random.nextInt( 10 );
+
+            // fill with reasonable data to make verify() happy
+            final int[] block1 = new int[blocks];
+            final int[] block2 = new int[blocks];
+            for (int j = 0; j < blocks; j++)
+            {
+                block1[j] = blockIndex++;
+                block2[j] = blockIndex++;
+            }
+            keyStore.put(String.valueOf(i), block1);
+            keyStore.put(String.valueOf(i), block2);
+        }
+        // System.out.println( ""testSaveLoadKeys "" + keyStore );
+
+        // VERIFY
+        // removed other assertion
+
+        // DO WORK
+        keyStore.saveKeys();
+        keyStore.clearMemoryMap();
+
+        // VERIFY
+        // removed other assertion
+
+        // DO WORK
+        keyStore.loadKeys();
+
+        // VERIFY
+        // removed other assertion
+        for (int i = 0; i < numElements; i++)
+        {
+            final int[] result = keyStore.get(String.valueOf(i));
+            assertEquals(""Wrong array returned."", i, result.length);
+}
+}
+",BlockDiskCacheKeyStoreUnitTest::testSaveLoadKeysInner_4_oe
+jcs3_left_309_1,"public void runTestForRegion_1_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = 0; i < items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            assertEquals( region + "" data "" + i, value );
+}
+}
+",BlockDiskCacheConcurrentUnitTest::runTestForRegion_1_oe
+jcs3_left_309_2,"public void runTestForRegion_2_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = 0; i < items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            assertNotNull( ""element "" + i + "":key is missing"", element );
+}
+}
+",BlockDiskCacheConcurrentUnitTest::runTestForRegion_2_oe
+jcs3_left_309_3,"public void runTestForRegion_3_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = 0; i < items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            assertEquals( ""value "" + i + "":key"", region + "" data "" + i, element.getVal() );
+}
+}
+",BlockDiskCacheConcurrentUnitTest::runTestForRegion_3_oe
+jcs3_left_309_4,"public void runTestForRegion_4_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = 0; i < items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Remove all the items
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.remove( i + "":key"" );
+        }
+
+        // Verify removal
+        // another thread may have inserted since
+        for ( int i = 0; i < items; i++ )
+        {
+            assertNull(""Removed key should be null: "" + i + "":key"" + ""\n stats "" + jcs.getStats(),jcs .get(i + "":key""));
+}
+}
+",BlockDiskCacheConcurrentUnitTest::runTestForRegion_4_oe
+jcs3_left_310_1,"public void runTestForRegionInRange_1_oe( final String region, final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = start; i < end; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = start; i < end; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            assertEquals( region + "" data "" + i, value );
+}
+}
+",BlockDiskCacheConcurrentUnitTest::runTestForRegionInRange_1_oe
+jcs3_left_310_2,"public void runTestForRegionInRange_2_oe( final String region, final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = start; i < end; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = start; i < end; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = start; i < end; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = start; i < end; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            assertNotNull( ""element "" + i + "":key is missing"", element );
+}
+}
+",BlockDiskCacheConcurrentUnitTest::runTestForRegionInRange_2_oe
+jcs3_left_310_3,"public void runTestForRegionInRange_3_oe( final String region, final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = start; i < end; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = start; i < end; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = start; i < end; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = start; i < end; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            assertEquals( ""value "" + i + "":key"", region + "" data "" + i, element.getVal() );
+}
+}
+",BlockDiskCacheConcurrentUnitTest::runTestForRegionInRange_3_oe
+jcs3_left_310_4,"public void runTestForRegionInRange_4_oe( final String region, final int start, final int end )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = start; i < end; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = start; i < end; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = start; i < end; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = start; i < end; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Remove all the items
+        for ( int i = start; i < end; i++ )
+        {
+            jcs.remove( i + "":key"" );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        // Verify removal
+        // another thread may have inserted since
+        for ( int i = start; i < end; i++ )
+        {
+            assertNull(""Removed key should be null: "" + i + "":key "" + ""\n stats "" + jcs.getStats(),jcs.get(i + "":key""));
+}
+}
+",BlockDiskCacheConcurrentUnitTest::runTestForRegionInRange_4_oe
+jcs3_left_311_1,"public void runTestForRegion_1_oe( final String region, final int items )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        //System.out.println( ""BEFORE PUT \n"" + jcs.getStats() );
+
+        // Add items to cache
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        //System.out.println( jcs.getStats() );
+        Thread.sleep( 1000 );
+        //System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+        for ( int i = 0; i < items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            assertEquals( ""key = ["" + i + "":key] value = ["" + value + ""]"", region + "" data "" + i, value );
+}
+}
+",MySQLDiskCacheHsqlBackedUnitTest::runTestForRegion_1_oe
+jcs3_left_311_2,"public void runTestForRegion_2_oe( final String region, final int items )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        //System.out.println( ""BEFORE PUT \n"" + jcs.getStats() );
+
+        // Add items to cache
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        //System.out.println( jcs.getStats() );
+        Thread.sleep( 1000 );
+        //System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+        for ( int i = 0; i < items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            assertNotNull( ""element "" + i + "":key is missing"", element );
+}
+}
+",MySQLDiskCacheHsqlBackedUnitTest::runTestForRegion_2_oe
+jcs3_left_311_3,"public void runTestForRegion_3_oe( final String region, final int items )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        //System.out.println( ""BEFORE PUT \n"" + jcs.getStats() );
+
+        // Add items to cache
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        //System.out.println( jcs.getStats() );
+        Thread.sleep( 1000 );
+        //System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+        for ( int i = 0; i < items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            assertEquals( ""value "" + i + "":key"", region + "" data "" + i, element.getVal() );
+}
+}
+",MySQLDiskCacheHsqlBackedUnitTest::runTestForRegion_3_oe
+jcs3_left_311_4,"public void runTestForRegion_4_oe( final String region, final int items )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        //System.out.println( ""BEFORE PUT \n"" + jcs.getStats() );
+
+        // Add items to cache
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+        //System.out.println( jcs.getStats() );
+        Thread.sleep( 1000 );
+        //System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+        for ( int i = 0; i < items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Remove all the items
+        for ( int i = 0; i < items; i++ )
+        {
+            jcs.remove( i + "":key"" );
+        }
+
+        // Verify removal
+
+        for ( int i = 0; i < items; i++ )
+        {
+            assertNull( ""Removed key should be null: "" + i + "":key"", jcs.get( i + "":key"" ) );
+}
+}
+",MySQLDiskCacheHsqlBackedUnitTest::runTestForRegion_4_oe
+jcs3_left_314_1,"public void runTestForRegion_1_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            assertEquals( ""key = ["" + i + "":key] value = ["" + value + ""]"", region + "" data "" + i, value );
+}
+}
+",HSQLDiskCacheConcurrentUnitTest::runTestForRegion_1_oe
+jcs3_left_314_2,"public void runTestForRegion_2_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            assertNotNull( ""element "" + i + "":key is missing"", element );
+}
+}
+",HSQLDiskCacheConcurrentUnitTest::runTestForRegion_2_oe
+jcs3_left_314_3,"public void runTestForRegion_3_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            assertEquals( ""value "" + i + "":key"", region + "" data "" + i, element.getVal() );
+}
+}
+",HSQLDiskCacheConcurrentUnitTest::runTestForRegion_3_oe
+jcs3_left_314_4,"public void runTestForRegion_4_oe( final String region )
+        throws Exception
+    {
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + "":key"", region + "" data "" + i );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + "":key"" );
+
+            // removed other assertion
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + "":key"" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + "":key"" );
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // Remove all the items
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.remove( i + "":key"" );
+        }
+
+        // Verify removal
+        for ( int i = 0; i <= items; i++ )
+        {
+            assertNull( ""Removed key should be null: "" + i + "":key"", jcs.get( i + "":key"" ) );
+}
+}
+",HSQLDiskCacheConcurrentUnitTest::runTestForRegion_4_oe
+jcs3_left_396_1,"private InvocationContext newContext_1_oe(final MyParent child1) {
+        return new InvocationContext()
+        {
+            @Override
+            public Object getTarget()
+            {
+                return child1;
+            }
+
+            @Override
+            public Method getMethod()
+            {
+                try {
+                    return MyParent.class.getMethod(""foo"");
+                } catch (final NoSuchMethodException e) {
+                    fail(e.getMessage());
+}
+}
+}
+}
+",CDIJCacheHelperTest::newContext_1_oe
+jcs3_left_397_1,"@Override
+            public Method getMethod_1_oe()
+            {
+                try {
+                    return MyParent.class.getMethod(""foo"");
+                } catch (final NoSuchMethodException e) {
+                    fail(e.getMessage());
+            }
+            }
+",CDIJCacheHelperTest::getMethod_1_oe

@@ -1306,4 +1306,428 @@ class AbstractLinePathConnectorTest_OE25Dev {
         Assertions.assertEquals(a, new ConnectableLineSubset(segA));
     }
 
+@Test
+    void testConnectAll_disjointSegments_2_oe() {
+        // arrange
+        final LineConvexSubset a = Y_AXIS.segment(Vector2D.of(0, 1), Vector2D.of(0, 2));
+        final LineConvexSubset b = Y_AXIS.segment(Vector2D.of(0, -1), Vector2D.ZERO);
+
+        final List<LineConvexSubset> segments = Arrays.asList(a, b);
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        // removed other assertion
+
+        assertFinitePath(paths.get(0), Vector2D.of(0, -1), Vector2D.ZERO);
+    }
+
+@Test
+    void testConnectAll_disjointSegments_3_oe() {
+        // arrange
+        final LineConvexSubset a = Y_AXIS.segment(Vector2D.of(0, 1), Vector2D.of(0, 2));
+        final LineConvexSubset b = Y_AXIS.segment(Vector2D.of(0, -1), Vector2D.ZERO);
+
+        final List<LineConvexSubset> segments = Arrays.asList(a, b);
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        assertFinitePath(paths.get(1), Vector2D.of(0, 1), Vector2D.of(0, 2));
+    }
+
+@Test
+    void testConnectAll_singleClosedPath_2_oe() {
+        // arrange
+        final LinePath input = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(1, 1), Vector2D.ZERO, Vector2D.of(1, 0))
+                .close();
+
+        final List<LineConvexSubset> segments = new ArrayList<>(input.getElements());
+        shuffle(segments);
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        // removed other assertion
+
+        assertFinitePath(paths.get(0), Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(1, 1), Vector2D.ZERO);
+    }
+
+@Test
+    void testConnectAll_multipleClosedPaths_2_oe() {
+        // arrange
+        final LinePath a = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(1, 1), Vector2D.ZERO, Vector2D.of(1, 0))
+                .close();
+
+        final LinePath b = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(0, 1), Vector2D.of(-1, 0), Vector2D.of(-0.5, 0))
+                .close();
+
+        final LinePath c = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(1, 3), Vector2D.of(0, 2), Vector2D.of(1, 2))
+                .close();
+
+        final List<LineConvexSubset> segments = new ArrayList<>();
+        segments.addAll(a.getElements());
+        segments.addAll(b.getElements());
+        segments.addAll(c.getElements());
+
+        shuffle(segments);
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        // removed other assertion
+
+        assertFinitePath(paths.get(0), Vector2D.of(-1, 0), Vector2D.of(-0.5, 0), Vector2D.of(0, 1), Vector2D.of(-1, 0));
+    }
+
+@Test
+    void testConnectAll_multipleClosedPaths_3_oe() {
+        // arrange
+        final LinePath a = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(1, 1), Vector2D.ZERO, Vector2D.of(1, 0))
+                .close();
+
+        final LinePath b = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(0, 1), Vector2D.of(-1, 0), Vector2D.of(-0.5, 0))
+                .close();
+
+        final LinePath c = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(1, 3), Vector2D.of(0, 2), Vector2D.of(1, 2))
+                .close();
+
+        final List<LineConvexSubset> segments = new ArrayList<>();
+        segments.addAll(a.getElements());
+        segments.addAll(b.getElements());
+        segments.addAll(c.getElements());
+
+        shuffle(segments);
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+
+        assertFinitePath(paths.get(1), Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(1, 1), Vector2D.ZERO);
+    }
+
+@Test
+    void testConnectAll_multipleClosedPaths_4_oe() {
+        // arrange
+        final LinePath a = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(1, 1), Vector2D.ZERO, Vector2D.of(1, 0))
+                .close();
+
+        final LinePath b = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(0, 1), Vector2D.of(-1, 0), Vector2D.of(-0.5, 0))
+                .close();
+
+        final LinePath c = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(1, 3), Vector2D.of(0, 2), Vector2D.of(1, 2))
+                .close();
+
+        final List<LineConvexSubset> segments = new ArrayList<>();
+        segments.addAll(a.getElements());
+        segments.addAll(b.getElements());
+        segments.addAll(c.getElements());
+
+        shuffle(segments);
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        assertFinitePath(paths.get(2), Vector2D.of(0, 2), Vector2D.of(1, 2), Vector2D.of(1, 3), Vector2D.of(0, 2));
+    }
+
+@Test
+    void testConnectAll_singleOpenPath_2_oe() {
+        // arrange
+        final LinePath input = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(1, 1), Vector2D.ZERO, Vector2D.of(1, 0))
+                .build();
+
+        final List<LineConvexSubset> segments = new ArrayList<>(input.getElements());
+        shuffle(segments);
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        // removed other assertion
+
+        assertFinitePath(paths.get(0), Vector2D.of(1, 1), Vector2D.ZERO, Vector2D.of(1, 0));
+    }
+
+@Test
+    void testConnectAll_mixOfOpenConnectedAndInfinite_2_oe() {
+        // arrange
+        final LineConvexSubset inputYInf = Y_AXIS.reverseRayTo(Vector2D.ZERO);
+        final LineConvexSubset inputXInf = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.MINUS_X, TEST_PRECISION)
+                .rayFrom(Vector2D.ZERO);
+
+        final LinePath closedPath = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(0, 2), Vector2D.of(1, 2), Vector2D.of(1, 3))
+                .close();
+
+        final LinePath openPath = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(-1, 3), Vector2D.of(0, 1), Vector2D.of(1, 1))
+                .build();
+
+        final List<LineConvexSubset> segments = new ArrayList<>();
+        segments.add(inputYInf);
+        segments.add(inputXInf);
+        segments.addAll(closedPath.getElements());
+        segments.addAll(openPath.getElements());
+
+        shuffle(segments);
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        // removed other assertion
+
+        assertFinitePath(paths.get(0), Vector2D.of(-1, 3), Vector2D.of(0, 1), Vector2D.of(1, 1));
+    }
+
+@Test
+    void testConnectAll_mixOfOpenConnectedAndInfinite_7_oe() {
+        // arrange
+        final LineConvexSubset inputYInf = Y_AXIS.reverseRayTo(Vector2D.ZERO);
+        final LineConvexSubset inputXInf = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.MINUS_X, TEST_PRECISION)
+                .rayFrom(Vector2D.ZERO);
+
+        final LinePath closedPath = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(0, 2), Vector2D.of(1, 2), Vector2D.of(1, 3))
+                .close();
+
+        final LinePath openPath = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(-1, 3), Vector2D.of(0, 1), Vector2D.of(1, 1))
+                .build();
+
+        final List<LineConvexSubset> segments = new ArrayList<>();
+        segments.add(inputYInf);
+        segments.add(inputXInf);
+        segments.addAll(closedPath.getElements());
+        segments.addAll(openPath.getElements());
+
+        shuffle(segments);
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+
+        final LinePath infPath = paths.get(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertFinitePath(paths.get(2), Vector2D.of(0, 2), Vector2D.of(1, 2), Vector2D.of(1, 3), Vector2D.of(0, 2));
+    }
+
+@Test
+    void testConnectAll_pathWithSinglePoint_2_oe() {
+        // arrange
+        final Vector2D p0 = Vector2D.ZERO;
+
+        final List<LineConvexSubset> segments = Collections.singletonList(Lines.fromPointAndAngle(p0, 0, TEST_PRECISION).segment(p0, p0));
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        // removed other assertion
+
+        assertFinitePath(paths.get(0), p0, p0);
+    }
+
+@Test
+    void testConnectAll_pathWithPointLikeConnectedSegments_2_oe() {
+        // arrange
+        final Vector2D p0 = Vector2D.ZERO;
+        final Vector2D p1 = Vector2D.of(1, 0);
+        final Vector2D p2 = Vector2D.of(1, 1);
+
+        final Vector2D almostP0 = Vector2D.of(-1e-20, -1e-20);
+        final Vector2D almostP1 = Vector2D.of(1 - 1e-15, 0);
+
+        final LinePath input = LinePath.builder(TEST_PRECISION)
+                .appendVertices(p0, p1)
+                .append(Lines.fromPointAndAngle(p1, 0.25 * Math.PI, TEST_PRECISION).segment(p1, p1))
+                .append(Lines.fromPointAndAngle(p1, -0.25 * Math.PI, TEST_PRECISION).segment(almostP1, almostP1))
+                .append(p2)
+                .append(p0)
+                .append(Lines.fromPointAndAngle(Vector2D.ZERO, -Angle.PI_OVER_TWO, TEST_PRECISION)
+                        .segment(almostP0, almostP0))
+                .build();
+
+        final List<LineConvexSubset> segments = new ArrayList<>(input.getElements());
+        shuffle(segments);
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        // removed other assertion
+
+        assertFinitePath(paths.get(0), p0, p1, almostP1, p1, p2, p0, almostP0);
+    }
+
+@Test
+    void testConnectAll_intersectingPaths_2_oe() {
+        // arrange
+        final LinePath a = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(-1, 1), Vector2D.of(0.5, 0), Vector2D.of(-1, -1))
+                .build();
+
+        final LinePath b = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(1, 1), Vector2D.of(-0.5, 0), Vector2D.of(1, -1))
+                .build();
+
+        final List<LineConvexSubset> segments = new ArrayList<>();
+        segments.addAll(a.getElements());
+        segments.addAll(b.getElements());
+
+        shuffle(segments);
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        // removed other assertion
+
+        assertFinitePath(paths.get(0), Vector2D.of(-1, 1), Vector2D.of(0.5, 0), Vector2D.of(-1, -1));
+    }
+
+@Test
+    void testConnectAll_intersectingPaths_3_oe() {
+        // arrange
+        final LinePath a = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(-1, 1), Vector2D.of(0.5, 0), Vector2D.of(-1, -1))
+                .build();
+
+        final LinePath b = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(1, 1), Vector2D.of(-0.5, 0), Vector2D.of(1, -1))
+                .build();
+
+        final List<LineConvexSubset> segments = new ArrayList<>();
+        segments.addAll(a.getElements());
+        segments.addAll(b.getElements());
+
+        shuffle(segments);
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+
+        assertFinitePath(paths.get(1), Vector2D.of(1, 1), Vector2D.of(-0.5, 0), Vector2D.of(1, -1));
+    }
+
+@Test
+    void testAdd_2_oe() {
+        // arrange
+        final LineConvexSubset a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
+        final LineConvexSubset b = Lines.segmentFromPoints(Vector2D.Unit.PLUS_X, Vector2D.of(1, 1), TEST_PRECISION);
+        final LineConvexSubset c = Lines.segmentFromPoints(Vector2D.Unit.PLUS_X, Vector2D.of(2, 0), TEST_PRECISION);
+
+        // act
+        connector.add(Arrays.asList(a, b));
+        connector.add(Collections.singletonList(c));
+
+        final List<LinePath> paths = connector.connectAll();
+
+        // assert
+        // removed other assertion
+
+        assertFinitePath(paths.get(0), Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.of(2, 0));
+    }
+
+@Test
+    void testAdd_3_oe() {
+        // arrange
+        final LineConvexSubset a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
+        final LineConvexSubset b = Lines.segmentFromPoints(Vector2D.Unit.PLUS_X, Vector2D.of(1, 1), TEST_PRECISION);
+        final LineConvexSubset c = Lines.segmentFromPoints(Vector2D.Unit.PLUS_X, Vector2D.of(2, 0), TEST_PRECISION);
+
+        // act
+        connector.add(Arrays.asList(a, b));
+        connector.add(Collections.singletonList(c));
+
+        final List<LinePath> paths = connector.connectAll();
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        assertFinitePath(paths.get(1), Vector2D.Unit.PLUS_X, Vector2D.of(1, 1));
+    }
+
+@Test
+    void testConnect_2_oe() {
+        // arrange
+        final LineConvexSubset a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
+        final LineConvexSubset b = Lines.segmentFromPoints(Vector2D.Unit.PLUS_X, Vector2D.of(1, 1), TEST_PRECISION);
+        final LineConvexSubset c = Lines.segmentFromPoints(Vector2D.Unit.PLUS_X, Vector2D.of(2, 0), TEST_PRECISION);
+
+        // act
+        connector.connect(Arrays.asList(a, b));
+        connector.connect(Collections.singletonList(c));
+
+        final List<LinePath> paths = connector.connectAll();
+
+        // assert
+        // removed other assertion
+
+        assertFinitePath(paths.get(0), Vector2D.ZERO, Vector2D.Unit.PLUS_X, Vector2D.of(1, 1));
+    }
+
+@Test
+    void testConnect_3_oe() {
+        // arrange
+        final LineConvexSubset a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
+        final LineConvexSubset b = Lines.segmentFromPoints(Vector2D.Unit.PLUS_X, Vector2D.of(1, 1), TEST_PRECISION);
+        final LineConvexSubset c = Lines.segmentFromPoints(Vector2D.Unit.PLUS_X, Vector2D.of(2, 0), TEST_PRECISION);
+
+        // act
+        connector.connect(Arrays.asList(a, b));
+        connector.connect(Collections.singletonList(c));
+
+        final List<LinePath> paths = connector.connectAll();
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
+        assertFinitePath(paths.get(1), Vector2D.Unit.PLUS_X, Vector2D.of(2, 0));
+    }
+
 }

@@ -1,0 +1,21 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev_coll_left_842_2.java:[144,9] cannot find symbol
+  symbol:   method doTestGetKey(org.apache.commons.collections4.BidiMap<K,V>,K,V)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev_coll_left_842_2<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev_coll_left_842_2.java:[148,9] cannot find symbol
+  symbol:   method doTestGetKey(org.apache.commons.collections4.BidiMap<V,K>,V,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev_coll_left_842_2<K,V>
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:testCompile (default-testCompile) on project commons-collections4: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev_coll_left_842_2.java:[144,9] cannot find symbol
+[ERROR]   symbol:   method doTestGetKey(org.apache.commons.collections4.BidiMap<K,V>,K,V)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev_coll_left_842_2<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev_coll_left_842_2.java:[148,9] cannot find symbol
+[ERROR]   symbol:   method doTestGetKey(org.apache.commons.collections4.BidiMap<V,K>,V,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev_coll_left_842_2<K,V>
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

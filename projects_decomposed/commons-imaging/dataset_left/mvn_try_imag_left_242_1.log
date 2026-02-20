@@ -1,0 +1,57 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/ico/IcoRoundtripTest_OE25Dev_imag_left_242_1.java:[355,13] cannot find symbol
+  symbol:   method writeAndReadImageData(java.lang.String,byte[],int,int)
+  location: class org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev_imag_left_242_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/ico/IcoRoundtripTest_OE25Dev_imag_left_242_1.java:[398,13] cannot find symbol
+  symbol:   method writeAndReadImageData(java.lang.String,byte[],int,int)
+  location: class org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev_imag_left_242_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/ico/IcoRoundtripTest_OE25Dev_imag_left_242_1.java:[422,13] cannot find symbol
+  symbol:   method writeAndReadImageData(java.lang.String,byte[],int,int)
+  location: class org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev_imag_left_242_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/ico/IcoRoundtripTest_OE25Dev_imag_left_242_1.java:[450,17] cannot find symbol
+  symbol:   method writeAndReadImageData(java.lang.String,byte[],int,int)
+  location: class org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev_imag_left_242_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/ico/IcoRoundtripTest_OE25Dev_imag_left_242_1.java:[476,9] cannot find symbol
+  symbol:   method writeAndReadImageData(java.lang.String,byte[],int,int)
+  location: class org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev_imag_left_242_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/ico/IcoRoundtripTest_OE25Dev_imag_left_242_1.java:[495,9] cannot find symbol
+  symbol:   method writeAndReadImageData(java.lang.String,byte[],int,int)
+  location: class org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev_imag_left_242_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/ico/IcoRoundtripTest_OE25Dev_imag_left_242_1.java:[513,9] cannot find symbol
+  symbol:   method writeAndReadImageData(java.lang.String,byte[],int,int)
+  location: class org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev_imag_left_242_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/ico/IcoRoundtripTest_OE25Dev_imag_left_242_1.java:[530,9] cannot find symbol
+  symbol:   method writeAndReadImageData(java.lang.String,byte[],int,int)
+  location: class org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev_imag_left_242_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-imaging: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/ico/IcoRoundtripTest_OE25Dev_imag_left_242_1.java:[355,13] cannot find symbol
+[ERROR]   symbol:   method writeAndReadImageData(java.lang.String,byte[],int,int)
+[ERROR]   location: class org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev_imag_left_242_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/ico/IcoRoundtripTest_OE25Dev_imag_left_242_1.java:[398,13] cannot find symbol
+[ERROR]   symbol:   method writeAndReadImageData(java.lang.String,byte[],int,int)
+[ERROR]   location: class org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev_imag_left_242_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/ico/IcoRoundtripTest_OE25Dev_imag_left_242_1.java:[422,13] cannot find symbol
+[ERROR]   symbol:   method writeAndReadImageData(java.lang.String,byte[],int,int)
+[ERROR]   location: class org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev_imag_left_242_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/ico/IcoRoundtripTest_OE25Dev_imag_left_242_1.java:[450,17] cannot find symbol
+[ERROR]   symbol:   method writeAndReadImageData(java.lang.String,byte[],int,int)
+[ERROR]   location: class org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev_imag_left_242_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/ico/IcoRoundtripTest_OE25Dev_imag_left_242_1.java:[476,9] cannot find symbol
+[ERROR]   symbol:   method writeAndReadImageData(java.lang.String,byte[],int,int)
+[ERROR]   location: class org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev_imag_left_242_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/ico/IcoRoundtripTest_OE25Dev_imag_left_242_1.java:[495,9] cannot find symbol
+[ERROR]   symbol:   method writeAndReadImageData(java.lang.String,byte[],int,int)
+[ERROR]   location: class org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev_imag_left_242_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/ico/IcoRoundtripTest_OE25Dev_imag_left_242_1.java:[513,9] cannot find symbol
+[ERROR]   symbol:   method writeAndReadImageData(java.lang.String,byte[],int,int)
+[ERROR]   location: class org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev_imag_left_242_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/ico/IcoRoundtripTest_OE25Dev_imag_left_242_1.java:[530,9] cannot find symbol
+[ERROR]   symbol:   method writeAndReadImageData(java.lang.String,byte[],int,int)
+[ERROR]   location: class org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev_imag_left_242_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

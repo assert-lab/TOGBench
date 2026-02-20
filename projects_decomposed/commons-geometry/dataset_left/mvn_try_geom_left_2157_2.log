@@ -1,0 +1,267 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[374,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[402,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[418,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[434,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[451,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[452,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[470,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[471,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[472,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[488,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[505,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[506,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[523,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[524,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[542,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[543,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[544,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[560,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[580,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[581,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[582,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[598,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[613,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[615,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[616,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[618,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[619,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[654,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[655,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[676,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[677,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[697,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[698,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[715,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[719,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[755,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[759,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[760,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[779,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[802,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[822,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[842,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[860,9] cannot find symbol
+  symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+  location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-euclidean: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[374,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[402,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[418,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[434,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[451,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[452,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[470,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[471,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[472,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[488,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[505,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[506,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[523,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[524,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[542,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[543,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[544,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[560,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[580,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[581,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[582,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[598,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[613,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[615,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[616,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[618,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[619,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[654,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[655,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[676,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[677,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[697,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[698,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[715,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[719,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[755,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[759,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,double,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[760,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[779,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[802,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[822,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[842,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/RegionBSPTree1DTest_OE25Dev_geom_left_2157_2.java:[860,9] cannot find symbol
+[ERROR]   symbol:   method checkInterval(org.apache.commons.geometry.euclidean.oned.Interval,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev_geom_left_2157_2
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

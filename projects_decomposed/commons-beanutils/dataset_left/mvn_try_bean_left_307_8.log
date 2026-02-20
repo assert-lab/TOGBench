@@ -1,0 +1,21 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaListTestCase_OE25Dev_bean_left_307_8.java:[104,9] cannot find symbol
+  symbol:   method dynaBeanTest(org.apache.commons.beanutils.LazyDynaList,java.lang.Class<org.apache.commons.beanutils.BasicDynaBean>,org.apache.commons.beanutils.DynaClass,org.apache.commons.beanutils.BenchBean)
+  location: class org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev_bean_left_307_8
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaListTestCase_OE25Dev_bean_left_307_8.java:[120,9] cannot find symbol
+  symbol:   method dynaBeanTest(org.apache.commons.beanutils.LazyDynaList,java.lang.Class<org.apache.commons.beanutils.LazyDynaBean>,org.apache.commons.beanutils.DynaClass,org.apache.commons.beanutils.BenchBean)
+  location: class org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev_bean_left_307_8
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.7.0:testCompile (default-testCompile) on project commons-beanutils: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaListTestCase_OE25Dev_bean_left_307_8.java:[104,9] cannot find symbol
+[ERROR]   symbol:   method dynaBeanTest(org.apache.commons.beanutils.LazyDynaList,java.lang.Class<org.apache.commons.beanutils.BasicDynaBean>,org.apache.commons.beanutils.DynaClass,org.apache.commons.beanutils.BenchBean)
+[ERROR]   location: class org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev_bean_left_307_8
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaListTestCase_OE25Dev_bean_left_307_8.java:[120,9] cannot find symbol
+[ERROR]   symbol:   method dynaBeanTest(org.apache.commons.beanutils.LazyDynaList,java.lang.Class<org.apache.commons.beanutils.LazyDynaBean>,org.apache.commons.beanutils.DynaClass,org.apache.commons.beanutils.BenchBean)
+[ERROR]   location: class org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev_bean_left_307_8
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

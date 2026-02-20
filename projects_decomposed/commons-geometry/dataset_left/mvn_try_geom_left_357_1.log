@@ -1,0 +1,435 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[70,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[73,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[76,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[79,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[82,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[85,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[88,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[91,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[94,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[97,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[100,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[110,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[115,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[119,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[123,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[520,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[524,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[528,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[532,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[536,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[540,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[552,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[556,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[560,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[564,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[568,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[572,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[583,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[587,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[591,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[595,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[599,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[603,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[607,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[619,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[623,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[627,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[631,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[635,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[639,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[643,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[653,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[657,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[661,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[665,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[676,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[680,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[684,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[688,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[692,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[696,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[700,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[704,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[715,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[721,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[725,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[731,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[735,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[739,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[751,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[755,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[758,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[762,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[773,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[776,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[781,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[784,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[787,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[820,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[825,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[828,9] cannot find symbol
+  symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-io-core: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[70,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[73,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[76,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[79,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[82,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[85,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[88,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[91,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[94,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[97,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[100,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[110,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[115,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[119,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[123,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[520,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[524,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[528,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[532,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[536,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[540,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[552,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[556,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[560,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[564,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[568,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[572,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[583,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[587,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[591,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[595,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[599,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[603,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[607,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[619,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[623,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[627,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[631,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[635,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[639,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[643,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[653,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[657,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[661,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[665,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[676,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[680,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[684,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[688,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[692,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[696,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[700,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[704,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[715,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[721,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[725,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[731,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[735,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[739,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[751,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[755,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[758,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[762,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[773,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[776,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[781,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[784,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[787,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[820,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[825,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_357_1.java:[828,9] cannot find symbol
+[ERROR]   symbol:   method assertPosition(org.apache.commons.geometry.io.core.internal.SimpleTextParser,int,int)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_357_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,3147 @@
+id,test_prefix,test_name
+conf_left_1_1,"private void checkAddListProperty_1_oe(final AbstractConfiguration config) {
+        config.addProperty(""test"", ""value1"");
+        final Object[] lstValues1 = {""value2"", ""value3""};
+        final Object[] lstValues2 = {""value4"", ""value5"", ""value6""};
+        config.addProperty(""test"", lstValues1);
+        config.addProperty(""test"", Arrays.asList(lstValues2));
+        final List<Object> lst = config.getList(""test"");
+        assertEquals(""Wrong number of list elements"", 6, lst.size());
+}
+",TestAbstractConfigurationBasicFeatures::checkAddListProperty_1_oe
+conf_left_1_2,"private void checkAddListProperty_2_oe(final AbstractConfiguration config) {
+        config.addProperty(""test"", ""value1"");
+        final Object[] lstValues1 = {""value2"", ""value3""};
+        final Object[] lstValues2 = {""value4"", ""value5"", ""value6""};
+        config.addProperty(""test"", lstValues1);
+        config.addProperty(""test"", Arrays.asList(lstValues2));
+        final List<Object> lst = config.getList(""test"");
+        // removed other assertion
+        for (int i = 0; i < lst.size(); i++) {
+            assertEquals(""Wrong list element at "" + i, ""value"" + (i + 1), lst.get(i));
+}
+}
+",TestAbstractConfigurationBasicFeatures::checkAddListProperty_2_oe
+conf_left_2_1,"private void checkCopyEvents_1_oe(final CollectingConfigurationListener l, final Configuration src, final EventType<?> eventType) {
+        final Map<String, ConfigurationEvent> events = new HashMap<>();
+        for (final ConfigurationEvent e : l.events) {
+            assertEquals(""Wrong event type"", eventType, e.getEventType());
+}
+}
+",TestAbstractConfigurationBasicFeatures::checkCopyEvents_1_oe
+conf_left_2_2,"private void checkCopyEvents_2_oe(final CollectingConfigurationListener l, final Configuration src, final EventType<?> eventType) {
+        final Map<String, ConfigurationEvent> events = new HashMap<>();
+        for (final ConfigurationEvent e : l.events) {
+            // removed other assertion
+            assertTrue(""Unknown property: "" + e.getPropertyName(), src.containsKey(e.getPropertyName()));
+}
+}
+",TestAbstractConfigurationBasicFeatures::checkCopyEvents_2_oe
+conf_left_2_3,"private void checkCopyEvents_3_oe(final CollectingConfigurationListener l, final Configuration src, final EventType<?> eventType) {
+        final Map<String, ConfigurationEvent> events = new HashMap<>();
+        for (final ConfigurationEvent e : l.events) {
+            // removed other assertion
+            // removed other assertion
+            if (!e.isBeforeUpdate()) {
+                assertTrue(""After event without before event"", events.containsKey(e.getPropertyName()));
+}
+}
+}
+",TestAbstractConfigurationBasicFeatures::checkCopyEvents_3_oe
+conf_left_2_4,"private void checkCopyEvents_4_oe(final CollectingConfigurationListener l, final Configuration src, final EventType<?> eventType) {
+        final Map<String, ConfigurationEvent> events = new HashMap<>();
+        for (final ConfigurationEvent e : l.events) {
+            // removed other assertion
+            // removed other assertion
+            if (!e.isBeforeUpdate()) {
+                // removed other assertion
+            } else {
+                events.put(e.getPropertyName(), e);
+            }
+        }
+
+        for (final Iterator<String> it = src.getKeys(); it.hasNext();) {
+            final String key = it.next();
+            assertTrue(""No event received for key "" + key, events.containsKey(key));
+}
+}
+",TestAbstractConfigurationBasicFeatures::checkCopyEvents_4_oe
+conf_left_3_1,"private void checkGetListScalar_1_oe(final Object value) {
+        final BaseConfiguration config = new BaseConfiguration();
+        config.addProperty(KEY_PREFIX, value);
+        final List<Object> lst = config.getList(KEY_PREFIX);
+        assertEquals(""Wrong number of values"", 1, lst.size());
+}
+",TestAbstractConfigurationBasicFeatures::checkGetListScalar_1_oe
+conf_left_3_2,"private void checkGetListScalar_2_oe(final Object value) {
+        final BaseConfiguration config = new BaseConfiguration();
+        config.addProperty(KEY_PREFIX, value);
+        final List<Object> lst = config.getList(KEY_PREFIX);
+        // removed other assertion
+        assertEquals(""Wrong value"", value.toString(), lst.get(0));
+}
+",TestAbstractConfigurationBasicFeatures::checkGetListScalar_2_oe
+conf_left_4_1,"private void checkGetStringArrayScalar_1_oe(final Object value) {
+        final BaseConfiguration config = new BaseConfiguration();
+        config.addProperty(KEY_PREFIX, value);
+        final String[] array = config.getStringArray(KEY_PREFIX);
+        assertEquals(""Wrong number of elements"", 1, array.length);
+}
+",TestAbstractConfigurationBasicFeatures::checkGetStringArrayScalar_1_oe
+conf_left_4_2,"private void checkGetStringArrayScalar_2_oe(final Object value) {
+        final BaseConfiguration config = new BaseConfiguration();
+        config.addProperty(KEY_PREFIX, value);
+        final String[] array = config.getStringArray(KEY_PREFIX);
+        // removed other assertion
+        assertEquals(""Wrong value"", value.toString(), array[0]);
+}
+",TestAbstractConfigurationBasicFeatures::checkGetStringArrayScalar_2_oe
+conf_left_5_1,"private void checkListProperties_1_oe(final Configuration config) {
+        List<Object> values = config.getList(""list1"");
+        assertEquals(""Wrong number of elements in list 1"", 3, values.size());
+}
+",TestAbstractConfigurationBasicFeatures::checkListProperties_1_oe
+conf_left_5_2,"private void checkListProperties_2_oe(final Configuration config) {
+        List<Object> values = config.getList(""list1"");
+        // removed other assertion
+        values = config.getList(""list2"");
+        assertEquals(""Wrong number of elements in list 2"", 2, values.size());
+}
+",TestAbstractConfigurationBasicFeatures::checkListProperties_2_oe
+conf_left_5_3,"private void checkListProperties_3_oe(final Configuration config) {
+        List<Object> values = config.getList(""list1"");
+        // removed other assertion
+        values = config.getList(""list2"");
+        // removed other assertion
+        assertEquals(""Wrong value 1"", ""3,1415"", values.get(0));
+}
+",TestAbstractConfigurationBasicFeatures::checkListProperties_3_oe
+conf_left_5_4,"private void checkListProperties_4_oe(final Configuration config) {
+        List<Object> values = config.getList(""list1"");
+        // removed other assertion
+        values = config.getList(""list2"");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Wrong value 2"", ""9,81"", values.get(1));
+}
+",TestAbstractConfigurationBasicFeatures::checkListProperties_4_oe
+conf_left_55_1,"private void checkChildConfigurationsAtWithUpdates_1_oe(final boolean withUpdates, final String expectedName) {
+        final String key = ""tables.table(0)"";
+        final List<HierarchicalConfiguration<ImmutableNode>> children = withUpdates ? config.childConfigurationsAt(key, true)
+            : config.childConfigurationsAt(key);
+        assertEquals(""Wrong number of elements"", 2, children.size());
+}
+",TestHierarchicalConfiguration::checkChildConfigurationsAtWithUpdates_1_oe
+conf_left_55_2,"private void checkChildConfigurationsAtWithUpdates_2_oe(final boolean withUpdates, final String expectedName) {
+        final String key = ""tables.table(0)"";
+        final List<HierarchicalConfiguration<ImmutableNode>> children = withUpdates ? config.childConfigurationsAt(key, true)
+            : config.childConfigurationsAt(key);
+        // removed other assertion
+        final HierarchicalConfiguration<ImmutableNode> sub = children.get(0);
+        sub.setProperty(null, NEW_NAME);
+        assertEquals(""Wrong value in parent"", expectedName, config.getString(key + "".name""));
+}
+",TestHierarchicalConfiguration::checkChildConfigurationsAtWithUpdates_2_oe
+conf_left_56_1,"private void checkConfigurationsAtWithUpdate_1_oe(final boolean withUpdates, final String expName) {
+        final String key = ""tables.table(1).fields.field"";
+        final List<HierarchicalConfiguration<ImmutableNode>> lstFlds = withUpdates ? config.configurationsAt(key, true) : config.configurationsAt(key);
+        checkSubConfigurations(lstFlds);
+        lstFlds.get(0).setProperty(""name"", NEW_NAME);
+        assertEquals(""Wrong name in parent"", expName, config.getString(""tables.table(1).fields.field(0).name""));
+}
+",TestHierarchicalConfiguration::checkConfigurationsAtWithUpdate_1_oe
+conf_left_57_1,"private void checkContent_1_oe(final Configuration c) {
+        for (int i = 0; i < NodeStructureHelper.tablesLength(); i++) {
+            assertEquals(NodeStructureHelper.table(i), c.getString(""tables.table("" + i + "").name""));
+}
+}
+",TestHierarchicalConfiguration::checkContent_1_oe
+conf_left_57_2,"private void checkContent_2_oe(final Configuration c) {
+        for (int i = 0; i < NodeStructureHelper.tablesLength(); i++) {
+            // removed other assertion
+            for (int j = 0; j < NodeStructureHelper.fieldsLength(i); j++) {
+                assertEquals(NodeStructureHelper.field(i, j), c.getString(""tables.table("" + i + "").fields.field("" + j + "").name""));
+}
+}
+}
+",TestHierarchicalConfiguration::checkContent_2_oe
+conf_left_58_1,"private void checkSubConfigurations_1_oe(final List<? extends ImmutableConfiguration> lstFlds) {
+        assertEquals(""Wrong size of fields"", NodeStructureHelper.fieldsLength(1), lstFlds.size());
+}
+",TestHierarchicalConfiguration::checkSubConfigurations_1_oe
+conf_left_58_2,"private void checkSubConfigurations_2_oe(final List<? extends ImmutableConfiguration> lstFlds) {
+        // removed other assertion
+        for (int i = 0; i < NodeStructureHelper.fieldsLength(1); i++) {
+            final ImmutableConfiguration sub = lstFlds.get(i);
+            assertEquals(""Wrong field at position "" + i, NodeStructureHelper.field(1, i), sub.getString(""name""));
+}
+}
+",TestHierarchicalConfiguration::checkSubConfigurations_2_oe
+conf_left_84_1,"private static void checkConfiguration_1_oe(final Configuration config) {
+        assertTrue(""Configuration has key key0"", config.containsKey(""key0""));
+}
+",TestXMLConfiguration_605::checkConfiguration_1_oe
+conf_left_84_2,"private static void checkConfiguration_2_oe(final Configuration config) {
+        // removed other assertion
+        assertTrue(""Configuration has key key1"", config.containsKey(""key1""));
+}
+",TestXMLConfiguration_605::checkConfiguration_2_oe
+conf_left_84_3,"private static void checkConfiguration_3_oe(final Configuration config) {
+        // removed other assertion
+        // removed other assertion
+        assertTrue(""Configuration has key key3"", config.containsKey(""key3""));
+}
+",TestXMLConfiguration_605::checkConfiguration_3_oe
+conf_left_84_4,"private static void checkConfiguration_4_oe(final Configuration config) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertTrue(""Configuration has key key2"", config.containsKey(""key2""));
+}
+",TestXMLConfiguration_605::checkConfiguration_4_oe
+conf_left_85_1,"public void verify_1_oe(final Methods... expMethods) {
+        assertEquals(""Wrong methods invoked"", constructExpectedMethods(expMethods), methods.toString());
+}
+",SynchronizerTestImpl::verify_1_oe
+conf_left_86_1,"public void verifyContains_1_oe(final Methods... expMethods) {
+        assertTrue(""Expected methods not found: "" + methods, methods.toString().indexOf(constructExpectedMethods(expMethods)) >= 0);
+}
+",SynchronizerTestImpl::verifyContains_1_oe
+conf_left_87_1,"public void verifyEnd_1_oe(final Methods... expMethods) {
+        assertTrue(""Wrong methods at start: "" + methods, methods.toString().endsWith(constructExpectedMethods(expMethods)));
+}
+",SynchronizerTestImpl::verifyEnd_1_oe
+conf_left_88_1,"public void verifyStart_1_oe(final Methods... expMethods) {
+        assertTrue(""Wrong methods at start: "" + methods, methods.toString().startsWith(constructExpectedMethods(expMethods)));
+}
+",SynchronizerTestImpl::verifyStart_1_oe
+conf_left_156_1,"public void checkEvent_1_oe(final int expectedInvalidate, final int expectedOthers) {
+            assertEquals(""Wrong number of invalidate events"", expectedInvalidate, invalidateEvents);
+}
+",CombinedListener::checkEvent_1_oe
+conf_left_156_2,"public void checkEvent_2_oe(final int expectedInvalidate, final int expectedOthers) {
+            // removed other assertion
+            assertEquals(""Wrong number of other events"", expectedOthers, otherEvents);
+}
+",CombinedListener::checkEvent_2_oe
+conf_left_157_1,"private void checkAddConfig_1_oe(final AbstractConfiguration c) {
+        final Collection<EventListener<? super ConfigurationEvent>> listeners = c.getEventListeners(ConfigurationEvent.ANY);
+        assertEquals(""Wrong number of configuration listeners"", 1, listeners.size());
+}
+",TestCombinedConfiguration::checkAddConfig_1_oe
+conf_left_157_2,"private void checkAddConfig_2_oe(final AbstractConfiguration c) {
+        final Collection<EventListener<? super ConfigurationEvent>> listeners = c.getEventListeners(ConfigurationEvent.ANY);
+        // removed other assertion
+        assertTrue(""Combined config is no listener"", listeners.contains(config));
+}
+",TestCombinedConfiguration::checkAddConfig_2_oe
+conf_left_158_1,"private void checkCombinedRootNotConstructed_1_oe() {
+        assertTrue(""Root node was constructed"", config.getModel().getNodeHandler().getRootNode().getChildren().isEmpty());
+}
+",TestCombinedConfiguration::checkCombinedRootNotConstructed_1_oe
+conf_left_159_1,"private void checkConfigurationsAt_1_oe(final boolean withUpdates) {
+        setUpSubConfigTest();
+        final List<HierarchicalConfiguration<ImmutableNode>> subs = config.configurationsAt(SUB_KEY, withUpdates);
+        assertEquals(""Wrong number of sub configurations"", 1, subs.size());
+}
+",TestCombinedConfiguration::checkConfigurationsAt_1_oe
+conf_left_159_2,"private void checkConfigurationsAt_2_oe(final boolean withUpdates) {
+        setUpSubConfigTest();
+        final List<HierarchicalConfiguration<ImmutableNode>> subs = config.configurationsAt(SUB_KEY, withUpdates);
+        // removed other assertion
+        assertTrue(""Wrong value in sub configuration"", subs.get(0).getBoolean(TEST_KEY));
+}
+",TestCombinedConfiguration::checkConfigurationsAt_2_oe
+conf_left_160_1,"private void checkRemoveConfig_1_oe(final AbstractConfiguration c) {
+        assertTrue(""Listener was not removed"", c.getEventListeners(ConfigurationEvent.ANY).isEmpty());
+}
+",TestCombinedConfiguration::checkRemoveConfig_1_oe
+conf_left_160_2,"private void checkRemoveConfig_2_oe(final AbstractConfiguration c) {
+        // removed other assertion
+        assertEquals(""Wrong number of contained configs"", 0, config.getNumberOfConfigurations());
+}
+",TestCombinedConfiguration::checkRemoveConfig_2_oe
+conf_left_160_3,"private void checkRemoveConfig_3_oe(final AbstractConfiguration c) {
+        // removed other assertion
+        // removed other assertion
+        assertTrue(""Name was not removed"", config.getConfigurationNames().isEmpty());
+}
+",TestCombinedConfiguration::checkRemoveConfig_3_oe
+conf_left_206_1,"private void checkBackslashList_1_oe(final String key) {
+        final Object prop = conf.getProperty(""test."" + key);
+        assertTrue(""Not a list"", prop instanceof List);
+}
+",TestPropertiesConfiguration::checkBackslashList_1_oe
+conf_left_206_2,"private void checkBackslashList_2_oe(final String key) {
+        final Object prop = conf.getProperty(""test."" + key);
+        // removed other assertion
+        final List<?> list = (List<?>) prop;
+        assertEquals(""Wrong number of list elements"", 2, list.size());
+}
+",TestPropertiesConfiguration::checkBackslashList_2_oe
+conf_left_206_3,"private void checkBackslashList_3_oe(final String key) {
+        final Object prop = conf.getProperty(""test."" + key);
+        // removed other assertion
+        final List<?> list = (List<?>) prop;
+        // removed other assertion
+        final String prefix = ""\\\\"" + key;
+        assertEquals(""Wrong element 1"", prefix + ""a"", list.get(0));
+}
+",TestPropertiesConfiguration::checkBackslashList_3_oe
+conf_left_206_4,"private void checkBackslashList_4_oe(final String key) {
+        final Object prop = conf.getProperty(""test."" + key);
+        // removed other assertion
+        final List<?> list = (List<?>) prop;
+        // removed other assertion
+        final String prefix = ""\\\\"" + key;
+        // removed other assertion
+        assertEquals(""Wrong element 2"", prefix + ""b"", list.get(1));
+}
+",TestPropertiesConfiguration::checkBackslashList_4_oe
+conf_left_207_1,"private void checkCopiedConfig_1_oe(final Configuration copyConf) throws ConfigurationException {
+        saveTestConfig();
+        final PropertiesConfiguration checkConf = new PropertiesConfiguration();
+        load(checkConf, testSavePropertiesFile.getAbsolutePath());
+        for (final Iterator<String> it = copyConf.getKeys(); it.hasNext();) {
+            final String key = it.next();
+            assertEquals(""Wrong value for property "" + key, checkConf.getProperty(key), copyConf.getProperty(key));
+}
+}
+",TestPropertiesConfiguration::checkCopiedConfig_1_oe
+conf_left_208_1,"private void checkEmpty_1_oe(final String key) {
+        final String empty = conf.getString(key);
+        assertNotNull(""Property not found: "" + key, empty);
+}
+",TestPropertiesConfiguration::checkEmpty_1_oe
+conf_left_208_2,"private void checkEmpty_2_oe(final String key) {
+        final String empty = conf.getString(key);
+        // removed other assertion
+        assertEquals(""Wrong value for property "" + key, """", empty);
+}
+",TestPropertiesConfiguration::checkEmpty_2_oe
+conf_left_209_1,"private PropertiesConfiguration checkSavedConfig_1_oe() throws ConfigurationException {
+        final PropertiesConfiguration checkConfig = new PropertiesConfiguration();
+        checkConfig.setListDelimiterHandler(new LegacyListDelimiterHandler(','));
+        load(checkConfig, testSavePropertiesFile.getAbsolutePath());
+        ConfigurationAssert.assertConfigurationEquals(conf, checkConfig);
+}
+",TestPropertiesConfiguration::checkSavedConfig_1_oe
+conf_left_210_1,"@Before
+    public void setUp_1_oe() throws Exception {
+        conf = new PropertiesConfiguration();
+        conf.setListDelimiterHandler(new LegacyListDelimiterHandler(','));
+        load(conf, testProperties);
+
+        // remove the test save file if it exists
+        if (testSavePropertiesFile.exists()) {
+            assertTrue(""Test output file could not be deleted"", testSavePropertiesFile.delete());
+    }
+    }
+",TestPropertiesConfiguration::setUp_1_oe
+conf_left_341_1,"public static void assertConfigurationEquals_1_oe(final ImmutableConfiguration expected, final ImmutableConfiguration actual) { // check that the actual configuration contains all the properties of the expected configuration for (final Iterator<String> it = expected.getKeys(); it.hasNext();) {;
+}
+",ConfigurationAssert::assertConfigurationEquals_1_oe
+conf_left_341_2,"// removed other assertion
+            final String key = it.next();
+            assertTrue(""The actual configuration doesn't contain the expected key '"" + key + ""'"", actual.containsKey(key));
+",ConfigurationAssert::assertConfigurationEquals_2_oe
+conf_left_341_3,"// removed other assertion
+            final String key = it.next();
+            // removed other assertion
+            assertEquals(""Value of the '"" + key + ""' property"", expected.getProperty(key), actual.getProperty(key));
+",ConfigurationAssert::assertConfigurationEquals_3_oe
+conf_left_341_4,"// removed other assertion
+            final String key = it.next();
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // check that the actual configuration has no extra properties
+        for (final Iterator<String> it = actual.getKeys(); it.hasNext();) {
+            final String key = it.next();
+            assertTrue(""The actual configuration contains an extra key '"" + key + ""'"", expected.containsKey(key));
+",ConfigurationAssert::assertConfigurationEquals_4_oe
+conf_left_342_1,"public static void checkEquals_1_oe(final Object o1, final Object o2, final boolean expEquals) {
+        assertEquals(""Wrong result of equals()"", expEquals, o1.equals(o2));
+}
+",ConfigurationAssert::checkEquals_1_oe
+conf_left_342_2,"public static void checkEquals_2_oe(final Object o1, final Object o2, final boolean expEquals) {
+        // removed other assertion
+        if (o2 != null) {
+            assertEquals(""Not symmetric"", expEquals, o2.equals(o1));
+}
+}
+",ConfigurationAssert::checkEquals_2_oe
+conf_left_342_3,"public static void checkEquals_3_oe(final Object o1, final Object o2, final boolean expEquals) {
+        // removed other assertion
+        if (o2 != null) {
+            // removed other assertion
+        }
+        if (expEquals) {
+            assertEquals(""Different hash codes"", o1.hashCode(), o2.hashCode());
+}
+}
+",ConfigurationAssert::checkEquals_3_oe
+conf_left_348_1,"private void configTest_1_oe(final XMLConfiguration config) {
+        assertEquals(1, config.getMaxIndex(""tables.table""));
+}
+",TestHierarchicalXMLConfiguration::configTest_1_oe
+conf_left_348_2,"private void configTest_2_oe(final XMLConfiguration config) {
+        // removed other assertion
+        assertEquals(""system"", config.getProperty(""tables.table(0)[@tableType]""));
+}
+",TestHierarchicalXMLConfiguration::configTest_2_oe
+conf_left_348_3,"private void configTest_3_oe(final XMLConfiguration config) {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""application"", config.getProperty(""tables.table(1)[@tableType]""));
+}
+",TestHierarchicalXMLConfiguration::configTest_3_oe
+conf_left_348_4,"private void configTest_4_oe(final XMLConfiguration config) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(""users"", config.getProperty(""tables.table(0).name""));
+}
+",TestHierarchicalXMLConfiguration::configTest_4_oe
+conf_left_348_5,"private void configTest_5_oe(final XMLConfiguration config) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(""documents"", config.getProperty(""tables.table(1).name""));
+}
+",TestHierarchicalXMLConfiguration::configTest_5_oe
+conf_left_348_6,"private void configTest_6_oe(final XMLConfiguration config) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables.table.fields.field.name"");
+        assertTrue(prop instanceof Collection);
+}
+",TestHierarchicalXMLConfiguration::configTest_6_oe
+conf_left_348_7,"private void configTest_7_oe(final XMLConfiguration config) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables.table.fields.field.name"");
+        // removed other assertion
+        assertEquals(10, ((Collection<?>) prop).size());
+}
+",TestHierarchicalXMLConfiguration::configTest_7_oe
+conf_left_348_8,"private void configTest_8_oe(final XMLConfiguration config) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables.table.fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables.table(0).fields.field.type"");
+        assertTrue(prop instanceof Collection);
+}
+",TestHierarchicalXMLConfiguration::configTest_8_oe
+conf_left_348_9,"private void configTest_9_oe(final XMLConfiguration config) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables.table.fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables.table(0).fields.field.type"");
+        // removed other assertion
+        assertEquals(5, ((Collection<?>) prop).size());
+}
+",TestHierarchicalXMLConfiguration::configTest_9_oe
+conf_left_348_10,"private void configTest_10_oe(final XMLConfiguration config) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables.table.fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables.table(0).fields.field.type"");
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables.table(1).fields.field.type"");
+        assertTrue(prop instanceof Collection);
+}
+",TestHierarchicalXMLConfiguration::configTest_10_oe
+conf_left_348_11,"private void configTest_11_oe(final XMLConfiguration config) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables.table.fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables.table(0).fields.field.type"");
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables.table(1).fields.field.type"");
+        // removed other assertion
+        assertEquals(5, ((Collection<?>) prop).size());
+}
+",TestHierarchicalXMLConfiguration::configTest_11_oe
+conf_left_355_1,"public void verify_1_oe() {
+            try {
+                join();
+            } catch (final InterruptedException e) {
+                fail(""Waiting was interrupted: "" + e);
+}
+}
+",SubNodeAccessThread::verify_1_oe
+conf_left_355_2,"public void verify_2_oe() {
+            try {
+                join();
+            } catch (final InterruptedException e) {
+                // removed other assertion
+            }
+            assertEquals(""Wrong value"", ""I'm complex!"", value);
+}
+",SubNodeAccessThread::verify_2_oe
+conf_left_356_1,"private static boolean isDetached_1_oe(final HierarchicalConfiguration<ImmutableNode> c) {
+        assertTrue(""Not a sub configuration"", c instanceof SubnodeConfiguration);
+}
+",TestBaseHierarchicalConfigurationSynchronization::isDetached_1_oe
+conf_left_378_1,"private void checkEquality_1_oe(final String msg, final Configuration c1, final Configuration c2) {
+        final Iterator<String> it1 = c1.getKeys();
+        final Iterator<String> it2 = c2.getKeys();
+
+        while (it1.hasNext() && it2.hasNext()) {
+            final String key1 = it1.next();
+            final String key2 = it2.next();
+            assertEquals(msg + "", Keys: "", key1, key2);
+}
+}
+",TestEqualBehavior::checkEquality_1_oe
+conf_left_378_2,"private void checkEquality_2_oe(final String msg, final Configuration c1, final Configuration c2) {
+        final Iterator<String> it1 = c1.getKeys();
+        final Iterator<String> it2 = c2.getKeys();
+
+        while (it1.hasNext() && it2.hasNext()) {
+            final String key1 = it1.next();
+            final String key2 = it2.next();
+            // removed other assertion
+            assertEquals(msg + "", Contains: "", c1.containsKey(key1), c2.containsKey(key2));
+}
+}
+",TestEqualBehavior::checkEquality_2_oe
+conf_left_378_3,"private void checkEquality_3_oe(final String msg, final Configuration c1, final Configuration c2) {
+        final Iterator<String> it1 = c1.getKeys();
+        final Iterator<String> it2 = c2.getKeys();
+
+        while (it1.hasNext() && it2.hasNext()) {
+            final String key1 = it1.next();
+            final String key2 = it2.next();
+            // removed other assertion
+            // removed other assertion
+        }
+        assertEquals(msg + "", Iterator: "", it1.hasNext(), it2.hasNext());
+}
+",TestEqualBehavior::checkEquality_3_oe
+conf_left_379_1,"private void checkSameKey_1_oe(final String msg, final String key, final Configuration c1, final Configuration c2) {
+        final String[] s1 = c1.getStringArray(key);
+        final String[] s2 = c2.getStringArray(key);
+
+        assertEquals(msg + "", length: "", s1.length, s2.length);
+}
+",TestEqualBehavior::checkSameKey_1_oe
+conf_left_379_2,"private void checkSameKey_2_oe(final String msg, final String key, final Configuration c1, final Configuration c2) {
+        final String[] s1 = c1.getStringArray(key);
+        final String[] s2 = c2.getStringArray(key);
+
+        // removed other assertion
+
+        for (int i = 0; i < s1.length; i++) {
+            assertEquals(msg + "", String Array: "", s1[i], s2[i]);
+}
+}
+",TestEqualBehavior::checkSameKey_2_oe
+conf_left_379_3,"private void checkSameKey_3_oe(final String msg, final String key, final Configuration c1, final Configuration c2) {
+        final String[] s1 = c1.getStringArray(key);
+        final String[] s2 = c2.getStringArray(key);
+
+        // removed other assertion
+
+        for (int i = 0; i < s1.length; i++) {
+            // removed other assertion
+        }
+
+        final List<Object> list1 = c1.getList(key);
+        final List<Object> list2 = c2.getList(key);
+
+        assertEquals(msg + "", Size: "", list1.size(), list2.size());
+}
+",TestEqualBehavior::checkSameKey_3_oe
+conf_left_379_4,"private void checkSameKey_4_oe(final String msg, final String key, final Configuration c1, final Configuration c2) {
+        final String[] s1 = c1.getStringArray(key);
+        final String[] s2 = c2.getStringArray(key);
+
+        // removed other assertion
+
+        for (int i = 0; i < s1.length; i++) {
+            // removed other assertion
+        }
+
+        final List<Object> list1 = c1.getList(key);
+        final List<Object> list2 = c2.getList(key);
+
+        // removed other assertion
+
+        final Iterator<Object> it1 = list1.iterator();
+        final Iterator<Object> it2 = list2.iterator();
+
+        while (it1.hasNext() && it2.hasNext()) {
+            final String val1 = (String) it1.next();
+            final String val2 = (String) it2.next();
+            assertEquals(msg + "", List: "", val1, val2);
+}
+}
+",TestEqualBehavior::checkSameKey_4_oe
+conf_left_379_5,"private void checkSameKey_5_oe(final String msg, final String key, final Configuration c1, final Configuration c2) {
+        final String[] s1 = c1.getStringArray(key);
+        final String[] s2 = c2.getStringArray(key);
+
+        // removed other assertion
+
+        for (int i = 0; i < s1.length; i++) {
+            // removed other assertion
+        }
+
+        final List<Object> list1 = c1.getList(key);
+        final List<Object> list2 = c2.getList(key);
+
+        // removed other assertion
+
+        final Iterator<Object> it1 = list1.iterator();
+        final Iterator<Object> it2 = list2.iterator();
+
+        while (it1.hasNext() && it2.hasNext()) {
+            final String val1 = (String) it1.next();
+            final String val2 = (String) it2.next();
+            // removed other assertion
+        }
+        assertEquals(msg + "", Iterator End: "", it1.hasNext(), it2.hasNext());
+}
+",TestEqualBehavior::checkSameKey_5_oe
+conf_left_399_1,"private void checkSetListDelimiterHandler_1_oe() {
+        cc.addProperty(""test.list"", ""a/b/c"");
+        cc.addProperty(""test.property"", ""a,b,c"");
+        assertEquals(""Wrong number of list elements"", 3, cc.getList(""test.list"").size());
+}
+",TestCompositeConfiguration::checkSetListDelimiterHandler_1_oe
+conf_left_399_2,"private void checkSetListDelimiterHandler_2_oe() {
+        cc.addProperty(""test.list"", ""a/b/c"");
+        cc.addProperty(""test.property"", ""a,b,c"");
+        // removed other assertion
+        assertEquals(""Wrong value of property"", ""a,b,c"", cc.getString(""test.property""));
+}
+",TestCompositeConfiguration::checkSetListDelimiterHandler_2_oe
+conf_left_399_3,"private void checkSetListDelimiterHandler_3_oe() {
+        cc.addProperty(""test.list"", ""a/b/c"");
+        cc.addProperty(""test.property"", ""a,b,c"");
+        // removed other assertion
+        // removed other assertion
+
+        final AbstractConfiguration config = (AbstractConfiguration) cc.getInMemoryConfiguration();
+        final DefaultListDelimiterHandler listHandler = (DefaultListDelimiterHandler) config.getListDelimiterHandler();
+        assertEquals(""Wrong list delimiter"", '/', listHandler.getDelimiter());
+}
+",TestCompositeConfiguration::checkSetListDelimiterHandler_3_oe
+conf_left_400_1,"private void prepareInterpolationTest_1_oe() {
+        final PropertiesConfiguration p = new PropertiesConfiguration();
+        p.addProperty(""foo"", ""initial"");
+        p.addProperty(""bar"", ""${foo}"");
+        p.addProperty(""prefix.foo"", ""override"");
+
+        cc.addConfiguration(p.subset(""prefix""));
+        cc.addConfiguration(p);
+        assertEquals(""Wrong value on direct access"", ""override"", cc.getString(""bar""));
+}
+",TestCompositeConfiguration::prepareInterpolationTest_1_oe
+conf_left_442_1,"private void checkContent_1_oe(final INIConfiguration instance) {
+        assertEquals(""var1"", ""foo"", instance.getString(""section1.var1""));
+}
+",TestINIConfiguration::checkContent_1_oe
+conf_left_442_2,"private void checkContent_2_oe(final INIConfiguration instance) {
+        // removed other assertion
+        assertEquals(""var2"", 451, instance.getInt(""section1.var2""));
+}
+",TestINIConfiguration::checkContent_2_oe
+conf_left_442_3,"private void checkContent_3_oe(final INIConfiguration instance) {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""section2.var1"", 123.45, instance.getDouble(""section2.var1""), .001);
+}
+",TestINIConfiguration::checkContent_3_oe
+conf_left_442_4,"private void checkContent_4_oe(final INIConfiguration instance) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""section2.var2"", ""bar"", instance.getString(""section2.var2""));
+}
+",TestINIConfiguration::checkContent_4_oe
+conf_left_442_5,"private void checkContent_5_oe(final INIConfiguration instance) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(""section3.var1"", instance.getBoolean(""section3.var1""));
+}
+",TestINIConfiguration::checkContent_5_oe
+conf_left_442_6,"private void checkContent_6_oe(final INIConfiguration instance) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Wrong number of sections"", 3, instance.getSections().size());
+}
+",TestINIConfiguration::checkContent_6_oe
+conf_left_442_7,"private void checkContent_7_oe(final INIConfiguration instance) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(""Wrong sections"", instance.getSections().containsAll(Arrays.asList(""section1"", ""section2"", ""section3"")));
+}
+",TestINIConfiguration::checkContent_7_oe
+conf_left_443_1,"private void checkSave_1_oe(final String content) throws ConfigurationException {
+        final INIConfiguration config = setUpConfig(content);
+        final String sOutput = saveToString(config);
+        assertEquals(""Wrong content of ini file"", content, sOutput);
+}
+",TestINIConfiguration::checkSave_1_oe
+conf_left_444_1,"private void checkSectionNames_1_oe(final INIConfiguration config, final String[] expected) {
+        final Set<String> sectionNames = config.getSections();
+        final Iterator<String> it = sectionNames.iterator();
+        for (int idx = 0; idx < expected.length; idx++) {
+            assertEquals(""Wrong section at "" + idx, expected[idx], it.next());
+}
+}
+",TestINIConfiguration::checkSectionNames_1_oe
+conf_left_444_2,"private void checkSectionNames_2_oe(final INIConfiguration config, final String[] expected) {
+        final Set<String> sectionNames = config.getSections();
+        final Iterator<String> it = sectionNames.iterator();
+        for (int idx = 0; idx < expected.length; idx++) {
+            // removed other assertion
+        }
+        assertFalse(""Too many sections"", it.hasNext());
+}
+",TestINIConfiguration::checkSectionNames_2_oe
+conf_left_503_1,"private XMLConfiguration checkSavedConfig_1_oe(final File saveFile) throws ConfigurationException {
+        final XMLConfiguration config = createFromFile(saveFile.getAbsolutePath());
+        ConfigurationAssert.assertConfigurationEquals(conf, config);
+}
+",TestXMLConfiguration::checkSavedConfig_1_oe
+conf_left_504_1,"private void checkSaveDelimiterParsingDisabled_1_oe(final String key) throws ConfigurationException {
+        conf.clear();
+        conf.setListDelimiterHandler(new DisabledListDelimiterHandler());
+        load(conf, testProperties);
+        conf.setProperty(key, ""C:\\Temp\\,C:\\Data\\"");
+        conf.addProperty(key, ""a,b,c"");
+        saveTestConfig();
+        final XMLConfiguration checkConf = new XMLConfiguration();
+        checkConf.setListDelimiterHandler(conf.getListDelimiterHandler());
+        load(checkConf, testSaveConf.getAbsolutePath());
+        ConfigurationAssert.assertConfigurationEquals(conf, checkConf);
+}
+",TestXMLConfiguration::checkSaveDelimiterParsingDisabled_1_oe
+conf_left_505_1,"private void removeTestFile_1_oe() {
+        if (testSaveConf.exists()) {
+            assertTrue(testSaveConf.delete());
+}
+}
+",TestXMLConfiguration::removeTestFile_1_oe
+conf_left_593_1,"private void checkCopyElementMapping_1_oe(final String file) throws Exception {
+        final XMLDocumentHelper helper = XMLDocumentHelper.forSourceDocument(loadDocument(file));
+        final XMLDocumentHelper copy = helper.createCopy();
+        final Collection<Node> texts = findTextElements(helper.getDocument());
+        assertFalse(""No texts"", texts.isEmpty());
+}
+",TestXMLDocumentHelper::checkCopyElementMapping_1_oe
+conf_left_593_2,"private void checkCopyElementMapping_2_oe(final String file) throws Exception {
+        final XMLDocumentHelper helper = XMLDocumentHelper.forSourceDocument(loadDocument(file));
+        final XMLDocumentHelper copy = helper.createCopy();
+        final Collection<Node> texts = findTextElements(helper.getDocument());
+        // removed other assertion
+        for (final Node n : texts) {
+            final Text txtSrc = (Text) n;
+            final Text txtCopy = (Text) copy.getElementMapping().get(n);
+            assertNotNull(""No matching element for "" + n, txtCopy);
+}
+}
+",TestXMLDocumentHelper::checkCopyElementMapping_2_oe
+conf_left_593_3,"private void checkCopyElementMapping_3_oe(final String file) throws Exception {
+        final XMLDocumentHelper helper = XMLDocumentHelper.forSourceDocument(loadDocument(file));
+        final XMLDocumentHelper copy = helper.createCopy();
+        final Collection<Node> texts = findTextElements(helper.getDocument());
+        // removed other assertion
+        for (final Node n : texts) {
+            final Text txtSrc = (Text) n;
+            final Text txtCopy = (Text) copy.getElementMapping().get(n);
+            // removed other assertion
+            assertEquals(""Wrong text"", txtSrc.getData(), txtCopy.getData());
+}
+}
+",TestXMLDocumentHelper::checkCopyElementMapping_3_oe
+conf_left_603_1,"private void checkErrorListener_1_oe(final EventType<? extends ConfigurationErrorEvent> type, final EventType<?> opEventType, final String propName,
+        final Object propValue) {
+        final Throwable exception = listener.checkEvent(type, opEventType, propName, propValue);
+        assertTrue(""Wrong exception class"", exception instanceof NamingException);
+}
+",TestJNDIConfiguration::checkErrorListener_1_oe
+conf_left_701_1,"private void checkErrorListener_1_oe(final EventType<? extends ConfigurationErrorEvent> type, final EventType<?> opType, final String key, final Object value) {
+        final Throwable exception = listener.checkEvent(type, opType, key, value);
+        assertTrue(""Wrong exception"", exception instanceof SQLException);
+}
+",TestDatabaseConfiguration::checkErrorListener_1_oe
+conf_left_735_1,"private void check_1_oe(final JXPathContext ctx, final String path, final String[] values) {
+        final Iterator<?> it = ctx.iterate(path);
+        for (final String value : values) {
+            assertTrue(""Too few values"", it.hasNext());
+}
+}
+",TestBaseConfigurationXMLReader::check_1_oe
+conf_left_735_2,"private void check_2_oe(final JXPathContext ctx, final String path, final String[] values) {
+        final Iterator<?> it = ctx.iterate(path);
+        for (final String value : values) {
+            // removed other assertion
+            assertEquals(""Wrong property value"", value, it.next());
+}
+}
+",TestBaseConfigurationXMLReader::check_2_oe
+conf_left_735_3,"private void check_3_oe(final JXPathContext ctx, final String path, final String[] values) {
+        final Iterator<?> it = ctx.iterate(path);
+        for (final String value : values) {
+            // removed other assertion
+            // removed other assertion
+        }
+        assertFalse(""Too many values"", it.hasNext());
+}
+",TestBaseConfigurationXMLReader::check_3_oe
+conf_left_736_1,"private void checkDocument_1_oe(final BaseConfigurationXMLReader creader, final String rootName) throws Exception {
+        final SAXSource source = new SAXSource(creader, new InputSource());
+        final DOMResult result = new DOMResult();
+        final Transformer trans = TransformerFactory.newInstance().newTransformer();
+        trans.transform(source, result);
+        final Node root = ((Document) result.getNode()).getDocumentElement();
+        final JXPathContext ctx = JXPathContext.newContext(root);
+
+        assertEquals(""Wrong root name"", rootName, root.getNodeName());
+}
+",TestBaseConfigurationXMLReader::checkDocument_1_oe
+conf_left_747_1,"private void verify_1_oe(final String key, final DynamicCombinedConfiguration config, final int rows) {
+        System.setProperty(""Id"", key);
+        assertEquals(config.getInt(""rowsPerPage""), rows);
+}
+",TestDynamicCombinedConfiguration::verify_1_oe
+conf_left_748_1,"private void checkLayoutString_1_oe(final String expected) throws ConfigurationException {
+        assertEquals(""Wrong layout file content"", expected, getLayoutString());
+}
+",TestPropertiesConfigurationLayout::checkLayoutString_1_oe
+conf_left_749_1,"private void fillLayout_1_oe() {
+        builder.addComment(""A header comment"");
+        builder.addComment(null);
+        builder.addProperty(""prop"", ""value"");
+        builder.addComment(TEST_COMMENT);
+        builder.addProperty(TEST_KEY, TEST_VALUE);
+        builder.addProperty(""anotherProp"", ""anotherValue"");
+        builder.addComment(""A footer comment"");
+        try {
+            layout.load(config, builder.getReader());
+        } catch (final ConfigurationException cex) {
+            // should not happen
+            fail(""Exception was thrown: "" + cex);
+}
+}
+",TestPropertiesConfigurationLayout::fillLayout_1_oe
+conf_left_826_1,"private static void checkCommaSeparated_1_oe(final String xml, final String key, final String... values) {
+        final String strValues = StringUtils.join(values, ',');
+        final String element = element(key, strValues);
+        assertThat(xml, containsString(element));
+}
+",TestXMLListHandling::checkCommaSeparated_1_oe
+conf_left_827_1,"private static void checkSplit_1_oe(final String xml, final String key, final String... values) {
+        for (final String v : values) {
+            assertThat(xml, containsString(element(key, v)));
+}
+}
+",TestXMLListHandling::checkSplit_1_oe
+conf_left_850_1,"private static void checkContent_1_oe(final Configuration c) {
+        for (int i = 0; i < NodeStructureHelper.tablesLength(); i++) {
+            assertEquals(NodeStructureHelper.table(i), c.getString(""tables.table("" + i + "").name""));
+}
+}
+",TestAbstractHierarchicalConfiguration::checkContent_1_oe
+conf_left_850_2,"private static void checkContent_2_oe(final Configuration c) {
+        for (int i = 0; i < NodeStructureHelper.tablesLength(); i++) {
+            // removed other assertion
+            for (int j = 0; j < NodeStructureHelper.fieldsLength(i); j++) {
+                assertEquals(NodeStructureHelper.field(i, j), c.getString(""tables.table("" + i + "").fields.field("" + j + "").name""));
+}
+}
+}
+",TestAbstractHierarchicalConfiguration::checkContent_2_oe
+conf_left_851_1,"private static void checkGetProperty_1_oe(final AbstractHierarchicalConfiguration<?> testConfig) {
+        assertNull(testConfig.getProperty(""tables.table.resultset""));
+}
+",TestAbstractHierarchicalConfiguration::checkGetProperty_1_oe
+conf_left_851_2,"private static void checkGetProperty_2_oe(final AbstractHierarchicalConfiguration<?> testConfig) {
+        // removed other assertion
+        assertNull(testConfig.getProperty(""tables.table.fields.field""));
+}
+",TestAbstractHierarchicalConfiguration::checkGetProperty_2_oe
+conf_left_851_3,"private static void checkGetProperty_3_oe(final AbstractHierarchicalConfiguration<?> testConfig) {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = testConfig.getProperty(""tables.table(0).fields.field.name"");
+        assertNotNull(prop);
+}
+",TestAbstractHierarchicalConfiguration::checkGetProperty_3_oe
+conf_left_851_4,"private static void checkGetProperty_4_oe(final AbstractHierarchicalConfiguration<?> testConfig) {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = testConfig.getProperty(""tables.table(0).fields.field.name"");
+        // removed other assertion
+        assertTrue(prop instanceof Collection);
+}
+",TestAbstractHierarchicalConfiguration::checkGetProperty_4_oe
+conf_left_851_5,"private static void checkGetProperty_5_oe(final AbstractHierarchicalConfiguration<?> testConfig) {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = testConfig.getProperty(""tables.table(0).fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(NodeStructureHelper.fieldsLength(0), ((Collection<?>) prop).size());
+}
+",TestAbstractHierarchicalConfiguration::checkGetProperty_5_oe
+conf_left_851_6,"private static void checkGetProperty_6_oe(final AbstractHierarchicalConfiguration<?> testConfig) {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = testConfig.getProperty(""tables.table(0).fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = testConfig.getProperty(""tables.table.fields.field.name"");
+        assertNotNull(prop);
+}
+",TestAbstractHierarchicalConfiguration::checkGetProperty_6_oe
+conf_left_851_7,"private static void checkGetProperty_7_oe(final AbstractHierarchicalConfiguration<?> testConfig) {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = testConfig.getProperty(""tables.table(0).fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = testConfig.getProperty(""tables.table.fields.field.name"");
+        // removed other assertion
+        assertTrue(prop instanceof Collection);
+}
+",TestAbstractHierarchicalConfiguration::checkGetProperty_7_oe
+conf_left_851_8,"private static void checkGetProperty_8_oe(final AbstractHierarchicalConfiguration<?> testConfig) {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = testConfig.getProperty(""tables.table(0).fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = testConfig.getProperty(""tables.table.fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(totalFieldCount(), ((Collection<?>) prop).size());
+}
+",TestAbstractHierarchicalConfiguration::checkGetProperty_8_oe
+conf_left_851_9,"private static void checkGetProperty_9_oe(final AbstractHierarchicalConfiguration<?> testConfig) {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = testConfig.getProperty(""tables.table(0).fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = testConfig.getProperty(""tables.table.fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = testConfig.getProperty(""tables.table.fields.field(3).name"");
+        assertNotNull(prop);
+}
+",TestAbstractHierarchicalConfiguration::checkGetProperty_9_oe
+conf_left_851_10,"private static void checkGetProperty_10_oe(final AbstractHierarchicalConfiguration<?> testConfig) {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = testConfig.getProperty(""tables.table(0).fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = testConfig.getProperty(""tables.table.fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = testConfig.getProperty(""tables.table.fields.field(3).name"");
+        // removed other assertion
+        assertTrue(prop instanceof Collection);
+}
+",TestAbstractHierarchicalConfiguration::checkGetProperty_10_oe
+conf_left_851_11,"private static void checkGetProperty_11_oe(final AbstractHierarchicalConfiguration<?> testConfig) {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = testConfig.getProperty(""tables.table(0).fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = testConfig.getProperty(""tables.table.fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = testConfig.getProperty(""tables.table.fields.field(3).name"");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, ((Collection<?>) prop).size());
+}
+",TestAbstractHierarchicalConfiguration::checkGetProperty_11_oe
+conf_left_851_12,"private static void checkGetProperty_12_oe(final AbstractHierarchicalConfiguration<?> testConfig) {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = testConfig.getProperty(""tables.table(0).fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = testConfig.getProperty(""tables.table.fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = testConfig.getProperty(""tables.table.fields.field(3).name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = testConfig.getProperty(""tables.table(1).fields.field(2).name"");
+        assertNotNull(prop);
+}
+",TestAbstractHierarchicalConfiguration::checkGetProperty_12_oe
+conf_left_851_13,"private static void checkGetProperty_13_oe(final AbstractHierarchicalConfiguration<?> testConfig) {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = testConfig.getProperty(""tables.table(0).fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = testConfig.getProperty(""tables.table.fields.field.name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = testConfig.getProperty(""tables.table.fields.field(3).name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = testConfig.getProperty(""tables.table(1).fields.field(2).name"");
+        // removed other assertion
+        assertEquals(""creationDate"", prop.toString());
+}
+",TestAbstractHierarchicalConfiguration::checkGetProperty_13_oe
+conf_left_852_1,"private void checkAlternativeSyntax_1_oe() {
+        assertNull(config.getProperty(""tables/table/resultset""));
+}
+",TestAbstractHierarchicalConfiguration::checkAlternativeSyntax_1_oe
+conf_left_852_2,"private void checkAlternativeSyntax_2_oe() {
+        // removed other assertion
+        assertNull(config.getProperty(""tables/table/fields/field""));
+}
+",TestAbstractHierarchicalConfiguration::checkAlternativeSyntax_2_oe
+conf_left_852_3,"private void checkAlternativeSyntax_3_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables/table[0]/fields/field/name"");
+        assertNotNull(prop);
+}
+",TestAbstractHierarchicalConfiguration::checkAlternativeSyntax_3_oe
+conf_left_852_4,"private void checkAlternativeSyntax_4_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables/table[0]/fields/field/name"");
+        // removed other assertion
+        assertTrue(prop instanceof Collection);
+}
+",TestAbstractHierarchicalConfiguration::checkAlternativeSyntax_4_oe
+conf_left_852_5,"private void checkAlternativeSyntax_5_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables/table[0]/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(NodeStructureHelper.fieldsLength(0), ((Collection<?>) prop).size());
+}
+",TestAbstractHierarchicalConfiguration::checkAlternativeSyntax_5_oe
+conf_left_852_6,"private void checkAlternativeSyntax_6_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables/table[0]/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field/name"");
+        assertNotNull(prop);
+}
+",TestAbstractHierarchicalConfiguration::checkAlternativeSyntax_6_oe
+conf_left_852_7,"private void checkAlternativeSyntax_7_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables/table[0]/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field/name"");
+        // removed other assertion
+        assertTrue(prop instanceof Collection);
+}
+",TestAbstractHierarchicalConfiguration::checkAlternativeSyntax_7_oe
+conf_left_852_8,"private void checkAlternativeSyntax_8_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables/table[0]/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(totalFieldCount(), ((Collection<?>) prop).size());
+}
+",TestAbstractHierarchicalConfiguration::checkAlternativeSyntax_8_oe
+conf_left_852_9,"private void checkAlternativeSyntax_9_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables/table[0]/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field[3]/name"");
+        assertNotNull(prop);
+}
+",TestAbstractHierarchicalConfiguration::checkAlternativeSyntax_9_oe
+conf_left_852_10,"private void checkAlternativeSyntax_10_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables/table[0]/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field[3]/name"");
+        // removed other assertion
+        assertTrue(prop instanceof Collection);
+}
+",TestAbstractHierarchicalConfiguration::checkAlternativeSyntax_10_oe
+conf_left_852_11,"private void checkAlternativeSyntax_11_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables/table[0]/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field[3]/name"");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, ((Collection<?>) prop).size());
+}
+",TestAbstractHierarchicalConfiguration::checkAlternativeSyntax_11_oe
+conf_left_852_12,"private void checkAlternativeSyntax_12_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables/table[0]/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field[3]/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table[1]/fields/field[2]/name"");
+        assertNotNull(prop);
+}
+",TestAbstractHierarchicalConfiguration::checkAlternativeSyntax_12_oe
+conf_left_852_13,"private void checkAlternativeSyntax_13_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables/table[0]/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field[3]/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table[1]/fields/field[2]/name"");
+        // removed other assertion
+        assertEquals(""creationDate"", prop.toString());
+}
+",TestAbstractHierarchicalConfiguration::checkAlternativeSyntax_13_oe
+conf_left_852_14,"private void checkAlternativeSyntax_14_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables/table[0]/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field[3]/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table[1]/fields/field[2]/name"");
+        // removed other assertion
+        // removed other assertion
+
+        final Set<String> keys = ConfigurationAssert.keysToSet(config);
+        assertEquals(""Wrong number of defined keys"", 2, keys.size());
+}
+",TestAbstractHierarchicalConfiguration::checkAlternativeSyntax_14_oe
+conf_left_852_15,"private void checkAlternativeSyntax_15_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables/table[0]/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field[3]/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table[1]/fields/field[2]/name"");
+        // removed other assertion
+        // removed other assertion
+
+        final Set<String> keys = ConfigurationAssert.keysToSet(config);
+        // removed other assertion
+        assertTrue(""Key not found"", keys.contains(""tables/table/name""));
+}
+",TestAbstractHierarchicalConfiguration::checkAlternativeSyntax_15_oe
+conf_left_852_16,"private void checkAlternativeSyntax_16_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        Object prop = config.getProperty(""tables/table[0]/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table/fields/field[3]/name"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        prop = config.getProperty(""tables/table[1]/fields/field[2]/name"");
+        // removed other assertion
+        // removed other assertion
+
+        final Set<String> keys = ConfigurationAssert.keysToSet(config);
+        // removed other assertion
+        // removed other assertion
+        assertTrue(""Key not found"", keys.contains(""tables/table/fields/field/name""));
+}
+",TestAbstractHierarchicalConfiguration::checkAlternativeSyntax_16_oe
+conf_left_853_1,"private void checkKeys_1_oe(final String prefix, final String[] expected) {
+        final Set<String> values = new HashSet<>();
+        for (final String anExpected : expected) {
+            values.add(anExpected.startsWith(prefix) ? anExpected : prefix + ""."" + anExpected);
+        }
+
+        final Iterator<String> itKeys = config.getKeys(prefix);
+        while (itKeys.hasNext()) {
+            final String key = itKeys.next();
+            if (!values.contains(key)) {
+                fail(""Found unexpected key: "" + key);
+}
+}
+}
+",TestAbstractHierarchicalConfiguration::checkKeys_1_oe
+conf_left_853_2,"private void checkKeys_2_oe(final String prefix, final String[] expected) {
+        final Set<String> values = new HashSet<>();
+        for (final String anExpected : expected) {
+            values.add(anExpected.startsWith(prefix) ? anExpected : prefix + ""."" + anExpected);
+        }
+
+        final Iterator<String> itKeys = config.getKeys(prefix);
+        while (itKeys.hasNext()) {
+            final String key = itKeys.next();
+            if (!values.contains(key)) {
+                // removed other assertion
+            } else {
+                values.remove(key);
+            }
+        }
+
+        assertTrue(""Remaining keys "" + values, values.isEmpty());
+}
+",TestAbstractHierarchicalConfiguration::checkKeys_2_oe
+conf_left_893_1,"private void checkInterpolationFromConfigurationAt_1_oe(final boolean withUpdates) {
+        parent.addProperty(""base.dir"", ""/home/foo"");
+        parent.addProperty(""test.absolute.dir.dir1"", ""${base.dir}/path1"");
+        parent.addProperty(""test.absolute.dir.dir2"", ""${base.dir}/path2"");
+        parent.addProperty(""test.absolute.dir.dir3"", ""${base.dir}/path3"");
+
+        final Configuration sub = parent.configurationAt(""test.absolute.dir"", withUpdates);
+        for (int i = 1; i < 4; i++) {
+            assertEquals(""Wrong interpolation in parent"", ""/home/foo/path"" + i, parent.getString(""test.absolute.dir.dir"" + i));
+}
+}
+",TestSubnodeConfiguration::checkInterpolationFromConfigurationAt_1_oe
+conf_left_893_2,"private void checkInterpolationFromConfigurationAt_2_oe(final boolean withUpdates) {
+        parent.addProperty(""base.dir"", ""/home/foo"");
+        parent.addProperty(""test.absolute.dir.dir1"", ""${base.dir}/path1"");
+        parent.addProperty(""test.absolute.dir.dir2"", ""${base.dir}/path2"");
+        parent.addProperty(""test.absolute.dir.dir3"", ""${base.dir}/path3"");
+
+        final Configuration sub = parent.configurationAt(""test.absolute.dir"", withUpdates);
+        for (int i = 1; i < 4; i++) {
+            // removed other assertion
+            assertEquals(""Wrong interpolation in sub"", ""/home/foo/path"" + i, sub.getString(""dir"" + i));
+}
+}
+",TestSubnodeConfiguration::checkInterpolationFromConfigurationAt_2_oe
+conf_left_894_1,"private void checkSubConfigContent_1_oe() {
+        assertEquals(""Wrong table name"", NodeStructureHelper.table(0), config.getString(""name""));
+}
+",TestSubnodeConfiguration::checkSubConfigContent_1_oe
+conf_left_894_2,"private void checkSubConfigContent_2_oe() {
+        // removed other assertion
+        final List<Object> fields = config.getList(""fields.field.name"");
+        assertEquals(""Wrong number of fields"", NodeStructureHelper.fieldsLength(0), fields.size());
+}
+",TestSubnodeConfiguration::checkSubConfigContent_2_oe
+conf_left_894_3,"private void checkSubConfigContent_3_oe() {
+        // removed other assertion
+        final List<Object> fields = config.getList(""fields.field.name"");
+        // removed other assertion
+        for (int i = 0; i < NodeStructureHelper.fieldsLength(0); i++) {
+            assertEquals(""Wrong field at position "" + i, NodeStructureHelper.field(0, i), fields.get(i));
+}
+}
+",TestSubnodeConfiguration::checkSubConfigContent_3_oe
+conf_left_910_1,"public static void testGetInterpolator_1_oe(final AbstractConfiguration config) {
+        config.addProperty(""var"", ""${echo:testVar}"");
+        final ConfigurationInterpolator interpol = config.getInterpolator();
+        interpol.registerLookup(""echo"", varName -> ""Value of variable "" + varName);
+        assertEquals(""Wrong value of echo variable"", ""Value of variable testVar"", config.getString(""var""));
+}
+",InterpolationTestHelper::testGetInterpolator_1_oe
+conf_left_911_1,"public static Configuration testInterpolatedConfiguration_1_oe(final AbstractConfiguration config) {
+        config.setProperty(""applicationRoot"", ""/home/applicationRoot"");
+        config.setProperty(""db"", ""${applicationRoot}/db/hypersonic"");
+        config.setProperty(""inttest.interpol"", ""${unknown.property}"");
+        config.setProperty(""intkey.code"", ""${const:java.awt.event.KeyEvent.VK_CANCEL}"");
+        config.setProperty(""inttest.sysprop"", ""${sys:java.version}"");
+        config.setProperty(""inttest.numvalue"", ""3\\,1415"");
+        config.setProperty(""inttest.value"", ""${inttest.numvalue}"");
+        config.setProperty(""inttest.list"", ""${db}"");
+        config.addProperty(""inttest.list"", ""${inttest.value}"");
+
+        final Configuration c = config.interpolatedConfiguration();
+        assertEquals(""Property not replaced"", ""/home/applicationRoot/db/hypersonic"", c.getProperty(""db""));
+}
+",InterpolationTestHelper::testInterpolatedConfiguration_1_oe
+conf_left_911_2,"public static Configuration testInterpolatedConfiguration_2_oe(final AbstractConfiguration config) {
+        config.setProperty(""applicationRoot"", ""/home/applicationRoot"");
+        config.setProperty(""db"", ""${applicationRoot}/db/hypersonic"");
+        config.setProperty(""inttest.interpol"", ""${unknown.property}"");
+        config.setProperty(""intkey.code"", ""${const:java.awt.event.KeyEvent.VK_CANCEL}"");
+        config.setProperty(""inttest.sysprop"", ""${sys:java.version}"");
+        config.setProperty(""inttest.numvalue"", ""3\\,1415"");
+        config.setProperty(""inttest.value"", ""${inttest.numvalue}"");
+        config.setProperty(""inttest.list"", ""${db}"");
+        config.addProperty(""inttest.list"", ""${inttest.value}"");
+
+        final Configuration c = config.interpolatedConfiguration();
+        // removed other assertion
+        assertEquals(""Const variable not replaced"", KeyEvent.VK_CANCEL, c.getInt(""intkey.code""));
+}
+",InterpolationTestHelper::testInterpolatedConfiguration_2_oe
+conf_left_911_3,"public static Configuration testInterpolatedConfiguration_3_oe(final AbstractConfiguration config) {
+        config.setProperty(""applicationRoot"", ""/home/applicationRoot"");
+        config.setProperty(""db"", ""${applicationRoot}/db/hypersonic"");
+        config.setProperty(""inttest.interpol"", ""${unknown.property}"");
+        config.setProperty(""intkey.code"", ""${const:java.awt.event.KeyEvent.VK_CANCEL}"");
+        config.setProperty(""inttest.sysprop"", ""${sys:java.version}"");
+        config.setProperty(""inttest.numvalue"", ""3\\,1415"");
+        config.setProperty(""inttest.value"", ""${inttest.numvalue}"");
+        config.setProperty(""inttest.list"", ""${db}"");
+        config.addProperty(""inttest.list"", ""${inttest.value}"");
+
+        final Configuration c = config.interpolatedConfiguration();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Sys property not replaced"", System.getProperty(""java.version""), c.getProperty(""inttest.sysprop""));
+}
+",InterpolationTestHelper::testInterpolatedConfiguration_3_oe
+conf_left_911_4,"public static Configuration testInterpolatedConfiguration_4_oe(final AbstractConfiguration config) {
+        config.setProperty(""applicationRoot"", ""/home/applicationRoot"");
+        config.setProperty(""db"", ""${applicationRoot}/db/hypersonic"");
+        config.setProperty(""inttest.interpol"", ""${unknown.property}"");
+        config.setProperty(""intkey.code"", ""${const:java.awt.event.KeyEvent.VK_CANCEL}"");
+        config.setProperty(""inttest.sysprop"", ""${sys:java.version}"");
+        config.setProperty(""inttest.numvalue"", ""3\\,1415"");
+        config.setProperty(""inttest.value"", ""${inttest.numvalue}"");
+        config.setProperty(""inttest.list"", ""${db}"");
+        config.addProperty(""inttest.list"", ""${inttest.value}"");
+
+        final Configuration c = config.interpolatedConfiguration();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Delimiter value not replaced"", ""3,1415"", c.getProperty(""inttest.value""));
+}
+",InterpolationTestHelper::testInterpolatedConfiguration_4_oe
+conf_left_911_5,"public static Configuration testInterpolatedConfiguration_5_oe(final AbstractConfiguration config) {
+        config.setProperty(""applicationRoot"", ""/home/applicationRoot"");
+        config.setProperty(""db"", ""${applicationRoot}/db/hypersonic"");
+        config.setProperty(""inttest.interpol"", ""${unknown.property}"");
+        config.setProperty(""intkey.code"", ""${const:java.awt.event.KeyEvent.VK_CANCEL}"");
+        config.setProperty(""inttest.sysprop"", ""${sys:java.version}"");
+        config.setProperty(""inttest.numvalue"", ""3\\,1415"");
+        config.setProperty(""inttest.value"", ""${inttest.numvalue}"");
+        config.setProperty(""inttest.list"", ""${db}"");
+        config.addProperty(""inttest.list"", ""${inttest.value}"");
+
+        final Configuration c = config.interpolatedConfiguration();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final List<?> lst = (List<?>) c.getProperty(""inttest.list"");
+        assertEquals(""Wrong number of list elements"", 2, lst.size());
+}
+",InterpolationTestHelper::testInterpolatedConfiguration_5_oe
+conf_left_911_6,"public static Configuration testInterpolatedConfiguration_6_oe(final AbstractConfiguration config) {
+        config.setProperty(""applicationRoot"", ""/home/applicationRoot"");
+        config.setProperty(""db"", ""${applicationRoot}/db/hypersonic"");
+        config.setProperty(""inttest.interpol"", ""${unknown.property}"");
+        config.setProperty(""intkey.code"", ""${const:java.awt.event.KeyEvent.VK_CANCEL}"");
+        config.setProperty(""inttest.sysprop"", ""${sys:java.version}"");
+        config.setProperty(""inttest.numvalue"", ""3\\,1415"");
+        config.setProperty(""inttest.value"", ""${inttest.numvalue}"");
+        config.setProperty(""inttest.list"", ""${db}"");
+        config.addProperty(""inttest.list"", ""${inttest.value}"");
+
+        final Configuration c = config.interpolatedConfiguration();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final List<?> lst = (List<?>) c.getProperty(""inttest.list"");
+        // removed other assertion
+        assertEquals(""List element 0 not replaced"", ""/home/applicationRoot/db/hypersonic"", lst.get(0));
+}
+",InterpolationTestHelper::testInterpolatedConfiguration_6_oe
+conf_left_911_7,"public static Configuration testInterpolatedConfiguration_7_oe(final AbstractConfiguration config) {
+        config.setProperty(""applicationRoot"", ""/home/applicationRoot"");
+        config.setProperty(""db"", ""${applicationRoot}/db/hypersonic"");
+        config.setProperty(""inttest.interpol"", ""${unknown.property}"");
+        config.setProperty(""intkey.code"", ""${const:java.awt.event.KeyEvent.VK_CANCEL}"");
+        config.setProperty(""inttest.sysprop"", ""${sys:java.version}"");
+        config.setProperty(""inttest.numvalue"", ""3\\,1415"");
+        config.setProperty(""inttest.value"", ""${inttest.numvalue}"");
+        config.setProperty(""inttest.list"", ""${db}"");
+        config.addProperty(""inttest.list"", ""${inttest.value}"");
+
+        final Configuration c = config.interpolatedConfiguration();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final List<?> lst = (List<?>) c.getProperty(""inttest.list"");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""List element 1 not replaced"", ""3,1415"", lst.get(1));
+}
+",InterpolationTestHelper::testInterpolatedConfiguration_7_oe
+conf_left_911_8,"public static Configuration testInterpolatedConfiguration_8_oe(final AbstractConfiguration config) {
+        config.setProperty(""applicationRoot"", ""/home/applicationRoot"");
+        config.setProperty(""db"", ""${applicationRoot}/db/hypersonic"");
+        config.setProperty(""inttest.interpol"", ""${unknown.property}"");
+        config.setProperty(""intkey.code"", ""${const:java.awt.event.KeyEvent.VK_CANCEL}"");
+        config.setProperty(""inttest.sysprop"", ""${sys:java.version}"");
+        config.setProperty(""inttest.numvalue"", ""3\\,1415"");
+        config.setProperty(""inttest.value"", ""${inttest.numvalue}"");
+        config.setProperty(""inttest.list"", ""${db}"");
+        config.addProperty(""inttest.list"", ""${inttest.value}"");
+
+        final Configuration c = config.interpolatedConfiguration();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final List<?> lst = (List<?>) c.getProperty(""inttest.list"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Unresolvable variable not found"", ""${unknown.property}"", c.getProperty(""inttest.interpol""));
+}
+",InterpolationTestHelper::testInterpolatedConfiguration_8_oe
+conf_left_912_1,"public static void testInterpolation_1_oe(final Configuration config) {
+        config.setProperty(""applicationRoot"", ""/home/applicationRoot"");
+        config.setProperty(""db"", ""${applicationRoot}/db/hypersonic"");
+        final String unInterpolatedValue = ""${applicationRoot2}/db/hypersonic"";
+        config.setProperty(""dbFailedInterpolate"", unInterpolatedValue);
+        final String dbProp = ""/home/applicationRoot/db/hypersonic"";
+
+        assertEquals(""Checking interpolated variable"", dbProp, config.getString(""db""));
+}
+",InterpolationTestHelper::testInterpolation_1_oe
+conf_left_912_2,"public static void testInterpolation_2_oe(final Configuration config) {
+        config.setProperty(""applicationRoot"", ""/home/applicationRoot"");
+        config.setProperty(""db"", ""${applicationRoot}/db/hypersonic"");
+        final String unInterpolatedValue = ""${applicationRoot2}/db/hypersonic"";
+        config.setProperty(""dbFailedInterpolate"", unInterpolatedValue);
+        final String dbProp = ""/home/applicationRoot/db/hypersonic"";
+
+        // removed other assertion
+        assertEquals(""lookup fails, leave variable as is"", config.getString(""dbFailedInterpolate""), unInterpolatedValue);
+}
+",InterpolationTestHelper::testInterpolation_2_oe
+conf_left_912_3,"public static void testInterpolation_3_oe(final Configuration config) {
+        config.setProperty(""applicationRoot"", ""/home/applicationRoot"");
+        config.setProperty(""db"", ""${applicationRoot}/db/hypersonic"");
+        final String unInterpolatedValue = ""${applicationRoot2}/db/hypersonic"";
+        config.setProperty(""dbFailedInterpolate"", unInterpolatedValue);
+        final String dbProp = ""/home/applicationRoot/db/hypersonic"";
+
+        // removed other assertion
+        // removed other assertion
+
+        config.setProperty(""arrayInt"", ""${applicationRoot}/1"");
+        final String[] arrayInt = config.getStringArray(""arrayInt"");
+        assertEquals(""check first entry was interpolated"", ""/home/applicationRoot/1"", arrayInt[0]);
+}
+",InterpolationTestHelper::testInterpolation_3_oe
+conf_left_912_4,"public static void testInterpolation_4_oe(final Configuration config) {
+        config.setProperty(""applicationRoot"", ""/home/applicationRoot"");
+        config.setProperty(""db"", ""${applicationRoot}/db/hypersonic"");
+        final String unInterpolatedValue = ""${applicationRoot2}/db/hypersonic"";
+        config.setProperty(""dbFailedInterpolate"", unInterpolatedValue);
+        final String dbProp = ""/home/applicationRoot/db/hypersonic"";
+
+        // removed other assertion
+        // removed other assertion
+
+        config.setProperty(""arrayInt"", ""${applicationRoot}/1"");
+        final String[] arrayInt = config.getStringArray(""arrayInt"");
+        // removed other assertion
+
+        config.addProperty(""path"", Arrays.asList(""/temp"", ""C:\\Temp"", ""/usr/local/tmp""));
+        config.setProperty(""path.current"", ""${path}"");
+        assertEquals(""Interpolation with multi-valued property"", ""/temp"", config.getString(""path.current""));
+}
+",InterpolationTestHelper::testInterpolation_4_oe
+conf_left_913_1,"public static void testInterpolationConstants_1_oe(final Configuration config) {
+        config.addProperty(""key.code"", ""${const:java.awt.event.KeyEvent.VK_CANCEL}"");
+        assertEquals(""Wrong value of constant variable"", KeyEvent.VK_CANCEL, config.getInt(""key.code""));
+}
+",InterpolationTestHelper::testInterpolationConstants_1_oe
+conf_left_913_2,"public static void testInterpolationConstants_2_oe(final Configuration config) {
+        config.addProperty(""key.code"", ""${const:java.awt.event.KeyEvent.VK_CANCEL}"");
+        // removed other assertion
+        assertEquals(""Wrong value when fetching constant from cache"", KeyEvent.VK_CANCEL, config.getInt(""key.code""));
+}
+",InterpolationTestHelper::testInterpolationConstants_2_oe
+conf_left_914_1,"public static void testInterpolationEnvironment_1_oe(final Configuration config) {
+        final Map<String, String> env = System.getenv();
+        for (final Map.Entry<String, String> e : env.entrySet()) {
+            config.addProperty(""prop"" + e.getKey(), ""${env:"" + e.getKey() + ""}"");
+        }
+
+        for (final Map.Entry<String, String> e : env.entrySet()) {
+            assertEquals(""Wrong value for environment property "" + e.getKey(), e.getValue(), config.getString(""prop"" + e.getKey()));
+}
+}
+",InterpolationTestHelper::testInterpolationEnvironment_1_oe
+conf_left_915_1,"public static void testInterpolationEscaped_1_oe(final Configuration config) {
+        config.addProperty(""var"", ""x"");
+        config.addProperty(""escVar"", ""Use the variable $${${var}}."");
+        assertEquals(""Wrong escaped variable"", ""Use the variable ${x}."", config.getString(""escVar""));
+}
+",InterpolationTestHelper::testInterpolationEscaped_1_oe
+conf_left_916_1,"public static void testInterpolationLocalhost_1_oe(final Configuration config) {
+        final String[] localhostKeys = {""name"", ""canonical-name"", ""address""};
+        String[] localhostValues = null;
+        try {
+            localhostValues = new String[] {InetAddress.getLocalHost().getHostName(), InetAddress.getLocalHost().getCanonicalHostName(),
+                InetAddress.getLocalHost().getHostAddress()};
+        } catch (final UnknownHostException e) {
+            Assert.fail(e);
+}
+}
+",InterpolationTestHelper::testInterpolationLocalhost_1_oe
+conf_left_916_2,"public static void testInterpolationLocalhost_2_oe(final Configuration config) {
+        final String[] localhostKeys = {""name"", ""canonical-name"", ""address""};
+        String[] localhostValues = null;
+        try {
+            localhostValues = new String[] {InetAddress.getLocalHost().getHostName(), InetAddress.getLocalHost().getCanonicalHostName(),
+                InetAddress.getLocalHost().getHostAddress()};
+        } catch (final UnknownHostException e) {
+            // removed other assertion
+        }
+        for (int i = 0; i < localhostKeys.length; i++) {
+            config.addProperty(""prop"" + i, ""${localhost:"" + localhostKeys[i] + ""}"");
+        }
+
+        for (int i = 0; i < localhostKeys.length; i++) {
+            assertEquals(""Wrong value for system property "" + localhostKeys[i], localhostValues[i], config.getString(""prop"" + i));
+}
+}
+",InterpolationTestHelper::testInterpolationLocalhost_2_oe
+conf_left_917_1,"public static void testInterpolationLoop_1_oe(final Configuration config) {
+        config.setProperty(""test.a"", ""${test.b}"");
+        config.setProperty(""test.b"", ""${test.a}"");
+
+        try {
+            config.getString(""test.a"");
+            fail(""IllegalStateException should have been thrown for looped property references"");
+}
+}
+",InterpolationTestHelper::testInterpolationLoop_1_oe
+conf_left_918_1,"public static void testInterpolationSubset_1_oe(final Configuration config) {
+        config.addProperty(""test.a"", Integer.valueOf(42));
+        config.addProperty(""test.b"", ""${test.a}"");
+        assertEquals(""Wrong interpolated value"", 42, config.getInt(""test.b""));
+}
+",InterpolationTestHelper::testInterpolationSubset_1_oe
+conf_left_918_2,"public static void testInterpolationSubset_2_oe(final Configuration config) {
+        config.addProperty(""test.a"", Integer.valueOf(42));
+        config.addProperty(""test.b"", ""${test.a}"");
+        // removed other assertion
+        final Configuration subset = config.subset(""test"");
+        assertEquals(""Wrong string property"", ""42"", subset.getString(""b""));
+}
+",InterpolationTestHelper::testInterpolationSubset_2_oe
+conf_left_918_3,"public static void testInterpolationSubset_3_oe(final Configuration config) {
+        config.addProperty(""test.a"", Integer.valueOf(42));
+        config.addProperty(""test.b"", ""${test.a}"");
+        // removed other assertion
+        final Configuration subset = config.subset(""test"");
+        // removed other assertion
+        assertEquals(""Wrong int property"", 42, subset.getInt(""b""));
+}
+",InterpolationTestHelper::testInterpolationSubset_3_oe
+conf_left_919_1,"public static void testInterpolationSystemProperties_1_oe(final Configuration config) {
+        final String[] sysProperties = {""java.version"", ""java.vendor"", ""os.name"", ""java.class.path""};
+        for (int i = 0; i < sysProperties.length; i++) {
+            config.addProperty(""prop"" + i, ""${sys:"" + sysProperties[i] + ""}"");
+        }
+
+        for (int i = 0; i < sysProperties.length; i++) {
+            assertEquals(""Wrong value for system property "" + sysProperties[i], System.getProperty(sysProperties[i]), config.getString(""prop"" + i));
+}
+}
+",InterpolationTestHelper::testInterpolationSystemProperties_1_oe
+conf_left_920_1,"public static void testInterpolationUnknownProperty_1_oe(final Configuration config) {
+        config.addProperty(""test.interpol"", ""${unknown.property}"");
+        assertEquals(""Wrong interpolated unknown property"", ""${unknown.property}"", config.getString(""test.interpol""));
+}
+",InterpolationTestHelper::testInterpolationUnknownProperty_1_oe
+conf_left_921_1,"public static void testMultipleInterpolation_1_oe(final Configuration config) {
+        config.setProperty(""test.base-level"", ""/base-level"");
+        config.setProperty(""test.first-level"", ""${test.base-level}/first-level"");
+        config.setProperty(""test.second-level"", ""${test.first-level}/second-level"");
+        config.setProperty(""test.third-level"", ""${test.second-level}/third-level"");
+
+        final String expectedValue = ""/base-level/first-level/second-level/third-level"";
+
+        assertEquals(config.getString(""test.third-level""), expectedValue);
+}
+",InterpolationTestHelper::testMultipleInterpolation_1_oe
+conf_left_954_1,"private static void checkURL_1_oe(final URL url) {
+        assertEquals(""Wrong URL"", FileLocatorUtils.fileFromURL(url).getAbsoluteFile(), ConfigurationAssert.getTestFile(TEST_FILE).getAbsoluteFile());
+}
+",TestBasePathLocationStrategy::checkURL_1_oe
+conf_left_957_1,"private static void checkFullyInitializedLocator_1_oe(final FileLocator locator) throws ConfigurationException {
+        assertNotNull(""No base path"", locator.getBasePath());
+}
+",TestFileLocatorUtils::checkFullyInitializedLocator_1_oe
+conf_left_957_2,"private static void checkFullyInitializedLocator_2_oe(final FileLocator locator) throws ConfigurationException {
+        // removed other assertion
+        assertNotNull(""No file name"", locator.getFileName());
+}
+",TestFileLocatorUtils::checkFullyInitializedLocator_2_oe
+conf_left_957_3,"private static void checkFullyInitializedLocator_3_oe(final FileLocator locator) throws ConfigurationException {
+        // removed other assertion
+        // removed other assertion
+        assertNotNull(""No source URL"", locator.getSourceURL());
+}
+",TestFileLocatorUtils::checkFullyInitializedLocator_3_oe
+conf_left_958_1,"private static void checkTestConfiguration_1_oe(final FileHandler handler) throws ConfigurationException {
+        final XMLConfiguration config = new XMLConfiguration();
+        final FileHandler h2 = new FileHandler(config, handler);
+        h2.load();
+        assertEquals(""Wrong content"", ""value"", config.getString(""element""));
+}
+",TestFileLocatorUtils::checkTestConfiguration_1_oe
+conf_left_1014_1,"private void checkSubStrategies_1_oe(final CombinedLocationStrategy strategy) {
+        final Collection<FileLocationStrategy> subs = strategy.getSubStrategies();
+        assertEquals(""Wrong number of strategies"", getSubStrategies().length, subs.size());
+}
+",TestCombinedLocationStrategy::checkSubStrategies_1_oe
+conf_left_1014_2,"private void checkSubStrategies_2_oe(final CombinedLocationStrategy strategy) {
+        final Collection<FileLocationStrategy> subs = strategy.getSubStrategies();
+        // removed other assertion
+        int idx = 0;
+        for (final FileLocationStrategy strat : subs) {
+            assertEquals(""Wrong sub strategy at "" + idx, getSubStrategies()[idx++], strat);
+}
+}
+",TestCombinedLocationStrategy::checkSubStrategies_2_oe
+conf_left_1018_1,"public void checkMethods_1_oe(final String expMethods) {
+            assertEquals(""Wrong listener methods"", expMethods, methods.toString());
+}
+",FileHandlerListenerTestImpl::checkMethods_1_oe
+conf_left_1019_1,"private void methodCalled_1_oe(final FileHandler handler, final String method) {
+            assertEquals(""Wrong file handler"", expHandler, handler);
+}
+",FileHandlerListenerTestImpl::methodCalled_1_oe
+conf_left_1020_1,"private static void checkEmptyLocator_1_oe(final FileBasedFileLocatorAwareTestImpl content) {
+        assertNull(""Got a URL"", content.getLocator().getSourceURL());
+}
+",TestFileHandler::checkEmptyLocator_1_oe
+conf_left_1020_2,"private static void checkEmptyLocator_2_oe(final FileBasedFileLocatorAwareTestImpl content) {
+        // removed other assertion
+        assertNull(""Got a base path"", content.getLocator().getBasePath());
+}
+",TestFileHandler::checkEmptyLocator_2_oe
+conf_left_1020_3,"private static void checkEmptyLocator_3_oe(final FileBasedFileLocatorAwareTestImpl content) {
+        // removed other assertion
+        // removed other assertion
+        assertNull(""Got a file name"", content.getLocator().getFileName());
+}
+",TestFileHandler::checkEmptyLocator_3_oe
+conf_left_1021_1,"private static String readFile_1_oe(final File f) {
+        try (Reader in = new FileReader(f)) {
+            return readReader(in);
+        } catch (final IOException ioex) {
+            fail(""Could not read file: "" + ioex);
+}
+}
+",TestFileHandler::readFile_1_oe
+conf_left_1022_1,"private File createTestFile_1_oe(final File f) {
+        Writer out = null;
+        File file = f;
+        try {
+            if (file == null) {
+                file = folder.newFile();
+            }
+            out = new FileWriter(file);
+            out.write(CONTENT);
+        } catch (final IOException ioex) {
+            fail(""Could not create test file: "" + ioex);
+}
+}
+",TestFileHandler::createTestFile_1_oe
+conf_left_1085_1,"private static void checkLocator_1_oe(final FileLocator locator) {
+        assertEquals(""Wrong base path"", BASE_PATH, locator.getBasePath());
+}
+",TestFileLocator::checkLocator_1_oe
+conf_left_1085_2,"private static void checkLocator_2_oe(final FileLocator locator) {
+        // removed other assertion
+        assertEquals(""Wrong file name"", FILE_NAME, locator.getFileName());
+}
+",TestFileLocator::checkLocator_2_oe
+conf_left_1085_3,"private static void checkLocator_3_oe(final FileLocator locator) {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Wrong encoding"", ENCODING, locator.getEncoding());
+}
+",TestFileLocator::checkLocator_3_oe
+conf_left_1085_4,"private static void checkLocator_4_oe(final FileLocator locator) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Wrong URL"", sourceURL.toExternalForm(), locator.getSourceURL().toExternalForm());
+}
+",TestFileLocator::checkLocator_4_oe
+conf_left_1085_5,"private static void checkLocator_5_oe(final FileLocator locator) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertSame(""Wrong file system"", fileSystem, locator.getFileSystem());
+}
+",TestFileLocator::checkLocator_5_oe
+conf_left_1085_6,"private static void checkLocator_6_oe(final FileLocator locator) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertSame(""Wrong location strategy"", locationStrategy, locator.getLocationStrategy());
+}
+",TestFileLocator::checkLocator_6_oe
+conf_left_1090_1,"private void checkErrorEvent_1_oe(final EventType<ConfigurationErrorEvent> type) {
+        assertSame(""Wrong super type for "" + type, ConfigurationErrorEvent.ANY, type.getSuperType());
+}
+",TestConfigurationEventTypes::checkErrorEvent_1_oe
+conf_left_1091_1,"private void checkHierarchicalEvent_1_oe(final EventType<ConfigurationEvent> eventType) {
+        assertSame(""Wrong super type for "" + eventType, ConfigurationEvent.ANY_HIERARCHICAL, eventType.getSuperType());
+}
+",TestConfigurationEventTypes::checkHierarchicalEvent_1_oe
+conf_left_1092_1,"private void checkUpdateEvent_1_oe(final EventType<ConfigurationEvent> eventType) {
+        assertSame(""Wrong super type for "" + eventType, ConfigurationEvent.ANY, eventType.getSuperType());
+}
+",TestConfigurationEventTypes::checkUpdateEvent_1_oe
+conf_left_1117_1,"public void checkEventCount_1_oe(final int minEvents) {
+        assertTrue(""Too view events received"", events.size() >= minEvents);
+}
+",AbstractEventListenerTestImpl::checkEventCount_1_oe
+conf_left_1118_1,"public void done_1_oe() {
+        assertTrue(""Too many events received"", events.isEmpty());
+}
+",AbstractEventListenerTestImpl::done_1_oe
+conf_left_1119_1,"public T nextEvent_1_oe(final EventType<?> expectedType) {
+        assertFalse(""Too few events received"", events.isEmpty());
+}
+",AbstractEventListenerTestImpl::nextEvent_1_oe
+conf_left_1119_2,"public T nextEvent_2_oe(final EventType<?> expectedType) {
+        // removed other assertion
+        final T e = events.remove(0);
+        if (expectedSource != null) {
+            assertEquals(""Wrong event source"", expectedSource, e.getSource());
+}
+}
+",AbstractEventListenerTestImpl::nextEvent_2_oe
+conf_left_1119_3,"public T nextEvent_3_oe(final EventType<?> expectedType) {
+        // removed other assertion
+        final T e = events.remove(0);
+        if (expectedSource != null) {
+            // removed other assertion
+        }
+        assertEquals(""Wrong event type"", expectedType, e.getEventType());
+}
+",AbstractEventListenerTestImpl::nextEvent_3_oe
+conf_left_1120_1,"public void skipToLast_1_oe(final EventType<?> type) {
+        while (events.size() > 1) {
+            final T e = events.remove(0);
+            assertNotSame(""Found end event in details"", type, e.getEventType());
+}
+}
+",AbstractEventListenerTestImpl::skipToLast_1_oe
+conf_left_1121_1,"private void checkSubnodeEvent_1_oe(final ConfigurationEvent event, final boolean before) {
+        assertEquals(""Wrong before flag of nesting event"", before, event.isBeforeUpdate());
+}
+",TestHierarchicalConfigurationEvents::checkSubnodeEvent_1_oe
+conf_left_1121_2,"private void checkSubnodeEvent_2_oe(final ConfigurationEvent event, final boolean before) {
+        // removed other assertion
+        assertTrue(""No subnode event found in value"", event.getPropertyValue() instanceof ConfigurationEvent);
+}
+",TestHierarchicalConfigurationEvents::checkSubnodeEvent_2_oe
+conf_left_1121_3,"private void checkSubnodeEvent_3_oe(final ConfigurationEvent event, final boolean before) {
+        // removed other assertion
+        // removed other assertion
+        final ConfigurationEvent evSub = (ConfigurationEvent) event.getPropertyValue();
+        assertEquals(""Wrong event type"", ConfigurationEvent.ADD_PROPERTY, evSub.getEventType());
+}
+",TestHierarchicalConfigurationEvents::checkSubnodeEvent_3_oe
+conf_left_1121_4,"private void checkSubnodeEvent_4_oe(final ConfigurationEvent event, final boolean before) {
+        // removed other assertion
+        // removed other assertion
+        final ConfigurationEvent evSub = (ConfigurationEvent) event.getPropertyValue();
+        // removed other assertion
+        assertEquals(""Wrong property name"", ""newProp"", evSub.getPropertyName());
+}
+",TestHierarchicalConfigurationEvents::checkSubnodeEvent_4_oe
+conf_left_1121_5,"private void checkSubnodeEvent_5_oe(final ConfigurationEvent event, final boolean before) {
+        // removed other assertion
+        // removed other assertion
+        final ConfigurationEvent evSub = (ConfigurationEvent) event.getPropertyValue();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Wrong property value"", ""newValue"", evSub.getPropertyValue());
+}
+",TestHierarchicalConfigurationEvents::checkSubnodeEvent_5_oe
+conf_left_1121_6,"private void checkSubnodeEvent_6_oe(final ConfigurationEvent event, final boolean before) {
+        // removed other assertion
+        // removed other assertion
+        final ConfigurationEvent evSub = (ConfigurationEvent) event.getPropertyValue();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Wrong before flag"", before, evSub.isBeforeUpdate());
+}
+",TestHierarchicalConfigurationEvents::checkSubnodeEvent_6_oe
+conf_left_1122_1,"public void assertEvent_1_oe(final Object expSource, final EventType<?> expType, final String expMessage) { assertNotNull(""No event received"", receivedEvent);
+}
+",ListenerTestImpl::assertEvent_1_oe
+conf_left_1122_2,"// removed other assertion
+            assertEquals(""Wrong source"", expSource, receivedEvent.getSource());
+",ListenerTestImpl::assertEvent_2_oe
+conf_left_1122_3,"// removed other assertion
+            // removed other assertion
+            assertEquals(""Wrong event type"", expType, receivedEvent.getEventType());
+",ListenerTestImpl::assertEvent_3_oe
+conf_left_1122_4,"// removed other assertion
+            // removed other assertion
+            // removed other assertion
+            assertEquals(""Wrong message"", expMessage, receivedEvent.getMessage());
+",ListenerTestImpl::assertEvent_4_oe
+conf_left_1123_1,"public void assertNoEvent_1_oe() { assertNull(""Unexpected event received: "" + receivedEvent, receivedEvent);
+}
+",ListenerTestImpl::assertNoEvent_1_oe
+conf_left_1124_1,"@Override
+        public void onEvent_1_oe(final EventBase event) {
+            assertNull(""Too many events: "" + event, receivedEvent);
+        }
+",ListenerTestImpl::onEvent_1_oe
+conf_left_1125_1,"private void checkEventListenersForType_1_oe(final EventType<? extends Event> eventType, final EventListener<?>... expListeners) {
+        final List<?> listeners = fetchElements(list.getEventListeners(eventType));
+        assertEquals(""Wrong number of listeners"", expListeners.length, listeners.size());
+}
+",TestEventListenerList::checkEventListenersForType_1_oe
+conf_left_1125_2,"private void checkEventListenersForType_2_oe(final EventType<? extends Event> eventType, final EventListener<?>... expListeners) {
+        final List<?> listeners = fetchElements(list.getEventListeners(eventType));
+        // removed other assertion
+        assertTrue(""Wrong event listeners: "" + listeners, listeners.containsAll(Arrays.asList(expListeners)));
+}
+",TestEventListenerList::checkEventListenersForType_2_oe
+conf_left_1147_1,"public Throwable checkEvent_1_oe(final EventType<?> type, final EventType<?> opType, final String propName, final Object propValue) {
+        final ConfigurationErrorEvent e = nextEvent(type);
+        assertEquals(""Wrong operation event type"", opType, e.getErrorOperationType());
+}
+",ErrorListenerTestImpl::checkEvent_1_oe
+conf_left_1147_2,"public Throwable checkEvent_2_oe(final EventType<?> type, final EventType<?> opType, final String propName, final Object propValue) {
+        final ConfigurationErrorEvent e = nextEvent(type);
+        // removed other assertion
+        assertEquals(""Wrong property name"", propName, e.getPropertyName());
+}
+",ErrorListenerTestImpl::checkEvent_2_oe
+conf_left_1147_3,"public Throwable checkEvent_3_oe(final EventType<?> type, final EventType<?> opType, final String propName, final Object propValue) {
+        final ConfigurationErrorEvent e = nextEvent(type);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Wrong property value"", propValue, e.getPropertyValue());
+}
+",ErrorListenerTestImpl::checkEvent_3_oe
+conf_left_1148_1,"public void checkEvent_1_oe(final EventType<?> type, final String propName, final Object propValue, final boolean before) {
+        final ConfigurationEvent e = nextEvent(type);
+        assertEquals(""Wrong property name"", propName, e.getPropertyName());
+}
+",EventListenerTestImpl::checkEvent_1_oe
+conf_left_1148_2,"public void checkEvent_2_oe(final EventType<?> type, final String propName, final Object propValue, final boolean before) {
+        final ConfigurationEvent e = nextEvent(type);
+        // removed other assertion
+        assertEquals(""Wrong property value"", propValue, e.getPropertyValue());
+}
+",EventListenerTestImpl::checkEvent_2_oe
+conf_left_1148_3,"public void checkEvent_3_oe(final EventType<?> type, final String propName, final Object propValue, final boolean before) {
+        final ConfigurationEvent e = nextEvent(type);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Wrong before flag"", before, e.isBeforeUpdate());
+}
+",EventListenerTestImpl::checkEvent_3_oe
+conf_left_1153_1,"private void checkSplit_1_oe(final String value, final boolean trim, final String... expectedElements) {
+        final Collection<String> elems = handler.split(value, trim);
+        assertEquals(""Wrong number of elements"", expectedElements.length, elems.size());
+}
+",TestDefaultListDelimiterHandler::checkSplit_1_oe
+conf_left_1153_2,"private void checkSplit_2_oe(final String value, final boolean trim, final String... expectedElements) {
+        final Collection<String> elems = handler.split(value, trim);
+        // removed other assertion
+        int idx = 0;
+        for (final String elem : elems) {
+            assertEquals(""Wrong value at "" + idx, expectedElements[idx++], elem);
+}
+}
+",TestDefaultListDelimiterHandler::checkSplit_2_oe
+conf_left_1161_1,"private static void checkIterator_1_oe(final Iterable<?> container) {
+        final Iterator<?> it = container.iterator();
+        for (final Object o : VALUES) {
+            assertEquals(""Wrong value"", o, it.next());
+}
+}
+",TestDisabledListDelimiterHandler::checkIterator_1_oe
+conf_left_1161_2,"private static void checkIterator_2_oe(final Iterable<?> container) {
+        final Iterator<?> it = container.iterator();
+        for (final Object o : VALUES) {
+            // removed other assertion
+        }
+        assertFalse(""Iterator has too many objects"", it.hasNext());
+}
+",TestDisabledListDelimiterHandler::checkIterator_2_oe
+conf_left_1171_1,"private void checkSingleValue_1_oe(final Integer expResult) {
+        assertEquals(""Wrong result"", Integer.parseInt(REPLACEMENT), expResult.intValue());
+}
+",TestDefaultConversionHandler::checkSingleValue_1_oe
+conf_left_1211_1,"private static void checkSavedConfig_1_oe(final File file, final int expValue)
+            throws ConfigurationException
+    {
+        final PropertiesConfiguration config = new PropertiesConfiguration();
+        final FileHandler handler = new FileHandler(config);
+        handler.load(file);
+        assertEquals(""Configuration was not saved"",expValue,config.getInt(PROP));
+}
+",TestFileBasedConfigurationBuilder::checkSavedConfig_1_oe
+conf_left_1212_1,"private File createTestFile_1_oe(final int value) {
+        Writer out = null;
+        File file;
+        try {
+            file = folder.newFile();
+            out = new FileWriter(file);
+            out.write(String.format(""%s=%d"", PROP, value));
+        } catch (final IOException ioex) {
+            fail(""Could not create test file: "" + ioex);
+}
+}
+",TestFileBasedConfigurationBuilder::createTestFile_1_oe
+conf_left_1251_1,"private ConfigurationBuilder<BaseHierarchicalConfiguration> createBuilderMock_1_oe(final BaseHierarchicalConfiguration conf) {
+        final ConfigurationBuilder<BaseHierarchicalConfiguration> builder = EasyMock.createMock(ConfigurationBuilder.class);
+        try {
+            EasyMock.expect(builder.getConfiguration()).andReturn(conf).anyTimes();
+        } catch (final ConfigurationException e) {
+            // Cannot happen
+            fail(""Unexpected exception: "" + e);
+}
+}
+",TestBuilderConfigurationWrapperFactory::createBuilderMock_1_oe
+conf_left_1258_1,"private static void checkDefaultValues_1_oe(final Map<String, Object> map) {
+        assertEquals(""Wrong delimiter handler"", listHandler, map.get(""listDelimiterHandler""));
+}
+",TestDefaultParametersManager::checkDefaultValues_1_oe
+conf_left_1258_2,"private static void checkDefaultValues_2_oe(final Map<String, Object> map) {
+        // removed other assertion
+        assertEquals(""Wrong exception flag value"", Boolean.TRUE, map.get(""throwExceptionOnMissing""));
+}
+",TestDefaultParametersManager::checkDefaultValues_2_oe
+conf_left_1258_3,"private static void checkDefaultValues_3_oe(final Map<String, Object> map) {
+        // removed other assertion
+        // removed other assertion
+        final FileBasedBuilderParametersImpl fbparams = FileBasedBuilderParametersImpl.fromParameters(map);
+        assertEquals(""Wrong encoding"", DEF_ENCODING, fbparams.getFileHandler().getEncoding());
+}
+",TestDefaultParametersManager::checkDefaultValues_3_oe
+conf_left_1259_1,"private static void checkNoDefaultValues_1_oe(final Map<String, Object> map) {
+        assertFalse(""Got base properties"", map.containsKey(""throwExceptionOnMissing""));
+}
+",TestDefaultParametersManager::checkNoDefaultValues_1_oe
+conf_left_1259_2,"private static void checkNoDefaultValues_2_oe(final Map<String, Object> map) {
+        // removed other assertion
+        final FileBasedBuilderParametersImpl fbParams = FileBasedBuilderParametersImpl.fromParameters(map, true);
+        assertNull(""Got an encoding"", fbParams.getFileHandler().getEncoding());
+}
+",TestDefaultParametersManager::checkNoDefaultValues_2_oe
+conf_left_1337_1,"public void assertNoMoreEvents_1_oe() { assertFalse(""Too many events"", initIterator().hasNext());
+}
+",BuilderEventListenerImpl::assertNoMoreEvents_1_oe
+conf_left_1338_1,"public <T extends ConfigurationBuilderEvent> T nextEvent_1_oe(final EventType<T> eventType) {
+        final Iterator<ConfigurationBuilderEvent> it = initIterator();
+        assertTrue(""Too few events received"", it.hasNext());
+}
+",BuilderEventListenerImpl::nextEvent_1_oe
+conf_left_1338_2,"public <T extends ConfigurationBuilderEvent> T nextEvent_2_oe(final EventType<T> eventType) {
+        final Iterator<ConfigurationBuilderEvent> it = initIterator();
+        // removed other assertion
+        final ConfigurationBuilderEvent nextEvent = it.next();
+        assertEquals(""Wrong event type"", eventType, nextEvent.getEventType());
+}
+",BuilderEventListenerImpl::nextEvent_2_oe
+conf_left_1412_1,"private void checkMatcherWithNullInput_1_oe(final NodeMatcher<String> matcher) {
+        assertFalse(""Match (1)"", matcher.matches(createNode(NODE_NAME), handler, null));
+}
+",TestNodeNameMatchers::checkMatcherWithNullInput_1_oe
+conf_left_1412_2,"private void checkMatcherWithNullInput_2_oe(final NodeMatcher<String> matcher) {
+        // removed other assertion
+        assertFalse(""Match (2)"", matcher.matches(createNode(null), handler, NODE_NAME));
+}
+",TestNodeNameMatchers::checkMatcherWithNullInput_2_oe
+conf_left_1446_1,"private ImmutableNode checkTable_1_oe(final BaseHierarchicalConfiguration config) {
+        assertEquals(""Wrong number of tables"", 0, config.getMaxIndex(""database.tables.table""));
+}
+",TestOverrideCombiner::checkTable_1_oe
+conf_left_1446_2,"private ImmutableNode checkTable_2_oe(final BaseHierarchicalConfiguration config) {
+        // removed other assertion
+        final HierarchicalConfiguration<ImmutableNode> c = config.configurationAt(""database.tables.table"");
+        assertEquals(""Wrong table name"", ""documents"", c.getString(""name""));
+}
+",TestOverrideCombiner::checkTable_2_oe
+conf_left_1446_3,"private ImmutableNode checkTable_3_oe(final BaseHierarchicalConfiguration config) {
+        // removed other assertion
+        final HierarchicalConfiguration<ImmutableNode> c = config.configurationAt(""database.tables.table"");
+        // removed other assertion
+        assertEquals(""Wrong number of fields"", 2, c.getMaxIndex(""fields.field.name""));
+}
+",TestOverrideCombiner::checkTable_3_oe
+conf_left_1446_4,"private ImmutableNode checkTable_4_oe(final BaseHierarchicalConfiguration config) {
+        // removed other assertion
+        final HierarchicalConfiguration<ImmutableNode> c = config.configurationAt(""database.tables.table"");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Wrong field"", ""docname"", c.getString(""fields.field(1).name""));
+}
+",TestOverrideCombiner::checkTable_4_oe
+conf_left_1446_5,"private ImmutableNode checkTable_5_oe(final BaseHierarchicalConfiguration config) {
+        // removed other assertion
+        final HierarchicalConfiguration<ImmutableNode> c = config.configurationAt(""database.tables.table"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final NodeHandler<ImmutableNode> nodeHandler = config.getNodeModel().getNodeHandler();
+        final List<QueryResult<ImmutableNode>> nds = config.getExpressionEngine().query(nodeHandler.getRootNode(), ""database.tables.table"", nodeHandler);
+        assertFalse(""No node found"", nds.isEmpty());
+}
+",TestOverrideCombiner::checkTable_5_oe
+conf_left_1446_6,"private ImmutableNode checkTable_6_oe(final BaseHierarchicalConfiguration config) {
+        // removed other assertion
+        final HierarchicalConfiguration<ImmutableNode> c = config.configurationAt(""database.tables.table"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final NodeHandler<ImmutableNode> nodeHandler = config.getNodeModel().getNodeHandler();
+        final List<QueryResult<ImmutableNode>> nds = config.getExpressionEngine().query(nodeHandler.getRootNode(), ""database.tables.table"", nodeHandler);
+        // removed other assertion
+        assertFalse(""An attribute result"", nds.get(0).isAttributeResult());
+}
+",TestOverrideCombiner::checkTable_6_oe
+conf_left_1453_1,"private void checkAttributeValue_1_oe(final String key, final String attr, final Object expValue) {
+        final List<QueryResult<ImmutableNode>> results = checkKey(key, attr, 1);
+        final QueryResult<ImmutableNode> result = results.get(0);
+        assertTrue(""Not an attribute result"", result.isAttributeResult());
+}
+",TestDefaultExpressionEngine::checkAttributeValue_1_oe
+conf_left_1453_2,"private void checkAttributeValue_2_oe(final String key, final String attr, final Object expValue) {
+        final List<QueryResult<ImmutableNode>> results = checkKey(key, attr, 1);
+        final QueryResult<ImmutableNode> result = results.get(0);
+        // removed other assertion
+        assertEquals(""Wrong attribute value for key "" + key, expValue, result.getAttributeValue(handler));
+}
+",TestDefaultExpressionEngine::checkAttributeValue_2_oe
+conf_left_1454_1,"private List<QueryResult<ImmutableNode>> checkKey_1_oe(final String key, final String name, final int count) {
+        final List<QueryResult<ImmutableNode>> nodes = query(key, count);
+        for (final QueryResult<ImmutableNode> result : nodes) {
+            if (result.isAttributeResult()) {
+                assertEquals(""Wrong attribute name for key "" + key, name, result.getAttributeName());
+}
+}
+}
+",TestDefaultExpressionEngine::checkKey_1_oe
+conf_left_1454_2,"private List<QueryResult<ImmutableNode>> checkKey_2_oe(final String key, final String name, final int count) {
+        final List<QueryResult<ImmutableNode>> nodes = query(key, count);
+        for (final QueryResult<ImmutableNode> result : nodes) {
+            if (result.isAttributeResult()) {
+                // removed other assertion
+            } else {
+                assertEquals(""Wrong result node for key "" + key, name, result.getNode().getNodeName());
+}
+}
+}
+",TestDefaultExpressionEngine::checkKey_2_oe
+conf_left_1455_1,"private void checkKeyValue_1_oe(final String key, final String name, final String value) {
+        final List<QueryResult<ImmutableNode>> results = checkKey(key, name, 1);
+        final QueryResult<ImmutableNode> result = results.get(0);
+        assertFalse(""No node result"", result.isAttributeResult());
+}
+",TestDefaultExpressionEngine::checkKeyValue_1_oe
+conf_left_1455_2,"private void checkKeyValue_2_oe(final String key, final String name, final String value) {
+        final List<QueryResult<ImmutableNode>> results = checkKey(key, name, 1);
+        final QueryResult<ImmutableNode> result = results.get(0);
+        // removed other assertion
+        assertEquals(""Wrong value for key "" + key, value, result.getNode().getValue());
+}
+",TestDefaultExpressionEngine::checkKeyValue_2_oe
+conf_left_1456_1,"private void checkNodePath_1_oe(final NodeAddData<ImmutableNode> data, final String... expected) {
+        assertEquals(""Wrong number of path nodes"", expected.length, data.getPathNodes().size());
+}
+",TestDefaultExpressionEngine::checkNodePath_1_oe
+conf_left_1456_2,"private void checkNodePath_2_oe(final NodeAddData<ImmutableNode> data, final String... expected) {
+        // removed other assertion
+        final Iterator<String> it = data.getPathNodes().iterator();
+        for (int i = 0; i < expected.length; i++) {
+            assertEquals(""Wrong path node "" + i, expected[i], it.next());
+}
+}
+",TestDefaultExpressionEngine::checkNodePath_2_oe
+conf_left_1457_1,"private void checkQueryRootNode_1_oe(final String key) {
+        final List<QueryResult<ImmutableNode>> results = checkKey(key, null, 1);
+        final QueryResult<ImmutableNode> result = results.get(0);
+        assertFalse(""No node result"", result.isAttributeResult());
+}
+",TestDefaultExpressionEngine::checkQueryRootNode_1_oe
+conf_left_1457_2,"private void checkQueryRootNode_2_oe(final String key) {
+        final List<QueryResult<ImmutableNode>> results = checkKey(key, null, 1);
+        final QueryResult<ImmutableNode> result = results.get(0);
+        // removed other assertion
+        assertSame(""Not the root node"", root, result.getNode());
+}
+",TestDefaultExpressionEngine::checkQueryRootNode_2_oe
+conf_left_1458_1,"private ImmutableNode fetchNode_1_oe(final String key) {
+        final QueryResult<ImmutableNode> result = query(key, 1).get(0);
+        assertFalse(""An attribute result"", result.isAttributeResult());
+}
+",TestDefaultExpressionEngine::fetchNode_1_oe
+conf_left_1459_1,"private List<QueryResult<ImmutableNode>> query_1_oe(final String key, final int expCount) {
+        final List<QueryResult<ImmutableNode>> nodes = engine.query(root, key, handler);
+        assertEquals(""Wrong number of result nodes for key "" + key, expCount, nodes.size());
+}
+",TestDefaultExpressionEngine::query_1_oe
+conf_left_1483_1,"private ImmutableNode checkTable_1_oe(final HierarchicalConfiguration<ImmutableNode> config) {
+        assertEquals(""Wrong number of tables"", 1, config.getMaxIndex(""database.tables.table""));
+}
+",TestMergeCombiner::checkTable_1_oe
+conf_left_1483_2,"private ImmutableNode checkTable_2_oe(final HierarchicalConfiguration<ImmutableNode> config) {
+        // removed other assertion
+        final HierarchicalConfiguration<ImmutableNode> c = config.configurationAt(""database.tables.table(0)"");
+        assertEquals(""Wrong table name"", ""documents"", c.getString(""name""));
+}
+",TestMergeCombiner::checkTable_2_oe
+conf_left_1483_3,"private ImmutableNode checkTable_3_oe(final HierarchicalConfiguration<ImmutableNode> config) {
+        // removed other assertion
+        final HierarchicalConfiguration<ImmutableNode> c = config.configurationAt(""database.tables.table(0)"");
+        // removed other assertion
+        assertEquals(""Wrong number of fields"", 2, c.getMaxIndex(""fields.field.name""));
+}
+",TestMergeCombiner::checkTable_3_oe
+conf_left_1483_4,"private ImmutableNode checkTable_4_oe(final HierarchicalConfiguration<ImmutableNode> config) {
+        // removed other assertion
+        final HierarchicalConfiguration<ImmutableNode> c = config.configurationAt(""database.tables.table(0)"");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Wrong field"", ""docname"", c.getString(""fields.field(1).name""));
+}
+",TestMergeCombiner::checkTable_4_oe
+conf_left_1483_5,"private ImmutableNode checkTable_5_oe(final HierarchicalConfiguration<ImmutableNode> config) {
+        // removed other assertion
+        final HierarchicalConfiguration<ImmutableNode> c = config.configurationAt(""database.tables.table(0)"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final NodeHandler<ImmutableNode> nodeHandler = config.getNodeModel().getNodeHandler();
+        final List<QueryResult<ImmutableNode>> nds = config.getExpressionEngine().query(nodeHandler.getRootNode(), ""database.tables.table"", nodeHandler);
+        assertFalse(""No node found"", nds.isEmpty());
+}
+",TestMergeCombiner::checkTable_5_oe
+conf_left_1483_6,"private ImmutableNode checkTable_6_oe(final HierarchicalConfiguration<ImmutableNode> config) {
+        // removed other assertion
+        final HierarchicalConfiguration<ImmutableNode> c = config.configurationAt(""database.tables.table(0)"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final NodeHandler<ImmutableNode> nodeHandler = config.getNodeModel().getNodeHandler();
+        final List<QueryResult<ImmutableNode>> nds = config.getExpressionEngine().query(nodeHandler.getRootNode(), ""database.tables.table"", nodeHandler);
+        // removed other assertion
+        assertFalse(""Not a node result"", nds.get(0).isAttributeResult());
+}
+",TestMergeCombiner::checkTable_6_oe
+conf_left_1490_1,"private static void checkPathToRoot_1_oe(final InMemoryNodeModel model, ImmutableNode node, final String... path) {
+        final NodeHandler<ImmutableNode> handler = model.getNodeHandler();
+        for (int i = path.length - 1; i >= 0; i--) {
+            node = handler.getParent(node);
+            assertEquals(""Wrong node name"", path[i], node.getNodeName());
+}
+}
+",TestInMemoryNodeModel::checkPathToRoot_1_oe
+conf_left_1490_2,"private static void checkPathToRoot_2_oe(final InMemoryNodeModel model, ImmutableNode node, final String... path) {
+        final NodeHandler<ImmutableNode> handler = model.getNodeHandler();
+        for (int i = path.length - 1; i >= 0; i--) {
+            node = handler.getParent(node);
+            // removed other assertion
+        }
+        assertSame(""Wrong root node"", model.getRootNode(), handler.getParent(node));
+}
+",TestInMemoryNodeModel::checkPathToRoot_2_oe
+conf_left_1491_1,"private void checkAddNodesNoNodes_1_oe(final Collection<ImmutableNode> newNodes) {
+        final NodeKeyResolver<ImmutableNode> resolver = createResolver();
+        final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_AUTHORS_TREE);
+        EasyMock.replay(resolver);
+
+        model.addNodes(KEY, newNodes, resolver);
+        assertSame(""Model was changed"", NodeStructureHelper.ROOT_AUTHORS_TREE, model.getRootNode());
+}
+",TestInMemoryNodeModel::checkAddNodesNoNodes_1_oe
+conf_left_1492_1,"private void checkClearTreeUpdatedParentMapping_1_oe(final String pathToRemove, final ImmutableNode nodeToCheck) {
+        final NodeKeyResolver<ImmutableNode> resolver = createResolver();
+        final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_AUTHORS_TREE);
+        final QueryResult<ImmutableNode> result = QueryResult.createNodeResult(nodeForKey(model, pathToRemove));
+        EasyMock.expect(resolver.resolveKey(ROOT_AUTHORS_TREE, KEY, model.getNodeHandler())).andReturn(Collections.singletonList(result));
+        EasyMock.replay(resolver);
+
+        model.clearTree(KEY, resolver);
+        try {
+            model.getNodeHandler().getParent(nodeToCheck);
+            fail(""Removed node still in parent mapping!"");
+}
+}
+",TestInMemoryNodeModel::checkClearTreeUpdatedParentMapping_1_oe
+conf_left_1557_1,"private static void checkAttributes_1_oe(final ImmutableNode node, final Map<String, ?> expAttrs) {
+        assertEquals(""Wrong number of attributes"", expAttrs.size(), node.getAttributes().size());
+}
+",TestImmutableNode::checkAttributes_1_oe
+conf_left_1557_2,"private static void checkAttributes_2_oe(final ImmutableNode node, final Map<String, ?> expAttrs) {
+        // removed other assertion
+        for (final Map.Entry<String, ?> e : expAttrs.entrySet()) {
+            assertEquals(""Wrong value for "" + e.getKey(), e.getValue(), node.getAttributes().get(e.getKey()));
+}
+}
+",TestImmutableNode::checkAttributes_2_oe
+conf_left_1558_1,"private static void checkAttributesContained_1_oe(final ImmutableNode node, final Map<String, Object> attributes) {
+        for (final Map.Entry<String, Object> e : attributes.entrySet()) {
+            assertEquals(""Wrong attribute value"", e.getValue(), node.getAttributes().get(e.getKey()));
+}
+}
+",TestImmutableNode::checkAttributesContained_1_oe
+conf_left_1559_1,"private static void checkChildNodes_1_oe(final ImmutableNode node, final Collection<ImmutableNode> expChildren) {
+        assertEquals(""Wrong number of child nodes"", expChildren.size(), node.getChildren().size());
+}
+",TestImmutableNode::checkChildNodes_1_oe
+conf_left_1559_2,"private static void checkChildNodes_2_oe(final ImmutableNode node, final Collection<ImmutableNode> expChildren) {
+        // removed other assertion
+        final Iterator<ImmutableNode> itExp = expChildren.iterator();
+        int idx = 0;
+        for (final ImmutableNode c : node) {
+            assertEquals(""Wrong child at "" + idx, itExp.next(), c);
+}
+}
+",TestImmutableNode::checkChildNodes_2_oe
+conf_left_1560_1,"private static void checkUpdatedNode_1_oe(final ImmutableNode org, final ImmutableNode updated) {
+        assertNotSame(""Same instance"", org, updated);
+}
+",TestImmutableNode::checkUpdatedNode_1_oe
+conf_left_1560_2,"private static void checkUpdatedNode_2_oe(final ImmutableNode org, final ImmutableNode updated) {
+        // removed other assertion
+        assertEquals(""Wrong node name"", NAME, updated.getNodeName());
+}
+",TestImmutableNode::checkUpdatedNode_2_oe
+conf_left_1560_3,"private static void checkUpdatedNode_3_oe(final ImmutableNode org, final ImmutableNode updated) {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Wrong value"", VALUE, updated.getValue());
+}
+",TestImmutableNode::checkUpdatedNode_3_oe
+conf_left_1561_1,"private void checkSetAttributesNoOp_1_oe(final Map<String, Object> attributes) {
+        final ImmutableNode node = createDefaultNode(VALUE);
+        assertSame(""Node was changed"", node, node.setAttributes(attributes));
+}
+",TestImmutableNode::checkSetAttributesNoOp_1_oe
+conf_left_1577_1,"private static void expEqual_1_oe(final Object o1, final Object o2) {
+        assertEquals(""Not equal"", o1, o2);
+}
+",TestDefaultExpressionEngineSymbols::expEqual_1_oe
+conf_left_1577_2,"private static void expEqual_2_oe(final Object o1, final Object o2) {
+        // removed other assertion
+        assertEquals(""Not symmetric"", o2, o1);
+}
+",TestDefaultExpressionEngineSymbols::expEqual_2_oe
+conf_left_1577_3,"private static void expEqual_3_oe(final Object o1, final Object o2) {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Different hash codes"", o1.hashCode(), o2.hashCode());
+}
+",TestDefaultExpressionEngineSymbols::expEqual_3_oe
+conf_left_1578_1,"private static void expNE_1_oe(final Object o1, final Object o2) {
+        assertNotEquals(""Equal"", o1, o2);
+}
+",TestDefaultExpressionEngineSymbols::expNE_1_oe
+conf_left_1578_2,"private static void expNE_2_oe(final Object o1, final Object o2) {
+        // removed other assertion
+        if (o2 != null) {
+            assertNotEquals(""Not symmetric"", o2, o1);
+}
+}
+",TestDefaultExpressionEngineSymbols::expNE_2_oe
+conf_left_1583_1,"private static void checkedForChangedField_1_oe(final ImmutableNode nodeFields, final int idx) {
+        assertEquals(""Wrong number of field nodes"", NodeStructureHelper.fieldsLength(1), nodeFields.getChildren().size());
+}
+",TestInMemoryNodeModelTrackedNodes::checkedForChangedField_1_oe
+conf_left_1584_1,"private static void checkFieldNode_1_oe(final ImmutableNode nodeField, final String name) {
+        assertEquals(""Wrong node name"", ""field"", nodeField.getNodeName());
+}
+",TestInMemoryNodeModelTrackedNodes::checkFieldNode_1_oe
+conf_left_1584_2,"private static void checkFieldNode_2_oe(final ImmutableNode nodeField, final String name) {
+        // removed other assertion
+        assertEquals(""Wrong number of children of field node"", 1, nodeField.getChildren().size());
+}
+",TestInMemoryNodeModelTrackedNodes::checkFieldNode_2_oe
+conf_left_1584_3,"private static void checkFieldNode_3_oe(final ImmutableNode nodeField, final String name) {
+        // removed other assertion
+        // removed other assertion
+        final ImmutableNode nodeName = nodeField.getChildren().get(0);
+        assertEquals(""Wrong name of name node"", ""name"", nodeName.getNodeName());
+}
+",TestInMemoryNodeModelTrackedNodes::checkFieldNode_3_oe
+conf_left_1584_4,"private static void checkFieldNode_4_oe(final ImmutableNode nodeField, final String name) {
+        // removed other assertion
+        // removed other assertion
+        final ImmutableNode nodeName = nodeField.getChildren().get(0);
+        // removed other assertion
+        assertEquals(""Wrong node value"", name, nodeName.getValue());
+}
+",TestInMemoryNodeModelTrackedNodes::checkFieldNode_4_oe
+conf_left_1585_1,"private static void checkForAddedField_1_oe(final ImmutableNode nodeFields) {
+        assertEquals(""Wrong number of children"", NodeStructureHelper.fieldsLength(1) + 1, nodeFields.getChildren().size());
+}
+",TestInMemoryNodeModelTrackedNodes::checkForAddedField_1_oe
+conf_left_1586_1,"private static void checkForRemovedField_1_oe(final ImmutableNode nodeFields, final int idx) {
+        assertEquals(""Field not removed"", NodeStructureHelper.fieldsLength(1) - 1, nodeFields.getChildren().size());
+}
+",TestInMemoryNodeModelTrackedNodes::checkForRemovedField_1_oe
+conf_left_1586_2,"private static void checkForRemovedField_2_oe(final ImmutableNode nodeFields, final int idx) {
+        // removed other assertion
+        final Set<String> expectedNames = new HashSet<>();
+        final Set<String> actualNames = new HashSet<>();
+        for (int i = 0; i < NodeStructureHelper.fieldsLength(1); i++) {
+            if (idx != i) {
+                expectedNames.add(NodeStructureHelper.field(1, i));
+            }
+        }
+        for (final ImmutableNode field : nodeFields) {
+            final ImmutableNode nodeName = field.getChildren().get(0);
+            actualNames.add(String.valueOf(nodeName.getValue()));
+        }
+        assertEquals(""Wrong field names"", expectedNames, actualNames);
+}
+",TestInMemoryNodeModelTrackedNodes::checkForRemovedField_2_oe
+conf_left_1587_1,"private static void prepareResolverForUpdateKeys_1_oe(final NodeKeyResolver<ImmutableNode> resolver) {
+        EasyMock.expect(
+            resolver.resolveUpdateKey(EasyMock.anyObject(ImmutableNode.class), EasyMock.anyString(), EasyMock.anyObject(), EasyMock.anyObject(TreeData.class)))
+            .andAnswer(() -> {
+                final ImmutableNode root = (ImmutableNode) EasyMock.getCurrentArguments()[0];
+                final String key = (String) EasyMock.getCurrentArguments()[1];
+                final TreeData handler = (TreeData) EasyMock.getCurrentArguments()[3];
+                final List<QueryResult<ImmutableNode>> results = DefaultExpressionEngine.INSTANCE.query(root, key, handler);
+                assertEquals(""Wrong number of query results"", 1, results.size());
+}
+}
+",TestInMemoryNodeModelTrackedNodes::prepareResolverForUpdateKeys_1_oe
+conf_left_1588_1,"private void checkReplaceTrackedNode_1_oe() {
+        final ImmutableNode newNode = new ImmutableNode.Builder().name(""newNode"").create();
+        model.replaceTrackedNode(selector, newNode);
+        assertSame(""Node not changed"", newNode, model.getTrackedNode(selector));
+}
+",TestInMemoryNodeModelTrackedNodes::checkReplaceTrackedNode_1_oe
+conf_left_1588_2,"private void checkReplaceTrackedNode_2_oe() {
+        final ImmutableNode newNode = new ImmutableNode.Builder().name(""newNode"").create();
+        model.replaceTrackedNode(selector, newNode);
+        // removed other assertion
+        assertTrue(""Node not detached"", model.isTrackedNodeDetached(selector));
+}
+",TestInMemoryNodeModelTrackedNodes::checkReplaceTrackedNode_2_oe
+conf_left_1589_1,"private void checkTrackChildNodesNoResult_1_oe(final List<ImmutableNode> queryResult) {
+        final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
+        EasyMock.expect(resolver.resolveNodeKey(root, TEST_KEY, model.getNodeHandler())).andReturn(queryResult);
+        EasyMock.replay(resolver);
+        final TreeData oldData = model.getTreeData();
+
+        assertTrue(""Got selectors"", model.trackChildNodes(TEST_KEY, resolver).isEmpty());
+}
+",TestInMemoryNodeModelTrackedNodes::checkTrackChildNodesNoResult_1_oe
+conf_left_1589_2,"private void checkTrackChildNodesNoResult_2_oe(final List<ImmutableNode> queryResult) {
+        final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
+        EasyMock.expect(resolver.resolveNodeKey(root, TEST_KEY, model.getNodeHandler())).andReturn(queryResult);
+        EasyMock.replay(resolver);
+        final TreeData oldData = model.getTreeData();
+
+        // removed other assertion
+        assertSame(""Model was changed"", oldData, model.getTreeData());
+}
+",TestInMemoryNodeModelTrackedNodes::checkTrackChildNodesNoResult_2_oe
+conf_left_1639_1,"private void checkArrayProperty_1_oe(final List<?> expectedValues) throws ConfigurationException {
+        final StringWriter out = new StringWriter();
+        new FileHandler(config).save(out);
+        final StringBuilder values = new StringBuilder();
+        for (final Object v : expectedValues) {
+            values.append(""<string>"").append(v).append(""</string>"");
+        }
+        final String content = out.toString().replaceAll(""[ \n\r]"", """");
+        assertThat(content, containsString(String.format(""<key>array</key><array>%s</array>"", values)));
+}
+",TestXMLPropertyListConfiguration::checkArrayProperty_1_oe
+conf_left_1674_1,"private void checkBean_1_oe(final BeanCreationTestBean bean) {
+        assertEquals(""Wrong string property"", TEST_STRING, bean.getStringValue());
+}
+",TestBeanHelper::checkBean_1_oe
+conf_left_1674_2,"private void checkBean_2_oe(final BeanCreationTestBean bean) {
+        // removed other assertion
+        assertEquals(""Wrong int property"", TEST_INT, bean.getIntValue());
+}
+",TestBeanHelper::checkBean_2_oe
+conf_left_1674_3,"private void checkBean_3_oe(final BeanCreationTestBean bean) {
+        // removed other assertion
+        // removed other assertion
+        final BeanCreationTestBean buddy = bean.getBuddy();
+        assertNotNull(""Buddy was not set"", buddy);
+}
+",TestBeanHelper::checkBean_3_oe
+conf_left_1674_4,"private void checkBean_4_oe(final BeanCreationTestBean bean) {
+        // removed other assertion
+        // removed other assertion
+        final BeanCreationTestBean buddy = bean.getBuddy();
+        // removed other assertion
+        assertEquals(""Wrong string property in buddy"", ""Another test string"", buddy.getStringValue());
+}
+",TestBeanHelper::checkBean_4_oe
+conf_left_1674_5,"private void checkBean_5_oe(final BeanCreationTestBean bean) {
+        // removed other assertion
+        // removed other assertion
+        final BeanCreationTestBean buddy = bean.getBuddy();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Wrong int property in buddy"", 100, buddy.getIntValue());
+}
+",TestBeanHelper::checkBean_5_oe
+conf_left_1675_1,"private void checkBean_1_oe(final BeanCreationTestBeanWithListChild bean) {
+        assertEquals(""Wrong string property"", TEST_STRING, bean.getStringValue());
+}
+",TestBeanHelper::checkBean_1_oe
+conf_left_1675_2,"private void checkBean_2_oe(final BeanCreationTestBeanWithListChild bean) {
+        // removed other assertion
+        assertEquals(""Wrong int property"", TEST_INT, bean.getIntValue());
+}
+",TestBeanHelper::checkBean_2_oe
+conf_left_1675_3,"private void checkBean_3_oe(final BeanCreationTestBeanWithListChild bean) {
+        // removed other assertion
+        // removed other assertion
+        final List<BeanCreationTestBean> children = bean.getChildren();
+        assertNotNull(""Children were not set"", children);
+}
+",TestBeanHelper::checkBean_3_oe
+conf_left_1675_4,"private void checkBean_4_oe(final BeanCreationTestBeanWithListChild bean) {
+        // removed other assertion
+        // removed other assertion
+        final List<BeanCreationTestBean> children = bean.getChildren();
+        // removed other assertion
+        assertEquals(""Wrong number of children created"", children.size(), 2);
+}
+",TestBeanHelper::checkBean_4_oe
+conf_left_1675_5,"private void checkBean_5_oe(final BeanCreationTestBeanWithListChild bean) {
+        // removed other assertion
+        // removed other assertion
+        final List<BeanCreationTestBean> children = bean.getChildren();
+        // removed other assertion
+        // removed other assertion
+        assertNotNull(""First child was set as null"", children.get(0));
+}
+",TestBeanHelper::checkBean_5_oe
+conf_left_1675_6,"private void checkBean_6_oe(final BeanCreationTestBeanWithListChild bean) {
+        // removed other assertion
+        // removed other assertion
+        final List<BeanCreationTestBean> children = bean.getChildren();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNotNull(""Second child was set as null"", children.get(1));
+}
+",TestBeanHelper::checkBean_6_oe
+conf_left_1708_1,"protected void testGetDescriptorBase_1_oe(final String name, final Class<?> type) {
+        final DynaProperty descriptor = bean.getDynaClass().getDynaProperty(name);
+
+        assertNotNull(""Failed to get descriptor"", descriptor);
+}
+",TestConfigurationDynaBean::testGetDescriptorBase_1_oe
+conf_left_1708_2,"protected void testGetDescriptorBase_2_oe(final String name, final Class<?> type) {
+        final DynaProperty descriptor = bean.getDynaClass().getDynaProperty(name);
+
+        // removed other assertion
+        assertEquals(""Got incorrect type"", type, descriptor.getType());
+}
+",TestConfigurationDynaBean::testGetDescriptorBase_2_oe
+conf_left_1733_1,"private static void checkProperties_1_oe(final BeanDeclaration beanDecl, final String[] names, final String[] values) {
+        final Map<String, Object> props = beanDecl.getBeanProperties();
+        assertEquals(""Wrong number of properties"", names.length, props.size());
+}
+",TestXMLBeanDeclaration::checkProperties_1_oe
+conf_left_1733_2,"private static void checkProperties_2_oe(final BeanDeclaration beanDecl, final String[] names, final String[] values) {
+        final Map<String, Object> props = beanDecl.getBeanProperties();
+        // removed other assertion
+        for (int i = 0; i < names.length; i++) {
+            assertTrue(""Property "" + names[i] + "" not contained"", props.containsKey(names[i]));
+}
+}
+",TestXMLBeanDeclaration::checkProperties_2_oe
+conf_left_1733_3,"private static void checkProperties_3_oe(final BeanDeclaration beanDecl, final String[] names, final String[] values) {
+        final Map<String, Object> props = beanDecl.getBeanProperties();
+        // removed other assertion
+        for (int i = 0; i < names.length; i++) {
+            // removed other assertion
+            assertEquals(""Wrong value for property "" + names[i], values[i], props.get(names[i]));
+}
+}
+",TestXMLBeanDeclaration::checkProperties_3_oe
+conf_left_1756_1,"private static void checkDefaultLookups_1_oe(final InterpolatorSpecification spec, final Lookup defLook1, final Lookup defLook2) {
+        assertEquals(""Wrong number of default lookups"", 2, spec.getDefaultLookups().size());
+}
+",TestInterpolatorSpecification::checkDefaultLookups_1_oe
+conf_left_1756_2,"private static void checkDefaultLookups_2_oe(final InterpolatorSpecification spec, final Lookup defLook1, final Lookup defLook2) {
+        // removed other assertion
+        assertTrue(""Wrong default lookups"", spec.getDefaultLookups().containsAll(Arrays.asList(defLook1, defLook2)));
+}
+",TestInterpolatorSpecification::checkDefaultLookups_2_oe
+conf_left_1757_1,"private static void checkPrefixLookups_1_oe(final InterpolatorSpecification spec, final Lookup prefLook1, final Lookup prefLook2) {
+        assertEquals(""Wrong number of prefix lookups"", 2, spec.getPrefixLookups().size());
+}
+",TestInterpolatorSpecification::checkPrefixLookups_1_oe
+conf_left_1757_2,"private static void checkPrefixLookups_2_oe(final InterpolatorSpecification spec, final Lookup prefLook1, final Lookup prefLook2) {
+        // removed other assertion
+        assertSame(""Wrong prefix lookup 1"", prefLook1, spec.getPrefixLookups().get(PREFIX1));
+}
+",TestInterpolatorSpecification::checkPrefixLookups_2_oe
+conf_left_1757_3,"private static void checkPrefixLookups_3_oe(final InterpolatorSpecification spec, final Lookup prefLook1, final Lookup prefLook2) {
+        // removed other assertion
+        // removed other assertion
+        assertSame(""Wrong prefix lookup 2"", prefLook2, spec.getPrefixLookups().get(PREFIX2));
+}
+",TestInterpolatorSpecification::checkPrefixLookups_3_oe
+conf_left_1820_1,"private static void checkDefaultPrefixLookupsHolder_1_oe(final Properties props, final String... keys) {
+        final ConfigurationInterpolator.DefaultPrefixLookupsHolder holder =
+                new ConfigurationInterpolator.DefaultPrefixLookupsHolder(props);
+
+        final Map<String, Lookup> lookupMap = holder.getDefaultPrefixLookups();
+
+        assertMappedLookups(lookupMap, keys);
+}
+",TestConfigurationInterpolator::checkDefaultPrefixLookupsHolder_1_oe
+conf_left_1821_1,"private static void assertMappedLookups_1_oe(final Map<String, Lookup> lookupMap, final String... keys) { final Set<String> remainingKeys = new HashSet<>(lookupMap.keySet());
+}
+",TestConfigurationInterpolator::assertMappedLookups_1_oe
+conf_left_1821_2,"// removed other assertion
+
+        for (final String key : keys) {
+            assertNotNull(""Expected map to contain string lookup for key "" + key, key);
+}
+",TestConfigurationInterpolator::assertMappedLookups_2_oe
+conf_left_1821_3,"// removed other assertion
+
+        for (final String key : keys) {
+            // removed other assertion
+
+            remainingKeys.remove(key);
+        }
+
+        assertTrue(""Unexpected keys in lookup map: "" + remainingKeys, remainingKeys.isEmpty());
+",TestConfigurationInterpolator::assertMappedLookups_3_oe
+conf_left_1832_1,"private void checkOldReservedAttribute_1_oe(final String name) {
+        final String prefixName = ""config-"" + name;
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        config.addProperty(String.format(""[@%s]"", prefixName), Boolean.TRUE);
+        final ConfigurationDeclaration decl = createDeclaration(config);
+        assertTrue(prefixName + "" attribute not recognized"", decl.isReservedAttributeName(prefixName));
+}
+",TestConfigurationDeclaration::checkOldReservedAttribute_1_oe
+conf_left_1832_2,"private void checkOldReservedAttribute_2_oe(final String name) {
+        final String prefixName = ""config-"" + name;
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        config.addProperty(String.format(""[@%s]"", prefixName), Boolean.TRUE);
+        final ConfigurationDeclaration decl = createDeclaration(config);
+        // removed other assertion
+        config.addProperty(String.format(""[@%s]"", name), Boolean.TRUE);
+        assertFalse(name + "" is reserved though config- exists"", decl.isReservedAttributeName(name));
+}
+",TestConfigurationDeclaration::checkOldReservedAttribute_2_oe
+conf_left_1832_3,"private void checkOldReservedAttribute_3_oe(final String name) {
+        final String prefixName = ""config-"" + name;
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        config.addProperty(String.format(""[@%s]"", prefixName), Boolean.TRUE);
+        final ConfigurationDeclaration decl = createDeclaration(config);
+        // removed other assertion
+        config.addProperty(String.format(""[@%s]"", name), Boolean.TRUE);
+        // removed other assertion
+        assertTrue(""config- attribute not recognized when "" + name + "" exists"", decl.isReservedAttributeName(prefixName));
+}
+",TestConfigurationDeclaration::checkOldReservedAttribute_3_oe
+conf_left_1835_1,"private void checkReloadDefinitionFile_1_oe(final File defFile) throws IOException, ConfigurationException, InterruptedException {
+        final File src1 = writeReloadFile(null, 1, 0);
+        final File src2 = writeReloadFile(null, 1, 1);
+        writeDefinitionFile(defFile, src1);
+        CombinedConfiguration config = builder.getConfiguration();
+        assertEquals(""Wrong initial value"", 0, config.getInt(testProperty(1)));
+}
+",TestReloadingCombinedConfigurationBuilderFileBased::checkReloadDefinitionFile_1_oe
+conf_left_1835_2,"private void checkReloadDefinitionFile_2_oe(final File defFile) throws IOException, ConfigurationException, InterruptedException {
+        final File src1 = writeReloadFile(null, 1, 0);
+        final File src2 = writeReloadFile(null, 1, 1);
+        writeDefinitionFile(defFile, src1);
+        CombinedConfiguration config = builder.getConfiguration();
+        // removed other assertion
+
+        // No change definition file
+        boolean reloaded = false;
+        for (int attempts = 0; attempts < 50 && !reloaded; attempts++) {
+            writeDefinitionFile(defFile, src2);
+            reloaded = builder.getReloadingController().checkForReloading(null);
+            if (!reloaded) {
+                Thread.sleep(100);
+            }
+        }
+        assertTrue(""Need for reload not detected"", reloaded);
+}
+",TestReloadingCombinedConfigurationBuilderFileBased::checkReloadDefinitionFile_2_oe
+conf_left_1835_3,"private void checkReloadDefinitionFile_3_oe(final File defFile) throws IOException, ConfigurationException, InterruptedException {
+        final File src1 = writeReloadFile(null, 1, 0);
+        final File src2 = writeReloadFile(null, 1, 1);
+        writeDefinitionFile(defFile, src1);
+        CombinedConfiguration config = builder.getConfiguration();
+        // removed other assertion
+
+        // No change definition file
+        boolean reloaded = false;
+        for (int attempts = 0; attempts < 50 && !reloaded; attempts++) {
+            writeDefinitionFile(defFile, src2);
+            reloaded = builder.getReloadingController().checkForReloading(null);
+            if (!reloaded) {
+                Thread.sleep(100);
+            }
+        }
+        // removed other assertion
+        config = builder.getConfiguration();
+        assertEquals(""Wrong reloaded value"", 1, config.getInt(testProperty(1)));
+}
+",TestReloadingCombinedConfigurationBuilderFileBased::checkReloadDefinitionFile_3_oe
+conf_left_1856_1,"public void verify_1_oe() {
+            try {
+                join();
+            } catch (final InterruptedException iex) {
+                fail(""Waiting was interrupted: "" + iex);
+}
+}
+",ReadThread::verify_1_oe
+conf_left_1856_2,"public void verify_2_oe() {
+            try {
+                join();
+            } catch (final InterruptedException iex) {
+                // removed other assertion
+            }
+            assertEquals(""Wrong value read"", Boolean.TRUE, value);
+}
+",ReadThread::verify_2_oe
+conf_left_1857_1,"private static void checkCombinedConfigAttrs_1_oe(final CombinedConfiguration cc) {
+        final ListDelimiterHandler handler = cc.getListDelimiterHandler();
+        assertTrue(""Wrong delimiter handler: "" + handler, handler instanceof DefaultListDelimiterHandler);
+}
+",TestCombinedConfigurationBuilder::checkCombinedConfigAttrs_1_oe
+conf_left_1857_2,"private static void checkCombinedConfigAttrs_2_oe(final CombinedConfiguration cc) {
+        final ListDelimiterHandler handler = cc.getListDelimiterHandler();
+        // removed other assertion
+        assertEquals(""Wrong list delimiter character"", ',', ((DefaultListDelimiterHandler) handler).getDelimiter());
+}
+",TestCombinedConfigurationBuilder::checkCombinedConfigAttrs_2_oe
+conf_left_1858_1,"private CombinedConfiguration checkConfiguration_1_oe() throws ConfigurationException {
+        final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+
+        assertEquals(""Number of configurations"", 3, compositeConfiguration.getNumberOfConfigurations());
+}
+",TestCombinedConfigurationBuilder::checkConfiguration_1_oe
+conf_left_1858_2,"private CombinedConfiguration checkConfiguration_2_oe() throws ConfigurationException {
+        final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+
+        // removed other assertion
+        assertEquals(PropertiesConfiguration.class, compositeConfiguration.getConfiguration(0).getClass());
+}
+",TestCombinedConfigurationBuilder::checkConfiguration_2_oe
+conf_left_1858_3,"private CombinedConfiguration checkConfiguration_3_oe() throws ConfigurationException {
+        final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(XMLPropertiesConfiguration.class, compositeConfiguration.getConfiguration(1).getClass());
+}
+",TestCombinedConfigurationBuilder::checkConfiguration_3_oe
+conf_left_1858_4,"private CombinedConfiguration checkConfiguration_4_oe() throws ConfigurationException {
+        final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(XMLConfiguration.class, compositeConfiguration.getConfiguration(2).getClass());
+}
+",TestCombinedConfigurationBuilder::checkConfiguration_4_oe
+conf_left_1858_5,"private CombinedConfiguration checkConfiguration_5_oe() throws ConfigurationException {
+        final CombinedConfiguration compositeConfiguration = builder.getConfiguration();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // check the first configuration
+        final PropertiesConfiguration pc = (PropertiesConfiguration) compositeConfiguration.getConfiguration(0);
+        assertNotNull(""No properties configuration"", pc);
+}
+",TestCombinedConfigurationBuilder::checkConfiguration_5_oe
+conf_left_1859_1,"private void checkFileSystem_1_oe(final File fsFile) throws ConfigurationException {
+        builder.configure(createParameters().setFile(fsFile));
+        builder.getConfiguration();
+        final FileBasedConfigurationBuilder<? extends Configuration> xmlBuilder = (FileBasedConfigurationBuilder<? extends Configuration>) builder
+            .getNamedBuilder(""xml"");
+        assertTrue(""Wrong file system: "" + xmlBuilder.getFileHandler().getFileSystem(),xmlBuilder.getFileHandler().getFileSystem()instanceof FileSystemTestImpl);
+}
+",TestCombinedConfigurationBuilder::checkFileSystem_1_oe
+conf_left_1860_1,"private void checkMultiFile_1_oe(final String key, final CombinedConfiguration config, final int rows) {
+        switchToMultiFile(key);
+        assertEquals(""Wrong property value"", rows, config.getInt(""rowsPerPage""));
+}
+",TestCombinedConfigurationBuilder::checkMultiFile_1_oe
+conf_left_1861_1,"private void checkProperties_1_oe(final Configuration compositeConfiguration) {
+        assertTrue(""Make sure we have loaded our key"", compositeConfiguration.getBoolean(""test.boolean""));
+}
+",TestCombinedConfigurationBuilder::checkProperties_1_oe
+conf_left_1861_2,"private void checkProperties_2_oe(final Configuration compositeConfiguration) {
+        // removed other assertion
+        assertEquals(""I'm complex!"", compositeConfiguration.getProperty(""element2.subelement.subsubelement""));
+}
+",TestCombinedConfigurationBuilder::checkProperties_2_oe
+conf_left_1861_3,"private void checkProperties_3_oe(final Configuration compositeConfiguration) {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""property in the XMLPropertiesConfiguration"", ""value1"", compositeConfiguration.getProperty(""key1""));
+}
+",TestCombinedConfigurationBuilder::checkProperties_3_oe
+conf_left_1862_1,"private CombinedConfiguration createMultiFileConfig_1_oe(final String fileName) throws ConfigurationException {
+        final File testFile = ConfigurationAssert.getTestFile(fileName);
+        builder.configure(createParameters().setFile(testFile));
+        final CombinedConfiguration config = builder.getConfiguration();
+        assertTrue(""Incorrect result configuration"", config instanceof DynamicCombinedConfiguration);
+}
+",TestCombinedConfigurationBuilder::createMultiFileConfig_1_oe
+conf_left_1924_1,"private void checkAllowFailOnInit_1_oe(final boolean expFlag, final String... props) throws ConfigurationException {
+        final HierarchicalConfiguration<?> declConfig = setUpConfig(false);
+        for (final String key : props) {
+            declConfig.addProperty(key, Boolean.TRUE);
+        }
+        final ConfigurationDeclaration decl = createDeclaration(declConfig);
+        final BasicConfigurationBuilder<? extends Configuration> builder = (BasicConfigurationBuilder<? extends Configuration>) createProvider()
+            .getConfigurationBuilder(decl);
+        assertEquals(""Wrong flag value"", expFlag, builder.isAllowFailOnInit());
+}
+",TestBaseConfigurationBuilderProvider::checkAllowFailOnInit_1_oe
+conf_left_1925_1,"private ConfigurationBuilder<? extends Configuration> checkBuilder_1_oe(final boolean reload) throws ConfigurationException {
+        final HierarchicalConfiguration<?> declConfig = setUpConfig(reload);
+        final ConfigurationDeclaration decl = createDeclaration(declConfig);
+        final ConfigurationBuilder<? extends Configuration> builder = createProvider().getConfigurationBuilder(decl);
+        final Configuration config = builder.getConfiguration();
+        assertEquals(""Wrong configuration class"", PropertiesConfiguration.class, config.getClass());
+}
+",TestBaseConfigurationBuilderProvider::checkBuilder_1_oe
+conf_left_1925_2,"private ConfigurationBuilder<? extends Configuration> checkBuilder_2_oe(final boolean reload) throws ConfigurationException {
+        final HierarchicalConfiguration<?> declConfig = setUpConfig(reload);
+        final ConfigurationDeclaration decl = createDeclaration(declConfig);
+        final ConfigurationBuilder<? extends Configuration> builder = createProvider().getConfigurationBuilder(decl);
+        final Configuration config = builder.getConfiguration();
+        // removed other assertion
+        final PropertiesConfiguration pconfig = (PropertiesConfiguration) config;
+        assertTrue(""Wrong exception flag"", pconfig.isThrowExceptionOnMissing());
+}
+",TestBaseConfigurationBuilderProvider::checkBuilder_2_oe
+conf_left_1925_3,"private ConfigurationBuilder<? extends Configuration> checkBuilder_3_oe(final boolean reload) throws ConfigurationException {
+        final HierarchicalConfiguration<?> declConfig = setUpConfig(reload);
+        final ConfigurationDeclaration decl = createDeclaration(declConfig);
+        final ConfigurationBuilder<? extends Configuration> builder = createProvider().getConfigurationBuilder(decl);
+        final Configuration config = builder.getConfiguration();
+        // removed other assertion
+        final PropertiesConfiguration pconfig = (PropertiesConfiguration) config;
+        // removed other assertion
+        final DefaultListDelimiterHandler listHandler = (DefaultListDelimiterHandler) pconfig.getListDelimiterHandler();
+        assertEquals(""Wrong list delimiter"", ';', listHandler.getDelimiter());
+}
+",TestBaseConfigurationBuilderProvider::checkBuilder_3_oe
+conf_left_1925_4,"private ConfigurationBuilder<? extends Configuration> checkBuilder_4_oe(final boolean reload) throws ConfigurationException {
+        final HierarchicalConfiguration<?> declConfig = setUpConfig(reload);
+        final ConfigurationDeclaration decl = createDeclaration(declConfig);
+        final ConfigurationBuilder<? extends Configuration> builder = createProvider().getConfigurationBuilder(decl);
+        final Configuration config = builder.getConfiguration();
+        // removed other assertion
+        final PropertiesConfiguration pconfig = (PropertiesConfiguration) config;
+        // removed other assertion
+        final DefaultListDelimiterHandler listHandler = (DefaultListDelimiterHandler) pconfig.getListDelimiterHandler();
+        // removed other assertion
+        assertTrue(""Configuration not loaded"", pconfig.getBoolean(""configuration.loaded""));
+}
+",TestBaseConfigurationBuilderProvider::checkBuilder_4_oe
+conf_left_1959_1,"private static void checkBasicProperties_1_oe(final Map<String, Object> map) {
+        assertEquals(""Wrong delimiter handler"", listHandler, map.get(""listDelimiterHandler""));
+}
+",TestParameters::checkBasicProperties_1_oe
+conf_left_1959_2,"private static void checkBasicProperties_2_oe(final Map<String, Object> map) {
+        // removed other assertion
+        assertEquals(""Wrong exception flag value"", Boolean.TRUE, map.get(""throwExceptionOnMissing""));
+}
+",TestParameters::checkBasicProperties_2_oe
+conf_left_1960_1,"private static void checkInstanceOf_1_oe(final Object obj, final Class<?> cls) {
+        assertTrue(obj + "" is not an instance of "" + cls, cls.isInstance(obj));
+}
+",TestParameters::checkInstanceOf_1_oe
+conf_left_1974_1,"private static void checkINI_1_oe(final INIConfiguration config) {
+        assertEquals(""yes"", config.getProperty(""testini.loaded""));
+}
+",TestConfigurations::checkINI_1_oe
+conf_left_1975_1,"private static void checkPList_1_oe(final Configuration config) {
+        assertEquals(""string1"", config.getProperty(""simple-string""));
+}
+",TestConfigurations::checkPList_1_oe
+conf_left_1976_1,"private static void checkProperties_1_oe(final Configuration config) {
+        assertEquals(""true"", config.getString(""configuration.loaded""));
+}
+",TestConfigurations::checkProperties_1_oe
+conf_left_1977_1,"private static void checkXML_1_oe(final Configuration config) {
+        assertEquals(""value"", config.getProperty(""element""));
+}
+",TestConfigurations::checkXML_1_oe
+conf_left_1985_1,"private static void checkAddPath_1_oe(final NodeAddData<ImmutableNode> data, final boolean attr, final String... expected) {
+        assertSame(""Wrong parent node"", root, data.getParent());
+}
+",TestXPathExpressionEngine::checkAddPath_1_oe
+conf_left_1985_2,"private static void checkAddPath_2_oe(final NodeAddData<ImmutableNode> data, final boolean attr, final String... expected) {
+        // removed other assertion
+        final List<String> path = data.getPathNodes();
+        assertEquals(""Incorrect number of path nodes"", expected.length - 1, path.size());
+}
+",TestXPathExpressionEngine::checkAddPath_2_oe
+conf_left_1985_3,"private static void checkAddPath_3_oe(final NodeAddData<ImmutableNode> data, final boolean attr, final String... expected) {
+        // removed other assertion
+        final List<String> path = data.getPathNodes();
+        // removed other assertion
+        final Iterator<String> it = path.iterator();
+        for (int idx = 0; idx < expected.length - 1; idx++) {
+            assertEquals(""Wrong node at position "" + idx, expected[idx], it.next());
+}
+}
+",TestXPathExpressionEngine::checkAddPath_3_oe
+conf_left_1985_4,"private static void checkAddPath_4_oe(final NodeAddData<ImmutableNode> data, final boolean attr, final String... expected) {
+        // removed other assertion
+        final List<String> path = data.getPathNodes();
+        // removed other assertion
+        final Iterator<String> it = path.iterator();
+        for (int idx = 0; idx < expected.length - 1; idx++) {
+            // removed other assertion
+        }
+        assertEquals(""Wrong name of new node"", expected[expected.length - 1], data.getNewNodeName());
+}
+",TestXPathExpressionEngine::checkAddPath_4_oe
+conf_left_1985_5,"private static void checkAddPath_5_oe(final NodeAddData<ImmutableNode> data, final boolean attr, final String... expected) {
+        // removed other assertion
+        final List<String> path = data.getPathNodes();
+        // removed other assertion
+        final Iterator<String> it = path.iterator();
+        for (int idx = 0; idx < expected.length - 1; idx++) {
+            // removed other assertion
+        }
+        // removed other assertion
+        assertEquals(""Incorrect attribute flag"", attr, data.isAttribute());
+}
+",TestXPathExpressionEngine::checkAddPath_5_oe
+conf_left_1986_1,"private void checkEmptyKey_1_oe(final String key) {
+        final XPathContextFactory factory = EasyMock.createMock(XPathContextFactory.class);
+        EasyMock.replay(factory);
+        final XPathExpressionEngine engine = new XPathExpressionEngine(factory);
+        final List<QueryResult<ImmutableNode>> results = engine.query(root, key, handler);
+        assertEquals(""Incorrect number of results"", 1, results.size());
+}
+",TestXPathExpressionEngine::checkEmptyKey_1_oe
+conf_left_1986_2,"private void checkEmptyKey_2_oe(final String key) {
+        final XPathContextFactory factory = EasyMock.createMock(XPathContextFactory.class);
+        EasyMock.replay(factory);
+        final XPathExpressionEngine engine = new XPathExpressionEngine(factory);
+        final List<QueryResult<ImmutableNode>> results = engine.query(root, key, handler);
+        // removed other assertion
+        assertSame(""Wrong result node"", root, results.get(0).getNode());
+}
+",TestXPathExpressionEngine::checkEmptyKey_2_oe
+conf_left_2017_1,"private void checkValues_1_oe(final NodeIterator iterator, final int... expectedIndices) {
+        final List<NodePointer> nodes = iterationElements(iterator);
+        for (int i = 0; i < expectedIndices.length; i++) {
+            final ImmutableNode child = (ImmutableNode) nodes.get(i).getImmediateNode();
+            assertTrue(""Wrong index value for child "" + i, child.getValue().toString().endsWith(String.valueOf(expectedIndices[i])));
+}
+}
+",TestConfigurationNodeIteratorChildren::checkValues_1_oe
+conf_left_2050_1,"private void checkIterators_1_oe(final NodePointer p) {
+        final ImmutableNode node = (ImmutableNode) p.getNode();
+        NodeIterator it = p.childIterator(null, false, null);
+        assertEquals(""Iterator count differs from children count"", node.getChildren().size(), iteratorSize(it));
+}
+",TestConfigurationNodePointer::checkIterators_1_oe
+conf_left_2050_2,"private void checkIterators_2_oe(final NodePointer p) {
+        final ImmutableNode node = (ImmutableNode) p.getNode();
+        NodeIterator it = p.childIterator(null, false, null);
+        // removed other assertion
+
+        for (int index = 1; it.setPosition(index); index++) {
+            final NodePointer pchild = it.getNodePointer();
+            assertEquals(""Wrong child"", node.getChildren().get(index - 1), pchild.getNode());
+}
+}
+",TestConfigurationNodePointer::checkIterators_2_oe
+conf_left_2050_3,"private void checkIterators_3_oe(final NodePointer p) {
+        final ImmutableNode node = (ImmutableNode) p.getNode();
+        NodeIterator it = p.childIterator(null, false, null);
+        // removed other assertion
+
+        for (int index = 1; it.setPosition(index); index++) {
+            final NodePointer pchild = it.getNodePointer();
+            // removed other assertion
+            checkIterators(pchild);
+        }
+
+        it = p.attributeIterator(new QName(null, ""*""));
+        assertEquals(""Iterator count differs from attribute count"", node.getAttributes().size(), iteratorSize(it));
+}
+",TestConfigurationNodePointer::checkIterators_3_oe
+conf_left_2050_4,"private void checkIterators_4_oe(final NodePointer p) {
+        final ImmutableNode node = (ImmutableNode) p.getNode();
+        NodeIterator it = p.childIterator(null, false, null);
+        // removed other assertion
+
+        for (int index = 1; it.setPosition(index); index++) {
+            final NodePointer pchild = it.getNodePointer();
+            // removed other assertion
+            checkIterators(pchild);
+        }
+
+        it = p.attributeIterator(new QName(null, ""*""));
+        // removed other assertion
+        for (int index = 1; it.setPosition(index); index++) {
+            final NodePointer pattr = it.getNodePointer();
+            assertTrue(""Node pointer is no attribute"", pattr.isAttribute());
+}
+}
+",TestConfigurationNodePointer::checkIterators_4_oe
+conf_left_2050_5,"private void checkIterators_5_oe(final NodePointer p) {
+        final ImmutableNode node = (ImmutableNode) p.getNode();
+        NodeIterator it = p.childIterator(null, false, null);
+        // removed other assertion
+
+        for (int index = 1; it.setPosition(index); index++) {
+            final NodePointer pchild = it.getNodePointer();
+            // removed other assertion
+            checkIterators(pchild);
+        }
+
+        it = p.attributeIterator(new QName(null, ""*""));
+        // removed other assertion
+        for (int index = 1; it.setPosition(index); index++) {
+            final NodePointer pattr = it.getNodePointer();
+            // removed other assertion
+            assertTrue(""Wrong attribute name"", node.getAttributes().containsKey(pattr.getName().getName()));
+}
+}
+",TestConfigurationNodePointer::checkIterators_5_oe

@@ -1,0 +1,57 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/LineConvexSubsetTest_OE25Dev_geom_left_1139_9.java:[332,9] cannot find symbol
+  symbol:   method checkInfinite(org.apache.commons.geometry.euclidean.twod.LineConvexSubset,org.apache.commons.geometry.euclidean.twod.Line,org.apache.commons.geometry.euclidean.twod.Vector2D,<nulltype>)
+  location: class org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev_geom_left_1139_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/LineConvexSubsetTest_OE25Dev_geom_left_1139_9.java:[333,9] cannot find symbol
+  symbol:   method checkInfinite(org.apache.commons.geometry.euclidean.twod.LineConvexSubset,org.apache.commons.geometry.euclidean.twod.Line,<nulltype>,org.apache.commons.geometry.euclidean.twod.Vector2D)
+  location: class org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev_geom_left_1139_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/LineConvexSubsetTest_OE25Dev_geom_left_1139_9.java:[336,9] cannot find symbol
+  symbol:   method checkInfinite(org.apache.commons.geometry.euclidean.twod.LineConvexSubset,org.apache.commons.geometry.euclidean.twod.Line,<nulltype>,org.apache.commons.geometry.euclidean.twod.Vector2D)
+  location: class org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev_geom_left_1139_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/LineConvexSubsetTest_OE25Dev_geom_left_1139_9.java:[337,9] cannot find symbol
+  symbol:   method checkInfinite(org.apache.commons.geometry.euclidean.twod.LineConvexSubset,org.apache.commons.geometry.euclidean.twod.Line,org.apache.commons.geometry.euclidean.twod.Vector2D,<nulltype>)
+  location: class org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev_geom_left_1139_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/LineConvexSubsetTest_OE25Dev_geom_left_1139_9.java:[365,9] cannot find symbol
+  symbol:   method checkInfinite(org.apache.commons.geometry.euclidean.twod.LineConvexSubset,org.apache.commons.geometry.euclidean.twod.Line,org.apache.commons.geometry.euclidean.twod.Vector2D,<nulltype>)
+  location: class org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev_geom_left_1139_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/LineConvexSubsetTest_OE25Dev_geom_left_1139_9.java:[370,9] cannot find symbol
+  symbol:   method checkInfinite(org.apache.commons.geometry.euclidean.twod.LineConvexSubset,org.apache.commons.geometry.euclidean.twod.Line,org.apache.commons.geometry.euclidean.twod.Vector2D,<nulltype>)
+  location: class org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev_geom_left_1139_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/LineConvexSubsetTest_OE25Dev_geom_left_1139_9.java:[403,9] cannot find symbol
+  symbol:   method checkInfinite(org.apache.commons.geometry.euclidean.twod.LineConvexSubset,org.apache.commons.geometry.euclidean.twod.Line,<nulltype>,org.apache.commons.geometry.euclidean.twod.Vector2D)
+  location: class org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev_geom_left_1139_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/LineConvexSubsetTest_OE25Dev_geom_left_1139_9.java:[406,9] cannot find symbol
+  symbol:   method checkInfinite(org.apache.commons.geometry.euclidean.twod.LineConvexSubset,org.apache.commons.geometry.euclidean.twod.Line,<nulltype>,org.apache.commons.geometry.euclidean.twod.Vector2D)
+  location: class org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev_geom_left_1139_9
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-euclidean: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/LineConvexSubsetTest_OE25Dev_geom_left_1139_9.java:[332,9] cannot find symbol
+[ERROR]   symbol:   method checkInfinite(org.apache.commons.geometry.euclidean.twod.LineConvexSubset,org.apache.commons.geometry.euclidean.twod.Line,org.apache.commons.geometry.euclidean.twod.Vector2D,<nulltype>)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev_geom_left_1139_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/LineConvexSubsetTest_OE25Dev_geom_left_1139_9.java:[333,9] cannot find symbol
+[ERROR]   symbol:   method checkInfinite(org.apache.commons.geometry.euclidean.twod.LineConvexSubset,org.apache.commons.geometry.euclidean.twod.Line,<nulltype>,org.apache.commons.geometry.euclidean.twod.Vector2D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev_geom_left_1139_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/LineConvexSubsetTest_OE25Dev_geom_left_1139_9.java:[336,9] cannot find symbol
+[ERROR]   symbol:   method checkInfinite(org.apache.commons.geometry.euclidean.twod.LineConvexSubset,org.apache.commons.geometry.euclidean.twod.Line,<nulltype>,org.apache.commons.geometry.euclidean.twod.Vector2D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev_geom_left_1139_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/LineConvexSubsetTest_OE25Dev_geom_left_1139_9.java:[337,9] cannot find symbol
+[ERROR]   symbol:   method checkInfinite(org.apache.commons.geometry.euclidean.twod.LineConvexSubset,org.apache.commons.geometry.euclidean.twod.Line,org.apache.commons.geometry.euclidean.twod.Vector2D,<nulltype>)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev_geom_left_1139_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/LineConvexSubsetTest_OE25Dev_geom_left_1139_9.java:[365,9] cannot find symbol
+[ERROR]   symbol:   method checkInfinite(org.apache.commons.geometry.euclidean.twod.LineConvexSubset,org.apache.commons.geometry.euclidean.twod.Line,org.apache.commons.geometry.euclidean.twod.Vector2D,<nulltype>)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev_geom_left_1139_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/LineConvexSubsetTest_OE25Dev_geom_left_1139_9.java:[370,9] cannot find symbol
+[ERROR]   symbol:   method checkInfinite(org.apache.commons.geometry.euclidean.twod.LineConvexSubset,org.apache.commons.geometry.euclidean.twod.Line,org.apache.commons.geometry.euclidean.twod.Vector2D,<nulltype>)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev_geom_left_1139_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/LineConvexSubsetTest_OE25Dev_geom_left_1139_9.java:[403,9] cannot find symbol
+[ERROR]   symbol:   method checkInfinite(org.apache.commons.geometry.euclidean.twod.LineConvexSubset,org.apache.commons.geometry.euclidean.twod.Line,<nulltype>,org.apache.commons.geometry.euclidean.twod.Vector2D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev_geom_left_1139_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/twod/LineConvexSubsetTest_OE25Dev_geom_left_1139_9.java:[406,9] cannot find symbol
+[ERROR]   symbol:   method checkInfinite(org.apache.commons.geometry.euclidean.twod.LineConvexSubset,org.apache.commons.geometry.euclidean.twod.Line,<nulltype>,org.apache.commons.geometry.euclidean.twod.Vector2D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev_geom_left_1139_9
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

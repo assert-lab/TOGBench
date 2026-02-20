@@ -1,0 +1,130 @@
+id,test_prefix,test_name
+http_left_68_1,"@Override
+      public void handle_1_oe(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        char[] buffer = new char[8192];
+        int read;
+        try {
+          while ((read = request.getReader().read(buffer)) != -1)
+            body.append(buffer, 0, read);
+        } catch (IOException e) {
+          fail();
+      }
+      }
+",HttpRequestTest::handle_1_oe
+http_left_71_1,"@Override
+      public void handle_1_oe(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+      }
+      }
+",HttpRequestTest::handle_1_oe
+http_left_73_1,"@Override
+      public void handle_1_oe(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+      }
+      }
+",HttpRequestTest::handle_1_oe
+http_left_75_1,"@Override
+      public void handle_1_oe(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+      }
+      }
+",HttpRequestTest::handle_1_oe
+http_left_77_1,"@Override
+      public void handle_1_oe(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+      }
+      }
+",HttpRequestTest::handle_1_oe
+http_left_83_1,"@Override
+      public void handle_1_oe(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+      }
+      }
+",HttpRequestTest::handle_1_oe
+http_left_85_1,"@Override
+      public void handle_1_oe(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+      }
+      }
+",HttpRequestTest::handle_1_oe
+http_left_88_1,"@Override
+      public void handle_1_oe(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""hello world"");
+        } catch (IOException e) {
+          fail();
+      }
+      }
+",HttpRequestTest::handle_1_oe
+http_left_90_1,"@Override
+      public void handle_1_oe(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""hello world"");
+        } catch (IOException e) {
+          fail();
+      }
+      }
+",HttpRequestTest::handle_1_oe
+http_left_160_1,"public void onUpload_1_oe(long transferred, long total) {
+        assertEquals(file.length(), total);
+}
+",HttpRequestTest::onUpload_1_oe
+http_left_160_2,"public void onUpload_2_oe(long transferred, long total) {
+        // removed other assertion
+        assertEquals(tx.incrementAndGet(), transferred);
+}
+",HttpRequestTest::onUpload_2_oe
+http_left_162_1,"public void onUpload_1_oe(long transferred, long total) {
+        assertEquals(-1, total);
+}
+",HttpRequestTest::onUpload_1_oe
+http_left_162_2,"public void onUpload_2_oe(long transferred, long total) {
+        // removed other assertion
+        assertEquals(tx.incrementAndGet(), transferred);
+}
+",HttpRequestTest::onUpload_2_oe
+http_left_164_1,"public void onUpload_1_oe(long transferred, long total) {
+        assertEquals(bytes.length, total);
+}
+",HttpRequestTest::onUpload_1_oe
+http_left_164_2,"public void onUpload_2_oe(long transferred, long total) {
+        // removed other assertion
+        assertEquals(tx.incrementAndGet(), transferred);
+}
+",HttpRequestTest::onUpload_2_oe
+http_left_166_1,"public void onUpload_1_oe(long transferred, long total) {
+        assertEquals(-1, total);
+}
+",HttpRequestTest::onUpload_1_oe
+http_left_166_2,"public void onUpload_2_oe(long transferred, long total) {
+        // removed other assertion
+        assertEquals(tx.incrementAndGet(), transferred);
+}
+",HttpRequestTest::onUpload_2_oe

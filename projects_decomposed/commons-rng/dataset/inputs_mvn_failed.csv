@@ -1,0 +1,19 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+rng_74_1,"    @ParameterizedTest
+    @MethodSource(""getList"")
+    void testUniformNextBytesFullBuffer_1_oe(UniformRandomProvider generator) {
+        // Value chosen to exercise all the code lines in the
+        // ""nextBytes"" methods.
+         int size = 23;
+         byte[] buffer = new byte[size];
+
+         Runnable nextMethod = new Runnable() {
+            @Override
+            public void run() {
+                generator.nextBytes(buffer);
+            }
+        };
+
+        Assertions.assertTrue(isUniformNextBytes(buffer, 0, size, nextMethod), generator::toString);
+    }
+",ProvidersCommonParametricTest::testUniformNextBytesFullBuffer_1_oe,,,,

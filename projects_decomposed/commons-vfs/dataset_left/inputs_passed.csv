@@ -1,0 +1,2698 @@
+id,test_prefix,test_name
+vfs_left_32_1,"@Test
+    public void testFileObject_1_oe() throws FileSystemException {
+        try (final FileObject baseFile = VFS.getManager().toFileObject(new File("".""))) {
+            Assert.assertNotNull(baseFile);
+    }
+    }
+",FileChangeEventTest::testFileObject_1_oe
+vfs_left_32_2,"@Test
+    public void testFileObject_2_oe() throws FileSystemException {
+        try (final FileObject baseFile = VFS.getManager().toFileObject(new File("".""))) {
+            // removed other assertion
+            final FileChangeEvent fileChangeEvent = new FileChangeEvent(baseFile);
+            Assert.assertEquals(fileChangeEvent.getFile(), fileChangeEvent.getFileObject());
+    }
+    }
+",FileChangeEventTest::testFileObject_2_oe
+vfs_left_72_1,"@Test
+    public void test_close_1_oe() throws FileSystemException {
+        try (FileSystemManager fileSystemManager = new StandardFileSystemManager()) {
+            VFS.setManager(fileSystemManager);
+            VFS.setManager(null);
+        }
+        Assert.assertNotNull(VFS.getManager());
+    }
+",VFSTest::test_close_1_oe
+vfs_left_72_2,"@Test
+    public void test_close_2_oe() throws FileSystemException {
+        try (FileSystemManager fileSystemManager = new StandardFileSystemManager()) {
+            VFS.setManager(fileSystemManager);
+            VFS.setManager(null);
+        }
+        // removed other assertion
+        Assert.assertFalse(VFS.getManager().resolveFile(Paths.get(""DoesNotExist.not"").toUri()).exists());
+    }
+",VFSTest::test_close_2_oe
+vfs_left_174_1,"@Test
+    public void testGetZeroContents_1_oe() throws IOException {
+        final FileSystemManager fsManager = VFS.getManager();
+        try (final FileObject fo = fsManager.resolveFile(new File("".""), ""src/test/resources/test-data/size-0-file.bin"");
+                final FileContent content = fo.getContent()) {
+            Assert.assertEquals(0, content.getSize());
+    }
+    }
+",DefaultFileContentTest::testGetZeroContents_1_oe
+vfs_left_174_2,"@Test
+    public void testGetZeroContents_2_oe() throws IOException {
+        final FileSystemManager fsManager = VFS.getManager();
+        try (final FileObject fo = fsManager.resolveFile(new File("".""), ""src/test/resources/test-data/size-0-file.bin"");
+                final FileContent content = fo.getContent()) {
+            // removed other assertion
+            Assert.assertTrue(content.isEmpty());
+    }
+    }
+",DefaultFileContentTest::testGetZeroContents_2_oe
+vfs_left_174_3,"@Test
+    public void testGetZeroContents_3_oe() throws IOException {
+        final FileSystemManager fsManager = VFS.getManager();
+        try (final FileObject fo = fsManager.resolveFile(new File("".""), ""src/test/resources/test-data/size-0-file.bin"");
+                final FileContent content = fo.getContent()) {
+            // removed other assertion
+            // removed other assertion
+            Assert.assertEquals(StringUtils.EMPTY, content.getString(StandardCharsets.UTF_8));
+    }
+    }
+",DefaultFileContentTest::testGetZeroContents_3_oe
+vfs_left_174_4,"@Test
+    public void testGetZeroContents_4_oe() throws IOException {
+        final FileSystemManager fsManager = VFS.getManager();
+        try (final FileObject fo = fsManager.resolveFile(new File("".""), ""src/test/resources/test-data/size-0-file.bin"");
+                final FileContent content = fo.getContent()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            Assert.assertEquals(StringUtils.EMPTY, content.getString(StandardCharsets.UTF_8.name()));
+    }
+    }
+",DefaultFileContentTest::testGetZeroContents_4_oe
+vfs_left_174_5,"@Test
+    public void testGetZeroContents_5_oe() throws IOException {
+        final FileSystemManager fsManager = VFS.getManager();
+        try (final FileObject fo = fsManager.resolveFile(new File("".""), ""src/test/resources/test-data/size-0-file.bin"");
+                final FileContent content = fo.getContent()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            Assert.assertArrayEquals(ArrayUtils.EMPTY_BYTE_ARRAY, content.getByteArray());
+    }
+    }
+",DefaultFileContentTest::testGetZeroContents_5_oe
+vfs_left_175_3,"@Test
+    public void testMarkingWhenReadingEOS_3_oe() throws Exception {
+        final File temp = File.createTempFile(""temp-file-name"", "".tmp"");
+        final FileSystemManager fileSystemManager = VFS.getManager();
+
+        try (FileObject file = fileSystemManager.resolveFile(temp.getAbsolutePath())) {
+            try (OutputStream outputStream = file.getContent().getOutputStream()) {
+                outputStream.write(expected.getBytes());
+                outputStream.flush();
+            }
+            try (InputStream stream = file.getContent().getInputStream()) {
+                int readCount = 0;
+                if (stream.markSupported()) {
+                    for (int i = 0; i < 10; i++) {
+                        stream.mark(0);
+                        final byte[] data = new byte[100];
+                        readCount = stream.read(data, 0, 7);
+                        stream.read();
+                        // removed other assertion
+                        // removed other assertion
+                        readCount = stream.read(data, 8, 10);
+                        Assert.assertEquals(-1, readCount);
+    }
+    }
+    }
+    }
+    }
+",DefaultFileContentTest::testMarkingWhenReadingEOS_3_oe
+vfs_left_188_1,"@Test
+    public void testAcceptZipFile_1_oe() throws FileSystemException {
+
+        FileObject[] files;
+
+        // CAN_READ Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CAN_READ));
+        assertContains(files, READONLY, WRITABLE);
+    }
+",CanReadFileFilterTest::testAcceptZipFile_1_oe
+vfs_left_188_4,"@Test
+    public void testAcceptZipFile_4_oe() throws FileSystemException {
+
+        FileObject[] files;
+
+        // CAN_READ Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CAN_READ));
+        // removed other assertion
+        // removed other assertion
+
+        // CANNOT_READ Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CANNOT_READ));
+        // removed other assertion
+
+        // READ_ONLY Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.READ_ONLY));
+        assertContains(files, READONLY, WRITABLE);
+    }
+",CanReadFileFilterTest::testAcceptZipFile_4_oe
+vfs_left_191_2,"@Test
+    public void testAcceptZipFile_2_oe() throws FileSystemException {
+
+        FileObject[] files;
+
+        // CAN_WRITE Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(CanWriteFileFilter.CAN_WRITE));
+        // removed other assertion
+
+        // CANNOT_WRITE Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(CanWriteFileFilter.CANNOT_WRITE));
+        assertContains(files, READONLY, WRITABLE);
+    }
+",CanWriteFileFilterTest::testAcceptZipFile_2_oe
+vfs_left_200_7,"@Test
+    public void testAgeFileFilterLongBoolean_7_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new AgeFileFilter(NOW_MILLIS, false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, true)));
+        assertContains(files, oldFile.getName(), currentFile.getName());
+    }
+",AgeFileFilterTest::testAgeFileFilterLongBoolean_7_oe
+vfs_left_200_9,"@Test
+    public void testAgeFileFilterLongBoolean_9_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new AgeFileFilter(NOW_MILLIS, false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, false)));
+        assertContains(files, newFile.getName());
+    }
+",AgeFileFilterTest::testAgeFileFilterLongBoolean_9_oe
+vfs_left_203_1,"@Test
+    public void testAddFileFilter_1_oe() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+
+        // TEST
+        final AndFileFilter testee = new AndFileFilter();
+        testee.addFileFilter(filter1);
+        testee.addFileFilter(filter2);
+        testee.addFileFilter(filter3);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
+    }
+",AndFileFilterTest::testAddFileFilter_1_oe
+vfs_left_204_1,"@Test
+    public void testAndFileFilterFileFilter_1_oe() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+
+        // TEST
+        final AndFileFilter testee = new AndFileFilter(filter1, filter2, filter3);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
+    }
+",AndFileFilterTest::testAndFileFilterFileFilter_1_oe
+vfs_left_205_1,"@Test
+    public void testAndFileFilterList_1_oe() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+        final List<FileFilter> list = new ArrayList<>();
+        list.add(filter1);
+        list.add(filter2);
+        list.add(filter3);
+
+        // TEST
+        final AndFileFilter testee = new AndFileFilter(list);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
+    }
+",AndFileFilterTest::testAndFileFilterList_1_oe
+vfs_left_206_1,"@Test
+    public void testRemoveFileFilter_1_oe() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+        final AndFileFilter testee = new AndFileFilter(filter1, filter2, filter3);
+
+        // TEST
+        testee.removeFileFilter(filter2);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter3);
+    }
+",AndFileFilterTest::testRemoveFileFilter_1_oe
+vfs_left_207_1,"@Test
+    public void testSetFileFilters_1_oe() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+        final List<FileFilter> list = new ArrayList<>();
+        list.add(filter1);
+        list.add(filter2);
+        list.add(filter3);
+        final AndFileFilter testee = new AndFileFilter();
+
+        // TEST
+        testee.setFileFilters(list);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
+    }
+",AndFileFilterTest::testSetFileFilters_1_oe
+vfs_left_211_1,"@Test
+    public void testSizeFileFilterZipDir_1_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        assertContains(files, optFile.getName(), maxFile.getName());
+    }
+",SizeFileFilterTest::testSizeFileFilterZipDir_1_oe
+vfs_left_211_3,"@Test
+    public void testSizeFileFilterZipDir_3_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        assertContains(files, minFile.getName());
+    }
+",SizeFileFilterTest::testSizeFileFilterZipDir_3_oe
+vfs_left_211_5,"@Test
+    public void testSizeFileFilterZipDir_5_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        assertContains(files, minFile.getName(), optFile.getName(), maxFile.getName());
+    }
+",SizeFileFilterTest::testSizeFileFilterZipDir_5_oe
+vfs_left_211_7,"@Test
+    public void testSizeFileFilterZipDir_7_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        assertContains(files, optFile.getName(), maxFile.getName());
+    }
+",SizeFileFilterTest::testSizeFileFilterZipDir_7_oe
+vfs_left_211_9,"@Test
+    public void testSizeFileFilterZipDir_9_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 5)));
+        assertContains(files, minFile.getName(), optFile.getName());
+    }
+",SizeFileFilterTest::testSizeFileFilterZipDir_9_oe
+vfs_left_211_11,"@Test
+    public void testSizeFileFilterZipDir_11_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 5)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 5)));
+        assertContains(files, optFile.getName());
+    }
+",SizeFileFilterTest::testSizeFileFilterZipDir_11_oe
+vfs_left_211_13,"@Test
+    public void testSizeFileFilterZipDir_13_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 5)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 5)));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(4, 4)));
+        assertContains(files, optFile.getName());
+    }
+",SizeFileFilterTest::testSizeFileFilterZipDir_13_oe
+vfs_left_233_1,"@Test
+    public void testZipFile_1_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(EmptyFileFilter.EMPTY));
+        assertContains(files, emptyFile.getName());
+    }
+",EmptyFileFilterTest::testZipFile_1_oe
+vfs_left_233_3,"@Test
+    public void testZipFile_3_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(EmptyFileFilter.EMPTY));
+        // removed other assertion
+        // removed other assertion
+
+        files = zipFileObj.findFiles(new FileFilterSelector(EmptyFileFilter.NOT_EMPTY));
+        assertContains(files, notEmptyFile.getName(), notEmptyDir.getName());
+    }
+",EmptyFileFilterTest::testZipFile_3_oe
+vfs_left_238_1,"@Test
+    public void testAddFileFilter_1_oe() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+
+        // TEST
+        final OrFileFilter testee = new OrFileFilter();
+        testee.addFileFilter(filter1);
+        testee.addFileFilter(filter2);
+        testee.addFileFilter(filter3);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
+    }
+",OrFileFilterTest::testAddFileFilter_1_oe
+vfs_left_239_1,"@Test
+    public void testOrFileFilterFileFilter_1_oe() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+
+        // TEST
+        final OrFileFilter testee = new OrFileFilter(filter1, filter2, filter3);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
+    }
+",OrFileFilterTest::testOrFileFilterFileFilter_1_oe
+vfs_left_240_1,"@Test
+    public void testOrFileFilterList_1_oe() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+        final List<FileFilter> list = new ArrayList<>();
+        list.add(filter1);
+        list.add(filter2);
+        list.add(filter3);
+
+        // TEST
+        final OrFileFilter testee = new OrFileFilter(list);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
+    }
+",OrFileFilterTest::testOrFileFilterList_1_oe
+vfs_left_241_1,"@Test
+    public void testRemoveFileFilter_1_oe() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+        final OrFileFilter testee = new OrFileFilter(filter1, filter2, filter3);
+
+        // TEST
+        testee.removeFileFilter(filter2);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter3);
+    }
+",OrFileFilterTest::testRemoveFileFilter_1_oe
+vfs_left_242_1,"@Test
+    public void testSetFileFilters_1_oe() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+        final List<FileFilter> list = new ArrayList<>();
+        list.add(filter1);
+        list.add(filter2);
+        list.add(filter3);
+        final OrFileFilter testee = new OrFileFilter();
+
+        // TEST
+        testee.setFileFilters(list);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
+    }
+",OrFileFilterTest::testSetFileFilters_1_oe
+vfs_left_247_1,"@Test
+    public void testZipFile_1_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        final FileObject[] files;
+
+        // TODO xxx In Java 6 there is no way to hide a file
+        // files = zipFileObj.findFiles(new
+        // FileFilterSelector(HiddenFileFilter.HIDDEN));
+        // assertContains(files, hiddenFile.getName());
+        // assertThat(files).hasSize(1);
+
+        files = zipFileObj.findFiles(new FileFilterSelector(HiddenFileFilter.VISIBLE));
+        assertContains(files, visibleFile.getName());
+    }
+",HiddenFileFilterTest::testZipFile_1_oe
+vfs_left_248_1,"@Test
+    public void testAcceptZipFile_1_oe() throws FileSystemException {
+
+        FileObject[] files;
+
+        // FILE Filter
+        files = zipFileObj.findFiles(new FileSelector() {
+            @Override
+            public boolean includeFile(final FileSelectInfo fileInfo) throws Exception {
+                return FileFileFilter.FILE.accept(fileInfo);
+            }
+
+            @Override
+            public boolean traverseDescendents(final FileSelectInfo fileInfo) throws Exception {
+                return true;
+            }
+        });
+        assertContains(files, FILE);
+    }
+",DirectoryAndFileFilterTest::testAcceptZipFile_1_oe
+vfs_left_248_3,"@Test
+    public void testAcceptZipFile_3_oe() throws FileSystemException {
+
+        FileObject[] files;
+
+        // FILE Filter
+        files = zipFileObj.findFiles(new FileSelector() {
+            @Override
+            public boolean includeFile(final FileSelectInfo fileInfo) throws Exception {
+                return FileFileFilter.FILE.accept(fileInfo);
+            }
+
+            @Override
+            public boolean traverseDescendents(final FileSelectInfo fileInfo) throws Exception {
+                return true;
+            }
+        });
+        // removed other assertion
+        // removed other assertion
+
+        // DIRECTORY Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(DirectoryFileFilter.DIRECTORY));
+        assertContains(files, DIR);
+    }
+",DirectoryAndFileFilterTest::testAcceptZipFile_3_oe
+vfs_left_257_1,"@Test
+    public void test_close_1_oe() throws FileSystemException {
+        try (FileSystemManager fileSystemManager = new DefaultFileSystemManager()) {
+            VFS.setManager(fileSystemManager);
+            VFS.setManager(null);
+        }
+        Assert.assertNotNull(VFS.getManager());
+    }
+",DefaultFileSystemManagerTest::test_close_1_oe
+vfs_left_257_2,"@Test
+    public void test_close_2_oe() throws FileSystemException {
+        try (FileSystemManager fileSystemManager = new DefaultFileSystemManager()) {
+            VFS.setManager(fileSystemManager);
+            VFS.setManager(null);
+        }
+        // removed other assertion
+        Assert.assertFalse(VFS.getManager().resolveFile(Paths.get(""DoesNotExist.not"").toUri()).exists());
+    }
+",DefaultFileSystemManagerTest::test_close_2_oe
+vfs_left_258_1,"@Test
+    public void testAddAndRemoveProvider_1_oe() throws FileSystemException {
+        try (DefaultFileSystemManager fileSystemManager = new DefaultFileSystemManager()) {
+            fileSystemManager.setFilesCache(new NullFilesCache());
+            fileSystemManager.setCacheStrategy(CacheStrategy.MANUAL);
+
+            final RamFileProvider provider = Mockito.spy(new RamFileProvider());
+            fileSystemManager.addProvider(""ram1"", provider);
+            fileSystemManager.addProvider(""ram2"", provider);
+            Assert.assertNotNull(fileSystemManager.resolveFile(""ram1:///""));
+    }
+    }
+",DefaultFileSystemManagerTest::testAddAndRemoveProvider_1_oe
+vfs_left_258_2,"@Test
+    public void testAddAndRemoveProvider_2_oe() throws FileSystemException {
+        try (DefaultFileSystemManager fileSystemManager = new DefaultFileSystemManager()) {
+            fileSystemManager.setFilesCache(new NullFilesCache());
+            fileSystemManager.setCacheStrategy(CacheStrategy.MANUAL);
+
+            final RamFileProvider provider = Mockito.spy(new RamFileProvider());
+            fileSystemManager.addProvider(""ram1"", provider);
+            fileSystemManager.addProvider(""ram2"", provider);
+            // removed other assertion
+            Assert.assertNotNull(fileSystemManager.resolveFile(""ram2:///""));
+    }
+    }
+",DefaultFileSystemManagerTest::testAddAndRemoveProvider_2_oe
+vfs_left_258_3,"@Test
+    public void testAddAndRemoveProvider_3_oe() throws FileSystemException {
+        try (DefaultFileSystemManager fileSystemManager = new DefaultFileSystemManager()) {
+            fileSystemManager.setFilesCache(new NullFilesCache());
+            fileSystemManager.setCacheStrategy(CacheStrategy.MANUAL);
+
+            final RamFileProvider provider = Mockito.spy(new RamFileProvider());
+            fileSystemManager.addProvider(""ram1"", provider);
+            fileSystemManager.addProvider(""ram2"", provider);
+            // removed other assertion
+            // removed other assertion
+
+            fileSystemManager.removeProvider(""ram1"");
+            Mockito.verify(provider, Mockito.never()).close();
+            Assert.assertThrows(FileSystemException.class, () -> fileSystemManager.resolveFile(""ram1:///""));
+    }
+    }
+",DefaultFileSystemManagerTest::testAddAndRemoveProvider_3_oe
+vfs_left_258_4,"@Test
+    public void testAddAndRemoveProvider_4_oe() throws FileSystemException {
+        try (DefaultFileSystemManager fileSystemManager = new DefaultFileSystemManager()) {
+            fileSystemManager.setFilesCache(new NullFilesCache());
+            fileSystemManager.setCacheStrategy(CacheStrategy.MANUAL);
+
+            final RamFileProvider provider = Mockito.spy(new RamFileProvider());
+            fileSystemManager.addProvider(""ram1"", provider);
+            fileSystemManager.addProvider(""ram2"", provider);
+            // removed other assertion
+            // removed other assertion
+
+            fileSystemManager.removeProvider(""ram1"");
+            Mockito.verify(provider, Mockito.never()).close();
+            // removed other assertion
+            Assert.assertNotNull(fileSystemManager.resolveFile(""ram2:///""));
+    }
+    }
+",DefaultFileSystemManagerTest::testAddAndRemoveProvider_4_oe
+vfs_left_258_5,"@Test
+    public void testAddAndRemoveProvider_5_oe() throws FileSystemException {
+        try (DefaultFileSystemManager fileSystemManager = new DefaultFileSystemManager()) {
+            fileSystemManager.setFilesCache(new NullFilesCache());
+            fileSystemManager.setCacheStrategy(CacheStrategy.MANUAL);
+
+            final RamFileProvider provider = Mockito.spy(new RamFileProvider());
+            fileSystemManager.addProvider(""ram1"", provider);
+            fileSystemManager.addProvider(""ram2"", provider);
+            // removed other assertion
+            // removed other assertion
+
+            fileSystemManager.removeProvider(""ram1"");
+            Mockito.verify(provider, Mockito.never()).close();
+            // removed other assertion
+            // removed other assertion
+
+            fileSystemManager.removeProvider(""ram2"");
+            Mockito.verify(provider).close();
+            Assert.assertThrows(FileSystemException.class, () -> fileSystemManager.resolveFile(""ram2:///""));
+    }
+    }
+",DefaultFileSystemManagerTest::testAddAndRemoveProvider_5_oe
+vfs_left_260_2,"@Test
+    public void testFileCacheEmptyAfterManagerClose_2_oe() throws FileSystemException {
+        final FileSystemManager manager = VFS.getManager();
+        // removed other assertion
+        try (final FileObject fileObject = manager
+                .resolveFile(Paths.get(""src/test/resources/test-data/read-tests/file1.txt"").toUri())) {
+            Assert.assertTrue(fileObject.exists());
+    }
+    }
+",DefaultFileSystemManagerTest::testFileCacheEmptyAfterManagerClose_2_oe
+vfs_left_260_3,"@Test
+    public void testFileCacheEmptyAfterManagerClose_3_oe() throws FileSystemException {
+        final FileSystemManager manager = VFS.getManager();
+        // removed other assertion
+        try (final FileObject fileObject = manager
+                .resolveFile(Paths.get(""src/test/resources/test-data/read-tests/file1.txt"").toUri())) {
+            // removed other assertion
+            final FilesCache filesCache = manager.getFilesCache();
+            final FileName name = fileObject.getName();
+            // Make sure we have file object in the cache.
+            Assert.assertNotNull(filesCache.getFile(fileObject.getFileSystem(), name));
+    }
+    }
+",DefaultFileSystemManagerTest::testFileCacheEmptyAfterManagerClose_3_oe
+vfs_left_260_4,"@Test
+    public void testFileCacheEmptyAfterManagerClose_4_oe() throws FileSystemException {
+        final FileSystemManager manager = VFS.getManager();
+        // removed other assertion
+        try (final FileObject fileObject = manager
+                .resolveFile(Paths.get(""src/test/resources/test-data/read-tests/file1.txt"").toUri())) {
+            // removed other assertion
+            final FilesCache filesCache = manager.getFilesCache();
+            final FileName name = fileObject.getName();
+            // Make sure we have file object in the cache.
+            // removed other assertion
+            manager.close();
+            // Cache MUST now be empty.
+            Assert.assertNull(filesCache.getFile(fileObject.getFileSystem(), name));
+    }
+    }
+",DefaultFileSystemManagerTest::testFileCacheEmptyAfterManagerClose_4_oe
+vfs_left_261_2,"@Test
+    public void testFileCacheEmptyAfterVFSClose_2_oe() throws FileSystemException {
+        final FileSystemManager manager = VFS.getManager();
+        // removed other assertion
+        try (final FileObject fileObject = manager
+                .resolveFile(Paths.get(""src/test/resources/test-data/read-tests/file1.txt"").toUri())) {
+            Assert.assertTrue(fileObject.exists());
+    }
+    }
+",DefaultFileSystemManagerTest::testFileCacheEmptyAfterVFSClose_2_oe
+vfs_left_261_3,"@Test
+    public void testFileCacheEmptyAfterVFSClose_3_oe() throws FileSystemException {
+        final FileSystemManager manager = VFS.getManager();
+        // removed other assertion
+        try (final FileObject fileObject = manager
+                .resolveFile(Paths.get(""src/test/resources/test-data/read-tests/file1.txt"").toUri())) {
+            // removed other assertion
+            final FilesCache filesCache = manager.getFilesCache();
+            final FileName name = fileObject.getName();
+            // Make sure we have file object in the cache.
+            Assert.assertNotNull(filesCache.getFile(fileObject.getFileSystem(), name));
+    }
+    }
+",DefaultFileSystemManagerTest::testFileCacheEmptyAfterVFSClose_3_oe
+vfs_left_261_4,"@Test
+    public void testFileCacheEmptyAfterVFSClose_4_oe() throws FileSystemException {
+        final FileSystemManager manager = VFS.getManager();
+        // removed other assertion
+        try (final FileObject fileObject = manager
+                .resolveFile(Paths.get(""src/test/resources/test-data/read-tests/file1.txt"").toUri())) {
+            // removed other assertion
+            final FilesCache filesCache = manager.getFilesCache();
+            final FileName name = fileObject.getName();
+            // Make sure we have file object in the cache.
+            // removed other assertion
+            VFS.close();
+            // Cache MUST now be empty.
+            Assert.assertNull(filesCache.getFile(fileObject.getFileSystem(), name));
+    }
+    }
+",DefaultFileSystemManagerTest::testFileCacheEmptyAfterVFSClose_4_oe
+vfs_left_275_1,"@Test
+    public void test_close_1_oe() throws FileSystemException {
+        try (FileSystemManager fileSystemManager = new StandardFileSystemManager()) {
+            VFS.setManager(fileSystemManager);
+            VFS.setManager(null);
+        }
+        Assert.assertNotNull(VFS.getManager());
+    }
+",StandardFileSystemManagerTest::test_close_1_oe
+vfs_left_275_2,"@Test
+    public void test_close_2_oe() throws FileSystemException {
+        try (FileSystemManager fileSystemManager = new StandardFileSystemManager()) {
+            VFS.setManager(fileSystemManager);
+            VFS.setManager(null);
+        }
+        // removed other assertion
+        Assert.assertFalse(VFS.getManager().resolveFile(Paths.get(""DoesNotExist.not"").toUri()).exists());
+    }
+",StandardFileSystemManagerTest::test_close_2_oe
+vfs_left_302_1,"@Test
+    public void testGetContentInfo_1_oe() throws FileSystemException, MalformedURLException {
+        final FileSystemManager fsManager = VFS.getManager();
+        final String uri = ""http4://www.apache.org/licenses/LICENSE-2.0.txt"";
+        try (final FileObject fo = fsManager.resolveFile(uri, getOptionsWithProxy())) {
+            final FileContent content = fo.getContent();
+            Assert.assertNotNull(content);
+    }
+    }
+",Http4sGetContentInfoTest::testGetContentInfo_1_oe
+vfs_left_303_1,"@Test
+    public void testInputStreamRead0xff_1_oe() throws IOException {
+
+        // create ram file to test
+        final FileObject file = VFS.getManager().resolveFile(""ram://file"");
+        file.createFile();
+
+        // write test data,a single byte 0xFF
+        try (OutputStream out = file.getContent().getOutputStream()) {
+            out.write(0xFF);
+        }
+
+        // read test data,first data should be 0xFF instead of -1. Will read -1 finally (EOF)
+        try (InputStream in = new RamFileRandomAccessContent((RamFileObject) file, RandomAccessMode.READ).getInputStream()) {
+            // read first data
+            final int read = in.read();
+            Assert.assertNotEquals(EOF, read);
+    }
+    }
+",RamFileRandomAccessContentTestCase::testInputStreamRead0xff_1_oe
+vfs_left_303_2,"@Test
+    public void testInputStreamRead0xff_2_oe() throws IOException {
+
+        // create ram file to test
+        final FileObject file = VFS.getManager().resolveFile(""ram://file"");
+        file.createFile();
+
+        // write test data,a single byte 0xFF
+        try (OutputStream out = file.getContent().getOutputStream()) {
+            out.write(0xFF);
+        }
+
+        // read test data,first data should be 0xFF instead of -1. Will read -1 finally (EOF)
+        try (InputStream in = new RamFileRandomAccessContent((RamFileObject) file, RandomAccessMode.READ).getInputStream()) {
+            // read first data
+            final int read = in.read();
+            // removed other assertion
+            Assert.assertEquals(0xFF, read);
+    }
+    }
+",RamFileRandomAccessContentTestCase::testInputStreamRead0xff_2_oe
+vfs_left_303_3,"@Test
+    public void testInputStreamRead0xff_3_oe() throws IOException {
+
+        // create ram file to test
+        final FileObject file = VFS.getManager().resolveFile(""ram://file"");
+        file.createFile();
+
+        // write test data,a single byte 0xFF
+        try (OutputStream out = file.getContent().getOutputStream()) {
+            out.write(0xFF);
+        }
+
+        // read test data,first data should be 0xFF instead of -1. Will read -1 finally (EOF)
+        try (InputStream in = new RamFileRandomAccessContent((RamFileObject) file, RandomAccessMode.READ).getInputStream()) {
+            // read first data
+            final int read = in.read();
+            // removed other assertion
+            // removed other assertion
+
+            // read EOF
+            Assert.assertEquals(EOF, in.read());
+    }
+    }
+",RamFileRandomAccessContentTestCase::testInputStreamRead0xff_3_oe
+vfs_left_334_1,"@Test
+    public void testQueryStringUrls_1_oe() throws FileSystemException {
+        final String noQueryStringUrl = ""http://commons.apache.org/vfs"";
+        final String queryStringUrl = ""http://commons.apache.org/vfs?query=string"";
+        final String queryStringUrl2 = ""http://commons.apache.org/vfs?query=string&more=stuff"";
+
+        final FileSystemManager fileSystemManager = VFS.getManager();
+
+        try (final FileObject noQueryFile = fileSystemManager.resolveFile(noQueryStringUrl)) {
+            Assert.assertEquals(noQueryStringUrl, noQueryFile.getURL().toExternalForm());
+    }
+    }
+",HttpFilesCacheTestCase::testQueryStringUrls_1_oe
+vfs_left_334_2,"@Test
+    public void testQueryStringUrls_2_oe() throws FileSystemException {
+        final String noQueryStringUrl = ""http://commons.apache.org/vfs"";
+        final String queryStringUrl = ""http://commons.apache.org/vfs?query=string"";
+        final String queryStringUrl2 = ""http://commons.apache.org/vfs?query=string&more=stuff"";
+
+        final FileSystemManager fileSystemManager = VFS.getManager();
+
+        try (final FileObject noQueryFile = fileSystemManager.resolveFile(noQueryStringUrl)) {
+            // removed other assertion
+        }
+
+        try (final FileObject queryFile = fileSystemManager.resolveFile(queryStringUrl)) {
+            Assert.assertEquals(queryStringUrl, queryFile.getURL().toExternalForm()); // failed for VFS-426;
+    }
+    }
+",HttpFilesCacheTestCase::testQueryStringUrls_2_oe
+vfs_left_334_3,"@Test
+    public void testQueryStringUrls_3_oe() throws FileSystemException {
+        final String noQueryStringUrl = ""http://commons.apache.org/vfs"";
+        final String queryStringUrl = ""http://commons.apache.org/vfs?query=string"";
+        final String queryStringUrl2 = ""http://commons.apache.org/vfs?query=string&more=stuff"";
+
+        final FileSystemManager fileSystemManager = VFS.getManager();
+
+        try (final FileObject noQueryFile = fileSystemManager.resolveFile(noQueryStringUrl)) {
+            // removed other assertion
+        }
+
+        try (final FileObject queryFile = fileSystemManager.resolveFile(queryStringUrl)) {
+            // removed other assertion
+        }
+
+        try (final FileObject queryFile2 = fileSystemManager.resolveFile(queryStringUrl2)) {
+            Assert.assertEquals(queryStringUrl2, queryFile2.getURL().toExternalForm()); // failed for VFS-426;
+    }
+    }
+",HttpFilesCacheTestCase::testQueryStringUrls_3_oe
+vfs_left_335_1,"@Test
+    public void testGetContentInfo_1_oe() throws FileSystemException, MalformedURLException {
+        final FileSystemManager fsManager = VFS.getManager();
+        final String uri = ""http://www.apache.org/licenses/LICENSE-2.0.txt"";
+        try (final FileObject fo = fsManager.resolveFile(uri, getOptionsWithProxy());
+                final FileContent content = fo.getContent()) {
+            Assert.assertNotNull(content);
+    }
+    }
+",GetContentInfoFunctionalTest::testGetContentInfo_1_oe
+vfs_left_337_1,"public void ignoreTestHttp405_1_oe() throws FileSystemException {
+        try (final FileObject fileObject = VFS.getManager()
+                .resolveFile(""http://www.w3schools.com/webservices/tempconvert.asmx?action=WSDL"")) {
+            assert fileObject.getContent().getSize() > 0;
+}
+}
+",HttpProviderTestCase::ignoreTestHttp405_1_oe
+vfs_left_337_2,"public void ignoreTestHttp405_2_oe() throws FileSystemException {
+        try (final FileObject fileObject = VFS.getManager()
+                .resolveFile(""http://www.w3schools.com/webservices/tempconvert.asmx?action=WSDL"")) {
+            // removed other assertion
+            assert !fileObject.getContent().isEmpty();
+}
+}
+",HttpProviderTestCase::ignoreTestHttp405_2_oe
+vfs_left_339_1,"@Test
+    public void testGetContentInfo_1_oe() throws FileSystemException, MalformedURLException {
+        @SuppressWarnings(""resource"") // getManager() returns a global.
+        final FileSystemManager fsManager = VFS.getManager();
+        final String uri = ""http4://www.apache.org/licenses/LICENSE-2.0.txt"";
+        try (final FileObject fo = fsManager.resolveFile(uri, getOptionsWithProxy());
+            final FileContent content = fo.getContent()) {
+            Assert.assertNotNull(content);
+    }
+    }
+",Http4GetContentInfoTest::testGetContentInfo_1_oe
+vfs_left_340_1,"@Test
+    public void testGetContentWithProxyAuthInfo_1_oe() throws FileSystemException, MalformedURLException {
+        @SuppressWarnings(""resource"") // getManager() returns a global.
+        final FileSystemManager fsManager = VFS.getManager();
+        final String uri = ""http4://www.apache.org/licenses/LICENSE-2.0.txt"";
+        try (final FileObject fo = fsManager.resolveFile(uri, getOptionsWithProxyAuthentication());
+            final FileContent content = fo.getContent()) {
+            Assert.assertNotNull(content);
+    }
+    }
+",Http4GetContentInfoTest::testGetContentWithProxyAuthInfo_1_oe
+vfs_left_343_1,"public void ignoreTestHttp405_1_oe() throws FileSystemException {
+        @SuppressWarnings(""resource"") // getManager() returns a global.
+        final FileObject fileObject = VFS.getManager()
+                .resolveFile(""http4://www.w3schools.com/webservices/tempconvert.asmx?action=WSDL"");
+        assert !fileObject.getContent().isEmpty();
+}
+",Http4ProviderTestCase::ignoreTestHttp405_1_oe
+vfs_left_347_1,"@Test
+    public void testInputStreamRead0xff_1_oe() throws IOException {
+        // open test file,this file has only one byte data 0xff
+        final File file = new File(""src/test/resources/test-data/0xff_file.txt"");
+
+        // read test data,first data should be 0xFF instead of -1. Will read -1 finally (EOF)
+        try (InputStream in = new LocalFileRandomAccessContent(file, RandomAccessMode.READ).getInputStream()) {
+            // read first data
+            final int read = in.read();
+            Assert.assertNotEquals(EOF, read);
+    }
+    }
+",LocalFileRandomAccessContentTestCase::testInputStreamRead0xff_1_oe
+vfs_left_347_2,"@Test
+    public void testInputStreamRead0xff_2_oe() throws IOException {
+        // open test file,this file has only one byte data 0xff
+        final File file = new File(""src/test/resources/test-data/0xff_file.txt"");
+
+        // read test data,first data should be 0xFF instead of -1. Will read -1 finally (EOF)
+        try (InputStream in = new LocalFileRandomAccessContent(file, RandomAccessMode.READ).getInputStream()) {
+            // read first data
+            final int read = in.read();
+            // removed other assertion
+            Assert.assertEquals(0xFF, read);
+    }
+    }
+",LocalFileRandomAccessContentTestCase::testInputStreamRead0xff_2_oe
+vfs_left_347_3,"@Test
+    public void testInputStreamRead0xff_3_oe() throws IOException {
+        // open test file,this file has only one byte data 0xff
+        final File file = new File(""src/test/resources/test-data/0xff_file.txt"");
+
+        // read test data,first data should be 0xFF instead of -1. Will read -1 finally (EOF)
+        try (InputStream in = new LocalFileRandomAccessContent(file, RandomAccessMode.READ).getInputStream()) {
+            // read first data
+            final int read = in.read();
+            // removed other assertion
+            // removed other assertion
+
+            // read EOF
+            Assert.assertEquals(EOF, in.read());
+    }
+    }
+",LocalFileRandomAccessContentTestCase::testInputStreamRead0xff_3_oe
+vfs_left_365_1,"@Test
+    @Ignore(""Shows that leaving a stream open and not closing any resource leaves the container file locked"")
+    public void testLeaveNestedFileOpen_1_oe() throws IOException {
+        final File newZipFile = createTempFile();
+        final FileSystemManager manager = VFS.getManager();
+        try (final FileObject zipFileObject = manager.resolveFile(""zip:file:"" + newZipFile.getAbsolutePath())) {
+            @SuppressWarnings({ ""resource"" })
+            final FileObject zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1);
+            getInputStreamAndAssert(zipFileObject1, ""1"");
+        }
+        assertDelete(newZipFile);
+    }
+",ZipFileObjectTestCase::testLeaveNestedFileOpen_1_oe
+vfs_left_366_1,"@Test
+    public void testReadingFilesInZipFile_1_oe() throws IOException {
+        final File newZipFile = createTempFile();
+        final FileSystemManager manager = VFS.getManager();
+        try (final FileObject zipFileObject = manager.resolveFile(""zip:file:"" + newZipFile.getAbsolutePath())) {
+            try (final FileObject zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1)) {
+                try (final InputStream inputStream = zipFileObject1.getContent().getInputStream()) {
+                    readAndAssert(zipFileObject1, inputStream, ""1"");
+                }
+            }
+            resolveReadAssert(zipFileObject, NESTED_FILE_2);
+        }
+        assertDelete(newZipFile);
+    }
+",ZipFileObjectTestCase::testReadingFilesInZipFile_1_oe
+vfs_left_367_1,"@Test
+    public void testReadingOneAfterClosingAnotherFile_1_oe() throws IOException {
+        final File newZipFile = createTempFile();
+        final FileSystemManager manager = VFS.getManager();
+        final FileObject zipFileObject1;
+        final InputStream inputStream1;
+        try (final FileObject zipFileObject = manager.resolveFile(""zip:file:"" + newZipFile.getAbsolutePath())) {
+            // leave resources open
+            zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1);
+            inputStream1 = zipFileObject1.getContent().getInputStream();
+        }
+        // The zip file is ""closed"", but we read from the stream now.
+        readAndAssert(zipFileObject1, inputStream1, ""1"");
+        // clean up
+        zipFileObject1.close();
+        assertDelete(newZipFile);
+    }
+",ZipFileObjectTestCase::testReadingOneAfterClosingAnotherFile_1_oe
+vfs_left_368_1,"@Test
+    public void testReadingOneAfterClosingAnotherStream_1_oe() throws IOException {
+        final File newZipFile = createTempFile();
+        final FileSystemManager manager = VFS.getManager();
+        final FileObject zipFileObject1;
+        final InputStream inputStream1;
+        try (final FileObject zipFileObject = manager.resolveFile(""zip:file:"" + newZipFile.getAbsolutePath())) {
+            // leave resources open (note that internal counters are updated)
+            zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1);
+            inputStream1 = zipFileObject1.getContent().getInputStream();
+            resolveReadAssert(zipFileObject, NESTED_FILE_2);
+        }
+        // The Zip file is ""closed"", but we read from the stream now, which currently fails.
+        // Why aren't internal counters preventing the stream from closing?
+        readAndAssert(zipFileObject1, inputStream1, ""1"");
+        // clean up
+        zipFileObject1.close();
+        assertDelete(newZipFile);
+    }
+",ZipFileObjectTestCase::testReadingOneAfterClosingAnotherStream_1_oe
+vfs_left_369_1,"@Test
+    public void testReadSpecialNameFileInZipFile_1_oe() throws FileSystemException {
+
+        final File testFile = new File(""src/test/resources/test-data/special_fileName.zip"");
+        final String[] fileNames = {""file.txt"", ""file^.txt"", ""file~.txt"", ""file?.txt"", ""file@.txt"", ""file$.txt"",
+                                    ""file*.txt"", ""file&.txt"", ""file#.txt"", ""file%.txt"", ""file!.txt""};
+        final FileSystemManager manager = VFS.getManager();
+        final String baseUrl = ""zip:file:""+testFile.getAbsolutePath();
+
+        // test
+        try (final FileObject fileObject = manager.resolveFile(baseUrl)) {
+            // test getChildren() number equal
+            Assert.assertEquals(fileObject.getChildren().length, fileNames.length);
+    }
+    }
+",ZipFileObjectTestCase::testReadSpecialNameFileInZipFile_1_oe
+vfs_left_369_2,"@Test
+    public void testReadSpecialNameFileInZipFile_2_oe() throws FileSystemException {
+
+        final File testFile = new File(""src/test/resources/test-data/special_fileName.zip"");
+        final String[] fileNames = {""file.txt"", ""file^.txt"", ""file~.txt"", ""file?.txt"", ""file@.txt"", ""file$.txt"",
+                                    ""file*.txt"", ""file&.txt"", ""file#.txt"", ""file%.txt"", ""file!.txt""};
+        final FileSystemManager manager = VFS.getManager();
+        final String baseUrl = ""zip:file:""+testFile.getAbsolutePath();
+
+        // test
+        try (final FileObject fileObject = manager.resolveFile(baseUrl)) {
+            // test getChildren() number equal
+            // removed other assertion
+
+            // test getChild(String)
+            for (final String fileName : fileNames) {
+                Assert.assertNotNull(""can't read file "" + fileName, fileObject.getChild(fileName));
+    }
+    }
+    }
+",ZipFileObjectTestCase::testReadSpecialNameFileInZipFile_2_oe
+vfs_left_370_1,"@Test
+    public void testResolveNestedFileWithoutCleanup_1_oe() throws IOException {
+        final File newZipFile = createTempFile();
+        final FileSystemManager manager = VFS.getManager();
+        try (final FileObject zipFileObject = manager.resolveFile(""zip:file:"" + newZipFile.getAbsolutePath())) {
+            @SuppressWarnings({ ""unused"", ""resource"" })
+            // We resolve a nested file and do nothing else.
+            final FileObject zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1);
+        }
+        assertDelete(newZipFile);
+    }
+",ZipFileObjectTestCase::testResolveNestedFileWithoutCleanup_1_oe
+vfs_left_377_1,"@Test
+    public void testCannotDeleteWhileStreaming_1_oe() throws Exception {
+        try (final FileObject zipFileObject = manager.resolveFile(zipFileUri)) {
+            try (InputStream inputStream = zipFileObject.getContent().getInputStream()) {
+                if (SystemUtils.IS_OS_WINDOWS) {
+                    // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                    Assert.assertFalse(""Could not delete file"", newZipFile.delete());
+    }
+    }
+    }
+    }
+",FileLockTestCase::testCannotDeleteWhileStreaming_1_oe
+vfs_left_377_2,"@Test
+    public void testCannotDeleteWhileStreaming_2_oe() throws Exception {
+        try (final FileObject zipFileObject = manager.resolveFile(zipFileUri)) {
+            try (InputStream inputStream = zipFileObject.getContent().getInputStream()) {
+                if (SystemUtils.IS_OS_WINDOWS) {
+                    // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                    // removed other assertion
+                }
+            }
+        }
+        assertDelete();
+    }
+",FileLockTestCase::testCannotDeleteWhileStreaming_2_oe
+vfs_left_378_1,"@Test
+    public void testCannotDeleteWhileStreaming2_1_oe() throws Exception {
+        Assume.assumeTrue(SystemUtils.IS_OS_WINDOWS);
+        try (final FileObject zipFileObject = manager.resolveFile(zipFileUri)) {
+            try (InputStream inputStream = zipFileObject.getContent().getInputStream()) {
+                // We do not use newZipFile in the Assert message to avoid touching it before calling delete().
+                Assert.assertFalse(""Could not delete file"", newZipFile.delete());
+    }
+    }
+    }
+",FileLockTestCase::testCannotDeleteWhileStreaming2_1_oe
+vfs_left_379_1,"@Test
+    public void testReadClosedFileObject_1_oe() throws Exception {
+        final FileObject zipFileObjectRef;
+        try (final FileObject zipFileObject = manager.resolveFile(zipFileUri)) {
+            zipFileObjectRef = zipFileObject;
+            try (final InputStream inputStream = zipFileObject.getContent().getInputStream()) {
+                readAndAssert(inputStream);
+            }
+        }
+        try (final InputStream inputStream = zipFileObjectRef.getContent().getInputStream()) {
+            readAndAssert(inputStream);
+        } finally {
+            zipFileObjectRef.close();
+        }
+        assertDelete();
+    }
+",FileLockTestCase::testReadClosedFileObject_1_oe
+vfs_left_386_1,"@Test
+    public void testResolveOpenCloseNestedInputStreams_1_oe() throws Exception {
+        try (final FileObject zipFileObject = manager.resolveFile(zipFileUri)) {
+            try (final FileObject zipFileObject2 = manager.resolveFile(zipFileUri)) {
+                zipFileObject2.getContent().getInputStream().close();
+            }
+            zipFileObject.getContent().getInputStream().close();
+        }
+        assertDelete();
+    }
+",FileLockTestCase::testResolveOpenCloseNestedInputStreams_1_oe
+vfs_left_387_1,"@Test
+    public void testParseXmlInZip_1_oe() throws IOException, SAXException {
+        final File newZipFile = createTempFile();
+        final String xmlFilePath = ""zip:file:"" + newZipFile.getAbsolutePath() + ""!/read-xml-tests/file1.xml"";
+        final FileSystemManager manager = VFS.getManager();
+        try (final FileObject zipFileObject = manager.resolveFile(xmlFilePath)) {
+            try (final InputStream inputStream = zipFileObject.getContent().getInputStream()) {
+                final Document document = newDocumentBuilder(zipFileObject, zipFileObject, null).parse(inputStream);
+                Assert.assertNotNull(document);
+    }
+    }
+    }
+",ParseXmlInZipTestCase::testParseXmlInZip_1_oe
+vfs_left_417_1,"@Test
+    public void testTarFile_1_oe() throws IOException {
+
+        final String testFilePath = ""src/test/resources/test-data/test.tar"";
+        try (FileObject fileObject = createFileSystem(testFilePath)) {
+            Assert.assertTrue(fileObject instanceof TarFileObject);
+    }
+    }
+",CreateFileSystemTestCase::testTarFile_1_oe
+vfs_left_418_1,"@Test
+    public void testTbz2File_1_oe() throws IOException {
+
+        final String testFilePath = ""src/test/resources/test-data/test.tbz2"";
+        try (FileObject fileObject = createFileSystem(testFilePath)) {
+            Assert.assertTrue(fileObject instanceof TarFileObject);
+    }
+    }
+",CreateFileSystemTestCase::testTbz2File_1_oe
+vfs_left_419_1,"@Test
+    public void testTgzFile_1_oe() throws IOException {
+
+        final String testFilePath = ""src/test/resources/test-data/test.tgz"";
+        try (FileObject fileObject = createFileSystem(testFilePath)) {
+            Assert.assertTrue(fileObject instanceof TarFileObject);
+    }
+    }
+",CreateFileSystemTestCase::testTgzFile_1_oe
+vfs_left_420_1,"@Test
+    public void testBZip2_1_oe() throws IOException {
+        final File testResource = getTestResource(""bla.txt.bz2"");
+        try (final FileObject bz2FileObject = VFS.getManager().resolveFile(""bz2://"" + testResource)) {
+            Assert.assertTrue(bz2FileObject.exists());
+    }
+    }
+",Bzip2TestCase::testBZip2_1_oe
+vfs_left_420_2,"@Test
+    public void testBZip2_2_oe() throws IOException {
+        final File testResource = getTestResource(""bla.txt.bz2"");
+        try (final FileObject bz2FileObject = VFS.getManager().resolveFile(""bz2://"" + testResource)) {
+            // removed other assertion
+            Assert.assertTrue(bz2FileObject.isFolder());
+    }
+    }
+",Bzip2TestCase::testBZip2_2_oe
+vfs_left_420_3,"@Test
+    public void testBZip2_3_oe() throws IOException {
+        final File testResource = getTestResource(""bla.txt.bz2"");
+        try (final FileObject bz2FileObject = VFS.getManager().resolveFile(""bz2://"" + testResource)) {
+            // removed other assertion
+            // removed other assertion
+            try (final FileObject fileObjectDir = bz2FileObject.resolveFile(""bla.txt"")) {
+                Assert.assertTrue(fileObjectDir.exists());
+    }
+    }
+    }
+",Bzip2TestCase::testBZip2_3_oe
+vfs_left_420_4,"@Test
+    public void testBZip2_4_oe() throws IOException {
+        final File testResource = getTestResource(""bla.txt.bz2"");
+        try (final FileObject bz2FileObject = VFS.getManager().resolveFile(""bz2://"" + testResource)) {
+            // removed other assertion
+            // removed other assertion
+            try (final FileObject fileObjectDir = bz2FileObject.resolveFile(""bla.txt"")) {
+                // removed other assertion
+                Assert.assertTrue(bz2FileObject.isFolder());
+    }
+    }
+    }
+",Bzip2TestCase::testBZip2_4_oe
+vfs_left_420_5,"@Test
+    public void testBZip2_5_oe() throws IOException {
+        final File testResource = getTestResource(""bla.txt.bz2"");
+        try (final FileObject bz2FileObject = VFS.getManager().resolveFile(""bz2://"" + testResource)) {
+            // removed other assertion
+            // removed other assertion
+            try (final FileObject fileObjectDir = bz2FileObject.resolveFile(""bla.txt"")) {
+                // removed other assertion
+                // removed other assertion
+                try (final FileObject fileObject = fileObjectDir.resolveFile(""bla.txt"")) {
+                    Assert.assertTrue(fileObject.exists());
+    }
+    }
+    }
+    }
+",Bzip2TestCase::testBZip2_5_oe
+vfs_left_420_6,"@Test
+    public void testBZip2_6_oe() throws IOException {
+        final File testResource = getTestResource(""bla.txt.bz2"");
+        try (final FileObject bz2FileObject = VFS.getManager().resolveFile(""bz2://"" + testResource)) {
+            // removed other assertion
+            // removed other assertion
+            try (final FileObject fileObjectDir = bz2FileObject.resolveFile(""bla.txt"")) {
+                // removed other assertion
+                // removed other assertion
+                try (final FileObject fileObject = fileObjectDir.resolveFile(""bla.txt"")) {
+                    // removed other assertion
+                    Assert.assertFalse(fileObject.isFolder());
+    }
+    }
+    }
+    }
+",Bzip2TestCase::testBZip2_6_oe
+vfs_left_420_7,"@Test
+    public void testBZip2_7_oe() throws IOException {
+        final File testResource = getTestResource(""bla.txt.bz2"");
+        try (final FileObject bz2FileObject = VFS.getManager().resolveFile(""bz2://"" + testResource)) {
+            // removed other assertion
+            // removed other assertion
+            try (final FileObject fileObjectDir = bz2FileObject.resolveFile(""bla.txt"")) {
+                // removed other assertion
+                // removed other assertion
+                try (final FileObject fileObject = fileObjectDir.resolveFile(""bla.txt"")) {
+                    // removed other assertion
+                    // removed other assertion
+                    Assert.assertTrue(fileObject.isFile());
+    }
+    }
+    }
+    }
+",Bzip2TestCase::testBZip2_7_oe
+vfs_left_420_8,"@Test
+    public void testBZip2_8_oe() throws IOException {
+        final File testResource = getTestResource(""bla.txt.bz2"");
+        try (final FileObject bz2FileObject = VFS.getManager().resolveFile(""bz2://"" + testResource)) {
+            // removed other assertion
+            // removed other assertion
+            try (final FileObject fileObjectDir = bz2FileObject.resolveFile(""bla.txt"")) {
+                // removed other assertion
+                // removed other assertion
+                try (final FileObject fileObject = fileObjectDir.resolveFile(""bla.txt"")) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    try (final FileContent content = fileObject.getContent()) {
+                        Assert.assertEquals(CompressedFileFileObject.SIZE_UNDEFINED, content.getSize());
+    }
+    }
+    }
+    }
+    }
+",Bzip2TestCase::testBZip2_8_oe
+vfs_left_420_9,"@Test
+    public void testBZip2_9_oe() throws IOException {
+        final File testResource = getTestResource(""bla.txt.bz2"");
+        try (final FileObject bz2FileObject = VFS.getManager().resolveFile(""bz2://"" + testResource)) {
+            // removed other assertion
+            // removed other assertion
+            try (final FileObject fileObjectDir = bz2FileObject.resolveFile(""bla.txt"")) {
+                // removed other assertion
+                // removed other assertion
+                try (final FileObject fileObject = fileObjectDir.resolveFile(""bla.txt"")) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    try (final FileContent content = fileObject.getContent()) {
+                        // removed other assertion
+                        // blows up, Commons Compress?
+                        final String string = content.getString(StandardCharsets.UTF_8);
+                        Assert.assertEquals(26, string.length());
+    }
+    }
+    }
+    }
+    }
+",Bzip2TestCase::testBZip2_9_oe
+vfs_left_420_10,"@Test
+    public void testBZip2_10_oe() throws IOException {
+        final File testResource = getTestResource(""bla.txt.bz2"");
+        try (final FileObject bz2FileObject = VFS.getManager().resolveFile(""bz2://"" + testResource)) {
+            // removed other assertion
+            // removed other assertion
+            try (final FileObject fileObjectDir = bz2FileObject.resolveFile(""bla.txt"")) {
+                // removed other assertion
+                // removed other assertion
+                try (final FileObject fileObject = fileObjectDir.resolveFile(""bla.txt"")) {
+                    // removed other assertion
+                    // removed other assertion
+                    // removed other assertion
+                    try (final FileContent content = fileObject.getContent()) {
+                        // removed other assertion
+                        // blows up, Commons Compress?
+                        final String string = content.getString(StandardCharsets.UTF_8);
+                        // removed other assertion
+                        Assert.assertEquals(""Hallo, dies ist ein Test.\n"", string);
+    }
+    }
+    }
+    }
+    }
+",Bzip2TestCase::testBZip2_10_oe
+vfs_left_430_1,"@Test
+    public void testSortArrayMoveAll_1_oe() throws FileSystemException {
+        final FileObject[] actualArray = UnSortedArray.clone();
+        Assert.assertFalse(Arrays.equals(UnSortedArray, SortedArray));
+    }
+",FileObjectSortTestCase::testSortArrayMoveAll_1_oe
+vfs_left_435_1,"@Test
+    public void testGetContentInfo_1_oe() throws FileSystemException, MalformedURLException {
+        @SuppressWarnings(""resource"") // getManager() returns a global.
+        final FileSystemManager fsManager = VFS.getManager();
+        final String uri = ""http://www.apache.org/licenses/LICENSE-2.0.txt"";
+        try (final FileObject fo = fsManager.resolveFile(uri, getOptionsWithProxy());
+             final FileContent content = fo.getContent()) {
+            Assert.assertNotNull(content);
+    }
+    }
+",GetContentInfoFunctionalTest::testGetContentInfo_1_oe
+vfs_left_436_1,"@Test
+    public void testGetContentInfo_1_oe() throws FileSystemException, MalformedURLException {
+        final FileSystemManager fsManager = VFS.getManager();
+        final String uri = ""http5://www.apache.org/licenses/LICENSE-2.0.txt"";
+        final FileObject fo = fsManager.resolveFile(uri, getOptionsWithProxy());
+        try (final FileContent content = fo.getContent()) {
+            Assert.assertNotNull(content);
+    }
+    }
+",Http5GetContentInfoTestCase::testGetContentInfo_1_oe
+vfs_left_437_1,"@Test
+    public void testGetContentWithProxyAuthInfo_1_oe() throws FileSystemException, MalformedURLException {
+        final FileSystemManager fsManager = VFS.getManager();
+        final String uri = ""http4://www.apache.org/licenses/LICENSE-2.0.txt"";
+        try (final FileObject fo = fsManager.resolveFile(uri, getOptionsWithProxyAuthentication())) {
+            final FileContent content = fo.getContent();
+            Assert.assertNotNull(content);
+    }
+    }
+",Http5GetContentInfoTestCase::testGetContentWithProxyAuthInfo_1_oe
+vfs_left_439_1,"public void ignoreTestHttp405_1_oe() throws FileSystemException {
+        final FileObject fileObject = VFS.getManager()
+                .resolveFile(""http5://www.w3schools.com/webservices/tempconvert.asmx?action=WSDL"");
+        assert !fileObject.getContent().isEmpty();
+}
+",Http5ProviderTestCase::ignoreTestHttp405_1_oe
+vfs_left_443_1,"@Test
+public void testSSLGetContentInfo_1_oe() throws IOException {
+    final FileSystemManager fsManager = VFS.getManager();
+    final String uri = ""http5s://www.apache.org/licenses/LICENSE-2.0.txt"";
+    final FileObject fo = fsManager.resolveFile(uri, getOptionsWithSSL());
+    final FileContent content = fo.getContent();
+    try(InputStream is = content.getInputStream()){
+        final String text = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8)).lines().collect(Collectors.joining(""\n""));
+        assertNotNull(text);
+}
+}
+",Http5sGetContentInfoTest::testSSLGetContentInfo_1_oe
+vfs_left_444_1,"@Test
+    public void testVersioning_1_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        assertSame(opts, newOpts);
+    }
+",WebdavVersioningTests::testVersioning_1_oe
+vfs_left_444_2,"@Test
+    public void testVersioning_2_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        assertTrue(builder.isVersioning(newOpts));
+    }
+",WebdavVersioningTests::testVersioning_2_oe
+vfs_left_444_3,"@Test
+    public void testVersioning_3_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        assertFalse(file.exists());
+    }
+",WebdavVersioningTests::testVersioning_3_oe
+vfs_left_444_4,"@Test
+    public void testVersioning_4_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        assertTrue(file.exists());
+    }
+",WebdavVersioningTests::testVersioning_4_oe
+vfs_left_444_5,"@Test
+    public void testVersioning_5_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        assertSame(FileType.FILE, file.getType());
+    }
+",WebdavVersioningTests::testVersioning_5_oe
+vfs_left_444_6,"@Test
+    public void testVersioning_6_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        assertTrue(file.isFile());
+    }
+",WebdavVersioningTests::testVersioning_6_oe
+vfs_left_444_7,"@Test
+    public void testVersioning_7_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, file.getContent().getSize());
+    }
+",WebdavVersioningTests::testVersioning_7_oe
+vfs_left_444_8,"@Test
+    public void testVersioning_8_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(file.getContent().isEmpty());
+    }
+",WebdavVersioningTests::testVersioning_8_oe
+vfs_left_444_9,"@Test
+    public void testVersioning_9_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(file.isExecutable());
+    }
+",WebdavVersioningTests::testVersioning_9_oe
+vfs_left_444_10,"@Test
+    public void testVersioning_10_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(file.isHidden());
+    }
+",WebdavVersioningTests::testVersioning_10_oe
+vfs_left_444_11,"@Test
+    public void testVersioning_11_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(file.isReadable());
+    }
+",WebdavVersioningTests::testVersioning_11_oe
+vfs_left_444_12,"@Test
+    public void testVersioning_12_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(file.isWriteable());
+    }
+",WebdavVersioningTests::testVersioning_12_oe
+vfs_left_444_13,"@Test
+    public void testVersioning_13_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        assertTrue(map.containsKey(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
+    }
+",WebdavVersioningTests::testVersioning_13_oe
+vfs_left_444_14,"@Test
+    public void testVersioning_14_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        if (name != null) {
+            assertEquals(name, map.get(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
+    }
+    }
+",WebdavVersioningTests::testVersioning_14_oe
+vfs_left_444_15,"@Test
+    public void testVersioning_15_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+        }
+        assertTrue(map.containsKey(VersionControlledResource.CHECKED_IN.toString()));
+    }
+",WebdavVersioningTests::testVersioning_15_oe
+vfs_left_444_16,"@Test
+    public void testVersioning_16_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+        }
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+        assertSameContent(content, file);
+    }
+",WebdavVersioningTests::testVersioning_16_oe
+vfs_left_444_17,"@Test
+    public void testVersioning_17_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+        }
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+        // removed other assertion
+        map = file.getContent().getAttributes();
+        assertTrue(map.containsKey(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
+    }
+",WebdavVersioningTests::testVersioning_17_oe
+vfs_left_444_18,"@Test
+    public void testVersioning_18_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+        }
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+        // removed other assertion
+        map = file.getContent().getAttributes();
+        // removed other assertion
+        if (name != null) {
+            assertEquals(name, map.get(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
+    }
+    }
+",WebdavVersioningTests::testVersioning_18_oe
+vfs_left_444_19,"@Test
+    public void testVersioning_19_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+        }
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+        // removed other assertion
+        map = file.getContent().getAttributes();
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+        }
+        assertTrue(map.containsKey(VersionControlledResource.CHECKED_IN.toString()));
+    }
+",WebdavVersioningTests::testVersioning_19_oe
+vfs_left_445_1,"@Test
+    public void testVersioningWithCreator_1_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        assertSame(opts, newOpts);
+    }
+",WebdavVersioningTests::testVersioningWithCreator_1_oe
+vfs_left_445_2,"@Test
+    public void testVersioningWithCreator_2_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        assertTrue(builder.isVersioning(newOpts));
+    }
+",WebdavVersioningTests::testVersioningWithCreator_2_oe
+vfs_left_445_3,"@Test
+    public void testVersioningWithCreator_3_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        assertFalse(file.exists());
+    }
+",WebdavVersioningTests::testVersioningWithCreator_3_oe
+vfs_left_445_4,"@Test
+    public void testVersioningWithCreator_4_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        assertTrue(file.exists());
+    }
+",WebdavVersioningTests::testVersioningWithCreator_4_oe
+vfs_left_445_5,"@Test
+    public void testVersioningWithCreator_5_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        assertSame(FileType.FILE, file.getType());
+    }
+",WebdavVersioningTests::testVersioningWithCreator_5_oe
+vfs_left_445_6,"@Test
+    public void testVersioningWithCreator_6_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        assertTrue(file.isFile());
+    }
+",WebdavVersioningTests::testVersioningWithCreator_6_oe
+vfs_left_445_7,"@Test
+    public void testVersioningWithCreator_7_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, file.getContent().getSize());
+    }
+",WebdavVersioningTests::testVersioningWithCreator_7_oe
+vfs_left_445_8,"@Test
+    public void testVersioningWithCreator_8_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(file.getContent().isEmpty());
+    }
+",WebdavVersioningTests::testVersioningWithCreator_8_oe
+vfs_left_445_9,"@Test
+    public void testVersioningWithCreator_9_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(file.isExecutable());
+    }
+",WebdavVersioningTests::testVersioningWithCreator_9_oe
+vfs_left_445_10,"@Test
+    public void testVersioningWithCreator_10_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(file.isHidden());
+    }
+",WebdavVersioningTests::testVersioningWithCreator_10_oe
+vfs_left_445_11,"@Test
+    public void testVersioningWithCreator_11_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(file.isReadable());
+    }
+",WebdavVersioningTests::testVersioningWithCreator_11_oe
+vfs_left_445_12,"@Test
+    public void testVersioningWithCreator_12_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(file.isWriteable());
+    }
+",WebdavVersioningTests::testVersioningWithCreator_12_oe
+vfs_left_445_13,"@Test
+    public void testVersioningWithCreator_13_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        assertTrue(map.containsKey(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
+    }
+",WebdavVersioningTests::testVersioningWithCreator_13_oe
+vfs_left_445_14,"@Test
+    public void testVersioningWithCreator_14_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        assertEquals(""testUser"", map.get(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
+    }
+",WebdavVersioningTests::testVersioningWithCreator_14_oe
+vfs_left_445_15,"@Test
+    public void testVersioningWithCreator_15_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            assertTrue(map.containsKey(DeltaVConstants.COMMENT.toString()));
+    }
+    }
+",WebdavVersioningTests::testVersioningWithCreator_15_oe
+vfs_left_445_16,"@Test
+    public void testVersioningWithCreator_16_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+            assertEquals(""Modified by user "" + name, map.get(DeltaVConstants.COMMENT.toString()));
+    }
+    }
+",WebdavVersioningTests::testVersioningWithCreator_16_oe
+vfs_left_445_17,"@Test
+    public void testVersioningWithCreator_17_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+            // removed other assertion
+        }
+        assertTrue(map.containsKey(VersionControlledResource.CHECKED_IN.toString()));
+    }
+",WebdavVersioningTests::testVersioningWithCreator_17_oe
+vfs_left_445_18,"@Test
+    public void testVersioningWithCreator_18_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+            // removed other assertion
+        }
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+        assertSameContent(content, file);
+    }
+",WebdavVersioningTests::testVersioningWithCreator_18_oe
+vfs_left_445_19,"@Test
+    public void testVersioningWithCreator_19_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+            // removed other assertion
+        }
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+        // removed other assertion
+        map = file.getContent().getAttributes();
+        assertTrue(map.containsKey(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
+    }
+",WebdavVersioningTests::testVersioningWithCreator_19_oe
+vfs_left_445_20,"@Test
+    public void testVersioningWithCreator_20_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+            // removed other assertion
+        }
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+        // removed other assertion
+        map = file.getContent().getAttributes();
+        // removed other assertion
+        assertEquals(""testUser"", map.get(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
+    }
+",WebdavVersioningTests::testVersioningWithCreator_20_oe
+vfs_left_445_21,"@Test
+    public void testVersioningWithCreator_21_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+            // removed other assertion
+        }
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+        // removed other assertion
+        map = file.getContent().getAttributes();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            assertTrue(map.containsKey(DeltaVConstants.COMMENT.toString()));
+    }
+    }
+",WebdavVersioningTests::testVersioningWithCreator_21_oe
+vfs_left_445_22,"@Test
+    public void testVersioningWithCreator_22_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+            // removed other assertion
+        }
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+        // removed other assertion
+        map = file.getContent().getAttributes();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+            assertEquals(""Modified by user "" + name, map.get(DeltaVConstants.COMMENT.toString()));
+    }
+    }
+",WebdavVersioningTests::testVersioningWithCreator_22_oe
+vfs_left_445_23,"@Test
+    public void testVersioningWithCreator_23_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final WebdavFileSystemConfigBuilder builder = (WebdavFileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder(""webdav"");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, ""testUser"");
+        final FileObject file = getManager().resolveFile(scratchFolder, ""file1.txt"", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((URLFileName) file.getName()).getUserName();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+            // removed other assertion
+        }
+        // removed other assertion
+
+        // Create the source file
+        final String content = ""Here is some sample content for the file.  Blah Blah Blah."";
+
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+        // removed other assertion
+        map = file.getContent().getAttributes();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+            // removed other assertion
+        }
+        assertTrue(map.containsKey(VersionControlledResource.CHECKED_IN.toString()));
+    }
+",WebdavVersioningTests::testVersioningWithCreator_23_oe
+vfs_left_446_1,"@Test
+    public void testWebdav4FileObjectURLs_1_oe() throws FileSystemException {
+        final FileSystemManager fsm = VFS.getManager();
+
+        try (final FileObject file = fsm.resolveFile(WEBDAV4_URL)) {
+            assertEquals(WEBDAV4_URL, file.getURL().toString());
+    }
+    }
+",Webdav4FileObjectTest::testWebdav4FileObjectURLs_1_oe
+vfs_left_446_2,"@Test
+    public void testWebdav4FileObjectURLs_2_oe() throws FileSystemException {
+        final FileSystemManager fsm = VFS.getManager();
+
+        try (final FileObject file = fsm.resolveFile(WEBDAV4_URL)) {
+            // removed other assertion
+            assertTrue(file instanceof Webdav4FileObject);
+    }
+    }
+",Webdav4FileObjectTest::testWebdav4FileObjectURLs_2_oe
+vfs_left_446_3,"@Test
+    public void testWebdav4FileObjectURLs_3_oe() throws FileSystemException {
+        final FileSystemManager fsm = VFS.getManager();
+
+        try (final FileObject file = fsm.resolveFile(WEBDAV4_URL)) {
+            // removed other assertion
+            // removed other assertion
+
+            final Webdav4FileObject webdav4File = (Webdav4FileObject) file;
+            assertEquals(INTERNAL_WEBDAV4_URL, webdav4File.toUrlString((GenericURLFileName) webdav4File.getName()));
+    }
+    }
+",Webdav4FileObjectTest::testWebdav4FileObjectURLs_3_oe
+vfs_left_447_1,"@Test
+    public void testWebdav4sFileObjectURLs_1_oe() throws FileSystemException {
+        final FileSystemManager fsm = VFS.getManager();
+
+        try (final FileObject file = fsm.resolveFile(WEBDAV4S_URL)) {
+            assertEquals(WEBDAV4S_URL, file.getURL().toString());
+    }
+    }
+",Webdav4FileObjectTest::testWebdav4sFileObjectURLs_1_oe
+vfs_left_447_2,"@Test
+    public void testWebdav4sFileObjectURLs_2_oe() throws FileSystemException {
+        final FileSystemManager fsm = VFS.getManager();
+
+        try (final FileObject file = fsm.resolveFile(WEBDAV4S_URL)) {
+            // removed other assertion
+            assertTrue(file instanceof Webdav4FileObject);
+    }
+    }
+",Webdav4FileObjectTest::testWebdav4sFileObjectURLs_2_oe
+vfs_left_447_3,"@Test
+    public void testWebdav4sFileObjectURLs_3_oe() throws FileSystemException {
+        final FileSystemManager fsm = VFS.getManager();
+
+        try (final FileObject file = fsm.resolveFile(WEBDAV4S_URL)) {
+            // removed other assertion
+            // removed other assertion
+
+            final Webdav4FileObject webdav4File = (Webdav4FileObject) file;
+            assertEquals(INTERNAL_WEBDAV4S_URL, webdav4File.toUrlString((GenericURLFileName) webdav4File.getName()));
+    }
+    }
+",Webdav4FileObjectTest::testWebdav4sFileObjectURLs_3_oe

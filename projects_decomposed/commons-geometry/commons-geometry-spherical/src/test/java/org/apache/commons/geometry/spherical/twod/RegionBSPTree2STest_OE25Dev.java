@@ -2249,4 +2249,157 @@ class RegionBSPTree2STest_OE25Dev {
         Assertions.assertEquals(1.9669710464585642E-5, rectangle.getBoundarySize(), TEST_EPS);
     }
 
+@Test
+    void testGeometricProperties_doubleLune_5_oe() {
+        // act
+        final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
+                .append(EQUATOR.arc(0,  Math.PI))
+                .append(X_MERIDIAN.arc(Math.PI, 0))
+                .append(EQUATOR.reverse().arc(0, Math.PI))
+                .append(X_MERIDIAN.reverse().arc(Math.PI, 0))
+                .build()
+                .toTree();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<GreatArcPath> paths = tree.getBoundaryPaths();
+        // removed other assertion
+
+        assertPath(paths.get(0), Point2S.PLUS_I, Point2S.MINUS_I, Point2S.PLUS_I);
+    }
+
+@Test
+    void testGeometricProperties_doubleLune_6_oe() {
+        // act
+        final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
+                .append(EQUATOR.arc(0,  Math.PI))
+                .append(X_MERIDIAN.arc(Math.PI, 0))
+                .append(EQUATOR.reverse().arc(0, Math.PI))
+                .append(X_MERIDIAN.reverse().arc(Math.PI, 0))
+                .build()
+                .toTree();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<GreatArcPath> paths = tree.getBoundaryPaths();
+        // removed other assertion
+
+        // removed other assertion
+        assertPath(paths.get(1), Point2S.PLUS_I, Point2S.MINUS_I, Point2S.PLUS_I);
+    }
+
+@Test
+    void testGeometricProperties_quadrant_5_oe() {
+        // act
+        final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
+                .appendVertices(Point2S.MINUS_K, Point2S.PLUS_I, Point2S.MINUS_J)
+                .close()
+                .toTree();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final Point2S center = Point2S.from(Point2S.MINUS_K.getVector()
+                .add(Point2S.PLUS_I.getVector())
+                .add(Point2S.MINUS_J.getVector()));
+        // removed other assertion
+
+        checkCentroidConsistency(tree);
+
+        final List<GreatArcPath> paths = tree.getBoundaryPaths();
+        // removed other assertion
+
+        assertPathLoop(paths.get(0), Point2S.PLUS_I, Point2S.MINUS_J,  Point2S.MINUS_K);
+    }
+
+@Test
+    void testGeometricProperties_quadrant_complement_5_oe() {
+        // arrange
+        final RegionBSPTree2S tree = GreatArcPath.builder(TEST_PRECISION)
+                .appendVertices(Point2S.MINUS_K, Point2S.PLUS_I, Point2S.MINUS_J)
+                .close()
+                .toTree();
+
+        // act
+        tree.complement();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final Point2S center = Point2S.from(Point2S.MINUS_K.getVector()
+                .add(Point2S.PLUS_I.getVector())
+                .add(Point2S.MINUS_J.getVector()));
+        // removed other assertion
+
+        checkCentroidConsistency(tree);
+
+        final List<GreatArcPath> paths = tree.getBoundaryPaths();
+        // removed other assertion
+
+        assertPathLoop(paths.get(0), Point2S.PLUS_I, Point2S.MINUS_K, Point2S.MINUS_J);
+    }
+
+@Test
+    void testSplit_both_3_oe() {
+        // arrange
+        final GreatCircle c1 = GreatCircles.fromPole(Vector3D.Unit.MINUS_X, TEST_PRECISION);
+        final GreatCircle c2 = GreatCircles.fromPole(Vector3D.of(1, 1, 0), TEST_PRECISION);
+
+        final RegionBSPTree2S tree = ConvexArea2S.fromBounds(c1, c2).toTree();
+
+        final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(-1, 0, 1), TEST_PRECISION);
+
+        // act
+        final Split<RegionBSPTree2S> split = tree.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final Point2S p1 = c1.intersection(splitter);
+        final Point2S p2 = splitter.intersection(c2);
+
+        final RegionBSPTree2S minus = split.getMinus();
+        final List<GreatArcPath> minusPaths = minus.getBoundaryPaths();
+        // removed other assertion
+        assertPath(minusPaths.get(0), Point2S.PLUS_K, p1, p2, Point2S.PLUS_K);
+    }
+
+@Test
+    void testSplit_both_5_oe() {
+        // arrange
+        final GreatCircle c1 = GreatCircles.fromPole(Vector3D.Unit.MINUS_X, TEST_PRECISION);
+        final GreatCircle c2 = GreatCircles.fromPole(Vector3D.of(1, 1, 0), TEST_PRECISION);
+
+        final RegionBSPTree2S tree = ConvexArea2S.fromBounds(c1, c2).toTree();
+
+        final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(-1, 0, 1), TEST_PRECISION);
+
+        // act
+        final Split<RegionBSPTree2S> split = tree.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final Point2S p1 = c1.intersection(splitter);
+        final Point2S p2 = splitter.intersection(c2);
+
+        final RegionBSPTree2S minus = split.getMinus();
+        final List<GreatArcPath> minusPaths = minus.getBoundaryPaths();
+        // removed other assertion
+        // removed other assertion
+
+        final RegionBSPTree2S plus = split.getPlus();
+        final List<GreatArcPath> plusPaths = plus.getBoundaryPaths();
+        // removed other assertion
+        assertPath(plusPaths.get(0), p1, Point2S.MINUS_K, p2, p1);
+    }
+
 }

@@ -41,31 +41,6 @@ class ConvexVolumeTest_OE25Dev {
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
     @Test
-    void testTriangleStream_infinite() {
-        // arrange
-        final Pattern pattern = Pattern.compile("^Cannot convert infinite plane subset to triangles: .*");
-
-        final ConvexVolume half = ConvexVolume.fromBounds(
-                Planes.fromNormal(Vector3D.Unit.MINUS_X, TEST_PRECISION)
-            );
-
-        final ConvexVolume quadrant = ConvexVolume.fromBounds(
-                    Planes.fromNormal(Vector3D.Unit.MINUS_X, TEST_PRECISION),
-                    Planes.fromNormal(Vector3D.Unit.MINUS_Y, TEST_PRECISION),
-                    Planes.fromNormal(Vector3D.Unit.MINUS_Z, TEST_PRECISION)
-                );
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            half.triangleStream().collect(Collectors.toList());
-        }, IllegalStateException.class, pattern);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            quadrant.triangleStream().collect(Collectors.toList());
-        }, IllegalStateException.class, pattern);
-    }
-
-    @Test
     void testGetBounds_hasBounds() {
         // arrange
         final ConvexVolume vol = rect(Vector3D.of(1, 1, 1), 0.5, 1, 2);
@@ -648,6 +623,112 @@ class ConvexVolumeTest_OE25Dev {
         // assert
         // removed other assertion
         Assertions.assertEquals(10, transformed.getBoundarySize(), TEST_EPS);
+    }
+
+@Test
+    void testTriangleStream_infinite_1_oe() {
+        // arrange
+        final Pattern pattern = Pattern.compile("^Cannot convert infinite plane subset to triangles: .*");
+
+        final ConvexVolume half = ConvexVolume.fromBounds(
+                Planes.fromNormal(Vector3D.Unit.MINUS_X, TEST_PRECISION)
+            );
+
+        final ConvexVolume quadrant = ConvexVolume.fromBounds(
+                    Planes.fromNormal(Vector3D.Unit.MINUS_X, TEST_PRECISION),
+                    Planes.fromNormal(Vector3D.Unit.MINUS_Y, TEST_PRECISION),
+                    Planes.fromNormal(Vector3D.Unit.MINUS_Z, TEST_PRECISION)
+                );
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { half.triangleStream().collect(Collectors.toList()); }, IllegalStateException.class, pattern);
+    }
+
+@Test
+    void testTriangleStream_infinite_2_oe() {
+        // arrange
+        final Pattern pattern = Pattern.compile("^Cannot convert infinite plane subset to triangles: .*");
+
+        final ConvexVolume half = ConvexVolume.fromBounds(
+                Planes.fromNormal(Vector3D.Unit.MINUS_X, TEST_PRECISION)
+            );
+
+        final ConvexVolume quadrant = ConvexVolume.fromBounds(
+                    Planes.fromNormal(Vector3D.Unit.MINUS_X, TEST_PRECISION),
+                    Planes.fromNormal(Vector3D.Unit.MINUS_Y, TEST_PRECISION),
+                    Planes.fromNormal(Vector3D.Unit.MINUS_Z, TEST_PRECISION)
+                );
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { quadrant.triangleStream().collect(Collectors.toList()); }, IllegalStateException.class, pattern);
+    }
+
+@Test
+    void testToTree_4_oe() {
+        // arrange
+        final ConvexVolume volume = ConvexVolume.fromBounds(
+                    Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.MINUS_X, TEST_PRECISION),
+                    Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.MINUS_Y, TEST_PRECISION),
+                    Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.MINUS_Z, TEST_PRECISION),
+
+                    Planes.fromPointAndNormal(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, TEST_PRECISION),
+                    Planes.fromPointAndNormal(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Y, TEST_PRECISION),
+                    Planes.fromPointAndNormal(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION)
+                );
+
+        // act
+        final RegionBSPTree3D tree = volume.toTree();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE, Vector3D.of(-1, 0.5, 0.5), Vector3D.of(2, 0.5, 0.5), Vector3D.of(0.5, -1, 0.5), Vector3D.of(0.5, 2, 0.5), Vector3D.of(0.5, 0.5, -1), Vector3D.of(0.5, 0.5, 2));
+    }
+
+@Test
+    void testFromBounds_cube_8_oe() {
+        // act
+        final ConvexVolume vol = rect(Vector3D.of(1, 1, 1), 0.5, 1, 2);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(vol, RegionLocation.BOUNDARY, Vector3D.of(0.5, 0, -1), Vector3D.of(1.5, 2, 3));
+    }
+
+@Test
+    void testFromBounds_cube_9_oe() {
+        // act
+        final ConvexVolume vol = rect(Vector3D.of(1, 1, 1), 0.5, 1, 2);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(vol, RegionLocation.OUTSIDE, Vector3D.of(0, 1, 1), Vector3D.of(2, 1, 1), Vector3D.of(1, -1, 1), Vector3D.of(1, 3, 1), Vector3D.of(1, 1, -2), Vector3D.of(1, 1, 4));
     }
 
 }

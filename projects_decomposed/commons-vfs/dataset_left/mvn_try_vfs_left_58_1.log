@@ -1,0 +1,207 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[53,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[54,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[55,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[56,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[59,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[60,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[61,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[62,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[80,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String,org.apache.commons.vfs2.NameScope)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[81,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String,org.apache.commons.vfs2.NameScope)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[209,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String,org.apache.commons.vfs2.NameScope)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[213,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String,org.apache.commons.vfs2.NameScope)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[216,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String,org.apache.commons.vfs2.NameScope)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[217,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String,org.apache.commons.vfs2.NameScope)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[218,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String,org.apache.commons.vfs2.NameScope)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[235,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[238,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[241,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[244,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[247,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[248,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[251,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[254,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[257,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[260,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[261,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[264,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[267,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[270,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[273,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[276,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[279,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[282,9] cannot find symbol
+  symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-vfs2: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[53,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[54,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[55,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[56,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[59,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[60,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[61,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[62,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[80,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String,org.apache.commons.vfs2.NameScope)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[81,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String,org.apache.commons.vfs2.NameScope)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[209,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String,org.apache.commons.vfs2.NameScope)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[213,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String,org.apache.commons.vfs2.NameScope)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[216,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String,org.apache.commons.vfs2.NameScope)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[217,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String,org.apache.commons.vfs2.NameScope)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[218,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String,org.apache.commons.vfs2.NameScope)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[235,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[238,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[241,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[244,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[247,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[248,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[251,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[254,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[257,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[260,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[261,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[264,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[267,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[270,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[273,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[276,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[279,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev_vfs_left_58_1.java:[282,9] cannot find symbol
+[ERROR]   symbol:   method assertSameName(java.lang.String,org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev_vfs_left_58_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

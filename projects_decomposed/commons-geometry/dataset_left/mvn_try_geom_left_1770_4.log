@@ -1,0 +1,57 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/Vector3DTest_OE25Dev_geom_left_1770_4.java:[894,9] cannot find symbol
+  symbol:   method checkProjectAndRejectFullSphere(org.apache.commons.geometry.euclidean.threed.Vector3D,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev_geom_left_1770_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/Vector3DTest_OE25Dev_geom_left_1770_4.java:[895,9] cannot find symbol
+  symbol:   method checkProjectAndRejectFullSphere(org.apache.commons.geometry.euclidean.threed.Vector3D,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev_geom_left_1770_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/Vector3DTest_OE25Dev_geom_left_1770_4.java:[896,9] cannot find symbol
+  symbol:   method checkProjectAndRejectFullSphere(org.apache.commons.geometry.euclidean.threed.Vector3D,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev_geom_left_1770_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/Vector3DTest_OE25Dev_geom_left_1770_4.java:[897,9] cannot find symbol
+  symbol:   method checkProjectAndRejectFullSphere(org.apache.commons.geometry.euclidean.threed.Vector3D,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev_geom_left_1770_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/Vector3DTest_OE25Dev_geom_left_1770_4.java:[899,9] cannot find symbol
+  symbol:   method checkProjectAndRejectFullSphere(org.apache.commons.geometry.euclidean.threed.Vector3D,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev_geom_left_1770_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/Vector3DTest_OE25Dev_geom_left_1770_4.java:[900,9] cannot find symbol
+  symbol:   method checkProjectAndRejectFullSphere(org.apache.commons.geometry.euclidean.threed.Vector3D,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev_geom_left_1770_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/Vector3DTest_OE25Dev_geom_left_1770_4.java:[901,9] cannot find symbol
+  symbol:   method checkProjectAndRejectFullSphere(org.apache.commons.geometry.euclidean.threed.Vector3D,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev_geom_left_1770_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/Vector3DTest_OE25Dev_geom_left_1770_4.java:[902,9] cannot find symbol
+  symbol:   method checkProjectAndRejectFullSphere(org.apache.commons.geometry.euclidean.threed.Vector3D,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev_geom_left_1770_4
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-euclidean: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/Vector3DTest_OE25Dev_geom_left_1770_4.java:[894,9] cannot find symbol
+[ERROR]   symbol:   method checkProjectAndRejectFullSphere(org.apache.commons.geometry.euclidean.threed.Vector3D,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev_geom_left_1770_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/Vector3DTest_OE25Dev_geom_left_1770_4.java:[895,9] cannot find symbol
+[ERROR]   symbol:   method checkProjectAndRejectFullSphere(org.apache.commons.geometry.euclidean.threed.Vector3D,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev_geom_left_1770_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/Vector3DTest_OE25Dev_geom_left_1770_4.java:[896,9] cannot find symbol
+[ERROR]   symbol:   method checkProjectAndRejectFullSphere(org.apache.commons.geometry.euclidean.threed.Vector3D,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev_geom_left_1770_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/Vector3DTest_OE25Dev_geom_left_1770_4.java:[897,9] cannot find symbol
+[ERROR]   symbol:   method checkProjectAndRejectFullSphere(org.apache.commons.geometry.euclidean.threed.Vector3D,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev_geom_left_1770_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/Vector3DTest_OE25Dev_geom_left_1770_4.java:[899,9] cannot find symbol
+[ERROR]   symbol:   method checkProjectAndRejectFullSphere(org.apache.commons.geometry.euclidean.threed.Vector3D,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev_geom_left_1770_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/Vector3DTest_OE25Dev_geom_left_1770_4.java:[900,9] cannot find symbol
+[ERROR]   symbol:   method checkProjectAndRejectFullSphere(org.apache.commons.geometry.euclidean.threed.Vector3D,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev_geom_left_1770_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/Vector3DTest_OE25Dev_geom_left_1770_4.java:[901,9] cannot find symbol
+[ERROR]   symbol:   method checkProjectAndRejectFullSphere(org.apache.commons.geometry.euclidean.threed.Vector3D,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev_geom_left_1770_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/Vector3DTest_OE25Dev_geom_left_1770_4.java:[902,9] cannot find symbol
+[ERROR]   symbol:   method checkProjectAndRejectFullSphere(org.apache.commons.geometry.euclidean.threed.Vector3D,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev_geom_left_1770_4
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -33,33 +33,6 @@ class SimpleFacetDefinitionTest_OE25Dev {
             Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(1, 1, 0), Vector3D.of(0, 1, 0));
 
     @Test
-    void testCtor_invalidArgs() {
-        // arrange
-        final Vector3D normal = Vector3D.ZERO;
-        final List<Vector3D> invalid = Arrays.asList(Vector3D.ZERO, Vector3D.Unit.PLUS_X);
-
-        final String verticesNull = "Facet vertex list cannot be null";
-        final String vertexCountMsg = "Facet vertex list must contain at least 3 points; found 2";
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> new SimpleFacetDefinition(null),
-                NullPointerException.class, verticesNull);
-
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> new SimpleFacetDefinition(null, normal),
-                NullPointerException.class, verticesNull);
-
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> new SimpleFacetDefinition(invalid),
-                IllegalArgumentException.class, vertexCountMsg);
-
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> new SimpleFacetDefinition(invalid, normal),
-                IllegalArgumentException.class, vertexCountMsg);
-    }
-
-    @Test
     void testToString() {
         // arrange
         final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, Vector3D.Unit.PLUS_Z);
@@ -188,6 +161,70 @@ class SimpleFacetDefinitionTest_OE25Dev {
         // removed other assertion
 
         Assertions.assertSame(normal, f.getNormal());
+    }
+
+@Test
+    void testCtor_invalidArgs_1_oe() {
+        // arrange
+        final Vector3D normal = Vector3D.ZERO;
+        final List<Vector3D> invalid = Arrays.asList(Vector3D.ZERO, Vector3D.Unit.PLUS_X);
+
+        final String verticesNull = "Facet vertex list cannot be null";
+        final String vertexCountMsg = "Facet vertex list must contain at least 3 points; found 2";
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage( () -> new SimpleFacetDefinition(null), NullPointerException.class, verticesNull);
+    }
+
+@Test
+    void testCtor_invalidArgs_2_oe() {
+        // arrange
+        final Vector3D normal = Vector3D.ZERO;
+        final List<Vector3D> invalid = Arrays.asList(Vector3D.ZERO, Vector3D.Unit.PLUS_X);
+
+        final String verticesNull = "Facet vertex list cannot be null";
+        final String vertexCountMsg = "Facet vertex list must contain at least 3 points; found 2";
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage( () -> new SimpleFacetDefinition(null, normal), NullPointerException.class, verticesNull);
+    }
+
+@Test
+    void testCtor_invalidArgs_3_oe() {
+        // arrange
+        final Vector3D normal = Vector3D.ZERO;
+        final List<Vector3D> invalid = Arrays.asList(Vector3D.ZERO, Vector3D.Unit.PLUS_X);
+
+        final String verticesNull = "Facet vertex list cannot be null";
+        final String vertexCountMsg = "Facet vertex list must contain at least 3 points; found 2";
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage( () -> new SimpleFacetDefinition(invalid), IllegalArgumentException.class, vertexCountMsg);
+    }
+
+@Test
+    void testCtor_invalidArgs_4_oe() {
+        // arrange
+        final Vector3D normal = Vector3D.ZERO;
+        final List<Vector3D> invalid = Arrays.asList(Vector3D.ZERO, Vector3D.Unit.PLUS_X);
+
+        final String verticesNull = "Facet vertex list cannot be null";
+        final String vertexCountMsg = "Facet vertex list must contain at least 3 points; found 2";
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage( () -> new SimpleFacetDefinition(invalid, normal), IllegalArgumentException.class, vertexCountMsg);
     }
 
 }

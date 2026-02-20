@@ -36,27 +36,6 @@ class ObjTriangleMeshReaderTest_OE25Dev {
     private static final Precision.DoubleEquivalence TEST_PRECISION =
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
-    @Test
-    void testReadTriangleMesh_failOnNonPolygon() {
-        // arrange
-        final ObjTriangleMeshReader reader = reader(
-                "o test\n\n" +
-                "v 0 0 0\r\n" +
-                "v 1 0 0\n" +
-                "v 1 1 0\r" +
-                "v 0 1 0\n" +
-                "vn 0 0 1\n" +
-                "f 1//1 2//1 3//1\n" +
-                "curv non-polygon data\n");
-
-        reader.setFailOnNonPolygonKeywords(true);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> reader.readTriangleMesh(),
-                IllegalStateException.class, Pattern.compile("^Parsing failed.*"));
-    }
-
     private static ObjTriangleMeshReader reader(final String str) {
         return new ObjTriangleMeshReader(new StringReader(str), TEST_PRECISION);
     }
@@ -172,6 +151,25 @@ class ObjTriangleMeshReaderTest_OE25Dev {
         }
 
         Assertions.assertEquals(1, closeReader.getCloseCount());
+    }
+
+@Test
+    void testReadTriangleMesh_failOnNonPolygon_1_oe() {
+        // arrange
+        final ObjTriangleMeshReader reader = reader(
+                "o test\n\n" +
+                "v 0 0 0\r\n" +
+                "v 1 0 0\n" +
+                "v 1 1 0\r" +
+                "v 0 1 0\n" +
+                "vn 0 0 1\n" +
+                "f 1//1 2//1 3//1\n" +
+                "curv non-polygon data\n");
+
+        reader.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage( () -> reader.readTriangleMesh(), IllegalStateException.class, Pattern.compile("^Parsing failed.*"));
     }
 
 }

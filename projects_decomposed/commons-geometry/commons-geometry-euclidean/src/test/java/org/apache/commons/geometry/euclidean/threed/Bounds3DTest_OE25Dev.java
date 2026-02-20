@@ -109,97 +109,6 @@ class Bounds3DTest_OE25Dev {
     }
 
     @Test
-    void testFrom_iterable_noPoints() {
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Bounds3D.from(new ArrayList<>());
-        }, IllegalStateException.class, NO_POINTS_MESSAGE);
-    }
-
-    @Test
-    void testFrom_invalidBounds() {
-        // arrange
-        final Vector3D good = Vector3D.of(1, 1, 1);
-
-        final Vector3D nan = Vector3D.of(Double.NaN, 1, 1);
-        final Vector3D posInf = Vector3D.of(1, Double.POSITIVE_INFINITY, 1);
-        final Vector3D negInf = Vector3D.of(1, 1, Double.NEGATIVE_INFINITY);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Bounds3D.from(Vector3D.NaN);
-        }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Bounds3D.from(Vector3D.POSITIVE_INFINITY);
-        }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Bounds3D.from(Vector3D.NEGATIVE_INFINITY);
-        }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Bounds3D.from(good, nan);
-        }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Bounds3D.from(posInf, good);
-        }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Bounds3D.from(good, negInf, good);
-        }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
-    }
-
-    @Test
-    void testContains_strict() {
-        // arrange
-        final Bounds3D b = Bounds3D.from(
-                Vector3D.of(0, 4, 8),
-                Vector3D.of(2, 6, 10));
-
-        // act/assert
-        assertContainsStrict(b, true,
-                b.getCentroid(),
-                Vector3D.of(0, 4, 8), Vector3D.of(2, 6, 10),
-                Vector3D.of(1, 5, 9),
-                Vector3D.of(0, 5, 9), Vector3D.of(2, 5, 9),
-                Vector3D.of(1, 4, 9), Vector3D.of(1, 6, 9),
-                Vector3D.of(1, 5, 8), Vector3D.of(1, 5, 10));
-
-        assertContainsStrict(b, false,
-                Vector3D.ZERO,
-                Vector3D.of(-1, 5, 9), Vector3D.of(3, 5, 9),
-                Vector3D.of(1, 3, 9), Vector3D.of(1, 7, 9),
-                Vector3D.of(1, 5, 7), Vector3D.of(1, 5, 11),
-                Vector3D.of(-1e-15, 4, 8), Vector3D.of(2, 6 + 1e-15, 10), Vector3D.of(0, 4, 10 + 1e-15));
-    }
-
-    @Test
-    void testContains_precision() {
-        // arrange
-        final Bounds3D b = Bounds3D.from(
-                Vector3D.of(0, 4, 8),
-                Vector3D.of(2, 6, 10));
-
-        // act/assert
-        assertContainsWithPrecision(b, true,
-                b.getCentroid(),
-                Vector3D.of(0, 4, 8), Vector3D.of(2, 6, 10),
-                Vector3D.of(1, 5, 9),
-                Vector3D.of(0, 5, 9), Vector3D.of(2, 5, 9),
-                Vector3D.of(1, 4, 9), Vector3D.of(1, 6, 9),
-                Vector3D.of(1, 5, 8), Vector3D.of(1, 5, 10),
-                Vector3D.of(-1e-15, 4, 8), Vector3D.of(2, 6 + 1e-15, 10), Vector3D.of(0, 4, 10 + 1e-15));
-
-        assertContainsWithPrecision(b, false,
-                Vector3D.ZERO,
-                Vector3D.of(-1, 5, 9), Vector3D.of(3, 5, 9),
-                Vector3D.of(1, 3, 9), Vector3D.of(1, 7, 9),
-                Vector3D.of(1, 5, 7), Vector3D.of(1, 5, 11));
-    }
-
-    @Test
     void testIntersects() {
         // arrange
         final Bounds3D b = Bounds3D.from(Vector3D.ZERO, Vector3D.of(1, 1, 1));
@@ -1325,6 +1234,168 @@ class Bounds3DTest_OE25Dev {
         // removed other assertion
 
         Assertions.assertTrue(Bounds3D.builder().add(Vector3D.ZERO).hasBounds());
+    }
+
+@Test
+    void testFrom_iterable_noPoints_1_oe() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Bounds3D.from(new ArrayList<>()); }, IllegalStateException.class, NO_POINTS_MESSAGE);
+    }
+
+@Test
+    void testFrom_invalidBounds_1_oe() {
+        // arrange
+        final Vector3D good = Vector3D.of(1, 1, 1);
+
+        final Vector3D nan = Vector3D.of(Double.NaN, 1, 1);
+        final Vector3D posInf = Vector3D.of(1, Double.POSITIVE_INFINITY, 1);
+        final Vector3D negInf = Vector3D.of(1, 1, Double.NEGATIVE_INFINITY);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Bounds3D.from(Vector3D.NaN); }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
+    }
+
+@Test
+    void testFrom_invalidBounds_2_oe() {
+        // arrange
+        final Vector3D good = Vector3D.of(1, 1, 1);
+
+        final Vector3D nan = Vector3D.of(Double.NaN, 1, 1);
+        final Vector3D posInf = Vector3D.of(1, Double.POSITIVE_INFINITY, 1);
+        final Vector3D negInf = Vector3D.of(1, 1, Double.NEGATIVE_INFINITY);
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Bounds3D.from(Vector3D.POSITIVE_INFINITY); }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
+    }
+
+@Test
+    void testFrom_invalidBounds_3_oe() {
+        // arrange
+        final Vector3D good = Vector3D.of(1, 1, 1);
+
+        final Vector3D nan = Vector3D.of(Double.NaN, 1, 1);
+        final Vector3D posInf = Vector3D.of(1, Double.POSITIVE_INFINITY, 1);
+        final Vector3D negInf = Vector3D.of(1, 1, Double.NEGATIVE_INFINITY);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Bounds3D.from(Vector3D.NEGATIVE_INFINITY); }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
+    }
+
+@Test
+    void testFrom_invalidBounds_4_oe() {
+        // arrange
+        final Vector3D good = Vector3D.of(1, 1, 1);
+
+        final Vector3D nan = Vector3D.of(Double.NaN, 1, 1);
+        final Vector3D posInf = Vector3D.of(1, Double.POSITIVE_INFINITY, 1);
+        final Vector3D negInf = Vector3D.of(1, 1, Double.NEGATIVE_INFINITY);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Bounds3D.from(good, nan); }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
+    }
+
+@Test
+    void testFrom_invalidBounds_5_oe() {
+        // arrange
+        final Vector3D good = Vector3D.of(1, 1, 1);
+
+        final Vector3D nan = Vector3D.of(Double.NaN, 1, 1);
+        final Vector3D posInf = Vector3D.of(1, Double.POSITIVE_INFINITY, 1);
+        final Vector3D negInf = Vector3D.of(1, 1, Double.NEGATIVE_INFINITY);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Bounds3D.from(posInf, good); }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
+    }
+
+@Test
+    void testFrom_invalidBounds_6_oe() {
+        // arrange
+        final Vector3D good = Vector3D.of(1, 1, 1);
+
+        final Vector3D nan = Vector3D.of(Double.NaN, 1, 1);
+        final Vector3D posInf = Vector3D.of(1, Double.POSITIVE_INFINITY, 1);
+        final Vector3D negInf = Vector3D.of(1, 1, Double.NEGATIVE_INFINITY);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Bounds3D.from(good, negInf, good); }, IllegalStateException.class, INVALID_BOUNDS_PATTERN);
+    }
+
+@Test
+    void testContains_strict_1_oe() {
+        // arrange
+        final Bounds3D b = Bounds3D.from(
+                Vector3D.of(0, 4, 8),
+                Vector3D.of(2, 6, 10));
+
+        // act/assert
+        assertContainsStrict(b, true, b.getCentroid(), Vector3D.of(0, 4, 8), Vector3D.of(2, 6, 10), Vector3D.of(1, 5, 9), Vector3D.of(0, 5, 9), Vector3D.of(2, 5, 9), Vector3D.of(1, 4, 9), Vector3D.of(1, 6, 9), Vector3D.of(1, 5, 8), Vector3D.of(1, 5, 10));
+    }
+
+@Test
+    void testContains_strict_2_oe() {
+        // arrange
+        final Bounds3D b = Bounds3D.from(
+                Vector3D.of(0, 4, 8),
+                Vector3D.of(2, 6, 10));
+
+        // act/assert
+        // removed other assertion
+
+        assertContainsStrict(b, false, Vector3D.ZERO, Vector3D.of(-1, 5, 9), Vector3D.of(3, 5, 9), Vector3D.of(1, 3, 9), Vector3D.of(1, 7, 9), Vector3D.of(1, 5, 7), Vector3D.of(1, 5, 11), Vector3D.of(-1e-15, 4, 8), Vector3D.of(2, 6 + 1e-15, 10), Vector3D.of(0, 4, 10 + 1e-15));
+    }
+
+@Test
+    void testContains_precision_1_oe() {
+        // arrange
+        final Bounds3D b = Bounds3D.from(
+                Vector3D.of(0, 4, 8),
+                Vector3D.of(2, 6, 10));
+
+        // act/assert
+        assertContainsWithPrecision(b, true, b.getCentroid(), Vector3D.of(0, 4, 8), Vector3D.of(2, 6, 10), Vector3D.of(1, 5, 9), Vector3D.of(0, 5, 9), Vector3D.of(2, 5, 9), Vector3D.of(1, 4, 9), Vector3D.of(1, 6, 9), Vector3D.of(1, 5, 8), Vector3D.of(1, 5, 10), Vector3D.of(-1e-15, 4, 8), Vector3D.of(2, 6 + 1e-15, 10), Vector3D.of(0, 4, 10 + 1e-15));
+    }
+
+@Test
+    void testContains_precision_2_oe() {
+        // arrange
+        final Bounds3D b = Bounds3D.from(
+                Vector3D.of(0, 4, 8),
+                Vector3D.of(2, 6, 10));
+
+        // act/assert
+        // removed other assertion
+
+        assertContainsWithPrecision(b, false, Vector3D.ZERO, Vector3D.of(-1, 5, 9), Vector3D.of(3, 5, 9), Vector3D.of(1, 3, 9), Vector3D.of(1, 7, 9), Vector3D.of(1, 5, 7), Vector3D.of(1, 5, 11));
     }
 
 }

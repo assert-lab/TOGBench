@@ -1,0 +1,93 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[46,9] cannot find symbol
+  symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[47,9] cannot find symbol
+  symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[48,9] cannot find symbol
+  symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[54,9] cannot find symbol
+  symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[55,9] cannot find symbol
+  symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[56,9] cannot find symbol
+  symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[62,9] cannot find symbol
+  symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[68,9] cannot find symbol
+  symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[74,9] cannot find symbol
+  symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[80,9] cannot find symbol
+  symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[293,9] cannot find symbol
+  symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[311,9] cannot find symbol
+  symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[329,9] cannot find symbol
+  symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[348,9] cannot find symbol
+  symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+  location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-spherical: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[46,9] cannot find symbol
+[ERROR]   symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[47,9] cannot find symbol
+[ERROR]   symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[48,9] cannot find symbol
+[ERROR]   symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[54,9] cannot find symbol
+[ERROR]   symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[55,9] cannot find symbol
+[ERROR]   symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[56,9] cannot find symbol
+[ERROR]   symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[62,9] cannot find symbol
+[ERROR]   symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[68,9] cannot find symbol
+[ERROR]   symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[74,9] cannot find symbol
+[ERROR]   symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[80,9] cannot find symbol
+[ERROR]   symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[293,9] cannot find symbol
+[ERROR]   symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[311,9] cannot find symbol
+[ERROR]   symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[329,9] cannot find symbol
+[ERROR]   symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/twod/GreatCircleTest_OE25Dev_geom_left_432_2.java:[348,9] cannot find symbol
+[ERROR]   symbol:   method checkGreatCircle(org.apache.commons.geometry.spherical.twod.GreatCircle,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit,org.apache.commons.geometry.euclidean.threed.Vector3D.Unit)
+[ERROR]   location: class org.apache.commons.geometry.spherical.twod.GreatCircleTest_OE25Dev_geom_left_432_2
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,3679 @@
+id,test_prefix,test_name
+bean_left_48_1,"private static void assertMethod_1_oe(final Method method, final String methodName) { assertNotNull(method);
+}
+",MethodUtilsTestCase::assertMethod_1_oe
+bean_left_48_2,"// removed other assertion
+        assertEquals(""Method is not named correctly"",methodName,method.getName());
+",MethodUtilsTestCase::assertMethod_2_oe
+bean_left_48_3,"// removed other assertion
+        // removed other assertion
+        assertTrue(""Method is not public"",Modifier.isPublic(method.getModifiers()));
+",MethodUtilsTestCase::assertMethod_3_oe
+bean_left_106_1,"private void checkIntegerArray_1_oe(final Object value, final int intArray[]) {
+
+        assertNotNull(""Returned value is not null"", value);
+}
+",ConvertUtilsTestCase::checkIntegerArray_1_oe
+bean_left_106_2,"private void checkIntegerArray_2_oe(final Object value, final int intArray[]) {
+
+        // removed other assertion
+        assertEquals(""Returned value is int[]"",intArray.getClass(),value.getClass());
+}
+",ConvertUtilsTestCase::checkIntegerArray_2_oe
+bean_left_106_3,"private void checkIntegerArray_3_oe(final Object value, final int intArray[]) {
+
+        // removed other assertion
+        // removed other assertion
+        final int results[] = (int[]) value;
+        assertEquals(""Returned array length"", intArray.length, results.length);
+}
+",ConvertUtilsTestCase::checkIntegerArray_3_oe
+bean_left_106_4,"private void checkIntegerArray_4_oe(final Object value, final int intArray[]) {
+
+        // removed other assertion
+        // removed other assertion
+        final int results[] = (int[]) value;
+        // removed other assertion
+        for (int i = 0; i < intArray.length; i++) {
+            assertEquals(""Returned array value "" + i,intArray[i],results[i]);
+}
+}
+",ConvertUtilsTestCase::checkIntegerArray_4_oe
+bean_left_107_1,"private void checkStringArray_1_oe(final Object value, final String stringArray[]) {
+
+        assertNotNull(""Returned value is not null"", value);
+}
+",ConvertUtilsTestCase::checkStringArray_1_oe
+bean_left_107_2,"private void checkStringArray_2_oe(final Object value, final String stringArray[]) {
+
+        // removed other assertion
+        assertEquals(""Returned value is String[]"",stringArray.getClass(),value.getClass());
+}
+",ConvertUtilsTestCase::checkStringArray_2_oe
+bean_left_107_3,"private void checkStringArray_3_oe(final Object value, final String stringArray[]) {
+
+        // removed other assertion
+        // removed other assertion
+        final String results[] = (String[]) value;
+        assertEquals(""Returned array length"",stringArray.length,results.length);
+}
+",ConvertUtilsTestCase::checkStringArray_3_oe
+bean_left_107_4,"private void checkStringArray_4_oe(final Object value, final String stringArray[]) {
+
+        // removed other assertion
+        // removed other assertion
+        final String results[] = (String[]) value;
+        // removed other assertion
+        for (int i = 0; i < stringArray.length; i++) {
+            assertEquals(""Returned array value "" + i,stringArray[i],results[i]);
+}
+}
+",ConvertUtilsTestCase::checkStringArray_4_oe
+bean_left_190_1,"protected void testGetDescriptorBase_1_oe(final String name, final Class<?> type) {
+
+        try {
+            final DynaProperty descriptor =
+                    bean.getDynaClass().getDynaProperty(name);
+            assertNotNull(""Got descriptor"", descriptor);
+}
+}
+",BasicDynaBeanTestCase::testGetDescriptorBase_1_oe
+bean_left_190_2,"protected void testGetDescriptorBase_2_oe(final String name, final Class<?> type) {
+
+        try {
+            final DynaProperty descriptor =
+                    bean.getDynaClass().getDynaProperty(name);
+            // removed other assertion
+            assertEquals(""Got correct type"", type, descriptor.getType());
+}
+}
+",BasicDynaBeanTestCase::testGetDescriptorBase_2_oe
+bean_left_190_3,"protected void testGetDescriptorBase_3_oe(final String name, final Class<?> type) {
+
+        try {
+            final DynaProperty descriptor =
+                    bean.getDynaClass().getDynaProperty(name);
+            // removed other assertion
+            // removed other assertion
+        } catch (final Throwable t) {
+            fail(""Threw an exception: "" + t);
+}
+}
+",BasicDynaBeanTestCase::testGetDescriptorBase_3_oe
+bean_left_218_1,"protected void checkIntArray_1_oe(final int actual[], final int expected[]) {
+        assertNotNull(""actual array not null"", actual);
+}
+",DynaBeanUtilsTestCase::checkIntArray_1_oe
+bean_left_218_2,"protected void checkIntArray_2_oe(final int actual[], final int expected[]) {
+        // removed other assertion
+        assertEquals(""actual array length"", expected.length, actual.length);
+}
+",DynaBeanUtilsTestCase::checkIntArray_2_oe
+bean_left_218_3,"protected void checkIntArray_3_oe(final int actual[], final int expected[]) {
+        // removed other assertion
+        // removed other assertion
+        for (int i = 0; i < actual.length; i++) {
+            assertEquals(""actual array value["" + i + ""]"",expected[i],actual[i]);
+}
+}
+",DynaBeanUtilsTestCase::checkIntArray_3_oe
+bean_left_219_1,"protected void checkMap_1_oe(final Map<?, ?> actual, final Map<?, ?> expected) {
+        assertNotNull(""actual map not null"", actual);
+}
+",DynaBeanUtilsTestCase::checkMap_1_oe
+bean_left_219_2,"protected void checkMap_2_oe(final Map<?, ?> actual, final Map<?, ?> expected) {
+        // removed other assertion
+        assertEquals(""actual map size"", expected.size(), actual.size());
+}
+",DynaBeanUtilsTestCase::checkMap_2_oe
+bean_left_219_3,"protected void checkMap_3_oe(final Map<?, ?> actual, final Map<?, ?> expected) {
+        // removed other assertion
+        // removed other assertion
+        final Iterator<?> keys = expected.keySet().iterator();
+        while (keys.hasNext()) {
+            final Object key = keys.next();
+            assertEquals(""actual map value("" + key + "")"",expected.get(key),actual.get(key));
+}
+}
+",DynaBeanUtilsTestCase::checkMap_3_oe
+bean_left_232_1,"private static PropertyDescriptor fetchDescriptor_1_oe(
+            final Map<String, PropertyDescriptor> props, final String name) {
+        assertTrue(""Property not found: "" + name, props.containsKey(name));
+}
+",FluentPropertyBeanIntrospectorTestCase::fetchDescriptor_1_oe
+bean_left_279_1,"private <E> void checkUnmodifiable_1_oe(final String desc, final Collection<E> collection, final E addElem) {
+        // Check can't add()
+        try {
+            collection.add(addElem);
+            fail(desc + "".add()"");
+}
+}
+",DynaBeanMapDecoratorTestCase::checkUnmodifiable_1_oe
+bean_left_279_2,"private <E> void checkUnmodifiable_2_oe(final String desc, final Collection<E> collection, final E addElem) {
+        // Check can't add()
+        try {
+            collection.add(addElem);
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Check can't addAll()
+        final List<E> list = new ArrayList<E>(1);
+        list.add(addElem);
+        try {
+            collection.addAll(list);
+            fail(desc + "".addAll()"");
+}
+}
+",DynaBeanMapDecoratorTestCase::checkUnmodifiable_2_oe
+bean_left_279_3,"private <E> void checkUnmodifiable_3_oe(final String desc, final Collection<E> collection, final E addElem) {
+        // Check can't add()
+        try {
+            collection.add(addElem);
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Check can't addAll()
+        final List<E> list = new ArrayList<E>(1);
+        list.add(addElem);
+        try {
+            collection.addAll(list);
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Check can't clear()
+        try {
+            collection.clear();
+            fail(desc + "".clear()"");
+}
+}
+",DynaBeanMapDecoratorTestCase::checkUnmodifiable_3_oe
+bean_left_279_4,"private <E> void checkUnmodifiable_4_oe(final String desc, final Collection<E> collection, final E addElem) {
+        // Check can't add()
+        try {
+            collection.add(addElem);
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Check can't addAll()
+        final List<E> list = new ArrayList<E>(1);
+        list.add(addElem);
+        try {
+            collection.addAll(list);
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Check can't clear()
+        try {
+            collection.clear();
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Check can't remove()
+        try {
+            collection.remove(""abc"");
+            fail(desc + "".remove()"");
+}
+}
+",DynaBeanMapDecoratorTestCase::checkUnmodifiable_4_oe
+bean_left_279_5,"private <E> void checkUnmodifiable_5_oe(final String desc, final Collection<E> collection, final E addElem) {
+        // Check can't add()
+        try {
+            collection.add(addElem);
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Check can't addAll()
+        final List<E> list = new ArrayList<E>(1);
+        list.add(addElem);
+        try {
+            collection.addAll(list);
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Check can't clear()
+        try {
+            collection.clear();
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Check can't remove()
+        try {
+            collection.remove(""abc"");
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Check can't removeAll()
+        try {
+            collection.removeAll(list);
+            fail(desc + "".removeAll()"");
+}
+}
+",DynaBeanMapDecoratorTestCase::checkUnmodifiable_5_oe
+bean_left_279_6,"private <E> void checkUnmodifiable_6_oe(final String desc, final Collection<E> collection, final E addElem) {
+        // Check can't add()
+        try {
+            collection.add(addElem);
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Check can't addAll()
+        final List<E> list = new ArrayList<E>(1);
+        list.add(addElem);
+        try {
+            collection.addAll(list);
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Check can't clear()
+        try {
+            collection.clear();
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Check can't remove()
+        try {
+            collection.remove(""abc"");
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Check can't removeAll()
+        try {
+            collection.removeAll(list);
+            // removed other assertion
+        } catch(final UnsupportedOperationException ignore) {
+            // expected result
+        }
+
+        // Check can't retainAll()
+        try {
+            collection.retainAll(list);
+            fail(desc + "".retainAll()"");
+}
+}
+",DynaBeanMapDecoratorTestCase::checkUnmodifiable_6_oe
+bean_left_307_1,"private void dynaBeanTest_1_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        assertNotNull(""1. DynaBean Not Created"", dynaBean);
+}
+",LazyDynaListTestCase::dynaBeanTest_1_oe
+bean_left_307_2,"private void dynaBeanTest_2_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        assertEquals(""2. Wrong Type"", testClass, dynaBean.getClass());
+}
+",LazyDynaListTestCase::dynaBeanTest_2_oe
+bean_left_307_3,"private void dynaBeanTest_3_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        assertNotNull(""3. Array Not Created"", array);
+}
+",LazyDynaListTestCase::dynaBeanTest_3_oe
+bean_left_307_4,"private void dynaBeanTest_4_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        assertEquals(""4. Not DynaBean[]"", testClass, array.getClass().getComponentType());
+}
+",LazyDynaListTestCase::dynaBeanTest_4_oe
+bean_left_307_5,"private void dynaBeanTest_5_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        assertEquals(""5. Array Size Wrong"", 2, dynaArray.length);
+}
+",LazyDynaListTestCase::dynaBeanTest_5_oe
+bean_left_307_6,"private void dynaBeanTest_6_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        assertNotNull(""6. DynaBean Not Created"", dynaBean);
+}
+",LazyDynaListTestCase::dynaBeanTest_6_oe
+bean_left_307_7,"private void dynaBeanTest_7_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        assertEquals(""7. Wrong type"", testClass, dynaBean.getClass());
+}
+",LazyDynaListTestCase::dynaBeanTest_7_oe
+bean_left_307_8,"private void dynaBeanTest_8_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Fourth
+        array = list.toArray();
+        assertNotNull(""8. Array Not Created"", array);
+}
+",LazyDynaListTestCase::dynaBeanTest_8_oe
+bean_left_307_9,"private void dynaBeanTest_9_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Fourth
+        array = list.toArray();
+        // removed other assertion
+        assertEquals(""9. Not DynaBean[]"", testClass, array.getClass().getComponentType());
+}
+",LazyDynaListTestCase::dynaBeanTest_9_oe
+bean_left_307_10,"private void dynaBeanTest_10_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Fourth
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        dynaArray = (DynaBean[])array;
+        assertEquals(""10. Array Size Wrong"", 4, dynaArray.length);
+}
+",LazyDynaListTestCase::dynaBeanTest_10_oe
+bean_left_307_11,"private void dynaBeanTest_11_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Fourth
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test fail if different type added
+        try {
+            list.add(2, wrongBean);
+            fail(""Expected IllegalArgumentException"");
+}
+}
+",LazyDynaListTestCase::dynaBeanTest_11_oe
+bean_left_307_12,"private void dynaBeanTest_12_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Fourth
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test fail if different type added
+        try {
+            list.add(2, wrongBean);
+            // removed other assertion
+        } catch(final IllegalArgumentException ignore) {
+            // expected result
+        }
+
+
+        // find a String property to set
+        final String testProperty = findStringProperty(testDynaClass);
+        assertNotNull(""Test Property Not Found"", testProperty);
+}
+",LazyDynaListTestCase::dynaBeanTest_12_oe
+bean_left_307_13,"private void dynaBeanTest_13_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Fourth
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test fail if different type added
+        try {
+            list.add(2, wrongBean);
+            // removed other assertion
+        } catch(final IllegalArgumentException ignore) {
+            // expected result
+        }
+
+
+        // find a String property to set
+        final String testProperty = findStringProperty(testDynaClass);
+        // removed other assertion
+        dynaArray = list.toDynaBeanArray();
+        for (int i = 0; i < dynaArray.length; i++) {
+            dynaArray[i].set(testProperty, ""orig_pos""+i);
+        }
+
+        // Create Collection
+        final List<Object> collection = new ArrayList<Object>();
+        try {
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+        } catch(final Exception ex) {
+            fail(""1. FAILED: "" + ex);
+}
+}
+",LazyDynaListTestCase::dynaBeanTest_13_oe
+bean_left_307_14,"private void dynaBeanTest_14_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Fourth
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test fail if different type added
+        try {
+            list.add(2, wrongBean);
+            // removed other assertion
+        } catch(final IllegalArgumentException ignore) {
+            // expected result
+        }
+
+
+        // find a String property to set
+        final String testProperty = findStringProperty(testDynaClass);
+        // removed other assertion
+        dynaArray = list.toDynaBeanArray();
+        for (int i = 0; i < dynaArray.length; i++) {
+            dynaArray[i].set(testProperty, ""orig_pos""+i);
+        }
+
+        // Create Collection
+        final List<Object> collection = new ArrayList<Object>();
+        try {
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+        } catch(final Exception ex) {
+            // removed other assertion
+        }
+        final int expectedSize = dynaArray.length + collection.size();
+        final String origValue = (String)((DynaBean)collection.get(0)).get(testProperty);
+        ((DynaBean)collection.get(0)).set(testProperty, origValue+""_updated_""+0);
+        ((DynaBean)collection.get(1)).set(testProperty, origValue+""_updated_""+1);
+        ((DynaBean)collection.get(2)).set(testProperty, origValue+""_updated_""+2);
+
+        // Test Insert - addAll(index, Collection)
+        list.addAll(1, collection);
+        dynaArray = list.toDynaBeanArray();
+
+        // Check array after insert
+        dynaArray = list.toDynaBeanArray();
+        assertEquals(""11. Array Size Wrong"", expectedSize, dynaArray.length);
+}
+",LazyDynaListTestCase::dynaBeanTest_14_oe
+bean_left_307_15,"private void dynaBeanTest_15_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Fourth
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test fail if different type added
+        try {
+            list.add(2, wrongBean);
+            // removed other assertion
+        } catch(final IllegalArgumentException ignore) {
+            // expected result
+        }
+
+
+        // find a String property to set
+        final String testProperty = findStringProperty(testDynaClass);
+        // removed other assertion
+        dynaArray = list.toDynaBeanArray();
+        for (int i = 0; i < dynaArray.length; i++) {
+            dynaArray[i].set(testProperty, ""orig_pos""+i);
+        }
+
+        // Create Collection
+        final List<Object> collection = new ArrayList<Object>();
+        try {
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+        } catch(final Exception ex) {
+            // removed other assertion
+        }
+        final int expectedSize = dynaArray.length + collection.size();
+        final String origValue = (String)((DynaBean)collection.get(0)).get(testProperty);
+        ((DynaBean)collection.get(0)).set(testProperty, origValue+""_updated_""+0);
+        ((DynaBean)collection.get(1)).set(testProperty, origValue+""_updated_""+1);
+        ((DynaBean)collection.get(2)).set(testProperty, origValue+""_updated_""+2);
+
+        // Test Insert - addAll(index, Collection)
+        list.addAll(1, collection);
+        dynaArray = list.toDynaBeanArray();
+
+        // Check array after insert
+        dynaArray = list.toDynaBeanArray();
+        // removed other assertion
+
+        // Check Beans have inserted correctly - by checking the property values
+        assertEquals(""12. Wrong Value"", ""orig_pos0"",             dynaArray[0].get(testProperty));
+}
+",LazyDynaListTestCase::dynaBeanTest_15_oe
+bean_left_307_16,"private void dynaBeanTest_16_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Fourth
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test fail if different type added
+        try {
+            list.add(2, wrongBean);
+            // removed other assertion
+        } catch(final IllegalArgumentException ignore) {
+            // expected result
+        }
+
+
+        // find a String property to set
+        final String testProperty = findStringProperty(testDynaClass);
+        // removed other assertion
+        dynaArray = list.toDynaBeanArray();
+        for (int i = 0; i < dynaArray.length; i++) {
+            dynaArray[i].set(testProperty, ""orig_pos""+i);
+        }
+
+        // Create Collection
+        final List<Object> collection = new ArrayList<Object>();
+        try {
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+        } catch(final Exception ex) {
+            // removed other assertion
+        }
+        final int expectedSize = dynaArray.length + collection.size();
+        final String origValue = (String)((DynaBean)collection.get(0)).get(testProperty);
+        ((DynaBean)collection.get(0)).set(testProperty, origValue+""_updated_""+0);
+        ((DynaBean)collection.get(1)).set(testProperty, origValue+""_updated_""+1);
+        ((DynaBean)collection.get(2)).set(testProperty, origValue+""_updated_""+2);
+
+        // Test Insert - addAll(index, Collection)
+        list.addAll(1, collection);
+        dynaArray = list.toDynaBeanArray();
+
+        // Check array after insert
+        dynaArray = list.toDynaBeanArray();
+        // removed other assertion
+
+        // Check Beans have inserted correctly - by checking the property values
+        // removed other assertion
+        assertEquals(""13. Wrong Value"", origValue+""_updated_""+0, dynaArray[1].get(testProperty));
+}
+",LazyDynaListTestCase::dynaBeanTest_16_oe
+bean_left_307_17,"private void dynaBeanTest_17_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Fourth
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test fail if different type added
+        try {
+            list.add(2, wrongBean);
+            // removed other assertion
+        } catch(final IllegalArgumentException ignore) {
+            // expected result
+        }
+
+
+        // find a String property to set
+        final String testProperty = findStringProperty(testDynaClass);
+        // removed other assertion
+        dynaArray = list.toDynaBeanArray();
+        for (int i = 0; i < dynaArray.length; i++) {
+            dynaArray[i].set(testProperty, ""orig_pos""+i);
+        }
+
+        // Create Collection
+        final List<Object> collection = new ArrayList<Object>();
+        try {
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+        } catch(final Exception ex) {
+            // removed other assertion
+        }
+        final int expectedSize = dynaArray.length + collection.size();
+        final String origValue = (String)((DynaBean)collection.get(0)).get(testProperty);
+        ((DynaBean)collection.get(0)).set(testProperty, origValue+""_updated_""+0);
+        ((DynaBean)collection.get(1)).set(testProperty, origValue+""_updated_""+1);
+        ((DynaBean)collection.get(2)).set(testProperty, origValue+""_updated_""+2);
+
+        // Test Insert - addAll(index, Collection)
+        list.addAll(1, collection);
+        dynaArray = list.toDynaBeanArray();
+
+        // Check array after insert
+        dynaArray = list.toDynaBeanArray();
+        // removed other assertion
+
+        // Check Beans have inserted correctly - by checking the property values
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""14. Wrong Value"", origValue+""_updated_""+1, dynaArray[2].get(testProperty));
+}
+",LazyDynaListTestCase::dynaBeanTest_17_oe
+bean_left_307_18,"private void dynaBeanTest_18_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Fourth
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test fail if different type added
+        try {
+            list.add(2, wrongBean);
+            // removed other assertion
+        } catch(final IllegalArgumentException ignore) {
+            // expected result
+        }
+
+
+        // find a String property to set
+        final String testProperty = findStringProperty(testDynaClass);
+        // removed other assertion
+        dynaArray = list.toDynaBeanArray();
+        for (int i = 0; i < dynaArray.length; i++) {
+            dynaArray[i].set(testProperty, ""orig_pos""+i);
+        }
+
+        // Create Collection
+        final List<Object> collection = new ArrayList<Object>();
+        try {
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+        } catch(final Exception ex) {
+            // removed other assertion
+        }
+        final int expectedSize = dynaArray.length + collection.size();
+        final String origValue = (String)((DynaBean)collection.get(0)).get(testProperty);
+        ((DynaBean)collection.get(0)).set(testProperty, origValue+""_updated_""+0);
+        ((DynaBean)collection.get(1)).set(testProperty, origValue+""_updated_""+1);
+        ((DynaBean)collection.get(2)).set(testProperty, origValue+""_updated_""+2);
+
+        // Test Insert - addAll(index, Collection)
+        list.addAll(1, collection);
+        dynaArray = list.toDynaBeanArray();
+
+        // Check array after insert
+        dynaArray = list.toDynaBeanArray();
+        // removed other assertion
+
+        // Check Beans have inserted correctly - by checking the property values
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""15. Wrong Value"", origValue+""_updated_""+2, dynaArray[3].get(testProperty));
+}
+",LazyDynaListTestCase::dynaBeanTest_18_oe
+bean_left_307_19,"private void dynaBeanTest_19_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Fourth
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test fail if different type added
+        try {
+            list.add(2, wrongBean);
+            // removed other assertion
+        } catch(final IllegalArgumentException ignore) {
+            // expected result
+        }
+
+
+        // find a String property to set
+        final String testProperty = findStringProperty(testDynaClass);
+        // removed other assertion
+        dynaArray = list.toDynaBeanArray();
+        for (int i = 0; i < dynaArray.length; i++) {
+            dynaArray[i].set(testProperty, ""orig_pos""+i);
+        }
+
+        // Create Collection
+        final List<Object> collection = new ArrayList<Object>();
+        try {
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+        } catch(final Exception ex) {
+            // removed other assertion
+        }
+        final int expectedSize = dynaArray.length + collection.size();
+        final String origValue = (String)((DynaBean)collection.get(0)).get(testProperty);
+        ((DynaBean)collection.get(0)).set(testProperty, origValue+""_updated_""+0);
+        ((DynaBean)collection.get(1)).set(testProperty, origValue+""_updated_""+1);
+        ((DynaBean)collection.get(2)).set(testProperty, origValue+""_updated_""+2);
+
+        // Test Insert - addAll(index, Collection)
+        list.addAll(1, collection);
+        dynaArray = list.toDynaBeanArray();
+
+        // Check array after insert
+        dynaArray = list.toDynaBeanArray();
+        // removed other assertion
+
+        // Check Beans have inserted correctly - by checking the property values
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""16. Wrong Value"", ""orig_pos1"",             dynaArray[4].get(testProperty));
+}
+",LazyDynaListTestCase::dynaBeanTest_19_oe
+bean_left_307_20,"private void dynaBeanTest_20_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Fourth
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test fail if different type added
+        try {
+            list.add(2, wrongBean);
+            // removed other assertion
+        } catch(final IllegalArgumentException ignore) {
+            // expected result
+        }
+
+
+        // find a String property to set
+        final String testProperty = findStringProperty(testDynaClass);
+        // removed other assertion
+        dynaArray = list.toDynaBeanArray();
+        for (int i = 0; i < dynaArray.length; i++) {
+            dynaArray[i].set(testProperty, ""orig_pos""+i);
+        }
+
+        // Create Collection
+        final List<Object> collection = new ArrayList<Object>();
+        try {
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+        } catch(final Exception ex) {
+            // removed other assertion
+        }
+        final int expectedSize = dynaArray.length + collection.size();
+        final String origValue = (String)((DynaBean)collection.get(0)).get(testProperty);
+        ((DynaBean)collection.get(0)).set(testProperty, origValue+""_updated_""+0);
+        ((DynaBean)collection.get(1)).set(testProperty, origValue+""_updated_""+1);
+        ((DynaBean)collection.get(2)).set(testProperty, origValue+""_updated_""+2);
+
+        // Test Insert - addAll(index, Collection)
+        list.addAll(1, collection);
+        dynaArray = list.toDynaBeanArray();
+
+        // Check array after insert
+        dynaArray = list.toDynaBeanArray();
+        // removed other assertion
+
+        // Check Beans have inserted correctly - by checking the property values
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+
+        // Test Insert - add(index, Object)
+        try {
+            final DynaBean extraElement = testDynaClass.newInstance();
+            extraElement.set(testProperty, ""extraOne"");
+            list.add(2, extraElement);
+            dynaArray = list.toDynaBeanArray();
+            assertEquals(""17. Wrong Value"", origValue+""_updated_""+0, dynaArray[1].get(testProperty));
+}
+}
+",LazyDynaListTestCase::dynaBeanTest_20_oe
+bean_left_307_21,"private void dynaBeanTest_21_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Fourth
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test fail if different type added
+        try {
+            list.add(2, wrongBean);
+            // removed other assertion
+        } catch(final IllegalArgumentException ignore) {
+            // expected result
+        }
+
+
+        // find a String property to set
+        final String testProperty = findStringProperty(testDynaClass);
+        // removed other assertion
+        dynaArray = list.toDynaBeanArray();
+        for (int i = 0; i < dynaArray.length; i++) {
+            dynaArray[i].set(testProperty, ""orig_pos""+i);
+        }
+
+        // Create Collection
+        final List<Object> collection = new ArrayList<Object>();
+        try {
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+        } catch(final Exception ex) {
+            // removed other assertion
+        }
+        final int expectedSize = dynaArray.length + collection.size();
+        final String origValue = (String)((DynaBean)collection.get(0)).get(testProperty);
+        ((DynaBean)collection.get(0)).set(testProperty, origValue+""_updated_""+0);
+        ((DynaBean)collection.get(1)).set(testProperty, origValue+""_updated_""+1);
+        ((DynaBean)collection.get(2)).set(testProperty, origValue+""_updated_""+2);
+
+        // Test Insert - addAll(index, Collection)
+        list.addAll(1, collection);
+        dynaArray = list.toDynaBeanArray();
+
+        // Check array after insert
+        dynaArray = list.toDynaBeanArray();
+        // removed other assertion
+
+        // Check Beans have inserted correctly - by checking the property values
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+
+        // Test Insert - add(index, Object)
+        try {
+            final DynaBean extraElement = testDynaClass.newInstance();
+            extraElement.set(testProperty, ""extraOne"");
+            list.add(2, extraElement);
+            dynaArray = list.toDynaBeanArray();
+            // removed other assertion
+            assertEquals(""18. Wrong Value"", ""extraOne"",              dynaArray[2].get(testProperty));
+}
+}
+",LazyDynaListTestCase::dynaBeanTest_21_oe
+bean_left_307_22,"private void dynaBeanTest_22_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Fourth
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test fail if different type added
+        try {
+            list.add(2, wrongBean);
+            // removed other assertion
+        } catch(final IllegalArgumentException ignore) {
+            // expected result
+        }
+
+
+        // find a String property to set
+        final String testProperty = findStringProperty(testDynaClass);
+        // removed other assertion
+        dynaArray = list.toDynaBeanArray();
+        for (int i = 0; i < dynaArray.length; i++) {
+            dynaArray[i].set(testProperty, ""orig_pos""+i);
+        }
+
+        // Create Collection
+        final List<Object> collection = new ArrayList<Object>();
+        try {
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+        } catch(final Exception ex) {
+            // removed other assertion
+        }
+        final int expectedSize = dynaArray.length + collection.size();
+        final String origValue = (String)((DynaBean)collection.get(0)).get(testProperty);
+        ((DynaBean)collection.get(0)).set(testProperty, origValue+""_updated_""+0);
+        ((DynaBean)collection.get(1)).set(testProperty, origValue+""_updated_""+1);
+        ((DynaBean)collection.get(2)).set(testProperty, origValue+""_updated_""+2);
+
+        // Test Insert - addAll(index, Collection)
+        list.addAll(1, collection);
+        dynaArray = list.toDynaBeanArray();
+
+        // Check array after insert
+        dynaArray = list.toDynaBeanArray();
+        // removed other assertion
+
+        // Check Beans have inserted correctly - by checking the property values
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+
+        // Test Insert - add(index, Object)
+        try {
+            final DynaBean extraElement = testDynaClass.newInstance();
+            extraElement.set(testProperty, ""extraOne"");
+            list.add(2, extraElement);
+            dynaArray = list.toDynaBeanArray();
+            // removed other assertion
+            // removed other assertion
+            assertEquals(""19. Wrong Value"", origValue+""_updated_""+1, dynaArray[3].get(testProperty));
+}
+}
+",LazyDynaListTestCase::dynaBeanTest_22_oe
+bean_left_307_23,"private void dynaBeanTest_23_oe(final LazyDynaList list, final Class<?> testClass, final DynaClass testDynaClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - Second
+        Object dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        DynaBean[] dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Fourth
+        dynaBean = list.get(3);
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Fourth
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        dynaArray = (DynaBean[])array;
+        // removed other assertion
+
+        // Test fail if different type added
+        try {
+            list.add(2, wrongBean);
+            // removed other assertion
+        } catch(final IllegalArgumentException ignore) {
+            // expected result
+        }
+
+
+        // find a String property to set
+        final String testProperty = findStringProperty(testDynaClass);
+        // removed other assertion
+        dynaArray = list.toDynaBeanArray();
+        for (int i = 0; i < dynaArray.length; i++) {
+            dynaArray[i].set(testProperty, ""orig_pos""+i);
+        }
+
+        // Create Collection
+        final List<Object> collection = new ArrayList<Object>();
+        try {
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+            collection.add(testDynaClass.newInstance());
+        } catch(final Exception ex) {
+            // removed other assertion
+        }
+        final int expectedSize = dynaArray.length + collection.size();
+        final String origValue = (String)((DynaBean)collection.get(0)).get(testProperty);
+        ((DynaBean)collection.get(0)).set(testProperty, origValue+""_updated_""+0);
+        ((DynaBean)collection.get(1)).set(testProperty, origValue+""_updated_""+1);
+        ((DynaBean)collection.get(2)).set(testProperty, origValue+""_updated_""+2);
+
+        // Test Insert - addAll(index, Collection)
+        list.addAll(1, collection);
+        dynaArray = list.toDynaBeanArray();
+
+        // Check array after insert
+        dynaArray = list.toDynaBeanArray();
+        // removed other assertion
+
+        // Check Beans have inserted correctly - by checking the property values
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+
+        // Test Insert - add(index, Object)
+        try {
+            final DynaBean extraElement = testDynaClass.newInstance();
+            extraElement.set(testProperty, ""extraOne"");
+            list.add(2, extraElement);
+            dynaArray = list.toDynaBeanArray();
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        } catch(final Exception ex) {
+            fail(""2. FAILED: "" + ex);
+}
+}
+",LazyDynaListTestCase::dynaBeanTest_23_oe
+bean_left_308_1,"private void mapTest_1_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        assertNotNull(""1. DynaBean Not Created"", dynaBean);
+}
+",LazyDynaListTestCase::mapTest_1_oe
+bean_left_308_2,"private void mapTest_2_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        assertEquals(""2. Not LazyDynaMap"", LazyDynaMap.class, dynaBean.getClass());
+}
+",LazyDynaListTestCase::mapTest_2_oe
+bean_left_308_3,"private void mapTest_3_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - First
+        Object map = ((LazyDynaMap)dynaBean).getMap();
+        assertNotNull(""3. Map Not Created"", map);
+}
+",LazyDynaListTestCase::mapTest_3_oe
+bean_left_308_4,"private void mapTest_4_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - First
+        Object map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        assertEquals(""4. Wrong Map"", testClass, map.getClass());
+}
+",LazyDynaListTestCase::mapTest_4_oe
+bean_left_308_5,"private void mapTest_5_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - First
+        Object map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        assertNotNull(""5. Array Not Created"", array);
+}
+",LazyDynaListTestCase::mapTest_5_oe
+bean_left_308_6,"private void mapTest_6_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - First
+        Object map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        assertEquals(""6. Not Map[]"", testClass, array.getClass().getComponentType());
+}
+",LazyDynaListTestCase::mapTest_6_oe
+bean_left_308_7,"private void mapTest_7_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - First
+        Object map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?>[] mapArray = (Map[])array;
+        assertEquals(""7. Array Size Wrong"", 1, mapArray.length);
+}
+",LazyDynaListTestCase::mapTest_7_oe
+bean_left_308_8,"private void mapTest_8_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - First
+        Object map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?>[] mapArray = (Map[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Third
+        dynaBean = list.get(2);
+        assertNotNull(""8. DynaBean Not Created"", dynaBean);
+}
+",LazyDynaListTestCase::mapTest_8_oe
+bean_left_308_9,"private void mapTest_9_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - First
+        Object map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?>[] mapArray = (Map[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Third
+        dynaBean = list.get(2);
+        // removed other assertion
+        assertEquals(""9. Not LazyDynaMap"", LazyDynaMap.class, dynaBean.getClass());
+}
+",LazyDynaListTestCase::mapTest_9_oe
+bean_left_308_10,"private void mapTest_10_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - First
+        Object map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?>[] mapArray = (Map[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Third
+        dynaBean = list.get(2);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - Third
+        map = ((LazyDynaMap)dynaBean).getMap();
+        assertNotNull(""10. Map Not Created"", map);
+}
+",LazyDynaListTestCase::mapTest_10_oe
+bean_left_308_11,"private void mapTest_11_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - First
+        Object map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?>[] mapArray = (Map[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Third
+        dynaBean = list.get(2);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - Third
+        map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        assertEquals(""11. Wrong Map"", testClass, map.getClass());
+}
+",LazyDynaListTestCase::mapTest_11_oe
+bean_left_308_12,"private void mapTest_12_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - First
+        Object map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?>[] mapArray = (Map[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Third
+        dynaBean = list.get(2);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - Third
+        map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Third
+        array = list.toArray();
+        assertNotNull(""12. Array Not Created"", array);
+}
+",LazyDynaListTestCase::mapTest_12_oe
+bean_left_308_13,"private void mapTest_13_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - First
+        Object map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?>[] mapArray = (Map[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Third
+        dynaBean = list.get(2);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - Third
+        map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Third
+        array = list.toArray();
+        // removed other assertion
+        assertEquals(""13. Not Map[]"", testClass, array.getClass().getComponentType());
+}
+",LazyDynaListTestCase::mapTest_13_oe
+bean_left_308_14,"private void mapTest_14_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - First
+        Object map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?>[] mapArray = (Map[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Third
+        dynaBean = list.get(2);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - Third
+        map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Third
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        mapArray = (Map[])array;
+        assertEquals(""14. Array Size Wrong"", 3, mapArray.length);
+}
+",LazyDynaListTestCase::mapTest_14_oe
+bean_left_308_15,"private void mapTest_15_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - First
+        Object map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?>[] mapArray = (Map[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Third
+        dynaBean = list.get(2);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct Map - Third
+        map = ((LazyDynaMap)dynaBean).getMap();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Third
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        mapArray = (Map[])array;
+        // removed other assertion
+
+        // Test fail if different type added
+        try {
+            list.add(2, wrongBean);
+            fail(""Expected IllegalArgumentException"");
+}
+}
+",LazyDynaListTestCase::mapTest_15_oe
+bean_left_309_1,"private void pojoTest_1_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        assertNotNull(""1. DynaBean Not Created"", dynaBean);
+}
+",LazyDynaListTestCase::pojoTest_1_oe
+bean_left_309_2,"private void pojoTest_2_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        assertEquals(""2. Not WrapDynaBean"", WrapDynaBean.class, dynaBean.getClass());
+}
+",LazyDynaListTestCase::pojoTest_2_oe
+bean_left_309_3,"private void pojoTest_3_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - First
+        Object pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        assertNotNull(""3. POJO Not Created"", pojoBean);
+}
+",LazyDynaListTestCase::pojoTest_3_oe
+bean_left_309_4,"private void pojoTest_4_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - First
+        Object pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        assertEquals(""4. Not WrapDynaBean"", testClass, pojoBean.getClass());
+}
+",LazyDynaListTestCase::pojoTest_4_oe
+bean_left_309_5,"private void pojoTest_5_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - First
+        Object pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        assertNotNull(""5. Array Not Created"", array);
+}
+",LazyDynaListTestCase::pojoTest_5_oe
+bean_left_309_6,"private void pojoTest_6_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - First
+        Object pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        assertEquals(""6. Wrong array"", testClass, array.getClass().getComponentType());
+}
+",LazyDynaListTestCase::pojoTest_6_oe
+bean_left_309_7,"private void pojoTest_7_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - First
+        Object pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Object[] pojoArray = (Object[])array;
+        assertEquals(""7. Array Size Wrong"", 1, pojoArray.length);
+}
+",LazyDynaListTestCase::pojoTest_7_oe
+bean_left_309_8,"private void pojoTest_8_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - First
+        Object pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Object[] pojoArray = (Object[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Second
+        dynaBean = list.get(1);
+        assertNotNull(""8. DynaBean Not Created"", dynaBean);
+}
+",LazyDynaListTestCase::pojoTest_8_oe
+bean_left_309_9,"private void pojoTest_9_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - First
+        Object pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Object[] pojoArray = (Object[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Second
+        dynaBean = list.get(1);
+        // removed other assertion
+        assertEquals(""9. Not WrapDynaBean"", WrapDynaBean.class, dynaBean.getClass());
+}
+",LazyDynaListTestCase::pojoTest_9_oe
+bean_left_309_10,"private void pojoTest_10_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - First
+        Object pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Object[] pojoArray = (Object[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Second
+        dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - Second
+        pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        assertNotNull(""10. POJO Not Created"", pojoBean);
+}
+",LazyDynaListTestCase::pojoTest_10_oe
+bean_left_309_11,"private void pojoTest_11_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - First
+        Object pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Object[] pojoArray = (Object[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Second
+        dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - Second
+        pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        assertEquals(""11. Not WrapDynaBean"", testClass, pojoBean.getClass());
+}
+",LazyDynaListTestCase::pojoTest_11_oe
+bean_left_309_12,"private void pojoTest_12_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - First
+        Object pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Object[] pojoArray = (Object[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Second
+        dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - Second
+        pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        array = list.toArray();
+        assertNotNull(""12. Array Not Created"", array);
+}
+",LazyDynaListTestCase::pojoTest_12_oe
+bean_left_309_13,"private void pojoTest_13_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - First
+        Object pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Object[] pojoArray = (Object[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Second
+        dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - Second
+        pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        array = list.toArray();
+        // removed other assertion
+        assertEquals(""13. Wrong array"", testClass, array.getClass().getComponentType());
+}
+",LazyDynaListTestCase::pojoTest_13_oe
+bean_left_309_14,"private void pojoTest_14_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - First
+        Object pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Object[] pojoArray = (Object[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Second
+        dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - Second
+        pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        pojoArray = (Object[])array;
+        assertEquals(""14. Array Size Wrong"", 2, pojoArray.length);
+}
+",LazyDynaListTestCase::pojoTest_14_oe
+bean_left_309_15,"private void pojoTest_15_oe(final LazyDynaList list, final Class<?> testClass, final Object wrongBean) {
+
+        // Test get(index) created correct DynaBean - First
+        Object dynaBean = list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - First
+        Object pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - First
+        Object array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        Object[] pojoArray = (Object[])array;
+        // removed other assertion
+
+        // Test get(index) created correct DynaBean - Second
+        dynaBean = list.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        // Test get(index) created correct POJO - Second
+        pojoBean = ((WrapDynaBean)dynaBean).getInstance();
+        // removed other assertion
+        // removed other assertion
+
+        // Test toArray() creates correct Array - Second
+        array = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        pojoArray = (Object[])array;
+        // removed other assertion
+
+        // Test fail if different type added
+        try {
+            list.add(2, wrongBean);
+            fail(""Expected IllegalArgumentException"");
+}
+}
+",LazyDynaListTestCase::pojoTest_15_oe
+bean_left_314_1,"private Object serializeDeserialize_1_oe(final Object target, final String text) {
+
+        // Serialize the test object
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            final ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(target);
+            oos.flush();
+            oos.close();
+        } catch (final Exception e) {
+            fail(text + "": Exception during serialization: "" + e);
+}
+}
+",LazyDynaListTestCase::serializeDeserialize_1_oe
+bean_left_314_2,"private Object serializeDeserialize_2_oe(final Object target, final String text) {
+
+        // Serialize the test object
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            final ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(target);
+            oos.flush();
+            oos.close();
+        } catch (final Exception e) {
+            // removed other assertion
+        }
+
+        // Deserialize the test object
+        Object result = null;
+        try {
+            final ByteArrayInputStream bais =
+                new ByteArrayInputStream(baos.toByteArray());
+            final ObjectInputStream ois = new ObjectInputStream(bais);
+            result = ois.readObject();
+            bais.close();
+        } catch (final Exception e) {
+            fail(text + "": Exception during deserialization: "" + e);
+}
+}
+",LazyDynaListTestCase::serializeDeserialize_2_oe
+bean_left_404_1,"protected void checkIntArray_1_oe(final int actual[], final int expected[]) {
+        assertNotNull(""actual array not null"", actual);
+}
+",BeanUtilsTestCase::checkIntArray_1_oe
+bean_left_404_2,"protected void checkIntArray_2_oe(final int actual[], final int expected[]) {
+        // removed other assertion
+        assertEquals(""actual array length"", expected.length, actual.length);
+}
+",BeanUtilsTestCase::checkIntArray_2_oe
+bean_left_404_3,"protected void checkIntArray_3_oe(final int actual[], final int expected[]) {
+        // removed other assertion
+        // removed other assertion
+        for (int i = 0; i < actual.length; i++) {
+            assertEquals(""actual array value["" + i + ""]"",expected[i],actual[i]);
+}
+}
+",BeanUtilsTestCase::checkIntArray_3_oe
+bean_left_405_1,"protected void checkMap_1_oe(final Map<?, ?> actual, final Map<?, ?> expected) {
+        assertNotNull(""actual map not null"", actual);
+}
+",BeanUtilsTestCase::checkMap_1_oe
+bean_left_405_2,"protected void checkMap_2_oe(final Map<?, ?> actual, final Map<?, ?> expected) {
+        // removed other assertion
+        assertEquals(""actual map size"", expected.size(), actual.size());
+}
+",BeanUtilsTestCase::checkMap_2_oe
+bean_left_405_3,"protected void checkMap_3_oe(final Map<?, ?> actual, final Map<?, ?> expected) {
+        // removed other assertion
+        // removed other assertion
+        final Iterator<?> keys = expected.keySet().iterator();
+        while (keys.hasNext()) {
+            final Object key = keys.next();
+            assertEquals(""actual map value("" + key + "")"",expected.get(key),actual.get(key));
+}
+}
+",BeanUtilsTestCase::checkMap_3_oe
+bean_left_525_1,"protected void testGetDescriptorBase_1_oe(final String name, final String read,
+                                         final String write) {
+
+        try {
+            final PropertyDescriptor pd =
+                    PropertyUtils.getPropertyDescriptor(bean, name);
+            if ((read != null) || (write != null)) {
+                assertNotNull(""Got descriptor"", pd);
+}
+}
+}
+",PropertyUtilsTestCase::testGetDescriptorBase_1_oe
+bean_left_525_2,"protected void testGetDescriptorBase_2_oe(final String name, final String read,
+                                         final String write) {
+
+        try {
+            final PropertyDescriptor pd =
+                    PropertyUtils.getPropertyDescriptor(bean, name);
+            if ((read != null) || (write != null)) {
+                // removed other assertion
+            } else {
+                assertNull(""Got descriptor"", pd);
+}
+}
+}
+",PropertyUtilsTestCase::testGetDescriptorBase_2_oe
+bean_left_525_3,"protected void testGetDescriptorBase_3_oe(final String name, final String read,
+                                         final String write) {
+
+        try {
+            final PropertyDescriptor pd =
+                    PropertyUtils.getPropertyDescriptor(bean, name);
+            if ((read != null) || (write != null)) {
+                // removed other assertion
+            } else {
+                // removed other assertion
+                return;
+            }
+            final Method rm = pd.getReadMethod();
+            if (read != null) {
+                assertNotNull(""Got read method"", rm);
+}
+}
+}
+",PropertyUtilsTestCase::testGetDescriptorBase_3_oe
+bean_left_525_4,"protected void testGetDescriptorBase_4_oe(final String name, final String read,
+                                         final String write) {
+
+        try {
+            final PropertyDescriptor pd =
+                    PropertyUtils.getPropertyDescriptor(bean, name);
+            if ((read != null) || (write != null)) {
+                // removed other assertion
+            } else {
+                // removed other assertion
+                return;
+            }
+            final Method rm = pd.getReadMethod();
+            if (read != null) {
+                // removed other assertion
+                assertEquals(""Got correct read method"",rm.getName(),read);
+}
+}
+}
+",PropertyUtilsTestCase::testGetDescriptorBase_4_oe
+bean_left_525_5,"protected void testGetDescriptorBase_5_oe(final String name, final String read,
+                                         final String write) {
+
+        try {
+            final PropertyDescriptor pd =
+                    PropertyUtils.getPropertyDescriptor(bean, name);
+            if ((read != null) || (write != null)) {
+                // removed other assertion
+            } else {
+                // removed other assertion
+                return;
+            }
+            final Method rm = pd.getReadMethod();
+            if (read != null) {
+                // removed other assertion
+                // removed other assertion
+            } else {
+                assertNull(""Got read method"", rm);
+}
+}
+}
+",PropertyUtilsTestCase::testGetDescriptorBase_5_oe
+bean_left_525_6,"protected void testGetDescriptorBase_6_oe(final String name, final String read,
+                                         final String write) {
+
+        try {
+            final PropertyDescriptor pd =
+                    PropertyUtils.getPropertyDescriptor(bean, name);
+            if ((read != null) || (write != null)) {
+                // removed other assertion
+            } else {
+                // removed other assertion
+                return;
+            }
+            final Method rm = pd.getReadMethod();
+            if (read != null) {
+                // removed other assertion
+                // removed other assertion
+            } else {
+                // removed other assertion
+            }
+            final Method wm = pd.getWriteMethod();
+            if (write != null) {
+                assertNotNull(""Got write method"", wm);
+}
+}
+}
+",PropertyUtilsTestCase::testGetDescriptorBase_6_oe
+bean_left_525_7,"protected void testGetDescriptorBase_7_oe(final String name, final String read,
+                                         final String write) {
+
+        try {
+            final PropertyDescriptor pd =
+                    PropertyUtils.getPropertyDescriptor(bean, name);
+            if ((read != null) || (write != null)) {
+                // removed other assertion
+            } else {
+                // removed other assertion
+                return;
+            }
+            final Method rm = pd.getReadMethod();
+            if (read != null) {
+                // removed other assertion
+                // removed other assertion
+            } else {
+                // removed other assertion
+            }
+            final Method wm = pd.getWriteMethod();
+            if (write != null) {
+                // removed other assertion
+                assertEquals(""Got correct write method"",wm.getName(),write);
+}
+}
+}
+",PropertyUtilsTestCase::testGetDescriptorBase_7_oe
+bean_left_525_8,"protected void testGetDescriptorBase_8_oe(final String name, final String read,
+                                         final String write) {
+
+        try {
+            final PropertyDescriptor pd =
+                    PropertyUtils.getPropertyDescriptor(bean, name);
+            if ((read != null) || (write != null)) {
+                // removed other assertion
+            } else {
+                // removed other assertion
+                return;
+            }
+            final Method rm = pd.getReadMethod();
+            if (read != null) {
+                // removed other assertion
+                // removed other assertion
+            } else {
+                // removed other assertion
+            }
+            final Method wm = pd.getWriteMethod();
+            if (write != null) {
+                // removed other assertion
+                // removed other assertion
+            } else {
+                assertNull(""Got write method"", wm);
+}
+}
+}
+",PropertyUtilsTestCase::testGetDescriptorBase_8_oe
+bean_left_525_9,"protected void testGetDescriptorBase_9_oe(final String name, final String read,
+                                         final String write) {
+
+        try {
+            final PropertyDescriptor pd =
+                    PropertyUtils.getPropertyDescriptor(bean, name);
+            if ((read != null) || (write != null)) {
+                // removed other assertion
+            } else {
+                // removed other assertion
+                return;
+            }
+            final Method rm = pd.getReadMethod();
+            if (read != null) {
+                // removed other assertion
+                // removed other assertion
+            } else {
+                // removed other assertion
+            }
+            final Method wm = pd.getWriteMethod();
+            if (write != null) {
+                // removed other assertion
+                // removed other assertion
+            } else {
+                // removed other assertion
+            }
+        } catch (final IllegalAccessException e) {
+            fail(""IllegalAccessException"");
+}
+}
+",PropertyUtilsTestCase::testGetDescriptorBase_9_oe
+bean_left_525_10,"protected void testGetDescriptorBase_10_oe(final String name, final String read,
+                                         final String write) {
+
+        try {
+            final PropertyDescriptor pd =
+                    PropertyUtils.getPropertyDescriptor(bean, name);
+            if ((read != null) || (write != null)) {
+                // removed other assertion
+            } else {
+                // removed other assertion
+                return;
+            }
+            final Method rm = pd.getReadMethod();
+            if (read != null) {
+                // removed other assertion
+                // removed other assertion
+            } else {
+                // removed other assertion
+            }
+            final Method wm = pd.getWriteMethod();
+            if (write != null) {
+                // removed other assertion
+                // removed other assertion
+            } else {
+                // removed other assertion
+            }
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            fail(""InvocationTargetException"");
+}
+}
+",PropertyUtilsTestCase::testGetDescriptorBase_10_oe
+bean_left_525_11,"protected void testGetDescriptorBase_11_oe(final String name, final String read,
+                                         final String write) {
+
+        try {
+            final PropertyDescriptor pd =
+                    PropertyUtils.getPropertyDescriptor(bean, name);
+            if ((read != null) || (write != null)) {
+                // removed other assertion
+            } else {
+                // removed other assertion
+                return;
+            }
+            final Method rm = pd.getReadMethod();
+            if (read != null) {
+                // removed other assertion
+                // removed other assertion
+            } else {
+                // removed other assertion
+            }
+            final Method wm = pd.getWriteMethod();
+            if (write != null) {
+                // removed other assertion
+                // removed other assertion
+            } else {
+                // removed other assertion
+            }
+        } catch (final IllegalAccessException e) {
+            // removed other assertion
+        } catch (final InvocationTargetException e) {
+            // removed other assertion
+        } catch (final NoSuchMethodException e) {
+            fail(""NoSuchMethodException"");
+}
+}
+",PropertyUtilsTestCase::testGetDescriptorBase_11_oe
+bean_left_526_1,"protected void testGetReadMethod_1_oe(final Object bean, final String properties[],
+                                     final String className) {
+
+        final PropertyDescriptor pd[] =
+                PropertyUtils.getPropertyDescriptors(bean);
+        for (String propertie : properties) {
+
+            // Identify the property descriptor for this property
+            if (propertie.equals(""intIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""stringIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""writeOnlyProperty"")) {
+                continue;
+            }
+            int n = -1;
+            for (int j = 0; j < pd.length; j++) {
+                if (propertie.equals(pd[j].getName())) {
+                    n = j;
+                    break;
+                }
+            }
+            assertTrue(""PropertyDescriptor for "" + propertie,n >= 0);
+}
+}
+",PropertyUtilsTestCase::testGetReadMethod_1_oe
+bean_left_526_2,"protected void testGetReadMethod_2_oe(final Object bean, final String properties[],
+                                     final String className) {
+
+        final PropertyDescriptor pd[] =
+                PropertyUtils.getPropertyDescriptors(bean);
+        for (String propertie : properties) {
+
+            // Identify the property descriptor for this property
+            if (propertie.equals(""intIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""stringIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""writeOnlyProperty"")) {
+                continue;
+            }
+            int n = -1;
+            for (int j = 0; j < pd.length; j++) {
+                if (propertie.equals(pd[j].getName())) {
+                    n = j;
+                    break;
+                }
+            }
+            // removed other assertion
+
+            // Locate an accessible property reader method for it
+            final Method reader = PropertyUtils.getReadMethod(pd[n]);
+            assertNotNull(""Reader for "" + propertie,reader);
+}
+}
+",PropertyUtilsTestCase::testGetReadMethod_2_oe
+bean_left_526_3,"protected void testGetReadMethod_3_oe(final Object bean, final String properties[],
+                                     final String className) {
+
+        final PropertyDescriptor pd[] =
+                PropertyUtils.getPropertyDescriptors(bean);
+        for (String propertie : properties) {
+
+            // Identify the property descriptor for this property
+            if (propertie.equals(""intIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""stringIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""writeOnlyProperty"")) {
+                continue;
+            }
+            int n = -1;
+            for (int j = 0; j < pd.length; j++) {
+                if (propertie.equals(pd[j].getName())) {
+                    n = j;
+                    break;
+                }
+            }
+            // removed other assertion
+
+            // Locate an accessible property reader method for it
+            final Method reader = PropertyUtils.getReadMethod(pd[n]);
+            // removed other assertion
+            final Class<?> clazz = reader.getDeclaringClass();
+            assertNotNull(""Declaring class for "" + propertie,clazz);
+}
+}
+",PropertyUtilsTestCase::testGetReadMethod_3_oe
+bean_left_526_4,"protected void testGetReadMethod_4_oe(final Object bean, final String properties[],
+                                     final String className) {
+
+        final PropertyDescriptor pd[] =
+                PropertyUtils.getPropertyDescriptors(bean);
+        for (String propertie : properties) {
+
+            // Identify the property descriptor for this property
+            if (propertie.equals(""intIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""stringIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""writeOnlyProperty"")) {
+                continue;
+            }
+            int n = -1;
+            for (int j = 0; j < pd.length; j++) {
+                if (propertie.equals(pd[j].getName())) {
+                    n = j;
+                    break;
+                }
+            }
+            // removed other assertion
+
+            // Locate an accessible property reader method for it
+            final Method reader = PropertyUtils.getReadMethod(pd[n]);
+            // removed other assertion
+            final Class<?> clazz = reader.getDeclaringClass();
+            // removed other assertion
+            assertEquals(""Correct declaring class for "" + propertie,clazz.getName(),className);
+}
+}
+",PropertyUtilsTestCase::testGetReadMethod_4_oe
+bean_left_526_5,"protected void testGetReadMethod_5_oe(final Object bean, final String properties[],
+                                     final String className) {
+
+        final PropertyDescriptor pd[] =
+                PropertyUtils.getPropertyDescriptors(bean);
+        for (String propertie : properties) {
+
+            // Identify the property descriptor for this property
+            if (propertie.equals(""intIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""stringIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""writeOnlyProperty"")) {
+                continue;
+            }
+            int n = -1;
+            for (int j = 0; j < pd.length; j++) {
+                if (propertie.equals(pd[j].getName())) {
+                    n = j;
+                    break;
+                }
+            }
+            // removed other assertion
+
+            // Locate an accessible property reader method for it
+            final Method reader = PropertyUtils.getReadMethod(pd[n]);
+            // removed other assertion
+            final Class<?> clazz = reader.getDeclaringClass();
+            // removed other assertion
+            // removed other assertion
+
+            // Actually call the reader method we received
+            try {
+                reader.invoke(bean, (Object[]) new Class<?>[0]);
+            } catch (final Throwable t) {
+                fail(""Call for "" + propertie + "": "" + t);
+}
+}
+}
+",PropertyUtilsTestCase::testGetReadMethod_5_oe
+bean_left_527_1,"protected void testGetWriteMethod_1_oe(final Object bean, final String properties[],
+                                      final String className) {
+
+
+        final PropertyDescriptor pd[] =
+                PropertyUtils.getPropertyDescriptors(bean);
+        for (String propertie : properties) {
+
+            // Identify the property descriptor for this property
+            if (propertie.equals(""intIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""listIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""nested""))
+             {
+                continue; // This property is read only
+            }
+            if (propertie.equals(""readOnlyProperty"")) {
+                continue;
+            }
+            if (propertie.equals(""stringIndexed"")) {
+                continue;
+            }
+            int n = -1;
+            for (int j = 0; j < pd.length; j++) {
+                if (propertie.equals(pd[j].getName())) {
+                    n = j;
+                    break;
+                }
+            }
+            assertTrue(""PropertyDescriptor for "" + propertie,n >= 0);
+}
+}
+",PropertyUtilsTestCase::testGetWriteMethod_1_oe
+bean_left_527_2,"protected void testGetWriteMethod_2_oe(final Object bean, final String properties[],
+                                      final String className) {
+
+
+        final PropertyDescriptor pd[] =
+                PropertyUtils.getPropertyDescriptors(bean);
+        for (String propertie : properties) {
+
+            // Identify the property descriptor for this property
+            if (propertie.equals(""intIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""listIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""nested""))
+             {
+                continue; // This property is read only
+            }
+            if (propertie.equals(""readOnlyProperty"")) {
+                continue;
+            }
+            if (propertie.equals(""stringIndexed"")) {
+                continue;
+            }
+            int n = -1;
+            for (int j = 0; j < pd.length; j++) {
+                if (propertie.equals(pd[j].getName())) {
+                    n = j;
+                    break;
+                }
+            }
+            // removed other assertion
+
+            // Locate an accessible property reader method for it
+            final Method writer = PropertyUtils.getWriteMethod(pd[n]);
+            assertNotNull(""Writer for "" + propertie,writer);
+}
+}
+",PropertyUtilsTestCase::testGetWriteMethod_2_oe
+bean_left_527_3,"protected void testGetWriteMethod_3_oe(final Object bean, final String properties[],
+                                      final String className) {
+
+
+        final PropertyDescriptor pd[] =
+                PropertyUtils.getPropertyDescriptors(bean);
+        for (String propertie : properties) {
+
+            // Identify the property descriptor for this property
+            if (propertie.equals(""intIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""listIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""nested""))
+             {
+                continue; // This property is read only
+            }
+            if (propertie.equals(""readOnlyProperty"")) {
+                continue;
+            }
+            if (propertie.equals(""stringIndexed"")) {
+                continue;
+            }
+            int n = -1;
+            for (int j = 0; j < pd.length; j++) {
+                if (propertie.equals(pd[j].getName())) {
+                    n = j;
+                    break;
+                }
+            }
+            // removed other assertion
+
+            // Locate an accessible property reader method for it
+            final Method writer = PropertyUtils.getWriteMethod(pd[n]);
+            // removed other assertion
+            final Class<?> clazz = writer.getDeclaringClass();
+            assertNotNull(""Declaring class for "" + propertie,clazz);
+}
+}
+",PropertyUtilsTestCase::testGetWriteMethod_3_oe
+bean_left_527_4,"protected void testGetWriteMethod_4_oe(final Object bean, final String properties[],
+                                      final String className) {
+
+
+        final PropertyDescriptor pd[] =
+                PropertyUtils.getPropertyDescriptors(bean);
+        for (String propertie : properties) {
+
+            // Identify the property descriptor for this property
+            if (propertie.equals(""intIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""listIndexed"")) {
+                continue;
+            }
+            if (propertie.equals(""nested""))
+             {
+                continue; // This property is read only
+            }
+            if (propertie.equals(""readOnlyProperty"")) {
+                continue;
+            }
+            if (propertie.equals(""stringIndexed"")) {
+                continue;
+            }
+            int n = -1;
+            for (int j = 0; j < pd.length; j++) {
+                if (propertie.equals(pd[j].getName())) {
+                    n = j;
+                    break;
+                }
+            }
+            // removed other assertion
+
+            // Locate an accessible property reader method for it
+            final Method writer = PropertyUtils.getWriteMethod(pd[n]);
+            // removed other assertion
+            final Class<?> clazz = writer.getDeclaringClass();
+            // removed other assertion
+            assertEquals(""Correct declaring class for "" + propertie,clazz.getName(),className);
+}
+}
+",PropertyUtilsTestCase::testGetWriteMethod_4_oe
+bean_left_579_1,"private void checkSimplePropertyAccess_1_oe() {
+        // Invalid getter
+        try {
+            bean.get(""invalidProperty"");
+            fail(""Invalid get should have thrown IllegalArgumentException"");
+}
+}
+",WrapDynaBeanTestCase::checkSimplePropertyAccess_1_oe
+bean_left_579_2,"private void checkSimplePropertyAccess_2_oe() {
+        // Invalid getter
+        try {
+            bean.get(""invalidProperty"");
+            // removed other assertion
+        } catch (final IllegalArgumentException t) {
+            // Expected result
+        }
+
+        // Invalid setter
+        try {
+            bean.set(""invalidProperty"", ""XYZ"");
+            fail(""Invalid set should have thrown IllegalArgumentException"");
+}
+}
+",WrapDynaBeanTestCase::checkSimplePropertyAccess_2_oe
+bean_left_579_3,"private void checkSimplePropertyAccess_3_oe() {
+        // Invalid getter
+        try {
+            bean.get(""invalidProperty"");
+            // removed other assertion
+        } catch (final IllegalArgumentException t) {
+            // Expected result
+        }
+
+        // Invalid setter
+        try {
+            bean.set(""invalidProperty"", ""XYZ"");
+            // removed other assertion
+        } catch (final IllegalArgumentException t) {
+            // Expected result
+        }
+
+        // Set up initial Value
+        String testValue = ""Original Value"";
+        final String testProperty = ""stringProperty"";
+        final TestBean instance = (TestBean)((WrapDynaBean)bean).getInstance();
+        instance.setStringProperty(testValue);
+        assertEquals(""Check String property"", testValue, instance.getStringProperty());
+}
+",WrapDynaBeanTestCase::checkSimplePropertyAccess_3_oe
+bean_left_579_4,"private void checkSimplePropertyAccess_4_oe() {
+        // Invalid getter
+        try {
+            bean.get(""invalidProperty"");
+            // removed other assertion
+        } catch (final IllegalArgumentException t) {
+            // Expected result
+        }
+
+        // Invalid setter
+        try {
+            bean.set(""invalidProperty"", ""XYZ"");
+            // removed other assertion
+        } catch (final IllegalArgumentException t) {
+            // Expected result
+        }
+
+        // Set up initial Value
+        String testValue = ""Original Value"";
+        final String testProperty = ""stringProperty"";
+        final TestBean instance = (TestBean)((WrapDynaBean)bean).getInstance();
+        instance.setStringProperty(testValue);
+        // removed other assertion
+
+        // Test Valid Get & Set
+        try {
+            testValue = ""Some new value"";
+            bean.set(testProperty, testValue);
+            assertEquals(""Test Set"", testValue, instance.getStringProperty());
+}
+}
+",WrapDynaBeanTestCase::checkSimplePropertyAccess_4_oe
+bean_left_579_5,"private void checkSimplePropertyAccess_5_oe() {
+        // Invalid getter
+        try {
+            bean.get(""invalidProperty"");
+            // removed other assertion
+        } catch (final IllegalArgumentException t) {
+            // Expected result
+        }
+
+        // Invalid setter
+        try {
+            bean.set(""invalidProperty"", ""XYZ"");
+            // removed other assertion
+        } catch (final IllegalArgumentException t) {
+            // Expected result
+        }
+
+        // Set up initial Value
+        String testValue = ""Original Value"";
+        final String testProperty = ""stringProperty"";
+        final TestBean instance = (TestBean)((WrapDynaBean)bean).getInstance();
+        instance.setStringProperty(testValue);
+        // removed other assertion
+
+        // Test Valid Get & Set
+        try {
+            testValue = ""Some new value"";
+            bean.set(testProperty, testValue);
+            // removed other assertion
+            assertEquals(""Test Get"", testValue, bean.get(testProperty));
+}
+}
+",WrapDynaBeanTestCase::checkSimplePropertyAccess_5_oe
+bean_left_579_6,"private void checkSimplePropertyAccess_6_oe() {
+        // Invalid getter
+        try {
+            bean.get(""invalidProperty"");
+            // removed other assertion
+        } catch (final IllegalArgumentException t) {
+            // Expected result
+        }
+
+        // Invalid setter
+        try {
+            bean.set(""invalidProperty"", ""XYZ"");
+            // removed other assertion
+        } catch (final IllegalArgumentException t) {
+            // Expected result
+        }
+
+        // Set up initial Value
+        String testValue = ""Original Value"";
+        final String testProperty = ""stringProperty"";
+        final TestBean instance = (TestBean)((WrapDynaBean)bean).getInstance();
+        instance.setStringProperty(testValue);
+        // removed other assertion
+
+        // Test Valid Get & Set
+        try {
+            testValue = ""Some new value"";
+            bean.set(testProperty, testValue);
+            // removed other assertion
+            // removed other assertion
+        } catch (final IllegalArgumentException t) {
+            fail(""Get threw exception: "" + t);
+}
+}
+",WrapDynaBeanTestCase::checkSimplePropertyAccess_6_oe
+bean_left_586_1,"private Object serializeDeserialize_1_oe(final Object target, final String text) {
+
+        // Serialize the test object
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            final ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(target);
+            oos.flush();
+            oos.close();
+        } catch (final Exception e) {
+            fail(text + "": Exception during serialization: "" + e);
+}
+}
+",WrapDynaBeanTestCase::serializeDeserialize_1_oe
+bean_left_586_2,"private Object serializeDeserialize_2_oe(final Object target, final String text) {
+
+        // Serialize the test object
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            final ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(target);
+            oos.flush();
+            oos.close();
+        } catch (final Exception e) {
+            // removed other assertion
+        }
+
+        // Deserialize the test object
+        Object result = null;
+        try {
+            final ByteArrayInputStream bais =
+                new ByteArrayInputStream(baos.toByteArray());
+            final ObjectInputStream ois = new ObjectInputStream(bais);
+            result = ois.readObject();
+            bais.close();
+        } catch (final Exception e) {
+            fail(text + "": Exception during deserialization: "" + e);
+}
+}
+",WrapDynaBeanTestCase::serializeDeserialize_2_oe
+bean_left_615_1,"private static void changeValue_1_oe(final Object bean) {
+        try {
+            BeanUtils.setProperty(bean, PATH, NEW_VALUE);
+        } catch (final Exception e) {
+            fail(""Could not set property: "" + e);
+}
+}
+",Jira465TestCase::changeValue_1_oe
+bean_left_630_1,"@BeforeClass
+    public static void assumeSupportsIndexedLists_1_oe() throws IntrospectionException {
+        BeanInfo beanInfo = Introspector.getBeanInfo(RootBean.class);
+        for (PropertyDescriptor pd : beanInfo.getPropertyDescriptors()) {
+            if (pd.getName().equals(""file"")) {
+                Assume.assumeTrue(""BEANUTILS-492: IndexedPropertyDescriptor no longer supported for java.util.List"",
+                        pd instanceof IndexedPropertyDescriptor);
+                return;
+            }
+        }
+        Assert.fail(""Could not find PropertyDescriptor for 'file'"");
+    }
+",Jira422TestCase::assumeSupportsIndexedLists_1_oe
+bean_left_635_1,"private void checkReadMethod_1_oe(final String propertyName, final Class<?> expectedDeclaringClass) throws Exception {
+
+        PropertyDescriptor[] descriptors = null;
+        try {
+            descriptors = PropertyUtils.getPropertyDescriptors(ConcreteTestBean.class);
+        } catch (final Exception e) {
+            e.printStackTrace();
+            fail(""Threw: "" + e);
+}
+}
+",Jira357TestCase::checkReadMethod_1_oe
+bean_left_635_2,"private void checkReadMethod_2_oe(final String propertyName, final Class<?> expectedDeclaringClass) throws Exception {
+
+        PropertyDescriptor[] descriptors = null;
+        try {
+            descriptors = PropertyUtils.getPropertyDescriptors(ConcreteTestBean.class);
+        } catch (final Exception e) {
+            e.printStackTrace();
+            // removed other assertion
+        }
+
+        // Test InnerClassProperty
+        final PropertyDescriptor descriptor = findDescriptor(propertyName, descriptors);
+        assertNotNull(propertyName + ""descriptor"", descriptor);
+}
+",Jira357TestCase::checkReadMethod_2_oe
+bean_left_635_3,"private void checkReadMethod_3_oe(final String propertyName, final Class<?> expectedDeclaringClass) throws Exception {
+
+        PropertyDescriptor[] descriptors = null;
+        try {
+            descriptors = PropertyUtils.getPropertyDescriptors(ConcreteTestBean.class);
+        } catch (final Exception e) {
+            e.printStackTrace();
+            // removed other assertion
+        }
+
+        // Test InnerClassProperty
+        final PropertyDescriptor descriptor = findDescriptor(propertyName, descriptors);
+        // removed other assertion
+        assertEquals(propertyName + "" read method declaring class"", expectedDeclaringClass, descriptor.getReadMethod().getDeclaringClass());
+}
+",Jira357TestCase::checkReadMethod_3_oe
+bean_left_641_1,"public void getArrayProperty_1_oe() throws Exception {
+        String[] arr = beanUtils.getArrayProperty(bean, ""someList"");
+        assertEquals(2, arr.length);
+}
+",Jira492TestCase::getArrayProperty_1_oe
+bean_left_641_2,"public void getArrayProperty_2_oe() throws Exception {
+        String[] arr = beanUtils.getArrayProperty(bean, ""someList"");
+        // removed other assertion
+        assertEquals(""item0"", arr[0]);
+}
+",Jira492TestCase::getArrayProperty_2_oe
+bean_left_641_3,"public void getArrayProperty_3_oe() throws Exception {
+        String[] arr = beanUtils.getArrayProperty(bean, ""someList"");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""item1"", arr[1]);
+}
+",Jira492TestCase::getArrayProperty_3_oe
+bean_left_662_1,"private void checkConversionWithNullDefault_1_oe(final String input) {
+        final Converter converter = new IntegerLocaleConverter(null, Locale.US);
+        assertNull(""Wrong result"", converter.convert(Integer.class, input));
+}
+",Jira458TestCase::checkConversionWithNullDefault_1_oe
+bean_left_685_1,"void validConversion_1_oe(final Converter converter, final Object expected, final Object value) {
+        final String valueType = (value == null ? ""null"" : value.getClass().getName());
+        final String msg = ""Converting '"" + valueType + ""' value '"" + value + ""'"";
+        try {
+            final Object result = converter.convert(getExpectedType(), value);
+            final Class<?> resultType = (result   == null ? null : result.getClass());
+            final Class<?> expectType = (expected == null ? null : expected.getClass());
+            assertEquals(""TYPE ""  + msg, expectType, resultType);
+}
+}
+",DateConverterTestBase::validConversion_1_oe
+bean_left_685_2,"void validConversion_2_oe(final Converter converter, final Object expected, final Object value) {
+        final String valueType = (value == null ? ""null"" : value.getClass().getName());
+        final String msg = ""Converting '"" + valueType + ""' value '"" + value + ""'"";
+        try {
+            final Object result = converter.convert(getExpectedType(), value);
+            final Class<?> resultType = (result   == null ? null : result.getClass());
+            final Class<?> expectType = (expected == null ? null : expected.getClass());
+            // removed other assertion
+            assertEquals(""VALUE "" + msg, expected, result);
+}
+}
+",DateConverterTestBase::validConversion_2_oe
+bean_left_685_3,"void validConversion_3_oe(final Converter converter, final Object expected, final Object value) {
+        final String valueType = (value == null ? ""null"" : value.getClass().getName());
+        final String msg = ""Converting '"" + valueType + ""' value '"" + value + ""'"";
+        try {
+            final Object result = converter.convert(getExpectedType(), value);
+            final Class<?> resultType = (result   == null ? null : result.getClass());
+            final Class<?> expectType = (expected == null ? null : expected.getClass());
+            // removed other assertion
+            // removed other assertion
+        } catch (final Exception ex) {
+            fail(msg + "" threw "" + ex.toString());
+}
+}
+",DateConverterTestBase::validConversion_3_oe
+bean_left_686_1,"void stringConversion_1_oe(final Converter converter, final String expected, final Object value) {
+        final String valueType = (value == null ? ""null"" : value.getClass().getName());
+        final String msg = ""Converting '"" + valueType + ""' value '"" + value + ""' to String"";
+        try {
+            final Object result = converter.convert(String.class, value);
+            final Class<?> resultType = (result   == null ? null : result.getClass());
+            final Class<?> expectType = (expected == null ? null : expected.getClass());
+            assertEquals(""TYPE ""  + msg, expectType, resultType);
+}
+}
+",DateConverterTestBase::stringConversion_1_oe
+bean_left_686_2,"void stringConversion_2_oe(final Converter converter, final String expected, final Object value) {
+        final String valueType = (value == null ? ""null"" : value.getClass().getName());
+        final String msg = ""Converting '"" + valueType + ""' value '"" + value + ""' to String"";
+        try {
+            final Object result = converter.convert(String.class, value);
+            final Class<?> resultType = (result   == null ? null : result.getClass());
+            final Class<?> expectType = (expected == null ? null : expected.getClass());
+            // removed other assertion
+            assertEquals(""VALUE "" + msg, expected, result);
+}
+}
+",DateConverterTestBase::stringConversion_2_oe
+bean_left_686_3,"void stringConversion_3_oe(final Converter converter, final String expected, final Object value) {
+        final String valueType = (value == null ? ""null"" : value.getClass().getName());
+        final String msg = ""Converting '"" + valueType + ""' value '"" + value + ""' to String"";
+        try {
+            final Object result = converter.convert(String.class, value);
+            final Class<?> resultType = (result   == null ? null : result.getClass());
+            final Class<?> expectType = (expected == null ? null : expected.getClass());
+            // removed other assertion
+            // removed other assertion
+        } catch (final Exception ex) {
+            fail(msg + "" threw "" + ex.toString());
+}
+}
+",DateConverterTestBase::stringConversion_3_oe
+bean_left_687_1,"void invalidConversion_1_oe(final Converter converter, final Object value) {
+        final String valueType = (value == null ? ""null"" : value.getClass().getName());
+        final String msg = ""Converting '"" + valueType + ""' value '"" + value + ""'"";
+        try {
+            final Object result = converter.convert(getExpectedType(), value);
+            fail(msg + "", expected ConversionException, but result = '"" + result + ""'"");
+}
+}
+",DateConverterTestBase::invalidConversion_1_oe
+bean_left_688_1,"Calendar toCalendar_1_oe(final String value, final String pattern, final Locale locale) {
+        Calendar calendar = null;
+        try {
+            final DateFormat format = (locale == null)
+                           ? new SimpleDateFormat(pattern)
+                           : new SimpleDateFormat(pattern, locale);
+            format.setLenient(false);
+            format.parse(value);
+            calendar = format.getCalendar();
+        } catch (final Exception e) {
+            fail(""Error creating Calendar value ='"" + value + "",pattern='"" + pattern + ""' "" + e.toString());
+}
+}
+",DateConverterTestBase::toCalendar_1_oe
+bean_left_704_1,"protected void testConversionValues_1_oe(final BooleanConverter converter,
+            final String[] trueValues, final String[] falseValues) {
+
+        for (String trueValue : trueValues) {
+            assertEquals(Boolean.TRUE, converter.convert(Boolean.class, trueValue));
+}
+}
+",BooleanConverterTestCase::testConversionValues_1_oe
+bean_left_704_2,"protected void testConversionValues_2_oe(final BooleanConverter converter,
+            final String[] trueValues, final String[] falseValues) {
+
+        for (String trueValue : trueValues) {
+            // removed other assertion
+        }
+        for (String falseValue : falseValues) {
+            assertEquals(Boolean.FALSE, converter.convert(Boolean.class, falseValue));
+}
+}
+",BooleanConverterTestCase::testConversionValues_2_oe
+bean_left_737_1,"private void checkArray_1_oe(final String msg, final Object expected, final Object result) {
+        assertNotNull(msg + "" Expected Null"", expected);
+}
+",ArrayConverterTestCase::checkArray_1_oe
+bean_left_737_2,"private void checkArray_2_oe(final String msg, final Object expected, final Object result) {
+        // removed other assertion
+        assertNotNull(msg + "" Result   Null"", result);
+}
+",ArrayConverterTestCase::checkArray_2_oe
+bean_left_737_3,"private void checkArray_3_oe(final String msg, final Object expected, final Object result) {
+        // removed other assertion
+        // removed other assertion
+        assertTrue(msg + "" Result   not array"", result.getClass().isArray());
+}
+",ArrayConverterTestCase::checkArray_3_oe
+bean_left_737_4,"private void checkArray_4_oe(final String msg, final Object expected, final Object result) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(msg + "" Expected not array"", expected.getClass().isArray());
+}
+",ArrayConverterTestCase::checkArray_4_oe
+bean_left_737_5,"private void checkArray_5_oe(final String msg, final Object expected, final Object result) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final int resultLth = Array.getLength(result);
+        assertEquals(msg + "" Size"", Array.getLength(expected), resultLth);
+}
+",ArrayConverterTestCase::checkArray_5_oe
+bean_left_737_6,"private void checkArray_6_oe(final String msg, final Object expected, final Object result) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final int resultLth = Array.getLength(result);
+        // removed other assertion
+        assertEquals(msg + "" Type"", expected.getClass(), result.getClass());
+}
+",ArrayConverterTestCase::checkArray_6_oe
+bean_left_737_7,"private void checkArray_7_oe(final String msg, final Object expected, final Object result) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        final int resultLth = Array.getLength(result);
+        // removed other assertion
+        // removed other assertion
+        for (int i = 0; i < resultLth; i++) {
+            final Object expectElement = Array.get(expected, i);
+            final Object resultElement = Array.get(result, i);
+            assertEquals(msg + "" Element "" + i, expectElement, resultElement);
+}
+}
+",ArrayConverterTestCase::checkArray_7_oe
+bean_left_783_1,"public void fixmetestNegativeIntegerArray_1_oe() {
+
+        fail(""Array conversions not implemented yet."");
+}
+",LocaleConvertUtilsTestCase::fixmetestNegativeIntegerArray_1_oe
+bean_left_785_1,"public void fixmetestNegativeStringArray_1_oe() {
+
+        fail(""Array conversions not implemented yet."");
+}
+",LocaleConvertUtilsTestCase::fixmetestNegativeStringArray_1_oe
+bean_left_786_1,"public void fixmetestObjectToStringArray_1_oe() {
+
+        fail(""Array conversions not implemented yet."");
+}
+",LocaleConvertUtilsTestCase::fixmetestObjectToStringArray_1_oe
+bean_left_786_2,"public void fixmetestObjectToStringArray_2_oe() {
+
+        // removed other assertion
+        final int intArray0[] = new int[0];
+        final int intArray1[] = {123};
+        final int intArray2[] = {123, 456};
+        final String stringArray0[] = new String[0];
+        final String stringArray1[] = {""abc""};
+        final String stringArray2[] = {""abc"", ""def""};
+
+        assertEquals(""intArray0"",null,LocaleConvertUtils.convert(intArray0));
+}
+",LocaleConvertUtilsTestCase::fixmetestObjectToStringArray_2_oe
+bean_left_786_3,"public void fixmetestObjectToStringArray_3_oe() {
+
+        // removed other assertion
+        final int intArray0[] = new int[0];
+        final int intArray1[] = {123};
+        final int intArray2[] = {123, 456};
+        final String stringArray0[] = new String[0];
+        final String stringArray1[] = {""abc""};
+        final String stringArray2[] = {""abc"", ""def""};
+
+        // removed other assertion
+        assertEquals(""intArray1"",""123"",LocaleConvertUtils.convert(intArray1));
+}
+",LocaleConvertUtilsTestCase::fixmetestObjectToStringArray_3_oe
+bean_left_786_4,"public void fixmetestObjectToStringArray_4_oe() {
+
+        // removed other assertion
+        final int intArray0[] = new int[0];
+        final int intArray1[] = {123};
+        final int intArray2[] = {123, 456};
+        final String stringArray0[] = new String[0];
+        final String stringArray1[] = {""abc""};
+        final String stringArray2[] = {""abc"", ""def""};
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""intArray2"",""123"",LocaleConvertUtils.convert(intArray2));
+}
+",LocaleConvertUtilsTestCase::fixmetestObjectToStringArray_4_oe
+bean_left_786_5,"public void fixmetestObjectToStringArray_5_oe() {
+
+        // removed other assertion
+        final int intArray0[] = new int[0];
+        final int intArray1[] = {123};
+        final int intArray2[] = {123, 456};
+        final String stringArray0[] = new String[0];
+        final String stringArray1[] = {""abc""};
+        final String stringArray2[] = {""abc"", ""def""};
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(""stringArray0"",null,LocaleConvertUtils.convert(stringArray0));
+}
+",LocaleConvertUtilsTestCase::fixmetestObjectToStringArray_5_oe
+bean_left_786_6,"public void fixmetestObjectToStringArray_6_oe() {
+
+        // removed other assertion
+        final int intArray0[] = new int[0];
+        final int intArray1[] = {123};
+        final int intArray2[] = {123, 456};
+        final String stringArray0[] = new String[0];
+        final String stringArray1[] = {""abc""};
+        final String stringArray2[] = {""abc"", ""def""};
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(""stringArray1"",""abc"",LocaleConvertUtils.convert(stringArray1));
+}
+",LocaleConvertUtilsTestCase::fixmetestObjectToStringArray_6_oe
+bean_left_786_7,"public void fixmetestObjectToStringArray_7_oe() {
+
+        // removed other assertion
+        final int intArray0[] = new int[0];
+        final int intArray1[] = {123};
+        final int intArray2[] = {123, 456};
+        final String stringArray0[] = new String[0];
+        final String stringArray1[] = {""abc""};
+        final String stringArray2[] = {""abc"", ""def""};
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""stringArray2"",""abc"",LocaleConvertUtils.convert(stringArray2));
+}
+",LocaleConvertUtilsTestCase::fixmetestObjectToStringArray_7_oe
+bean_left_788_1,"public void fixmetestPositiveArray_1_oe() {
+
+        fail(""Array conversions not implemented yet."");
+}
+",LocaleConvertUtilsTestCase::fixmetestPositiveArray_1_oe
+bean_left_788_2,"public void fixmetestPositiveArray_2_oe() {
+
+        // removed other assertion
+
+        final String values1[] = {""10"", ""20"", ""30""};
+        Object value = LocaleConvertUtils.convert(values1, Integer.TYPE);
+        final int shape[] = new int[0];
+        assertEquals(shape.getClass(), value.getClass());
+}
+",LocaleConvertUtilsTestCase::fixmetestPositiveArray_2_oe
+bean_left_788_3,"public void fixmetestPositiveArray_3_oe() {
+
+        // removed other assertion
+
+        final String values1[] = {""10"", ""20"", ""30""};
+        Object value = LocaleConvertUtils.convert(values1, Integer.TYPE);
+        final int shape[] = new int[0];
+        // removed other assertion
+        final int results1[] = (int[]) value;
+        assertEquals(results1[0], 10);
+}
+",LocaleConvertUtilsTestCase::fixmetestPositiveArray_3_oe
+bean_left_788_4,"public void fixmetestPositiveArray_4_oe() {
+
+        // removed other assertion
+
+        final String values1[] = {""10"", ""20"", ""30""};
+        Object value = LocaleConvertUtils.convert(values1, Integer.TYPE);
+        final int shape[] = new int[0];
+        // removed other assertion
+        final int results1[] = (int[]) value;
+        // removed other assertion
+        assertEquals(results1[1], 20);
+}
+",LocaleConvertUtilsTestCase::fixmetestPositiveArray_4_oe
+bean_left_788_5,"public void fixmetestPositiveArray_5_oe() {
+
+        // removed other assertion
+
+        final String values1[] = {""10"", ""20"", ""30""};
+        Object value = LocaleConvertUtils.convert(values1, Integer.TYPE);
+        final int shape[] = new int[0];
+        // removed other assertion
+        final int results1[] = (int[]) value;
+        // removed other assertion
+        // removed other assertion
+        assertEquals(results1[2], 30);
+}
+",LocaleConvertUtilsTestCase::fixmetestPositiveArray_5_oe
+bean_left_788_6,"public void fixmetestPositiveArray_6_oe() {
+
+        // removed other assertion
+
+        final String values1[] = {""10"", ""20"", ""30""};
+        Object value = LocaleConvertUtils.convert(values1, Integer.TYPE);
+        final int shape[] = new int[0];
+        // removed other assertion
+        final int results1[] = (int[]) value;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String values2[] = {""100"", ""200"", ""300""};
+        value = LocaleConvertUtils.convert(values2, shape.getClass());
+        assertEquals(shape.getClass(), value.getClass());
+}
+",LocaleConvertUtilsTestCase::fixmetestPositiveArray_6_oe
+bean_left_788_7,"public void fixmetestPositiveArray_7_oe() {
+
+        // removed other assertion
+
+        final String values1[] = {""10"", ""20"", ""30""};
+        Object value = LocaleConvertUtils.convert(values1, Integer.TYPE);
+        final int shape[] = new int[0];
+        // removed other assertion
+        final int results1[] = (int[]) value;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String values2[] = {""100"", ""200"", ""300""};
+        value = LocaleConvertUtils.convert(values2, shape.getClass());
+        // removed other assertion
+        final int results2[] = (int[]) value;
+        assertEquals(results2[0], 100);
+}
+",LocaleConvertUtilsTestCase::fixmetestPositiveArray_7_oe
+bean_left_788_8,"public void fixmetestPositiveArray_8_oe() {
+
+        // removed other assertion
+
+        final String values1[] = {""10"", ""20"", ""30""};
+        Object value = LocaleConvertUtils.convert(values1, Integer.TYPE);
+        final int shape[] = new int[0];
+        // removed other assertion
+        final int results1[] = (int[]) value;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String values2[] = {""100"", ""200"", ""300""};
+        value = LocaleConvertUtils.convert(values2, shape.getClass());
+        // removed other assertion
+        final int results2[] = (int[]) value;
+        // removed other assertion
+        assertEquals(results2[1], 200);
+}
+",LocaleConvertUtilsTestCase::fixmetestPositiveArray_8_oe
+bean_left_788_9,"public void fixmetestPositiveArray_9_oe() {
+
+        // removed other assertion
+
+        final String values1[] = {""10"", ""20"", ""30""};
+        Object value = LocaleConvertUtils.convert(values1, Integer.TYPE);
+        final int shape[] = new int[0];
+        // removed other assertion
+        final int results1[] = (int[]) value;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String values2[] = {""100"", ""200"", ""300""};
+        value = LocaleConvertUtils.convert(values2, shape.getClass());
+        // removed other assertion
+        final int results2[] = (int[]) value;
+        // removed other assertion
+        // removed other assertion
+        assertEquals(results2[2], 300);
+}
+",LocaleConvertUtilsTestCase::fixmetestPositiveArray_9_oe
+bean_left_789_1,"public void fixmetestPositiveIntegerArray_1_oe() {
+
+        fail(""Array conversions not implemented yet."");
+}
+",LocaleConvertUtilsTestCase::fixmetestPositiveIntegerArray_1_oe
+bean_left_791_1,"public void fixmetestPositiveStringArray_1_oe() {
+
+        fail(""Array conversions not implemented yet."");
+}
+",LocaleConvertUtilsTestCase::fixmetestPositiveStringArray_1_oe
+bean_left_795_1,"private void checkIntegerArray_1_oe(final Object value, final int intArray[]) {
+
+        assertNotNull(""Returned value is not null"", value);
+}
+",LocaleConvertUtilsTestCase::checkIntegerArray_1_oe
+bean_left_795_2,"private void checkIntegerArray_2_oe(final Object value, final int intArray[]) {
+
+        // removed other assertion
+        assertEquals(""Returned value is int[]"",intArray.getClass(),value.getClass());
+}
+",LocaleConvertUtilsTestCase::checkIntegerArray_2_oe
+bean_left_795_3,"private void checkIntegerArray_3_oe(final Object value, final int intArray[]) {
+
+        // removed other assertion
+        // removed other assertion
+        final int results[] = (int[]) value;
+        assertEquals(""Returned array length"", intArray.length, results.length);
+}
+",LocaleConvertUtilsTestCase::checkIntegerArray_3_oe
+bean_left_795_4,"private void checkIntegerArray_4_oe(final Object value, final int intArray[]) {
+
+        // removed other assertion
+        // removed other assertion
+        final int results[] = (int[]) value;
+        // removed other assertion
+        for (int i = 0; i < intArray.length; i++) {
+            assertEquals(""Returned array value "" + i,intArray[i],results[i]);
+}
+}
+",LocaleConvertUtilsTestCase::checkIntegerArray_4_oe
+bean_left_796_1,"private void checkStringArray_1_oe(final Object value, final String stringArray[]) {
+
+        assertNotNull(""Returned value is not null"", value);
+}
+",LocaleConvertUtilsTestCase::checkStringArray_1_oe
+bean_left_796_2,"private void checkStringArray_2_oe(final Object value, final String stringArray[]) {
+
+        // removed other assertion
+        assertEquals(""Returned value is String[]"",stringArray.getClass(),value.getClass());
+}
+",LocaleConvertUtilsTestCase::checkStringArray_2_oe
+bean_left_796_3,"private void checkStringArray_3_oe(final Object value, final String stringArray[]) {
+
+        // removed other assertion
+        // removed other assertion
+        final String results[] = (String[]) value;
+        assertEquals(""Returned array length"",stringArray.length,results.length);
+}
+",LocaleConvertUtilsTestCase::checkStringArray_3_oe
+bean_left_796_4,"private void checkStringArray_4_oe(final Object value, final String stringArray[]) {
+
+        // removed other assertion
+        // removed other assertion
+        final String results[] = (String[]) value;
+        // removed other assertion
+        for (int i = 0; i < stringArray.length; i++) {
+            assertEquals(""Returned array value "" + i,stringArray[i],results[i]);
+}
+}
+",LocaleConvertUtilsTestCase::checkStringArray_4_oe
+bean_left_812_1,"protected void convertValueWithPattern_1_oe(final BaseLocaleConverter converter, final String msgId, final Object value, final String pattern, final Object expectedValue) {
+
+        // Convert value with no pattern
+        try {
+            result = converter.convert(value, pattern);
+        } catch (final Exception e) {
+            fail(""Pattern conversion threw "" + msgId + "" threw "" + e);
+}
+}
+",BaseLocaleConverterTestCase::convertValueWithPattern_1_oe
+bean_left_812_2,"protected void convertValueWithPattern_2_oe(final BaseLocaleConverter converter, final String msgId, final Object value, final String pattern, final Object expectedValue) {
+
+        // Convert value with no pattern
+        try {
+            result = converter.convert(value, pattern);
+        } catch (final Exception e) {
+            // removed other assertion
+        }
+        assertEquals(""Check conversion value with pattern "" + msgId, expectedValue, result);
+}
+",BaseLocaleConverterTestCase::convertValueWithPattern_2_oe
+bean_left_813_1,"protected void convertValueNoPattern_1_oe(final BaseLocaleConverter converter, final String msgId, final Object value, final Object expectedValue) {
+
+        // Convert value with no pattern
+        try {
+            result = converter.convert(value);
+        } catch (final Exception e) {
+            fail(""No Pattern conversion threw "" + msgId + "" threw "" + e);
+}
+}
+",BaseLocaleConverterTestCase::convertValueNoPattern_1_oe
+bean_left_813_2,"protected void convertValueNoPattern_2_oe(final BaseLocaleConverter converter, final String msgId, final Object value, final Object expectedValue) {
+
+        // Convert value with no pattern
+        try {
+            result = converter.convert(value);
+        } catch (final Exception e) {
+            // removed other assertion
+        }
+        assertEquals(""Check conversion value without pattern "" + msgId, expectedValue, result);
+}
+",BaseLocaleConverterTestCase::convertValueNoPattern_2_oe
+bean_left_814_1,"protected void convertValueToType_1_oe(final BaseLocaleConverter converter, final String msgId, final Class<?> clazz, final Object value, final String pattern, final Object expectedValue) {
+
+        // Convert value with no pattern
+        try {
+            result = converter.convert(clazz, value, pattern);
+        } catch (final Exception e) {
+            fail(""Type  conversion threw "" + msgId + "" threw "" + e);
+}
+}
+",BaseLocaleConverterTestCase::convertValueToType_1_oe
+bean_left_814_2,"protected void convertValueToType_2_oe(final BaseLocaleConverter converter, final String msgId, final Class<?> clazz, final Object value, final String pattern, final Object expectedValue) {
+
+        // Convert value with no pattern
+        try {
+            result = converter.convert(clazz, value, pattern);
+        } catch (final Exception e) {
+            // removed other assertion
+        }
+        assertEquals(""Check conversion value to type "" + msgId, expectedValue, result);
+}
+",BaseLocaleConverterTestCase::convertValueToType_2_oe
+bean_left_815_1,"protected void convertNull_1_oe(final BaseLocaleConverter converter, final String msgId, final Object expectedValue) {
+
+        // Convert value with no pattern
+        try {
+            result = converter.convert(null);
+        } catch (final Exception e) {
+            fail(""Null conversion "" + msgId + "" threw "" + e);
+}
+}
+",BaseLocaleConverterTestCase::convertNull_1_oe
+bean_left_815_2,"protected void convertNull_2_oe(final BaseLocaleConverter converter, final String msgId, final Object expectedValue) {
+
+        // Convert value with no pattern
+        try {
+            result = converter.convert(null);
+        } catch (final Exception e) {
+            // removed other assertion
+        }
+
+        if (expectedValue == null) {
+            assertNull(""Check null conversion is null "" + msgId + "" result=""+result, result);
+}
+}
+",BaseLocaleConverterTestCase::convertNull_2_oe
+bean_left_815_3,"protected void convertNull_3_oe(final BaseLocaleConverter converter, final String msgId, final Object expectedValue) {
+
+        // Convert value with no pattern
+        try {
+            result = converter.convert(null);
+        } catch (final Exception e) {
+            // removed other assertion
+        }
+
+        if (expectedValue == null) {
+            // removed other assertion
+        } else {
+            assertEquals(""Check null conversion is default "" + msgId, expectedValue, result);
+}
+}
+",BaseLocaleConverterTestCase::convertNull_3_oe
+bean_left_816_1,"protected void convertInvalid_1_oe(final BaseLocaleConverter converter, final String msgId, final Object expectedValue) {
+
+        // Convert value with no pattern
+        try {
+            result = converter.convert(""xyz"");
+            if (expectedValue == null) {
+                fail(""Expected ConversionException if no default value "" + msgId);
+}
+}
+}
+",BaseLocaleConverterTestCase::convertInvalid_1_oe
+bean_left_816_2,"protected void convertInvalid_2_oe(final BaseLocaleConverter converter, final String msgId, final Object expectedValue) {
+
+        // Convert value with no pattern
+        try {
+            result = converter.convert(""xyz"");
+            if (expectedValue == null) {
+                // removed other assertion
+            }
+        } catch (final Exception e) {
+            if (expectedValue != null) {
+                fail(""Expected default value "" + msgId + "" threw "" + e);
+}
+}
+}
+",BaseLocaleConverterTestCase::convertInvalid_2_oe
+bean_left_816_3,"protected void convertInvalid_3_oe(final BaseLocaleConverter converter, final String msgId, final Object expectedValue) {
+
+        // Convert value with no pattern
+        try {
+            result = converter.convert(""xyz"");
+            if (expectedValue == null) {
+                // removed other assertion
+            }
+        } catch (final Exception e) {
+            if (expectedValue != null) {
+                // removed other assertion
+            }
+        }
+
+        if (expectedValue != null) {
+            assertEquals(""Check invalid conversion is default "" + msgId, expectedValue, result);
+}
+}
+",BaseLocaleConverterTestCase::convertInvalid_3_oe

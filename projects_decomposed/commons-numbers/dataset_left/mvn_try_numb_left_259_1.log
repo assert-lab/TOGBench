@@ -1,0 +1,21 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_259_1.java:[1469,9] cannot find symbol
+  symbol:   method assertPowScalarZeroBase(int,org.apache.commons.numbers.complex.Complex)
+  location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_259_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_259_1.java:[1470,9] cannot find symbol
+  symbol:   method assertPowScalarZeroBase(double,org.apache.commons.numbers.complex.Complex)
+  location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_259_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-numbers-complex: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_259_1.java:[1469,9] cannot find symbol
+[ERROR]   symbol:   method assertPowScalarZeroBase(int,org.apache.commons.numbers.complex.Complex)
+[ERROR]   location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_259_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex/src/test/java/org/apache/commons/numbers/complex/ComplexTest_OE25Dev_numb_left_259_1.java:[1470,9] cannot find symbol
+[ERROR]   symbol:   method assertPowScalarZeroBase(double,org.apache.commons.numbers.complex.Complex)
+[ERROR]   location: class org.apache.commons.numbers.complex.ComplexTest_OE25Dev_numb_left_259_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

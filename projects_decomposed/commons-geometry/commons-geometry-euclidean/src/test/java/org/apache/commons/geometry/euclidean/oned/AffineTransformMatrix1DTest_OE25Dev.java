@@ -30,13 +30,6 @@ class AffineTransformMatrix1DTest_OE25Dev {
     private static final double EPS = 1e-12;
 
     @Test
-    void testOf_invalidDimensions() {
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix1D.of(1),
-                IllegalArgumentException.class, "Dimension mismatch: 1 != 2");
-    }
-
-    @Test
     void testApply_identity() {
         // arrange
         final AffineTransformMatrix1D transform = AffineTransformMatrix1D.identity();
@@ -423,38 +416,6 @@ class AffineTransformMatrix1DTest_OE25Dev {
             EuclideanTestUtils.assertCoordinatesEqual(v3, inverse.apply(transform.apply(v3)), EPS);
             EuclideanTestUtils.assertCoordinatesEqual(v4, inverse.apply(transform.apply(v4)), EPS);
         });
-    }
-
-    @Test
-    void testInverse_nonInvertible() {
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            AffineTransformMatrix1D.of(0, 0).inverse();
-        }, IllegalStateException.class, "Matrix is not invertible; matrix determinant is 0.0");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            AffineTransformMatrix1D.of(Double.NaN, 0).inverse();
-        }, IllegalStateException.class, "Matrix is not invertible; matrix determinant is NaN");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            AffineTransformMatrix1D.of(Double.NEGATIVE_INFINITY, 0.0).inverse();
-        }, IllegalStateException.class, "Matrix is not invertible; matrix determinant is -Infinity");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            AffineTransformMatrix1D.of(Double.POSITIVE_INFINITY, 0).inverse();
-        }, IllegalStateException.class, "Matrix is not invertible; matrix determinant is Infinity");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            AffineTransformMatrix1D.of(1, Double.NaN).inverse();
-        }, IllegalStateException.class, "Matrix is not invertible; invalid matrix element: NaN");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            AffineTransformMatrix1D.of(1, Double.NEGATIVE_INFINITY).inverse();
-        }, IllegalStateException.class, "Matrix is not invertible; invalid matrix element: -Infinity");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            AffineTransformMatrix1D.of(1, Double.POSITIVE_INFINITY).inverse();
-        }, IllegalStateException.class, "Matrix is not invertible; invalid matrix element: Infinity");
     }
 
     @FunctionalInterface
@@ -1074,6 +1035,96 @@ class AffineTransformMatrix1DTest_OE25Dev {
 
         // assert
         Assertions.assertEquals("[ 1.0, 2.0 ]", result);
+    }
+
+@Test
+    void testOf_invalidDimensions_1_oe() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix1D.of(1), IllegalArgumentException.class, "Dimension mismatch: 1 != 2");
+    }
+
+@Test
+    void testInverse_nonInvertible_1_oe() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { AffineTransformMatrix1D.of(0, 0).inverse(); }, IllegalStateException.class, "Matrix is not invertible; matrix determinant is 0.0");
+    }
+
+@Test
+    void testInverse_nonInvertible_2_oe() {
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { AffineTransformMatrix1D.of(Double.NaN, 0).inverse(); }, IllegalStateException.class, "Matrix is not invertible; matrix determinant is NaN");
+    }
+
+@Test
+    void testInverse_nonInvertible_3_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { AffineTransformMatrix1D.of(Double.NEGATIVE_INFINITY, 0.0).inverse(); }, IllegalStateException.class, "Matrix is not invertible; matrix determinant is -Infinity");
+    }
+
+@Test
+    void testInverse_nonInvertible_4_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { AffineTransformMatrix1D.of(Double.POSITIVE_INFINITY, 0).inverse(); }, IllegalStateException.class, "Matrix is not invertible; matrix determinant is Infinity");
+    }
+
+@Test
+    void testInverse_nonInvertible_5_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { AffineTransformMatrix1D.of(1, Double.NaN).inverse(); }, IllegalStateException.class, "Matrix is not invertible; invalid matrix element: NaN");
+    }
+
+@Test
+    void testInverse_nonInvertible_6_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { AffineTransformMatrix1D.of(1, Double.NEGATIVE_INFINITY).inverse(); }, IllegalStateException.class, "Matrix is not invertible; invalid matrix element: -Infinity");
+    }
+
+@Test
+    void testInverse_nonInvertible_7_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { AffineTransformMatrix1D.of(1, Double.POSITIVE_INFINITY).inverse(); }, IllegalStateException.class, "Matrix is not invertible; invalid matrix element: Infinity");
     }
 
 }

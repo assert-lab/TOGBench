@@ -45,79 +45,6 @@ class TextStlWriterTest_OE25Dev {
     private final StringWriter out = new StringWriter();
 
     @Test
-    void testStartSolid_alreadyStarted() {
-        // arrange
-        try (TextStlWriter writer = new TextStlWriter(out)) {
-            writer.startSolid();
-
-            // act/assert
-            GeometryTestUtils.assertThrowsWithMessage(
-                    () -> writer.startSolid(),
-                    IllegalStateException.class, "Cannot start solid definition: a solid is already being written");
-        }
-    }
-
-    @Test
-    void testEndSolid_notStarted() {
-        // arrange
-        try (TextStlWriter writer = new TextStlWriter(out)) {
-            // act/assert
-            GeometryTestUtils.assertThrowsWithMessage(
-                    () -> writer.endSolid(),
-                    IllegalStateException.class, "Cannot end solid definition: no solid has been started");
-        }
-    }
-
-    @Test
-    void testStartSolid_containsNewLine() {
-        // arrange
-        try (TextStlWriter writer = new TextStlWriter(out)) {
-            final String err = "Solid name cannot contain new line characters";
-
-            // act/assert
-            GeometryTestUtils.assertThrowsWithMessage(
-                    () -> writer.startSolid("Hi\nthere"),
-                    IllegalArgumentException.class, err);
-            GeometryTestUtils.assertThrowsWithMessage(
-                    () -> writer.startSolid("Hi\r\nthere"),
-                    IllegalArgumentException.class, err);
-            GeometryTestUtils.assertThrowsWithMessage(
-                    () -> writer.startSolid("Hi\rthere"),
-                    IllegalArgumentException.class, err);
-        }
-    }
-
-    @Test
-    void testWrite_noSolidStarted() {
-        // arrange
-        final List<Vector3D> vertices = Arrays.asList(
-                Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0));
-        final Vector3D normal = Vector3D.Unit.PLUS_Z;
-
-        final String msg = "Cannot write triangle: no solid has been started";
-
-        try (TextStlWriter writer = new TextStlWriter(out)) {
-
-            // act/assert
-            GeometryTestUtils.assertThrowsWithMessage(
-                    () -> writer.writeTriangle(vertices.get(0), vertices.get(1), vertices.get(2), normal),
-                    IllegalStateException.class, msg);
-
-            GeometryTestUtils.assertThrowsWithMessage(
-                    () -> writer.writeTriangles(vertices, normal),
-                    IllegalStateException.class, msg);
-
-            GeometryTestUtils.assertThrowsWithMessage(
-                    () -> writer.writeTriangles(new SimpleFacetDefinition(vertices, normal)),
-                    IllegalStateException.class, msg);
-
-            GeometryTestUtils.assertThrowsWithMessage(
-                    () -> writer.writeTriangles(Planes.convexPolygonFromVertices(vertices, TEST_PRECISION)),
-                    IllegalStateException.class, msg);
-        }
-    }
-
-    @Test
     void testDefaultProperties_1_oe() {
         // act/assert
         try (TextStlWriter writer = new TextStlWriter(out)) {
@@ -603,6 +530,138 @@ class TextStlWriterTest_OE25Dev {
 
         // assert
         Assertions.assertEquals("solid \n" + "facet 0.0 0.0 0.0\n" + "outer loop\n" + "vertex 0.0 0.0 0.0\n" + "vertex 0.0 0.0 0.0\n" + "vertex 0.0 0.0 0.0\n" + "endloop\n" + "endfacet\n" + "endsolid \n",out.toString());
+    }
+
+@Test
+    void testStartSolid_alreadyStarted_1_oe() {
+        // arrange
+        try (TextStlWriter writer = new TextStlWriter(out)) {
+            writer.startSolid();
+
+            // act/assert
+            GeometryTestUtils.assertThrowsWithMessage( () -> writer.startSolid(), IllegalStateException.class, "Cannot start solid definition: a solid is already being written");
+    }
+    }
+
+@Test
+    void testEndSolid_notStarted_1_oe() {
+        // arrange
+        try (TextStlWriter writer = new TextStlWriter(out)) {
+            // act/assert
+            GeometryTestUtils.assertThrowsWithMessage( () -> writer.endSolid(), IllegalStateException.class, "Cannot end solid definition: no solid has been started");
+    }
+    }
+
+@Test
+    void testStartSolid_containsNewLine_1_oe() {
+        // arrange
+        try (TextStlWriter writer = new TextStlWriter(out)) {
+            final String err = "Solid name cannot contain new line characters";
+
+            // act/assert
+            GeometryTestUtils.assertThrowsWithMessage( () -> writer.startSolid("Hi\nthere"), IllegalArgumentException.class, err);
+    }
+    }
+
+@Test
+    void testStartSolid_containsNewLine_2_oe() {
+        // arrange
+        try (TextStlWriter writer = new TextStlWriter(out)) {
+            final String err = "Solid name cannot contain new line characters";
+
+            // act/assert
+            // removed other assertion
+            GeometryTestUtils.assertThrowsWithMessage( () -> writer.startSolid("Hi\r\nthere"), IllegalArgumentException.class, err);
+    }
+    }
+
+@Test
+    void testStartSolid_containsNewLine_3_oe() {
+        // arrange
+        try (TextStlWriter writer = new TextStlWriter(out)) {
+            final String err = "Solid name cannot contain new line characters";
+
+            // act/assert
+            // removed other assertion
+            // removed other assertion
+            GeometryTestUtils.assertThrowsWithMessage( () -> writer.startSolid("Hi\rthere"), IllegalArgumentException.class, err);
+    }
+    }
+
+@Test
+    void testWrite_noSolidStarted_1_oe() {
+        // arrange
+        final List<Vector3D> vertices = Arrays.asList(
+                Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0));
+        final Vector3D normal = Vector3D.Unit.PLUS_Z;
+
+        final String msg = "Cannot write triangle: no solid has been started";
+
+        try (TextStlWriter writer = new TextStlWriter(out)) {
+
+            // act/assert
+            GeometryTestUtils.assertThrowsWithMessage( () -> writer.writeTriangle(vertices.get(0), vertices.get(1), vertices.get(2), normal), IllegalStateException.class, msg);
+    }
+    }
+
+@Test
+    void testWrite_noSolidStarted_2_oe() {
+        // arrange
+        final List<Vector3D> vertices = Arrays.asList(
+                Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0));
+        final Vector3D normal = Vector3D.Unit.PLUS_Z;
+
+        final String msg = "Cannot write triangle: no solid has been started";
+
+        try (TextStlWriter writer = new TextStlWriter(out)) {
+
+            // act/assert
+            // removed other assertion
+
+            GeometryTestUtils.assertThrowsWithMessage( () -> writer.writeTriangles(vertices, normal), IllegalStateException.class, msg);
+    }
+    }
+
+@Test
+    void testWrite_noSolidStarted_3_oe() {
+        // arrange
+        final List<Vector3D> vertices = Arrays.asList(
+                Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0));
+        final Vector3D normal = Vector3D.Unit.PLUS_Z;
+
+        final String msg = "Cannot write triangle: no solid has been started";
+
+        try (TextStlWriter writer = new TextStlWriter(out)) {
+
+            // act/assert
+            // removed other assertion
+
+            // removed other assertion
+
+            GeometryTestUtils.assertThrowsWithMessage( () -> writer.writeTriangles(new SimpleFacetDefinition(vertices, normal)), IllegalStateException.class, msg);
+    }
+    }
+
+@Test
+    void testWrite_noSolidStarted_4_oe() {
+        // arrange
+        final List<Vector3D> vertices = Arrays.asList(
+                Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0));
+        final Vector3D normal = Vector3D.Unit.PLUS_Z;
+
+        final String msg = "Cannot write triangle: no solid has been started";
+
+        try (TextStlWriter writer = new TextStlWriter(out)) {
+
+            // act/assert
+            // removed other assertion
+
+            // removed other assertion
+
+            // removed other assertion
+
+            GeometryTestUtils.assertThrowsWithMessage( () -> writer.writeTriangles(Planes.convexPolygonFromVertices(vertices, TEST_PRECISION)), IllegalStateException.class, msg);
+    }
     }
 
 }

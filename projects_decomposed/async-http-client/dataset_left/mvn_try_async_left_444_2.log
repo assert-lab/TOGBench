@@ -1,0 +1,21 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/request/body/multipart/MultipartBasicAuthTest_OE25Dev_async_left_444_2.java:[90,5] cannot find symbol
+  symbol:   method expectSuccess((rb)->rb.s[...]rue)))
+  location: class org.asynchttpclient.request.body.multipart.MultipartBasicAuthTest_OE25Dev_async_left_444_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/request/body/multipart/MultipartBasicAuthTest_OE25Dev_async_left_444_2.java:[95,5] cannot find symbol
+  symbol:   method expectSuccess((rb)->rb.s[...]INUE))
+  location: class org.asynchttpclient.request.body.multipart.MultipartBasicAuthTest_OE25Dev_async_left_444_2
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project async-http-client: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/request/body/multipart/MultipartBasicAuthTest_OE25Dev_async_left_444_2.java:[90,5] cannot find symbol
+[ERROR]   symbol:   method expectSuccess((rb)->rb.s[...]rue)))
+[ERROR]   location: class org.asynchttpclient.request.body.multipart.MultipartBasicAuthTest_OE25Dev_async_left_444_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/request/body/multipart/MultipartBasicAuthTest_OE25Dev_async_left_444_2.java:[95,5] cannot find symbol
+[ERROR]   symbol:   method expectSuccess((rb)->rb.s[...]INUE))
+[ERROR]   location: class org.asynchttpclient.request.body.multipart.MultipartBasicAuthTest_OE25Dev_async_left_444_2
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

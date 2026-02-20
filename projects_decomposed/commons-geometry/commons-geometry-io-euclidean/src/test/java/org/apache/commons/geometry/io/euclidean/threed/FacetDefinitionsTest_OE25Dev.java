@@ -39,22 +39,6 @@ class FacetDefinitionsTest_OE25Dev {
             Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(1, 1, 0), Vector3D.of(0, 1, 0));
 
     @Test
-    void testToPolygon_invalidArgs() {
-        // arrange
-        final SimpleFacetDefinition f = new SimpleFacetDefinition(Arrays.asList(
-                Vector3D.ZERO, Vector3D.ZERO, Vector3D.ZERO));
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> FacetDefinitions.toPolygon(null, TEST_PRECISION),
-                NullPointerException.class, "Facet cannot be null");
-
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> FacetDefinitions.toPolygon(f, null),
-                NullPointerException.class, "Precision context cannot be null");
-    }
-
-    @Test
     void testToPolygon_noNormal_1_oe() {
         // arrange
         final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS);
@@ -201,6 +185,28 @@ class FacetDefinitionsTest_OE25Dev {
     fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+@Test
+    void testToPolygon_invalidArgs_1_oe() {
+        // arrange
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(Arrays.asList(
+                Vector3D.ZERO, Vector3D.ZERO, Vector3D.ZERO));
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage( () -> FacetDefinitions.toPolygon(null, TEST_PRECISION), NullPointerException.class, "Facet cannot be null");
+    }
+
+@Test
+    void testToPolygon_invalidArgs_2_oe() {
+        // arrange
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(Arrays.asList(
+                Vector3D.ZERO, Vector3D.ZERO, Vector3D.ZERO));
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage( () -> FacetDefinitions.toPolygon(f, null), NullPointerException.class, "Precision context cannot be null");
     }
 
 }

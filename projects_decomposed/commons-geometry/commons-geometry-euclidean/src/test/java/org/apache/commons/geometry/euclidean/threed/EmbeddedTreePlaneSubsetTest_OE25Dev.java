@@ -63,35 +63,6 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
     }
 
     @Test
-    void testToTriangles_infinite() {
-        // arrange
-        final Pattern pattern = Pattern.compile("^Cannot convert infinite plane subset to triangles: .*");
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            new EmbeddedTreePlaneSubset(XY_PLANE, true).toTriangles();
-        }, IllegalStateException.class, pattern);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            final EmbeddedTreePlaneSubset halfSpace = new EmbeddedTreePlaneSubset(XY_PLANE, false);
-            halfSpace.getSubspaceRegion().getRoot()
-                .insertCut(Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION));
-
-            halfSpace.toTriangles();
-        }, IllegalStateException.class, pattern);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            final RegionBSPTree2D tree = RegionBSPTree2D.empty();
-            tree.insert(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION));
-            tree.insert(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(0, 1), TEST_PRECISION));
-
-            final EmbeddedTreePlaneSubset halfSpaceWithVertices = new EmbeddedTreePlaneSubset(XY_PLANE, tree);
-
-            halfSpaceWithVertices.toTriangles();
-        }, IllegalStateException.class, pattern);
-    }
-
-    @Test
     void testGetBounds_hasBounds() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
@@ -1126,6 +1097,39 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
     fail("IllegalArgumentException");
 } catch (IllegalArgumentException e) {
 }
+    }
+
+@Test
+    void testToTriangles_infinite_1_oe() {
+        // arrange
+        final Pattern pattern = Pattern.compile("^Cannot convert infinite plane subset to triangles: .*");
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { new EmbeddedTreePlaneSubset(XY_PLANE, true).toTriangles(); }, IllegalStateException.class, pattern);
+    }
+
+@Test
+    void testToTriangles_infinite_2_oe() {
+        // arrange
+        final Pattern pattern = Pattern.compile("^Cannot convert infinite plane subset to triangles: .*");
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { final EmbeddedTreePlaneSubset halfSpace = new EmbeddedTreePlaneSubset(XY_PLANE, false); halfSpace.getSubspaceRegion().getRoot() .insertCut(Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)); halfSpace.toTriangles(); }, IllegalStateException.class, pattern);
+    }
+
+@Test
+    void testToTriangles_infinite_3_oe() {
+        // arrange
+        final Pattern pattern = Pattern.compile("^Cannot convert infinite plane subset to triangles: .*");
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { final RegionBSPTree2D tree = RegionBSPTree2D.empty(); tree.insert(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION)); tree.insert(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(0, 1), TEST_PRECISION)); final EmbeddedTreePlaneSubset halfSpaceWithVertices = new EmbeddedTreePlaneSubset(XY_PLANE, tree); halfSpaceWithVertices.toTriangles(); }, IllegalStateException.class, pattern);
     }
 
 }

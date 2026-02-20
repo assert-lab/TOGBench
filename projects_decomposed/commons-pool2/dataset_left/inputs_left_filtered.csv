@@ -1,0 +1,4228 @@
+id,test_prefix,test_name
+pool_left_42_1,"protected Object getNthObject_1_oe(final int n) {
+        if (this.getClass() != TestBaseObjectPool.class) {
+            fail(""Subclasses of TestBaseObjectPool must reimplement this method."");
+}
+}
+",TestBaseObjectPool::getNthObject_1_oe
+pool_left_43_1,"protected boolean isFifo_1_oe() {
+        if (this.getClass() != TestBaseObjectPool.class) {
+            fail(""Subclasses of TestBaseObjectPool must reimplement this method."");
+}
+}
+",TestBaseObjectPool::isFifo_1_oe
+pool_left_44_1,"protected boolean isLifo_1_oe() {
+        if (this.getClass() != TestBaseObjectPool.class) {
+            fail(""Subclasses of TestBaseObjectPool must reimplement this method."");
+}
+}
+",TestBaseObjectPool::isLifo_1_oe
+pool_left_45_1,"protected ObjectPool<String> makeEmptyPool_1_oe(final int minCapacity) {
+        if (this.getClass() != TestBaseObjectPool.class) {
+            fail(""Subclasses of TestBaseObjectPool must reimplement this method."");
+}
+}
+",TestBaseObjectPool::makeEmptyPool_1_oe
+pool_left_46_1,"@Override
+    protected ObjectPool<Object> makeEmptyPool_1_oe(final PooledObjectFactory<Object> factory) {
+        if (this.getClass() != TestBaseObjectPool.class) {
+            fail(""Subclasses of TestBaseObjectPool must reimplement this method."");
+    }
+    }
+",TestBaseObjectPool::makeEmptyPool_1_oe
+pool_left_55_1,"public void activate_1_oe() {
+        if (destroyed) {
+            fail(""attempted to activate a destroyed object"");
+}
+}
+",VisitTracker::activate_1_oe
+pool_left_56_1,"private void fail_1_oe(final String message) { throw new IllegalStateException(message);
+}
+",VisitTracker::fail_1_oe
+pool_left_57_1,"public void passivate_1_oe() {
+        if (destroyed) {
+            fail(""attempted to passivate a destroyed object"");
+}
+}
+",VisitTracker::passivate_1_oe
+pool_left_58_1,"public boolean validate_1_oe() {
+        if (destroyed) {
+            fail(""attempted to validate a destroyed object"");
+}
+}
+",VisitTracker::validate_1_oe
+pool_left_110_1,"@Override
+        public void run_1_oe() {
+            try {
+                pool.invalidateObject(obj);
+            } catch (final IllegalStateException ex) {
+                // Ignore
+            } catch (final Exception ex) {
+                fail(""Unexpected exception "" + ex.toString());
+        }
+        }
+",InvalidateThread::run_1_oe
+pool_left_111_1,"private void checkEvict_1_oe(final boolean lifo) throws Exception {
+        // yea this is hairy but it tests all the code paths in GOP.evict()
+        genericObjectPool.setSoftMinEvictableIdle(Duration.ofMillis(10));
+        genericObjectPool.setSoftMinEvictableIdleTime(Duration.ofMillis(10));
+        genericObjectPool.setMinIdle(2);
+        genericObjectPool.setTestWhileIdle(true);
+        genericObjectPool.setLifo(lifo);
+        genericObjectPool.addObjects(5);
+        genericObjectPool.evict();
+        simpleFactory.setEvenValid(false);
+        simpleFactory.setOddValid(false);
+        simpleFactory.setThrowExceptionOnActivate(true);
+        genericObjectPool.evict();
+        genericObjectPool.addObjects(5);
+        simpleFactory.setThrowExceptionOnActivate(false);
+        simpleFactory.setThrowExceptionOnPassivate(true);
+        genericObjectPool.evict();
+        simpleFactory.setThrowExceptionOnPassivate(false);
+        simpleFactory.setEvenValid(true);
+        simpleFactory.setOddValid(true);
+        Thread.sleep(125);
+        genericObjectPool.evict();
+        assertEquals(2, genericObjectPool.getNumIdle());
+}
+",TestGenericObjectPool::checkEvict_1_oe
+pool_left_112_1,"private void checkEvictionOrderPart1_1_oe(final boolean lifo) throws Exception {
+        genericObjectPool.setNumTestsPerEvictionRun(2);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+        genericObjectPool.setLifo(lifo);
+        for (int i = 0; i < 5; i++) {
+            genericObjectPool.addObject();
+            Thread.sleep(100);
+        }
+        // Order, oldest to youngest, is ""0"", ""1"", ...,""4""
+        genericObjectPool.evict(); // Should evict ""0"" and ""1""
+        final Object obj = genericObjectPool.borrowObject();
+        assertFalse(obj.equals(""0""), ""oldest not evicted"");
+}
+",TestGenericObjectPool::checkEvictionOrderPart1_1_oe
+pool_left_112_2,"private void checkEvictionOrderPart1_2_oe(final boolean lifo) throws Exception {
+        genericObjectPool.setNumTestsPerEvictionRun(2);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+        genericObjectPool.setLifo(lifo);
+        for (int i = 0; i < 5; i++) {
+            genericObjectPool.addObject();
+            Thread.sleep(100);
+        }
+        // Order, oldest to youngest, is ""0"", ""1"", ...,""4""
+        genericObjectPool.evict(); // Should evict ""0"" and ""1""
+        final Object obj = genericObjectPool.borrowObject();
+        // removed other assertion
+        assertFalse(obj.equals(""1""), ""second oldest not evicted"");
+}
+",TestGenericObjectPool::checkEvictionOrderPart1_2_oe
+pool_left_112_3,"private void checkEvictionOrderPart1_3_oe(final boolean lifo) throws Exception {
+        genericObjectPool.setNumTestsPerEvictionRun(2);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+        genericObjectPool.setLifo(lifo);
+        for (int i = 0; i < 5; i++) {
+            genericObjectPool.addObject();
+            Thread.sleep(100);
+        }
+        // Order, oldest to youngest, is ""0"", ""1"", ...,""4""
+        genericObjectPool.evict(); // Should evict ""0"" and ""1""
+        final Object obj = genericObjectPool.borrowObject();
+        // removed other assertion
+        // removed other assertion
+        // 2 should be next out for FIFO, 4 for LIFO
+        assertEquals(lifo ? ""4"" : ""2"" , obj,""Wrong instance returned"");
+}
+",TestGenericObjectPool::checkEvictionOrderPart1_3_oe
+pool_left_113_1,"private void checkEvictionOrderPart2_1_oe(final boolean lifo) throws Exception {
+        // Two eviction runs in sequence
+        genericObjectPool.setNumTestsPerEvictionRun(2);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+        genericObjectPool.setLifo(lifo);
+        for (int i = 0; i < 5; i++) {
+            genericObjectPool.addObject();
+            Thread.sleep(100);
+        }
+        genericObjectPool.evict(); // Should evict ""0"" and ""1""
+        genericObjectPool.evict(); // Should evict ""2"" and ""3""
+        final Object obj = genericObjectPool.borrowObject();
+        assertEquals(""4"", obj,""Wrong instance remaining in pool"");
+}
+",TestGenericObjectPool::checkEvictionOrderPart2_1_oe
+pool_left_114_1,"private void checkEvictorVisiting_1_oe(final boolean lifo) throws Exception {
+        VisitTracker<Object> obj;
+        VisitTrackerFactory<Object> trackerFactory = new VisitTrackerFactory<>();
+        try (GenericObjectPool<VisitTracker<Object>> trackerPool = new GenericObjectPool<>(trackerFactory)) {
+            trackerPool.setNumTestsPerEvictionRun(2);
+            trackerPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            trackerPool.setTestWhileIdle(true);
+            trackerPool.setLifo(lifo);
+            trackerPool.setTestOnReturn(false);
+            trackerPool.setTestOnBorrow(false);
+            for (int i = 0; i < 8; i++) {
+                trackerPool.addObject();
+            }
+            trackerPool.evict(); // Visit oldest 2 - 0 and 1
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            // borrow, return, borrow, return
+            // FIFO will move 0 and 1 to end
+            // LIFO, 7 out, then in, then out, then in
+            trackerPool.evict(); // Should visit 2 and 3 in either case
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Object> tracker = trackerPool.borrowObject();
+                if (tracker.getId() >= 4) {
+                    assertEquals( 0, tracker.getValidateCount(),""Unexpected instance visited "" + tracker.getId());
+}
+}
+}
+}
+",TestGenericObjectPool::checkEvictorVisiting_1_oe
+pool_left_114_2,"private void checkEvictorVisiting_2_oe(final boolean lifo) throws Exception {
+        VisitTracker<Object> obj;
+        VisitTrackerFactory<Object> trackerFactory = new VisitTrackerFactory<>();
+        try (GenericObjectPool<VisitTracker<Object>> trackerPool = new GenericObjectPool<>(trackerFactory)) {
+            trackerPool.setNumTestsPerEvictionRun(2);
+            trackerPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            trackerPool.setTestWhileIdle(true);
+            trackerPool.setLifo(lifo);
+            trackerPool.setTestOnReturn(false);
+            trackerPool.setTestOnBorrow(false);
+            for (int i = 0; i < 8; i++) {
+                trackerPool.addObject();
+            }
+            trackerPool.evict(); // Visit oldest 2 - 0 and 1
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            // borrow, return, borrow, return
+            // FIFO will move 0 and 1 to end
+            // LIFO, 7 out, then in, then out, then in
+            trackerPool.evict(); // Should visit 2 and 3 in either case
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Object> tracker = trackerPool.borrowObject();
+                if (tracker.getId() >= 4) {
+                    // removed other assertion
+                } else {
+                    assertEquals(1,tracker.getValidateCount(),""Instance "" + tracker.getId()+ "" visited wrong number of times."");
+}
+}
+}
+}
+",TestGenericObjectPool::checkEvictorVisiting_2_oe
+pool_left_114_3,"private void checkEvictorVisiting_3_oe(final boolean lifo) throws Exception {
+        VisitTracker<Object> obj;
+        VisitTrackerFactory<Object> trackerFactory = new VisitTrackerFactory<>();
+        try (GenericObjectPool<VisitTracker<Object>> trackerPool = new GenericObjectPool<>(trackerFactory)) {
+            trackerPool.setNumTestsPerEvictionRun(2);
+            trackerPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            trackerPool.setTestWhileIdle(true);
+            trackerPool.setLifo(lifo);
+            trackerPool.setTestOnReturn(false);
+            trackerPool.setTestOnBorrow(false);
+            for (int i = 0; i < 8; i++) {
+                trackerPool.addObject();
+            }
+            trackerPool.evict(); // Visit oldest 2 - 0 and 1
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            // borrow, return, borrow, return
+            // FIFO will move 0 and 1 to end
+            // LIFO, 7 out, then in, then out, then in
+            trackerPool.evict(); // Should visit 2 and 3 in either case
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Object> tracker = trackerPool.borrowObject();
+                if (tracker.getId() >= 4) {
+                    // removed other assertion
+                } else {
+                    // removed other assertion
+                }
+            }
+        }
+
+        trackerFactory = new VisitTrackerFactory<>();
+        try (GenericObjectPool<VisitTracker<Object>> trackerPool = new GenericObjectPool<>(trackerFactory)) {
+            trackerPool.setNumTestsPerEvictionRun(3);
+            trackerPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            trackerPool.setTestWhileIdle(true);
+            trackerPool.setLifo(lifo);
+            trackerPool.setTestOnReturn(false);
+            trackerPool.setTestOnBorrow(false);
+            for (int i = 0; i < 8; i++) {
+                trackerPool.addObject();
+            }
+            trackerPool.evict(); // 0, 1, 2
+            trackerPool.evict(); // 3, 4, 5
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            // borrow, return, borrow, return
+            // FIFO 3,4,5,6,7,0,1,2
+            // LIFO 7,6,5,4,3,2,1,0
+            // In either case, pointer should be at 6
+            trackerPool.evict();
+            // Should hit 6,7,0 - 0 for second time
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Object> tracker = trackerPool.borrowObject();
+                if (tracker.getId() != 0) {
+                    assertEquals(1,tracker.getValidateCount(),""Instance "" + tracker.getId()+ "" visited wrong number of times."");
+}
+}
+}
+}
+",TestGenericObjectPool::checkEvictorVisiting_3_oe
+pool_left_114_4,"private void checkEvictorVisiting_4_oe(final boolean lifo) throws Exception {
+        VisitTracker<Object> obj;
+        VisitTrackerFactory<Object> trackerFactory = new VisitTrackerFactory<>();
+        try (GenericObjectPool<VisitTracker<Object>> trackerPool = new GenericObjectPool<>(trackerFactory)) {
+            trackerPool.setNumTestsPerEvictionRun(2);
+            trackerPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            trackerPool.setTestWhileIdle(true);
+            trackerPool.setLifo(lifo);
+            trackerPool.setTestOnReturn(false);
+            trackerPool.setTestOnBorrow(false);
+            for (int i = 0; i < 8; i++) {
+                trackerPool.addObject();
+            }
+            trackerPool.evict(); // Visit oldest 2 - 0 and 1
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            // borrow, return, borrow, return
+            // FIFO will move 0 and 1 to end
+            // LIFO, 7 out, then in, then out, then in
+            trackerPool.evict(); // Should visit 2 and 3 in either case
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Object> tracker = trackerPool.borrowObject();
+                if (tracker.getId() >= 4) {
+                    // removed other assertion
+                } else {
+                    // removed other assertion
+                }
+            }
+        }
+
+        trackerFactory = new VisitTrackerFactory<>();
+        try (GenericObjectPool<VisitTracker<Object>> trackerPool = new GenericObjectPool<>(trackerFactory)) {
+            trackerPool.setNumTestsPerEvictionRun(3);
+            trackerPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            trackerPool.setTestWhileIdle(true);
+            trackerPool.setLifo(lifo);
+            trackerPool.setTestOnReturn(false);
+            trackerPool.setTestOnBorrow(false);
+            for (int i = 0; i < 8; i++) {
+                trackerPool.addObject();
+            }
+            trackerPool.evict(); // 0, 1, 2
+            trackerPool.evict(); // 3, 4, 5
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            // borrow, return, borrow, return
+            // FIFO 3,4,5,6,7,0,1,2
+            // LIFO 7,6,5,4,3,2,1,0
+            // In either case, pointer should be at 6
+            trackerPool.evict();
+            // Should hit 6,7,0 - 0 for second time
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Object> tracker = trackerPool.borrowObject();
+                if (tracker.getId() != 0) {
+                    // removed other assertion
+                } else {
+                    assertEquals(2,tracker.getValidateCount(),""Instance "" + tracker.getId()+ "" visited wrong number of times."");
+}
+}
+}
+}
+",TestGenericObjectPool::checkEvictorVisiting_4_oe
+pool_left_114_5,"private void checkEvictorVisiting_5_oe(final boolean lifo) throws Exception {
+        VisitTracker<Object> obj;
+        VisitTrackerFactory<Object> trackerFactory = new VisitTrackerFactory<>();
+        try (GenericObjectPool<VisitTracker<Object>> trackerPool = new GenericObjectPool<>(trackerFactory)) {
+            trackerPool.setNumTestsPerEvictionRun(2);
+            trackerPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            trackerPool.setTestWhileIdle(true);
+            trackerPool.setLifo(lifo);
+            trackerPool.setTestOnReturn(false);
+            trackerPool.setTestOnBorrow(false);
+            for (int i = 0; i < 8; i++) {
+                trackerPool.addObject();
+            }
+            trackerPool.evict(); // Visit oldest 2 - 0 and 1
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            // borrow, return, borrow, return
+            // FIFO will move 0 and 1 to end
+            // LIFO, 7 out, then in, then out, then in
+            trackerPool.evict(); // Should visit 2 and 3 in either case
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Object> tracker = trackerPool.borrowObject();
+                if (tracker.getId() >= 4) {
+                    // removed other assertion
+                } else {
+                    // removed other assertion
+                }
+            }
+        }
+
+        trackerFactory = new VisitTrackerFactory<>();
+        try (GenericObjectPool<VisitTracker<Object>> trackerPool = new GenericObjectPool<>(trackerFactory)) {
+            trackerPool.setNumTestsPerEvictionRun(3);
+            trackerPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            trackerPool.setTestWhileIdle(true);
+            trackerPool.setLifo(lifo);
+            trackerPool.setTestOnReturn(false);
+            trackerPool.setTestOnBorrow(false);
+            for (int i = 0; i < 8; i++) {
+                trackerPool.addObject();
+            }
+            trackerPool.evict(); // 0, 1, 2
+            trackerPool.evict(); // 3, 4, 5
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            // borrow, return, borrow, return
+            // FIFO 3,4,5,6,7,0,1,2
+            // LIFO 7,6,5,4,3,2,1,0
+            // In either case, pointer should be at 6
+            trackerPool.evict();
+            // Should hit 6,7,0 - 0 for second time
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Object> tracker = trackerPool.borrowObject();
+                if (tracker.getId() != 0) {
+                    // removed other assertion
+                } else {
+                    // removed other assertion
+                }
+            }
+        }
+
+        // Randomly generate a pools with random numTests
+        // and make sure evictor cycles through elements appropriately
+        final int[] smallPrimes = { 2, 3, 5, 7 };
+        final Random random = new Random();
+        random.setSeed(System.currentTimeMillis());
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 5; j++) {
+                try (GenericObjectPool<VisitTracker<Object>> trackerPool = new GenericObjectPool<>(trackerFactory)) {
+                    trackerPool.setNumTestsPerEvictionRun(smallPrimes[i]);
+                    trackerPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+                    trackerPool.setTestWhileIdle(true);
+                    trackerPool.setLifo(lifo);
+                    trackerPool.setTestOnReturn(false);
+                    trackerPool.setTestOnBorrow(false);
+                    trackerPool.setMaxIdle(-1);
+                    final int instanceCount = 10 + random.nextInt(20);
+                    trackerPool.setMaxTotal(instanceCount);
+                    for (int k = 0; k < instanceCount; k++) {
+                        trackerPool.addObject();
+                    }
+
+                    // Execute a random number of evictor runs
+                    final int runs = 10 + random.nextInt(50);
+                    for (int k = 0; k < runs; k++) {
+                        trackerPool.evict();
+                    }
+
+                    // Number of times evictor should have cycled through the pool
+                    final int cycleCount = (runs * trackerPool.getNumTestsPerEvictionRun()) / instanceCount;
+
+                    // Look at elements and make sure they are visited cycleCount
+                    // or cycleCount + 1 times
+                    VisitTracker<Object> tracker = null;
+                    int visitCount = 0;
+                    for (int k = 0; k < instanceCount; k++) {
+                        tracker = trackerPool.borrowObject();
+                        assertTrue(trackerPool.getNumActive() <= trackerPool.getMaxTotal());
+}
+}
+}
+}
+}
+",TestGenericObjectPool::checkEvictorVisiting_5_oe
+pool_left_114_6,"private void checkEvictorVisiting_6_oe(final boolean lifo) throws Exception {
+        VisitTracker<Object> obj;
+        VisitTrackerFactory<Object> trackerFactory = new VisitTrackerFactory<>();
+        try (GenericObjectPool<VisitTracker<Object>> trackerPool = new GenericObjectPool<>(trackerFactory)) {
+            trackerPool.setNumTestsPerEvictionRun(2);
+            trackerPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            trackerPool.setTestWhileIdle(true);
+            trackerPool.setLifo(lifo);
+            trackerPool.setTestOnReturn(false);
+            trackerPool.setTestOnBorrow(false);
+            for (int i = 0; i < 8; i++) {
+                trackerPool.addObject();
+            }
+            trackerPool.evict(); // Visit oldest 2 - 0 and 1
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            // borrow, return, borrow, return
+            // FIFO will move 0 and 1 to end
+            // LIFO, 7 out, then in, then out, then in
+            trackerPool.evict(); // Should visit 2 and 3 in either case
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Object> tracker = trackerPool.borrowObject();
+                if (tracker.getId() >= 4) {
+                    // removed other assertion
+                } else {
+                    // removed other assertion
+                }
+            }
+        }
+
+        trackerFactory = new VisitTrackerFactory<>();
+        try (GenericObjectPool<VisitTracker<Object>> trackerPool = new GenericObjectPool<>(trackerFactory)) {
+            trackerPool.setNumTestsPerEvictionRun(3);
+            trackerPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            trackerPool.setTestWhileIdle(true);
+            trackerPool.setLifo(lifo);
+            trackerPool.setTestOnReturn(false);
+            trackerPool.setTestOnBorrow(false);
+            for (int i = 0; i < 8; i++) {
+                trackerPool.addObject();
+            }
+            trackerPool.evict(); // 0, 1, 2
+            trackerPool.evict(); // 3, 4, 5
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            obj = trackerPool.borrowObject();
+            trackerPool.returnObject(obj);
+            // borrow, return, borrow, return
+            // FIFO 3,4,5,6,7,0,1,2
+            // LIFO 7,6,5,4,3,2,1,0
+            // In either case, pointer should be at 6
+            trackerPool.evict();
+            // Should hit 6,7,0 - 0 for second time
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Object> tracker = trackerPool.borrowObject();
+                if (tracker.getId() != 0) {
+                    // removed other assertion
+                } else {
+                    // removed other assertion
+                }
+            }
+        }
+
+        // Randomly generate a pools with random numTests
+        // and make sure evictor cycles through elements appropriately
+        final int[] smallPrimes = { 2, 3, 5, 7 };
+        final Random random = new Random();
+        random.setSeed(System.currentTimeMillis());
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 5; j++) {
+                try (GenericObjectPool<VisitTracker<Object>> trackerPool = new GenericObjectPool<>(trackerFactory)) {
+                    trackerPool.setNumTestsPerEvictionRun(smallPrimes[i]);
+                    trackerPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+                    trackerPool.setTestWhileIdle(true);
+                    trackerPool.setLifo(lifo);
+                    trackerPool.setTestOnReturn(false);
+                    trackerPool.setTestOnBorrow(false);
+                    trackerPool.setMaxIdle(-1);
+                    final int instanceCount = 10 + random.nextInt(20);
+                    trackerPool.setMaxTotal(instanceCount);
+                    for (int k = 0; k < instanceCount; k++) {
+                        trackerPool.addObject();
+                    }
+
+                    // Execute a random number of evictor runs
+                    final int runs = 10 + random.nextInt(50);
+                    for (int k = 0; k < runs; k++) {
+                        trackerPool.evict();
+                    }
+
+                    // Number of times evictor should have cycled through the pool
+                    final int cycleCount = (runs * trackerPool.getNumTestsPerEvictionRun()) / instanceCount;
+
+                    // Look at elements and make sure they are visited cycleCount
+                    // or cycleCount + 1 times
+                    VisitTracker<Object> tracker = null;
+                    int visitCount = 0;
+                    for (int k = 0; k < instanceCount; k++) {
+                        tracker = trackerPool.borrowObject();
+                        // removed other assertion
+                        visitCount = tracker.getValidateCount();
+                        assertTrue(visitCount >= cycleCount && visitCount <= cycleCount + 1);
+}
+}
+}
+}
+}
+",TestGenericObjectPool::checkEvictorVisiting_6_oe
+pool_left_115_1,"@SuppressWarnings({
+        ""rawtypes"", ""unchecked""
+    })
+    private void runTestThreads_1_oe(final int numThreads, final int iterations, final int delay, final GenericObjectPool testPool) {
+        final TestThread[] threads = new TestThread[numThreads];
+        for (int i = 0; i < numThreads; i++) {
+            threads[i] = new TestThread<String>(testPool, iterations, delay);
+            final Thread t = new Thread(threads[i]);
+            t.start();
+        }
+        for (int i = 0; i < numThreads; i++) {
+            while (!(threads[i]).complete()) {
+                Waiter.sleepQuietly(500L);
+            }
+            if (threads[i].failed()) {
+                fail(""Thread "" + i + "" failed: "" + threads[i].error.toString());
+        }
+        }
+        }
+",TestGenericObjectPool::runTestThreads_1_oe
+pool_left_116_1,"@AfterEach
+    public void tearDown_1_oe() throws Exception {
+        final ObjectName jmxName = genericObjectPool.getJmxName();
+        final String poolName = Objects.toString(jmxName, null);
+
+        genericObjectPool.clear();
+        genericObjectPool.close();
+        genericObjectPool = null;
+        simpleFactory = null;
+
+        final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
+        final Set<ObjectName> result = mbs.queryNames(new ObjectName(
+                ""org.apache.commoms.pool2:type=GenericObjectPool,*""), null);
+        // There should be no registered pools at this point
+        final int registeredPoolCount = result.size();
+        final StringBuilder msg = new StringBuilder(""Current pool is: "");
+        msg.append(poolName);
+        msg.append(""  Still open pools are: "");
+        for (final ObjectName name : result) {
+            // Clean these up ready for the next test
+            msg.append(name.toString());
+            msg.append("" created via\n"");
+            msg.append(mbs.getAttribute(name, ""CreationStackTrace""));
+            msg.append('\n');
+            mbs.unregisterMBean(name);
+        }
+        assertEquals( 0, registeredPoolCount,msg.toString());
+    }
+",TestGenericObjectPool::tearDown_1_oe
+pool_left_116_2,"@AfterEach
+    public void tearDown_2_oe() throws Exception {
+        final ObjectName jmxName = genericObjectPool.getJmxName();
+        final String poolName = Objects.toString(jmxName, null);
+
+        genericObjectPool.clear();
+        genericObjectPool.close();
+        genericObjectPool = null;
+        simpleFactory = null;
+
+        final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
+        final Set<ObjectName> result = mbs.queryNames(new ObjectName(
+                ""org.apache.commoms.pool2:type=GenericObjectPool,*""), null);
+        // There should be no registered pools at this point
+        final int registeredPoolCount = result.size();
+        final StringBuilder msg = new StringBuilder(""Current pool is: "");
+        msg.append(poolName);
+        msg.append(""  Still open pools are: "");
+        for (final ObjectName name : result) {
+            // Clean these up ready for the next test
+            msg.append(name.toString());
+            msg.append("" created via\n"");
+            msg.append(mbs.getAttribute(name, ""CreationStackTrace""));
+            msg.append('\n');
+            mbs.unregisterMBean(name);
+        }
+        // removed other assertion
+
+        // Make sure that EvictionTimer executor is shut down
+        final Field evictorExecutorField = EvictionTimer.class.getDeclaredField(""executor"");
+        evictorExecutorField.setAccessible(true);
+        assertNull(evictorExecutorField.get(null));
+    }
+",TestGenericObjectPool::tearDown_2_oe
+pool_left_180_1,"@SuppressWarnings(""deprecation"")
+    private void assertConfiguration_1_oe(final GenericObjectPoolConfig<?> expected, final GenericObjectPool<?> actual) { assertEquals(Boolean.valueOf(expected.getTestOnCreate()),Boolean.valueOf(actual.getTestOnCreate()),""testOnCreate"");
+    }
+",TestGenericObjectPool::assertConfiguration_1_oe
+pool_left_180_2,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        assertEquals(Boolean.valueOf(expected.getTestOnBorrow()),Boolean.valueOf(actual.getTestOnBorrow()),""testOnBorrow"");
+",TestGenericObjectPool::assertConfiguration_2_oe
+pool_left_180_3,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        assertEquals(Boolean.valueOf(expected.getTestOnReturn()),Boolean.valueOf(actual.getTestOnReturn()),""testOnReturn"");
+",TestGenericObjectPool::assertConfiguration_3_oe
+pool_left_180_4,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(Boolean.valueOf(expected.getTestWhileIdle()),Boolean.valueOf(actual.getTestWhileIdle()),""testWhileIdle"");
+",TestGenericObjectPool::assertConfiguration_4_oe
+pool_left_180_5,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(Boolean.valueOf(expected.getBlockWhenExhausted()),Boolean.valueOf(actual.getBlockWhenExhausted()),""whenExhaustedAction"");
+",TestGenericObjectPool::assertConfiguration_5_oe
+pool_left_180_6,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(expected.getMaxTotal(), actual.getMaxTotal(), ""maxTotal"");
+",TestGenericObjectPool::assertConfiguration_6_oe
+pool_left_180_7,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(expected.getMaxIdle(), actual.getMaxIdle(), ""maxIdle"");
+",TestGenericObjectPool::assertConfiguration_7_oe
+pool_left_180_8,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(expected.getMaxWaitMillis(), actual.getMaxWaitMillis(), ""maxWaitDuration"");
+",TestGenericObjectPool::assertConfiguration_8_oe
+pool_left_180_9,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(expected.getMaxWaitDuration(), actual.getMaxWaitDuration(), ""maxWaitDuration"");
+",TestGenericObjectPool::assertConfiguration_9_oe
+pool_left_180_10,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(expected.getMinEvictableIdleTimeMillis(),actual.getMinEvictableIdleTimeMillis(),""minEvictableIdleTimeMillis"");
+",TestGenericObjectPool::assertConfiguration_10_oe
+pool_left_180_11,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(expected.getMinEvictableIdleTime(),actual.getMinEvictableIdleTime(),""minEvictableIdleTime"");
+",TestGenericObjectPool::assertConfiguration_11_oe
+pool_left_180_12,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(expected.getMinEvictableIdleDuration(),actual.getMinEvictableIdleDuration(),""minEvictableIdleDuration"");
+",TestGenericObjectPool::assertConfiguration_12_oe
+pool_left_180_13,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(expected.getNumTestsPerEvictionRun(),actual.getNumTestsPerEvictionRun(),""numTestsPerEvictionRun"");
+",TestGenericObjectPool::assertConfiguration_13_oe
+pool_left_180_14,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(expected.getEvictorShutdownTimeoutDuration(),actual.getEvictorShutdownTimeoutDuration(),""evictorShutdownTimeoutDuration"");
+",TestGenericObjectPool::assertConfiguration_14_oe
+pool_left_180_15,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(expected.getEvictorShutdownTimeoutMillis(),actual.getEvictorShutdownTimeoutMillis(),""evictorShutdownTimeoutMillis"");
+",TestGenericObjectPool::assertConfiguration_15_oe
+pool_left_180_16,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(expected.getEvictorShutdownTimeout(),actual.getEvictorShutdownTimeout(),""evictorShutdownTimeout"");
+",TestGenericObjectPool::assertConfiguration_16_oe
+pool_left_180_17,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(expected.getTimeBetweenEvictionRunsMillis(),actual.getTimeBetweenEvictionRunsMillis(),""timeBetweenEvictionRunsMillis"");
+",TestGenericObjectPool::assertConfiguration_17_oe
+pool_left_180_18,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(expected.getDurationBetweenEvictionRuns(),actual.getTimeBetweenEvictionRuns(),""timeBetweenEvictionRuns"");
+",TestGenericObjectPool::assertConfiguration_18_oe
+pool_left_180_19,"@SuppressWarnings(""deprecation"")
+    // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(expected.getTimeBetweenEvictionRuns(),actual.getTimeBetweenEvictionRuns(),""timeBetweenEvictionRuns"");
+",TestGenericObjectPool::assertConfiguration_19_oe
+pool_left_183_1,"@SuppressWarnings(""deprecation"")
+    @BeforeEach
+    public void setUp_1_oe() throws Exception {
+        abandonedConfig = new AbandonedConfig();
+
+        // Uncomment the following line to enable logging:
+        // abandonedConfig.setLogAbandoned(true);
+
+        abandonedConfig.setRemoveAbandonedOnBorrow(true);
+        // One second Duration.
+        abandonedConfig.setRemoveAbandonedTimeout(TestConstants.ONE_SECOND_DURATION);
+        assertEquals(TestConstants.ONE_SECOND_DURATION, abandonedConfig.getRemoveAbandonedTimeoutDuration());
+    }
+",TestAbandonedObjectPool::setUp_1_oe
+pool_left_183_2,"@SuppressWarnings(""deprecation"")
+    @BeforeEach
+    public void setUp_2_oe() throws Exception {
+        abandonedConfig = new AbandonedConfig();
+
+        // Uncomment the following line to enable logging:
+        // abandonedConfig.setLogAbandoned(true);
+
+        abandonedConfig.setRemoveAbandonedOnBorrow(true);
+        // One second Duration.
+        abandonedConfig.setRemoveAbandonedTimeout(TestConstants.ONE_SECOND_DURATION);
+        // removed other assertion
+        assertEquals(1,abandonedConfig.getRemoveAbandonedTimeout());// in seconds. abandonedConfig.setRemoveAbandonedTimeout(1);
+    }
+",TestAbandonedObjectPool::setUp_2_oe
+pool_left_183_3,"@SuppressWarnings(""deprecation"")
+    @BeforeEach
+    public void setUp_3_oe() throws Exception {
+        abandonedConfig = new AbandonedConfig();
+
+        // Uncomment the following line to enable logging:
+        // abandonedConfig.setLogAbandoned(true);
+
+        abandonedConfig.setRemoveAbandonedOnBorrow(true);
+        // One second Duration.
+        abandonedConfig.setRemoveAbandonedTimeout(TestConstants.ONE_SECOND_DURATION);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(TestConstants.ONE_SECOND_DURATION, abandonedConfig.getRemoveAbandonedTimeoutDuration());
+    }
+",TestAbandonedObjectPool::setUp_3_oe
+pool_left_183_4,"@SuppressWarnings(""deprecation"")
+    @BeforeEach
+    public void setUp_4_oe() throws Exception {
+        abandonedConfig = new AbandonedConfig();
+
+        // Uncomment the following line to enable logging:
+        // abandonedConfig.setLogAbandoned(true);
+
+        abandonedConfig.setRemoveAbandonedOnBorrow(true);
+        // One second Duration.
+        abandonedConfig.setRemoveAbandonedTimeout(TestConstants.ONE_SECOND_DURATION);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1,abandonedConfig.getRemoveAbandonedTimeout());// in seconds. pool = new GenericObjectPool<>(new SimpleFactory(),new GenericObjectPoolConfig<>(),abandonedConfig);
+    }
+",TestAbandonedObjectPool::setUp_4_oe
+pool_left_184_1,"@AfterEach
+    public void tearDown_1_oe() throws Exception {
+        final ObjectName jmxName = pool.getJmxName();
+        final String poolName = Objects.toString(jmxName, null);
+        pool.clear();
+        pool.close();
+        pool = null;
+
+        final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
+        final Set<ObjectName> result = mbs.queryNames(new ObjectName(
+                ""org.apache.commoms.pool2:type=GenericObjectPool,*""), null);
+        // There should be no registered pools at this point
+        final int registeredPoolCount = result.size();
+        final StringBuilder msg = new StringBuilder(""Current pool is: "");
+        msg.append(poolName);
+        msg.append(""  Still open pools are: "");
+        for (final ObjectName name : result) {
+            // Clean these up ready for the next test
+            msg.append(name.toString());
+            msg.append("" created via\n"");
+            msg.append(mbs.getAttribute(name, ""CreationStackTrace""));
+            msg.append('\n');
+            mbs.unregisterMBean(name);
+        }
+        assertEquals( 0, registeredPoolCount,msg.toString());
+    }
+",TestAbandonedObjectPool::tearDown_1_oe
+pool_left_193_1,"@SuppressWarnings(""deprecation"")
+    @BeforeEach
+    public void setUp_1_oe() {
+        abandonedConfig = new AbandonedConfig();
+
+        // Uncomment the following line to enable logging:
+        // abandonedConfig.setLogAbandoned(true);
+
+        // One second Duration.
+        abandonedConfig.setRemoveAbandonedTimeout(TestConstants.ONE_SECOND_DURATION);
+        assertEquals(TestConstants.ONE_SECOND_DURATION, abandonedConfig.getRemoveAbandonedTimeoutDuration());
+    }
+",TestAbandonedKeyedObjectPool::setUp_1_oe
+pool_left_193_2,"@SuppressWarnings(""deprecation"")
+    @BeforeEach
+    public void setUp_2_oe() {
+        abandonedConfig = new AbandonedConfig();
+
+        // Uncomment the following line to enable logging:
+        // abandonedConfig.setLogAbandoned(true);
+
+        // One second Duration.
+        abandonedConfig.setRemoveAbandonedTimeout(TestConstants.ONE_SECOND_DURATION);
+        // removed other assertion
+        assertEquals(1, abandonedConfig.getRemoveAbandonedTimeout());
+    }
+",TestAbandonedKeyedObjectPool::setUp_2_oe
+pool_left_193_3,"@SuppressWarnings(""deprecation"")
+    @BeforeEach
+    public void setUp_3_oe() {
+        abandonedConfig = new AbandonedConfig();
+
+        // Uncomment the following line to enable logging:
+        // abandonedConfig.setLogAbandoned(true);
+
+        // One second Duration.
+        abandonedConfig.setRemoveAbandonedTimeout(TestConstants.ONE_SECOND_DURATION);
+        // removed other assertion
+        // removed other assertion
+        // One second int (not millis).
+        abandonedConfig.setRemoveAbandonedTimeout(1);
+        assertEquals(TestConstants.ONE_SECOND_DURATION, abandonedConfig.getRemoveAbandonedTimeoutDuration());
+    }
+",TestAbandonedKeyedObjectPool::setUp_3_oe
+pool_left_193_4,"@SuppressWarnings(""deprecation"")
+    @BeforeEach
+    public void setUp_4_oe() {
+        abandonedConfig = new AbandonedConfig();
+
+        // Uncomment the following line to enable logging:
+        // abandonedConfig.setLogAbandoned(true);
+
+        // One second Duration.
+        abandonedConfig.setRemoveAbandonedTimeout(TestConstants.ONE_SECOND_DURATION);
+        // removed other assertion
+        // removed other assertion
+        // One second int (not millis).
+        abandonedConfig.setRemoveAbandonedTimeout(1);
+        // removed other assertion
+        assertEquals(1, abandonedConfig.getRemoveAbandonedTimeout());
+    }
+",TestAbandonedKeyedObjectPool::setUp_4_oe
+pool_left_194_1,"@AfterEach
+    public void tearDown_1_oe() throws Exception {
+        final ObjectName jmxName = pool.getJmxName();
+        final String poolName = Objects.toString(jmxName, null);
+        pool.clear();
+        pool.close();
+        pool = null;
+
+        final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
+        final Set<ObjectName> result = mbs.queryNames(new ObjectName(
+                ""org.apache.commoms.pool2:type=GenericKeyedObjectPool,*""), null);
+        // There should be no registered pools at this point
+        final int registeredPoolCount = result.size();
+        final StringBuilder msg = new StringBuilder(""Current pool is: "");
+        msg.append(poolName);
+        msg.append(""  Still open pools are: "");
+        for (final ObjectName name : result) {
+            // Clean these up ready for the next test
+            msg.append(name.toString());
+            msg.append("" created via\n"");
+            msg.append(mbs.getAttribute(name, ""CreationStackTrace""));
+            msg.append('\n');
+            mbs.unregisterMBean(name);
+        }
+        assertEquals( 0, registeredPoolCount,msg.toString());
+    }
+",TestAbandonedKeyedObjectPool::tearDown_1_oe
+pool_left_205_1,"@Override
+        public void run_1_oe() {
+            try {
+                pool.invalidateObject(key, obj);
+            } catch (final IllegalStateException ex) {
+                // Ignore
+            } catch (final Exception ex) {
+                fail(""Unexpected exception "" + ex.toString());
+        }
+        }
+",InvalidateThread::run_1_oe
+pool_left_206_1,"private void checkEvictionOrder_1_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            assertEquals(3, intPool.getNumIdle(KEY_ZERO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_1_oe
+pool_left_206_2,"private void checkEvictionOrder_2_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            assertTrue(lifo ? objZeroA.equals(""04"") : objZeroA.equals(""02""));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_2_oe
+pool_left_206_3,"private void checkEvictionOrder_3_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            assertEquals(2, intPool.getNumIdle(KEY_ZERO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_3_oe
+pool_left_206_4,"private void checkEvictionOrder_4_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            assertEquals(""03"", objZeroB);
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_4_oe
+pool_left_206_5,"private void checkEvictionOrder_5_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            assertEquals(1, intPool.getNumIdle(KEY_ZERO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_5_oe
+pool_left_206_6,"private void checkEvictionOrder_6_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            assertEquals(0, intPool.getNumIdle(KEY_ZERO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_6_oe
+pool_left_206_7,"private void checkEvictionOrder_7_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            assertEquals(4, intPool.getNumIdle(KEY_ONE));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_7_oe
+pool_left_206_8,"private void checkEvictionOrder_8_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            assertTrue(lifo ? objOneA.equals(""19"") : objOneA.equals(""16""));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_8_oe
+pool_left_206_9,"private void checkEvictionOrder_9_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            assertEquals(3, intPool.getNumIdle(KEY_ONE));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_9_oe
+pool_left_206_10,"private void checkEvictionOrder_10_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            assertTrue(lifo ? objOneB.equals(""18"") : objOneB.equals(""17""));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_10_oe
+pool_left_206_11,"private void checkEvictionOrder_11_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            assertEquals(2, intPool.getNumIdle(KEY_ONE));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_11_oe
+pool_left_206_12,"private void checkEvictionOrder_12_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            assertEquals(0, intPool.getNumIdle(KEY_ONE));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_12_oe
+pool_left_206_13,"private void checkEvictionOrder_13_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            assertEquals(3, intPool.getNumIdle(KEY_TWO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_13_oe
+pool_left_206_14,"private void checkEvictionOrder_14_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            assertTrue(lifo ? objTwoA.equals(""214"") : objTwoA.equals(""212""));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_14_oe
+pool_left_206_15,"private void checkEvictionOrder_15_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            assertEquals(2, intPool.getNumIdle(KEY_TWO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_15_oe
+pool_left_206_16,"private void checkEvictionOrder_16_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            assertEquals(0, intPool.getNumIdle(KEY_TWO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_16_oe
+pool_left_206_17,"private void checkEvictionOrder_17_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            assertEquals(3, intPool.getNumIdle(KEY_ZERO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_17_oe
+pool_left_206_18,"private void checkEvictionOrder_18_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            assertEquals(1, intPool.getNumIdle(KEY_ZERO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_18_oe
+pool_left_206_19,"private void checkEvictionOrder_19_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            assertEquals(0, intPool.getNumIdle(KEY_ZERO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_19_oe
+pool_left_206_20,"private void checkEvictionOrder_20_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            // removed other assertion
+            assertEquals(5, intPool.getNumIdle(KEY_ONE));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_20_oe
+pool_left_206_21,"private void checkEvictionOrder_21_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            // removed other assertion
+            // removed other assertion
+            assertEquals(5, intPool.getNumIdle(KEY_TWO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_21_oe
+pool_left_206_22,"private void checkEvictionOrder_22_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,6), (1,7)
+            assertEquals(5, intPool.getNumIdle(KEY_ONE));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_22_oe
+pool_left_206_23,"private void checkEvictionOrder_23_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,6), (1,7)
+            // removed other assertion
+            assertEquals(5, intPool.getNumIdle(KEY_TWO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_23_oe
+pool_left_206_24,"private void checkEvictionOrder_24_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,6), (1,7)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,8), (1,9)
+            assertEquals(5, intPool.getNumIdle(KEY_ONE));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_24_oe
+pool_left_206_25,"private void checkEvictionOrder_25_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,6), (1,7)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,8), (1,9)
+            // removed other assertion
+            assertEquals(5, intPool.getNumIdle(KEY_TWO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_25_oe
+pool_left_206_26,"private void checkEvictionOrder_26_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,6), (1,7)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,8), (1,9)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,10), (2,11)
+            assertEquals(5, intPool.getNumIdle(KEY_ONE));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_26_oe
+pool_left_206_27,"private void checkEvictionOrder_27_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,6), (1,7)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,8), (1,9)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,10), (2,11)
+            // removed other assertion
+            assertEquals(5, intPool.getNumIdle(KEY_TWO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_27_oe
+pool_left_206_28,"private void checkEvictionOrder_28_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,6), (1,7)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,8), (1,9)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,10), (2,11)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,12), (2,13)
+            assertEquals(5, intPool.getNumIdle(KEY_ONE));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_28_oe
+pool_left_206_29,"private void checkEvictionOrder_29_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,6), (1,7)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,8), (1,9)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,10), (2,11)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,12), (2,13)
+            // removed other assertion
+            assertEquals(5, intPool.getNumIdle(KEY_TWO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_29_oe
+pool_left_206_30,"private void checkEvictionOrder_30_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,6), (1,7)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,8), (1,9)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,10), (2,11)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,12), (2,13)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,14), (1,5)
+            assertEquals(5, intPool.getNumIdle(KEY_ONE));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_30_oe
+pool_left_206_31,"private void checkEvictionOrder_31_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,6), (1,7)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,8), (1,9)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,10), (2,11)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,12), (2,13)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,14), (1,5)
+            // removed other assertion
+            assertEquals(5, intPool.getNumIdle(KEY_TWO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_31_oe
+pool_left_206_32,"private void checkEvictionOrder_32_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,6), (1,7)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,8), (1,9)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,10), (2,11)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,12), (2,13)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,14), (1,5)
+            // removed other assertion
+            // removed other assertion
+            Thread.sleep(200); // Ones now timed out
+            intPool.evict(); // kill (1,6), (1,7) - (1,5) missed
+            assertEquals(3, intPool.getNumIdle(KEY_ONE));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_32_oe
+pool_left_206_33,"private void checkEvictionOrder_33_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,6), (1,7)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,8), (1,9)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,10), (2,11)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,12), (2,13)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,14), (1,5)
+            // removed other assertion
+            // removed other assertion
+            Thread.sleep(200); // Ones now timed out
+            intPool.evict(); // kill (1,6), (1,7) - (1,5) missed
+            // removed other assertion
+            assertEquals(5, intPool.getNumIdle(KEY_TWO));
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_33_oe
+pool_left_206_34,"private void checkEvictionOrder_34_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,6), (1,7)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,8), (1,9)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,10), (2,11)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,12), (2,13)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,14), (1,5)
+            // removed other assertion
+            // removed other assertion
+            Thread.sleep(200); // Ones now timed out
+            intPool.evict(); // kill (1,6), (1,7) - (1,5) missed
+            // removed other assertion
+            // removed other assertion
+            final String obj = intPool.borrowObject(KEY_ONE);
+            if (lifo) {
+                assertEquals(""19"", obj);
+}
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_34_oe
+pool_left_206_35,"private void checkEvictionOrder_35_oe(final boolean lifo) throws Exception {
+        final SimpleFactory<Integer> intFactory = new SimpleFactory<>();
+        try (final GenericKeyedObjectPool<Integer, String> intPool = new GenericKeyedObjectPool<>(intFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+            intPool.setLifo(lifo);
+
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+            }
+
+            // Make all evictable
+            Thread.sleep(200);
+
+            /*
+             * Initial state (Key, Object) pairs in order of age:
+             *
+             * (0,0), (0,1), (0,2), (0,3), (0,4) (1,5), (1,6), (1,7), (1,8), (1,9) (2,10), (2,11), (2,12), (2,13),
+             * (2,14)
+             */
+
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            final String objZeroA = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+            final String objZeroB = intPool.borrowObject(KEY_ZERO);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 0 survivor and (1,5)
+            // removed other assertion
+            // removed other assertion
+            final String objOneA = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+            final String objOneB = intPool.borrowObject(KEY_ONE);
+            // removed other assertion
+            // removed other assertion
+
+            intPool.evict(); // Kill remaining 1 survivors
+            // removed other assertion
+            intPool.evict(); // Kill (2,10), (2,11)
+            // removed other assertion
+            final String objTwoA = intPool.borrowObject(KEY_TWO);
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // All dead now
+            // removed other assertion
+
+            intPool.evict(); // Should do nothing - make sure no exception
+            // Currently 2 zero, 2 one and 1 two active. Return them
+            intPool.returnObject(KEY_ZERO, objZeroA);
+            intPool.returnObject(KEY_ZERO, objZeroB);
+            intPool.returnObject(KEY_ONE, objOneA);
+            intPool.returnObject(KEY_ONE, objOneB);
+            intPool.returnObject(KEY_TWO, objTwoA);
+            // Remove all idle objects
+            intPool.clear();
+
+            // Reload
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(500));
+            intFactory.counter = 0; // Reset counter
+            for (int i = 0; i < 3; i++) {
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 5; j++) {
+                    intPool.addObject(key);
+                }
+                Thread.sleep(200);
+            }
+
+            // 0's are evictable, others not
+            intPool.evict(); // Kill (0,0),(0,1)
+            // removed other assertion
+            intPool.evict(); // Kill (0,2),(0,3)
+            // removed other assertion
+            intPool.evict(); // Kill (0,4), leave (1,5)
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,6), (1,7)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (1,8), (1,9)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,10), (2,11)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,12), (2,13)
+            // removed other assertion
+            // removed other assertion
+            intPool.evict(); // (2,14), (1,5)
+            // removed other assertion
+            // removed other assertion
+            Thread.sleep(200); // Ones now timed out
+            intPool.evict(); // kill (1,6), (1,7) - (1,5) missed
+            // removed other assertion
+            // removed other assertion
+            final String obj = intPool.borrowObject(KEY_ONE);
+            if (lifo) {
+                // removed other assertion
+            } else {
+                assertEquals(""15"", obj);
+}
+}
+}
+",TestGenericKeyedObjectPool::checkEvictionOrder_35_oe
+pool_left_207_1,"private void checkEvictorVisiting_1_oe(final boolean lifo) throws Exception {
+        VisitTrackerFactory<Integer> trackerFactory = new VisitTrackerFactory<>();
+        try (GenericKeyedObjectPool<Integer, VisitTracker<Integer>> intPool = new GenericKeyedObjectPool<>(
+                trackerFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            intPool.setTestWhileIdle(true);
+            intPool.setLifo(lifo);
+            intPool.setTestOnReturn(false);
+            intPool.setTestOnBorrow(false);
+            for (int i = 0; i < 3; i++) {
+                trackerFactory.resetId();
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 8; j++) {
+                    intPool.addObject(key);
+                }
+            }
+            intPool.evict(); // Visit oldest 2 - 00 and 01
+            VisitTracker<Integer> obj = intPool.borrowObject(KEY_ZERO);
+            intPool.returnObject(KEY_ZERO, obj);
+            obj = intPool.borrowObject(KEY_ZERO);
+            intPool.returnObject(KEY_ZERO, obj);
+            // borrow, return, borrow, return
+            // FIFO will move 0 and 1 to end - 2,3,4,5,6,7,0,1
+            // LIFO, 7 out, then in, then out, then in - 7,6,5,4,3,2,1,0
+            intPool.evict(); // Should visit 02 and 03 in either case
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Integer> tracker = intPool.borrowObject(KEY_ZERO);
+                if (tracker.getId() >= 4) {
+                    assertEquals( 0, tracker.getValidateCount(),""Unexpected instance visited "" + tracker.getId());
+}
+}
+}
+}
+",TestGenericKeyedObjectPool::checkEvictorVisiting_1_oe
+pool_left_207_2,"private void checkEvictorVisiting_2_oe(final boolean lifo) throws Exception {
+        VisitTrackerFactory<Integer> trackerFactory = new VisitTrackerFactory<>();
+        try (GenericKeyedObjectPool<Integer, VisitTracker<Integer>> intPool = new GenericKeyedObjectPool<>(
+                trackerFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            intPool.setTestWhileIdle(true);
+            intPool.setLifo(lifo);
+            intPool.setTestOnReturn(false);
+            intPool.setTestOnBorrow(false);
+            for (int i = 0; i < 3; i++) {
+                trackerFactory.resetId();
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 8; j++) {
+                    intPool.addObject(key);
+                }
+            }
+            intPool.evict(); // Visit oldest 2 - 00 and 01
+            VisitTracker<Integer> obj = intPool.borrowObject(KEY_ZERO);
+            intPool.returnObject(KEY_ZERO, obj);
+            obj = intPool.borrowObject(KEY_ZERO);
+            intPool.returnObject(KEY_ZERO, obj);
+            // borrow, return, borrow, return
+            // FIFO will move 0 and 1 to end - 2,3,4,5,6,7,0,1
+            // LIFO, 7 out, then in, then out, then in - 7,6,5,4,3,2,1,0
+            intPool.evict(); // Should visit 02 and 03 in either case
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Integer> tracker = intPool.borrowObject(KEY_ZERO);
+                if (tracker.getId() >= 4) {
+                    // removed other assertion
+                } else {
+                    assertEquals(1,tracker.getValidateCount(),""Instance "" + tracker.getId()+ "" visited wrong number of times."");
+}
+}
+}
+}
+",TestGenericKeyedObjectPool::checkEvictorVisiting_2_oe
+pool_left_207_3,"private void checkEvictorVisiting_3_oe(final boolean lifo) throws Exception {
+        VisitTrackerFactory<Integer> trackerFactory = new VisitTrackerFactory<>();
+        try (GenericKeyedObjectPool<Integer, VisitTracker<Integer>> intPool = new GenericKeyedObjectPool<>(
+                trackerFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            intPool.setTestWhileIdle(true);
+            intPool.setLifo(lifo);
+            intPool.setTestOnReturn(false);
+            intPool.setTestOnBorrow(false);
+            for (int i = 0; i < 3; i++) {
+                trackerFactory.resetId();
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 8; j++) {
+                    intPool.addObject(key);
+                }
+            }
+            intPool.evict(); // Visit oldest 2 - 00 and 01
+            VisitTracker<Integer> obj = intPool.borrowObject(KEY_ZERO);
+            intPool.returnObject(KEY_ZERO, obj);
+            obj = intPool.borrowObject(KEY_ZERO);
+            intPool.returnObject(KEY_ZERO, obj);
+            // borrow, return, borrow, return
+            // FIFO will move 0 and 1 to end - 2,3,4,5,6,7,0,1
+            // LIFO, 7 out, then in, then out, then in - 7,6,5,4,3,2,1,0
+            intPool.evict(); // Should visit 02 and 03 in either case
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Integer> tracker = intPool.borrowObject(KEY_ZERO);
+                if (tracker.getId() >= 4) {
+                    // removed other assertion
+                } else {
+                    // removed other assertion
+                }
+            }
+            // 0's are all out
+
+            intPool.setNumTestsPerEvictionRun(3);
+
+            intPool.evict(); // 10, 11, 12
+            intPool.evict(); // 13, 14, 15
+
+            obj = intPool.borrowObject(KEY_ONE);
+            intPool.returnObject(KEY_ONE, obj);
+            obj = intPool.borrowObject(KEY_ONE);
+            intPool.returnObject(KEY_ONE, obj);
+            obj = intPool.borrowObject(KEY_ONE);
+            intPool.returnObject(KEY_ONE, obj);
+            // borrow, return, borrow, return
+            // FIFO 3,4,5,^,6,7,0,1,2
+            // LIFO 7,6,^,5,4,3,2,1,0
+            // In either case, pointer should be at 6
+            intPool.evict();
+            // LIFO - 16, 17, 20
+            // FIFO - 16, 17, 10
+            intPool.evict();
+            // LIFO - 21, 22, 23
+            // FIFO - 11, 12, 20
+            intPool.evict();
+            // LIFO - 24, 25, 26
+            // FIFO - 21, 22, 23
+            intPool.evict();
+            // LIFO - 27, 10, 11
+            // FIFO - 24, 25, 26
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Integer> tracker = intPool.borrowObject(KEY_ONE);
+                if ((lifo && tracker.getId() > 1) || (!lifo && tracker.getId() > 2)) {
+                    assertEquals(1,tracker.getValidateCount(),""Instance "" + tracker.getId()+ "" visited wrong number of times."");
+}
+}
+}
+}
+",TestGenericKeyedObjectPool::checkEvictorVisiting_3_oe
+pool_left_207_4,"private void checkEvictorVisiting_4_oe(final boolean lifo) throws Exception {
+        VisitTrackerFactory<Integer> trackerFactory = new VisitTrackerFactory<>();
+        try (GenericKeyedObjectPool<Integer, VisitTracker<Integer>> intPool = new GenericKeyedObjectPool<>(
+                trackerFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            intPool.setTestWhileIdle(true);
+            intPool.setLifo(lifo);
+            intPool.setTestOnReturn(false);
+            intPool.setTestOnBorrow(false);
+            for (int i = 0; i < 3; i++) {
+                trackerFactory.resetId();
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 8; j++) {
+                    intPool.addObject(key);
+                }
+            }
+            intPool.evict(); // Visit oldest 2 - 00 and 01
+            VisitTracker<Integer> obj = intPool.borrowObject(KEY_ZERO);
+            intPool.returnObject(KEY_ZERO, obj);
+            obj = intPool.borrowObject(KEY_ZERO);
+            intPool.returnObject(KEY_ZERO, obj);
+            // borrow, return, borrow, return
+            // FIFO will move 0 and 1 to end - 2,3,4,5,6,7,0,1
+            // LIFO, 7 out, then in, then out, then in - 7,6,5,4,3,2,1,0
+            intPool.evict(); // Should visit 02 and 03 in either case
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Integer> tracker = intPool.borrowObject(KEY_ZERO);
+                if (tracker.getId() >= 4) {
+                    // removed other assertion
+                } else {
+                    // removed other assertion
+                }
+            }
+            // 0's are all out
+
+            intPool.setNumTestsPerEvictionRun(3);
+
+            intPool.evict(); // 10, 11, 12
+            intPool.evict(); // 13, 14, 15
+
+            obj = intPool.borrowObject(KEY_ONE);
+            intPool.returnObject(KEY_ONE, obj);
+            obj = intPool.borrowObject(KEY_ONE);
+            intPool.returnObject(KEY_ONE, obj);
+            obj = intPool.borrowObject(KEY_ONE);
+            intPool.returnObject(KEY_ONE, obj);
+            // borrow, return, borrow, return
+            // FIFO 3,4,5,^,6,7,0,1,2
+            // LIFO 7,6,^,5,4,3,2,1,0
+            // In either case, pointer should be at 6
+            intPool.evict();
+            // LIFO - 16, 17, 20
+            // FIFO - 16, 17, 10
+            intPool.evict();
+            // LIFO - 21, 22, 23
+            // FIFO - 11, 12, 20
+            intPool.evict();
+            // LIFO - 24, 25, 26
+            // FIFO - 21, 22, 23
+            intPool.evict();
+            // LIFO - 27, 10, 11
+            // FIFO - 24, 25, 26
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Integer> tracker = intPool.borrowObject(KEY_ONE);
+                if ((lifo && tracker.getId() > 1) || (!lifo && tracker.getId() > 2)) {
+                    // removed other assertion
+                } else {
+                    assertEquals(2,tracker.getValidateCount(),""Instance "" + tracker.getId()+ "" visited wrong number of times."");
+}
+}
+}
+}
+",TestGenericKeyedObjectPool::checkEvictorVisiting_4_oe
+pool_left_207_5,"private void checkEvictorVisiting_5_oe(final boolean lifo) throws Exception {
+        VisitTrackerFactory<Integer> trackerFactory = new VisitTrackerFactory<>();
+        try (GenericKeyedObjectPool<Integer, VisitTracker<Integer>> intPool = new GenericKeyedObjectPool<>(
+                trackerFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            intPool.setTestWhileIdle(true);
+            intPool.setLifo(lifo);
+            intPool.setTestOnReturn(false);
+            intPool.setTestOnBorrow(false);
+            for (int i = 0; i < 3; i++) {
+                trackerFactory.resetId();
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 8; j++) {
+                    intPool.addObject(key);
+                }
+            }
+            intPool.evict(); // Visit oldest 2 - 00 and 01
+            VisitTracker<Integer> obj = intPool.borrowObject(KEY_ZERO);
+            intPool.returnObject(KEY_ZERO, obj);
+            obj = intPool.borrowObject(KEY_ZERO);
+            intPool.returnObject(KEY_ZERO, obj);
+            // borrow, return, borrow, return
+            // FIFO will move 0 and 1 to end - 2,3,4,5,6,7,0,1
+            // LIFO, 7 out, then in, then out, then in - 7,6,5,4,3,2,1,0
+            intPool.evict(); // Should visit 02 and 03 in either case
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Integer> tracker = intPool.borrowObject(KEY_ZERO);
+                if (tracker.getId() >= 4) {
+                    // removed other assertion
+                } else {
+                    // removed other assertion
+                }
+            }
+            // 0's are all out
+
+            intPool.setNumTestsPerEvictionRun(3);
+
+            intPool.evict(); // 10, 11, 12
+            intPool.evict(); // 13, 14, 15
+
+            obj = intPool.borrowObject(KEY_ONE);
+            intPool.returnObject(KEY_ONE, obj);
+            obj = intPool.borrowObject(KEY_ONE);
+            intPool.returnObject(KEY_ONE, obj);
+            obj = intPool.borrowObject(KEY_ONE);
+            intPool.returnObject(KEY_ONE, obj);
+            // borrow, return, borrow, return
+            // FIFO 3,4,5,^,6,7,0,1,2
+            // LIFO 7,6,^,5,4,3,2,1,0
+            // In either case, pointer should be at 6
+            intPool.evict();
+            // LIFO - 16, 17, 20
+            // FIFO - 16, 17, 10
+            intPool.evict();
+            // LIFO - 21, 22, 23
+            // FIFO - 11, 12, 20
+            intPool.evict();
+            // LIFO - 24, 25, 26
+            // FIFO - 21, 22, 23
+            intPool.evict();
+            // LIFO - 27, 10, 11
+            // FIFO - 24, 25, 26
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Integer> tracker = intPool.borrowObject(KEY_ONE);
+                if ((lifo && tracker.getId() > 1) || (!lifo && tracker.getId() > 2)) {
+                    // removed other assertion
+                } else {
+                    // removed other assertion
+                }
+            }
+        }
+
+        // Randomly generate some pools with random numTests
+        // and make sure evictor cycles through elements appropriately
+        final int[] smallPrimes = { 2, 3, 5, 7 };
+        final Random random = new Random();
+        random.setSeed(System.currentTimeMillis());
+        for (int i = 0; i < smallPrimes.length; i++) {
+            for (int j = 0; j < 5; j++) {// Try the tests a few times
+                // Can't use clear as some objects are still active so create
+                // a new pool
+                trackerFactory = new VisitTrackerFactory<>();
+                try (GenericKeyedObjectPool<Integer, VisitTracker<Integer>> intPool = new GenericKeyedObjectPool<>(
+                        trackerFactory)) {
+                    intPool.setMaxIdlePerKey(-1);
+                    intPool.setMaxTotalPerKey(-1);
+                    intPool.setNumTestsPerEvictionRun(smallPrimes[i]);
+                    intPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+                    intPool.setTestWhileIdle(true);
+                    intPool.setLifo(lifo);
+                    intPool.setTestOnReturn(false);
+                    intPool.setTestOnBorrow(false);
+
+                    final int zeroLength = 10 + random.nextInt(20);
+                    for (int k = 0; k < zeroLength; k++) {
+                        intPool.addObject(KEY_ZERO);
+                    }
+                    final int oneLength = 10 + random.nextInt(20);
+                    for (int k = 0; k < oneLength; k++) {
+                        intPool.addObject(KEY_ONE);
+                    }
+                    final int twoLength = 10 + random.nextInt(20);
+                    for (int k = 0; k < twoLength; k++) {
+                        intPool.addObject(KEY_TWO);
+                    }
+
+                    // Choose a random number of evictor runs
+                    final int runs = 10 + random.nextInt(50);
+                    for (int k = 0; k < runs; k++) {
+                        intPool.evict();
+                    }
+
+                    // Total instances in pool
+                    final int totalInstances = zeroLength + oneLength + twoLength;
+
+                    // Number of times evictor should have cycled through pools
+                    final int cycleCount = (runs * intPool.getNumTestsPerEvictionRun()) / totalInstances;
+
+                    // Look at elements and make sure they are visited cycleCount
+                    // or cycleCount + 1 times
+                    VisitTracker<Integer> tracker = null;
+                    int visitCount = 0;
+                    for (int k = 0; k < zeroLength; k++) {
+                        tracker = intPool.borrowObject(KEY_ZERO);
+                        visitCount = tracker.getValidateCount();
+                        if (visitCount < cycleCount || visitCount > cycleCount + 1) {
+                            fail(formatSettings(""ZERO"",""runs"",runs,""lifo"",lifo,""i"",i,""j"",j,""k"",k,""visitCount"",visitCount,""cycleCount"",cycleCount,""totalInstances"",totalInstances,zeroLength,oneLength,twoLength));
+}
+}
+}
+}
+}
+}
+",TestGenericKeyedObjectPool::checkEvictorVisiting_5_oe
+pool_left_207_6,"private void checkEvictorVisiting_6_oe(final boolean lifo) throws Exception {
+        VisitTrackerFactory<Integer> trackerFactory = new VisitTrackerFactory<>();
+        try (GenericKeyedObjectPool<Integer, VisitTracker<Integer>> intPool = new GenericKeyedObjectPool<>(
+                trackerFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            intPool.setTestWhileIdle(true);
+            intPool.setLifo(lifo);
+            intPool.setTestOnReturn(false);
+            intPool.setTestOnBorrow(false);
+            for (int i = 0; i < 3; i++) {
+                trackerFactory.resetId();
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 8; j++) {
+                    intPool.addObject(key);
+                }
+            }
+            intPool.evict(); // Visit oldest 2 - 00 and 01
+            VisitTracker<Integer> obj = intPool.borrowObject(KEY_ZERO);
+            intPool.returnObject(KEY_ZERO, obj);
+            obj = intPool.borrowObject(KEY_ZERO);
+            intPool.returnObject(KEY_ZERO, obj);
+            // borrow, return, borrow, return
+            // FIFO will move 0 and 1 to end - 2,3,4,5,6,7,0,1
+            // LIFO, 7 out, then in, then out, then in - 7,6,5,4,3,2,1,0
+            intPool.evict(); // Should visit 02 and 03 in either case
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Integer> tracker = intPool.borrowObject(KEY_ZERO);
+                if (tracker.getId() >= 4) {
+                    // removed other assertion
+                } else {
+                    // removed other assertion
+                }
+            }
+            // 0's are all out
+
+            intPool.setNumTestsPerEvictionRun(3);
+
+            intPool.evict(); // 10, 11, 12
+            intPool.evict(); // 13, 14, 15
+
+            obj = intPool.borrowObject(KEY_ONE);
+            intPool.returnObject(KEY_ONE, obj);
+            obj = intPool.borrowObject(KEY_ONE);
+            intPool.returnObject(KEY_ONE, obj);
+            obj = intPool.borrowObject(KEY_ONE);
+            intPool.returnObject(KEY_ONE, obj);
+            // borrow, return, borrow, return
+            // FIFO 3,4,5,^,6,7,0,1,2
+            // LIFO 7,6,^,5,4,3,2,1,0
+            // In either case, pointer should be at 6
+            intPool.evict();
+            // LIFO - 16, 17, 20
+            // FIFO - 16, 17, 10
+            intPool.evict();
+            // LIFO - 21, 22, 23
+            // FIFO - 11, 12, 20
+            intPool.evict();
+            // LIFO - 24, 25, 26
+            // FIFO - 21, 22, 23
+            intPool.evict();
+            // LIFO - 27, 10, 11
+            // FIFO - 24, 25, 26
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Integer> tracker = intPool.borrowObject(KEY_ONE);
+                if ((lifo && tracker.getId() > 1) || (!lifo && tracker.getId() > 2)) {
+                    // removed other assertion
+                } else {
+                    // removed other assertion
+                }
+            }
+        }
+
+        // Randomly generate some pools with random numTests
+        // and make sure evictor cycles through elements appropriately
+        final int[] smallPrimes = { 2, 3, 5, 7 };
+        final Random random = new Random();
+        random.setSeed(System.currentTimeMillis());
+        for (int i = 0; i < smallPrimes.length; i++) {
+            for (int j = 0; j < 5; j++) {// Try the tests a few times
+                // Can't use clear as some objects are still active so create
+                // a new pool
+                trackerFactory = new VisitTrackerFactory<>();
+                try (GenericKeyedObjectPool<Integer, VisitTracker<Integer>> intPool = new GenericKeyedObjectPool<>(
+                        trackerFactory)) {
+                    intPool.setMaxIdlePerKey(-1);
+                    intPool.setMaxTotalPerKey(-1);
+                    intPool.setNumTestsPerEvictionRun(smallPrimes[i]);
+                    intPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+                    intPool.setTestWhileIdle(true);
+                    intPool.setLifo(lifo);
+                    intPool.setTestOnReturn(false);
+                    intPool.setTestOnBorrow(false);
+
+                    final int zeroLength = 10 + random.nextInt(20);
+                    for (int k = 0; k < zeroLength; k++) {
+                        intPool.addObject(KEY_ZERO);
+                    }
+                    final int oneLength = 10 + random.nextInt(20);
+                    for (int k = 0; k < oneLength; k++) {
+                        intPool.addObject(KEY_ONE);
+                    }
+                    final int twoLength = 10 + random.nextInt(20);
+                    for (int k = 0; k < twoLength; k++) {
+                        intPool.addObject(KEY_TWO);
+                    }
+
+                    // Choose a random number of evictor runs
+                    final int runs = 10 + random.nextInt(50);
+                    for (int k = 0; k < runs; k++) {
+                        intPool.evict();
+                    }
+
+                    // Total instances in pool
+                    final int totalInstances = zeroLength + oneLength + twoLength;
+
+                    // Number of times evictor should have cycled through pools
+                    final int cycleCount = (runs * intPool.getNumTestsPerEvictionRun()) / totalInstances;
+
+                    // Look at elements and make sure they are visited cycleCount
+                    // or cycleCount + 1 times
+                    VisitTracker<Integer> tracker = null;
+                    int visitCount = 0;
+                    for (int k = 0; k < zeroLength; k++) {
+                        tracker = intPool.borrowObject(KEY_ZERO);
+                        visitCount = tracker.getValidateCount();
+                        if (visitCount < cycleCount || visitCount > cycleCount + 1) {
+                            // removed other assertion
+                        }
+                    }
+                    for (int k = 0; k < oneLength; k++) {
+                        tracker = intPool.borrowObject(KEY_ONE);
+                        visitCount = tracker.getValidateCount();
+                        if (visitCount < cycleCount || visitCount > cycleCount + 1) {
+                            fail(formatSettings(""ONE"",""runs"",runs,""lifo"",lifo,""i"",i,""j"",j,""k"",k,""visitCount"",visitCount,""cycleCount"",cycleCount,""totalInstances"",totalInstances,zeroLength,oneLength,twoLength));
+}
+}
+}
+}
+}
+}
+",TestGenericKeyedObjectPool::checkEvictorVisiting_6_oe
+pool_left_207_7,"private void checkEvictorVisiting_7_oe(final boolean lifo) throws Exception {
+        VisitTrackerFactory<Integer> trackerFactory = new VisitTrackerFactory<>();
+        try (GenericKeyedObjectPool<Integer, VisitTracker<Integer>> intPool = new GenericKeyedObjectPool<>(
+                trackerFactory)) {
+            intPool.setNumTestsPerEvictionRun(2);
+            intPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+            intPool.setTestWhileIdle(true);
+            intPool.setLifo(lifo);
+            intPool.setTestOnReturn(false);
+            intPool.setTestOnBorrow(false);
+            for (int i = 0; i < 3; i++) {
+                trackerFactory.resetId();
+                final Integer key = Integer.valueOf(i);
+                for (int j = 0; j < 8; j++) {
+                    intPool.addObject(key);
+                }
+            }
+            intPool.evict(); // Visit oldest 2 - 00 and 01
+            VisitTracker<Integer> obj = intPool.borrowObject(KEY_ZERO);
+            intPool.returnObject(KEY_ZERO, obj);
+            obj = intPool.borrowObject(KEY_ZERO);
+            intPool.returnObject(KEY_ZERO, obj);
+            // borrow, return, borrow, return
+            // FIFO will move 0 and 1 to end - 2,3,4,5,6,7,0,1
+            // LIFO, 7 out, then in, then out, then in - 7,6,5,4,3,2,1,0
+            intPool.evict(); // Should visit 02 and 03 in either case
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Integer> tracker = intPool.borrowObject(KEY_ZERO);
+                if (tracker.getId() >= 4) {
+                    // removed other assertion
+                } else {
+                    // removed other assertion
+                }
+            }
+            // 0's are all out
+
+            intPool.setNumTestsPerEvictionRun(3);
+
+            intPool.evict(); // 10, 11, 12
+            intPool.evict(); // 13, 14, 15
+
+            obj = intPool.borrowObject(KEY_ONE);
+            intPool.returnObject(KEY_ONE, obj);
+            obj = intPool.borrowObject(KEY_ONE);
+            intPool.returnObject(KEY_ONE, obj);
+            obj = intPool.borrowObject(KEY_ONE);
+            intPool.returnObject(KEY_ONE, obj);
+            // borrow, return, borrow, return
+            // FIFO 3,4,5,^,6,7,0,1,2
+            // LIFO 7,6,^,5,4,3,2,1,0
+            // In either case, pointer should be at 6
+            intPool.evict();
+            // LIFO - 16, 17, 20
+            // FIFO - 16, 17, 10
+            intPool.evict();
+            // LIFO - 21, 22, 23
+            // FIFO - 11, 12, 20
+            intPool.evict();
+            // LIFO - 24, 25, 26
+            // FIFO - 21, 22, 23
+            intPool.evict();
+            // LIFO - 27, 10, 11
+            // FIFO - 24, 25, 26
+            for (int i = 0; i < 8; i++) {
+                final VisitTracker<Integer> tracker = intPool.borrowObject(KEY_ONE);
+                if ((lifo && tracker.getId() > 1) || (!lifo && tracker.getId() > 2)) {
+                    // removed other assertion
+                } else {
+                    // removed other assertion
+                }
+            }
+        }
+
+        // Randomly generate some pools with random numTests
+        // and make sure evictor cycles through elements appropriately
+        final int[] smallPrimes = { 2, 3, 5, 7 };
+        final Random random = new Random();
+        random.setSeed(System.currentTimeMillis());
+        for (int i = 0; i < smallPrimes.length; i++) {
+            for (int j = 0; j < 5; j++) {// Try the tests a few times
+                // Can't use clear as some objects are still active so create
+                // a new pool
+                trackerFactory = new VisitTrackerFactory<>();
+                try (GenericKeyedObjectPool<Integer, VisitTracker<Integer>> intPool = new GenericKeyedObjectPool<>(
+                        trackerFactory)) {
+                    intPool.setMaxIdlePerKey(-1);
+                    intPool.setMaxTotalPerKey(-1);
+                    intPool.setNumTestsPerEvictionRun(smallPrimes[i]);
+                    intPool.setMinEvictableIdleTime(Duration.ofMillis(-1));
+                    intPool.setTestWhileIdle(true);
+                    intPool.setLifo(lifo);
+                    intPool.setTestOnReturn(false);
+                    intPool.setTestOnBorrow(false);
+
+                    final int zeroLength = 10 + random.nextInt(20);
+                    for (int k = 0; k < zeroLength; k++) {
+                        intPool.addObject(KEY_ZERO);
+                    }
+                    final int oneLength = 10 + random.nextInt(20);
+                    for (int k = 0; k < oneLength; k++) {
+                        intPool.addObject(KEY_ONE);
+                    }
+                    final int twoLength = 10 + random.nextInt(20);
+                    for (int k = 0; k < twoLength; k++) {
+                        intPool.addObject(KEY_TWO);
+                    }
+
+                    // Choose a random number of evictor runs
+                    final int runs = 10 + random.nextInt(50);
+                    for (int k = 0; k < runs; k++) {
+                        intPool.evict();
+                    }
+
+                    // Total instances in pool
+                    final int totalInstances = zeroLength + oneLength + twoLength;
+
+                    // Number of times evictor should have cycled through pools
+                    final int cycleCount = (runs * intPool.getNumTestsPerEvictionRun()) / totalInstances;
+
+                    // Look at elements and make sure they are visited cycleCount
+                    // or cycleCount + 1 times
+                    VisitTracker<Integer> tracker = null;
+                    int visitCount = 0;
+                    for (int k = 0; k < zeroLength; k++) {
+                        tracker = intPool.borrowObject(KEY_ZERO);
+                        visitCount = tracker.getValidateCount();
+                        if (visitCount < cycleCount || visitCount > cycleCount + 1) {
+                            // removed other assertion
+                        }
+                    }
+                    for (int k = 0; k < oneLength; k++) {
+                        tracker = intPool.borrowObject(KEY_ONE);
+                        visitCount = tracker.getValidateCount();
+                        if (visitCount < cycleCount || visitCount > cycleCount + 1) {
+                            // removed other assertion
+                        }
+                    }
+                    final int[] visits = new int[twoLength];
+                    for (int k = 0; k < twoLength; k++) {
+                        tracker = intPool.borrowObject(KEY_TWO);
+                        visitCount = tracker.getValidateCount();
+                        visits[k] = visitCount;
+                        if (visitCount < cycleCount || visitCount > cycleCount + 1) {
+                            final StringBuilder sb = new StringBuilder(""Visits:"");
+                            for (int l = 0; l <= k; l++) {
+                                sb.append(visits[l]).append(' ');
+                            }
+                            fail(formatSettings(""TWO "" + sb.toString(),""runs"",runs,""lifo"",lifo,""i"",i,""j"",j,""k"",k,""visitCount"",visitCount,""cycleCount"",cycleCount,""totalInstances"",totalInstances,zeroLength,oneLength,twoLength));
+}
+}
+}
+}
+}
+}
+",TestGenericKeyedObjectPool::checkEvictorVisiting_7_oe
+pool_left_208_1,"public <T> void runTestThreads_1_oe(final int numThreads, final int iterations, final int delay, final GenericKeyedObjectPool<String,T> gkopPool) {
+        final ArrayList<TestThread<T>> threads = new ArrayList<>();
+        for(int i=0;i<numThreads;i++) {
+            final TestThread<T> testThread = new TestThread<>(gkopPool, iterations, delay);
+            threads.add(testThread);
+            final Thread t = new Thread(testThread);
+            t.start();
+        }
+        for (final TestThread<T> testThread : threads) {
+            while(!(testThread.complete())) {
+                Waiter.sleepQuietly(500L);
+            }
+            if(testThread.failed()) {
+                fail(""Thread failed: "" + threads.indexOf(testThread)+ ""\n"" + getExceptionTrace(testThread.exception));
+}
+}
+}
+",TestGenericKeyedObjectPool::runTestThreads_1_oe
+pool_left_209_1,"@AfterEach
+    public void tearDownJmx_1_oe() throws Exception {
+        super.tearDown();
+        final ObjectName jmxName = gkoPool.getJmxName();
+        final String poolName = Objects.toString(jmxName, null);
+        gkoPool.clear();
+        gkoPool.close();
+        gkoPool = null;
+        simpleFactory = null;
+
+        final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
+        final Set<ObjectName> result = mbs.queryNames(new ObjectName(
+                ""org.apache.commoms.pool2:type=GenericKeyedObjectPool,*""),
+                null);
+        // There should be no registered pools at this point
+        final int registeredPoolCount = result.size();
+        final StringBuilder msg = new StringBuilder(""Current pool is: "");
+        msg.append(poolName);
+        msg.append(""  Still open pools are: "");
+        for (final ObjectName name : result) {
+            // Clean these up ready for the next test
+            msg.append(name.toString());
+            msg.append("" created via\n"");
+            msg.append(mbs.getAttribute(name, ""CreationStackTrace""));
+            msg.append('\n');
+            mbs.unregisterMBean(name);
+        }
+        assertEquals( 0, registeredPoolCount, msg.toString());
+    }
+",TestGenericKeyedObjectPool::tearDownJmx_1_oe

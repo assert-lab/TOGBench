@@ -1,0 +1,27 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/PushbackIteratorTest_OE25Dev_coll_left_444_3.java:[85,9] cannot find symbol
+  symbol:   method validate(org.apache.commons.collections4.iterators.PushbackIterator<E>,java.lang.String,java.lang.String)
+  location: class org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev_coll_left_444_3<E>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/PushbackIteratorTest_OE25Dev_coll_left_444_3.java:[96,9] cannot find symbol
+  symbol:   method validate(org.apache.commons.collections4.iterators.PushbackIterator<E>,java.lang.String)
+  location: class org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev_coll_left_444_3<E>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/PushbackIteratorTest_OE25Dev_coll_left_444_3.java:[109,9] cannot find symbol
+  symbol:   method validate(org.apache.commons.collections4.iterators.PushbackIterator<E>,java.lang.String)
+  location: class org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev_coll_left_444_3<E>
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:testCompile (default-testCompile) on project commons-collections4: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/PushbackIteratorTest_OE25Dev_coll_left_444_3.java:[85,9] cannot find symbol
+[ERROR]   symbol:   method validate(org.apache.commons.collections4.iterators.PushbackIterator<E>,java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev_coll_left_444_3<E>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/PushbackIteratorTest_OE25Dev_coll_left_444_3.java:[96,9] cannot find symbol
+[ERROR]   symbol:   method validate(org.apache.commons.collections4.iterators.PushbackIterator<E>,java.lang.String)
+[ERROR]   location: class org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev_coll_left_444_3<E>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/PushbackIteratorTest_OE25Dev_coll_left_444_3.java:[109,9] cannot find symbol
+[ERROR]   symbol:   method validate(org.apache.commons.collections4.iterators.PushbackIterator<E>,java.lang.String)
+[ERROR]   location: class org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev_coll_left_444_3<E>
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

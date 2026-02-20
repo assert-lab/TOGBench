@@ -6661,4 +6661,599 @@ class AbstractBSPTreeTest_OE25Dev {
                 Assertions.assertEquals(orig0.count(), copy0.count());
     }
 
+@Test
+    void testInsertCut_fitsCutterToCell_3_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+
+        final TestNode node = tree.getRoot()
+            .cut(TestLine.X_AXIS)
+            .getMinus()
+                .cut(TestLine.Y_AXIS)
+                .getPlus();
+
+        // act
+        final boolean result = node.insertCut(new TestLine(0.5, 1.5, 1.5, 0.5));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment segment = (TestLineSegment) node.getCut();
+
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 2), segment.getStartPoint());
+    }
+
+@Test
+    void testInsertCut_fitsCutterToCell_4_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+
+        final TestNode node = tree.getRoot()
+            .cut(TestLine.X_AXIS)
+            .getMinus()
+                .cut(TestLine.Y_AXIS)
+                .getPlus();
+
+        // act
+        final boolean result = node.insertCut(new TestLine(0.5, 1.5, 1.5, 0.5));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment segment = (TestLineSegment) node.getCut();
+
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(2, 0), segment.getEndPoint());
+    }
+
+@Test
+    void testInsert_convex_emptyTree_4_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+
+        // act
+        tree.insert(new TestLineSegment(1, 0, 1, 1));
+
+        // assert
+        final TestNode root = tree.getRoot();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment seg = (TestLineSegment) root.getCut();
+        PartitionTestUtils.assertPointsEqual( new TestPoint2D(1, Double.NEGATIVE_INFINITY), seg.getStartPoint());
+    }
+
+@Test
+    void testInsert_convex_emptyTree_5_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+
+        // act
+        tree.insert(new TestLineSegment(1, 0, 1, 1));
+
+        // assert
+        final TestNode root = tree.getRoot();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment seg = (TestLineSegment) root.getCut();
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual( new TestPoint2D(1, Double.POSITIVE_INFINITY), seg.getEndPoint());
+    }
+
+@Test
+    void testInsert_convex_noSplit_2_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.getRoot()
+            .cut(TestLine.X_AXIS)
+            .getMinus()
+                .cut(TestLine.Y_AXIS);
+
+        // act
+        tree.insert(new TestLineSegment(0.5, 1.5, 1.5, 0.5));
+
+        // assert
+        final TestNode root = tree.getRoot();
+        // removed other assertion
+
+        final TestNode node = tree.findNode(new TestPoint2D(0.5, 0.5));
+        final TestLineSegment seg = (TestLineSegment) node.getParent().getCut();
+
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 2), seg.getStartPoint());
+    }
+
+@Test
+    void testInsert_convex_noSplit_3_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.getRoot()
+            .cut(TestLine.X_AXIS)
+            .getMinus()
+                .cut(TestLine.Y_AXIS);
+
+        // act
+        tree.insert(new TestLineSegment(0.5, 1.5, 1.5, 0.5));
+
+        // assert
+        final TestNode root = tree.getRoot();
+        // removed other assertion
+
+        final TestNode node = tree.findNode(new TestPoint2D(0.5, 0.5));
+        final TestLineSegment seg = (TestLineSegment) node.getParent().getCut();
+
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(2, 0), seg.getEndPoint());
+    }
+
+@Test
+    void testInsert_convex_split_2_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.getRoot()
+            .cut(TestLine.X_AXIS)
+            .getMinus()
+                .cut(TestLine.Y_AXIS);
+
+        // act
+        tree.insert(new TestLineSegment(-0.5, 2.5, 2.5, -0.5));
+
+        // assert
+        final TestNode root = tree.getRoot();
+        // removed other assertion
+
+        final TestNode plusXPlusY = tree.getRoot().getMinus().getPlus();
+        final TestLineSegment plusXPlusYSeg = (TestLineSegment) plusXPlusY.getCut();
+
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 2), plusXPlusYSeg.getStartPoint());
+    }
+
+@Test
+    void testInsert_convex_split_3_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.getRoot()
+            .cut(TestLine.X_AXIS)
+            .getMinus()
+                .cut(TestLine.Y_AXIS);
+
+        // act
+        tree.insert(new TestLineSegment(-0.5, 2.5, 2.5, -0.5));
+
+        // assert
+        final TestNode root = tree.getRoot();
+        // removed other assertion
+
+        final TestNode plusXPlusY = tree.getRoot().getMinus().getPlus();
+        final TestLineSegment plusXPlusYSeg = (TestLineSegment) plusXPlusY.getCut();
+
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(2, 0), plusXPlusYSeg.getEndPoint());
+    }
+
+@Test
+    void testInsert_convex_split_4_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.getRoot()
+            .cut(TestLine.X_AXIS)
+            .getMinus()
+                .cut(TestLine.Y_AXIS);
+
+        // act
+        tree.insert(new TestLineSegment(-0.5, 2.5, 2.5, -0.5));
+
+        // assert
+        final TestNode root = tree.getRoot();
+        // removed other assertion
+
+        final TestNode plusXPlusY = tree.getRoot().getMinus().getPlus();
+        final TestLineSegment plusXPlusYSeg = (TestLineSegment) plusXPlusY.getCut();
+
+        // removed other assertion
+        // removed other assertion
+
+        final TestNode minusY = tree.getRoot().getPlus();
+        final TestLineSegment minusYSeg = (TestLineSegment) minusY.getCut();
+
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(2, 0), minusYSeg.getStartPoint());
+    }
+
+@Test
+    void testInsert_convex_split_5_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.getRoot()
+            .cut(TestLine.X_AXIS)
+            .getMinus()
+                .cut(TestLine.Y_AXIS);
+
+        // act
+        tree.insert(new TestLineSegment(-0.5, 2.5, 2.5, -0.5));
+
+        // assert
+        final TestNode root = tree.getRoot();
+        // removed other assertion
+
+        final TestNode plusXPlusY = tree.getRoot().getMinus().getPlus();
+        final TestLineSegment plusXPlusYSeg = (TestLineSegment) plusXPlusY.getCut();
+
+        // removed other assertion
+        // removed other assertion
+
+        final TestNode minusY = tree.getRoot().getPlus();
+        final TestLineSegment minusYSeg = (TestLineSegment) minusY.getCut();
+
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual( new TestPoint2D(Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY), minusYSeg.getEndPoint());
+    }
+
+@Test
+    void testInsert_convex_split_6_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.getRoot()
+            .cut(TestLine.X_AXIS)
+            .getMinus()
+                .cut(TestLine.Y_AXIS);
+
+        // act
+        tree.insert(new TestLineSegment(-0.5, 2.5, 2.5, -0.5));
+
+        // assert
+        final TestNode root = tree.getRoot();
+        // removed other assertion
+
+        final TestNode plusXPlusY = tree.getRoot().getMinus().getPlus();
+        final TestLineSegment plusXPlusYSeg = (TestLineSegment) plusXPlusY.getCut();
+
+        // removed other assertion
+        // removed other assertion
+
+        final TestNode minusY = tree.getRoot().getPlus();
+        final TestLineSegment minusYSeg = (TestLineSegment) minusY.getCut();
+
+        // removed other assertion
+        // removed other assertion
+
+        final TestNode minusXPlusY = tree.getRoot().getMinus().getMinus();
+        final TestLineSegment minusXPlusYSeg = (TestLineSegment) minusXPlusY.getCut();
+
+        PartitionTestUtils.assertPointsEqual( new TestPoint2D(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY), minusXPlusYSeg.getStartPoint());
+    }
+
+@Test
+    void testInsert_convex_split_7_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.getRoot()
+            .cut(TestLine.X_AXIS)
+            .getMinus()
+                .cut(TestLine.Y_AXIS);
+
+        // act
+        tree.insert(new TestLineSegment(-0.5, 2.5, 2.5, -0.5));
+
+        // assert
+        final TestNode root = tree.getRoot();
+        // removed other assertion
+
+        final TestNode plusXPlusY = tree.getRoot().getMinus().getPlus();
+        final TestLineSegment plusXPlusYSeg = (TestLineSegment) plusXPlusY.getCut();
+
+        // removed other assertion
+        // removed other assertion
+
+        final TestNode minusY = tree.getRoot().getPlus();
+        final TestLineSegment minusYSeg = (TestLineSegment) minusY.getCut();
+
+        // removed other assertion
+        // removed other assertion
+
+        final TestNode minusXPlusY = tree.getRoot().getMinus().getMinus();
+        final TestLineSegment minusXPlusYSeg = (TestLineSegment) minusXPlusY.getCut();
+
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 2), minusXPlusYSeg.getEndPoint());
+    }
+
+@Test
+    void testTransform_singleCut_3_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.getRoot().insertCut(TestLine.X_AXIS);
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(p.getX(), p.getY() + 2));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+
+        final List<TestLineSegment> segments = getLineSegments(tree);
+        // removed other assertion
+
+        final TestLineSegment seg = segments.get(0);
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(Double.NEGATIVE_INFINITY, 2), seg.getStartPoint());
+    }
+
+@Test
+    void testTransform_singleCut_4_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.getRoot().insertCut(TestLine.X_AXIS);
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(p.getX(), p.getY() + 2));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+
+        final List<TestLineSegment> segments = getLineSegments(tree);
+        // removed other assertion
+
+        final TestLineSegment seg = segments.get(0);
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(Double.POSITIVE_INFINITY, 2), seg.getEndPoint());
+    }
+
+@Test
+    void testTransform_multipleCuts_3_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.insert(Arrays.asList(
+                    new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)),
+                    new TestLineSegment(new TestPoint2D(-1, -1), new TestPoint2D(1, 1)),
+                    new TestLineSegment(new TestPoint2D(3, 1), new TestPoint2D(3, 2))
+                ));
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(0.5 * p.getX(), p.getY() + 2));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+
+        final List<TestLineSegment> segments = getLineSegments(tree);
+        // removed other assertion
+
+        final TestLineSegment segment1 = segments.get(0);
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(Double.NEGATIVE_INFINITY, 2), segment1.getStartPoint());
+    }
+
+@Test
+    void testTransform_multipleCuts_4_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.insert(Arrays.asList(
+                    new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)),
+                    new TestLineSegment(new TestPoint2D(-1, -1), new TestPoint2D(1, 1)),
+                    new TestLineSegment(new TestPoint2D(3, 1), new TestPoint2D(3, 2))
+                ));
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(0.5 * p.getX(), p.getY() + 2));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+
+        final List<TestLineSegment> segments = getLineSegments(tree);
+        // removed other assertion
+
+        final TestLineSegment segment1 = segments.get(0);
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(Double.POSITIVE_INFINITY, 2), segment1.getEndPoint());
+    }
+
+@Test
+    void testTransform_multipleCuts_5_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.insert(Arrays.asList(
+                    new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)),
+                    new TestLineSegment(new TestPoint2D(-1, -1), new TestPoint2D(1, 1)),
+                    new TestLineSegment(new TestPoint2D(3, 1), new TestPoint2D(3, 2))
+                ));
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(0.5 * p.getX(), p.getY() + 2));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+
+        final List<TestLineSegment> segments = getLineSegments(tree);
+        // removed other assertion
+
+        final TestLineSegment segment1 = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment segment2 = segments.get(1);
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 2), segment2.getStartPoint());
+    }
+
+@Test
+    void testTransform_multipleCuts_6_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.insert(Arrays.asList(
+                    new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)),
+                    new TestLineSegment(new TestPoint2D(-1, -1), new TestPoint2D(1, 1)),
+                    new TestLineSegment(new TestPoint2D(3, 1), new TestPoint2D(3, 2))
+                ));
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(0.5 * p.getX(), p.getY() + 2));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+
+        final List<TestLineSegment> segments = getLineSegments(tree);
+        // removed other assertion
+
+        final TestLineSegment segment1 = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment segment2 = segments.get(1);
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY), segment2.getEndPoint());
+    }
+
+@Test
+    void testTransform_multipleCuts_7_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.insert(Arrays.asList(
+                    new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)),
+                    new TestLineSegment(new TestPoint2D(-1, -1), new TestPoint2D(1, 1)),
+                    new TestLineSegment(new TestPoint2D(3, 1), new TestPoint2D(3, 2))
+                ));
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(0.5 * p.getX(), p.getY() + 2));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+
+        final List<TestLineSegment> segments = getLineSegments(tree);
+        // removed other assertion
+
+        final TestLineSegment segment1 = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment segment2 = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment segment3 = segments.get(2);
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(1.5, 2), segment3.getStartPoint());
+    }
+
+@Test
+    void testTransform_multipleCuts_8_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.insert(Arrays.asList(
+                    new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)),
+                    new TestLineSegment(new TestPoint2D(-1, -1), new TestPoint2D(1, 1)),
+                    new TestLineSegment(new TestPoint2D(3, 1), new TestPoint2D(3, 2))
+                ));
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(0.5 * p.getX(), p.getY() + 2));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+
+        final List<TestLineSegment> segments = getLineSegments(tree);
+        // removed other assertion
+
+        final TestLineSegment segment1 = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment segment2 = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment segment3 = segments.get(2);
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(1.5, 5), segment3.getEndPoint());
+    }
+
+@Test
+    void testTransform_multipleCuts_9_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.insert(Arrays.asList(
+                    new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)),
+                    new TestLineSegment(new TestPoint2D(-1, -1), new TestPoint2D(1, 1)),
+                    new TestLineSegment(new TestPoint2D(3, 1), new TestPoint2D(3, 2))
+                ));
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(0.5 * p.getX(), p.getY() + 2));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+
+        final List<TestLineSegment> segments = getLineSegments(tree);
+        // removed other assertion
+
+        final TestLineSegment segment1 = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment segment2 = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment segment3 = segments.get(2);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment segment4 = segments.get(3);
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY), segment4.getStartPoint());
+    }
+
+@Test
+    void testTransform_multipleCuts_10_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.insert(Arrays.asList(
+                    new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)),
+                    new TestLineSegment(new TestPoint2D(-1, -1), new TestPoint2D(1, 1)),
+                    new TestLineSegment(new TestPoint2D(3, 1), new TestPoint2D(3, 2))
+                ));
+
+        final Transform<TestPoint2D> t = new TestTransform2D(p -> new TestPoint2D(0.5 * p.getX(), p.getY() + 2));
+
+        // act
+        tree.transform(t);
+
+        // assert
+        // removed other assertion
+
+        final List<TestLineSegment> segments = getLineSegments(tree);
+        // removed other assertion
+
+        final TestLineSegment segment1 = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment segment2 = segments.get(1);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment segment3 = segments.get(2);
+        // removed other assertion
+        // removed other assertion
+
+        final TestLineSegment segment4 = segments.get(3);
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 2), segment4.getEndPoint());
+    }
+
 }

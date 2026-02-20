@@ -1,0 +1,819 @@
+classname,method,docstring,annotations,method_definition
+org.apache.commons.weaver.FinderTest,finder(),,,"private Finder finder() {
+        final ClassLoader classLoader = new URLClassLoader(URLArray.fromPaths(getClassPathEntries()));
+        return new Finder(new FileArchive(classLoader, getTargetFolder()));
+    }"
+org.apache.commons.weaver.FinderTest,void testElements(),"/**
+     * The point of this is to prove that we can correctly hydate instances of
+     * annotations with class retention.
+     * 
+     * @throws IOException
+     */",,"@Test
+    public void testElements() throws IOException {
+        addClassForScanning(ComplexAnnotations.class);
+        Map<String, Annotated<Field>> fields = new HashMap<String, Annotated<Field>>();
+        for (Annotated<Field> annotated : finder().withAnnotations().findAnnotatedFields(
+            ComplexAnnotations.TestAnnotation.class)) {
+            fields.put(annotated.get().getName(), annotated);
+        }
+        assertEquals(2, fields.size());
+
+        TestAnnotation anno1 = fields.get(""dummy1"").getAnnotation(TestAnnotation.class);
+
+        assertFalse(anno1.booleanValue());
+        assertTrue(Arrays.equals(new boolean[] { false }, anno1.booleanValues()));
+        assertEquals((byte) 0, anno1.byteValue());
+        assertArrayEquals(new byte[] { 0 }, anno1.byteValues());
+        assertEquals((char) 0, anno1.charValue());
+        assertArrayEquals(new char[] { 0 }, anno1.charValues());
+        assertEquals(Double.valueOf(0.0), Double.valueOf(anno1.doubleValue()));
+        assertTrue(Arrays.equals(new double[] { 0.0 }, anno1.doubleValues()));
+        assertEquals(Float.valueOf(0.0f), Float.valueOf(anno1.floatValue()));
+        assertTrue(Arrays.equals(new float[] { 0.0f }, anno1.floatValues()));
+        assertEquals(0, anno1.intValue());
+        assertArrayEquals(new int[] { 0 }, anno1.intValues());
+        assertEquals(0L, anno1.longValue());
+        assertArrayEquals(new long[] { 0L }, anno1.longValues());
+
+        NestAnnotation nest1 = anno1.nest();
+        assertFalse(nest1.booleanValue());
+        assertTrue(Arrays.equals(new boolean[] { false }, nest1.booleanValues()));
+        assertEquals((byte) 0, nest1.byteValue());
+        assertArrayEquals(new byte[] { 0 }, nest1.byteValues());
+        assertEquals((char) 0, nest1.charValue());
+        assertArrayEquals(new char[] { 0 }, nest1.charValues());
+        assertEquals(Double.valueOf(0.0), Double.valueOf(nest1.doubleValue()));
+        assertTrue(Arrays.equals(new double[] { 0.0 }, nest1.doubleValues()));
+        assertEquals(Float.valueOf(0.0f), Float.valueOf(nest1.floatValue()));
+        assertTrue(Arrays.equals(new float[] { 0.0f }, nest1.floatValues()));
+        assertEquals(0, nest1.intValue());
+        assertArrayEquals(new int[] { 0 }, nest1.intValues());
+        assertEquals(0L, nest1.longValue());
+        assertArrayEquals(new long[] { 0L }, nest1.longValues());
+        assertEquals((short) 0, nest1.shortValue());
+        assertArrayEquals(new short[] { 0 }, nest1.shortValues());
+        assertSame(CURLY, nest1.stooge());
+        assertArrayEquals(new Stooge[] { MOE, LARRY, SHEMP }, nest1.stooges());
+        assertEquals("""", nest1.string());
+        assertArrayEquals(new String[] { """" }, nest1.strings());
+        assertEquals(Object.class, nest1.type());
+        assertArrayEquals(new Class[] { Object.class }, nest1.types());
+
+        assertEquals(1, anno1.nests().length);
+        NestAnnotation nest1_0 = anno1.nests()[0];
+        assertFalse(nest1_0.booleanValue());
+        assertTrue(Arrays.equals(new boolean[] { false }, nest1_0.booleanValues()));
+        assertEquals((byte) 0, nest1_0.byteValue());
+        assertArrayEquals(new byte[] { 0 }, nest1_0.byteValues());
+        assertEquals((char) 0, nest1_0.charValue());
+        assertArrayEquals(new char[] { 0 }, nest1_0.charValues());
+        assertEquals(Double.valueOf(0.0), Double.valueOf(nest1_0.doubleValue()));
+        assertTrue(Arrays.equals(new double[] { 0.0 }, nest1_0.doubleValues()));
+        assertEquals(Float.valueOf(0.0f), Float.valueOf(nest1_0.floatValue()));
+        assertTrue(Arrays.equals(new float[] { 0.0f }, nest1_0.floatValues()));
+        assertEquals(0, nest1_0.intValue());
+        assertArrayEquals(new int[] { 0 }, nest1_0.intValues());
+        assertEquals(0L, nest1_0.longValue());
+        assertArrayEquals(new long[] { 0L }, nest1_0.longValues());
+        assertEquals((short) 0, nest1_0.shortValue());
+        assertArrayEquals(new short[] { 0 }, nest1_0.shortValues());
+        assertSame(CURLY, nest1_0.stooge());
+        assertArrayEquals(new Stooge[] { MOE, LARRY, SHEMP }, nest1_0.stooges());
+        assertEquals("""", nest1_0.string());
+        assertArrayEquals(new String[] { """" }, nest1_0.strings());
+        assertEquals(Object[].class, nest1_0.type());
+        assertArrayEquals(new Class[] { Object[].class }, nest1_0.types());
+
+        assertEquals((short) 0, anno1.shortValue());
+        assertArrayEquals(new short[] { 0 }, anno1.shortValues());
+        assertSame(SHEMP, anno1.stooge());
+        assertArrayEquals(new Stooge[] { MOE, LARRY, CURLY }, anno1.stooges());
+        assertEquals("""", anno1.string());
+        assertArrayEquals(new String[] { """" }, anno1.strings());
+        assertEquals(Object.class, anno1.type());
+        assertArrayEquals(new Class[] { Object.class }, anno1.types());
+
+        TestAnnotation anno2 = fields.get(""dummy2"").getAnnotation(TestAnnotation.class);
+        assertFalse(anno2.booleanValue());
+        assertTrue(Arrays.equals(new boolean[] { false }, anno2.booleanValues()));
+        assertEquals((byte) 0, anno2.byteValue());
+        assertArrayEquals(new byte[] { 0 }, anno2.byteValues());
+        assertEquals((char) 0, anno2.charValue());
+        assertArrayEquals(new char[] { 0 }, anno2.charValues());
+        assertEquals(Double.valueOf(0.0), Double.valueOf(anno2.doubleValue()));
+        assertTrue(Arrays.equals(new double[] { 0.0 }, anno2.doubleValues()));
+        assertEquals(Float.valueOf(0.0f), Float.valueOf(anno2.floatValue()));
+        assertTrue(Arrays.equals(new float[] { 0.0f }, anno2.floatValues()));
+        assertEquals(0, anno2.intValue());
+        assertArrayEquals(new int[] { 0 }, anno2.intValues());
+        assertEquals(0L, anno2.longValue());
+        assertArrayEquals(new long[] { 0L }, anno2.longValues());
+
+        NestAnnotation nest2 = anno2.nest();
+        assertFalse(nest2.booleanValue());
+        assertTrue(Arrays.equals(new boolean[] { false }, nest2.booleanValues()));
+        assertEquals((byte) 0, nest2.byteValue());
+        assertArrayEquals(new byte[] { 0 }, nest2.byteValues());
+        assertEquals((char) 0, nest2.charValue());
+        assertArrayEquals(new char[] { 0 }, nest2.charValues());
+        assertEquals(Double.valueOf(0.0), Double.valueOf(nest2.doubleValue()));
+        assertTrue(Arrays.equals(new double[] { 0.0 }, nest2.doubleValues()));
+        assertEquals(Float.valueOf(0.0f), Float.valueOf(nest2.floatValue()));
+        assertTrue(Arrays.equals(new float[] { 0.0f }, nest2.floatValues()));
+        assertEquals(0, nest2.intValue());
+        assertArrayEquals(new int[] { 0 }, nest2.intValues());
+        assertEquals(0L, nest2.longValue());
+        assertArrayEquals(new long[] { 0L }, nest2.longValues());
+        assertEquals((short) 0, nest2.shortValue());
+        assertArrayEquals(new short[] { 0 }, nest2.shortValues());
+        assertSame(CURLY, nest2.stooge());
+        assertArrayEquals(new Stooge[] { MOE, LARRY, SHEMP }, nest2.stooges());
+        assertEquals("""", nest2.string());
+        assertArrayEquals(new String[] { """" }, nest2.strings());
+        assertEquals(Object.class, nest2.type());
+        assertArrayEquals(new Class[] { Object.class }, nest2.types());
+
+        assertEquals(2, anno2.nests().length);
+        NestAnnotation nest2_0 = anno2.nests()[0];
+        assertFalse(nest2_0.booleanValue());
+        assertTrue(Arrays.equals(new boolean[] { false }, nest2_0.booleanValues()));
+        assertEquals((byte) 0, nest2_0.byteValue());
+        assertArrayEquals(new byte[] { 0 }, nest2_0.byteValues());
+        assertEquals((char) 0, nest2_0.charValue());
+        assertArrayEquals(new char[] { 0 }, nest2_0.charValues());
+        assertEquals(Double.valueOf(0.0), Double.valueOf(nest2_0.doubleValue()));
+        assertTrue(Arrays.equals(new double[] { 0.0 }, nest2_0.doubleValues()));
+        assertEquals(Float.valueOf(0.0f), Float.valueOf(nest2_0.floatValue()));
+        assertTrue(Arrays.equals(new float[] { 0.0f }, nest2_0.floatValues()));
+        assertEquals(0, nest2_0.intValue());
+        assertArrayEquals(new int[] { 0 }, nest2_0.intValues());
+        assertEquals(0L, nest2_0.longValue());
+        assertArrayEquals(new long[] { 0L }, nest2_0.longValues());
+        assertEquals((short) 0, nest2_0.shortValue());
+        assertArrayEquals(new short[] { 0 }, nest2_0.shortValues());
+        assertSame(CURLY, nest2_0.stooge());
+        assertArrayEquals(new Stooge[] { MOE, LARRY, SHEMP }, nest2_0.stooges());
+        assertEquals("""", nest2_0.string());
+        assertArrayEquals(new String[] { """" }, nest2_0.strings());
+        assertEquals(Object[].class, nest2_0.type());
+        assertArrayEquals(new Class[] { Object[].class }, nest2_0.types());
+
+        NestAnnotation nest2_1 = anno2.nests()[1];
+        assertFalse(nest2_1.booleanValue());
+        assertTrue(Arrays.equals(new boolean[] { false }, nest2_1.booleanValues()));
+        assertEquals((byte) 0, nest2_1.byteValue());
+        assertArrayEquals(new byte[] { 0 }, nest2_1.byteValues());
+        assertEquals((char) 0, nest2_1.charValue());
+        assertArrayEquals(new char[] { 0 }, nest2_1.charValues());
+        assertEquals(Double.valueOf(0.0), Double.valueOf(nest2_1.doubleValue()));
+        assertTrue(Arrays.equals(new double[] { 0.0 }, nest2_1.doubleValues()));
+        assertEquals(Float.valueOf(0.0f), Float.valueOf(nest2_1.floatValue()));
+        assertTrue(Arrays.equals(new float[] { 0.0f }, nest2_1.floatValues()));
+        assertEquals(0, nest2_1.intValue());
+        assertArrayEquals(new int[] { 0 }, nest2_1.intValues());
+        assertEquals(0L, nest2_1.longValue());
+        assertArrayEquals(new long[] { 0L }, nest2_1.longValues());
+        assertEquals((short) 0, nest2_1.shortValue());
+        assertArrayEquals(new short[] { 0 }, nest2_1.shortValues());
+        assertSame(CURLY, nest2_1.stooge());
+        assertArrayEquals(new Stooge[] { MOE, LARRY, SHEMP }, nest2_1.stooges());
+        assertEquals("""", nest2_1.string());
+        assertArrayEquals(new String[] { """" }, nest2_1.strings());
+        assertEquals(Object[].class, nest2_1.type());
+        assertArrayEquals(new Class[] { Object[].class }, nest2_1.types());
+
+        assertEquals((short) 0, anno2.shortValue());
+        assertArrayEquals(new short[] { 0 }, anno2.shortValues());
+        assertSame(SHEMP, anno2.stooge());
+        assertArrayEquals(new Stooge[] { MOE, LARRY, CURLY }, anno2.stooges());
+        assertEquals("""", anno2.string());
+        assertArrayEquals(new String[] { """" }, anno2.strings());
+        assertEquals(Object.class, anno2.type());
+        assertArrayEquals(new Class[] { Object.class }, anno2.types());
+    }"
+org.apache.commons.weaver.FinderTest,void testObjectMethods(),,,"@Test
+    public void testObjectMethods() throws IOException {
+        addClassForScanning(ComplexAnnotations.class);
+        for (Annotated<Field> annotated : finder().withAnnotations().findAnnotatedFields(
+            ComplexAnnotations.TestAnnotation.class)) {
+            TestAnnotation anno = annotated.getAnnotation(TestAnnotation.class);
+            assertFalse(anno.toString().isEmpty());
+            assertFalse(anno.hashCode() == 0);
+            assertTrue(anno.equals(anno));
+        }
+    }"
+org.apache.commons.weaver.FinderTest,void testFindAssignableTypes(),,,"@Test
+    public void testFindAssignableTypes() throws IOException {
+        addClassForScanning(TestBeanInterface.class);
+        addClassForScanning(AbstractTestBean.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+
+        final Set<Class<?>> implementors = new HashSet<Class<?>>();
+        for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(TestBeanInterface.class)) {
+            implementors.add(annotated.get());
+        }
+        assertEquals(1, implementors.size());
+        assertTrue(implementors.contains(TestBeanWithClassAnnotation.class));
+
+        final Set<Class<?>> subclasses = new HashSet<Class<?>>();
+        for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(AbstractTestBean.class)) {
+            subclasses.add(annotated.get());
+        }
+        assertEquals(2, subclasses.size());
+        assertTrue(subclasses.contains(TestBeanWithClassAnnotation.class));
+        assertTrue(subclasses.contains(TestBeanWithMethodAnnotation.class));
+    }"
+org.apache.commons.weaver.FinderTest,void testFindAllTypes(),,,"@Test
+    public void testFindAllTypes() throws IOException {
+        addClassForScanning(TestBeanInterface.class);
+        addClassForScanning(AbstractTestBean.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+
+        List<Annotated<Class<?>>> allClasses = finder().withAnnotations().getAllClasses();
+        assertThat(extract(allClasses),Matchers.<Class<?>> containsInAnyOrder(TestBeanInterface.class,AbstractTestBean.class,TestBeanWithClassAnnotation.class,TestBeanWithMethodAnnotation.class));
+    }"
+org.apache.commons.weaver.FinderTest,extract(List<Annotated<Class<?>>> input),,,"private List<Class<?>> extract(List<Annotated<Class<?>>> input) {
+        Validate.noNullElements(input);
+        if (input.isEmpty()) {
+            return Collections.emptyList();
+        }
+        final List<Class<?>> result = new ArrayList<Class<?>>(input.size());
+        for (Annotated<Class<?>> c : input) {
+            result.add(c.get());
+        }
+        return result;
+    }"
+org.apache.commons.weaver.utils.ArgsTest,void testCompare(),,,"@Test
+    public void testCompare() {
+        assertTrue(Args.compare(ArrayUtils.EMPTY_CLASS_ARRAY, ArrayUtils.EMPTY_CLASS_ARRAY) == 0);
+        assertTrue(Args.compare(ArrayUtils.EMPTY_CLASS_ARRAY, new Class[] { String.class }) < 0);
+        assertTrue(Args.compare(new Class[] { String.class }, ArrayUtils.EMPTY_CLASS_ARRAY) > 0);
+        assertTrue(Args.compare(new Class[] { String.class }, new Class[] { String.class }) == 0);
+        assertTrue(Args.compare(new Class[] { int.class }, new Class[] { String.class }) < 0);
+        assertTrue(Args.compare(new Class[] { String.class }, new Class[] { int.class }) > 0);
+        assertTrue(Args.compare(new Class[] { int.class, String.class }, new Class[] { int.class, String.class}) == 0);
+        assertTrue(Args.compare(new Class[] { String.class, String.class }, new Class[] { String.class, String.class}) == 0);
+        assertTrue(Args.compare(new Class[] { String.class, int.class }, new Class[] { String.class, String.class}) < 0);
+        assertTrue(Args.compare(new Class[] { String.class, String.class }, new Class[] { String.class, int.class}) > 0);
+    }"
+org.apache.commons.weaver.utils.ProvidersTest,void testSortNull(),,@Test(expected = NullPointerException.class),"@Test(expected = NullPointerException.class)
+    public void testSortNull() {
+        Providers.sort(null);
+    }"
+org.apache.commons.weaver.utils.ProvidersTest,void testSortNullElement(),,@Test(expected = IllegalArgumentException.class),"@Test(expected = IllegalArgumentException.class)
+    public void testSortNullElement() {
+        Providers.sort(Arrays.asList((Weaver) null));
+    }"
+org.apache.commons.weaver.utils.ProvidersTest,void testSort(),,,"@Test
+    public void testSort() {
+        assertThat(Providers.sort(Arrays.asList(b, a, c)), IsIterableContainingInOrder.contains(a, b, c));
+        assertThat(Providers.sort(Arrays.asList(y, w, x, z)), IsIterableContainingInOrder.contains(z, y, x, w));
+    }"
+org.apache.commons.weaver.utils.ProvidersTest,void testCircularSort(),,@Test(expected = IllegalStateException.class),"@Test(expected = IllegalStateException.class)
+    public void testCircularSort() {
+        Providers.sort(Arrays.asList(y, z, monkeywrench));
+    }"
+org.apache.commons.weaver.test.WeaveProcessorTest,void testWeaveVisiting(),,,"@Test
+    public void testWeaveVisiting() throws Exception {
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+
+        final Properties config = new Properties();
+        config.put(""configKey"", ""configValue"");
+
+        WeaveProcessor wp = new WeaveProcessor(getClassPathEntries(), getTargetFolder(), config);
+
+        TestWeaver.wovenClasses.clear();
+        TestWeaver.wovenMethods.clear();
+
+        wp.weave();
+
+        Assert.assertEquals(1, TestWeaver.wovenClasses.size());
+        Assert.assertEquals(TestBeanWithClassAnnotation.class, TestWeaver.wovenClasses.get(0));
+
+        Assert.assertEquals(1, TestWeaver.wovenMethods.size());
+        Assert.assertEquals(TestBeanWithMethodAnnotation.class, TestWeaver.wovenMethods.get(0).getDeclaringClass());
+        
+        Assert.assertEquals(1, TestWeaver.implementors.size());
+        Assert.assertEquals(TestBeanWithClassAnnotation.class, TestWeaver.implementors.get(0));
+        
+        Assert.assertEquals(2, TestWeaver.subclasses.size());
+        Assert.assertTrue(TestWeaver.subclasses.containsAll(Arrays.<Class<?>> asList(TestBeanWithClassAnnotation.class,TestBeanWithMethodAnnotation.class)));
+    }"
+org.apache.commons.weaver.test.CleanProcessorTest,void testWeaveVisiting(),,,"@Test
+    public void testWeaveVisiting() throws Exception {
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+
+        final Properties config = new Properties();
+        config.put(""configKey"", ""configValue"");
+
+        final CleanProcessor cp = new CleanProcessor(getClassPathEntries(), getTargetFolder(), config);
+        cp.clean();
+
+        Assert.assertFalse(new File(getTargetFolder(),TestBeanWithMethodAnnotation.class.getName().replace('.',File.separatorChar)+ "".class"").exists());
+        Assert.assertFalse(new File(getTargetFolder(),TestBeanWithClassAnnotation.class.getName().replace('.',File.separatorChar)+ "".class"").exists());
+    }"
+org.apache.commons.weaver.test.WeaverTestBase,void cleanup(),,,"public void cleanup() {
+        targetFolder = null;
+    }"
+org.apache.commons.weaver.test.WeaverTestBase,void addClassForScanning(Class<?> clazz),"/**
+     * Add a class (and its inner classes) to the temporary folder.
+     * 
+     * @param clazz
+     */",,"protected void addClassForScanning(Class<?> clazz) throws IOException {
+        String clazzDirName = clazz.getPackage().getName().replace(""."", ""/"");
+        File targetDirFile = new File(getTargetFolder(), clazzDirName);
+        targetDirFile.mkdirs();
+
+        String fileName = baseName(clazz) + "".class"";
+        String clazzFileName = clazzDirName + ""/"" + fileName;
+        URL clazzUrl = getClass().getClassLoader().getResource(clazzFileName);
+        File targetClazzFile = new File(targetDirFile, fileName);
+
+        byte[] buffer = new byte[0xFFFF];
+
+        FileOutputStream fos = new FileOutputStream(targetClazzFile);
+
+        InputStream inputStream = clazzUrl.openStream();
+        int len;
+        while ((len = inputStream.read(buffer)) > 0) {
+            fos.write(buffer, 0, len);
+        }
+        fos.flush();
+        fos.close();
+
+        for (Class<?> inner : clazz.getClasses()) {
+            addClassForScanning(inner);
+        }
+    }"
+org.apache.commons.weaver.test.WeaverTestBase,baseName(Class<?> clazz),,,"private String baseName(Class<?> clazz) {
+        if (clazz.getDeclaringClass() == null) {
+            return clazz.getSimpleName();
+        }
+        final StringBuilder result = new StringBuilder();
+        Class<?> current = clazz;
+        while (current != null) {
+            if (result.length() > 0) {
+                result.insert(0, '$');
+            }
+            result.insert(0, current.getSimpleName());
+            current = current.getDeclaringClass();
+        }
+        return result.toString();
+    }"
+org.apache.commons.weaver.test.WeaverTestBase,getTargetFolder(),"/**
+     * Resolves the 'target' folder where the classes should get placed
+     */",,"protected File getTargetFolder() {
+        if (targetFolder == null) {
+            targetFolder = new File(temporaryFolder.getRoot(), TARGET_FOLDER);
+        }
+        return targetFolder;
+    }"
+org.apache.commons.weaver.test.WeaverTestBase,getClassPathEntries(),,,"protected List<String> getClassPathEntries() {
+        if (classPathEntries == null) {
+            classPathEntries = new ArrayList<String>(1);
+            try {
+                classPathEntries.add(getTargetFolder().getCanonicalPath());
+            } catch (IOException ioe) {
+                throw new RuntimeException(ioe);
+            }
+        }
+
+        return classPathEntries;
+    }"
+org.apache.commons.weaver.test.weaver.TestCleaner,"clean(WeaveEnvironment environment, Scanner scanner)",,,"@Override
+    public boolean clean(WeaveEnvironment environment, Scanner scanner) {
+        boolean result = false;
+
+        final ScanRequest scanRequest =
+            new ScanRequest().add(WeaveInterest.of(TestAnnotation.class, ElementType.TYPE)).add(
+                WeaveInterest.of(TestAnnotation.class, ElementType.METHOD));
+
+        for (WeavableClass<?> weavableClass : scanner.scan(scanRequest).getClasses()) {
+            if (environment.deleteClassfile(weavableClass.getTarget())) {
+                result = true;
+            } else {
+                break;
+            }
+        }
+        return result;
+    }"
+org.apache.commons.weaver.test.weaver.TestWeaver,"process(WeaveEnvironment environment, Scanner scanner)",,,"@Override
+    public boolean process(WeaveEnvironment environment, Scanner scanner) {
+        Assert.assertNotNull(environment.config);
+        Assert.assertEquals(1, environment.config.size());
+
+        String configValue = environment.config.getProperty(""configKey"");
+
+        Assert.assertEquals(""configValue"", configValue);
+        boolean result = false;
+
+        final ScanRequest scanRequest =
+            new ScanRequest().add(WeaveInterest.of(TestAnnotation.class, ElementType.TYPE))
+                .add(WeaveInterest.of(TestAnnotation.class, ElementType.METHOD))
+                .addSupertypes(AbstractTestBean.class, TestBeanInterface.class);
+
+        final ScanResult scanResult = scanner.scan(scanRequest);
+
+        for (WeavableClass<?> weavableClass : scanResult.getClasses().with(TestAnnotation.class)) {
+            if (wovenClasses.add(weavableClass.getTarget())) {
+                result = true;
+            }
+        }
+        for (WeavableMethod<?> weavableMethod : scanResult.getMethods().with(TestAnnotation.class)) {
+            if (wovenMethods.add(weavableMethod.getTarget())) {
+                result = true;
+            }
+        }
+        for (WeavableClass<?> weavableClass : scanResult.getClassesAssignableTo(TestBeanInterface.class)) {
+            if (implementors.add(weavableClass.getTarget())) {
+                result = true;
+            }
+        }
+        for (WeavableClass<?> weavableClass : scanResult.getClassesAssignableTo(AbstractTestBean.class)) {
+            if (subclasses.add(weavableClass.getTarget())) {
+                result = true;
+            }
+        }
+        return result;
+    }"
+org.apache.commons.weaver.test.beans.TestBeanWithMethodAnnotation,annotatedMethod(),,,"@TestAnnotation
+    private int annotatedMethod() {
+        return 42;
+    }"
+org.apache.commons.weaver.test.beans.TestBeanWithMethodAnnotation,nonAnnotatedMethod(),,"@SuppressWarnings(""unused"")","@SuppressWarnings(""unused"")
+    private int nonAnnotatedMethod() {
+        return 21;
+    }"
+org.apache.commons.weaver.test.beans.TestBeanWithClassAnnotation,someMethod(),,"@SuppressWarnings(""unused"")","@SuppressWarnings(""unused"")
+    private int someMethod() {
+        return 42;
+    }"
+org.apache.commons.weaver.normalizer.UtilsTest,void testValidatePackageName(),,,"@Test
+    public void testValidatePackageName() {
+        assertEquals("""", Utils.validatePackageName(""""));
+        assertEquals("""", Utils.validatePackageName(""    ""));
+        assertEquals(""foo"", Utils.validatePackageName(""foo""));
+        assertEquals(""foo/bar"", Utils.validatePackageName(""foo.bar""));
+        assertEquals(""foo/bar"", Utils.validatePackageName(""foo/bar""));
+        assertEquals(""foo/bar/baz"", Utils.validatePackageName(""foo.bar.baz""));
+        assertEquals(""foo/bar/baz"", Utils.validatePackageName(""foo.bar/baz""));
+        assertEquals(""foo/bar/baz"", Utils.validatePackageName(""foo/bar.baz""));
+        assertEquals(""foo/bar/baz"", Utils.validatePackageName(""foo/bar/baz""));
+        assertEquals(""$foo"", Utils.validatePackageName(""$foo""));
+        assertEquals(""_foo"", Utils.validatePackageName(""_foo""));
+        assertEquals(""foo2"", Utils.validatePackageName(""foo2""));
+    }"
+org.apache.commons.weaver.normalizer.UtilsTest,void testValidatePackageNameStartsWithDigit(),,@Test(expected = IllegalArgumentException.class),"@Test(expected = IllegalArgumentException.class)
+    public void testValidatePackageNameStartsWithDigit() {
+        Utils.validatePackageName(""2foo"");
+    }"
+org.apache.commons.weaver.normalizer.UtilsTest,void testValidatePackageNameEmbeddedWhitespace(),,@Test(expected = IllegalArgumentException.class),"@Test(expected = IllegalArgumentException.class)
+    public void testValidatePackageNameEmbeddedWhitespace() {
+        Utils.validatePackageName(""foo bar"");
+    }"
+org.apache.commons.weaver.normalizer.UtilsTest,void testParseTypes(),,,"@Test
+    public void testParseTypes() {
+        assertContainsInOrder(Utils.parseTypes("" java.lang.Number "", getClass().getClassLoader()), Number.class);
+        assertContainsInOrder(
+            Utils.parseTypes(""java.lang.Number,java.lang.String,java.util.Map"", getClass().getClassLoader()),
+            Number.class, String.class, Map.class);
+        assertContainsInOrder(
+            Utils.parseTypes(""java.lang.Number, java.lang.String, java.util.Map"", getClass().getClassLoader()),
+            Number.class, String.class, Map.class);
+        assertContainsInOrder(
+            Utils.parseTypes(""java/lang/Number, java/lang/String, java/util/Map"", getClass().getClassLoader()),
+            Number.class, String.class, Map.class);
+        assertContainsInOrder(
+            Utils.parseTypes(""java.lang.Number,\njava.lang.String,\njava.util.Map"", getClass().getClassLoader()),
+            Number.class, String.class, Map.class);
+    }"
+org.apache.commons.weaver.normalizer.UtilsTest,void testParseUnknownType(),,@Test(expected = IllegalArgumentException.class),"@Test(expected = IllegalArgumentException.class)
+    public void testParseUnknownType() {
+        Utils.parseTypes(""gobbledygook"", getClass().getClassLoader());
+    }"
+org.apache.commons.weaver.normalizer.UtilsTest,void testParseMissingFirstType(),,@Test(expected = IllegalArgumentException.class),"@Test(expected = IllegalArgumentException.class)
+    public void testParseMissingFirstType() {
+        Utils.parseTypes("",java.lang.Object"", getClass().getClassLoader());
+    }"
+org.apache.commons.weaver.normalizer.UtilsTest,void testParseMissingLastType(),,@Test(expected = IllegalArgumentException.class),"@Test(expected = IllegalArgumentException.class)
+    public void testParseMissingLastType() {
+        Utils.parseTypes(""java.lang.Object,"", getClass().getClassLoader());
+    }"
+org.apache.commons.weaver.normalizer.UtilsTest,void testParseMissingType(),,@Test(expected = IllegalArgumentException.class),"@Test(expected = IllegalArgumentException.class)
+    public void testParseMissingType() {
+        Utils.parseTypes(""java.lang.Object,,java.lang.Iterable"", getClass().getClassLoader());
+    }"
+org.apache.commons.weaver.normalizer.UtilsTest,"void assertContainsInOrder(Iterable<E> iterable, E... expectedElements)",,,"<E> void assertContainsInOrder(Iterable<E> iterable, E... expectedElements) {
+        final Iterator<E> iterator = iterable.iterator();
+        for (E e : expectedElements) {
+            assertTrue(iterator.hasNext());
+            assertEquals(e, iterator.next());
+        }
+        assertFalse(iterator.hasNext());
+    }"
+org.apache.commons.weaver.privilizer.example.UsingArgsTest,void setUp(),,,"@Before
+    public void setUp() throws Exception {
+        Setup.setProperty(""foo"", ""foo-value"");
+        Setup.setProperty(""bar"", ""bar-value"");
+        Setup.setProperty(""baz"", ""baz-value"");
+        usingArgs = new UsingArgs();
+    }"
+org.apache.commons.weaver.privilizer.example.UsingArgsTest,void testGetProperty(),,,"@Test
+    public void testGetProperty() {
+        assertEquals(""foo-value"", usingArgs.getProperty(""foo""));
+        assertEquals(""bar-value"", usingArgs.getProperty(""bar""));
+        assertEquals(""baz-value"", usingArgs.getProperty(""baz""));
+    }"
+org.apache.commons.weaver.privilizer.example.UsingArgsTest,void testGetProperties(),,,"@Test
+    public void testGetProperties() {
+        assertTrue(Arrays.equals(new String[] { ""foo-value"", ""bar-value"", ""baz-value"" },
+            usingArgs.getProperties(""foo"", ""bar"", ""baz"")));
+        assertEquals(0, usingArgs.getProperties().length);
+        assertNull(usingArgs.getProperties((String[]) null));
+    }"
+org.apache.commons.weaver.privilizer.example.UsingArgsTest,void testThrowAwayProperty(),,,"@Test
+    public void testThrowAwayProperty() {
+        usingArgs.throwAwayProperty('f', ""o"", 'o');
+    }"
+org.apache.commons.weaver.privilizer.example.UsingArgsTest,void testAssembleAndGetProperty(),,,"@Test
+    public void testAssembleAndGetProperty() {
+        assertEquals(""foo-value"", usingArgs.assembleAndGetProperty('f', new StringBuilder().append('o'), 'o'));
+        assertEquals(""bar-value"", usingArgs.assembleAndGetProperty('b', new StringBuilder().append('a'), 'r'));
+        assertEquals(""baz-value"", usingArgs.assembleAndGetProperty('b', new StringBuilder().append('a'), 'z'));
+    }"
+org.apache.commons.weaver.privilizer.example.UsingArgsTest,void testThrowingCheckedException(),,,"@Test
+    public void testThrowingCheckedException() throws CheckedException1, CheckedException2 {
+        assertEquals(0, usingArgs.throwingCheckedException(0, ""foo""));
+        try {
+            usingArgs.throwingCheckedException(1, ""bar"");
+        } catch (CheckedException1 e) {
+        }
+        try {
+            usingArgs.throwingCheckedException(2, ""baz"");
+        } catch (CheckedException2 e) {
+        }
+    }"
+org.apache.commons.weaver.privilizer.example.MethodReferencesUsingBlueprintsTest,void setUp(),,,"@Before
+    public void setUp() throws Exception {
+        Setup.setProperty(""foo"", ""foo-value"");
+        Setup.setProperty(""bar"", ""bar-value"");
+        Setup.setProperty(""baz"", ""baz-value"");
+        methodReferencesUsingBlueprints = new MethodReferencesUsingBlueprints();
+    }"
+org.apache.commons.weaver.privilizer.example.MethodReferencesUsingBlueprintsTest,void testUtilsReadPublicConstant(),,,"@Test
+    public void testUtilsReadPublicConstant() {
+        assertEquals(Utils.FOO, methodReferencesUsingBlueprints.utilsReadPublicConstant());
+    }"
+org.apache.commons.weaver.privilizer.example.MethodReferencesUsingBlueprintsTest,void testUtilsReadPrivateField(),,,"@Test
+    public void testUtilsReadPrivateField() {
+        assertEquals(999, methodReferencesUsingBlueprints.utilsReadPrivateField());
+    }"
+org.apache.commons.weaver.privilizer.example.MethodReferencesUsingBlueprintsTest,void testUtilsGetProperty(),,,"@Test
+    public void testUtilsGetProperty() {
+        assertEquals(""foo-value"", methodReferencesUsingBlueprints.utilsGetProperty());
+    }"
+org.apache.commons.weaver.privilizer.example.MethodReferencesUsingBlueprintsTest,void testUtilsGetProperty_String(),,,"@Test
+    public void testUtilsGetProperty_String() {
+        assertEquals(""foo-value"", methodReferencesUsingBlueprints.utilsGetProperty(""foo""));
+        assertEquals(""bar-value"", methodReferencesUsingBlueprints.utilsGetProperty(""bar""));
+        assertEquals(""baz-value"", methodReferencesUsingBlueprints.utilsGetProperty(""baz""));
+    }"
+org.apache.commons.weaver.privilizer.example.MethodReferencesUsingBlueprintsTest,void testUtilsGetProperty_int_String(),,,"@Test
+    public void testUtilsGetProperty_int_String() {
+        assertEquals(""foo-value"", methodReferencesUsingBlueprints.utilsGetProperty(2, ""foo""));
+        assertEquals(""bar-value"", methodReferencesUsingBlueprints.utilsGetProperty(2, ""bar""));
+        assertEquals(""baz-value"", methodReferencesUsingBlueprints.utilsGetProperty(2, ""baz""));
+    }"
+org.apache.commons.weaver.privilizer.example.MethodReferencesUsingBlueprintsTest,void testMoreGetProperty(),,,"@Test
+    public void testMoreGetProperty() {
+        assertEquals(""bar-value"", methodReferencesUsingBlueprints.moreGetProperty());
+    }"
+org.apache.commons.weaver.privilizer.example.MethodReferencesUsingBlueprintsTest,void testMoreGetTopStackElementClassName(),,,"@Test
+    public void testMoreGetTopStackElementClassName() {
+        assumeTrue(StringUtils.containsIgnoreCase(SystemUtils.JAVA_VENDOR, ""oracle""));
+        assertEquals(Utils.More.class.getName(), methodReferencesUsingBlueprints.moreGetTopStackElementClassName());
+    }"
+org.apache.commons.weaver.privilizer.example.StaticPrivateMethodsTest,void setUp(),,,"@Before
+    public void setUp() throws Exception {
+        Setup.setProperty(""foo"", ""foo-value"");
+        Setup.setProperty(""bar"", ""bar-value"");
+        Setup.setProperty(""baz"", ""baz-value"");
+    }"
+org.apache.commons.weaver.privilizer.example.StaticPrivateMethodsTest,void testGet(),,,"@Test
+    public void testGet() {
+        assertEquals(""foo-value"", StaticPrivateMethods.get(""foo""));
+        assertEquals(""bar-value"", StaticPrivateMethods.get(""bar""));
+        assertEquals(""baz-value"", StaticPrivateMethods.get(""baz""));
+    }"
+org.apache.commons.weaver.privilizer.example.StaticNoArgsTest,void setUp(),,,"@Before
+    public void setUp() throws Exception {
+        Setup.setProperty(""foo"", ""foo-value"");
+    }"
+org.apache.commons.weaver.privilizer.example.StaticNoArgsTest,void testThrowAwayFoo(),,,"@Test
+    public void testThrowAwayFoo() {
+        StaticNoArgs.throwAwayFoo();
+    }"
+org.apache.commons.weaver.privilizer.example.StaticNoArgsTest,void testGetFoo(),,,"@Test
+    public void testGetFoo() {
+        assertEquals(""foo-value"", StaticNoArgs.getFoo());
+    }"
+org.apache.commons.weaver.privilizer.example.StaticNoArgsTest,void testGetTrue(),,,"@Test
+    public void testGetTrue() {
+        assertSame(Boolean.TRUE, StaticNoArgs.getTrue());
+    }"
+org.apache.commons.weaver.privilizer.example.StaticNoArgsTest,void testGetFalse(),,,"@Test
+    public void testGetFalse() {
+        assertFalse(StaticNoArgs.getFalse());
+    }"
+org.apache.commons.weaver.privilizer.example.StaticNoArgsTest,void testThrowingCheckedException1(),,,"@Test
+    public void testThrowingCheckedException1() {
+        try {
+            StaticNoArgs.throwingCheckedException1();
+            fail();
+        } catch (CheckedException1 e) {
+        }
+    }"
+org.apache.commons.weaver.privilizer.example.StaticNoArgsTest,void testThrowingCheckedException2(),,,"@Test
+    public void testThrowingCheckedException2() {
+        try {
+            StaticNoArgs.throwingCheckedException2();
+        } catch (CheckedException1 e) {
+        } catch (CheckedException2 e) {
+            return;
+        }
+        fail();
+    }"
+org.apache.commons.weaver.privilizer.example.PrivateMethodsTest,void setUp(),,,"@Before
+    public void setUp() throws Exception {
+        Setup.setProperty(""foo"", ""foo-value"");
+        Setup.setProperty(""bar"", ""bar-value"");
+        Setup.setProperty(""baz"", ""baz-value"");
+        privateMethods = new PrivateMethods();
+    }"
+org.apache.commons.weaver.privilizer.example.PrivateMethodsTest,void testGet(),,,"@Test
+    public void testGet() {
+        assertEquals(""foo-value"", privateMethods.get(""foo""));
+        assertEquals(""bar-value"", privateMethods.get(""bar""));
+        assertEquals(""baz-value"", privateMethods.get(""baz""));
+    }"
+org.apache.commons.weaver.privilizer.example.StaticUsingArgsTest,void setUp(),,,"@Before
+    public void setUp() throws Exception {
+        Setup.setProperty(""foo"", ""foo-value"");
+        Setup.setProperty(""bar"", ""bar-value"");
+        Setup.setProperty(""baz"", ""baz-value"");
+    }"
+org.apache.commons.weaver.privilizer.example.StaticUsingArgsTest,void testGetProperty(),,,"@Test
+    public void testGetProperty() {
+        assertEquals(""foo-value"", StaticUsingArgs.getProperty(""foo""));
+        assertEquals(""bar-value"", StaticUsingArgs.getProperty(""bar""));
+        assertEquals(""baz-value"", StaticUsingArgs.getProperty(""baz""));
+    }"
+org.apache.commons.weaver.privilizer.example.StaticUsingArgsTest,void testGetProperties(),,,"@Test
+    public void testGetProperties() {
+        assertTrue(Arrays.equals(new String[] { ""foo-value"", ""bar-value"", ""baz-value"" },
+            StaticUsingArgs.getProperties(""foo"", ""bar"", ""baz"")));
+        assertEquals(0, StaticUsingArgs.getProperties().length);
+        assertNull(StaticUsingArgs.getProperties((String[]) null));
+    }"
+org.apache.commons.weaver.privilizer.example.StaticUsingArgsTest,void testThrowAwayProperty(),,,"@Test
+    public void testThrowAwayProperty() {
+        StaticUsingArgs.throwAwayProperty('f', ""o"", 'o');
+    }"
+org.apache.commons.weaver.privilizer.example.StaticUsingArgsTest,void testAssembleAndGetProperty(),,,"@Test
+    public void testAssembleAndGetProperty() {
+        assertEquals(""foo-value"", StaticUsingArgs.assembleAndGetProperty('f', new StringBuilder().append('o'), 'o'));
+        assertEquals(""bar-value"", StaticUsingArgs.assembleAndGetProperty('b', new StringBuilder().append('a'), 'r'));
+        assertEquals(""baz-value"", StaticUsingArgs.assembleAndGetProperty('b', new StringBuilder().append('a'), 'z'));
+    }"
+org.apache.commons.weaver.privilizer.example.StaticUsingArgsTest,void testThrowingCheckedException(),,,"@Test
+    public void testThrowingCheckedException() throws CheckedException1, CheckedException2 {
+        assertEquals(0, StaticUsingArgs.throwingCheckedException(0, ""foo""));
+        try {
+            StaticUsingArgs.throwingCheckedException(1, ""bar"");
+        } catch (CheckedException1 e) {
+        }
+        try {
+            StaticUsingArgs.throwingCheckedException(2, ""baz"");
+        } catch (CheckedException2 e) {
+        }
+    }"
+org.apache.commons.weaver.privilizer.example.NoArgsTest,void setUp(),,,"@Before
+    public void setUp() throws Exception {
+        Setup.setProperty(""foo"", ""foo-value"");
+        noArgs = new NoArgs();
+    }"
+org.apache.commons.weaver.privilizer.example.NoArgsTest,void testThrowAwayFoo(),,,"@Test
+    public void testThrowAwayFoo() {
+        noArgs.throwAwayFoo();
+    }"
+org.apache.commons.weaver.privilizer.example.NoArgsTest,void testGetFoo(),,,"@Test
+    public void testGetFoo() {
+        assertEquals(""foo-value"", noArgs.getFoo());
+    }"
+org.apache.commons.weaver.privilizer.example.NoArgsTest,void testGetTrue(),,,"@Test
+    public void testGetTrue() {
+        assertSame(Boolean.TRUE, noArgs.getTrue());
+    }"
+org.apache.commons.weaver.privilizer.example.NoArgsTest,void testGetFalse(),,,"@Test
+    public void testGetFalse() {
+        assertFalse(noArgs.getFalse());
+    }"
+org.apache.commons.weaver.privilizer.example.NoArgsTest,void testThrowingCheckedException1(),,,"@Test
+    public void testThrowingCheckedException1() {
+        try {
+            noArgs.throwingCheckedException1();
+            fail();
+        } catch (CheckedException1 e) {
+        }
+    }"
+org.apache.commons.weaver.privilizer.example.NoArgsTest,void testThrowingCheckedException2(),,,"@Test
+    public void testThrowingCheckedException2() {
+        try {
+            noArgs.throwingCheckedException2();
+        } catch (CheckedException1 e) {
+        } catch (CheckedException2 e) {
+            return;
+        }
+        fail();
+    }"
+org.apache.commons.weaver.privilizer.example.UsingBlueprintsTest,void setUp(),,,"@Before
+    public void setUp() throws Exception {
+        Setup.setProperty(""foo"", ""foo-value"");
+        Setup.setProperty(""bar"", ""bar-value"");
+        Setup.setProperty(""baz"", ""baz-value"");
+        usingBlueprints = new UsingBlueprints();
+    }"
+org.apache.commons.weaver.privilizer.example.UsingBlueprintsTest,void testUtilsReadPublicConstant(),,,"@Test
+    public void testUtilsReadPublicConstant() {
+        assertEquals(Utils.FOO, usingBlueprints.utilsReadPublicConstant());
+    }"
+org.apache.commons.weaver.privilizer.example.UsingBlueprintsTest,void testUtilsReadPrivateField(),,,"@Test
+    public void testUtilsReadPrivateField() {
+        assertEquals(999, usingBlueprints.utilsReadPrivateField());
+    }"
+org.apache.commons.weaver.privilizer.example.UsingBlueprintsTest,void testUtilsGetProperty(),,,"@Test
+    public void testUtilsGetProperty() {
+        assertEquals(""foo-value"", usingBlueprints.utilsGetProperty());
+    }"
+org.apache.commons.weaver.privilizer.example.UsingBlueprintsTest,void testUtilsGetProperty_String(),,,"@Test
+    public void testUtilsGetProperty_String() {
+        assertEquals(""foo-value"", usingBlueprints.utilsGetProperty(""foo""));
+        assertEquals(""bar-value"", usingBlueprints.utilsGetProperty(""bar""));
+        assertEquals(""baz-value"", usingBlueprints.utilsGetProperty(""baz""));
+    }"
+org.apache.commons.weaver.privilizer.example.UsingBlueprintsTest,void testUtilsGetProperty_int_String(),,,"@Test
+    public void testUtilsGetProperty_int_String() {
+        assertEquals(""foo-value"", usingBlueprints.utilsGetProperty(2, ""foo""));
+        assertEquals(""bar-value"", usingBlueprints.utilsGetProperty(2, ""bar""));
+        assertEquals(""baz-value"", usingBlueprints.utilsGetProperty(2, ""baz""));
+    }"
+org.apache.commons.weaver.privilizer.example.UsingBlueprintsTest,void testMoreGetProperty(),,,"@Test
+    public void testMoreGetProperty() {
+        assertEquals(""bar-value"", usingBlueprints.moreGetProperty());
+    }"
+org.apache.commons.weaver.privilizer.example.UsingBlueprintsTest,void testMoreGetTopStackElementClassName(),,,"@Test
+    public void testMoreGetTopStackElementClassName() {
+        assumeTrue(StringUtils.containsIgnoreCase(SystemUtils.JAVA_VENDOR, ""oracle""));
+        assertEquals(Utils.More.class.getName(), usingBlueprints.moreGetTopStackElementClassName());
+    }"
+org.apache.commons.weaver.privilizer.example.OverloadingTest,void setUp(),,,"@Before
+    public void setUp() throws Exception {
+        Setup.setProperty(""foo"", ""foo-value"");
+        Setup.setProperty(""bar"", ""bar-value"");
+        Setup.setProperty(""baz"", ""baz-value"");
+        overloading = new Overloading();
+    }"
+org.apache.commons.weaver.privilizer.example.OverloadingTest,void testNoArgs(),,,"@Test
+    public void testNoArgs() {
+        assertEquals(""foo-value"", overloading.get());
+    }"
+org.apache.commons.weaver.privilizer.example.OverloadingTest,void testStringArg(),,,"@Test
+    public void testStringArg() {
+        assertEquals(""bar-value"", overloading.get(""bar""));
+    }"
+org.apache.commons.weaver.privilizer.example.OverloadingTest,void testCharishArgs(),,,"@Test
+    public void testCharishArgs() {
+        assertEquals(""baz-value"", overloading.get('b', 'a', (short) 'z'));
+    }"
+org.apache.commons.weaver.privilizer.example.StaticOverloadingTest,void setUp(),,,"@Before
+    public void setUp() throws Exception {
+        Setup.setProperty(""foo"", ""foo-value"");
+        Setup.setProperty(""bar"", ""bar-value"");
+        Setup.setProperty(""baz"", ""baz-value"");
+    }"
+org.apache.commons.weaver.privilizer.example.StaticOverloadingTest,void testNoArgs(),,,"@Test
+    public void testNoArgs() {
+        assertEquals(""foo-value"", StaticOverloading.get());
+    }"
+org.apache.commons.weaver.privilizer.example.StaticOverloadingTest,void testStringArg(),,,"@Test
+    public void testStringArg() {
+        assertEquals(""bar-value"", StaticOverloading.get(""bar""));
+    }"
+org.apache.commons.weaver.privilizer.example.StaticOverloadingTest,void testCharishArgs(),,,"@Test
+    public void testCharishArgs() {
+        assertEquals(""baz-value"", StaticOverloading.get('b', 'a', (short) 'z'));
+    }"

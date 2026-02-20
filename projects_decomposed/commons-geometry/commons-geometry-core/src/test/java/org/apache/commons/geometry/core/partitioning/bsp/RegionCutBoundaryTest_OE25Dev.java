@@ -47,63 +47,6 @@ class RegionCutBoundaryTest_OE25Dev {
     }
 
     @Test
-    void testClosest() {
-        // arrange
-        final TestPoint2D a = new TestPoint2D(-1, 0);
-        final TestPoint2D b = TestPoint2D.ZERO;
-        final TestPoint2D c = new TestPoint2D(1, 0);
-
-        final TestLineSegment insideFacing = new TestLineSegment(a, b);
-        final TestLineSegment outsideFacing = new TestLineSegment(b, c);
-
-        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(Collections.singletonList(insideFacing),
-                Collections.singletonList(outsideFacing));
-
-        // act/assert
-        PartitionTestUtils.assertPointsEqual(a, boundary.closest(new TestPoint2D(-2, 1)));
-        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-0.5, 0), boundary.closest(new TestPoint2D(-0.5, -1)));
-        PartitionTestUtils.assertPointsEqual(b, boundary.closest(TestPoint2D.ZERO));
-        PartitionTestUtils.assertPointsEqual(b, boundary.closest(new TestPoint2D(0, 2)));
-        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0.5, 0), boundary.closest(new TestPoint2D(0.5, 3)));
-        PartitionTestUtils.assertPointsEqual(c, boundary.closest(new TestPoint2D(1, -4)));
-        PartitionTestUtils.assertPointsEqual(c, boundary.closest(new TestPoint2D(3, -5)));
-    }
-
-    @Test
-    void testClosest_nullInsideFacing() {
-        // arrange
-        final TestPoint2D a = new TestPoint2D(-1, 0);
-        final TestPoint2D b = TestPoint2D.ZERO;
-
-        final TestLineSegment outsideFacing = new TestLineSegment(a, b);
-
-        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, Collections.singletonList(outsideFacing));
-
-        // act/assert
-        PartitionTestUtils.assertPointsEqual(a, boundary.closest(new TestPoint2D(-2, 1)));
-        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-0.5, 0), boundary.closest(new TestPoint2D(-0.5, -1)));
-        PartitionTestUtils.assertPointsEqual(b, boundary.closest(TestPoint2D.ZERO));
-        PartitionTestUtils.assertPointsEqual(b, boundary.closest(new TestPoint2D(1, 2)));
-    }
-
-    @Test
-    void testClosest_nullOutsideFacing() {
-        // arrange
-        final TestPoint2D a = new TestPoint2D(-1, 0);
-        final TestPoint2D b = TestPoint2D.ZERO;
-
-        final TestLineSegment insideFacing = new TestLineSegment(a, b);
-
-        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(Collections.singletonList(insideFacing), null);
-
-        // act/assert
-        PartitionTestUtils.assertPointsEqual(a, boundary.closest(new TestPoint2D(-2, 1)));
-        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-0.5, 0), boundary.closest(new TestPoint2D(-0.5, -1)));
-        PartitionTestUtils.assertPointsEqual(b, boundary.closest(TestPoint2D.ZERO));
-        PartitionTestUtils.assertPointsEqual(b, boundary.closest(new TestPoint2D(1, 2)));
-    }
-
-    @Test
     void testProperties_1_oe() {
         // arrange
         final List<HyperplaneConvexSubset<TestPoint2D>> insideFacing =
@@ -489,6 +432,270 @@ class RegionCutBoundaryTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         Assertions.assertFalse(boundary.contains(new TestPoint2D(1, 0)));
+    }
+
+@Test
+    void testClosest_1_oe() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+        final TestPoint2D c = new TestPoint2D(1, 0);
+
+        final TestLineSegment insideFacing = new TestLineSegment(a, b);
+        final TestLineSegment outsideFacing = new TestLineSegment(b, c);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(Collections.singletonList(insideFacing),
+                Collections.singletonList(outsideFacing));
+
+        // act/assert
+        PartitionTestUtils.assertPointsEqual(a, boundary.closest(new TestPoint2D(-2, 1)));
+    }
+
+@Test
+    void testClosest_2_oe() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+        final TestPoint2D c = new TestPoint2D(1, 0);
+
+        final TestLineSegment insideFacing = new TestLineSegment(a, b);
+        final TestLineSegment outsideFacing = new TestLineSegment(b, c);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(Collections.singletonList(insideFacing),
+                Collections.singletonList(outsideFacing));
+
+        // act/assert
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-0.5, 0), boundary.closest(new TestPoint2D(-0.5, -1)));
+    }
+
+@Test
+    void testClosest_3_oe() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+        final TestPoint2D c = new TestPoint2D(1, 0);
+
+        final TestLineSegment insideFacing = new TestLineSegment(a, b);
+        final TestLineSegment outsideFacing = new TestLineSegment(b, c);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(Collections.singletonList(insideFacing),
+                Collections.singletonList(outsideFacing));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(b, boundary.closest(TestPoint2D.ZERO));
+    }
+
+@Test
+    void testClosest_4_oe() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+        final TestPoint2D c = new TestPoint2D(1, 0);
+
+        final TestLineSegment insideFacing = new TestLineSegment(a, b);
+        final TestLineSegment outsideFacing = new TestLineSegment(b, c);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(Collections.singletonList(insideFacing),
+                Collections.singletonList(outsideFacing));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(b, boundary.closest(new TestPoint2D(0, 2)));
+    }
+
+@Test
+    void testClosest_5_oe() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+        final TestPoint2D c = new TestPoint2D(1, 0);
+
+        final TestLineSegment insideFacing = new TestLineSegment(a, b);
+        final TestLineSegment outsideFacing = new TestLineSegment(b, c);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(Collections.singletonList(insideFacing),
+                Collections.singletonList(outsideFacing));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0.5, 0), boundary.closest(new TestPoint2D(0.5, 3)));
+    }
+
+@Test
+    void testClosest_6_oe() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+        final TestPoint2D c = new TestPoint2D(1, 0);
+
+        final TestLineSegment insideFacing = new TestLineSegment(a, b);
+        final TestLineSegment outsideFacing = new TestLineSegment(b, c);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(Collections.singletonList(insideFacing),
+                Collections.singletonList(outsideFacing));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(c, boundary.closest(new TestPoint2D(1, -4)));
+    }
+
+@Test
+    void testClosest_7_oe() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+        final TestPoint2D c = new TestPoint2D(1, 0);
+
+        final TestLineSegment insideFacing = new TestLineSegment(a, b);
+        final TestLineSegment outsideFacing = new TestLineSegment(b, c);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(Collections.singletonList(insideFacing),
+                Collections.singletonList(outsideFacing));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(c, boundary.closest(new TestPoint2D(3, -5)));
+    }
+
+@Test
+    void testClosest_nullInsideFacing_1_oe() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+
+        final TestLineSegment outsideFacing = new TestLineSegment(a, b);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, Collections.singletonList(outsideFacing));
+
+        // act/assert
+        PartitionTestUtils.assertPointsEqual(a, boundary.closest(new TestPoint2D(-2, 1)));
+    }
+
+@Test
+    void testClosest_nullInsideFacing_2_oe() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+
+        final TestLineSegment outsideFacing = new TestLineSegment(a, b);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, Collections.singletonList(outsideFacing));
+
+        // act/assert
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-0.5, 0), boundary.closest(new TestPoint2D(-0.5, -1)));
+    }
+
+@Test
+    void testClosest_nullInsideFacing_3_oe() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+
+        final TestLineSegment outsideFacing = new TestLineSegment(a, b);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, Collections.singletonList(outsideFacing));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(b, boundary.closest(TestPoint2D.ZERO));
+    }
+
+@Test
+    void testClosest_nullInsideFacing_4_oe() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+
+        final TestLineSegment outsideFacing = new TestLineSegment(a, b);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, Collections.singletonList(outsideFacing));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(b, boundary.closest(new TestPoint2D(1, 2)));
+    }
+
+@Test
+    void testClosest_nullOutsideFacing_1_oe() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+
+        final TestLineSegment insideFacing = new TestLineSegment(a, b);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(Collections.singletonList(insideFacing), null);
+
+        // act/assert
+        PartitionTestUtils.assertPointsEqual(a, boundary.closest(new TestPoint2D(-2, 1)));
+    }
+
+@Test
+    void testClosest_nullOutsideFacing_2_oe() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+
+        final TestLineSegment insideFacing = new TestLineSegment(a, b);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(Collections.singletonList(insideFacing), null);
+
+        // act/assert
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-0.5, 0), boundary.closest(new TestPoint2D(-0.5, -1)));
+    }
+
+@Test
+    void testClosest_nullOutsideFacing_3_oe() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+
+        final TestLineSegment insideFacing = new TestLineSegment(a, b);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(Collections.singletonList(insideFacing), null);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(b, boundary.closest(TestPoint2D.ZERO));
+    }
+
+@Test
+    void testClosest_nullOutsideFacing_4_oe() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+
+        final TestLineSegment insideFacing = new TestLineSegment(a, b);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(Collections.singletonList(insideFacing), null);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(b, boundary.closest(new TestPoint2D(1, 2)));
     }
 
 }

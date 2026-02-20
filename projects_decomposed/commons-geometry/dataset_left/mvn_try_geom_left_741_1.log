@@ -1,0 +1,39 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/RegionBSPTree1STest_OE25Dev_geom_left_741_1.java:[161,13] cannot find symbol
+  symbol:   method checkClassify(org.apache.commons.geometry.spherical.oned.RegionBSPTree1S,org.apache.commons.geometry.core.RegionLocation,double)
+  location: class org.apache.commons.geometry.spherical.oned.RegionBSPTree1STest_OE25Dev_geom_left_741_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/RegionBSPTree1STest_OE25Dev_geom_left_741_1.java:[172,13] cannot find symbol
+  symbol:   method checkClassify(org.apache.commons.geometry.spherical.oned.RegionBSPTree1S,org.apache.commons.geometry.core.RegionLocation,double)
+  location: class org.apache.commons.geometry.spherical.oned.RegionBSPTree1STest_OE25Dev_geom_left_741_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/RegionBSPTree1STest_OE25Dev_geom_left_741_1.java:[183,9] cannot find symbol
+  symbol:   method checkClassify(org.apache.commons.geometry.spherical.oned.RegionBSPTree1S,org.apache.commons.geometry.core.RegionLocation,double,double,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.RegionBSPTree1STest_OE25Dev_geom_left_741_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/RegionBSPTree1STest_OE25Dev_geom_left_741_1.java:[186,9] cannot find symbol
+  symbol:   method checkClassify(org.apache.commons.geometry.spherical.oned.RegionBSPTree1S,org.apache.commons.geometry.core.RegionLocation,double,double,double,double,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.RegionBSPTree1STest_OE25Dev_geom_left_741_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/RegionBSPTree1STest_OE25Dev_geom_left_741_1.java:[189,9] cannot find symbol
+  symbol:   method checkClassify(org.apache.commons.geometry.spherical.oned.RegionBSPTree1S,org.apache.commons.geometry.core.RegionLocation,double,double,double,double,double,double)
+  location: class org.apache.commons.geometry.spherical.oned.RegionBSPTree1STest_OE25Dev_geom_left_741_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-spherical: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/RegionBSPTree1STest_OE25Dev_geom_left_741_1.java:[161,13] cannot find symbol
+[ERROR]   symbol:   method checkClassify(org.apache.commons.geometry.spherical.oned.RegionBSPTree1S,org.apache.commons.geometry.core.RegionLocation,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.RegionBSPTree1STest_OE25Dev_geom_left_741_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/RegionBSPTree1STest_OE25Dev_geom_left_741_1.java:[172,13] cannot find symbol
+[ERROR]   symbol:   method checkClassify(org.apache.commons.geometry.spherical.oned.RegionBSPTree1S,org.apache.commons.geometry.core.RegionLocation,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.RegionBSPTree1STest_OE25Dev_geom_left_741_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/RegionBSPTree1STest_OE25Dev_geom_left_741_1.java:[183,9] cannot find symbol
+[ERROR]   symbol:   method checkClassify(org.apache.commons.geometry.spherical.oned.RegionBSPTree1S,org.apache.commons.geometry.core.RegionLocation,double,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.RegionBSPTree1STest_OE25Dev_geom_left_741_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/RegionBSPTree1STest_OE25Dev_geom_left_741_1.java:[186,9] cannot find symbol
+[ERROR]   symbol:   method checkClassify(org.apache.commons.geometry.spherical.oned.RegionBSPTree1S,org.apache.commons.geometry.core.RegionLocation,double,double,double,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.RegionBSPTree1STest_OE25Dev_geom_left_741_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/RegionBSPTree1STest_OE25Dev_geom_left_741_1.java:[189,9] cannot find symbol
+[ERROR]   symbol:   method checkClassify(org.apache.commons.geometry.spherical.oned.RegionBSPTree1S,org.apache.commons.geometry.core.RegionLocation,double,double,double,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.RegionBSPTree1STest_OE25Dev_geom_left_741_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

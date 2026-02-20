@@ -1,0 +1,141 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[61,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[62,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[63,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[64,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[65,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[67,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[68,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[84,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[85,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[86,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[87,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[88,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[90,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[91,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[805,17] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[840,17] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[875,17] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[910,17] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[945,17] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[1056,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,int,int,double)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[1074,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[1093,9] cannot find symbol
+  symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-euclidean: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[61,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[62,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[63,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[64,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[65,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[67,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[68,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[84,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[85,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[86,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[87,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[88,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[90,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[91,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[805,17] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[840,17] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[875,17] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[910,17] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[945,17] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,double,double,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[1056,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,double,int,int,double)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[1074,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2600_4.java:[1093,9] cannot find symbol
+[ERROR]   symbol:   method checkQuaternion(org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation,int,int,int,int)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2600_4
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -161,34 +161,6 @@ class RegionBSPTree2DTest_OE25Dev {
     }
 
     @Test
-    void testPartitionedRegionBuilder_insertPartitionAfterBoundary() {
-        // arrange
-        final PartitionedRegionBuilder2D builder = RegionBSPTree2D.partitionedRegionBuilder();
-        builder.insertBoundary(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION));
-
-        final Line partition = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
-
-        final String msg = "Cannot insert partitions after boundaries have been inserted";
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            builder.insertPartition(partition);
-        }, IllegalStateException.class, msg);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            builder.insertPartition(partition.span());
-        }, IllegalStateException.class, msg);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            builder.insertAxisAlignedPartitions(Vector2D.ZERO, TEST_PRECISION);
-        }, IllegalStateException.class, msg);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            builder.insertAxisAlignedGrid(Bounds2D.from(Vector2D.ZERO, Vector2D.of(1, 1)), 1, TEST_PRECISION);
-        }, IllegalStateException.class, msg);
-    }
-
-    @Test
     void testGetBounds_hasBounds() {
         // arrange
         final RegionBSPTree2D tree = Parallelogram.axisAligned(Vector2D.of(2, 3), Vector2D.of(5, 8), TEST_PRECISION)
@@ -4773,6 +4745,74 @@ class RegionBSPTree2DTest_OE25Dev {
                 } else {
                     Assertions.assertNull(actual0.getEndPoint());
     }
+    }
+
+@Test
+    void testPartitionedRegionBuilder_insertPartitionAfterBoundary_1_oe() {
+        // arrange
+        final PartitionedRegionBuilder2D builder = RegionBSPTree2D.partitionedRegionBuilder();
+        builder.insertBoundary(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION));
+
+        final Line partition = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        final String msg = "Cannot insert partitions after boundaries have been inserted";
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.insertPartition(partition); }, IllegalStateException.class, msg);
+    }
+
+@Test
+    void testPartitionedRegionBuilder_insertPartitionAfterBoundary_2_oe() {
+        // arrange
+        final PartitionedRegionBuilder2D builder = RegionBSPTree2D.partitionedRegionBuilder();
+        builder.insertBoundary(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION));
+
+        final Line partition = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        final String msg = "Cannot insert partitions after boundaries have been inserted";
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.insertPartition(partition.span()); }, IllegalStateException.class, msg);
+    }
+
+@Test
+    void testPartitionedRegionBuilder_insertPartitionAfterBoundary_3_oe() {
+        // arrange
+        final PartitionedRegionBuilder2D builder = RegionBSPTree2D.partitionedRegionBuilder();
+        builder.insertBoundary(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION));
+
+        final Line partition = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        final String msg = "Cannot insert partitions after boundaries have been inserted";
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.insertAxisAlignedPartitions(Vector2D.ZERO, TEST_PRECISION); }, IllegalStateException.class, msg);
+    }
+
+@Test
+    void testPartitionedRegionBuilder_insertPartitionAfterBoundary_4_oe() {
+        // arrange
+        final PartitionedRegionBuilder2D builder = RegionBSPTree2D.partitionedRegionBuilder();
+        builder.insertBoundary(Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION));
+
+        final Line partition = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        final String msg = "Cannot insert partitions after boundaries have been inserted";
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.insertAxisAlignedGrid(Bounds2D.from(Vector2D.ZERO, Vector2D.of(1, 1)), 1, TEST_PRECISION); }, IllegalStateException.class, msg);
     }
 
 }

@@ -28,88 +28,6 @@ import org.junit.jupiter.api.Test;
 
 class CharReadBufferTest_OE25Dev {
 
-    @Test
-    void testCtor() {
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            new CharReadBuffer(null, 1, 1);
-        }, NullPointerException.class, "Reader cannot be null");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            new CharReadBuffer(reader("a"), 0, 1);
-        }, IllegalArgumentException.class, "Initial buffer capacity must be greater than 0; was 0");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            new CharReadBuffer(reader("a"), 1, 0);
-        }, IllegalArgumentException.class, "Min read value must be greater than 0; was 0");
-    }
-
-    @Test
-    void testCharAt_invalidArg() {
-        // arrange
-        final String str = "abcdefgh";
-        final CharReadBuffer buf = new CharReadBuffer(reader(str), 3);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            buf.charAt(-1);
-        }, IllegalArgumentException.class, "Character index cannot be negative; was -1");
-    }
-
-    @Test
-    void testReadPeek_string_invalidArg() {
-        // arrange
-        final CharReadBuffer buf = new CharReadBuffer(reader("a"));
-        final String msg = "Requested string length cannot be negative; was -1";
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            buf.peekString(-1);
-        }, IllegalArgumentException.class, msg);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            buf.readString(-1);
-        }, IllegalArgumentException.class, msg);
-    }
-
-    @Test
-    void testReadPeek_failure() {
-        // arrange
-        final CharReadBuffer buf = new CharReadBuffer(failReader());
-        final String msg = "IOException: read";
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            buf.peekString(3);
-        }, UncheckedIOException.class, msg);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            buf.readString(3);
-        }, UncheckedIOException.class, msg);
-    }
-
-    @Test
-    void testSkip_invalidArg() {
-        // arrange
-        final CharReadBuffer buf = new CharReadBuffer(reader("a"));
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            buf.skip(-1);
-        }, IllegalArgumentException.class, "Character skip count cannot be negative; was -1");
-    }
-
-    @Test
-    void testSkip_failure() {
-        // arrange
-        final CharReadBuffer buf = new CharReadBuffer(failReader());
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            buf.skip(10);
-        }, UncheckedIOException.class, "IOException: skip");
-    }
-
     private static Reader reader(final String content) {
         return new StringReader(content);
     }
@@ -747,6 +665,102 @@ class CharReadBufferTest_OE25Dev {
 
         // assert
         Assertions.assertEquals(str, result.toString());
+    }
+
+@Test
+    void testCtor_1_oe() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { new CharReadBuffer(null, 1, 1); }, NullPointerException.class, "Reader cannot be null");
+    }
+
+@Test
+    void testCtor_2_oe() {
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { new CharReadBuffer(reader("a"), 0, 1); }, IllegalArgumentException.class, "Initial buffer capacity must be greater than 0; was 0");
+    }
+
+@Test
+    void testCtor_3_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { new CharReadBuffer(reader("a"), 1, 0); }, IllegalArgumentException.class, "Min read value must be greater than 0; was 0");
+    }
+
+@Test
+    void testCharAt_invalidArg_1_oe() {
+        // arrange
+        final String str = "abcdefgh";
+        final CharReadBuffer buf = new CharReadBuffer(reader(str), 3);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { buf.charAt(-1); }, IllegalArgumentException.class, "Character index cannot be negative; was -1");
+    }
+
+@Test
+    void testReadPeek_string_invalidArg_1_oe() {
+        // arrange
+        final CharReadBuffer buf = new CharReadBuffer(reader("a"));
+        final String msg = "Requested string length cannot be negative; was -1";
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { buf.peekString(-1); }, IllegalArgumentException.class, msg);
+    }
+
+@Test
+    void testReadPeek_string_invalidArg_2_oe() {
+        // arrange
+        final CharReadBuffer buf = new CharReadBuffer(reader("a"));
+        final String msg = "Requested string length cannot be negative; was -1";
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { buf.readString(-1); }, IllegalArgumentException.class, msg);
+    }
+
+@Test
+    void testReadPeek_failure_1_oe() {
+        // arrange
+        final CharReadBuffer buf = new CharReadBuffer(failReader());
+        final String msg = "IOException: read";
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { buf.peekString(3); }, UncheckedIOException.class, msg);
+    }
+
+@Test
+    void testReadPeek_failure_2_oe() {
+        // arrange
+        final CharReadBuffer buf = new CharReadBuffer(failReader());
+        final String msg = "IOException: read";
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { buf.readString(3); }, UncheckedIOException.class, msg);
+    }
+
+@Test
+    void testSkip_invalidArg_1_oe() {
+        // arrange
+        final CharReadBuffer buf = new CharReadBuffer(reader("a"));
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { buf.skip(-1); }, IllegalArgumentException.class, "Character skip count cannot be negative; was -1");
+    }
+
+@Test
+    void testSkip_failure_1_oe() {
+        // arrange
+        final CharReadBuffer buf = new CharReadBuffer(failReader());
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { buf.skip(10); }, UncheckedIOException.class, "IOException: skip");
     }
 
 }

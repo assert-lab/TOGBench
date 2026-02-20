@@ -51,31 +51,6 @@ class CircleTest_OE25Dev {
             b.getLine().getDirection());
 
     @Test
-    void testClassify() {
-        // arrange
-        final Circle c = Circle.from(Vector2D.of(1, 2), 1, TEST_PRECISION);
-
-        // act/assert
-        EuclideanTestUtils.assertRegionLocation(c, RegionLocation.INSIDE,
-                Vector2D.of(1, 2),
-                Vector2D.of(0.5, 2), Vector2D.of(1.5, 2),
-                Vector2D.of(1, 1.5), Vector2D.of(1, 2.5),
-                Vector2D.of(0.5, 1.5), Vector2D.of(1.5, 2.5),
-                Vector2D.of(0.5, 2.5), Vector2D.of(1.5, 1.5));
-
-        EuclideanTestUtils.assertRegionLocation(c, RegionLocation.OUTSIDE,
-                Vector2D.of(-0.5, 2), Vector2D.of(2.5, 2),
-                Vector2D.of(1, 0.5), Vector2D.of(1, 3.5),
-                Vector2D.of(0.25, 1.25), Vector2D.of(1.75, 2.75),
-                Vector2D.of(0.25, 2.75), Vector2D.of(1.75, 1.25));
-
-        for (double angle = 0; angle < Angle.TWO_PI; angle += 0.1) {
-            EuclideanTestUtils.assertRegionLocation(c, RegionLocation.BOUNDARY,
-                    c.getCenter().add(PolarCoordinates.of(1, angle).toCartesian()));
-        }
-    }
-
-    @Test
     void testContains() {
         // arrange
         final Circle c = Circle.from(Vector2D.of(1, 2), 1, TEST_PRECISION);
@@ -213,21 +188,6 @@ class CircleTest_OE25Dev {
         checkLinecast(c, line.segment(start, 2), Vector2D.of(start, 0));
         checkLinecast(c, line.segment(start, end), Vector2D.of(start, 0), Vector2D.of(end, 0));
         checkLinecast(c, line.segment(end, 5), Vector2D.of(end, 0));
-    }
-
-    @Test
-    void testToTree_invalidSegmentCount() {
-        // arrange
-        final Circle c = Circle.from(Vector2D.of(2, 1), 2, TEST_PRECISION);
-        final String baseMsg = "Circle approximation segment number must be greater than or equal to 3; was ";
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            c.toTree(2);
-        }, IllegalArgumentException.class, baseMsg + "2");
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            c.toTree(-1);
-        }, IllegalArgumentException.class, baseMsg + "-1");
     }
 
     private static void checkContains(final Circle circle, final boolean contains, final Vector2D... pts) {
@@ -1719,6 +1679,47 @@ class CircleTest_OE25Dev {
         
                 // removed other assertion
                 EuclideanTestUtils.assertCoordinatesEqual(end0, segment0.getEndPoint(), TEST_EPS);
+    }
+
+@Test
+    void testClassify_1_oe() {
+        // arrange
+        final Circle c = Circle.from(Vector2D.of(1, 2), 1, TEST_PRECISION);
+
+        // act/assert
+        EuclideanTestUtils.assertRegionLocation(c, RegionLocation.INSIDE, Vector2D.of(1, 2), Vector2D.of(0.5, 2), Vector2D.of(1.5, 2), Vector2D.of(1, 1.5), Vector2D.of(1, 2.5), Vector2D.of(0.5, 1.5), Vector2D.of(1.5, 2.5), Vector2D.of(0.5, 2.5), Vector2D.of(1.5, 1.5));
+    }
+
+@Test
+    void testClassify_2_oe() {
+        // arrange
+        final Circle c = Circle.from(Vector2D.of(1, 2), 1, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(c, RegionLocation.OUTSIDE, Vector2D.of(-0.5, 2), Vector2D.of(2.5, 2), Vector2D.of(1, 0.5), Vector2D.of(1, 3.5), Vector2D.of(0.25, 1.25), Vector2D.of(1.75, 2.75), Vector2D.of(0.25, 2.75), Vector2D.of(1.75, 1.25));
+    }
+
+@Test
+    void testToTree_invalidSegmentCount_1_oe() {
+        // arrange
+        final Circle c = Circle.from(Vector2D.of(2, 1), 2, TEST_PRECISION);
+        final String baseMsg = "Circle approximation segment number must be greater than or equal to 3; was ";
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { c.toTree(2); }, IllegalArgumentException.class, baseMsg + "2");
+    }
+
+@Test
+    void testToTree_invalidSegmentCount_2_oe() {
+        // arrange
+        final Circle c = Circle.from(Vector2D.of(2, 1), 2, TEST_PRECISION);
+        final String baseMsg = "Circle approximation segment number must be greater than or equal to 3; was ";
+
+        // act/assert
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage(() -> { c.toTree(-1); }, IllegalArgumentException.class, baseMsg + "-1");
     }
 
 }

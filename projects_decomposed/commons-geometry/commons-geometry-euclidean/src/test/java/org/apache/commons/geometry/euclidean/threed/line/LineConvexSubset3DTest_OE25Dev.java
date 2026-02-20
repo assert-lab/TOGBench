@@ -66,29 +66,6 @@ class LineConvexSubset3DTest_OE25Dev {
     }
 
     @Test
-    void testFromInterval_doubleArgs_invalidArgs() {
-        // arrange
-        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines3D.subsetFromInterval(line, Double.NaN, 0);
-        }, IllegalArgumentException.class, "Invalid line convex subset interval: NaN, 0.0");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines3D.subsetFromInterval(line, 0, Double.NaN);
-        }, IllegalArgumentException.class, "Invalid line convex subset interval: 0.0, NaN");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines3D.subsetFromInterval(line, Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY);
-        }, IllegalArgumentException.class, "Invalid line convex subset interval: Infinity, Infinity");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines3D.subsetFromInterval(line, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);
-        }, IllegalArgumentException.class, "Invalid line convex subset interval: -Infinity, -Infinity");
-    }
-
-    @Test
     void testFromInterval_vectorArgs() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -460,6 +437,54 @@ class LineConvexSubset3DTest_OE25Dev {
         // assert
         // removed other assertion
         Assertions.assertNull(transformed.getEndPoint());
+    }
+
+@Test
+    void testFromInterval_doubleArgs_invalidArgs_1_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines3D.subsetFromInterval(line, Double.NaN, 0); }, IllegalArgumentException.class, "Invalid line convex subset interval: NaN, 0.0");
+    }
+
+@Test
+    void testFromInterval_doubleArgs_invalidArgs_2_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines3D.subsetFromInterval(line, 0, Double.NaN); }, IllegalArgumentException.class, "Invalid line convex subset interval: 0.0, NaN");
+    }
+
+@Test
+    void testFromInterval_doubleArgs_invalidArgs_3_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines3D.subsetFromInterval(line, Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY); }, IllegalArgumentException.class, "Invalid line convex subset interval: Infinity, Infinity");
+    }
+
+@Test
+    void testFromInterval_doubleArgs_invalidArgs_4_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines3D.subsetFromInterval(line, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY); }, IllegalArgumentException.class, "Invalid line convex subset interval: -Infinity, -Infinity");
     }
 
 }

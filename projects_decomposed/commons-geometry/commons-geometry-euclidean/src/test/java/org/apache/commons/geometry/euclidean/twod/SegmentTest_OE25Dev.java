@@ -34,71 +34,6 @@ class SegmentTest_OE25Dev {
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
     @Test
-    void testFromPoints_invalidArgs() {
-        // arrange
-        final Vector2D p1 = Vector2D.of(0, 2);
-        final Vector2D p2 = Vector2D.of(1e-17, 2);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines.segmentFromPoints(p1, p1, TEST_PRECISION);
-        }, IllegalArgumentException.class, "Line direction cannot be zero");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines.segmentFromPoints(p1, p2, TEST_PRECISION);
-        }, IllegalArgumentException.class, "Line direction cannot be zero");
-    }
-
-    @Test
-    void testFromPoints_givenLine_invalidArgs() {
-        // arrange
-        final Vector2D p0 = Vector2D.of(1, 0);
-        final Vector2D p1 = Vector2D.of(2, 0);
-
-        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines.segmentFromPoints(line, Vector2D.NaN, p1);
-        }, IllegalArgumentException.class, "Invalid line segment locations: NaN, 2.0");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines.segmentFromPoints(line, p0, Vector2D.NaN);
-        }, IllegalArgumentException.class, "Invalid line segment locations: 1.0, NaN");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines.segmentFromPoints(line, Vector2D.NEGATIVE_INFINITY, p1);
-        }, IllegalArgumentException.class, "Invalid line segment locations: NaN, 2.0");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines.segmentFromPoints(line, p0, Vector2D.POSITIVE_INFINITY);
-        }, IllegalArgumentException.class, "Invalid line segment locations: 1.0, NaN");
-    }
-
-    @Test
-    void testFromLocations_invalidArgs() {
-        // arrange
-        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines.segmentFromLocations(line, Double.NaN, 2);
-        }, IllegalArgumentException.class, "Invalid line segment locations: NaN, 2.0");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines.segmentFromLocations(line, 1, Double.NaN);
-        }, IllegalArgumentException.class, "Invalid line segment locations: 1.0, NaN");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines.segmentFromLocations(line, Double.NEGATIVE_INFINITY, 2);
-        }, IllegalArgumentException.class, "Invalid line segment locations: -Infinity, 2.0");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines.segmentFromLocations(line, 1, Double.POSITIVE_INFINITY);
-        }, IllegalArgumentException.class, "Invalid line segment locations: 1.0, Infinity");
-    }
-
-    @Test
     void testGetBounds() {
         // arrange
         final Segment seg = Lines.segmentFromPoints(Vector2D.of(-1, 4), Vector2D.of(2, -2), TEST_PRECISION);
@@ -189,23 +124,6 @@ class SegmentTest_OE25Dev {
         EuclideanTestUtils.assertCoordinatesEqual(Vector2D.ZERO, seg.closest(Vector2D.ZERO), TEST_EPS);
         EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0, 0.5), seg.closest(Vector2D.of(1, 0.5)), TEST_EPS);
         EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0, -0.5), seg.closest(Vector2D.of(-2, -0.5)), TEST_EPS);
-    }
-
-    @Test
-    void testClassify() {
-        // arrange
-        final Segment seg = Lines.segmentFromPoints(Vector2D.of(1, 1), Vector2D.of(3, 1), TEST_PRECISION);
-
-        // act/assert
-        EuclideanTestUtils.assertRegionLocation(seg, RegionLocation.OUTSIDE,
-                Vector2D.of(2, 2), Vector2D.of(2, 0),
-                Vector2D.of(0, 1), Vector2D.of(4, 1));
-
-        EuclideanTestUtils.assertRegionLocation(seg, RegionLocation.BOUNDARY,
-                Vector2D.of(1, 1), Vector2D.of(3, 1),
-                Vector2D.of(1 + 1e-16, 1), Vector2D.of(3, 1 - 1e-12));
-
-        EuclideanTestUtils.assertRegionLocation(seg, RegionLocation.INSIDE, Vector2D.of(2, 1));
     }
 
     @Test
@@ -1240,6 +1158,156 @@ class SegmentTest_OE25Dev {
         // removed other assertion
 
         Assertions.assertSame(seg.getLine().getPrecision(), interval.getMinBoundary().getPrecision());
+    }
+
+@Test
+    void testFromPoints_invalidArgs_1_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(0, 2);
+        final Vector2D p2 = Vector2D.of(1e-17, 2);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromPoints(p1, p1, TEST_PRECISION); }, IllegalArgumentException.class, "Line direction cannot be zero");
+    }
+
+@Test
+    void testFromPoints_invalidArgs_2_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(0, 2);
+        final Vector2D p2 = Vector2D.of(1e-17, 2);
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromPoints(p1, p2, TEST_PRECISION); }, IllegalArgumentException.class, "Line direction cannot be zero");
+    }
+
+@Test
+    void testFromPoints_givenLine_invalidArgs_1_oe() {
+        // arrange
+        final Vector2D p0 = Vector2D.of(1, 0);
+        final Vector2D p1 = Vector2D.of(2, 0);
+
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromPoints(line, Vector2D.NaN, p1); }, IllegalArgumentException.class, "Invalid line segment locations: NaN, 2.0");
+    }
+
+@Test
+    void testFromPoints_givenLine_invalidArgs_2_oe() {
+        // arrange
+        final Vector2D p0 = Vector2D.of(1, 0);
+        final Vector2D p1 = Vector2D.of(2, 0);
+
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromPoints(line, p0, Vector2D.NaN); }, IllegalArgumentException.class, "Invalid line segment locations: 1.0, NaN");
+    }
+
+@Test
+    void testFromPoints_givenLine_invalidArgs_3_oe() {
+        // arrange
+        final Vector2D p0 = Vector2D.of(1, 0);
+        final Vector2D p1 = Vector2D.of(2, 0);
+
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromPoints(line, Vector2D.NEGATIVE_INFINITY, p1); }, IllegalArgumentException.class, "Invalid line segment locations: NaN, 2.0");
+    }
+
+@Test
+    void testFromPoints_givenLine_invalidArgs_4_oe() {
+        // arrange
+        final Vector2D p0 = Vector2D.of(1, 0);
+        final Vector2D p1 = Vector2D.of(2, 0);
+
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromPoints(line, p0, Vector2D.POSITIVE_INFINITY); }, IllegalArgumentException.class, "Invalid line segment locations: 1.0, NaN");
+    }
+
+@Test
+    void testFromLocations_invalidArgs_1_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromLocations(line, Double.NaN, 2); }, IllegalArgumentException.class, "Invalid line segment locations: NaN, 2.0");
+    }
+
+@Test
+    void testFromLocations_invalidArgs_2_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromLocations(line, 1, Double.NaN); }, IllegalArgumentException.class, "Invalid line segment locations: 1.0, NaN");
+    }
+
+@Test
+    void testFromLocations_invalidArgs_3_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromLocations(line, Double.NEGATIVE_INFINITY, 2); }, IllegalArgumentException.class, "Invalid line segment locations: -Infinity, 2.0");
+    }
+
+@Test
+    void testFromLocations_invalidArgs_4_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.segmentFromLocations(line, 1, Double.POSITIVE_INFINITY); }, IllegalArgumentException.class, "Invalid line segment locations: 1.0, Infinity");
+    }
+
+@Test
+    void testClassify_1_oe() {
+        // arrange
+        final Segment seg = Lines.segmentFromPoints(Vector2D.of(1, 1), Vector2D.of(3, 1), TEST_PRECISION);
+
+        // act/assert
+        EuclideanTestUtils.assertRegionLocation(seg, RegionLocation.OUTSIDE, Vector2D.of(2, 2), Vector2D.of(2, 0), Vector2D.of(0, 1), Vector2D.of(4, 1));
+    }
+
+@Test
+    void testClassify_2_oe() {
+        // arrange
+        final Segment seg = Lines.segmentFromPoints(Vector2D.of(1, 1), Vector2D.of(3, 1), TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(seg, RegionLocation.BOUNDARY, Vector2D.of(1, 1), Vector2D.of(3, 1), Vector2D.of(1 + 1e-16, 1), Vector2D.of(3, 1 - 1e-12));
     }
 
 }

@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-simple ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple
-[INFO] Storing buildNumber: ddb4764f558725a1465cecefae1b711f8e80413a at timestamp: 2026-02-16 23:07:07-0600
+[INFO] Storing buildNumber: 50aa6cd9f431bb44559fe7dfd9d95d6e4a9269eb at timestamp: 2026-02-20 04:40:39-0600
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -54,7 +54,7 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-rng-simple ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 35 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/target/test-classes
+[INFO] Compiling 19 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/target/test-classes
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersList.java:[74,37] XOR_SHIFT_1024_S in org.apache.commons.rng.simple.RandomSource has been deprecated
 [INFO] 
 [INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-rng-simple ---
@@ -64,50 +64,16 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/target/jacoco.exec
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-rng-simple ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.rng.simple.JDKRandomWrapperTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 s - in org.apache.commons.rng.simple.JDKRandomWrapperTest_OE25Dev
-[INFO] Running org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
-[WARNING] Tests run: 855, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 1.223 s - in org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
-[INFO] Running org.apache.commons.rng.simple.internal.SeedConverterComposerTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.simple.internal.SeedConverterComposerTest_OE25Dev
-[INFO] Running org.apache.commons.rng.simple.internal.NativeSeedTypeTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.simple.internal.NativeSeedTypeTest_OE25Dev
-[INFO] Running org.apache.commons.rng.simple.internal.ByteArray2LongArrayTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.simple.internal.ByteArray2LongArrayTest_OE25Dev
-[INFO] Running org.apache.commons.rng.simple.internal.NoOpConverterTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.simple.internal.NoOpConverterTest_OE25Dev
-[INFO] Running org.apache.commons.rng.simple.internal.RandomSourceInternalParametricTest_OE25Dev
-[INFO] Tests run: 705, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.199 s - in org.apache.commons.rng.simple.internal.RandomSourceInternalParametricTest_OE25Dev
-[INFO] Running org.apache.commons.rng.simple.internal.SeedFactoryTest_OE25Dev
-[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.simple.internal.SeedFactoryTest_OE25Dev
-[INFO] Running org.apache.commons.rng.simple.internal.NativeSeedTypeParametricTest_OE25Dev
-[INFO] Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.rng.simple.internal.NativeSeedTypeParametricTest_OE25Dev
-[INFO] Running org.apache.commons.rng.simple.internal.SeedUtilsTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in org.apache.commons.rng.simple.internal.SeedUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.rng.simple.internal.IntArray2LongArrayTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.simple.internal.IntArray2LongArrayTest_OE25Dev
-[INFO] Running org.apache.commons.rng.simple.internal.Long2LongArrayTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.simple.internal.Long2LongArrayTest_OE25Dev
-[INFO] Running org.apache.commons.rng.simple.internal.ByteArray2IntArrayTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.simple.internal.ByteArray2IntArrayTest_OE25Dev
-[INFO] Running org.apache.commons.rng.simple.ThreadLocalRandomSourceTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.rng.simple.ThreadLocalRandomSourceTest_OE25Dev
-[INFO] Running org.apache.commons.rng.simple.RandomSourceTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.rng.simple.RandomSourceTest_OE25Dev
-[INFO] Running org.apache.commons.rng.simple.JDKRandomBridgeTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.simple.JDKRandomBridgeTest_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[WARNING] Tests run: 1664, Failures: 0, Errors: 0, Skipped: 1
-[INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.266 s
-[INFO] Finished at: 2026-02-16T23:07:17-06:00
+[INFO] Total time:  14.468 s
+[INFO] Finished at: 2026-02-20T04:40:49-06:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-rng-simple: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

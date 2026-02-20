@@ -177,4 +177,110 @@ class HyperplaneSubsetsTest_OE25Dev {
         Assertions.assertNull(HyperplaneSubsets.closestToEmbeddedRegion(TestPoint2D.ZERO, line, emptyRegion));
     }
 
+@Test
+    void testClosest_1_oe() {
+        // arrange
+        final TestLine line = TestLine.X_AXIS;
+        final StubRegion1D region = new StubRegion1D();
+        final StubRegion1D emptyRegion = new StubRegion1D(true);
+
+        // act/assert
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-1, 0), HyperplaneSubsets.closestToEmbeddedRegion(new TestPoint2D(-1, 0), line, region));
+    }
+
+@Test
+    void testClosest_2_oe() {
+        // arrange
+        final TestLine line = TestLine.X_AXIS;
+        final StubRegion1D region = new StubRegion1D();
+        final StubRegion1D emptyRegion = new StubRegion1D(true);
+
+        // act/assert
+        // removed other assertion
+
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 0), HyperplaneSubsets.closestToEmbeddedRegion(new TestPoint2D(0, 0), line, region));
+    }
+
+@Test
+    void testClosest_3_oe() {
+        // arrange
+        final TestLine line = TestLine.X_AXIS;
+        final StubRegion1D region = new StubRegion1D();
+        final StubRegion1D emptyRegion = new StubRegion1D(true);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 0), HyperplaneSubsets.closestToEmbeddedRegion(new TestPoint2D(1, 0), line, region));
+    }
+
+@Test
+    void testClosest_4_oe() {
+        // arrange
+        final TestLine line = TestLine.X_AXIS;
+        final StubRegion1D region = new StubRegion1D();
+        final StubRegion1D emptyRegion = new StubRegion1D(true);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 0), HyperplaneSubsets.closestToEmbeddedRegion(new TestPoint2D(1, 1), line, region));
+    }
+
+@Test
+    void testClosest_5_oe() {
+        // arrange
+        final TestLine line = TestLine.X_AXIS;
+        final StubRegion1D region = new StubRegion1D();
+        final StubRegion1D emptyRegion = new StubRegion1D(true);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 0), HyperplaneSubsets.closestToEmbeddedRegion(new TestPoint2D(1, -1), line, region));
+    }
+
+@Test
+    void testClosest_6_oe() {
+        // arrange
+        final TestLine line = TestLine.X_AXIS;
+        final StubRegion1D region = new StubRegion1D();
+        final StubRegion1D emptyRegion = new StubRegion1D(true);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-1, 0), HyperplaneSubsets.closestToEmbeddedRegion(new TestPoint2D(-1, 1), line, region));
+    }
+
+@Test
+    void testClosest_7_oe() {
+        // arrange
+        final TestLine line = TestLine.X_AXIS;
+        final StubRegion1D region = new StubRegion1D();
+        final StubRegion1D emptyRegion = new StubRegion1D(true);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-1, 0), HyperplaneSubsets.closestToEmbeddedRegion(new TestPoint2D(-1, -1), line, region));
+    }
+
 }

@@ -1,0 +1,63 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[108,9] cannot find symbol
+  symbol:   method checkSamples(double[],double)
+  location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[124,9] cannot find symbol
+  symbol:   method checkSamples(double[],double)
+  location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[133,9] cannot find symbol
+  symbol:   method checkSamples(double[],double)
+  location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[143,9] cannot find symbol
+  symbol:   method checkSamples(double[],double)
+  location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[153,9] cannot find symbol
+  symbol:   method checkSamples(double[],double)
+  location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[163,9] cannot find symbol
+  symbol:   method checkSamples(double[],double)
+  location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[173,9] cannot find symbol
+  symbol:   method checkSamples(double[],double)
+  location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[183,9] cannot find symbol
+  symbol:   method checkSamples(double[],double)
+  location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[193,9] cannot find symbol
+  symbol:   method checkSamples(double[],double)
+  location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-rng-sampling: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[108,9] cannot find symbol
+[ERROR]   symbol:   method checkSamples(double[],double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[124,9] cannot find symbol
+[ERROR]   symbol:   method checkSamples(double[],double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[133,9] cannot find symbol
+[ERROR]   symbol:   method checkSamples(double[],double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[143,9] cannot find symbol
+[ERROR]   symbol:   method checkSamples(double[],double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[153,9] cannot find symbol
+[ERROR]   symbol:   method checkSamples(double[],double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[163,9] cannot find symbol
+[ERROR]   symbol:   method checkSamples(double[],double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[173,9] cannot find symbol
+[ERROR]   symbol:   method checkSamples(double[],double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[183,9] cannot find symbol
+[ERROR]   symbol:   method checkSamples(double[],double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2.java:[193,9] cannot find symbol
+[ERROR]   symbol:   method checkSamples(double[],double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.GuideTableDiscreteSamplerTest_OE25Dev_rng_left_429_2
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

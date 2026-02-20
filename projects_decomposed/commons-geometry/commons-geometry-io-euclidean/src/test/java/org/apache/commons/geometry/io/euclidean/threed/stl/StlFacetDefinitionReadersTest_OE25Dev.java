@@ -39,19 +39,6 @@ class StlFacetDefinitionReadersTest_OE25Dev {
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
     @Test
-    void testCreate_notEnoughBytes() {
-        // arrange
-        final byte[] bytes = new byte[1];
-        final ByteArrayInputStream in = new ByteArrayInputStream(bytes);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> StlFacetDefinitionReaders.create(in, null),
-                IllegalStateException.class,
-                "Cannot determine STL format: attempted to read 5 bytes but found only 1 available");
-    }
-
-    @Test
     void testCreate_cubeBinaryFile_1_oe() throws IOException {
         // arrange
         final URL url = EuclideanIOTestUtils.resource("/models/cube-binary.stl");
@@ -197,6 +184,16 @@ class StlFacetDefinitionReadersTest_OE25Dev {
             // removed other assertion
             Assertions.assertNotNull(reader.readFacet());
     }
+    }
+
+@Test
+    void testCreate_notEnoughBytes_1_oe() {
+        // arrange
+        final byte[] bytes = new byte[1];
+        final ByteArrayInputStream in = new ByteArrayInputStream(bytes);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage( () -> StlFacetDefinitionReaders.create(in, null), IllegalStateException.class, "Cannot determine STL format: attempted to read 5 bytes but found only 1 available");
     }
 
 }

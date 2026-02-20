@@ -1,0 +1,63 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1314,9] cannot find symbol
+  symbol:   method assertDoesNotMatchAny(SimpleText[...]space,java.lang.String)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1317,9] cannot find symbol
+  symbol:   method assertDoesNotMatchAny(SimpleText[...]space,java.lang.String)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1320,9] cannot find symbol
+  symbol:   method assertDoesNotMatchAny(SimpleText[...]space,java.lang.String)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1323,9] cannot find symbol
+  symbol:   method assertDoesNotMatchAny(SimpleText[...]ePart,java.lang.String)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1326,9] cannot find symbol
+  symbol:   method assertDoesNotMatchAny(SimpleText[...]ePart,java.lang.String)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1329,9] cannot find symbol
+  symbol:   method assertDoesNotMatchAny(SimpleText[...]meric,java.lang.String)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1332,9] cannot find symbol
+  symbol:   method assertDoesNotMatchAny(SimpleText[...]meric,java.lang.String)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1335,9] cannot find symbol
+  symbol:   method assertDoesNotMatchAny(SimpleText[...]rPart,java.lang.String)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1338,9] cannot find symbol
+  symbol:   method assertDoesNotMatchAny(SimpleText[...]lPart,java.lang.String)
+  location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-io-core: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1314,9] cannot find symbol
+[ERROR]   symbol:   method assertDoesNotMatchAny(SimpleText[...]space,java.lang.String)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1317,9] cannot find symbol
+[ERROR]   symbol:   method assertDoesNotMatchAny(SimpleText[...]space,java.lang.String)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1320,9] cannot find symbol
+[ERROR]   symbol:   method assertDoesNotMatchAny(SimpleText[...]space,java.lang.String)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1323,9] cannot find symbol
+[ERROR]   symbol:   method assertDoesNotMatchAny(SimpleText[...]ePart,java.lang.String)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1326,9] cannot find symbol
+[ERROR]   symbol:   method assertDoesNotMatchAny(SimpleText[...]ePart,java.lang.String)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1329,9] cannot find symbol
+[ERROR]   symbol:   method assertDoesNotMatchAny(SimpleText[...]meric,java.lang.String)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1332,9] cannot find symbol
+[ERROR]   symbol:   method assertDoesNotMatchAny(SimpleText[...]meric,java.lang.String)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1335,9] cannot find symbol
+[ERROR]   symbol:   method assertDoesNotMatchAny(SimpleText[...]rPart,java.lang.String)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-core/src/test/java/org/apache/commons/geometry/io/core/internal/SimpleTextParserTest_OE25Dev_geom_left_356_1.java:[1338,9] cannot find symbol
+[ERROR]   symbol:   method assertDoesNotMatchAny(SimpleText[...]lPart,java.lang.String)
+[ERROR]   location: class org.apache.commons.geometry.io.core.internal.SimpleTextParserTest_OE25Dev_geom_left_356_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

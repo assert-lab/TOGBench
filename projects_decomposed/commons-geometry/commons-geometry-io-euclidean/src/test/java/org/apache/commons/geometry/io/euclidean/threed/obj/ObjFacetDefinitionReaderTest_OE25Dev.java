@@ -34,27 +34,6 @@ class ObjFacetDefinitionReaderTest_OE25Dev {
 
     private static final double TEST_EPS = 1e-10;
 
-    @Test
-    void testReadFacet_failOnNonPolygon() {
-        // arrange
-        final ObjFacetDefinitionReader reader = reader(
-                "o test\n\n" +
-                "v 0 0 0\r\n" +
-                "v 1 0 0\n" +
-                "v 1 1 0\r" +
-                "v 0 1 0\n" +
-                "vn 0 0 1\n" +
-                "f 1//1 2//1 3//1\n" +
-                "curv non-polygon data\n");
-
-        reader.setFailOnNonPolygonKeywords(true);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(
-                () -> EuclideanIOTestUtils.readAll(reader),
-                IllegalStateException.class, Pattern.compile("^Parsing failed.*"));
-    }
-
     private static ObjFacetDefinitionReader reader(final String str) {
         return new ObjFacetDefinitionReader(new StringReader(str));
     }
@@ -146,6 +125,25 @@ class ObjFacetDefinitionReaderTest_OE25Dev {
         }
 
         Assertions.assertEquals(1, closeReader.getCloseCount());
+    }
+
+@Test
+    void testReadFacet_failOnNonPolygon_1_oe() {
+        // arrange
+        final ObjFacetDefinitionReader reader = reader(
+                "o test\n\n" +
+                "v 0 0 0\r\n" +
+                "v 1 0 0\n" +
+                "v 1 1 0\r" +
+                "v 0 1 0\n" +
+                "vn 0 0 1\n" +
+                "f 1//1 2//1 3//1\n" +
+                "curv non-polygon data\n");
+
+        reader.setFailOnNonPolygonKeywords(true);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage( () -> EuclideanIOTestUtils.readAll(reader), IllegalStateException.class, Pattern.compile("^Parsing failed.*"));
     }
 
 }

@@ -1,0 +1,21 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/internal/SeedFactoryTest_OE25Dev_rng_left_65_2.java:[339,17] illegal start of type
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/internal/SeedFactoryTest_OE25Dev_rng_left_65_2.java:[343,20] class, interface, or enum expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/internal/SeedFactoryTest_OE25Dev_rng_left_65_2.java:[345,13] class, interface, or enum expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/internal/SeedFactoryTest_OE25Dev_rng_left_65_2.java:[348,15] class, interface, or enum expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/internal/SeedFactoryTest_OE25Dev_rng_left_65_2.java:[349,9] class, interface, or enum expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/internal/SeedFactoryTest_OE25Dev_rng_left_65_2.java:[351,1] class, interface, or enum expected
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-rng-simple: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/internal/SeedFactoryTest_OE25Dev_rng_left_65_2.java:[339,17] illegal start of type
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/internal/SeedFactoryTest_OE25Dev_rng_left_65_2.java:[343,20] class, interface, or enum expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/internal/SeedFactoryTest_OE25Dev_rng_left_65_2.java:[345,13] class, interface, or enum expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/internal/SeedFactoryTest_OE25Dev_rng_left_65_2.java:[348,15] class, interface, or enum expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/internal/SeedFactoryTest_OE25Dev_rng_left_65_2.java:[349,9] class, interface, or enum expected
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/internal/SeedFactoryTest_OE25Dev_rng_left_65_2.java:[351,1] class, interface, or enum expected
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

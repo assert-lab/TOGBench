@@ -53,18 +53,6 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
     private static final FacetDefinition FACET_2 = new SimpleFacetDefinition(Arrays.asList(
             Vector3D.ZERO, Vector3D.of(0, 1, 0), Vector3D.of(-1, 1, 0), Vector3D.of(-1, 0, 0)));
 
-    @Test
-    void testFacetIterator_readFails() {
-        // arrange
-        final StubFacetDefinitionReader reader = new StubFacetDefinitionReader(Arrays.asList(FACET_1, FACET_2));
-        reader.fail = true;
-
-        final FacetDefinitionReaderIterator it = new FacetDefinitionReaderIterator(reader);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(it::next, IllegalStateException.class, "Read failure");
-    }
-
     private static final class TestReadHandler3D extends AbstractBoundaryReadHandler3D {
 
         private final Collection<FacetDefinition> facets;
@@ -442,6 +430,18 @@ class AbstractBoundaryReadHandler3DTest_OE25Dev {
 
         // removed other assertion
         Assertions.assertEquals(1, inputStream.getCloseCount());
+    }
+
+@Test
+    void testFacetIterator_readFails_1_oe() {
+        // arrange
+        final StubFacetDefinitionReader reader = new StubFacetDefinitionReader(Arrays.asList(FACET_1, FACET_2));
+        reader.fail = true;
+
+        final FacetDefinitionReaderIterator it = new FacetDefinitionReaderIterator(reader);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(it::next, IllegalStateException.class, "Read failure");
     }
 
 }

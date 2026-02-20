@@ -34,38 +34,6 @@ class AbstractTextFormatWriterTest_OE25Dev {
 
     private StringWriter out = new StringWriter();
 
-    @Test
-    void testWrite_failure() {
-        // arrange
-        final Writer failWriter = new Writer() {
-            @Override
-            public void write(char[] cbuf, int off, int len) throws IOException {
-                throw new IOException("test");
-            }
-
-            @Override
-            public void flush() {
-            }
-
-            @Override
-            public void close() {
-            }
-        };
-
-        // act/assert
-        try (TestWriter writer = new TestWriter(failWriter)) {
-            GeometryTestUtils.assertThrowsWithMessage(
-                    () -> writer.write('a'),
-                    UncheckedIOException.class,
-                    "IOException: test");
-
-            GeometryTestUtils.assertThrowsWithMessage(
-                    () -> writer.write("abc"),
-                    UncheckedIOException.class,
-                    "IOException: test");
-        }
-    }
-
     private static final class TestWriter extends AbstractTextFormatWriter {
 
         protected TestWriter(final Writer writer) {
@@ -199,6 +167,56 @@ class AbstractTextFormatWriterTest_OE25Dev {
         }
 
         Assertions.assertEquals(1, closeCountWriter.getCloseCount());
+    }
+
+@Test
+    void testWrite_failure_1_oe() {
+        // arrange
+        final Writer failWriter = new Writer() {
+            @Override
+            public void write(char[] cbuf, int off, int len) throws IOException {
+                throw new IOException("test");
+            }
+
+            @Override
+            public void flush() {
+            }
+
+            @Override
+            public void close() {
+            }
+        };
+
+        // act/assert
+        try (TestWriter writer = new TestWriter(failWriter)) {
+            GeometryTestUtils.assertThrowsWithMessage( () -> writer.write('a'), UncheckedIOException.class, "IOException: test");
+    }
+    }
+
+@Test
+    void testWrite_failure_2_oe() {
+        // arrange
+        final Writer failWriter = new Writer() {
+            @Override
+            public void write(char[] cbuf, int off, int len) throws IOException {
+                throw new IOException("test");
+            }
+
+            @Override
+            public void flush() {
+            }
+
+            @Override
+            public void close() {
+            }
+        };
+
+        // act/assert
+        try (TestWriter writer = new TestWriter(failWriter)) {
+            // removed other assertion
+
+            GeometryTestUtils.assertThrowsWithMessage( () -> writer.write("abc"), UncheckedIOException.class, "IOException: test");
+    }
     }
 
 }

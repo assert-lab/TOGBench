@@ -40,64 +40,6 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
-    @Test
-    void testGetHeader_noData() throws IOException {
-        // arrange
-        out.write(new byte[32]);
-
-        try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
-            // act/assert
-            GeometryTestUtils.assertThrowsWithMessage(
-                    () -> reader.getHeader(),
-                    IllegalStateException.class, "Failed to read STL header: data not available");
-        }
-    }
-
-    @Test
-    void testGetHeader_noTriangleCount() throws IOException {
-        // arrange
-        out.write(new byte[StlConstants.BINARY_HEADER_BYTES]);
-
-        try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
-            // act/assert
-            GeometryTestUtils.assertThrowsWithMessage(
-                    () -> reader.getHeader(),
-                    IllegalStateException.class, "Failed to read STL triangle count: data not available");
-        }
-    }
-
-    @Test
-    void testGetHeader_ioException() throws IOException {
-        // arrange
-        final InputStream failIn = new InputStream() {
-            @Override
-            public int read() throws IOException {
-                throw new IOException("read");
-            }
-        };
-
-        try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(failIn)) {
-            // act/assert
-            GeometryTestUtils.assertThrowsWithMessage(
-                    () -> reader.getHeader(),
-                    UncheckedIOException.class, "IOException: read");
-        }
-    }
-
-    @Test
-    void testReadFacet_noData() throws IOException {
-        // arrange
-        out.write(createHeader(1));
-
-        // act/assert
-        try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
-            // act/assert
-            GeometryTestUtils.assertThrowsWithMessage(
-                    () -> reader.readFacet(),
-                    IllegalStateException.class, "Failed to read STL triangle at index 0: data not available");
-        }
-    }
-
     private ByteArrayInputStream getInput() {
         return new ByteArrayInputStream(out.toByteArray());
     }
@@ -622,6 +564,56 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
             // removed other assertion
 
             Assertions.assertNull(reader.readFacet());
+    }
+    }
+
+@Test
+    void testGetHeader_noData_1_oe() throws IOException {
+        // arrange
+        out.write(new byte[32]);
+
+        try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // act/assert
+            GeometryTestUtils.assertThrowsWithMessage( () -> reader.getHeader(), IllegalStateException.class, "Failed to read STL header: data not available");
+    }
+    }
+
+@Test
+    void testGetHeader_noTriangleCount_1_oe() throws IOException {
+        // arrange
+        out.write(new byte[StlConstants.BINARY_HEADER_BYTES]);
+
+        try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // act/assert
+            GeometryTestUtils.assertThrowsWithMessage( () -> reader.getHeader(), IllegalStateException.class, "Failed to read STL triangle count: data not available");
+    }
+    }
+
+@Test
+    void testGetHeader_ioException_1_oe() throws IOException {
+        // arrange
+        final InputStream failIn = new InputStream() {
+            @Override
+            public int read() throws IOException {
+                throw new IOException("read");
+            }
+        };
+
+        try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(failIn)) {
+            // act/assert
+            GeometryTestUtils.assertThrowsWithMessage( () -> reader.getHeader(), UncheckedIOException.class, "IOException: read");
+    }
+    }
+
+@Test
+    void testReadFacet_noData_1_oe() throws IOException {
+        // arrange
+        out.write(createHeader(1));
+
+        // act/assert
+        try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // act/assert
+            GeometryTestUtils.assertThrowsWithMessage( () -> reader.readFacet(), IllegalStateException.class, "Failed to read STL triangle at index 0: data not available");
     }
     }
 

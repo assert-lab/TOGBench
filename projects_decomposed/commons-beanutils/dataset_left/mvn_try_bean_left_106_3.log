@@ -1,0 +1,111 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[104,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[106,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[108,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[110,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[112,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[114,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[116,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[290,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[293,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[295,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[297,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[300,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[302,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[304,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[306,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[308,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[310,9] cannot find symbol
+  symbol:   method checkIntegerArray(java.lang.Object,int[])
+  location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.7.0:testCompile (default-testCompile) on project commons-beanutils: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[104,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[106,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[108,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[110,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[112,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[114,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[116,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[290,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[293,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[295,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[297,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[300,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[302,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[304,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[306,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[308,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/ConvertUtilsTestCase_OE25Dev_bean_left_106_3.java:[310,9] cannot find symbol
+[ERROR]   symbol:   method checkIntegerArray(java.lang.Object,int[])
+[ERROR]   location: class org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev_bean_left_106_3
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

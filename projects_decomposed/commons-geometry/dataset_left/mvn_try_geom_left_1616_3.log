@@ -1,0 +1,33 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/RegionBSPTree3DTest_OE25Dev_geom_left_1616_3.java:[153,17] cannot find symbol
+  symbol:   method checkFinitePartitionedRegion(org.apache.commons.geometry.euclidean.threed.Bounds3D,int,org.apache.commons.geometry.euclidean.threed.shape.Parallelepiped)
+  location: class org.apache.commons.geometry.euclidean.threed.RegionBSPTree3DTest_OE25Dev_geom_left_1616_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/RegionBSPTree3DTest_OE25Dev_geom_left_1616_3.java:[154,17] cannot find symbol
+  symbol:   method checkFinitePartitionedRegion(org.apache.commons.geometry.euclidean.threed.Bounds3D,int,java.util.List<org.apache.commons.geometry.euclidean.threed.PlaneConvexSubset>)
+  location: class org.apache.commons.geometry.euclidean.threed.RegionBSPTree3DTest_OE25Dev_geom_left_1616_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/RegionBSPTree3DTest_OE25Dev_geom_left_1616_3.java:[178,17] cannot find symbol
+  symbol:   method checkFinitePartitionedRegion(org.apache.commons.geometry.euclidean.threed.Bounds3D,int,org.apache.commons.geometry.euclidean.threed.RegionBSPTree3D)
+  location: class org.apache.commons.geometry.euclidean.threed.RegionBSPTree3DTest_OE25Dev_geom_left_1616_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/RegionBSPTree3DTest_OE25Dev_geom_left_1616_3.java:[179,17] cannot find symbol
+  symbol:   method checkFinitePartitionedRegion(org.apache.commons.geometry.euclidean.threed.Bounds3D,int,java.util.List<org.apache.commons.geometry.euclidean.threed.PlaneConvexSubset>)
+  location: class org.apache.commons.geometry.euclidean.threed.RegionBSPTree3DTest_OE25Dev_geom_left_1616_3
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-euclidean: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/RegionBSPTree3DTest_OE25Dev_geom_left_1616_3.java:[153,17] cannot find symbol
+[ERROR]   symbol:   method checkFinitePartitionedRegion(org.apache.commons.geometry.euclidean.threed.Bounds3D,int,org.apache.commons.geometry.euclidean.threed.shape.Parallelepiped)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.RegionBSPTree3DTest_OE25Dev_geom_left_1616_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/RegionBSPTree3DTest_OE25Dev_geom_left_1616_3.java:[154,17] cannot find symbol
+[ERROR]   symbol:   method checkFinitePartitionedRegion(org.apache.commons.geometry.euclidean.threed.Bounds3D,int,java.util.List<org.apache.commons.geometry.euclidean.threed.PlaneConvexSubset>)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.RegionBSPTree3DTest_OE25Dev_geom_left_1616_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/RegionBSPTree3DTest_OE25Dev_geom_left_1616_3.java:[178,17] cannot find symbol
+[ERROR]   symbol:   method checkFinitePartitionedRegion(org.apache.commons.geometry.euclidean.threed.Bounds3D,int,org.apache.commons.geometry.euclidean.threed.RegionBSPTree3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.RegionBSPTree3DTest_OE25Dev_geom_left_1616_3
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/RegionBSPTree3DTest_OE25Dev_geom_left_1616_3.java:[179,17] cannot find symbol
+[ERROR]   symbol:   method checkFinitePartitionedRegion(org.apache.commons.geometry.euclidean.threed.Bounds3D,int,java.util.List<org.apache.commons.geometry.euclidean.threed.PlaneConvexSubset>)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.RegionBSPTree3DTest_OE25Dev_geom_left_1616_3
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

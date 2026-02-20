@@ -1,0 +1,201 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[133,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[134,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[135,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[136,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[137,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[138,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[139,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[142,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[143,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[144,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[145,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[146,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[262,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[263,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[264,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[265,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[266,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[267,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[268,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[270,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[271,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[272,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[273,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[274,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[347,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[348,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[349,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[350,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[351,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[353,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[354,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[355,9] cannot find symbol
+  symbol:   method checkScaledEuclideanNorm(double[],int)
+  location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-numbers-core: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[133,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[134,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[135,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[136,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[137,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[138,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[139,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[142,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[143,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[144,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[145,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[146,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[262,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[263,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[264,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[265,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[266,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[267,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[268,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[270,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[271,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[272,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[273,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[274,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[347,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[348,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[349,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[350,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[351,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[353,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[354,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/NormTest_OE25Dev_numb_left_625_1.java:[355,9] cannot find symbol
+[ERROR]   symbol:   method checkScaledEuclideanNorm(double[],int)
+[ERROR]   location: class org.apache.commons.numbers.core.NormTest_OE25Dev_numb_left_625_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

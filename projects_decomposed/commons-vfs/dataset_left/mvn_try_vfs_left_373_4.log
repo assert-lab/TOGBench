@@ -1,0 +1,87 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[42,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject::exists)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[47,9] cannot find symbol
+  symbol:   method testZipParentLayer((fileObjec[...](); })
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[55,9] cannot find symbol
+  symbol:   method testZipParentLayer((fileObjec[...]ren())
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[60,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]ntent)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[65,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject::getType)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[70,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]ached)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[75,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]tOpen)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[80,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]table)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[85,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject::isFile)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[90,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]older)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[95,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]idden)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[100,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]dable)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[105,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]eable)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-vfs2: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[42,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject::exists)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[47,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer((fileObjec[...](); })
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[55,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer((fileObjec[...]ren())
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[60,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]ntent)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[65,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject::getType)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[70,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]ached)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[75,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]tOpen)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[80,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]table)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[85,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject::isFile)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[90,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]older)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[95,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]idden)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[100,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]dable)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev_vfs_left_373_4.java:[105,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]eable)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev_vfs_left_373_4
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

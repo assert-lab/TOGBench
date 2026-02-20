@@ -1,0 +1,177 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[45,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[46,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[47,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[48,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[70,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[71,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[72,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[104,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[105,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[106,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[108,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[109,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[130,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[241,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[242,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[491,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[492,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[493,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[494,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[516,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[517,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[518,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[519,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[551,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[552,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[553,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[555,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[556,9] cannot find symbol
+  symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+  location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-spherical: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[45,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[46,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[47,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[48,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[70,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[71,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[72,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[104,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[105,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[106,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[108,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[109,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[130,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[241,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[242,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[491,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[492,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[493,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[494,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[516,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[517,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[518,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[519,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[551,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[552,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[553,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[555,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-spherical/src/test/java/org/apache/commons/geometry/spherical/oned/AngularIntervalTest_OE25Dev_geom_left_697_4.java:[556,9] cannot find symbol
+[ERROR]   symbol:   method checkFull(org.apache.commons.geometry.spherical.oned.AngularInterval.Convex)
+[ERROR]   location: class org.apache.commons.geometry.spherical.oned.AngularIntervalTest_OE25Dev_geom_left_697_4
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

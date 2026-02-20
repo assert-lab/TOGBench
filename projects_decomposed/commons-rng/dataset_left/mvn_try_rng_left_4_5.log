@@ -1,0 +1,15 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/JDKRandomWrapperTest_OE25Dev_rng_left_4_5.java:[39,9] cannot find symbol
+  symbol:   method checkSameSequence(java.util.Random,org.apache.commons.rng.UniformRandomProvider)
+  location: class org.apache.commons.rng.simple.JDKRandomWrapperTest_OE25Dev_rng_left_4_5
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-rng-simple: Compilation failure
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/JDKRandomWrapperTest_OE25Dev_rng_left_4_5.java:[39,9] cannot find symbol
+[ERROR]   symbol:   method checkSameSequence(java.util.Random,org.apache.commons.rng.UniformRandomProvider)
+[ERROR]   location: class org.apache.commons.rng.simple.JDKRandomWrapperTest_OE25Dev_rng_left_4_5
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

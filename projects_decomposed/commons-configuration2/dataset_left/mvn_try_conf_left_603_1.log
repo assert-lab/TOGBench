@@ -1,0 +1,33 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestJNDIConfiguration_OE25Dev_conf_left_603_1.java:[197,9] cannot find symbol
+  symbol:   method checkErrorListener(org.apache.commons.configuration2.event.EventType<org.apache.commons.configuration2.event.ConfigurationErrorEvent>,org.apache.commons.configuration2.event.EventType<org.apache.commons.configuration2.event.ConfigurationErrorEvent>,java.lang.String,<nulltype>)
+  location: class org.apache.commons.configuration2.TestJNDIConfiguration_OE25Dev_conf_left_603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestJNDIConfiguration_OE25Dev_conf_left_603_1.java:[226,9] cannot find symbol
+  symbol:   method checkErrorListener(org.apache.commons.configuration2.event.EventType<org.apache.commons.configuration2.event.ConfigurationErrorEvent>,org.apache.commons.configuration2.event.EventType<org.apache.commons.configuration2.event.ConfigurationErrorEvent>,<nulltype>,<nulltype>)
+  location: class org.apache.commons.configuration2.TestJNDIConfiguration_OE25Dev_conf_left_603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestJNDIConfiguration_OE25Dev_conf_left_603_1.java:[257,9] cannot find symbol
+  symbol:   method checkErrorListener(org.apache.commons.configuration2.event.EventType<org.apache.commons.configuration2.event.ConfigurationErrorEvent>,org.apache.commons.configuration2.event.EventType<org.apache.commons.configuration2.event.ConfigurationErrorEvent>,java.lang.String,<nulltype>)
+  location: class org.apache.commons.configuration2.TestJNDIConfiguration_OE25Dev_conf_left_603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestJNDIConfiguration_OE25Dev_conf_left_603_1.java:[276,9] cannot find symbol
+  symbol:   method checkErrorListener(org.apache.commons.configuration2.event.EventType<org.apache.commons.configuration2.event.ConfigurationErrorEvent>,org.apache.commons.configuration2.event.EventType<org.apache.commons.configuration2.event.ConfigurationErrorEvent>,<nulltype>,<nulltype>)
+  location: class org.apache.commons.configuration2.TestJNDIConfiguration_OE25Dev_conf_left_603_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project commons-configuration2: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestJNDIConfiguration_OE25Dev_conf_left_603_1.java:[197,9] cannot find symbol
+[ERROR]   symbol:   method checkErrorListener(org.apache.commons.configuration2.event.EventType<org.apache.commons.configuration2.event.ConfigurationErrorEvent>,org.apache.commons.configuration2.event.EventType<org.apache.commons.configuration2.event.ConfigurationErrorEvent>,java.lang.String,<nulltype>)
+[ERROR]   location: class org.apache.commons.configuration2.TestJNDIConfiguration_OE25Dev_conf_left_603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestJNDIConfiguration_OE25Dev_conf_left_603_1.java:[226,9] cannot find symbol
+[ERROR]   symbol:   method checkErrorListener(org.apache.commons.configuration2.event.EventType<org.apache.commons.configuration2.event.ConfigurationErrorEvent>,org.apache.commons.configuration2.event.EventType<org.apache.commons.configuration2.event.ConfigurationErrorEvent>,<nulltype>,<nulltype>)
+[ERROR]   location: class org.apache.commons.configuration2.TestJNDIConfiguration_OE25Dev_conf_left_603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestJNDIConfiguration_OE25Dev_conf_left_603_1.java:[257,9] cannot find symbol
+[ERROR]   symbol:   method checkErrorListener(org.apache.commons.configuration2.event.EventType<org.apache.commons.configuration2.event.ConfigurationErrorEvent>,org.apache.commons.configuration2.event.EventType<org.apache.commons.configuration2.event.ConfigurationErrorEvent>,java.lang.String,<nulltype>)
+[ERROR]   location: class org.apache.commons.configuration2.TestJNDIConfiguration_OE25Dev_conf_left_603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestJNDIConfiguration_OE25Dev_conf_left_603_1.java:[276,9] cannot find symbol
+[ERROR]   symbol:   method checkErrorListener(org.apache.commons.configuration2.event.EventType<org.apache.commons.configuration2.event.ConfigurationErrorEvent>,org.apache.commons.configuration2.event.EventType<org.apache.commons.configuration2.event.ConfigurationErrorEvent>,<nulltype>,<nulltype>)
+[ERROR]   location: class org.apache.commons.configuration2.TestJNDIConfiguration_OE25Dev_conf_left_603_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

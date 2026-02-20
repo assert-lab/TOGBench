@@ -48,19 +48,6 @@ class OrientedPointTest_OE25Dev {
     }
 
     @Test
-    void testTransform_zeroScale() {
-        // arrange
-        final AffineTransformMatrix1D zeroScale = AffineTransformMatrix1D.createScale(0.0);
-
-        final OrientedPoint pt = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(
-            () -> pt.transform(zeroScale),
-            IllegalArgumentException.class, "Oriented point direction cannot be zero");
-    }
-
-    @Test
     void testOffset_infinityArguments() {
         // arrange
         final OrientedPoint pt = OrientedPoints.fromPointAndDirection(Vector1D.of(-2.0), true, TEST_PRECISION);
@@ -68,45 +55,6 @@ class OrientedPointTest_OE25Dev {
         // act/assert
         GeometryTestUtils.assertPositiveInfinity(pt.offset(Vector1D.of(Double.POSITIVE_INFINITY)));
         GeometryTestUtils.assertNegativeInfinity(pt.offset(Vector1D.of(Double.NEGATIVE_INFINITY)));
-    }
-
-    @Test
-    void testClassify() {
-        // arrange
-        final Precision.DoubleEquivalence smallPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
-        final Precision.DoubleEquivalence largePrecision = Precision.doubleEquivalenceOfEpsilon(1e-1);
-
-        final OrientedPoint smallPosFacing = OrientedPoints.fromLocationAndDirection(1.0, true, smallPrecision);
-        final OrientedPoint largeNegFacing = OrientedPoints.fromLocationAndDirection(1.0, false, largePrecision);
-
-        // act/assert
-        assertClassify(HyperplaneLocation.MINUS, smallPosFacing,
-                Double.NEGATIVE_INFINITY, -10, 0, 0.9, 0.99999, 1 - 1e-9);
-        assertClassify(HyperplaneLocation.ON, smallPosFacing,
-                1 - 1e-11, 1, 1 + 1e-11);
-        assertClassify(HyperplaneLocation.PLUS, smallPosFacing,
-                1 + 1e-9, 2, 10, Double.POSITIVE_INFINITY);
-
-        assertClassify(HyperplaneLocation.PLUS, largeNegFacing,
-                Double.NEGATIVE_INFINITY, -10, 0, 0.89);
-        assertClassify(HyperplaneLocation.ON, largeNegFacing,
-                0.91, 0.9999, 1, 1.001, 1.09);
-        assertClassify(HyperplaneLocation.MINUS, largeNegFacing,
-                1.11, 2, 10, Double.POSITIVE_INFINITY);
-    }
-
-    @Test
-    void testFromPointAndDirection_invalidDirection() {
-        // arrange
-        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(0.1);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(
-            () -> OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), Vector1D.of(0.09), precision),
-            IllegalArgumentException.class, "Oriented point direction cannot be zero");
-        GeometryTestUtils.assertThrowsWithMessage(
-            () -> OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), Vector1D.of(-0.09), precision),
-            IllegalArgumentException.class, "Oriented point direction cannot be zero");
     }
 
     @Test
@@ -3958,6 +3906,132 @@ class OrientedPointTest_OE25Dev {
                 // removed other assertion
                 // removed other assertion
                 Assertions.assertSame(precision0, pt0.getPrecision());
+    }
+
+@Test
+    void testTransform_zeroScale_1_oe() {
+        // arrange
+        final AffineTransformMatrix1D zeroScale = AffineTransformMatrix1D.createScale(0.0);
+
+        final OrientedPoint pt = OrientedPoints.createPositiveFacing(Vector1D.of(2.0), TEST_PRECISION);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage( () -> pt.transform(zeroScale), IllegalArgumentException.class, "Oriented point direction cannot be zero");
+    }
+
+@Test
+    void testClassify_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
+        final Precision.DoubleEquivalence largePrecision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final OrientedPoint smallPosFacing = OrientedPoints.fromLocationAndDirection(1.0, true, smallPrecision);
+        final OrientedPoint largeNegFacing = OrientedPoints.fromLocationAndDirection(1.0, false, largePrecision);
+
+        // act/assert
+        assertClassify(HyperplaneLocation.MINUS, smallPosFacing, Double.NEGATIVE_INFINITY, -10, 0, 0.9, 0.99999, 1 - 1e-9);
+    }
+
+@Test
+    void testClassify_2_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
+        final Precision.DoubleEquivalence largePrecision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final OrientedPoint smallPosFacing = OrientedPoints.fromLocationAndDirection(1.0, true, smallPrecision);
+        final OrientedPoint largeNegFacing = OrientedPoints.fromLocationAndDirection(1.0, false, largePrecision);
+
+        // act/assert
+        // removed other assertion
+        assertClassify(HyperplaneLocation.ON, smallPosFacing, 1 - 1e-11, 1, 1 + 1e-11);
+    }
+
+@Test
+    void testClassify_3_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
+        final Precision.DoubleEquivalence largePrecision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final OrientedPoint smallPosFacing = OrientedPoints.fromLocationAndDirection(1.0, true, smallPrecision);
+        final OrientedPoint largeNegFacing = OrientedPoints.fromLocationAndDirection(1.0, false, largePrecision);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        assertClassify(HyperplaneLocation.PLUS, smallPosFacing, 1 + 1e-9, 2, 10, Double.POSITIVE_INFINITY);
+    }
+
+@Test
+    void testClassify_4_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
+        final Precision.DoubleEquivalence largePrecision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final OrientedPoint smallPosFacing = OrientedPoints.fromLocationAndDirection(1.0, true, smallPrecision);
+        final OrientedPoint largeNegFacing = OrientedPoints.fromLocationAndDirection(1.0, false, largePrecision);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertClassify(HyperplaneLocation.PLUS, largeNegFacing, Double.NEGATIVE_INFINITY, -10, 0, 0.89);
+    }
+
+@Test
+    void testClassify_5_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
+        final Precision.DoubleEquivalence largePrecision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final OrientedPoint smallPosFacing = OrientedPoints.fromLocationAndDirection(1.0, true, smallPrecision);
+        final OrientedPoint largeNegFacing = OrientedPoints.fromLocationAndDirection(1.0, false, largePrecision);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertClassify(HyperplaneLocation.ON, largeNegFacing, 0.91, 0.9999, 1, 1.001, 1.09);
+    }
+
+@Test
+    void testClassify_6_oe() {
+        // arrange
+        final Precision.DoubleEquivalence smallPrecision = Precision.doubleEquivalenceOfEpsilon(1e-10);
+        final Precision.DoubleEquivalence largePrecision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final OrientedPoint smallPosFacing = OrientedPoints.fromLocationAndDirection(1.0, true, smallPrecision);
+        final OrientedPoint largeNegFacing = OrientedPoints.fromLocationAndDirection(1.0, false, largePrecision);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertClassify(HyperplaneLocation.MINUS, largeNegFacing, 1.11, 2, 10, Double.POSITIVE_INFINITY);
+    }
+
+@Test
+    void testFromPointAndDirection_invalidDirection_1_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(0.1);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage( () -> OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), Vector1D.of(0.09), precision), IllegalArgumentException.class, "Oriented point direction cannot be zero");
+    }
+
+@Test
+    void testFromPointAndDirection_invalidDirection_2_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(0.1);
+
+        // act/assert
+        // removed other assertion
+        GeometryTestUtils.assertThrowsWithMessage( () -> OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), Vector1D.of(-0.09), precision), IllegalArgumentException.class, "Oriented point direction cannot be zero");
     }
 
 }

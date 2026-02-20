@@ -1,0 +1,51 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2230_1.java:[400,9] cannot find symbol
+  symbol:   method checkSplit(org.apache.commons.geometry.core.partitioning.HyperplaneConvexSubset<org.apache.commons.geometry.euclidean.oned.Vector1D>,org.apache.commons.geometry.euclidean.oned.OrientedPoint,boolean,boolean)
+  location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2230_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2230_1.java:[401,9] cannot find symbol
+  symbol:   method checkSplit(org.apache.commons.geometry.core.partitioning.HyperplaneConvexSubset<org.apache.commons.geometry.euclidean.oned.Vector1D>,org.apache.commons.geometry.euclidean.oned.OrientedPoint,boolean,boolean)
+  location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2230_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2230_1.java:[403,9] cannot find symbol
+  symbol:   method checkSplit(org.apache.commons.geometry.core.partitioning.HyperplaneConvexSubset<org.apache.commons.geometry.euclidean.oned.Vector1D>,org.apache.commons.geometry.euclidean.oned.OrientedPoint,boolean,boolean)
+  location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2230_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2230_1.java:[404,9] cannot find symbol
+  symbol:   method checkSplit(org.apache.commons.geometry.core.partitioning.HyperplaneConvexSubset<org.apache.commons.geometry.euclidean.oned.Vector1D>,org.apache.commons.geometry.euclidean.oned.OrientedPoint,boolean,boolean)
+  location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2230_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2230_1.java:[406,9] cannot find symbol
+  symbol:   method checkSplit(org.apache.commons.geometry.core.partitioning.HyperplaneConvexSubset<org.apache.commons.geometry.euclidean.oned.Vector1D>,org.apache.commons.geometry.euclidean.oned.OrientedPoint,boolean,boolean)
+  location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2230_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2230_1.java:[407,9] cannot find symbol
+  symbol:   method checkSplit(org.apache.commons.geometry.core.partitioning.HyperplaneConvexSubset<org.apache.commons.geometry.euclidean.oned.Vector1D>,org.apache.commons.geometry.euclidean.oned.OrientedPoint,boolean,boolean)
+  location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2230_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2230_1.java:[408,9] cannot find symbol
+  symbol:   method checkSplit(org.apache.commons.geometry.core.partitioning.HyperplaneConvexSubset<org.apache.commons.geometry.euclidean.oned.Vector1D>,org.apache.commons.geometry.euclidean.oned.OrientedPoint,boolean,boolean)
+  location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2230_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-euclidean: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2230_1.java:[400,9] cannot find symbol
+[ERROR]   symbol:   method checkSplit(org.apache.commons.geometry.core.partitioning.HyperplaneConvexSubset<org.apache.commons.geometry.euclidean.oned.Vector1D>,org.apache.commons.geometry.euclidean.oned.OrientedPoint,boolean,boolean)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2230_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2230_1.java:[401,9] cannot find symbol
+[ERROR]   symbol:   method checkSplit(org.apache.commons.geometry.core.partitioning.HyperplaneConvexSubset<org.apache.commons.geometry.euclidean.oned.Vector1D>,org.apache.commons.geometry.euclidean.oned.OrientedPoint,boolean,boolean)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2230_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2230_1.java:[403,9] cannot find symbol
+[ERROR]   symbol:   method checkSplit(org.apache.commons.geometry.core.partitioning.HyperplaneConvexSubset<org.apache.commons.geometry.euclidean.oned.Vector1D>,org.apache.commons.geometry.euclidean.oned.OrientedPoint,boolean,boolean)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2230_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2230_1.java:[404,9] cannot find symbol
+[ERROR]   symbol:   method checkSplit(org.apache.commons.geometry.core.partitioning.HyperplaneConvexSubset<org.apache.commons.geometry.euclidean.oned.Vector1D>,org.apache.commons.geometry.euclidean.oned.OrientedPoint,boolean,boolean)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2230_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2230_1.java:[406,9] cannot find symbol
+[ERROR]   symbol:   method checkSplit(org.apache.commons.geometry.core.partitioning.HyperplaneConvexSubset<org.apache.commons.geometry.euclidean.oned.Vector1D>,org.apache.commons.geometry.euclidean.oned.OrientedPoint,boolean,boolean)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2230_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2230_1.java:[407,9] cannot find symbol
+[ERROR]   symbol:   method checkSplit(org.apache.commons.geometry.core.partitioning.HyperplaneConvexSubset<org.apache.commons.geometry.euclidean.oned.Vector1D>,org.apache.commons.geometry.euclidean.oned.OrientedPoint,boolean,boolean)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2230_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/oned/OrientedPointTest_OE25Dev_geom_left_2230_1.java:[408,9] cannot find symbol
+[ERROR]   symbol:   method checkSplit(org.apache.commons.geometry.core.partitioning.HyperplaneConvexSubset<org.apache.commons.geometry.euclidean.oned.Vector1D>,org.apache.commons.geometry.euclidean.oned.OrientedPoint,boolean,boolean)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev_geom_left_2230_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

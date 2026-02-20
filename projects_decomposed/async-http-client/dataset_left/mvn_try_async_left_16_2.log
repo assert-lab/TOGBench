@@ -1,0 +1,21 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/PostRedirectGetTest_OE25Dev_async_left_16_2.java:[45,5] cannot find symbol
+  symbol:   method doTestNegative(int,boolean)
+  location: class org.asynchttpclient.PostRedirectGetTest_OE25Dev_async_left_16_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/PostRedirectGetTest_OE25Dev_async_left_16_2.java:[60,5] cannot find symbol
+  symbol:   method doTestNegative(int,boolean)
+  location: class org.asynchttpclient.PostRedirectGetTest_OE25Dev_async_left_16_2
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project async-http-client: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/PostRedirectGetTest_OE25Dev_async_left_16_2.java:[45,5] cannot find symbol
+[ERROR]   symbol:   method doTestNegative(int,boolean)
+[ERROR]   location: class org.asynchttpclient.PostRedirectGetTest_OE25Dev_async_left_16_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/PostRedirectGetTest_OE25Dev_async_left_16_2.java:[60,5] cannot find symbol
+[ERROR]   symbol:   method doTestNegative(int,boolean)
+[ERROR]   location: class org.asynchttpclient.PostRedirectGetTest_OE25Dev_async_left_16_2
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

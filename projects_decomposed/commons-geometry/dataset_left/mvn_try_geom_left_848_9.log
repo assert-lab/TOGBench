@@ -1,0 +1,33 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeTest_OE25Dev_geom_left_848_9.java:[115,9] cannot find symbol
+  symbol:   method checkMixedCutRuleInsertion((segs)->{ [...]T); })
+  location: class org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeTest_OE25Dev_geom_left_848_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeTest_OE25Dev_geom_left_848_9.java:[128,9] cannot find symbol
+  symbol:   method checkMixedCutRuleInsertion((segs)->{ [...]T); })
+  location: class org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeTest_OE25Dev_geom_left_848_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeTest_OE25Dev_geom_left_848_9.java:[140,9] cannot find symbol
+  symbol:   method checkMixedCutRuleInsertion((segs)->{ [...]T); })
+  location: class org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeTest_OE25Dev_geom_left_848_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeTest_OE25Dev_geom_left_848_9.java:[155,9] cannot find symbol
+  symbol:   method checkMixedCutRuleInsertion((segs)->{ [...]T); })
+  location: class org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeTest_OE25Dev_geom_left_848_9
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-core: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeTest_OE25Dev_geom_left_848_9.java:[115,9] cannot find symbol
+[ERROR]   symbol:   method checkMixedCutRuleInsertion((segs)->{ [...]T); })
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeTest_OE25Dev_geom_left_848_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeTest_OE25Dev_geom_left_848_9.java:[128,9] cannot find symbol
+[ERROR]   symbol:   method checkMixedCutRuleInsertion((segs)->{ [...]T); })
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeTest_OE25Dev_geom_left_848_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeTest_OE25Dev_geom_left_848_9.java:[140,9] cannot find symbol
+[ERROR]   symbol:   method checkMixedCutRuleInsertion((segs)->{ [...]T); })
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeTest_OE25Dev_geom_left_848_9
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeTest_OE25Dev_geom_left_848_9.java:[155,9] cannot find symbol
+[ERROR]   symbol:   method checkMixedCutRuleInsertion((segs)->{ [...]T); })
+[ERROR]   location: class org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeTest_OE25Dev_geom_left_848_9
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

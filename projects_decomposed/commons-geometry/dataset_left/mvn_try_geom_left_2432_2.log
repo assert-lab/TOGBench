@@ -1,0 +1,141 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[194,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[195,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[197,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[199,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[201,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[203,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[205,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[208,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[209,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[211,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[213,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[215,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[217,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[219,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[222,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[223,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[225,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[227,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[229,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[231,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[233,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[237,9] cannot find symbol
+  symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+  location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-euclidean: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[194,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[195,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[197,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[199,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[201,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[203,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[205,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[208,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[209,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[211,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[213,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[215,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[217,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[219,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[222,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[223,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[225,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[227,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[229,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[231,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[233,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/shape/SphereTest_OE25Dev_geom_left_2432_2.java:[237,9] cannot find symbol
+[ERROR]   symbol:   method checkIntersections(org.apache.commons.geometry.euclidean.threed.shape.Sphere,org.apache.commons.geometry.euclidean.threed.line.Line3D,org.apache.commons.geometry.euclidean.threed.Vector3D,org.apache.commons.geometry.euclidean.threed.Vector3D)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev_geom_left_2432_2
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

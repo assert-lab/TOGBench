@@ -156,35 +156,6 @@ class RegionBSPTree3DTest_OE25Dev {
     }
 
     @Test
-    void testPartitionedRegionBuilder_insertPartitionAfterBoundary() {
-        // arrange
-        final PartitionedRegionBuilder3D builder = RegionBSPTree3D.partitionedRegionBuilder();
-        builder.insertBoundary(Planes.triangleFromVertices(
-                Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0), TEST_PRECISION));
-
-        final Plane partition = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
-
-        final String msg = "Cannot insert partitions after boundaries have been inserted";
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            builder.insertPartition(partition);
-        }, IllegalStateException.class, msg);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            builder.insertPartition(partition.span());
-        }, IllegalStateException.class, msg);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            builder.insertAxisAlignedPartitions(Vector3D.ZERO, TEST_PRECISION);
-        }, IllegalStateException.class, msg);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            builder.insertAxisAlignedGrid(Bounds3D.from(Vector3D.ZERO, Vector3D.of(1, 1, 1)), 1, TEST_PRECISION);
-        }, IllegalStateException.class, msg);
-    }
-
-    @Test
     void testGetBounds_hasBounds() {
         // arrange
         final RegionBSPTree3D tree = createRect(Vector3D.ZERO, Vector3D.of(1, 1, 1));
@@ -3441,6 +3412,1224 @@ class RegionBSPTree3DTest_OE25Dev {
         // assert
         // removed other assertion
         Assertions.assertFalse(tree.isEmpty());
+    }
+
+@Test
+    void testEmpty_6_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.empty();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE, Vector3D.of(-Double.MAX_VALUE, -Double.MAX_VALUE, -Double.MAX_VALUE), Vector3D.of(-100, -100, -100), Vector3D.of(0, 0, 0), Vector3D.of(100, 100, 100), Vector3D.of(Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE));
+    }
+
+@Test
+    void testFull_6_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.full();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.INSIDE, Vector3D.of(-Double.MAX_VALUE, -Double.MAX_VALUE, -Double.MAX_VALUE), Vector3D.of(-100, -100, -100), Vector3D.of(0, 0, 0), Vector3D.of(100, 100, 100), Vector3D.of(Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE));
+    }
+
+@Test
+    void testPartitionedRegionBuilder_insertPartitionAfterBoundary_1_oe() {
+        // arrange
+        final PartitionedRegionBuilder3D builder = RegionBSPTree3D.partitionedRegionBuilder();
+        builder.insertBoundary(Planes.triangleFromVertices(
+                Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0), TEST_PRECISION));
+
+        final Plane partition = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        final String msg = "Cannot insert partitions after boundaries have been inserted";
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.insertPartition(partition); }, IllegalStateException.class, msg);
+    }
+
+@Test
+    void testPartitionedRegionBuilder_insertPartitionAfterBoundary_2_oe() {
+        // arrange
+        final PartitionedRegionBuilder3D builder = RegionBSPTree3D.partitionedRegionBuilder();
+        builder.insertBoundary(Planes.triangleFromVertices(
+                Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0), TEST_PRECISION));
+
+        final Plane partition = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        final String msg = "Cannot insert partitions after boundaries have been inserted";
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.insertPartition(partition.span()); }, IllegalStateException.class, msg);
+    }
+
+@Test
+    void testPartitionedRegionBuilder_insertPartitionAfterBoundary_3_oe() {
+        // arrange
+        final PartitionedRegionBuilder3D builder = RegionBSPTree3D.partitionedRegionBuilder();
+        builder.insertBoundary(Planes.triangleFromVertices(
+                Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0), TEST_PRECISION));
+
+        final Plane partition = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        final String msg = "Cannot insert partitions after boundaries have been inserted";
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.insertAxisAlignedPartitions(Vector3D.ZERO, TEST_PRECISION); }, IllegalStateException.class, msg);
+    }
+
+@Test
+    void testPartitionedRegionBuilder_insertPartitionAfterBoundary_4_oe() {
+        // arrange
+        final PartitionedRegionBuilder3D builder = RegionBSPTree3D.partitionedRegionBuilder();
+        builder.insertBoundary(Planes.triangleFromVertices(
+                Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0), TEST_PRECISION));
+
+        final Plane partition = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        final String msg = "Cannot insert partitions after boundaries have been inserted";
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { builder.insertAxisAlignedGrid(Bounds3D.from(Vector3D.ZERO, Vector3D.of(1, 1, 1)), 1, TEST_PRECISION); }, IllegalStateException.class, msg);
+    }
+
+@Test
+    void testHalfSpace_6_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.empty();
+        tree.insert(Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Y, TEST_PRECISION).span());
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.INSIDE, Vector3D.of(-Double.MAX_VALUE, -Double.MAX_VALUE, -Double.MAX_VALUE), Vector3D.of(-100, -100, -100));
+    }
+
+@Test
+    void testHalfSpace_8_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.empty();
+        tree.insert(Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Y, TEST_PRECISION).span());
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE, Vector3D.of(100, 100, 100), Vector3D.of(Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE));
+    }
+
+@Test
+    void testGeometricProperties_mixedCutRules_7_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.empty();
+
+        final Vector3D min = Vector3D.ZERO;
+        final Vector3D max = Vector3D.of(1, 1, 1);
+
+        final Plane top = Planes.fromPointAndNormal(max, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+        final Plane bottom = Planes.fromPointAndNormal(min, Vector3D.Unit.MINUS_Z, TEST_PRECISION);
+        final Plane left = Planes.fromPointAndNormal(min, Vector3D.Unit.MINUS_X, TEST_PRECISION);
+        final Plane right = Planes.fromPointAndNormal(max, Vector3D.Unit.PLUS_X, TEST_PRECISION);
+        final Plane front = Planes.fromPointAndNormal(min, Vector3D.Unit.MINUS_Y, TEST_PRECISION);
+        final Plane back = Planes.fromPointAndNormal(max, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        final Plane diag = Planes.fromPointAndNormal(Vector3D.of(0.5, 0.5, 0.5), Vector3D.of(0.5, -0.5, 0), TEST_PRECISION);
+        final Plane midCut = Planes.fromPointAndNormal(Vector3D.of(0.5, 0.5, 0.5), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        tree.getRoot()
+            .cut(diag, RegionCutRule.INHERIT);
+
+        tree.getRoot()
+            .getMinus().cut(top)
+            .getMinus().cut(bottom.reverse(), RegionCutRule.PLUS_INSIDE)
+            .getPlus().cut(left, RegionCutRule.MINUS_INSIDE)
+            .getMinus().cut(back.reverse(), RegionCutRule.PLUS_INSIDE)
+            .getPlus().cut(midCut, RegionCutRule.INHERIT);
+
+        tree.getRoot()
+            .getPlus().cut(top.reverse(), RegionCutRule.PLUS_INSIDE)
+            .getPlus().cut(bottom)
+            .getMinus().cut(right, RegionCutRule.MINUS_INSIDE)
+            .getMinus().cut(front.reverse(), RegionCutRule.PLUS_INSIDE)
+            .getPlus().cut(midCut, RegionCutRule.INHERIT);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.BOUNDARY, min, max);
+    }
+
+@Test
+    void testGeometricProperties_mixedCutRules_8_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.empty();
+
+        final Vector3D min = Vector3D.ZERO;
+        final Vector3D max = Vector3D.of(1, 1, 1);
+
+        final Plane top = Planes.fromPointAndNormal(max, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+        final Plane bottom = Planes.fromPointAndNormal(min, Vector3D.Unit.MINUS_Z, TEST_PRECISION);
+        final Plane left = Planes.fromPointAndNormal(min, Vector3D.Unit.MINUS_X, TEST_PRECISION);
+        final Plane right = Planes.fromPointAndNormal(max, Vector3D.Unit.PLUS_X, TEST_PRECISION);
+        final Plane front = Planes.fromPointAndNormal(min, Vector3D.Unit.MINUS_Y, TEST_PRECISION);
+        final Plane back = Planes.fromPointAndNormal(max, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        final Plane diag = Planes.fromPointAndNormal(Vector3D.of(0.5, 0.5, 0.5), Vector3D.of(0.5, -0.5, 0), TEST_PRECISION);
+        final Plane midCut = Planes.fromPointAndNormal(Vector3D.of(0.5, 0.5, 0.5), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        tree.getRoot()
+            .cut(diag, RegionCutRule.INHERIT);
+
+        tree.getRoot()
+            .getMinus().cut(top)
+            .getMinus().cut(bottom.reverse(), RegionCutRule.PLUS_INSIDE)
+            .getPlus().cut(left, RegionCutRule.MINUS_INSIDE)
+            .getMinus().cut(back.reverse(), RegionCutRule.PLUS_INSIDE)
+            .getPlus().cut(midCut, RegionCutRule.INHERIT);
+
+        tree.getRoot()
+            .getPlus().cut(top.reverse(), RegionCutRule.PLUS_INSIDE)
+            .getPlus().cut(bottom)
+            .getMinus().cut(right, RegionCutRule.MINUS_INSIDE)
+            .getMinus().cut(front.reverse(), RegionCutRule.PLUS_INSIDE)
+            .getPlus().cut(midCut, RegionCutRule.INHERIT);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE, Vector3D.of(2, 2, 2), Vector3D.of(2, 2, -2), Vector3D.of(2, -2, 2), Vector3D.of(2, -2, -2), Vector3D.of(-2, 2, 2), Vector3D.of(-2, 2, -2), Vector3D.of(-2, -2, 2), Vector3D.of(-2, -2, -2));
+    }
+
+@Test
+    void testFrom_boundaries_4_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.from(Arrays.asList(
+                    Planes.convexPolygonFromVertices(Arrays.asList(
+                            Vector3D.ZERO, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y), TEST_PRECISION),
+                    Planes.convexPolygonFromVertices(Arrays.asList(
+                            Vector3D.ZERO, Vector3D.Unit.MINUS_Z, Vector3D.Unit.PLUS_X), TEST_PRECISION)
+                ));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.INSIDE, Vector3D.of(1, 1, -1), Vector3D.of(-1, 1, -1));
+    }
+
+@Test
+    void testFrom_boundaries_5_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.from(Arrays.asList(
+                    Planes.convexPolygonFromVertices(Arrays.asList(
+                            Vector3D.ZERO, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y), TEST_PRECISION),
+                    Planes.convexPolygonFromVertices(Arrays.asList(
+                            Vector3D.ZERO, Vector3D.Unit.MINUS_Z, Vector3D.Unit.PLUS_X), TEST_PRECISION)
+                ));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE, Vector3D.of(1, 1, 1), Vector3D.of(-1, 1, 1), Vector3D.of(1, -1, 1), Vector3D.of(-1, -1, 1), Vector3D.of(1, -1, -1), Vector3D.of(-1, -1, -1));
+    }
+
+@Test
+    void testFrom_boundaries_fullIsTrue_4_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.from(Arrays.asList(
+                    Planes.convexPolygonFromVertices(Arrays.asList(
+                            Vector3D.ZERO, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y), TEST_PRECISION),
+                    Planes.convexPolygonFromVertices(Arrays.asList(
+                            Vector3D.ZERO, Vector3D.Unit.MINUS_Z, Vector3D.Unit.PLUS_X), TEST_PRECISION)
+                ), true);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.INSIDE, Vector3D.of(1, 1, -1), Vector3D.of(-1, 1, -1));
+    }
+
+@Test
+    void testFrom_boundaries_fullIsTrue_5_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.from(Arrays.asList(
+                    Planes.convexPolygonFromVertices(Arrays.asList(
+                            Vector3D.ZERO, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y), TEST_PRECISION),
+                    Planes.convexPolygonFromVertices(Arrays.asList(
+                            Vector3D.ZERO, Vector3D.Unit.MINUS_Z, Vector3D.Unit.PLUS_X), TEST_PRECISION)
+                ), true);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE, Vector3D.of(1, 1, 1), Vector3D.of(-1, 1, 1), Vector3D.of(1, -1, 1), Vector3D.of(-1, -1, 1), Vector3D.of(1, -1, -1), Vector3D.of(-1, -1, -1));
+    }
+
+@Test
+    void testFromConvexVolume_finite_4_oe() {
+        // arrange
+        final ConvexVolume volume = ConvexVolume.fromBounds(
+                    Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.MINUS_X, TEST_PRECISION),
+                    Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.MINUS_Y, TEST_PRECISION),
+                    Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.MINUS_Z, TEST_PRECISION),
+
+                    Planes.fromPointAndNormal(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_X, TEST_PRECISION),
+                    Planes.fromPointAndNormal(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Y, TEST_PRECISION),
+                    Planes.fromPointAndNormal(Vector3D.of(1, 1, 1), Vector3D.Unit.PLUS_Z, TEST_PRECISION)
+                );
+
+        // act
+        final RegionBSPTree3D tree = volume.toTree();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE, Vector3D.of(-1, 0.5, 0.5), Vector3D.of(2, 0.5, 0.5), Vector3D.of(0.5, -1, 0.5), Vector3D.of(0.5, 2, 0.5), Vector3D.of(0.5, 0.5, -1), Vector3D.of(0.5, 0.5, 2));
+    }
+
+@Test
+    void testInvertedRegion_6_oe() {
+        // arrange
+        final RegionBSPTree3D tree = createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5));
+
+        // act
+        tree.complement();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.INSIDE, Vector3D.of(-Double.MAX_VALUE, -Double.MAX_VALUE, -Double.MAX_VALUE), Vector3D.of(-100, -100, -100), Vector3D.of(100, 100, 100), Vector3D.of(Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE));
+    }
+
+@Test
+    void testUnitBox_6_oe() {
+        // act
+        final RegionBSPTree3D tree = createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE, Vector3D.of(-1, 0, 0), Vector3D.of(1, 0, 0), Vector3D.of(0, -1, 0), Vector3D.of(0, 1, 0), Vector3D.of(0, 0, -1), Vector3D.of(0, 0, 1), Vector3D.of(1, 1, 1), Vector3D.of(1, 1, -1), Vector3D.of(1, -1, 1), Vector3D.of(1, -1, -1), Vector3D.of(-1, 1, 1), Vector3D.of(-1, 1, -1), Vector3D.of(-1, -1, 1), Vector3D.of(-1, -1, -1));
+    }
+
+@Test
+    void testUnitBox_7_oe() {
+        // act
+        final RegionBSPTree3D tree = createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.BOUNDARY, Vector3D.of(0.5, 0, 0), Vector3D.of(-0.5, 0, 0), Vector3D.of(0, 0.5, 0), Vector3D.of(0, -0.5, 0), Vector3D.of(0, 0, 0.5), Vector3D.of(0, 0, -0.5), Vector3D.of(0.5, 0.5, 0.5), Vector3D.of(0.5, 0.5, -0.5), Vector3D.of(0.5, -0.5, 0.5), Vector3D.of(0.5, -0.5, -0.5), Vector3D.of(-0.5, 0.5, 0.5), Vector3D.of(-0.5, 0.5, -0.5), Vector3D.of(-0.5, -0.5, 0.5), Vector3D.of(-0.5, -0.5, -0.5));
+    }
+
+@Test
+    void testUnitBox_8_oe() {
+        // act
+        final RegionBSPTree3D tree = createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.INSIDE, Vector3D.of(0, 0, 0), Vector3D.of(0.4, 0.4, 0.4), Vector3D.of(0.4, 0.4, -0.4), Vector3D.of(0.4, -0.4, 0.4), Vector3D.of(0.4, -0.4, -0.4), Vector3D.of(-0.4, 0.4, 0.4), Vector3D.of(-0.4, 0.4, -0.4), Vector3D.of(-0.4, -0.4, 0.4), Vector3D.of(-0.4, -0.4, -0.4));
+    }
+
+@Test
+    void testTwoBoxes_disjoint_6_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.empty();
+        tree.union(createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5)));
+        tree.union(createRect(Vector3D.of(1.5, -0.5, -0.5), Vector3D.of(2.5, 0.5, 0.5)));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE, Vector3D.of(-1, 0, 0), Vector3D.of(1, 0, 0), Vector3D.of(3, 0, 0));
+    }
+
+@Test
+    void testTwoBoxes_disjoint_7_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.empty();
+        tree.union(createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5)));
+        tree.union(createRect(Vector3D.of(1.5, -0.5, -0.5), Vector3D.of(2.5, 0.5, 0.5)));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.INSIDE, Vector3D.of(0, 0, 0), Vector3D.of(2, 0, 0));
+    }
+
+@Test
+    void testTwoBoxes_sharedSide_6_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.empty();
+        tree.union(createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5)));
+        tree.union(createRect(Vector3D.of(0.5, -0.5, -0.5), Vector3D.of(1.5, 0.5, 0.5)));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE, Vector3D.of(-1, 0, 0), Vector3D.of(2, 0, 0));
+    }
+
+@Test
+    void testTwoBoxes_sharedSide_7_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.empty();
+        tree.union(createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5)));
+        tree.union(createRect(Vector3D.of(0.5, -0.5, -0.5), Vector3D.of(1.5, 0.5, 0.5)));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.INSIDE, Vector3D.of(0, 0, 0), Vector3D.of(1, 0, 0));
+    }
+
+@Test
+    void testTwoBoxes_separationLessThanTolerance_6_oe() {
+        // arrange
+        final double eps = 1e-6;
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(eps);
+
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.empty();
+        tree.union(createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5), precision));
+        tree.union(createRect(Vector3D.of(0.5 + 1e-7, -0.5, -0.5), Vector3D.of(1.5 + 1e-7, 0.5, 0.5), precision));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE, Vector3D.of(-1, 0, 0), Vector3D.of(2, 0, 0));
+    }
+
+@Test
+    void testTwoBoxes_separationLessThanTolerance_7_oe() {
+        // arrange
+        final double eps = 1e-6;
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(eps);
+
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.empty();
+        tree.union(createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5), precision));
+        tree.union(createRect(Vector3D.of(0.5 + 1e-7, -0.5, -0.5), Vector3D.of(1.5 + 1e-7, 0.5, 0.5), precision));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.INSIDE, Vector3D.of(0, 0, 0), Vector3D.of(1, 0, 0));
+    }
+
+@Test
+    void testTwoBoxes_sharedEdge_6_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.empty();
+        tree.union(createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5)));
+        tree.union(createRect(Vector3D.of(0.5, 0.5, -0.5), Vector3D.of(1.5, 1.5, 0.5)));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE, Vector3D.of(-1, 0, 0), Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0), Vector3D.of(2, 1, 0));
+    }
+
+@Test
+    void testTwoBoxes_sharedEdge_7_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.empty();
+        tree.union(createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5)));
+        tree.union(createRect(Vector3D.of(0.5, 0.5, -0.5), Vector3D.of(1.5, 1.5, 0.5)));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.INSIDE, Vector3D.of(0, 0, 0), Vector3D.of(1, 1, 0));
+    }
+
+@Test
+    void testTwoBoxes_sharedPoint_6_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.empty();
+        tree.union(createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5)));
+        tree.union(createRect(Vector3D.of(0.5, 0.5, 0.5), Vector3D.of(1.5, 1.5, 1.5)));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE, Vector3D.of(-1, 0, 0), Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 1), Vector3D.of(2, 1, 1));
+    }
+
+@Test
+    void testTwoBoxes_sharedPoint_7_oe() {
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.empty();
+        tree.union(createRect(Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(0.5, 0.5, 0.5)));
+        tree.union(createRect(Vector3D.of(0.5, 0.5, 0.5), Vector3D.of(1.5, 1.5, 1.5)));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.INSIDE, Vector3D.of(0, 0, 0), Vector3D.of(1, 1, 1));
+    }
+
+@Test
+    void testTetrahedron_4_oe() {
+        // arrange
+        final Vector3D vertex1 = Vector3D.of(1, 2, 3);
+        final Vector3D vertex2 = Vector3D.of(2, 2, 4);
+        final Vector3D vertex3 = Vector3D.of(2, 3, 3);
+        final Vector3D vertex4 = Vector3D.of(1, 3, 4);
+
+        final List<PlaneConvexSubset> boundaries = Arrays.asList(
+                Planes.convexPolygonFromVertices(Arrays.asList(vertex3, vertex2, vertex1), TEST_PRECISION),
+                Planes.convexPolygonFromVertices(Arrays.asList(vertex2, vertex3, vertex4), TEST_PRECISION),
+                Planes.convexPolygonFromVertices(Arrays.asList(vertex4, vertex3, vertex1), TEST_PRECISION),
+                Planes.convexPolygonFromVertices(Arrays.asList(vertex1, vertex2, vertex4), TEST_PRECISION)
+            );
+
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.full();
+        tree.insert(boundaries);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final double third = 1.0 / 3.0;
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.BOUNDARY, vertex1, vertex2, vertex3, vertex4, Vector3D.Sum.create().addScaled(third, vertex1).addScaled(third, vertex2).addScaled(third, vertex3).get(), Vector3D.Sum.create().addScaled(third, vertex2).addScaled(third, vertex3).addScaled(third, vertex4).get(), Vector3D.Sum.create().addScaled(third, vertex3).addScaled(third, vertex4).addScaled(third, vertex1).get(), Vector3D.Sum.create().addScaled(third, vertex4).addScaled(third, vertex1).addScaled(third, vertex2).get() );
+    }
+
+@Test
+    void testTetrahedron_5_oe() {
+        // arrange
+        final Vector3D vertex1 = Vector3D.of(1, 2, 3);
+        final Vector3D vertex2 = Vector3D.of(2, 2, 4);
+        final Vector3D vertex3 = Vector3D.of(2, 3, 3);
+        final Vector3D vertex4 = Vector3D.of(1, 3, 4);
+
+        final List<PlaneConvexSubset> boundaries = Arrays.asList(
+                Planes.convexPolygonFromVertices(Arrays.asList(vertex3, vertex2, vertex1), TEST_PRECISION),
+                Planes.convexPolygonFromVertices(Arrays.asList(vertex2, vertex3, vertex4), TEST_PRECISION),
+                Planes.convexPolygonFromVertices(Arrays.asList(vertex4, vertex3, vertex1), TEST_PRECISION),
+                Planes.convexPolygonFromVertices(Arrays.asList(vertex1, vertex2, vertex4), TEST_PRECISION)
+            );
+
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.full();
+        tree.insert(boundaries);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final double third = 1.0 / 3.0;
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE, Vector3D.of(1, 2, 4), Vector3D.of(2, 2, 3), Vector3D.of(2, 3, 4), Vector3D.of(1, 3, 3) );
+    }
+
+@Test
+    void testSphere_6_oe() {
+        // arrange
+        // (use a high tolerance value here since the sphere is only an approximation)
+        final double approximationTolerance = 0.2;
+        final double radius = 1.0;
+
+        // act
+        final RegionBSPTree3D tree = createSphere(Vector3D.of(1, 2, 3), radius, 8, 16);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE, Vector3D.of(-0.1, 2, 3), Vector3D.of(2.1, 2, 3), Vector3D.of(1, 0.9, 3), Vector3D.of(1, 3.1, 3), Vector3D.of(1, 2, 1.9), Vector3D.of(1, 2, 4.1), Vector3D.of(1.6, 2.6, 3.6));
+    }
+
+@Test
+    void testSphere_7_oe() {
+        // arrange
+        // (use a high tolerance value here since the sphere is only an approximation)
+        final double approximationTolerance = 0.2;
+        final double radius = 1.0;
+
+        // act
+        final RegionBSPTree3D tree = createSphere(Vector3D.of(1, 2, 3), radius, 8, 16);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.INSIDE, Vector3D.of(1, 2, 3), Vector3D.of(0.1, 2, 3), Vector3D.of(1.9, 2, 3), Vector3D.of(1, 2.1, 3), Vector3D.of(1, 2.9, 3), Vector3D.of(1, 2, 2.1), Vector3D.of(1, 2, 3.9), Vector3D.of(1.5, 2.5, 3.5));
+    }
+
+@Test
+    void testBoolean_union_5_oe() throws IOException {
+        // arrange
+        final double tolerance = 0.05;
+        final double size = 1.0;
+        final double radius = size * 0.5;
+        final RegionBSPTree3D box = createRect(Vector3D.ZERO, Vector3D.of(size, size, size));
+        final RegionBSPTree3D sphere = createSphere(Vector3D.of(size * 0.5, size * 0.5, size), radius, 8, 16);
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.union(box, sphere);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.OUTSIDE, Vector3D.of(-0.1, 0.5, 0.5), Vector3D.of(1.1, 0.5, 0.5), Vector3D.of(0.5, -0.1, 0.5), Vector3D.of(0.5, 1.1, 0.5), Vector3D.of(0.5, 0.5, -0.1), Vector3D.of(0.5, 0.5, 1.6));
+    }
+
+@Test
+    void testBoolean_union_6_oe() throws IOException {
+        // arrange
+        final double tolerance = 0.05;
+        final double size = 1.0;
+        final double radius = size * 0.5;
+        final RegionBSPTree3D box = createRect(Vector3D.ZERO, Vector3D.of(size, size, size));
+        final RegionBSPTree3D sphere = createSphere(Vector3D.of(size * 0.5, size * 0.5, size), radius, 8, 16);
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.union(box, sphere);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.INSIDE, Vector3D.of(0.1, 0.5, 0.5), Vector3D.of(0.9, 0.5, 0.5), Vector3D.of(0.5, 0.1, 0.5), Vector3D.of(0.5, 0.9, 0.5), Vector3D.of(0.5, 0.5, 0.1), Vector3D.of(0.5, 0.5, 1.4));
+    }
+
+@Test
+    void testUnion_self_6_oe() {
+        // arrange
+        final double tolerance = 0.2;
+        final double radius = 1.0;
+
+        final RegionBSPTree3D sphere = createSphere(Vector3D.ZERO, radius, 8, 16);
+
+        final RegionBSPTree3D copy = RegionBSPTree3D.empty();
+        copy.copy(sphere);
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.union(sphere, copy);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.OUTSIDE, Vector3D.of(-1.1, 0, 0), Vector3D.of(1.1, 0, 0), Vector3D.of(0, -1.1, 0), Vector3D.of(0, 1.1, 0), Vector3D.of(0, 0, -1.1), Vector3D.of(0, 0, 1.1));
+    }
+
+@Test
+    void testUnion_self_7_oe() {
+        // arrange
+        final double tolerance = 0.2;
+        final double radius = 1.0;
+
+        final RegionBSPTree3D sphere = createSphere(Vector3D.ZERO, radius, 8, 16);
+
+        final RegionBSPTree3D copy = RegionBSPTree3D.empty();
+        copy.copy(sphere);
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.union(sphere, copy);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.INSIDE, Vector3D.of(-0.9, 0, 0), Vector3D.of(0.9, 0, 0), Vector3D.of(0, -0.9, 0), Vector3D.of(0, 0.9, 0), Vector3D.of(0, 0, -0.9), Vector3D.of(0, 0, 0.9), Vector3D.ZERO);
+    }
+
+@Test
+    void testBoolean_intersection_5_oe() throws IOException {
+        // arrange
+        final double tolerance = 0.05;
+        final double size = 1.0;
+        final double radius = size * 0.5;
+        final RegionBSPTree3D box = createRect(Vector3D.ZERO, Vector3D.of(size, size, size));
+        final RegionBSPTree3D sphere = createSphere(Vector3D.of(size * 0.5, size * 0.5, size), radius, 8, 16);
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.intersection(box, sphere);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.OUTSIDE, Vector3D.of(-0.1, 0.5, 1.0), Vector3D.of(1.1, 0.5, 1.0), Vector3D.of(0.5, -0.1, 1.0), Vector3D.of(0.5, 1.1, 1.0), Vector3D.of(0.5, 0.5, 0.4), Vector3D.of(0.5, 0.5, 1.1));
+    }
+
+@Test
+    void testBoolean_intersection_6_oe() throws IOException {
+        // arrange
+        final double tolerance = 0.05;
+        final double size = 1.0;
+        final double radius = size * 0.5;
+        final RegionBSPTree3D box = createRect(Vector3D.ZERO, Vector3D.of(size, size, size));
+        final RegionBSPTree3D sphere = createSphere(Vector3D.of(size * 0.5, size * 0.5, size), radius, 8, 16);
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.intersection(box, sphere);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.INSIDE, Vector3D.of(0.1, 0.5, 0.9), Vector3D.of(0.9, 0.5, 0.9), Vector3D.of(0.5, 0.1, 0.9), Vector3D.of(0.5, 0.9, 0.9), Vector3D.of(0.5, 0.5, 0.6), Vector3D.of(0.5, 0.5, 0.9));
+    }
+
+@Test
+    void testIntersection_self_6_oe() {
+        // arrange
+        final double tolerance = 0.2;
+        final double radius = 1.0;
+
+        final RegionBSPTree3D sphere = createSphere(Vector3D.ZERO, radius, 8, 16);
+        final RegionBSPTree3D copy = RegionBSPTree3D.empty();
+        copy.copy(sphere);
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.intersection(sphere, copy);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.OUTSIDE, Vector3D.of(-1.1, 0, 0), Vector3D.of(1.1, 0, 0), Vector3D.of(0, -1.1, 0), Vector3D.of(0, 1.1, 0), Vector3D.of(0, 0, -1.1), Vector3D.of(0, 0, 1.1));
+    }
+
+@Test
+    void testIntersection_self_7_oe() {
+        // arrange
+        final double tolerance = 0.2;
+        final double radius = 1.0;
+
+        final RegionBSPTree3D sphere = createSphere(Vector3D.ZERO, radius, 8, 16);
+        final RegionBSPTree3D copy = RegionBSPTree3D.empty();
+        copy.copy(sphere);
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.intersection(sphere, copy);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.INSIDE, Vector3D.of(-0.9, 0, 0), Vector3D.of(0.9, 0, 0), Vector3D.of(0, -0.9, 0), Vector3D.of(0, 0.9, 0), Vector3D.of(0, 0, -0.9), Vector3D.of(0, 0, 0.9), Vector3D.ZERO);
+    }
+
+@Test
+    void testBoolean_xor_twoCubes_5_oe() throws IOException {
+        // arrange
+        final double size = 1.0;
+        final RegionBSPTree3D box1 = createRect(Vector3D.ZERO, Vector3D.of(size, size, size));
+        final RegionBSPTree3D box2 = createRect(Vector3D.of(0.5, 0.5, 0.5), Vector3D.of(0.5 + size, 0.5 + size, 0.5 + size));
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.xor(box1, box2);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.OUTSIDE, Vector3D.of(-0.1, -0.1, -0.1), Vector3D.of(0.75, 0.75, 0.75), Vector3D.of(1.6, 1.6, 1.6));
+    }
+
+@Test
+    void testBoolean_xor_twoCubes_6_oe() throws IOException {
+        // arrange
+        final double size = 1.0;
+        final RegionBSPTree3D box1 = createRect(Vector3D.ZERO, Vector3D.of(size, size, size));
+        final RegionBSPTree3D box2 = createRect(Vector3D.of(0.5, 0.5, 0.5), Vector3D.of(0.5 + size, 0.5 + size, 0.5 + size));
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.xor(box1, box2);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.BOUNDARY, Vector3D.of(0, 0, 0), Vector3D.of(0.5, 0.5, 0.5), Vector3D.of(1, 1, 1), Vector3D.of(1.5, 1.5, 1.5));
+    }
+
+@Test
+    void testBoolean_xor_twoCubes_7_oe() throws IOException {
+        // arrange
+        final double size = 1.0;
+        final RegionBSPTree3D box1 = createRect(Vector3D.ZERO, Vector3D.of(size, size, size));
+        final RegionBSPTree3D box2 = createRect(Vector3D.of(0.5, 0.5, 0.5), Vector3D.of(0.5 + size, 0.5 + size, 0.5 + size));
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.xor(box1, box2);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.INSIDE, Vector3D.of(0.1, 0.1, 0.1), Vector3D.of(0.4, 0.4, 0.4), Vector3D.of(1.1, 1.1, 1.1), Vector3D.of(1.4, 1.4, 1.4));
+    }
+
+@Test
+    void testBoolean_xor_cubeAndSphere_5_oe() throws IOException {
+        // arrange
+        final double tolerance = 0.05;
+        final double size = 1.0;
+        final double radius = size * 0.5;
+        final RegionBSPTree3D box = createRect(Vector3D.ZERO, Vector3D.of(size, size, size));
+        final RegionBSPTree3D sphere = createSphere(Vector3D.of(size * 0.5, size * 0.5, size), radius, 8, 16);
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.xor(box, sphere);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.OUTSIDE, Vector3D.of(-0.1, 0.5, 0.5), Vector3D.of(1.1, 0.5, 0.5), Vector3D.of(0.5, -0.1, 0.5), Vector3D.of(0.5, 1.1, 0.5), Vector3D.of(0.5, 0.5, -0.1), Vector3D.of(0.5, 0.5, 1.6), Vector3D.of(0.5, 0.5, 0.9));
+    }
+
+@Test
+    void testBoolean_xor_cubeAndSphere_6_oe() throws IOException {
+        // arrange
+        final double tolerance = 0.05;
+        final double size = 1.0;
+        final double radius = size * 0.5;
+        final RegionBSPTree3D box = createRect(Vector3D.ZERO, Vector3D.of(size, size, size));
+        final RegionBSPTree3D sphere = createSphere(Vector3D.of(size * 0.5, size * 0.5, size), radius, 8, 16);
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.xor(box, sphere);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.INSIDE, Vector3D.of(0.1, 0.5, 0.5), Vector3D.of(0.9, 0.5, 0.5), Vector3D.of(0.5, 0.1, 0.5), Vector3D.of(0.5, 0.9, 0.5), Vector3D.of(0.5, 0.5, 0.1), Vector3D.of(0.5, 0.5, 1.4));
+    }
+
+@Test
+    void testXor_self_6_oe() {
+        // arrange
+        final double radius = 1.0;
+
+        final RegionBSPTree3D sphere = createSphere(Vector3D.ZERO, radius, 8, 16);
+        final RegionBSPTree3D copy = RegionBSPTree3D.empty();
+        copy.copy(sphere);
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.xor(sphere, copy);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.OUTSIDE, Vector3D.of(-1.1, 0, 0), Vector3D.of(1.1, 0, 0), Vector3D.of(0, -1.1, 0), Vector3D.of(0, 1.1, 0), Vector3D.of(0, 0, -1.1), Vector3D.of(0, 0, 1.1), Vector3D.of(-0.9, 0, 0), Vector3D.of(0.9, 0, 0), Vector3D.of(0, -0.9, 0), Vector3D.of(0, 0.9, 0), Vector3D.of(0, 0, -0.9), Vector3D.of(0, 0, 0.9), Vector3D.ZERO);
+    }
+
+@Test
+    void testBoolean_difference_5_oe() throws IOException {
+        // arrange
+        final double tolerance = 0.05;
+        final double size = 1.0;
+        final double radius = size * 0.5;
+        final RegionBSPTree3D box = createRect(Vector3D.ZERO, Vector3D.of(size, size, size));
+        final RegionBSPTree3D sphere = createSphere(Vector3D.of(size * 0.5, size * 0.5, size), radius, 8, 16);
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.difference(box, sphere);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.OUTSIDE, Vector3D.of(-0.1, 0.5, 1.0), Vector3D.of(1.1, 0.5, 1.0), Vector3D.of(0.5, -0.1, 1.0), Vector3D.of(0.5, 1.1, 1.0), Vector3D.of(0.5, 0.5, -0.1), Vector3D.of(0.5, 0.5, 0.6));
+    }
+
+@Test
+    void testBoolean_difference_6_oe() throws IOException {
+        // arrange
+        final double tolerance = 0.05;
+        final double size = 1.0;
+        final double radius = size * 0.5;
+        final RegionBSPTree3D box = createRect(Vector3D.ZERO, Vector3D.of(size, size, size));
+        final RegionBSPTree3D sphere = createSphere(Vector3D.of(size * 0.5, size * 0.5, size), radius, 8, 16);
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.difference(box, sphere);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.INSIDE, Vector3D.of(0.1, 0.5, 0.4), Vector3D.of(0.9, 0.5, 0.4), Vector3D.of(0.5, 0.1, 0.4), Vector3D.of(0.5, 0.9, 0.4), Vector3D.of(0.5, 0.5, 0.1), Vector3D.of(0.5, 0.5, 0.4));
+    }
+
+@Test
+    void testDifference_self_6_oe() {
+        // arrange
+        final double radius = 1.0;
+
+        final RegionBSPTree3D sphere = createSphere(Vector3D.ZERO, radius, 8, 16);
+        final RegionBSPTree3D copy = sphere.copy();
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.difference(sphere, copy);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.OUTSIDE, Vector3D.of(-1.1, 0, 0), Vector3D.of(1.1, 0, 0), Vector3D.of(0, -1.1, 0), Vector3D.of(0, 1.1, 0), Vector3D.of(0, 0, -1.1), Vector3D.of(0, 0, 1.1), Vector3D.of(-0.9, 0, 0), Vector3D.of(0.9, 0, 0), Vector3D.of(0, -0.9, 0), Vector3D.of(0, 0.9, 0), Vector3D.of(0, 0, -0.9), Vector3D.of(0, 0, 0.9), Vector3D.ZERO);
+    }
+
+@Test
+    void testBoolean_multiple_5_oe() throws IOException {
+        // arrange
+        final double tolerance = 0.05;
+        final double size = 1.0;
+        final double radius = size * 0.5;
+        final RegionBSPTree3D box = createRect(Vector3D.ZERO, Vector3D.of(size, size, size));
+        final RegionBSPTree3D sphereToAdd = createSphere(Vector3D.of(size * 0.5, size * 0.5, size), radius, 8, 16);
+        final RegionBSPTree3D sphereToRemove1 = createSphere(Vector3D.of(size * 0.5, 0, size * 0.5), radius, 8, 16);
+        final RegionBSPTree3D sphereToRemove2 = createSphere(Vector3D.of(size * 0.5, 1, size * 0.5), radius, 8, 16);
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.union(box, sphereToAdd);
+        result.difference(sphereToRemove1);
+        result.difference(sphereToRemove2);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.OUTSIDE, Vector3D.of(-0.1, 0.5, 0.5), Vector3D.of(1.1, 0.5, 0.5), Vector3D.of(0.5, 0.4, 0.5), Vector3D.of(0.5, 0.6, 0.5), Vector3D.of(0.5, 0.5, -0.1), Vector3D.of(0.5, 0.5, 1.6));
+    }
+
+@Test
+    void testBoolean_multiple_6_oe() throws IOException {
+        // arrange
+        final double tolerance = 0.05;
+        final double size = 1.0;
+        final double radius = size * 0.5;
+        final RegionBSPTree3D box = createRect(Vector3D.ZERO, Vector3D.of(size, size, size));
+        final RegionBSPTree3D sphereToAdd = createSphere(Vector3D.of(size * 0.5, size * 0.5, size), radius, 8, 16);
+        final RegionBSPTree3D sphereToRemove1 = createSphere(Vector3D.of(size * 0.5, 0, size * 0.5), radius, 8, 16);
+        final RegionBSPTree3D sphereToRemove2 = createSphere(Vector3D.of(size * 0.5, 1, size * 0.5), radius, 8, 16);
+
+        // act
+        final RegionBSPTree3D result = RegionBSPTree3D.empty();
+        result.union(box, sphereToAdd);
+        result.difference(sphereToRemove1);
+        result.difference(sphereToRemove2);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        EuclideanTestUtils.assertRegionLocation(result, RegionLocation.INSIDE, Vector3D.of(0.1, 0.5, 0.1), Vector3D.of(0.9, 0.5, 0.1), Vector3D.of(0.5, 0.4, 0.1), Vector3D.of(0.5, 0.6, 0.1), Vector3D.of(0.5, 0.5, 0.1), Vector3D.of(0.5, 0.5, 1.4));
+    }
+
+@Test
+    void testSlightlyConcavePrism_4_oe() {
+        // arrange
+        final Vector3D[] vertices = {
+            Vector3D.of(0, 0, 0),
+            Vector3D.of(2, 1e-7, 0),
+            Vector3D.of(4, 0, 0),
+            Vector3D.of(2, 2, 0),
+            Vector3D.of(0, 0, 2),
+            Vector3D.of(2, 1e-7, 2),
+            Vector3D.of(4, 0, 2),
+            Vector3D.of(2, 2, 2)
+        };
+
+        final int[][] facets = {
+            {4, 5, 6, 7},
+            {3, 2, 1, 0},
+            {0, 1, 5, 4},
+            {1, 2, 6, 5},
+            {2, 3, 7, 6},
+            {3, 0, 4, 7}
+        };
+
+        final List<PlaneConvexSubset> faces = indexedFacetsToBoundaries(vertices, facets);
+
+        // act
+        final RegionBSPTree3D tree = RegionBSPTree3D.full();
+        tree.insert(faces);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE, Vector3D.of(2, 1, 3), Vector3D.of(2, 1, -3), Vector3D.of(2, -1, 1), Vector3D.of(2, 3, 1), Vector3D.of(-1, 1, 1), Vector3D.of(4, 1, 1));
     }
 
 }

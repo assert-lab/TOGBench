@@ -1,0 +1,453 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[110,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[206,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[208,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[209,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[211,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[212,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[214,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[215,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[218,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[220,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[221,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[223,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[224,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[226,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[227,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[230,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[232,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[233,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[235,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[236,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[238,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[239,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[242,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[243,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[245,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[246,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[305,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[307,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[308,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[310,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[311,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[313,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[314,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[317,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[319,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[320,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[322,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[323,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[325,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[326,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[329,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[331,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[332,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[334,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[335,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[337,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[338,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[341,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[342,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[344,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[345,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[376,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[396,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[412,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[414,9] cannot find symbol
+  symbol:   method assertRotationEquals((v)->{ fin[...]p); },org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[431,9] cannot find symbol
+  symbol:   method assertRotationEquals((v)->{ Vec[...]p); },org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[461,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[477,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[497,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[513,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[515,9] cannot find symbol
+  symbol:   method assertRotationEquals((v)->{ fin[...]p); },org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[532,9] cannot find symbol
+  symbol:   method assertRotationEquals((v)->{ Vec[...]p); },org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1172,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1196,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1197,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1218,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1242,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1266,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1341,13] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1343,13] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1346,13] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1348,13] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1442,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1534,9] cannot find symbol
+  symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+  location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-euclidean: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[110,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[206,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[208,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[209,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[211,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[212,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[214,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[215,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[218,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[220,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[221,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[223,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[224,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[226,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[227,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[230,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[232,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[233,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[235,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[236,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[238,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[239,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[242,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[243,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[245,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[246,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[305,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[307,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[308,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[310,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[311,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[313,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[314,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[317,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[319,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[320,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[322,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[323,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[325,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[326,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[329,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[331,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[332,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[334,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[335,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[337,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[338,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[341,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[342,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[344,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[345,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[376,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[396,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[412,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[414,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals((v)->{ fin[...]p); },org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[431,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals((v)->{ Vec[...]p); },org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[461,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[477,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[497,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[513,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[515,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals((v)->{ fin[...]p); },org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[532,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals((v)->{ Vec[...]p); },org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1172,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1196,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1197,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1218,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1242,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1266,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1341,13] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1343,13] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1346,13] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1348,13] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1442,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/java/org/apache/commons/geometry/euclidean/threed/rotation/QuaternionRotationTest_OE25Dev_geom_left_2603_1.java:[1534,9] cannot find symbol
+[ERROR]   symbol:   method assertRotationEquals(java.util.function.UnaryOperator<org.apache.commons.geometry.euclidean.threed.Vector3D>,org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotation)
+[ERROR]   location: class org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev_geom_left_2603_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

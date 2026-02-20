@@ -1,0 +1,397 @@
+id,test_prefix,test_name
+spark_left_11_1,"@Test
+    public void testGetBinaryHi_1_oe() {
+        try {
+            UrlResponse response = testUtil.doMethod(""GET"", ""/binaryhi"", null);
+            Assert.assertEquals(200, response.status);
+    }
+    }
+",GenericIntegrationTest::testGetBinaryHi_1_oe
+spark_left_11_2,"@Test
+    public void testGetBinaryHi_2_oe() {
+        try {
+            UrlResponse response = testUtil.doMethod(""GET"", ""/binaryhi"", null);
+            // removed other assertion
+            Assert.assertEquals(""Hello World!"", response.body);
+    }
+    }
+",GenericIntegrationTest::testGetBinaryHi_2_oe
+spark_left_12_1,"@Test
+    public void testGetByteBufferHi_1_oe() {
+        try {
+            UrlResponse response = testUtil.doMethod(""GET"", ""/bytebufferhi"", null);
+            Assert.assertEquals(200, response.status);
+    }
+    }
+",GenericIntegrationTest::testGetByteBufferHi_1_oe
+spark_left_12_2,"@Test
+    public void testGetByteBufferHi_2_oe() {
+        try {
+            UrlResponse response = testUtil.doMethod(""GET"", ""/bytebufferhi"", null);
+            // removed other assertion
+            Assert.assertEquals(""Hello World!"", response.body);
+    }
+    }
+",GenericIntegrationTest::testGetByteBufferHi_2_oe
+spark_left_13_1,"@Test
+    public void testGetInputStreamHi_1_oe() {
+        try {
+            UrlResponse response = testUtil.doMethod(""GET"", ""/inputstreamhi"", null);
+            Assert.assertEquals(200, response.status);
+    }
+    }
+",GenericIntegrationTest::testGetInputStreamHi_1_oe
+spark_left_13_2,"@Test
+    public void testGetInputStreamHi_2_oe() {
+        try {
+            UrlResponse response = testUtil.doMethod(""GET"", ""/inputstreamhi"", null);
+            // removed other assertion
+            Assert.assertEquals(""Hello World!"", response.body);
+    }
+    }
+",GenericIntegrationTest::testGetInputStreamHi_2_oe
+spark_left_27_1,"private static void assertEchoRoute_1_oe(String routePart) throws Exception { final String expected = ""expected"";
+}
+",GenericIntegrationTest::assertEchoRoute_1_oe
+spark_left_27_2,"// removed other assertion
+        UrlResponse response = testUtil.doMethod(""GET"", ""/tworoutes/"" + routePart + ""/"" + expected, null);
+        Assert.assertEquals(200, response.status);
+",GenericIntegrationTest::assertEchoRoute_2_oe
+spark_left_27_3,"// removed other assertion
+        UrlResponse response = testUtil.doMethod(""GET"", ""/tworoutes/"" + routePart + ""/"" + expected, null);
+        // removed other assertion
+        Assert.assertEquals(routePart + "" route: "" + expected, response.body);
+",GenericIntegrationTest::assertEchoRoute_3_oe
+spark_left_55_1,"public void shouldBeAbleToGetTheMatchedPathInBeforeFilter_1_oe(Request q) {
+        assertEquals(""Should have returned the matched route from the before filter"", BEFORE_MATCHED_ROUTE, q.matchedPath());
+}
+",RequestTest::shouldBeAbleToGetTheMatchedPathInBeforeFilter_1_oe
+spark_left_56_1,"public void shouldBeAbleToGetTheMatchedPathInAfterFilter_1_oe(Request q) {
+        assertEquals(""Should have returned the matched route from the after filter"", AFTER_MATCHED_ROUTE, q.matchedPath());
+}
+",RequestTest::shouldBeAbleToGetTheMatchedPathInAfterFilter_1_oe
+spark_left_57_1,"public void shouldBeAbleToGetTheMatchedPathInAfterAfterFilter_1_oe(Request q) {
+        assertEquals(""Should have returned the matched route from the afterafter filter"", AFTERAFTER_MATCHED_ROUTE, q.matchedPath());
+}
+",RequestTest::shouldBeAbleToGetTheMatchedPathInAfterAfterFilter_1_oe
+spark_left_84_1,"@BeforeClass
+    public static void setup_1_oe() {
+        http = new SparkTestUtil(4567);
+
+        before(""/user"", initializeCounter, incrementCounter, loadUser);
+
+        after(""/user"", incrementCounter, (req, res) -> {
+            int counter = req.attribute(""counter"");
+            Assert.assertEquals(counter, 2);
+    }
+    }
+",MultipleFiltersTest::setup_1_oe
+spark_left_84_2,"@BeforeClass
+    public static void setup_2_oe() {
+        http = new SparkTestUtil(4567);
+
+        before(""/user"", initializeCounter, incrementCounter, loadUser);
+
+        after(""/user"", incrementCounter, (req, res) -> {
+            int counter = req.attribute(""counter"");
+            // removed other assertion
+        });
+
+        get(""/user"", (request, response) -> {
+            Assert.assertEquals((int) request.attribute(""counter""), 1);
+    }
+    }
+",MultipleFiltersTest::setup_2_oe
+spark_left_97_1,"private static void testGet_1_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/hello"", """");
+
+        Assert.assertEquals(200, response.status);
+}
+",StaticFilesMemberTest::testGet_1_oe
+spark_left_97_2,"private static void testGet_2_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/hello"", """");
+
+        // removed other assertion
+        Assert.assertTrue(response.body.contains(FO_SHIZZY));
+}
+",StaticFilesMemberTest::testGet_2_oe
+spark_left_159_1,"private void httpPost_1_oe(String relativePath) {
+        HttpPost request = new HttpPost(DEFAULT_HOST_URL + relativePath);
+        try {
+            HttpResponse response = httpClient.execute(request);
+            assertEquals(200, response.getStatusLine().getStatusCode());
+}
+}
+",CookiesIntegrationTest::httpPost_1_oe
+spark_left_159_2,"private void httpPost_2_oe(String relativePath) {
+        HttpPost request = new HttpPost(DEFAULT_HOST_URL + relativePath);
+        try {
+            HttpResponse response = httpClient.execute(request);
+            // removed other assertion
+        } catch (Exception ex) {
+            fail(ex.toString());
+}
+}
+",CookiesIntegrationTest::httpPost_2_oe
+spark_left_166_1,"private static void testGet_1_oe() throws Exception {
+        SparkTestUtil testUtil = new SparkTestUtil(4567);
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/hello"", """");
+
+        Assert.assertEquals(200, response.status);
+}
+",GzipTest::testGet_1_oe
+spark_left_166_2,"private static void testGet_2_oe() throws Exception {
+        SparkTestUtil testUtil = new SparkTestUtil(4567);
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/hello"", """");
+
+        // removed other assertion
+        Assert.assertTrue(response.body.contains(GzipExample.FO_SHIZZY));
+}
+",GzipTest::testGet_2_oe
+spark_left_171_1,"private void validateCookieContent_1_oe(Cookie cookie,
+                                       String domain,
+                                       String path,
+                                       String value,
+                                       int maxAge,
+                                       boolean secured,
+                                       boolean httpOnly) {
+        assertEquals(""Should return cookie domain specified"", domain, cookie.getDomain());
+}
+",ResponseTest::validateCookieContent_1_oe
+spark_left_171_2,"private void validateCookieContent_2_oe(Cookie cookie,
+                                       String domain,
+                                       String path,
+                                       String value,
+                                       int maxAge,
+                                       boolean secured,
+                                       boolean httpOnly) {
+        // removed other assertion
+        assertEquals(""Should return cookie path specified"", path, cookie.getPath());
+}
+",ResponseTest::validateCookieContent_2_oe
+spark_left_171_3,"private void validateCookieContent_3_oe(Cookie cookie,
+                                       String domain,
+                                       String path,
+                                       String value,
+                                       int maxAge,
+                                       boolean secured,
+                                       boolean httpOnly) {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Should return cookie value specified"", value, cookie.getValue());
+}
+",ResponseTest::validateCookieContent_3_oe
+spark_left_171_4,"private void validateCookieContent_4_oe(Cookie cookie,
+                                       String domain,
+                                       String path,
+                                       String value,
+                                       int maxAge,
+                                       boolean secured,
+                                       boolean httpOnly) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Should return cookie max age specified"", maxAge, cookie.getMaxAge());
+}
+",ResponseTest::validateCookieContent_4_oe
+spark_left_171_5,"private void validateCookieContent_5_oe(Cookie cookie,
+                                       String domain,
+                                       String path,
+                                       String value,
+                                       int maxAge,
+                                       boolean secured,
+                                       boolean httpOnly) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Should return cookie secure specified"", secured, cookie.getSecure());
+}
+",ResponseTest::validateCookieContent_5_oe
+spark_left_171_6,"private void validateCookieContent_6_oe(Cookie cookie,
+                                       String domain,
+                                       String path,
+                                       String value,
+                                       int maxAge,
+                                       boolean secured,
+                                       boolean httpOnly) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Should return cookie http only specified"", httpOnly, cookie.isHttpOnly());
+}
+",ResponseTest::validateCookieContent_6_oe
+spark_left_183_1,"@BeforeClass
+    public static void setup_1_oe() throws IOException {
+        http = new SparkTestUtil(4567);
+
+        get(HELLO, (q, a) -> HELLO_WORLD);
+
+        after(HELLO, (q, a) -> {
+            String body = a.body();
+            assertEquals(HELLO_WORLD, body);
+    }
+    }
+",ResponseBodyTest::setup_1_oe
+spark_left_183_2,"@BeforeClass
+    public static void setup_2_oe() throws IOException {
+        http = new SparkTestUtil(4567);
+
+        get(HELLO, (q, a) -> HELLO_WORLD);
+
+        after(HELLO, (q, a) -> {
+            String body = a.body();
+            // removed other assertion
+        });
+
+        get(SPECIAL, (q, a) -> {
+            a.body(XIDXUS);
+            return """";
+        });
+
+        after(SPECIAL, (q, a) -> {
+            String body = a.body();
+            assertEquals(XIDXUS, body);
+    }
+    }
+",ResponseBodyTest::setup_2_oe
+spark_left_183_3,"@BeforeClass
+    public static void setup_3_oe() throws IOException {
+        http = new SparkTestUtil(4567);
+
+        get(HELLO, (q, a) -> HELLO_WORLD);
+
+        after(HELLO, (q, a) -> {
+            String body = a.body();
+            // removed other assertion
+        });
+
+        get(SPECIAL, (q, a) -> {
+            a.body(XIDXUS);
+            return """";
+        });
+
+        after(SPECIAL, (q, a) -> {
+            String body = a.body();
+            // removed other assertion
+        });
+
+        get(PORAKATIKAOKAO, (q, a) -> {
+            a.body(GALLUS_SCANDALUM);
+            return null;
+        });
+
+        after(PORAKATIKAOKAO, (q, a) -> {
+            String body = a.body();
+            assertEquals(GALLUS_SCANDALUM, body);
+    }
+    }
+",ResponseBodyTest::setup_3_oe
+spark_left_183_4,"@BeforeClass
+    public static void setup_4_oe() throws IOException {
+        http = new SparkTestUtil(4567);
+
+        get(HELLO, (q, a) -> HELLO_WORLD);
+
+        after(HELLO, (q, a) -> {
+            String body = a.body();
+            // removed other assertion
+        });
+
+        get(SPECIAL, (q, a) -> {
+            a.body(XIDXUS);
+            return """";
+        });
+
+        after(SPECIAL, (q, a) -> {
+            String body = a.body();
+            // removed other assertion
+        });
+
+        get(PORAKATIKAOKAO, (q, a) -> {
+            a.body(GALLUS_SCANDALUM);
+            return null;
+        });
+
+        after(PORAKATIKAOKAO, (q, a) -> {
+            String body = a.body();
+            // removed other assertion
+        });
+
+        get(MAXIME, (q, a) -> {
+            a.body(XIDXUS);
+            return $11AB;
+        });
+
+        after(MAXIME, (q, a) -> {
+            String body = a.body();
+            assertEquals($11AB, body);
+    }
+    }
+",ResponseBodyTest::setup_4_oe
+spark_left_198_1,"@Test
+    public void testExternalStaticFile_1_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/externalFile.html"");
+        Assert.assertEquals(200, response.status);
+    }
+",StaticFilesTestExternal::testExternalStaticFile_1_oe
+spark_left_198_2,"@Test
+    public void testExternalStaticFile_2_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/externalFile.html"");
+        // removed other assertion
+        Assert.assertEquals(""text/html"", response.headers.get(""Content-Type""));
+    }
+",StaticFilesTestExternal::testExternalStaticFile_2_oe
+spark_left_198_3,"@Test
+    public void testExternalStaticFile_3_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/externalFile.html"");
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(CONTENT_OF_EXTERNAL_FILE, response.body);
+    }
+",StaticFilesTestExternal::testExternalStaticFile_3_oe
+spark_left_199_1,"@Test
+    public void testDirectoryTraversalProtectionExternal_1_oe() throws Exception {
+        String path = ""/"" + URLEncoder.encode(""..\\..\\spark\\"", ""UTF-8"") + ""Spark.class"";
+        SparkTestUtil.UrlResponse response = doGet(path);
+
+        Assert.assertEquals(404, response.status);
+    }
+",StaticFilesTestExternal::testDirectoryTraversalProtectionExternal_1_oe
+spark_left_199_2,"@Test
+    public void testDirectoryTraversalProtectionExternal_2_oe() throws Exception {
+        String path = ""/"" + URLEncoder.encode(""..\\..\\spark\\"", ""UTF-8"") + ""Spark.class"";
+        SparkTestUtil.UrlResponse response = doGet(path);
+
+        // removed other assertion
+        Assert.assertEquals(NOT_FOUND_BRO, response.body);
+    }
+",StaticFilesTestExternal::testDirectoryTraversalProtectionExternal_2_oe
+spark_left_200_1,"private static void testGet_1_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/hello"", """");
+
+        Assert.assertEquals(200, response.status);
+}
+",StaticFilesTestExternal::testGet_1_oe
+spark_left_200_2,"private static void testGet_2_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/hello"", """");
+
+        // removed other assertion
+        Assert.assertTrue(response.body.contains(FO_SHIZZY));
+}
+",StaticFilesTestExternal::testGet_2_oe
+spark_left_208_1,"private static void testGet_1_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/hello"", """");
+
+        Assert.assertEquals(200, response.status);
+}
+",StaticFilesTest::testGet_1_oe
+spark_left_208_2,"private static void testGet_2_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/hello"", """");
+
+        // removed other assertion
+        Assert.assertTrue(response.body.contains(FO_SHIZZY));
+}
+",StaticFilesTest::testGet_2_oe

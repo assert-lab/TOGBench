@@ -37,24 +37,34 @@ def write_csv(path: Path, fieldnames: List[str], rows: List[dict]):
 def append_rows(path: Path, fieldnames: List[str], new_rows: List[dict]):
     if not new_rows:
         return
-    if not path.exists():
-        write_csv(path, fieldnames, new_rows)
-        return
 
-    old_fields, old_rows = read_csv(path)
-    out_fields = list(old_fields or [])
+    existing_fields, existing_rows = read_csv(path)
+
+    # Merge fieldnames
+    out_fields = list(existing_fields or [])
     for k in fieldnames:
         if k not in out_fields:
             out_fields.append(k)
 
-    merged = old_rows[:]
-    for r in new_rows:
-        rr = dict(r)
+    # Combine existing + new
+    combined = []
+    seen_ids = set()
+
+    for row in (existing_rows or []) + new_rows:
+        rid = row.get("id", "")
+        if not rid:
+            continue
+        if rid in seen_ids:
+            continue
+        seen_ids.add(rid)
+
+        rr = dict(row)
         for k in out_fields:
             rr.setdefault(k, "")
-        merged.append(rr)
+        combined.append(rr)
 
-    write_csv(path, out_fields, merged)
+    write_csv(path, out_fields, combined)
+
 
 
 def canonical_test_name(name: str) -> str:
@@ -293,11 +303,11 @@ def main():
     if not proj_dir.is_dir():
         raise SystemExit(f"project not found: {args.project}")
 
-    dataset_dir = proj_dir / "dataset"
-    inputs_failed = dataset_dir / "inputs_left.csv"
-    meta_failed = dataset_dir / "meta_left.csv"
+    dataset_dir = proj_dir / "dataset_left"
+    inputs_failed = dataset_dir / "inputs_left_filtered.csv"
+    meta_failed = dataset_dir / "meta_left_filtered.csv"
     if not inputs_failed.exists() or not meta_failed.exists():
-        print(f"[skip] {args.project} missing inputs_failed/meta_failed")
+        print(f"[skip] {args.project} missing inputs_left_filtered/meta_left_filtered")
         return
 
     delete_old_logs(dataset_dir)
@@ -358,8 +368,9 @@ def main():
                 flush=True,
             )
 
-    append_rows(dataset_dir / "inputs_passed.csv", in_fields, passed_inputs)
-    append_rows(dataset_dir / "meta_passed.csv", meta_fields, passed_meta)
+    write_csv(dataset_dir / "inputs_passed.csv", in_fields, passed_inputs)
+    write_csv(dataset_dir / "meta_passed.csv", meta_fields, passed_meta)
+
 
     write_csv(inputs_failed, in_fields, still_failed_inputs)
     write_csv(meta_failed, meta_fields, still_failed_meta)

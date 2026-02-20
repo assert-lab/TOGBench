@@ -38,18 +38,6 @@ class Line3DTest_OE25Dev {
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
     @Test
-    void testFromPointAndDirection_illegalDirectionNorm() {
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.ZERO, TEST_PRECISION);
-        }, IllegalArgumentException.class, "Line direction cannot be zero");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1e-12, 1e-12, 1e-12), TEST_PRECISION);
-        }, IllegalArgumentException.class, "Line direction cannot be zero");
-    }
-
-    @Test
     void testPointAt() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, -1), Vector3D.of(4, 3, 0), TEST_PRECISION);
@@ -1655,6 +1643,20 @@ class Line3DTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         Assertions.assertTrue(str.matches(".*direction= \\(1(\\.0)?, 0(\\.0)?, 0(\\.0)?\\).*"));
+    }
+
+@Test
+    void testFromPointAndDirection_illegalDirectionNorm_1_oe() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.ZERO, TEST_PRECISION); }, IllegalArgumentException.class, "Line direction cannot be zero");
+    }
+
+@Test
+    void testFromPointAndDirection_illegalDirectionNorm_2_oe() {
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1e-12, 1e-12, 1e-12), TEST_PRECISION); }, IllegalArgumentException.class, "Line direction cannot be zero");
     }
 
 }

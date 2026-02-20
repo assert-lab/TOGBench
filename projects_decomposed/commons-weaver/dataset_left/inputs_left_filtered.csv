@@ -1,0 +1,59 @@
+id,test_prefix,test_name
+weav_left_9_1,"@Override
+    public boolean process_1_oe(WeaveEnvironment environment, Scanner scanner) {
+        Assert.assertNotNull(environment.config);
+    }
+",TestWeaver::process_1_oe
+weav_left_9_2,"@Override
+    public boolean process_2_oe(WeaveEnvironment environment, Scanner scanner) {
+        // removed other assertion
+        Assert.assertEquals(1, environment.config.size());
+    }
+",TestWeaver::process_2_oe
+weav_left_9_3,"@Override
+    public boolean process_3_oe(WeaveEnvironment environment, Scanner scanner) {
+        // removed other assertion
+        // removed other assertion
+
+        String configValue = environment.config.getProperty(""configKey"");
+
+        Assert.assertEquals(""configValue"", configValue);
+    }
+",TestWeaver::process_3_oe
+weav_left_12_1,"<E> void assertContainsInOrder_1_oe(Iterable<E> iterable, E... expectedElements) { final Iterator<E> iterator = iterable.iterator();
+}
+",UtilsTest::assertContainsInOrder_1_oe
+weav_left_12_2,"// removed other assertion
+        for (E e : expectedElements) {
+            assertTrue(iterator.hasNext());
+}
+",UtilsTest::assertContainsInOrder_2_oe
+weav_left_12_3,"// removed other assertion
+        for (E e : expectedElements) {
+            // removed other assertion
+            assertEquals(e, iterator.next());
+}
+",UtilsTest::assertContainsInOrder_3_oe
+weav_left_12_4,"// removed other assertion
+        for (E e : expectedElements) {
+            // removed other assertion
+            // removed other assertion
+        }
+        assertFalse(iterator.hasNext());
+",UtilsTest::assertContainsInOrder_4_oe
+weav_left_28_1,"@Test
+    public void testThrowingCheckedException1_1_oe() {
+        try {
+            StaticNoArgs.throwingCheckedException1();
+            fail();
+    }
+    }
+",StaticNoArgsTest::testThrowingCheckedException1_1_oe
+weav_left_38_1,"@Test
+    public void testThrowingCheckedException1_1_oe() {
+        try {
+            noArgs.throwingCheckedException1();
+            fail();
+    }
+    }
+",NoArgsTest::testThrowingCheckedException1_1_oe

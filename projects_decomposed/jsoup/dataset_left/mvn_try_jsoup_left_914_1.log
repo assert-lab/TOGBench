@@ -1,0 +1,27 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/SessionTest_OE25Dev_jsoup_left_914_1.java:[61,9] cannot find symbol
+  symbol:   method assertEchoServlet(org.jsoup.nodes.Document)
+  location: class org.jsoup.integration.SessionTest_OE25Dev_jsoup_left_914_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/SessionTest_OE25Dev_jsoup_left_914_1.java:[93,9] cannot find symbol
+  symbol:   method assertEchoServlet(org.jsoup.nodes.Document)
+  location: class org.jsoup.integration.SessionTest_OE25Dev_jsoup_left_914_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/SessionTest_OE25Dev_jsoup_left_914_1.java:[98,9] cannot find symbol
+  symbol:   method assertEchoServlet(org.jsoup.nodes.Document)
+  location: class org.jsoup.integration.SessionTest_OE25Dev_jsoup_left_914_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project jsoup: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/SessionTest_OE25Dev_jsoup_left_914_1.java:[61,9] cannot find symbol
+[ERROR]   symbol:   method assertEchoServlet(org.jsoup.nodes.Document)
+[ERROR]   location: class org.jsoup.integration.SessionTest_OE25Dev_jsoup_left_914_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/SessionTest_OE25Dev_jsoup_left_914_1.java:[93,9] cannot find symbol
+[ERROR]   symbol:   method assertEchoServlet(org.jsoup.nodes.Document)
+[ERROR]   location: class org.jsoup.integration.SessionTest_OE25Dev_jsoup_left_914_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/SessionTest_OE25Dev_jsoup_left_914_1.java:[98,9] cannot find symbol
+[ERROR]   symbol:   method assertEchoServlet(org.jsoup.nodes.Document)
+[ERROR]   location: class org.jsoup.integration.SessionTest_OE25Dev_jsoup_left_914_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

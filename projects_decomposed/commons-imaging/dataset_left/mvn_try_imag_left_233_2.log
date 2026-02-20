@@ -1,0 +1,45 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/bmp/BmpRoundtripTest_OE25Dev_imag_left_233_2.java:[78,9] cannot find symbol
+  symbol:   method writeAndReadImageData(int[][])
+  location: class org.apache.commons.imaging.formats.bmp.BmpRoundtripTest_OE25Dev_imag_left_233_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/bmp/BmpRoundtripTest_OE25Dev_imag_left_233_2.java:[84,9] cannot find symbol
+  symbol:   method writeAndReadImageData(int[][])
+  location: class org.apache.commons.imaging.formats.bmp.BmpRoundtripTest_OE25Dev_imag_left_233_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/bmp/BmpRoundtripTest_OE25Dev_imag_left_233_2.java:[90,9] cannot find symbol
+  symbol:   method writeAndReadImageData(int[][])
+  location: class org.apache.commons.imaging.formats.bmp.BmpRoundtripTest_OE25Dev_imag_left_233_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/bmp/BmpRoundtripTest_OE25Dev_imag_left_233_2.java:[96,9] cannot find symbol
+  symbol:   method writeAndReadImageData(int[][])
+  location: class org.apache.commons.imaging.formats.bmp.BmpRoundtripTest_OE25Dev_imag_left_233_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/bmp/BmpRoundtripTest_OE25Dev_imag_left_233_2.java:[102,9] cannot find symbol
+  symbol:   method writeAndReadImageData(int[][])
+  location: class org.apache.commons.imaging.formats.bmp.BmpRoundtripTest_OE25Dev_imag_left_233_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/bmp/BmpRoundtripTest_OE25Dev_imag_left_233_2.java:[108,9] cannot find symbol
+  symbol:   method writeAndReadImageData(int[][])
+  location: class org.apache.commons.imaging.formats.bmp.BmpRoundtripTest_OE25Dev_imag_left_233_2
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-imaging: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/bmp/BmpRoundtripTest_OE25Dev_imag_left_233_2.java:[78,9] cannot find symbol
+[ERROR]   symbol:   method writeAndReadImageData(int[][])
+[ERROR]   location: class org.apache.commons.imaging.formats.bmp.BmpRoundtripTest_OE25Dev_imag_left_233_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/bmp/BmpRoundtripTest_OE25Dev_imag_left_233_2.java:[84,9] cannot find symbol
+[ERROR]   symbol:   method writeAndReadImageData(int[][])
+[ERROR]   location: class org.apache.commons.imaging.formats.bmp.BmpRoundtripTest_OE25Dev_imag_left_233_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/bmp/BmpRoundtripTest_OE25Dev_imag_left_233_2.java:[90,9] cannot find symbol
+[ERROR]   symbol:   method writeAndReadImageData(int[][])
+[ERROR]   location: class org.apache.commons.imaging.formats.bmp.BmpRoundtripTest_OE25Dev_imag_left_233_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/bmp/BmpRoundtripTest_OE25Dev_imag_left_233_2.java:[96,9] cannot find symbol
+[ERROR]   symbol:   method writeAndReadImageData(int[][])
+[ERROR]   location: class org.apache.commons.imaging.formats.bmp.BmpRoundtripTest_OE25Dev_imag_left_233_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/bmp/BmpRoundtripTest_OE25Dev_imag_left_233_2.java:[102,9] cannot find symbol
+[ERROR]   symbol:   method writeAndReadImageData(int[][])
+[ERROR]   location: class org.apache.commons.imaging.formats.bmp.BmpRoundtripTest_OE25Dev_imag_left_233_2
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-imaging/src/test/java/org/apache/commons/imaging/formats/bmp/BmpRoundtripTest_OE25Dev_imag_left_233_2.java:[108,9] cannot find symbol
+[ERROR]   symbol:   method writeAndReadImageData(int[][])
+[ERROR]   location: class org.apache.commons.imaging.formats.bmp.BmpRoundtripTest_OE25Dev_imag_left_233_2
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

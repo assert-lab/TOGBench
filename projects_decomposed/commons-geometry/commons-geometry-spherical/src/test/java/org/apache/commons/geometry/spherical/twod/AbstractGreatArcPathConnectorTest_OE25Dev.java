@@ -1055,4 +1055,209 @@ class AbstractGreatArcPathConnectorTest_OE25Dev {
         Assertions.assertEquals(1, path2.size());
     }
 
+@Test
+    void testConnectAll_largeTriangle_3_oe() {
+        // arrange
+        final Point2S p1 = Point2S.PLUS_I;
+        final Point2S p2 = Point2S.PLUS_J;
+        final Point2S p3 = Point2S.PLUS_K;
+
+        // act
+        final List<GreatArcPath> paths = connector.connectAll(Arrays.asList(
+                    GreatCircles.arcFromPoints(p1, p2, TEST_PRECISION),
+                    GreatCircles.arcFromPoints(p2, p3, TEST_PRECISION),
+                    GreatCircles.arcFromPoints(p3, p1, TEST_PRECISION)
+                ));
+
+        // assert
+        // removed other assertion
+
+        final GreatArcPath a = paths.get(0);
+        // removed other assertion
+
+        assertPathPoints(a, p3, p1, p2, p3);
+    }
+
+@Test
+    void testConnectAll_smallTriangleWithDisconnectedLuneAndArc_3_oe() {
+        // arrange
+        final Point2S p1 = Point2S.of(0, 0);
+        final Point2S p2 = Point2S.of(0, 0.1 * Math.PI);
+        final Point2S p3 = Point2S.of(0.1, 0.1 * Math.PI);
+
+        final GreatArc luneEdge1 = GreatCircles.fromPoints(
+                    Point2S.PLUS_J,
+                    Point2S.MINUS_I,
+                    TEST_PRECISION)
+                .arc(0, Math.PI);
+        final GreatArc luneEdge2 = GreatCircles.fromPoints(
+                    Point2S.MINUS_J,
+                    Point2S.of(Angle.PI_OVER_TWO, 0.4 * Math.PI),
+                    TEST_PRECISION)
+                .arc(0, Math.PI);
+
+        final GreatArc separateArc = GreatCircles.arcFromPoints(
+                Point2S.of(-Angle.PI_OVER_TWO, 0.7 * Math.PI),
+                Point2S.of(-Angle.PI_OVER_TWO, 0.8 * Math.PI),
+                TEST_PRECISION);
+
+        // act
+        final List<GreatArcPath> paths = connector.connectAll(Arrays.asList(
+                    luneEdge1,
+                    GreatCircles.arcFromPoints(p2, p3, TEST_PRECISION),
+                    separateArc,
+                    GreatCircles.arcFromPoints(p1, p2, TEST_PRECISION),
+                    GreatCircles.arcFromPoints(p3, p1, TEST_PRECISION),
+                    luneEdge2
+                ));
+
+        // assert
+        // removed other assertion
+
+        final GreatArcPath triangle = paths.get(0);
+        // removed other assertion
+        assertPathPoints(triangle, p1, p2, p3, p1);
+    }
+
+@Test
+    void testConnectAll_choosesBestPointLikeConnection_3_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final Point2S p1 = Point2S.PLUS_I;
+        final Point2S p2 = Point2S.of(1, Angle.PI_OVER_TWO);
+        final Point2S p3 = Point2S.of(1.001, 0.491 * Math.PI);
+        final Point2S p4 = Point2S.of(1.001, 0.502 * Math.PI);
+
+        connector.add(GreatCircles.arcFromPoints(p2, p3, TEST_PRECISION));
+        connector.add(GreatCircles.arcFromPoints(p2, p4, TEST_PRECISION));
+        connector.add(GreatCircles.arcFromPoints(p1, p2, precision));
+
+        // act
+        final List<GreatArcPath> paths = connector.connectAll();
+
+        // assert
+        // removed other assertion
+
+        final GreatArcPath a = paths.get(0);
+        // removed other assertion
+        assertPathPoints(a, p1, p2, p4);
+    }
+
+@Test
+    void testConnectAll_choosesBestPointLikeConnection_5_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+
+        final Point2S p1 = Point2S.PLUS_I;
+        final Point2S p2 = Point2S.of(1, Angle.PI_OVER_TWO);
+        final Point2S p3 = Point2S.of(1.001, 0.491 * Math.PI);
+        final Point2S p4 = Point2S.of(1.001, 0.502 * Math.PI);
+
+        connector.add(GreatCircles.arcFromPoints(p2, p3, TEST_PRECISION));
+        connector.add(GreatCircles.arcFromPoints(p2, p4, TEST_PRECISION));
+        connector.add(GreatCircles.arcFromPoints(p1, p2, precision));
+
+        // act
+        final List<GreatArcPath> paths = connector.connectAll();
+
+        // assert
+        // removed other assertion
+
+        final GreatArcPath a = paths.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        final GreatArcPath b = paths.get(1);
+        // removed other assertion
+        assertPathPoints(b, p2, p3);
+    }
+
+@Test
+    void testConnect_3_oe() {
+        // arrange
+        final GreatArc arcA = GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
+        final GreatArc arcB = GreatCircles.arcFromPoints(Point2S.PLUS_J, Point2S.MINUS_I, TEST_PRECISION);
+        final GreatArc arcC = GreatCircles.arcFromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
+
+        // act
+        connector.connect(Arrays.asList(
+                    arcB,
+                    arcA
+                ));
+
+        connector.connect(Collections.singletonList(arcC));
+
+        final List<GreatArcPath> paths = connector.connectAll();
+
+        // assert
+        // removed other assertion
+
+        final GreatArcPath a = paths.get(0);
+        // removed other assertion
+        assertPathPoints(a, Point2S.PLUS_I, Point2S.PLUS_J, Point2S.MINUS_I);
+    }
+
+@Test
+    void testConnect_5_oe() {
+        // arrange
+        final GreatArc arcA = GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
+        final GreatArc arcB = GreatCircles.arcFromPoints(Point2S.PLUS_J, Point2S.MINUS_I, TEST_PRECISION);
+        final GreatArc arcC = GreatCircles.arcFromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
+
+        // act
+        connector.connect(Arrays.asList(
+                    arcB,
+                    arcA
+                ));
+
+        connector.connect(Collections.singletonList(arcC));
+
+        final List<GreatArcPath> paths = connector.connectAll();
+
+        // assert
+        // removed other assertion
+
+        final GreatArcPath a = paths.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        final GreatArcPath b = paths.get(1);
+        // removed other assertion
+        assertPathPoints(b, Point2S.PLUS_J, Point2S.PLUS_K);
+    }
+
+@Test
+    void testConnectorCanBeReused_2_oe() {
+        // arrange
+        final GreatArc a = GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
+        final GreatArc b = GreatCircles.arcFromPoints(Point2S.MINUS_I, Point2S.MINUS_J, TEST_PRECISION);
+
+        // act
+        final List<GreatArcPath> path1 = connector.connectAll(Collections.singletonList(a));
+        final List<GreatArcPath> path2 = connector.connectAll(Collections.singletonList(b));
+
+        // assert
+        // removed other assertion
+        assertPathPoints(path1.get(0), Point2S.PLUS_I, Point2S.PLUS_J);
+    }
+
+@Test
+    void testConnectorCanBeReused_4_oe() {
+        // arrange
+        final GreatArc a = GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
+        final GreatArc b = GreatCircles.arcFromPoints(Point2S.MINUS_I, Point2S.MINUS_J, TEST_PRECISION);
+
+        // act
+        final List<GreatArcPath> path1 = connector.connectAll(Collections.singletonList(a));
+        final List<GreatArcPath> path2 = connector.connectAll(Collections.singletonList(b));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertPathPoints(path2.get(0), Point2S.MINUS_I, Point2S.MINUS_J);
+    }
+
 }

@@ -35,37 +35,6 @@ class LineConvexSubsetTest_OE25Dev {
     private static final Precision.DoubleEquivalence TEST_PRECISION =
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
-    @Test
-    void testFromInterval_doubleArgs_invalid() {
-        // arrange
-        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines.subsetFromInterval(line, 0, Double.NaN);
-        }, IllegalArgumentException.class, "Invalid line subset interval: 0.0, NaN");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines.subsetFromInterval(line, Double.NaN, 0.0);
-        }, IllegalArgumentException.class, "Invalid line subset interval: NaN, 0.0");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines.subsetFromInterval(line, Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY);
-        }, IllegalArgumentException.class, "Invalid line subset interval: Infinity, Infinity");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines.subsetFromInterval(line, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);
-        }, IllegalArgumentException.class, "Invalid line subset interval: -Infinity, -Infinity");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines.subsetFromInterval(line, Double.POSITIVE_INFINITY, Double.NaN);
-        }, IllegalArgumentException.class, "Invalid line subset interval: Infinity, NaN");
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            Lines.subsetFromInterval(line, Double.NaN, Double.NEGATIVE_INFINITY);
-        }, IllegalArgumentException.class, "Invalid line subset interval: NaN, -Infinity");
-    }
-
     private static void checkInterval(final Interval expected, final Interval actual) {
         Assertions.assertEquals(expected.getMin(), actual.getMin(), TEST_EPS);
         Assertions.assertEquals(expected.getMax(), actual.getMax(), TEST_EPS);
@@ -1585,6 +1554,90 @@ class LineConvexSubsetTest_OE25Dev {
         final Split<LineConvexSubset> hyper = seg.split(Lines.fromPointAndDirection(p1, Vector2D.of(2, 1), TEST_PRECISION));
         // removed other assertion
         Assertions.assertNull(hyper.getPlus());
+    }
+
+@Test
+    void testFromInterval_doubleArgs_invalid_1_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.subsetFromInterval(line, 0, Double.NaN); }, IllegalArgumentException.class, "Invalid line subset interval: 0.0, NaN");
+    }
+
+@Test
+    void testFromInterval_doubleArgs_invalid_2_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.subsetFromInterval(line, Double.NaN, 0.0); }, IllegalArgumentException.class, "Invalid line subset interval: NaN, 0.0");
+    }
+
+@Test
+    void testFromInterval_doubleArgs_invalid_3_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.subsetFromInterval(line, Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY); }, IllegalArgumentException.class, "Invalid line subset interval: Infinity, Infinity");
+    }
+
+@Test
+    void testFromInterval_doubleArgs_invalid_4_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.subsetFromInterval(line, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY); }, IllegalArgumentException.class, "Invalid line subset interval: -Infinity, -Infinity");
+    }
+
+@Test
+    void testFromInterval_doubleArgs_invalid_5_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.subsetFromInterval(line, Double.POSITIVE_INFINITY, Double.NaN); }, IllegalArgumentException.class, "Invalid line subset interval: Infinity, NaN");
+    }
+
+@Test
+    void testFromInterval_doubleArgs_invalid_6_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { Lines.subsetFromInterval(line, Double.NaN, Double.NEGATIVE_INFINITY); }, IllegalArgumentException.class, "Invalid line subset interval: NaN, -Infinity");
     }
 
 }

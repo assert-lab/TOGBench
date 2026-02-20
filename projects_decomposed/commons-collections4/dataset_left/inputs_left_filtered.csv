@@ -1,0 +1,4176 @@
+id,test_prefix,test_name
+coll_left_171_1,"public void getFromIterable_1_oe() throws Exception {
+        // Collection, entry exists
+        final Bag<String> bag = new HashBag<>();
+        bag.add(""element"", 1);
+        assertEquals(""element"", IterableUtils.get(bag, 0));
+}
+",IterableUtilsTest::getFromIterable_1_oe
+coll_left_172_1,"public void firstFromIterable_1_oe() throws Exception {
+        // Collection, entry exists
+        final Bag<String> bag = new HashBag<>();
+        bag.add(""element"", 1);
+        assertEquals(""element"", IterableUtils.first(bag));
+}
+",IterableUtilsTest::firstFromIterable_1_oe
+coll_left_176_1,"@Override
+            public String transform_1_oe(final Integer input) {
+                fail(""not supposed to reach here"");
+            }
+",IterableUtilsTest::transform_1_oe
+coll_left_177_1,"@Override
+            public String transform_1_oe(final Integer input) {
+                fail(""not supposed to reach here"");
+            }
+",IterableUtilsTest::transform_1_oe
+coll_left_180_1,"@Override
+            public String transform_1_oe(final Integer input) {
+                fail(""not supposed to reach here"");
+            }
+",IterableUtilsTest::transform_1_oe
+coll_left_181_1,"@Override
+                public String transform_1_oe(final Integer input) {
+                    fail(""not supposed to reach here"");
+                }
+",IterableUtilsTest::transform_1_oe
+coll_left_182_1,"@Override
+                public String transform_1_oe(final Integer input) {
+                    fail(""not supposed to reach here"");
+                }
+",IterableUtilsTest::transform_1_oe
+coll_left_183_1,"@Override
+                public String transform_1_oe(final Integer input) {
+                    fail(""not supposed to reach here"");
+                }
+",IterableUtilsTest::transform_1_oe
+coll_left_188_1,"private void attemptMapOperation_1_oe(final String s, final Runnable r) {
+        try {
+            r.run();
+            fail(s);
+}
+}
+",SplitMapUtilsTest::attemptMapOperation_1_oe
+coll_left_261_1,"public static void assertSameAfterSerialization_1_oe(final String msg, final Object o) { try { // write object to byte buffer final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+}
+}
+",TestUtils::assertSameAfterSerialization_1_oe
+coll_left_261_2,"// removed other assertion
+            final ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(o);
+            oos.close();
+
+            // read same object from byte buffer
+            final InputStream is = new ByteArrayInputStream(baos.toByteArray());
+            final ObjectInputStream ois = new ObjectInputStream(is);
+            final Object object = ois.readObject();
+            ois.close();
+
+            // assert that original object and deserialized objects are the same
+            assertSame(msg, o, object);
+",TestUtils::assertSameAfterSerialization_2_oe
+coll_left_262_1,"public static void assertSameAfterSerialization_1_oe(final Object o) { assertSameAfterSerialization(null, o);
+}
+",TestUtils::assertSameAfterSerialization_1_oe
+coll_left_327_1,"private void assertCollectResult_1_oe(final Collection<Number> collection) { assertTrue(collectionA.contains(1) && !collectionA.contains(2L));
+}
+",CollectionUtilsTest::assertCollectResult_1_oe
+coll_left_327_2,"// removed other assertion
+        assertTrue(collection.contains(2L) && !collection.contains(1));
+",CollectionUtilsTest::assertCollectResult_2_oe
+coll_left_398_1,"private void verifyIteration_1_oe(final Iterable<Number> iterable) {
+        int expected = 0;
+        for (final Number actual : iterable) {
+            assertEquals(expected, actual.intValue());
+}
+}
+",IteratorIterableTest::verifyIteration_1_oe
+coll_left_398_2,"private void verifyIteration_2_oe(final Iterable<Number> iterable) {
+        int expected = 0;
+        for (final Number actual : iterable) {
+            // removed other assertion
+            ++expected;
+        }
+        assertTrue(expected > 0);
+}
+",IteratorIterableTest::verifyIteration_2_oe
+coll_left_444_1,"private void validate_1_oe(final Iterator<E> iter, final Object... items) {
+        for (final Object x : items) {
+            assertTrue(iter.hasNext());
+}
+}
+",PushbackIteratorTest::validate_1_oe
+coll_left_444_2,"private void validate_2_oe(final Iterator<E> iter, final Object... items) {
+        for (final Object x : items) {
+            // removed other assertion
+            assertEquals(x, iter.next());
+}
+}
+",PushbackIteratorTest::validate_2_oe
+coll_left_444_3,"private void validate_3_oe(final Iterator<E> iter, final Object... items) {
+        for (final Object x : items) {
+            // removed other assertion
+            // removed other assertion
+        }
+        assertFalse(iter.hasNext());
+}
+",PushbackIteratorTest::validate_3_oe
+coll_left_514_1,"private void verifyNoMoreElements_1_oe() {
+        assertTrue(!iterator.hasNext());
+}
+",FilterIteratorTest::verifyNoMoreElements_1_oe
+coll_left_514_2,"private void verifyNoMoreElements_2_oe() {
+        // removed other assertion
+        try {
+            iterator.next();
+            fail(""NoSuchElementException expected"");
+}
+}
+",FilterIteratorTest::verifyNoMoreElements_2_oe
+coll_left_515_1,"private void verifyElementsInPredicate_1_oe(final String[] elements) {
+        final Predicate<E> pred = new Predicate<E>() {
+            @Override
+            public boolean evaluate(final E x) {
+                for (final String element : elements) {
+                    if (element.equals(x)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        };
+        initIterator();
+        iterator.setPredicate(pred);
+        for (int i = 0; i < elements.length; i++) {
+            final String s = (String)iterator.next();
+            assertEquals(elements[i], s);
+}
+}
+",FilterIteratorTest::verifyElementsInPredicate_1_oe
+coll_left_515_2,"private void verifyElementsInPredicate_2_oe(final String[] elements) {
+        final Predicate<E> pred = new Predicate<E>() {
+            @Override
+            public boolean evaluate(final E x) {
+                for (final String element : elements) {
+                    if (element.equals(x)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        };
+        initIterator();
+        iterator.setPredicate(pred);
+        for (int i = 0; i < elements.length; i++) {
+            final String s = (String)iterator.next();
+            // removed other assertion
+            assertTrue(i == elements.length - 1 ? !iterator.hasNext() : iterator.hasNext());
+}
+}
+",FilterIteratorTest::verifyElementsInPredicate_2_oe
+coll_left_515_3,"private void verifyElementsInPredicate_3_oe(final String[] elements) {
+        final Predicate<E> pred = new Predicate<E>() {
+            @Override
+            public boolean evaluate(final E x) {
+                for (final String element : elements) {
+                    if (element.equals(x)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        };
+        initIterator();
+        iterator.setPredicate(pred);
+        for (int i = 0; i < elements.length; i++) {
+            final String s = (String)iterator.next();
+            // removed other assertion
+            // removed other assertion
+        }
+        verifyNoMoreElements();
+
+        // test removal
+        initIterator();
+        iterator.setPredicate(pred);
+        if (iterator.hasNext()) {
+            final Object last = iterator.next();
+            iterator.remove();
+            assertTrue(""Base of FilterIterator still contains removed element."", !list.contains(last));
+}
+}
+",FilterIteratorTest::verifyElementsInPredicate_3_oe
+coll_left_519_1,"private void walkForward_1_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        while (expected.hasNext()) {
+            assertEquals(expected.nextIndex(), testing.nextIndex());
+}
+}
+",FilterListIteratorTest::walkForward_1_oe
+coll_left_519_2,"private void walkForward_2_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        while (expected.hasNext()) {
+            // removed other assertion
+            assertEquals(expected.previousIndex(), testing.previousIndex());
+}
+}
+",FilterListIteratorTest::walkForward_2_oe
+coll_left_519_3,"private void walkForward_3_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            assertTrue(testing.hasNext());
+}
+}
+",FilterListIteratorTest::walkForward_3_oe
+coll_left_519_4,"private void walkForward_4_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            assertEquals(expected.next(), testing.next());
+}
+}
+",FilterListIteratorTest::walkForward_4_oe
+coll_left_520_1,"private void walkBackward_1_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        while (expected.hasPrevious()) {
+            assertEquals(expected.nextIndex(), testing.nextIndex());
+}
+}
+",FilterListIteratorTest::walkBackward_1_oe
+coll_left_520_2,"private void walkBackward_2_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        while (expected.hasPrevious()) {
+            // removed other assertion
+            assertEquals(expected.previousIndex(), testing.previousIndex());
+}
+}
+",FilterListIteratorTest::walkBackward_2_oe
+coll_left_520_3,"private void walkBackward_3_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        while (expected.hasPrevious()) {
+            // removed other assertion
+            // removed other assertion
+            assertTrue(testing.hasPrevious());
+}
+}
+",FilterListIteratorTest::walkBackward_3_oe
+coll_left_520_4,"private void walkBackward_4_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        while (expected.hasPrevious()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            assertEquals(expected.previous(), testing.previous());
+}
+}
+",FilterListIteratorTest::walkBackward_4_oe
+coll_left_521_1,"private void nextNextPrevious_1_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        // calls to next() should change the value returned by previous()
+        // even after previous() has been set by a call to hasPrevious()
+        assertEquals(expected.next(), testing.next());
+}
+",FilterListIteratorTest::nextNextPrevious_1_oe
+coll_left_521_2,"private void nextNextPrevious_2_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        // calls to next() should change the value returned by previous()
+        // even after previous() has been set by a call to hasPrevious()
+        // removed other assertion
+        assertEquals(expected.hasPrevious(), testing.hasPrevious());
+}
+",FilterListIteratorTest::nextNextPrevious_2_oe
+coll_left_521_3,"private void nextNextPrevious_3_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        // calls to next() should change the value returned by previous()
+        // even after previous() has been set by a call to hasPrevious()
+        // removed other assertion
+        // removed other assertion
+        final Object expecteda = expected.next();
+        final Object testinga = testing.next();
+        assertEquals(expecteda, testinga);
+}
+",FilterListIteratorTest::nextNextPrevious_3_oe
+coll_left_521_4,"private void nextNextPrevious_4_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        // calls to next() should change the value returned by previous()
+        // even after previous() has been set by a call to hasPrevious()
+        // removed other assertion
+        // removed other assertion
+        final Object expecteda = expected.next();
+        final Object testinga = testing.next();
+        // removed other assertion
+        final Object expectedb = expected.previous();
+        final Object testingb = testing.previous();
+        assertEquals(expecteda, expectedb);
+}
+",FilterListIteratorTest::nextNextPrevious_4_oe
+coll_left_521_5,"private void nextNextPrevious_5_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        // calls to next() should change the value returned by previous()
+        // even after previous() has been set by a call to hasPrevious()
+        // removed other assertion
+        // removed other assertion
+        final Object expecteda = expected.next();
+        final Object testinga = testing.next();
+        // removed other assertion
+        final Object expectedb = expected.previous();
+        final Object testingb = testing.previous();
+        // removed other assertion
+        assertEquals(testinga, testingb);
+}
+",FilterListIteratorTest::nextNextPrevious_5_oe
+coll_left_522_1,"private void previousPreviousNext_1_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        // calls to previous() should change the value returned by next()
+        // even after next() has been set by a call to hasNext()
+        assertEquals(expected.previous(), testing.previous());
+}
+",FilterListIteratorTest::previousPreviousNext_1_oe
+coll_left_522_2,"private void previousPreviousNext_2_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        // calls to previous() should change the value returned by next()
+        // even after next() has been set by a call to hasNext()
+        // removed other assertion
+        assertEquals(expected.hasNext(), testing.hasNext());
+}
+",FilterListIteratorTest::previousPreviousNext_2_oe
+coll_left_522_3,"private void previousPreviousNext_3_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        // calls to previous() should change the value returned by next()
+        // even after next() has been set by a call to hasNext()
+        // removed other assertion
+        // removed other assertion
+        final Object expecteda = expected.previous();
+        final Object testinga = testing.previous();
+        assertEquals(expecteda, testinga);
+}
+",FilterListIteratorTest::previousPreviousNext_3_oe
+coll_left_522_4,"private void previousPreviousNext_4_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        // calls to previous() should change the value returned by next()
+        // even after next() has been set by a call to hasNext()
+        // removed other assertion
+        // removed other assertion
+        final Object expecteda = expected.previous();
+        final Object testinga = testing.previous();
+        // removed other assertion
+        final Object expectedb = expected.next();
+        final Object testingb = testing.next();
+        assertEquals(expecteda, testingb);
+}
+",FilterListIteratorTest::previousPreviousNext_4_oe
+coll_left_522_5,"private void previousPreviousNext_5_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        // calls to previous() should change the value returned by next()
+        // even after next() has been set by a call to hasNext()
+        // removed other assertion
+        // removed other assertion
+        final Object expecteda = expected.previous();
+        final Object testinga = testing.previous();
+        // removed other assertion
+        final Object expectedb = expected.next();
+        final Object testingb = testing.next();
+        // removed other assertion
+        assertEquals(expecteda, expectedb);
+}
+",FilterListIteratorTest::previousPreviousNext_5_oe
+coll_left_522_6,"private void previousPreviousNext_6_oe(final ListIterator<?> expected, final ListIterator<?> testing) {
+        // calls to previous() should change the value returned by next()
+        // even after next() has been set by a call to hasNext()
+        // removed other assertion
+        // removed other assertion
+        final Object expecteda = expected.previous();
+        final Object testinga = testing.previous();
+        // removed other assertion
+        final Object expectedb = expected.next();
+        final Object testingb = testing.next();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(testinga, testingb);
+}
+",FilterListIteratorTest::previousPreviousNext_6_oe
+coll_left_523_1,"private <E> void walkLists_1_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            assertEquals(expected.nextIndex(), testing.nextIndex());
+}
+}
+",FilterListIteratorTest::walkLists_1_oe
+coll_left_523_2,"private <E> void walkLists_2_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            assertEquals(expected.previousIndex(), testing.previousIndex());
+}
+}
+",FilterListIteratorTest::walkLists_2_oe
+coll_left_523_3,"private <E> void walkLists_3_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            assertTrue(testing.hasNext());
+}
+}
+",FilterListIteratorTest::walkLists_3_oe
+coll_left_523_4,"private <E> void walkLists_4_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            assertEquals(expected.next(), testing.next());
+}
+}
+",FilterListIteratorTest::walkLists_4_oe
+coll_left_523_5,"private <E> void walkLists_5_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            assertTrue(testing.hasPrevious());
+}
+}
+",FilterListIteratorTest::walkLists_5_oe
+coll_left_523_6,"private <E> void walkLists_6_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            assertEquals(expected.previous(), testing.previous());
+}
+}
+",FilterListIteratorTest::walkLists_6_oe
+coll_left_523_7,"private <E> void walkLists_7_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            assertTrue(testing.hasNext());
+}
+}
+",FilterListIteratorTest::walkLists_7_oe
+coll_left_523_8,"private <E> void walkLists_8_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            assertEquals(expected.next(), testing.next());
+}
+}
+",FilterListIteratorTest::walkLists_8_oe
+coll_left_523_9,"private <E> void walkLists_9_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                assertEquals(expected.nextIndex(), testing.nextIndex());
+}
+}
+}
+",FilterListIteratorTest::walkLists_9_oe
+coll_left_523_10,"private <E> void walkLists_10_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                assertEquals(expected.previousIndex(), testing.previousIndex());
+}
+}
+}
+",FilterListIteratorTest::walkLists_10_oe
+coll_left_523_11,"private <E> void walkLists_11_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                assertTrue(expected.hasNext());// if this one fails we've got a logic error in the test assertTrue(testing.hasNext());
+}
+}
+}
+",FilterListIteratorTest::walkLists_11_oe
+coll_left_523_12,"private <E> void walkLists_12_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.next(), testing.next());
+}
+}
+}
+",FilterListIteratorTest::walkLists_12_oe
+coll_left_523_13,"private <E> void walkLists_13_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i/2
+            for (int j = 0; j < i / 2; j++) {
+                assertEquals(expected.nextIndex(), testing.nextIndex());
+}
+}
+}
+",FilterListIteratorTest::walkLists_13_oe
+coll_left_523_14,"private <E> void walkLists_14_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                assertEquals(expected.previousIndex(), testing.previousIndex());
+}
+}
+}
+",FilterListIteratorTest::walkLists_14_oe
+coll_left_523_15,"private <E> void walkLists_15_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                assertTrue(expected.hasPrevious());// if this one fails we've got a logic error in the test assertTrue(testing.hasPrevious());
+}
+}
+}
+",FilterListIteratorTest::walkLists_15_oe
+coll_left_523_16,"private <E> void walkLists_16_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.previous(), testing.previous());
+}
+}
+}
+",FilterListIteratorTest::walkLists_16_oe
+coll_left_523_17,"private <E> void walkLists_17_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk forward i/2
+            for (int j = 0; j < i / 2; j++) {
+                assertEquals(expected.nextIndex(), testing.nextIndex());
+}
+}
+}
+",FilterListIteratorTest::walkLists_17_oe
+coll_left_523_18,"private <E> void walkLists_18_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk forward i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                assertEquals(expected.previousIndex(), testing.previousIndex());
+}
+}
+}
+",FilterListIteratorTest::walkLists_18_oe
+coll_left_523_19,"private <E> void walkLists_19_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk forward i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                assertTrue(expected.hasNext());// if this one fails we've got a logic error in the test assertTrue(testing.hasNext());
+}
+}
+}
+",FilterListIteratorTest::walkLists_19_oe
+coll_left_523_20,"private <E> void walkLists_20_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk forward i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.next(), testing.next());
+}
+}
+}
+",FilterListIteratorTest::walkLists_20_oe
+coll_left_523_21,"private <E> void walkLists_21_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk forward i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i
+            for (int j = 0; j < i; j++) {
+                assertEquals(expected.nextIndex(), testing.nextIndex());
+}
+}
+}
+",FilterListIteratorTest::walkLists_21_oe
+coll_left_523_22,"private <E> void walkLists_22_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk forward i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                assertEquals(expected.previousIndex(), testing.previousIndex());
+}
+}
+}
+",FilterListIteratorTest::walkLists_22_oe
+coll_left_523_23,"private <E> void walkLists_23_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk forward i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                assertTrue(expected.hasPrevious());// if this one fails we've got a logic error in the test assertTrue(testing.hasPrevious());
+}
+}
+}
+",FilterListIteratorTest::walkLists_23_oe
+coll_left_523_24,"private <E> void walkLists_24_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk forward i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                assertEquals(expected.previous(), testing.previous());
+}
+}
+}
+",FilterListIteratorTest::walkLists_24_oe
+coll_left_523_25,"private <E> void walkLists_25_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk forward i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // random walk
+        final StringBuilder walkdescr = new StringBuilder(500);
+        for (int i = 0; i < 500; i++) {
+            if (random.nextBoolean()) {
+                // step forward
+                walkdescr.append(""+"");
+                if (expected.hasNext()) {
+                    assertEquals(walkdescr.toString(), expected.next(), testing.next());
+}
+}
+}
+}
+",FilterListIteratorTest::walkLists_25_oe
+coll_left_523_26,"private <E> void walkLists_26_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk forward i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // random walk
+        final StringBuilder walkdescr = new StringBuilder(500);
+        for (int i = 0; i < 500; i++) {
+            if (random.nextBoolean()) {
+                // step forward
+                walkdescr.append(""+"");
+                if (expected.hasNext()) {
+                    // removed other assertion
+                }
+            } else {
+                // step backward
+                walkdescr.append(""-"");
+                if (expected.hasPrevious()) {
+                    assertEquals(walkdescr.toString(), expected.previous(), testing.previous());
+}
+}
+}
+}
+",FilterListIteratorTest::walkLists_26_oe
+coll_left_523_27,"private <E> void walkLists_27_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk forward i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // random walk
+        final StringBuilder walkdescr = new StringBuilder(500);
+        for (int i = 0; i < 500; i++) {
+            if (random.nextBoolean()) {
+                // step forward
+                walkdescr.append(""+"");
+                if (expected.hasNext()) {
+                    // removed other assertion
+                }
+            } else {
+                // step backward
+                walkdescr.append(""-"");
+                if (expected.hasPrevious()) {
+                    // removed other assertion
+                }
+            }
+            assertEquals(walkdescr.toString(), expected.nextIndex(), testing.nextIndex());
+}
+}
+",FilterListIteratorTest::walkLists_27_oe
+coll_left_523_28,"private <E> void walkLists_28_oe(final List<E> list, final ListIterator<E> testing) {
+        final ListIterator<E> expected = list.listIterator();
+
+        // walk all the way forward
+        walkForward(expected,testing);
+
+        // walk all the way back
+        walkBackward(expected,testing);
+
+        // forward,back,forward
+        while (expected.hasNext()) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+        }
+
+        // walk all the way back
+        walkBackward(expected, testing);
+
+        for (int i = 0; i < list.size(); i++) {
+            // walk forward i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk forward i/2
+            for (int j = 0; j < i / 2; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+            // walk back i
+            for (int j = 0; j < i; j++) {
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+                // removed other assertion
+            }
+        }
+
+        // random walk
+        final StringBuilder walkdescr = new StringBuilder(500);
+        for (int i = 0; i < 500; i++) {
+            if (random.nextBoolean()) {
+                // step forward
+                walkdescr.append(""+"");
+                if (expected.hasNext()) {
+                    // removed other assertion
+                }
+            } else {
+                // step backward
+                walkdescr.append(""-"");
+                if (expected.hasPrevious()) {
+                    // removed other assertion
+                }
+            }
+            // removed other assertion
+            assertEquals(walkdescr.toString(), expected.previousIndex(), testing.previousIndex());
+}
+}
+",FilterListIteratorTest::walkLists_28_oe
+coll_left_564_1,"private void validate_1_oe(final Iterator<E> iter, final E... items) {
+        for (final E x : items) {
+            assertTrue(iter.hasNext());
+}
+}
+",PeekingIteratorTest::validate_1_oe
+coll_left_564_2,"private void validate_2_oe(final Iterator<E> iter, final E... items) {
+        for (final E x : items) {
+            // removed other assertion
+            assertEquals(x, iter.next());
+}
+}
+",PeekingIteratorTest::validate_2_oe
+coll_left_564_3,"private void validate_3_oe(final Iterator<E> iter, final E... items) {
+        for (final E x : items) {
+            // removed other assertion
+            // removed other assertion
+        }
+        assertFalse(iter.hasNext());
+}
+",PeekingIteratorTest::validate_3_oe
+coll_left_571_1,"protected <T> void assertFalse_1_oe(final Predicate<T> predicate, final T testObject) { Assert.assertFalse(predicate.evaluate(testObject));
+}
+",AbstractPredicateTest::assertFalse_1_oe
+coll_left_572_1,"protected <T> void assertTrue_1_oe(final Predicate<T> predicate, final T testObject) { Assert.assertTrue(predicate.evaluate(testObject));
+}
+",AbstractPredicateTest::assertTrue_1_oe
+coll_left_577_1,"@SuppressWarnings(""boxing"")
+    public final void singleValues_1_oe() {
+        assertTrue(getPredicateInstance(true).evaluate(null));
+    }
+",AbstractAnyAllOnePredicateTest::singleValues_1_oe
+coll_left_577_2,"@SuppressWarnings(""boxing"")
+    public final void singleValues_2_oe() {
+        // removed other assertion
+        assertFalse(getPredicateInstance(false).evaluate(null));
+    }
+",AbstractAnyAllOnePredicateTest::singleValues_2_oe
+coll_left_578_1,"@SuppressWarnings(""unchecked"")
+    public void singleElementArrayToGetInstance_1_oe() {
+        final Predicate<T> predicate = createMockPredicate(null);
+        final Predicate<T> allPredicate = getPredicateInstance(predicate);
+        Assert.assertSame(""expected argument to be returned by getInstance()"", predicate, allPredicate);
+    }
+",AbstractCompositePredicateTest::singleElementArrayToGetInstance_1_oe
+coll_left_579_1,"public void singletonCollectionToGetInstance_1_oe() {
+        final Predicate<T> predicate = createMockPredicate(null);
+        final Predicate<T> allPredicate = getPredicateInstance(
+                Collections.<Predicate<T>>singleton(predicate));
+        Assert.assertSame(""expected argument to be returned by getInstance()"", predicate, allPredicate);
+}
+",AbstractCompositePredicateTest::singletonCollectionToGetInstance_1_oe
+coll_left_604_1,"public void verify_1_oe() {
+        final int confirmedSize = getConfirmed().size();
+        assertEquals(""Collection size should match confirmed collection's"",confirmedSize,getCollection().size());
+}
+",AbstractCollectionTest::verify_1_oe
+coll_left_604_2,"public void verify_2_oe() {
+        final int confirmedSize = getConfirmed().size();
+        // removed other assertion
+        assertEquals(""Collection isEmpty()result should match confirmed collection's"",getConfirmed().isEmpty(),getCollection().isEmpty());
+}
+",AbstractCollectionTest::verify_2_oe
+coll_left_604_3,"public void verify_3_oe() {
+        final int confirmedSize = getConfirmed().size();
+        // removed other assertion
+        // removed other assertion
+
+        // verify the collections are the same by attempting to match each
+        // object in the collection and confirmed collection.  To account for
+        // duplicates and differing orders, each confirmed element is copied
+        // into an array and a flag is maintained for each element to determine
+        // whether it has been matched once and only once.  If all elements in
+        // the confirmed collection are matched once and only once and there
+        // aren't any elements left to be matched in the collection,
+        // verification is a success.
+
+        // copy each collection value into an array
+        final Object[] confirmedValues = new Object[confirmedSize];
+
+        Iterator<E> iter;
+
+        iter = getConfirmed().iterator();
+        int pos = 0;
+        while (iter.hasNext()) {
+            confirmedValues[pos++] = iter.next();
+        }
+
+        // allocate an array of boolean flags for tracking values that have
+        // been matched once and only once.
+        final boolean[] matched = new boolean[confirmedSize];
+
+        // now iterate through the values of the collection and try to match
+        // the value with one in the confirmed array.
+        iter = getCollection().iterator();
+        while (iter.hasNext()) {
+            final Object o = iter.next();
+            boolean match = false;
+            for (int i = 0; i < confirmedSize; i++) {
+                if (matched[i]) {
+                    // skip values already matched
+                    continue;
+                }
+                if (o == confirmedValues[i] || o != null && o.equals(confirmedValues[i])) {
+                    // values matched
+                    matched[i] = true;
+                    match = true;
+                    break;
+                }
+            }
+            // no match found!
+            if (!match) {
+                fail(""Collection should not contain a value that the "" + ""confirmed collection does not have: "" + o + ""\nTest: "" + getCollection()+ ""\nReal: "" + getConfirmed());
+}
+}
+}
+",AbstractCollectionTest::verify_3_oe
+coll_left_604_4,"public void verify_4_oe() {
+        final int confirmedSize = getConfirmed().size();
+        // removed other assertion
+        // removed other assertion
+
+        // verify the collections are the same by attempting to match each
+        // object in the collection and confirmed collection.  To account for
+        // duplicates and differing orders, each confirmed element is copied
+        // into an array and a flag is maintained for each element to determine
+        // whether it has been matched once and only once.  If all elements in
+        // the confirmed collection are matched once and only once and there
+        // aren't any elements left to be matched in the collection,
+        // verification is a success.
+
+        // copy each collection value into an array
+        final Object[] confirmedValues = new Object[confirmedSize];
+
+        Iterator<E> iter;
+
+        iter = getConfirmed().iterator();
+        int pos = 0;
+        while (iter.hasNext()) {
+            confirmedValues[pos++] = iter.next();
+        }
+
+        // allocate an array of boolean flags for tracking values that have
+        // been matched once and only once.
+        final boolean[] matched = new boolean[confirmedSize];
+
+        // now iterate through the values of the collection and try to match
+        // the value with one in the confirmed array.
+        iter = getCollection().iterator();
+        while (iter.hasNext()) {
+            final Object o = iter.next();
+            boolean match = false;
+            for (int i = 0; i < confirmedSize; i++) {
+                if (matched[i]) {
+                    // skip values already matched
+                    continue;
+                }
+                if (o == confirmedValues[i] || o != null && o.equals(confirmedValues[i])) {
+                    // values matched
+                    matched[i] = true;
+                    match = true;
+                    break;
+                }
+            }
+            // no match found!
+            if (!match) {
+                // removed other assertion
+            }
+        }
+
+        // make sure there aren't any unmatched values
+        for (int i = 0; i < confirmedSize; i++) {
+            if (!matched[i]) {
+                // the collection didn't match all the confirmed values
+                fail(""Collection should contain all values that are in the confirmed collection"" + ""\nTest: "" + getCollection()+ ""\nReal: "" + getConfirmed());
+}
+}
+}
+",AbstractCollectionTest::verify_4_oe
+coll_left_624_1,"protected static void assertNotCollectionContains_1_oe(final Collection<?> coll, final Object element) { try { assertFalse(coll.contains(element));
+}
+}
+",AbstractCollectionTest::assertNotCollectionContains_1_oe
+coll_left_625_1,"protected static void assertNotCollectionContainsAll_1_oe(final Collection<?> coll, final Collection<?> sub) { try { assertFalse(coll.containsAll(sub));
+}
+}
+",AbstractCollectionTest::assertNotCollectionContainsAll_1_oe
+coll_left_626_1,"protected static void assertNotRemoveFromCollection_1_oe(final Collection<?> coll, final Object element) { try { assertFalse(coll.remove(element));
+}
+}
+",AbstractCollectionTest::assertNotRemoveFromCollection_1_oe
+coll_left_627_1,"protected static void assertNotRemoveAllFromCollection_1_oe(final Collection<?> coll, final Collection<?> sub) { try { assertFalse(coll.removeAll(sub));
+}
+}
+",AbstractCollectionTest::assertNotRemoveAllFromCollection_1_oe
+coll_left_631_1,"private void checkPredicatedCollection1_1_oe(final Collection<String> collection) {
+        Assert.assertEquals(1, collection.size());
+}
+",PredicatedCollectionBuilderTest::checkPredicatedCollection1_1_oe
+coll_left_631_2,"private void checkPredicatedCollection1_2_oe(final Collection<String> collection) {
+        // removed other assertion
+
+        collection.add(""test2"");
+        Assert.assertEquals(2, collection.size());
+}
+",PredicatedCollectionBuilderTest::checkPredicatedCollection1_2_oe
+coll_left_631_3,"private void checkPredicatedCollection1_3_oe(final Collection<String> collection) {
+        // removed other assertion
+
+        collection.add(""test2"");
+        // removed other assertion
+
+        try {
+            collection.add(null);
+            Assert.fail(""Expecting IllegalArgumentException for failing predicate!"");
+}
+}
+",PredicatedCollectionBuilderTest::checkPredicatedCollection1_3_oe
+coll_left_632_1,"private void checkPredicatedCollection2_1_oe(final Collection<Integer> collection) {
+        Assert.assertEquals(2, collection.size());
+}
+",PredicatedCollectionBuilderTest::checkPredicatedCollection2_1_oe
+coll_left_632_2,"private void checkPredicatedCollection2_2_oe(final Collection<Integer> collection) {
+        // removed other assertion
+
+        try {
+            collection.add(4);
+            Assert.fail(""Expecting IllegalArgumentException for failing predicate!"");
+}
+}
+",PredicatedCollectionBuilderTest::checkPredicatedCollection2_2_oe
+coll_left_632_3,"private void checkPredicatedCollection2_3_oe(final Collection<Integer> collection) {
+        // removed other assertion
+
+        try {
+            collection.add(4);
+            // removed other assertion
+        } catch (final IllegalArgumentException iae) {
+        }
+        Assert.assertEquals(2, collection.size());
+}
+",PredicatedCollectionBuilderTest::checkPredicatedCollection2_3_oe
+coll_left_632_4,"private void checkPredicatedCollection2_4_oe(final Collection<Integer> collection) {
+        // removed other assertion
+
+        try {
+            collection.add(4);
+            // removed other assertion
+        } catch (final IllegalArgumentException iae) {
+        }
+        // removed other assertion
+
+        collection.add(5);
+        Assert.assertEquals(3, collection.size());
+}
+",PredicatedCollectionBuilderTest::checkPredicatedCollection2_4_oe
+coll_left_720_1,"@Override
+    public void verify_1_oe() {
+        super.verify();
+        final Iterator<E> iterator1 = getCollection().iterator();
+        for (final E e : getConfirmed()) {
+            assertTrue(iterator1.hasNext());
+    }
+    }
+",AbstractQueueTest::verify_1_oe
+coll_left_720_2,"@Override
+    public void verify_2_oe() {
+        super.verify();
+        final Iterator<E> iterator1 = getCollection().iterator();
+        for (final E e : getConfirmed()) {
+            // removed other assertion
+            final Object o1 = iterator1.next();
+            final Object o2 = e;
+            assertEquals(o1, o2);
+    }
+    }
+",AbstractQueueTest::verify_2_oe
+coll_left_737_1,"@Override
+    public void verify_1_oe() {
+        super.verify();
+        final Iterator<E> iterator1 = getCollection().iterator();
+        for (final E e : getConfirmed()) {
+            assertTrue(iterator1.hasNext());
+    }
+    }
+",CircularFifoQueueTest::verify_1_oe
+coll_left_737_2,"@Override
+    public void verify_2_oe() {
+        super.verify();
+        final Iterator<E> iterator1 = getCollection().iterator();
+        for (final E e : getConfirmed()) {
+            // removed other assertion
+            final Object o1 = iterator1.next();
+            final Object o2 = e;
+            assertEquals(o1, o2);
+    }
+    }
+",CircularFifoQueueTest::verify_2_oe
+coll_left_758_1,"@Override
+    public void verify_1_oe() {
+        super.verify();
+
+        // Check that iterator returns elements in order and first() and last()
+        // are consistent
+        final Iterator<T> colliter = getCollection().iterator();
+        final Iterator<T> confiter = getConfirmed().iterator();
+        T first = null;
+        T last = null;
+        while (colliter.hasNext()) {
+            if (first == null) {
+                first = colliter.next();
+                last = first;
+            } else {
+              last = colliter.next();
+            }
+            assertEquals(""Element appears to be out of order."", last, confiter.next());
+    }
+    }
+",AbstractSortedBagTest::verify_1_oe
+coll_left_758_2,"@Override
+    public void verify_2_oe() {
+        super.verify();
+
+        // Check that iterator returns elements in order and first() and last()
+        // are consistent
+        final Iterator<T> colliter = getCollection().iterator();
+        final Iterator<T> confiter = getConfirmed().iterator();
+        T first = null;
+        T last = null;
+        while (colliter.hasNext()) {
+            if (first == null) {
+                first = colliter.next();
+                last = first;
+            } else {
+              last = colliter.next();
+            }
+            // removed other assertion
+        }
+        if (getCollection().size() > 0) {
+            assertEquals(""Incorrect element returned by first()."",first,getCollection().first());
+    }
+    }
+",AbstractSortedBagTest::verify_2_oe
+coll_left_758_3,"@Override
+    public void verify_3_oe() {
+        super.verify();
+
+        // Check that iterator returns elements in order and first() and last()
+        // are consistent
+        final Iterator<T> colliter = getCollection().iterator();
+        final Iterator<T> confiter = getConfirmed().iterator();
+        T first = null;
+        T last = null;
+        while (colliter.hasNext()) {
+            if (first == null) {
+                first = colliter.next();
+                last = first;
+            } else {
+              last = colliter.next();
+            }
+            // removed other assertion
+        }
+        if (getCollection().size() > 0) {
+            // removed other assertion
+            assertEquals(""Incorrect element returned by last()."",last,getCollection().last());
+    }
+    }
+",AbstractSortedBagTest::verify_3_oe
+coll_left_801_1,"private void assertContents_1_oe(final T properties) { Assert.assertEquals(""value1"", properties.getProperty(""key1""));
+}
+",AbstractPropertiesFactoryTest::assertContents_1_oe
+coll_left_801_2,"// removed other assertion
+        Assert.assertEquals(""value2"", properties.getProperty(""key2""));
+",AbstractPropertiesFactoryTest::assertContents_2_oe
+coll_left_841_1,"public void verifyInverse_1_oe() {
+        assertEquals(map.size(), ((BidiMap<K, V>) map).inverseBidiMap().size());
+}
+",AbstractBidiMapTest::verifyInverse_1_oe
+coll_left_841_2,"public void verifyInverse_2_oe() {
+        // removed other assertion
+        final Map<K, V> map1 = new HashMap<>(map);
+        final Map<V, K> map2 = new HashMap<>(((BidiMap<K, V>) map).inverseBidiMap());
+        final Set<K> keys1 = map1.keySet();
+        final Set<V> keys2 = map2.keySet();
+        final Collection<V> values1 = map1.values();
+        final Collection<K> values2 = map2.values();
+        assertEquals(true, keys1.containsAll(values2));
+}
+",AbstractBidiMapTest::verifyInverse_2_oe
+coll_left_841_3,"public void verifyInverse_3_oe() {
+        // removed other assertion
+        final Map<K, V> map1 = new HashMap<>(map);
+        final Map<V, K> map2 = new HashMap<>(((BidiMap<K, V>) map).inverseBidiMap());
+        final Set<K> keys1 = map1.keySet();
+        final Set<V> keys2 = map2.keySet();
+        final Collection<V> values1 = map1.values();
+        final Collection<K> values2 = map2.values();
+        // removed other assertion
+        assertEquals(true, values2.containsAll(keys1));
+}
+",AbstractBidiMapTest::verifyInverse_3_oe
+coll_left_841_4,"public void verifyInverse_4_oe() {
+        // removed other assertion
+        final Map<K, V> map1 = new HashMap<>(map);
+        final Map<V, K> map2 = new HashMap<>(((BidiMap<K, V>) map).inverseBidiMap());
+        final Set<K> keys1 = map1.keySet();
+        final Set<V> keys2 = map2.keySet();
+        final Collection<V> values1 = map1.values();
+        final Collection<K> values2 = map2.values();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, values1.containsAll(keys2));
+}
+",AbstractBidiMapTest::verifyInverse_4_oe
+coll_left_841_5,"public void verifyInverse_5_oe() {
+        // removed other assertion
+        final Map<K, V> map1 = new HashMap<>(map);
+        final Map<V, K> map2 = new HashMap<>(((BidiMap<K, V>) map).inverseBidiMap());
+        final Set<K> keys1 = map1.keySet();
+        final Set<V> keys2 = map2.keySet();
+        final Collection<V> values1 = map1.values();
+        final Collection<K> values2 = map2.values();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, keys2.containsAll(values1));
+}
+",AbstractBidiMapTest::verifyInverse_5_oe
+coll_left_842_1,"private void doTestGetKey_1_oe(final BidiMap<?, ?> map, final Object key, final Object value) {
+        assertEquals(""Value not found for key."", value, map.get(key));
+}
+",AbstractBidiMapTest::doTestGetKey_1_oe
+coll_left_842_2,"private void doTestGetKey_2_oe(final BidiMap<?, ?> map, final Object key, final Object value) {
+        // removed other assertion
+        assertEquals(""Key not found for value."", key, map.getKey(value));
+}
+",AbstractBidiMapTest::doTestGetKey_2_oe
+coll_left_844_1,"@SuppressWarnings(""unchecked"")
+    private <T> void modifyEntrySet_1_oe(final BidiMap<?, T> map) {
+        // Gets first entry
+        final Map.Entry<?, T> entry = map.entrySet().iterator().next();
+
+        // Gets key and value
+        final Object key = entry.getKey();
+        final Object oldValue = entry.getValue();
+
+        // Sets new value
+        final Object newValue = ""newValue"";
+        entry.setValue((T) newValue);
+
+        assertEquals(""Modifying entrySet did not affect underlying Map."",newValue,map.get(key));
+    }
+",AbstractBidiMapTest::modifyEntrySet_1_oe
+coll_left_844_2,"@SuppressWarnings(""unchecked"")
+    private <T> void modifyEntrySet_2_oe(final BidiMap<?, T> map) {
+        // Gets first entry
+        final Map.Entry<?, T> entry = map.entrySet().iterator().next();
+
+        // Gets key and value
+        final Object key = entry.getKey();
+        final Object oldValue = entry.getValue();
+
+        // Sets new value
+        final Object newValue = ""newValue"";
+        entry.setValue((T) newValue);
+
+        // removed other assertion
+
+        assertNull(""Modifying entrySet did not affect inverse Map."",map.getKey(oldValue));
+    }
+",AbstractBidiMapTest::modifyEntrySet_2_oe
+coll_left_847_1,"private void remove_1_oe(final BidiMap<?, ?> map, final Object key) {
+        final Object value = map.remove(key);
+        assertTrue(""Key was not removed."", !map.containsKey(key));
+}
+",AbstractBidiMapTest::remove_1_oe
+coll_left_847_2,"private void remove_2_oe(final BidiMap<?, ?> map, final Object key) {
+        final Object value = map.remove(key);
+        // removed other assertion
+        assertNull(""Value was not removed."", map.getKey(value));
+}
+",AbstractBidiMapTest::remove_2_oe
+coll_left_848_1,"private void removeValue_1_oe(final BidiMap<?, ?> map, final Object value) {
+        final Object key = map.removeValue(value);
+        assertTrue(""Key was not removed."", !map.containsKey(key));
+}
+",AbstractBidiMapTest::removeValue_1_oe
+coll_left_848_2,"private void removeValue_2_oe(final BidiMap<?, ?> map, final Object value) {
+        final Object key = map.removeValue(value);
+        // removed other assertion
+        assertNull(""Value was not removed."", map.getKey(value));
+}
+",AbstractBidiMapTest::removeValue_2_oe
+coll_left_850_1,"private void removeByKeySet_1_oe(final BidiMap<?, ?> map, final Object key, final Object value) {
+        map.keySet().remove(key);
+
+        assertTrue(""Key was not removed."", !map.containsKey(key));
+}
+",AbstractBidiMapTest::removeByKeySet_1_oe
+coll_left_850_2,"private void removeByKeySet_2_oe(final BidiMap<?, ?> map, final Object key, final Object value) {
+        map.keySet().remove(key);
+
+        // removed other assertion
+        assertTrue(""Value was not removed."", !map.containsValue(value));
+}
+",AbstractBidiMapTest::removeByKeySet_2_oe
+coll_left_850_3,"private void removeByKeySet_3_oe(final BidiMap<?, ?> map, final Object key, final Object value) {
+        map.keySet().remove(key);
+
+        // removed other assertion
+        // removed other assertion
+
+        assertTrue(""Key was not removed from inverse map."",!map.inverseBidiMap().containsValue(key));
+}
+",AbstractBidiMapTest::removeByKeySet_3_oe
+coll_left_850_4,"private void removeByKeySet_4_oe(final BidiMap<?, ?> map, final Object key, final Object value) {
+        map.keySet().remove(key);
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertTrue(""Value was not removed from inverse map."",!map.inverseBidiMap().containsKey(value));
+}
+",AbstractBidiMapTest::removeByKeySet_4_oe
+coll_left_851_1,"private void removeByEntrySet_1_oe(final BidiMap<?, ?> map, final Object key, final Object value) {
+        final Map<Object, Object> temp = new HashMap<>();
+        temp.put(key, value);
+        map.entrySet().remove(temp.entrySet().iterator().next());
+
+        assertTrue(""Key was not removed."", !map.containsKey(key));
+}
+",AbstractBidiMapTest::removeByEntrySet_1_oe
+coll_left_851_2,"private void removeByEntrySet_2_oe(final BidiMap<?, ?> map, final Object key, final Object value) {
+        final Map<Object, Object> temp = new HashMap<>();
+        temp.put(key, value);
+        map.entrySet().remove(temp.entrySet().iterator().next());
+
+        // removed other assertion
+        assertTrue(""Value was not removed."", !map.containsValue(value));
+}
+",AbstractBidiMapTest::removeByEntrySet_2_oe
+coll_left_851_3,"private void removeByEntrySet_3_oe(final BidiMap<?, ?> map, final Object key, final Object value) {
+        final Map<Object, Object> temp = new HashMap<>();
+        temp.put(key, value);
+        map.entrySet().remove(temp.entrySet().iterator().next());
+
+        // removed other assertion
+        // removed other assertion
+
+        assertTrue(""Key was not removed from inverse map."",!map.inverseBidiMap().containsValue(key));
+}
+",AbstractBidiMapTest::removeByEntrySet_3_oe
+coll_left_851_4,"private void removeByEntrySet_4_oe(final BidiMap<?, ?> map, final Object key, final Object value) {
+        final Map<Object, Object> temp = new HashMap<>();
+        temp.put(key, value);
+        map.entrySet().remove(temp.entrySet().iterator().next());
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertTrue(""Value was not removed from inverse map."",!map.inverseBidiMap().containsKey(value));
+}
+",AbstractBidiMapTest::removeByEntrySet_4_oe
+coll_left_882_1,"protected void trueFirstTests_1_oe(final BooleanComparator comp) {
+        assertNotNull(comp);
+}
+",BooleanComparatorTest::trueFirstTests_1_oe
+coll_left_882_2,"protected void trueFirstTests_2_oe(final BooleanComparator comp) {
+        // removed other assertion
+        assertEquals(0,comp.compare(true, true));
+}
+",BooleanComparatorTest::trueFirstTests_2_oe
+coll_left_882_3,"protected void trueFirstTests_3_oe(final BooleanComparator comp) {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0,comp.compare(false, false));
+}
+",BooleanComparatorTest::trueFirstTests_3_oe
+coll_left_882_4,"protected void trueFirstTests_4_oe(final BooleanComparator comp) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(comp.compare(false, true) > 0);
+}
+",BooleanComparatorTest::trueFirstTests_4_oe
+coll_left_882_5,"protected void trueFirstTests_5_oe(final BooleanComparator comp) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(comp.compare(true, false) < 0);
+}
+",BooleanComparatorTest::trueFirstTests_5_oe
+coll_left_883_1,"protected void falseFirstTests_1_oe(final BooleanComparator comp) {
+        assertNotNull(comp);
+}
+",BooleanComparatorTest::falseFirstTests_1_oe
+coll_left_883_2,"protected void falseFirstTests_2_oe(final BooleanComparator comp) {
+        // removed other assertion
+        assertEquals(0,comp.compare(true, true));
+}
+",BooleanComparatorTest::falseFirstTests_2_oe
+coll_left_883_3,"protected void falseFirstTests_3_oe(final BooleanComparator comp) {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0,comp.compare(false, false));
+}
+",BooleanComparatorTest::falseFirstTests_3_oe
+coll_left_883_4,"protected void falseFirstTests_4_oe(final BooleanComparator comp) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(comp.compare(false, true) < 0);
+}
+",BooleanComparatorTest::falseFirstTests_4_oe
+coll_left_883_5,"protected void falseFirstTests_5_oe(final BooleanComparator comp) {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(comp.compare(true, false) > 0);
+}
+",BooleanComparatorTest::falseFirstTests_5_oe
+coll_left_884_1,"protected void nullArgumentTests_1_oe(final BooleanComparator comp) {
+        assertNotNull(comp);
+}
+",BooleanComparatorTest::nullArgumentTests_1_oe
+coll_left_884_2,"protected void nullArgumentTests_2_oe(final BooleanComparator comp) {
+        // removed other assertion
+        try {
+            comp.compare(null,null);
+            fail(""Expected NullPointerException"");
+}
+}
+",BooleanComparatorTest::nullArgumentTests_2_oe
+coll_left_884_3,"protected void nullArgumentTests_3_oe(final BooleanComparator comp) {
+        // removed other assertion
+        try {
+            comp.compare(null,null);
+            // removed other assertion
+        } catch(final NullPointerException e) {
+            // expected
+        }
+        try {
+            comp.compare(Boolean.TRUE,null);
+            fail(""Expected NullPointerException"");
+}
+}
+",BooleanComparatorTest::nullArgumentTests_3_oe
+coll_left_884_4,"protected void nullArgumentTests_4_oe(final BooleanComparator comp) {
+        // removed other assertion
+        try {
+            comp.compare(null,null);
+            // removed other assertion
+        } catch(final NullPointerException e) {
+            // expected
+        }
+        try {
+            comp.compare(Boolean.TRUE,null);
+            // removed other assertion
+        } catch(final NullPointerException e) {
+            // expected
+        }
+        try {
+            comp.compare(Boolean.FALSE,null);
+            fail(""Expected NullPointerException"");
+}
+}
+",BooleanComparatorTest::nullArgumentTests_4_oe
+coll_left_884_5,"protected void nullArgumentTests_5_oe(final BooleanComparator comp) {
+        // removed other assertion
+        try {
+            comp.compare(null,null);
+            // removed other assertion
+        } catch(final NullPointerException e) {
+            // expected
+        }
+        try {
+            comp.compare(Boolean.TRUE,null);
+            // removed other assertion
+        } catch(final NullPointerException e) {
+            // expected
+        }
+        try {
+            comp.compare(Boolean.FALSE,null);
+            // removed other assertion
+        } catch(final NullPointerException e) {
+            // expected
+        }
+        try {
+            comp.compare(null,Boolean.TRUE);
+            fail(""Expected NullPointerException"");
+}
+}
+",BooleanComparatorTest::nullArgumentTests_5_oe
+coll_left_884_6,"protected void nullArgumentTests_6_oe(final BooleanComparator comp) {
+        // removed other assertion
+        try {
+            comp.compare(null,null);
+            // removed other assertion
+        } catch(final NullPointerException e) {
+            // expected
+        }
+        try {
+            comp.compare(Boolean.TRUE,null);
+            // removed other assertion
+        } catch(final NullPointerException e) {
+            // expected
+        }
+        try {
+            comp.compare(Boolean.FALSE,null);
+            // removed other assertion
+        } catch(final NullPointerException e) {
+            // expected
+        }
+        try {
+            comp.compare(null,Boolean.TRUE);
+            // removed other assertion
+        } catch(final NullPointerException e) {
+            // expected
+        }
+        try {
+            comp.compare(null,Boolean.FALSE);
+            fail(""Expected NullPointerException"");
+}
+}
+",BooleanComparatorTest::nullArgumentTests_6_oe
+coll_left_902_1,"private void assertComparatorYieldsOrder_1_oe(final String[] orderedObjects, final Comparator<String> comparator) { final String[] keys = orderedObjects.clone();
+}
+",FixedOrderComparatorTest::assertComparatorYieldsOrder_1_oe
+coll_left_902_2,"// removed other assertion
+
+        // shuffle until the order changes.  It's extremely rare that
+        // this requires more than one shuffle.
+
+        boolean isInNewOrder = false;
+        final Random rand = new Random();
+        while (keys.length > 1 && !isInNewOrder) {
+            // shuffle:
+            for (int i = keys.length-1; i > 0; i--) {
+                final String swap = keys[i];
+                final int j = rand.nextInt(i+1);
+                keys[i] = keys[j];
+                keys[j] = swap;
+            }
+
+            // testShuffle
+            for (int i = 0; i < keys.length && !isInNewOrder; i++) {
+                if( !orderedObjects[i].equals(keys[i])) {
+                    isInNewOrder = true;
+                }
+            }
+        }
+
+        // The real test:  sort and make sure they come out right.
+
+        Arrays.sort(keys, comparator);
+
+        for (int i = 0; i < orderedObjects.length; i++) {
+            assertEquals(orderedObjects[i], keys[i]);
+}
+",FixedOrderComparatorTest::assertComparatorYieldsOrder_2_oe
+coll_left_948_1,"protected void checkNodes_1_oe() {
+        final AbstractLinkedList<E> list = getCollection();
+        for (int i = 0; i < list.size; i++) {
+            assertEquals(list.getNode(i, false).next, list.getNode(i + 1, true));
+}
+}
+",AbstractLinkedListTest::checkNodes_1_oe
+coll_left_948_2,"protected void checkNodes_2_oe() {
+        final AbstractLinkedList<E> list = getCollection();
+        for (int i = 0; i < list.size; i++) {
+            // removed other assertion
+            if (i < list.size - 1) {
+                assertEquals(list.getNode(i + 1,false).previous,list.getNode(i,false));
+}
+}
+}
+",AbstractLinkedListTest::checkNodes_2_oe
+coll_left_970_1,"@Override
+    @SuppressWarnings(""unchecked"")
+    public void verify_1_oe() {
+        super.verify();
+
+        if (extraVerify) {
+            final int size = getCollection().size();
+            getCollection().add((E) new Long(1000));
+            assertEquals(size + 1, getCollection().size());
+    }
+    }
+",SetUniqueListTest::verify_1_oe
+coll_left_970_2,"@Override
+    @SuppressWarnings(""unchecked"")
+    public void verify_2_oe() {
+        super.verify();
+
+        if (extraVerify) {
+            final int size = getCollection().size();
+            getCollection().add((E) new Long(1000));
+            // removed other assertion
+
+            getCollection().add((E) new Long(1000));
+            assertEquals(size + 1, getCollection().size());
+    }
+    }
+",SetUniqueListTest::verify_2_oe
+coll_left_970_3,"@Override
+    @SuppressWarnings(""unchecked"")
+    public void verify_3_oe() {
+        super.verify();
+
+        if (extraVerify) {
+            final int size = getCollection().size();
+            getCollection().add((E) new Long(1000));
+            // removed other assertion
+
+            getCollection().add((E) new Long(1000));
+            // removed other assertion
+            assertEquals(new Long(1000), getCollection().get(size));
+    }
+    }
+",SetUniqueListTest::verify_3_oe
+coll_left_1031_1,"@Override
+    @SuppressWarnings(""unchecked"")
+    public void verify_1_oe() {
+        super.verify();
+
+        final List<E> list1 = getCollection();
+        final List<E> list2 = getConfirmed();
+
+        assertEquals(""List should equal confirmed"", list1, list2);
+    }
+",AbstractListTest::verify_1_oe
+coll_left_1031_2,"@Override
+    @SuppressWarnings(""unchecked"")
+    public void verify_2_oe() {
+        super.verify();
+
+        final List<E> list1 = getCollection();
+        final List<E> list2 = getConfirmed();
+
+        // removed other assertion
+        assertEquals(""Confirmed should equal list"", list2, list1);
+    }
+",AbstractListTest::verify_2_oe
+coll_left_1031_3,"@Override
+    @SuppressWarnings(""unchecked"")
+    public void verify_3_oe() {
+        super.verify();
+
+        final List<E> list1 = getCollection();
+        final List<E> list2 = getConfirmed();
+
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(""Hash codes should be equal"", list1.hashCode(), list2.hashCode());
+    }
+",AbstractListTest::verify_3_oe
+coll_left_1031_4,"@Override
+    @SuppressWarnings(""unchecked"")
+    public void verify_4_oe() {
+        super.verify();
+
+        final List<E> list1 = getCollection();
+        final List<E> list2 = getConfirmed();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        int i = 0;
+        final Iterator<E> iterator1 = list1.iterator();
+        final Iterator<E> iterator2 = list2.iterator();
+        final E[] array = (E[]) list1.toArray();
+        while (iterator2.hasNext()) {
+            assertTrue(""List iterator should have next"", iterator1.hasNext());
+    }
+    }
+",AbstractListTest::verify_4_oe
+coll_left_1031_5,"@Override
+    @SuppressWarnings(""unchecked"")
+    public void verify_5_oe() {
+        super.verify();
+
+        final List<E> list1 = getCollection();
+        final List<E> list2 = getConfirmed();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        int i = 0;
+        final Iterator<E> iterator1 = list1.iterator();
+        final Iterator<E> iterator2 = list2.iterator();
+        final E[] array = (E[]) list1.toArray();
+        while (iterator2.hasNext()) {
+            // removed other assertion
+            final Object o1 = iterator1.next();
+            Object o2 = iterator2.next();
+            assertEquals(""Iterator elements should be equal"", o1, o2);
+    }
+    }
+",AbstractListTest::verify_5_oe
+coll_left_1031_6,"@Override
+    @SuppressWarnings(""unchecked"")
+    public void verify_6_oe() {
+        super.verify();
+
+        final List<E> list1 = getCollection();
+        final List<E> list2 = getConfirmed();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        int i = 0;
+        final Iterator<E> iterator1 = list1.iterator();
+        final Iterator<E> iterator2 = list2.iterator();
+        final E[] array = (E[]) list1.toArray();
+        while (iterator2.hasNext()) {
+            // removed other assertion
+            final Object o1 = iterator1.next();
+            Object o2 = iterator2.next();
+            // removed other assertion
+            o2 = list1.get(i);
+            assertEquals(""get should return correct element"", o1, o2);
+    }
+    }
+",AbstractListTest::verify_6_oe
+coll_left_1031_7,"@Override
+    @SuppressWarnings(""unchecked"")
+    public void verify_7_oe() {
+        super.verify();
+
+        final List<E> list1 = getCollection();
+        final List<E> list2 = getConfirmed();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        int i = 0;
+        final Iterator<E> iterator1 = list1.iterator();
+        final Iterator<E> iterator2 = list2.iterator();
+        final E[] array = (E[]) list1.toArray();
+        while (iterator2.hasNext()) {
+            // removed other assertion
+            final Object o1 = iterator1.next();
+            Object o2 = iterator2.next();
+            // removed other assertion
+            o2 = list1.get(i);
+            // removed other assertion
+            o2 = array[i];
+            assertEquals(""toArray should have correct element"", o1, o2);
+    }
+    }
+",AbstractListTest::verify_7_oe
+coll_left_1052_1,"private void forwardTest_1_oe(final ListIterator<E> iter, int i) {
+        final List<E> list = getCollection();
+        final int max = getFullElements().length;
+
+        while (i < max) {
+            assertTrue(""Iterator should have next"", iter.hasNext());
+}
+}
+",AbstractListTest::forwardTest_1_oe
+coll_left_1052_2,"private void forwardTest_2_oe(final ListIterator<E> iter, int i) {
+        final List<E> list = getCollection();
+        final int max = getFullElements().length;
+
+        while (i < max) {
+            // removed other assertion
+            assertEquals(""Iterator.nextIndex should work"",i,iter.nextIndex());
+}
+}
+",AbstractListTest::forwardTest_2_oe
+coll_left_1052_3,"private void forwardTest_3_oe(final ListIterator<E> iter, int i) {
+        final List<E> list = getCollection();
+        final int max = getFullElements().length;
+
+        while (i < max) {
+            // removed other assertion
+            // removed other assertion
+            assertEquals(""Iterator.previousIndex should work"",i - 1,iter.previousIndex());
+}
+}
+",AbstractListTest::forwardTest_3_oe
+coll_left_1052_4,"private void forwardTest_4_oe(final ListIterator<E> iter, int i) {
+        final List<E> list = getCollection();
+        final int max = getFullElements().length;
+
+        while (i < max) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            final Object o = iter.next();
+            assertEquals(""Iterator returned correct element"", list.get(i), o);
+}
+}
+",AbstractListTest::forwardTest_4_oe
+coll_left_1052_5,"private void forwardTest_5_oe(final ListIterator<E> iter, int i) {
+        final List<E> list = getCollection();
+        final int max = getFullElements().length;
+
+        while (i < max) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            final Object o = iter.next();
+            // removed other assertion
+            i++;
+        }
+
+        assertTrue(""Iterator shouldn't have next"", !iter.hasNext());
+}
+",AbstractListTest::forwardTest_5_oe
+coll_left_1052_6,"private void forwardTest_6_oe(final ListIterator<E> iter, int i) {
+        final List<E> list = getCollection();
+        final int max = getFullElements().length;
+
+        while (i < max) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            final Object o = iter.next();
+            // removed other assertion
+            i++;
+        }
+
+        // removed other assertion
+        assertEquals(""nextIndex should be size"", max, iter.nextIndex());
+}
+",AbstractListTest::forwardTest_6_oe
+coll_left_1052_7,"private void forwardTest_7_oe(final ListIterator<E> iter, int i) {
+        final List<E> list = getCollection();
+        final int max = getFullElements().length;
+
+        while (i < max) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            final Object o = iter.next();
+            // removed other assertion
+            i++;
+        }
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""previousIndex should be size - 1"", max - 1, iter.previousIndex());
+}
+",AbstractListTest::forwardTest_7_oe
+coll_left_1052_8,"private void forwardTest_8_oe(final ListIterator<E> iter, int i) {
+        final List<E> list = getCollection();
+        final int max = getFullElements().length;
+
+        while (i < max) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            final Object o = iter.next();
+            // removed other assertion
+            i++;
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.next();
+            fail(""Exhausted iterator should raise NoSuchElement"");
+}
+}
+",AbstractListTest::forwardTest_8_oe
+coll_left_1053_1,"private void backwardTest_1_oe(final ListIterator<E> iter, int i) {
+        final List<E> list = getCollection();
+
+        while (i > 0) {
+            assertTrue(""Iterator should have previous,i:"" + i,iter.hasPrevious());
+}
+}
+",AbstractListTest::backwardTest_1_oe
+coll_left_1053_2,"private void backwardTest_2_oe(final ListIterator<E> iter, int i) {
+        final List<E> list = getCollection();
+
+        while (i > 0) {
+            // removed other assertion
+            assertEquals(""Iterator.nextIndex should work,i:"" + i,i,iter.nextIndex());
+}
+}
+",AbstractListTest::backwardTest_2_oe
+coll_left_1053_3,"private void backwardTest_3_oe(final ListIterator<E> iter, int i) {
+        final List<E> list = getCollection();
+
+        while (i > 0) {
+            // removed other assertion
+            // removed other assertion
+            assertEquals(""Iterator.previousIndex should work,i:"" + i,i - 1,iter.previousIndex());
+}
+}
+",AbstractListTest::backwardTest_3_oe
+coll_left_1053_4,"private void backwardTest_4_oe(final ListIterator<E> iter, int i) {
+        final List<E> list = getCollection();
+
+        while (i > 0) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            final E o = iter.previous();
+            assertEquals(""Iterator returned correct element"",list.get(i - 1),o);
+}
+}
+",AbstractListTest::backwardTest_4_oe
+coll_left_1053_5,"private void backwardTest_5_oe(final ListIterator<E> iter, int i) {
+        final List<E> list = getCollection();
+
+        while (i > 0) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            final E o = iter.previous();
+            // removed other assertion
+            i--;
+        }
+
+        assertTrue(""Iterator shouldn't have previous"", !iter.hasPrevious());
+}
+",AbstractListTest::backwardTest_5_oe
+coll_left_1053_6,"private void backwardTest_6_oe(final ListIterator<E> iter, int i) {
+        final List<E> list = getCollection();
+
+        while (i > 0) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            final E o = iter.previous();
+            // removed other assertion
+            i--;
+        }
+
+        // removed other assertion
+        final int nextIndex = iter.nextIndex();
+        assertEquals(""nextIndex should be 0"", 0, nextIndex);
+}
+",AbstractListTest::backwardTest_6_oe
+coll_left_1053_7,"private void backwardTest_7_oe(final ListIterator<E> iter, int i) {
+        final List<E> list = getCollection();
+
+        while (i > 0) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            final E o = iter.previous();
+            // removed other assertion
+            i--;
+        }
+
+        // removed other assertion
+        final int nextIndex = iter.nextIndex();
+        // removed other assertion
+        final int prevIndex = iter.previousIndex();
+        assertEquals(""previousIndex should be -1"", -1, prevIndex);
+}
+",AbstractListTest::backwardTest_7_oe
+coll_left_1053_8,"private void backwardTest_8_oe(final ListIterator<E> iter, int i) {
+        final List<E> list = getCollection();
+
+        while (i > 0) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            final E o = iter.previous();
+            // removed other assertion
+            i--;
+        }
+
+        // removed other assertion
+        final int nextIndex = iter.nextIndex();
+        // removed other assertion
+        final int prevIndex = iter.previousIndex();
+        // removed other assertion
+
+        try {
+            iter.previous();
+            fail(""Exhausted iterator should raise NoSuchElement"");
+}
+}
+",AbstractListTest::backwardTest_8_oe
+coll_left_1058_1,"protected void failFastMethod_1_oe(final List<E> list, final Method m) {
+       if (m.getName().equals(""equals"")) {
+        return;
+    }
+
+       final E element = getOtherElements()[0];
+       final Collection<E> c = Collections.singleton(element);
+
+       final Class<?>[] types = m.getParameterTypes();
+       final Object[] params = new Object[types.length];
+       for (int i = 0; i < params.length; i++) {
+           if (types[i] == Integer.TYPE) {
+            params[i] = Integer.valueOf(0);
+        } else if (types[i] == Collection.class) {
+            params[i] = c;
+        } else if (types[i] == Object.class) {
+            params[i] = element;
+        } else if (types[i] == Object[].class) {
+            params[i] = new Object[0];
+        }
+       }
+
+       try {
+           m.invoke(list, params);
+           fail(m.getName() + "" should raise ConcurrentModification"");
+}
+}
+",AbstractListTest::failFastMethod_1_oe
+coll_left_1058_2,"protected void failFastMethod_2_oe(final List<E> list, final Method m) {
+       if (m.getName().equals(""equals"")) {
+        return;
+    }
+
+       final E element = getOtherElements()[0];
+       final Collection<E> c = Collections.singleton(element);
+
+       final Class<?>[] types = m.getParameterTypes();
+       final Object[] params = new Object[types.length];
+       for (int i = 0; i < params.length; i++) {
+           if (types[i] == Integer.TYPE) {
+            params[i] = Integer.valueOf(0);
+        } else if (types[i] == Collection.class) {
+            params[i] = c;
+        } else if (types[i] == Object.class) {
+            params[i] = element;
+        } else if (types[i] == Object[].class) {
+            params[i] = new Object[0];
+        }
+       }
+
+       try {
+           m.invoke(list, params);
+           // removed other assertion
+       } catch (final IllegalAccessException e) {
+           // impossible
+       } catch (final InvocationTargetException e) {
+           final Throwable t = e.getTargetException();
+           if (t instanceof ConcurrentModificationException) {
+               // expected
+               return;
+           }
+        fail(m.getName() + "" raised unexpected "" + e);
+}
+}
+",AbstractListTest::failFastMethod_2_oe
+coll_left_1060_1,"@SuppressWarnings(""unchecked"")
+    protected void verifyUnmodifiable_1_oe(final List<E> list) {
+        try {
+            list.add(0, (E) Integer.valueOf(0));
+            fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableListTest::verifyUnmodifiable_1_oe
+coll_left_1060_2,"@SuppressWarnings(""unchecked"")
+    protected void verifyUnmodifiable_2_oe(final List<E> list) {
+        try {
+            list.add(0, (E) Integer.valueOf(0));
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.add((E) Integer.valueOf(0));
+             fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableListTest::verifyUnmodifiable_2_oe
+coll_left_1060_3,"@SuppressWarnings(""unchecked"")
+    protected void verifyUnmodifiable_3_oe(final List<E> list) {
+        try {
+            list.add(0, (E) Integer.valueOf(0));
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.add((E) Integer.valueOf(0));
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.addAll(0, array);
+             fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableListTest::verifyUnmodifiable_3_oe
+coll_left_1060_4,"@SuppressWarnings(""unchecked"")
+    protected void verifyUnmodifiable_4_oe(final List<E> list) {
+        try {
+            list.add(0, (E) Integer.valueOf(0));
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.add((E) Integer.valueOf(0));
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.addAll(0, array);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.addAll(array);
+             fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableListTest::verifyUnmodifiable_4_oe
+coll_left_1060_5,"@SuppressWarnings(""unchecked"")
+    protected void verifyUnmodifiable_5_oe(final List<E> list) {
+        try {
+            list.add(0, (E) Integer.valueOf(0));
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.add((E) Integer.valueOf(0));
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.addAll(0, array);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.addAll(array);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.clear();
+             fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableListTest::verifyUnmodifiable_5_oe
+coll_left_1060_6,"@SuppressWarnings(""unchecked"")
+    protected void verifyUnmodifiable_6_oe(final List<E> list) {
+        try {
+            list.add(0, (E) Integer.valueOf(0));
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.add((E) Integer.valueOf(0));
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.addAll(0, array);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.addAll(array);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.clear();
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.remove(0);
+             fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableListTest::verifyUnmodifiable_6_oe
+coll_left_1060_7,"@SuppressWarnings(""unchecked"")
+    protected void verifyUnmodifiable_7_oe(final List<E> list) {
+        try {
+            list.add(0, (E) Integer.valueOf(0));
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.add((E) Integer.valueOf(0));
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.addAll(0, array);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.addAll(array);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.clear();
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.remove(0);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.remove(Integer.valueOf(0));
+             fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableListTest::verifyUnmodifiable_7_oe
+coll_left_1060_8,"@SuppressWarnings(""unchecked"")
+    protected void verifyUnmodifiable_8_oe(final List<E> list) {
+        try {
+            list.add(0, (E) Integer.valueOf(0));
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.add((E) Integer.valueOf(0));
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.addAll(0, array);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.addAll(array);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.clear();
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.remove(0);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.remove(Integer.valueOf(0));
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.removeAll(array);
+             fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableListTest::verifyUnmodifiable_8_oe
+coll_left_1060_9,"@SuppressWarnings(""unchecked"")
+    protected void verifyUnmodifiable_9_oe(final List<E> list) {
+        try {
+            list.add(0, (E) Integer.valueOf(0));
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.add((E) Integer.valueOf(0));
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.addAll(0, array);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.addAll(array);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.clear();
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.remove(0);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.remove(Integer.valueOf(0));
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.removeAll(array);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.retainAll(array);
+             fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableListTest::verifyUnmodifiable_9_oe
+coll_left_1060_10,"@SuppressWarnings(""unchecked"")
+    protected void verifyUnmodifiable_10_oe(final List<E> list) {
+        try {
+            list.add(0, (E) Integer.valueOf(0));
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.add((E) Integer.valueOf(0));
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.addAll(0, array);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.addAll(array);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.clear();
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.remove(0);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.remove(Integer.valueOf(0));
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.removeAll(array);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.retainAll(array);
+             // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            list.set(0, (E) Integer.valueOf(0));
+             fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableListTest::verifyUnmodifiable_10_oe
+coll_left_1078_1,"@Override
+    public void verify_1_oe() {
+        super.verify();
+
+        assertEquals(""Sets should be equal"", getConfirmed(), getCollection());
+    }
+",AbstractSetTest::verify_1_oe
+coll_left_1078_2,"@Override
+    public void verify_2_oe() {
+        super.verify();
+
+        // removed other assertion
+        assertEquals(""Sets should have equal hashCodes"",getConfirmed().hashCode(),getCollection().hashCode());
+    }
+",AbstractSetTest::verify_2_oe
+coll_left_1078_3,"@Override
+    public void verify_3_oe() {
+        super.verify();
+
+        // removed other assertion
+        // removed other assertion
+        final Collection<E> set = makeConfirmedCollection();
+        for (final E element : getCollection()) {
+            assertTrue(""Set.iterator should only return unique elements"", set.add(element));
+    }
+    }
+",AbstractSetTest::verify_3_oe
+coll_left_1081_1,"@Override
+    public void verify_1_oe() {
+        super.verify();
+
+        // Check that descending iterator returns elements in order and higher(), lower(),
+        // floor() and ceiling() are consistent
+        final Iterator<E> colliter = getCollection().descendingIterator();
+        final Iterator<E> confiter = getConfirmed().descendingIterator();
+        while (colliter.hasNext()) {
+            final E element = colliter.next();
+            final E confelement = confiter.next();
+            assertEquals(""Element appears to be out of order."", confelement, element);
+    }
+    }
+",AbstractNavigableSetTest::verify_1_oe
+coll_left_1081_2,"@Override
+    public void verify_2_oe() {
+        super.verify();
+
+        // Check that descending iterator returns elements in order and higher(), lower(),
+        // floor() and ceiling() are consistent
+        final Iterator<E> colliter = getCollection().descendingIterator();
+        final Iterator<E> confiter = getConfirmed().descendingIterator();
+        while (colliter.hasNext()) {
+            final E element = colliter.next();
+            final E confelement = confiter.next();
+            // removed other assertion
+
+            assertEquals(""Incorrect element returned by higher()."",getConfirmed().higher(element),getCollection().higher(element));
+    }
+    }
+",AbstractNavigableSetTest::verify_2_oe
+coll_left_1081_3,"@Override
+    public void verify_3_oe() {
+        super.verify();
+
+        // Check that descending iterator returns elements in order and higher(), lower(),
+        // floor() and ceiling() are consistent
+        final Iterator<E> colliter = getCollection().descendingIterator();
+        final Iterator<E> confiter = getConfirmed().descendingIterator();
+        while (colliter.hasNext()) {
+            final E element = colliter.next();
+            final E confelement = confiter.next();
+            // removed other assertion
+
+            // removed other assertion
+
+            assertEquals(""Incorrect element returned by lower()."",getConfirmed().lower(element),getCollection().lower(element));
+    }
+    }
+",AbstractNavigableSetTest::verify_3_oe
+coll_left_1081_4,"@Override
+    public void verify_4_oe() {
+        super.verify();
+
+        // Check that descending iterator returns elements in order and higher(), lower(),
+        // floor() and ceiling() are consistent
+        final Iterator<E> colliter = getCollection().descendingIterator();
+        final Iterator<E> confiter = getConfirmed().descendingIterator();
+        while (colliter.hasNext()) {
+            final E element = colliter.next();
+            final E confelement = confiter.next();
+            // removed other assertion
+
+            // removed other assertion
+
+            // removed other assertion
+
+            assertEquals(""Incorrect element returned by floor()."",getConfirmed().floor(element),getCollection().floor(element));
+    }
+    }
+",AbstractNavigableSetTest::verify_4_oe
+coll_left_1081_5,"@Override
+    public void verify_5_oe() {
+        super.verify();
+
+        // Check that descending iterator returns elements in order and higher(), lower(),
+        // floor() and ceiling() are consistent
+        final Iterator<E> colliter = getCollection().descendingIterator();
+        final Iterator<E> confiter = getConfirmed().descendingIterator();
+        while (colliter.hasNext()) {
+            final E element = colliter.next();
+            final E confelement = confiter.next();
+            // removed other assertion
+
+            // removed other assertion
+
+            // removed other assertion
+
+            // removed other assertion
+
+            assertEquals(""Incorrect element returned by ceiling()."",getConfirmed().ceiling(element),getCollection().ceiling(element));
+    }
+    }
+",AbstractNavigableSetTest::verify_5_oe
+coll_left_1086_1,"@Override
+    public void verify_1_oe() {
+        super.verify();
+
+        // Check that iterator returns elements in order and first() and last()
+        // are consistent
+        final Iterator<E> colliter = getCollection().iterator();
+        final Iterator<E> confiter = getConfirmed().iterator();
+        E first = null;
+        E last = null;
+        while (colliter.hasNext()) {
+            if (first == null) {
+                first = colliter.next();
+                last = first;
+            } else {
+              last = colliter.next();
+            }
+            assertEquals(""Element appears to be out of order."", last, confiter.next());
+    }
+    }
+",AbstractSortedSetTest::verify_1_oe
+coll_left_1086_2,"@Override
+    public void verify_2_oe() {
+        super.verify();
+
+        // Check that iterator returns elements in order and first() and last()
+        // are consistent
+        final Iterator<E> colliter = getCollection().iterator();
+        final Iterator<E> confiter = getConfirmed().iterator();
+        E first = null;
+        E last = null;
+        while (colliter.hasNext()) {
+            if (first == null) {
+                first = colliter.next();
+                last = first;
+            } else {
+              last = colliter.next();
+            }
+            // removed other assertion
+        }
+        if (getCollection().size() > 0) {
+            assertEquals(""Incorrect element returned by first()."",first,getCollection().first());
+    }
+    }
+",AbstractSortedSetTest::verify_2_oe
+coll_left_1086_3,"@Override
+    public void verify_3_oe() {
+        super.verify();
+
+        // Check that iterator returns elements in order and first() and last()
+        // are consistent
+        final Iterator<E> colliter = getCollection().iterator();
+        final Iterator<E> confiter = getConfirmed().iterator();
+        E first = null;
+        E last = null;
+        while (colliter.hasNext()) {
+            if (first == null) {
+                first = colliter.next();
+                last = first;
+            } else {
+              last = colliter.next();
+            }
+            // removed other assertion
+        }
+        if (getCollection().size() > 0) {
+            // removed other assertion
+            assertEquals(""Incorrect element returned by last()."",last,getCollection().last());
+    }
+    }
+",AbstractSortedSetTest::verify_3_oe
+coll_left_1088_1,"@SuppressWarnings(""unchecked"")
+    public void verifyUnmodifiable_1_oe(final Set<E> set) {
+        try {
+            set.add((E) ""value"");
+            fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableNavigableSetTest::verifyUnmodifiable_1_oe
+coll_left_1088_2,"@SuppressWarnings(""unchecked"")
+    public void verifyUnmodifiable_2_oe(final Set<E> set) {
+        try {
+            set.add((E) ""value"");
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.addAll(new TreeSet<E>());
+            fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableNavigableSetTest::verifyUnmodifiable_2_oe
+coll_left_1088_3,"@SuppressWarnings(""unchecked"")
+    public void verifyUnmodifiable_3_oe(final Set<E> set) {
+        try {
+            set.add((E) ""value"");
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.addAll(new TreeSet<E>());
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.clear();
+            fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableNavigableSetTest::verifyUnmodifiable_3_oe
+coll_left_1088_4,"@SuppressWarnings(""unchecked"")
+    public void verifyUnmodifiable_4_oe(final Set<E> set) {
+        try {
+            set.add((E) ""value"");
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.addAll(new TreeSet<E>());
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.clear();
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.remove(""x"");
+            fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableNavigableSetTest::verifyUnmodifiable_4_oe
+coll_left_1088_5,"@SuppressWarnings(""unchecked"")
+    public void verifyUnmodifiable_5_oe(final Set<E> set) {
+        try {
+            set.add((E) ""value"");
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.addAll(new TreeSet<E>());
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.clear();
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.remove(""x"");
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.removeAll(array);
+            fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableNavigableSetTest::verifyUnmodifiable_5_oe
+coll_left_1088_6,"@SuppressWarnings(""unchecked"")
+    public void verifyUnmodifiable_6_oe(final Set<E> set) {
+        try {
+            set.add((E) ""value"");
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.addAll(new TreeSet<E>());
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.clear();
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.remove(""x"");
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.removeAll(array);
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.retainAll(array);
+            fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableNavigableSetTest::verifyUnmodifiable_6_oe
+coll_left_1095_1,"@SuppressWarnings(""unchecked"")
+    public void verifyUnmodifiable_1_oe(final Set<E> set) {
+        try {
+            set.add((E) ""value"");
+            fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableSortedSetTest::verifyUnmodifiable_1_oe
+coll_left_1095_2,"@SuppressWarnings(""unchecked"")
+    public void verifyUnmodifiable_2_oe(final Set<E> set) {
+        try {
+            set.add((E) ""value"");
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.addAll(new TreeSet<E>());
+            fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableSortedSetTest::verifyUnmodifiable_2_oe
+coll_left_1095_3,"@SuppressWarnings(""unchecked"")
+    public void verifyUnmodifiable_3_oe(final Set<E> set) {
+        try {
+            set.add((E) ""value"");
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.addAll(new TreeSet<E>());
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.clear();
+            fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableSortedSetTest::verifyUnmodifiable_3_oe
+coll_left_1095_4,"@SuppressWarnings(""unchecked"")
+    public void verifyUnmodifiable_4_oe(final Set<E> set) {
+        try {
+            set.add((E) ""value"");
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.addAll(new TreeSet<E>());
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.clear();
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.remove(""x"");
+            fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableSortedSetTest::verifyUnmodifiable_4_oe
+coll_left_1095_5,"@SuppressWarnings(""unchecked"")
+    public void verifyUnmodifiable_5_oe(final Set<E> set) {
+        try {
+            set.add((E) ""value"");
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.addAll(new TreeSet<E>());
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.clear();
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.remove(""x"");
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.removeAll(array);
+            fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableSortedSetTest::verifyUnmodifiable_5_oe
+coll_left_1095_6,"@SuppressWarnings(""unchecked"")
+    public void verifyUnmodifiable_6_oe(final Set<E> set) {
+        try {
+            set.add((E) ""value"");
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.addAll(new TreeSet<E>());
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.clear();
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.remove(""x"");
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.removeAll(array);
+            // removed other assertion
+        } catch (final UnsupportedOperationException e) {
+            // expected
+        }
+        try {
+            set.retainAll(array);
+            fail(""Expecting UnsupportedOperationException."");
+    }
+    }
+",UnmodifiableSortedSetTest::verifyUnmodifiable_6_oe
+coll_left_1168_1,"@Override
+                public void run_1_oe() {
+                    int i = 0;
+                    try {
+                        synchronized (this) {
+                            notifyAll();
+                            wait();
+                        }
+                        final Thread thread = Thread.currentThread();
+                        while (i < 1000  && !interrupted()) {
+                            synchronized (map) {
+                                map.put(thread.getName() + ""["" + ++i + ""]"", thread);
+                            }
+                        }
+                        synchronized (map) {
+                            for (final MapIterator<Object, Thread> iter = map.mapIterator(); iter.hasNext();) {
+                                iter.next();
+                                if (iter.getValue() == this) {
+                                    iter.remove();
+                                }
+                            }
+                        }
+                    } catch (final InterruptedException e) {
+                        fail(""Unexpected InterruptedException"");
+                }
+                }
+",LRUMapTest::run_1_oe
+coll_left_1170_1,"@Override
+                public void run_1_oe() {
+                    int i = 0;
+                    try {
+                        synchronized (this) {
+                            notifyAll();
+                            wait();
+                        }
+                        final Thread thread = Thread.currentThread();
+                        while (i < 1000  && !interrupted()) {
+                            synchronized (map) {
+                                map.put(thread.getName() + ""["" + ++i + ""]"", thread);
+                            }
+                        }
+                        synchronized (map) {
+                            for (final Iterator<Map.Entry<Object, Thread>> iter = map.entrySet().iterator(); iter.hasNext();) {
+                                final Map.Entry<Object, Thread> entry = iter.next();
+                                if (entry.getValue() == this) {
+                                    iter.remove();
+                                }
+                            }
+                        }
+                    } catch (final InterruptedException e) {
+                        fail(""Unexpected InterruptedException"");
+                }
+                }
+",LRUMapTest::run_1_oe
+coll_left_1172_1,"@Override
+                public void run_1_oe() {
+                    int i = 0;
+                    try {
+                        synchronized (this) {
+                            notifyAll();
+                            wait();
+                        }
+                        final Thread thread = Thread.currentThread();
+                        while (i < 1000  && !interrupted()) {
+                            synchronized (map) {
+                                map.put(thread.getName() + ""["" + ++i + ""]"", thread);
+                            }
+                        }
+                        synchronized (map) {
+                            for (final Iterator<Object> iter = map.keySet().iterator(); iter.hasNext();) {
+                                final String name = (String) iter.next();
+                                if (name.substring(0, name.indexOf('[')).equals(getName())) {
+                                    iter.remove();
+                                }
+                            }
+                        }
+                    } catch (final InterruptedException e) {
+                        fail(""Unexpected InterruptedException"");
+                }
+                }
+",LRUMapTest::run_1_oe
+coll_left_1174_1,"@Override
+                public void run_1_oe() {
+                    int i = 0;
+                    try {
+                        synchronized (this) {
+                            notifyAll();
+                            wait();
+                        }
+                        final Thread thread = Thread.currentThread();
+                        while (i < 1000  && !interrupted()) {
+                            synchronized (map) {
+                                map.put(thread.getName() + ""["" + ++i + ""]"", thread);
+                            }
+                        }
+                        synchronized (map) {
+                            for (final Iterator<Thread> iter = map.values().iterator(); iter.hasNext();) {
+                                if (iter.next() == this) {
+                                    iter.remove();
+                                }
+                            }
+                        }
+                    } catch (final InterruptedException e) {
+                        fail(""Unexpected InterruptedException"");
+                }
+                }
+",LRUMapTest::run_1_oe
+coll_left_1219_1,"public void addSampleMappings_1_oe(final Map<? super K, ? super V> m) {
+
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+
+        for (int i = 0; i < keys.length; i++) {
+            try {
+                m.put(keys[i], values[i]);
+            } catch (final NullPointerException exception) {
+                assertTrue(""NullPointerException only allowed to be thrown "" + ""if either the key or value is null."",keys[i] == null || values[i] == null);
+}
+}
+}
+",AbstractMapTest::addSampleMappings_1_oe
+coll_left_1219_2,"public void addSampleMappings_2_oe(final Map<? super K, ? super V> m) {
+
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+
+        for (int i = 0; i < keys.length; i++) {
+            try {
+                m.put(keys[i], values[i]);
+            } catch (final NullPointerException exception) {
+                // removed other assertion
+
+                assertTrue(""NullPointerException on null key,but "" + ""isAllowNullKey is not overridden to return false."",keys[i] == null || !isAllowNullKey());
+}
+}
+}
+",AbstractMapTest::addSampleMappings_2_oe
+coll_left_1219_3,"public void addSampleMappings_3_oe(final Map<? super K, ? super V> m) {
+
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+
+        for (int i = 0; i < keys.length; i++) {
+            try {
+                m.put(keys[i], values[i]);
+            } catch (final NullPointerException exception) {
+                // removed other assertion
+
+                // removed other assertion
+
+                assertTrue(""NullPointerException on null value,but "" + ""isAllowNullValue is not overridden to return false."",values[i] == null || !isAllowNullValue());
+}
+}
+}
+",AbstractMapTest::addSampleMappings_3_oe
+coll_left_1219_4,"public void addSampleMappings_4_oe(final Map<? super K, ? super V> m) {
+
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+
+        for (int i = 0; i < keys.length; i++) {
+            try {
+                m.put(keys[i], values[i]);
+            } catch (final NullPointerException exception) {
+                // removed other assertion
+
+                // removed other assertion
+
+                // removed other assertion
+
+                assertTrue(""Unknown reason for NullPointer."", false);
+}
+}
+}
+",AbstractMapTest::addSampleMappings_4_oe
+coll_left_1219_5,"public void addSampleMappings_5_oe(final Map<? super K, ? super V> m) {
+
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+
+        for (int i = 0; i < keys.length; i++) {
+            try {
+                m.put(keys[i], values[i]);
+            } catch (final NullPointerException exception) {
+                // removed other assertion
+
+                // removed other assertion
+
+                // removed other assertion
+
+                // removed other assertion
+            }
+        }
+        assertEquals(""size must reflect number of mappings added."",keys.length,m.size());
+}
+",AbstractMapTest::addSampleMappings_5_oe
+coll_left_1261_1,"public Map.Entry<K, V> getEntry_1_oe(final Iterator<Map.Entry<K, V>> itConfirmed, final K key) {
+            Map.Entry<K, V> entry = null;
+            while (itConfirmed.hasNext()) {
+                final Map.Entry<K, V> temp = itConfirmed.next();
+                if (temp.getKey() == null) {
+                    if (key == null) {
+                        entry = temp;
+                        break;
+                    }
+                } else if (temp.getKey().equals(key)) {
+                    entry = temp;
+                    break;
+                }
+            }
+            assertNotNull(""No matching entry in map for key '"" + key + ""'"", entry);
+}
+",TestMapEntrySet::getEntry_1_oe
+coll_left_1263_1,"public void verifyMap_1_oe() {
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        assertEquals(""Map should be same size as HashMap"", size, getMap().size());
+}
+",AbstractMapTest::verifyMap_1_oe
+coll_left_1263_2,"public void verifyMap_2_oe() {
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        assertEquals(""Map should be empty if HashMap is"", empty, getMap().isEmpty());
+}
+",AbstractMapTest::verifyMap_2_oe
+coll_left_1263_3,"public void verifyMap_3_oe() {
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""hashCodes should be the same"", getConfirmed().hashCode(), getMap().hashCode());
+}
+",AbstractMapTest::verifyMap_3_oe
+coll_left_1263_4,"public void verifyMap_4_oe() {
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // changing the order of the assertion below fails for LRUMap because confirmed is
+        // another collection (e.g. treemap) and confirmed.equals() creates a normal iterator (not
+        // #mapIterator()), which modifies the parent expected modCount of the map object, causing
+        // concurrent modification exceptions.
+        // Because of this we have assertEquals(map, confirmed), and not the other way around.
+        assertEquals(""Map should still equal HashMap"", map, confirmed);
+}
+",AbstractMapTest::verifyMap_4_oe
+coll_left_1263_5,"public void verifyMap_5_oe() {
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // changing the order of the assertion below fails for LRUMap because confirmed is
+        // another collection (e.g. treemap) and confirmed.equals() creates a normal iterator (not
+        // #mapIterator()), which modifies the parent expected modCount of the map object, causing
+        // concurrent modification exceptions.
+        // Because of this we have assertEquals(map, confirmed), and not the other way around.
+        // removed other assertion
+        assertTrue(""Map should still equal HashMap"", getMap().equals(getConfirmed()));
+}
+",AbstractMapTest::verifyMap_5_oe
+coll_left_1264_1,"public void verifyEntrySet_1_oe() {
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        assertEquals(""entrySet should be same size as HashMap's"" + ""\nTest: "" + entrySet + ""\nReal: "" + getConfirmed().entrySet(),size,entrySet.size());
+}
+",AbstractMapTest::verifyEntrySet_1_oe
+coll_left_1264_2,"public void verifyEntrySet_2_oe() {
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        assertEquals(""entrySet should be empty if HashMap is"" + ""\nTest: "" + entrySet + ""\nReal: "" + getConfirmed().entrySet(),empty,entrySet.isEmpty());
+}
+",AbstractMapTest::verifyEntrySet_2_oe
+coll_left_1264_3,"public void verifyEntrySet_3_oe() {
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        // removed other assertion
+        assertTrue(""entrySet should contain all HashMap's elements"" + ""\nTest: "" + entrySet + ""\nReal: "" + getConfirmed().entrySet(),entrySet.containsAll(getConfirmed().entrySet()));
+}
+",AbstractMapTest::verifyEntrySet_3_oe
+coll_left_1264_4,"public void verifyEntrySet_4_oe() {
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""entrySet hashCodes should be the same"" + ""\nTest: "" + entrySet + ""\nReal: "" + getConfirmed().entrySet(),getConfirmed().entrySet().hashCode(),entrySet.hashCode());
+}
+",AbstractMapTest::verifyEntrySet_4_oe
+coll_left_1264_5,"public void verifyEntrySet_5_oe() {
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Map's entry set should still equal HashMap's"",getConfirmed().entrySet(),entrySet);
+}
+",AbstractMapTest::verifyEntrySet_5_oe
+coll_left_1265_1,"public void verifyKeySet_1_oe() {
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        assertEquals(""keySet should be same size as HashMap's"" + ""\nTest: "" + keySet + ""\nReal: "" + getConfirmed().keySet(),size,keySet.size());
+}
+",AbstractMapTest::verifyKeySet_1_oe
+coll_left_1265_2,"public void verifyKeySet_2_oe() {
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        assertEquals(""keySet should be empty if HashMap is"" + ""\nTest: "" + keySet + ""\nReal: "" + getConfirmed().keySet(),empty,keySet.isEmpty());
+}
+",AbstractMapTest::verifyKeySet_2_oe
+coll_left_1265_3,"public void verifyKeySet_3_oe() {
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        // removed other assertion
+        assertTrue(""keySet should contain all HashMap's elements"" + ""\nTest: "" + keySet + ""\nReal: "" + getConfirmed().keySet(),keySet.containsAll(getConfirmed().keySet()));
+}
+",AbstractMapTest::verifyKeySet_3_oe
+coll_left_1265_4,"public void verifyKeySet_4_oe() {
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""keySet hashCodes should be the same"" + ""\nTest: "" + keySet + ""\nReal: "" + getConfirmed().keySet(),getConfirmed().keySet().hashCode(),keySet.hashCode());
+}
+",AbstractMapTest::verifyKeySet_4_oe
+coll_left_1265_5,"public void verifyKeySet_5_oe() {
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Map's key set should still equal HashMap's"",getConfirmed().keySet(),keySet);
+}
+",AbstractMapTest::verifyKeySet_5_oe
+coll_left_1266_1,"public void verifyValues_1_oe() {
+        final List<V> known = new ArrayList<>(getConfirmed().values());
+
+        values = getMap().values();
+
+        final List<V> test = new ArrayList<>(values);
+
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        assertEquals(""values should be same size as HashMap's"" + ""\nTest: "" + test + ""\nReal: "" + known,size,values.size());
+}
+",AbstractMapTest::verifyValues_1_oe
+coll_left_1266_2,"public void verifyValues_2_oe() {
+        final List<V> known = new ArrayList<>(getConfirmed().values());
+
+        values = getMap().values();
+
+        final List<V> test = new ArrayList<>(values);
+
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        assertEquals(""values should be empty if HashMap is"" + ""\nTest: "" + test + ""\nReal: "" + known,empty,values.isEmpty());
+}
+",AbstractMapTest::verifyValues_2_oe
+coll_left_1266_3,"public void verifyValues_3_oe() {
+        final List<V> known = new ArrayList<>(getConfirmed().values());
+
+        values = getMap().values();
+
+        final List<V> test = new ArrayList<>(values);
+
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        // removed other assertion
+        assertTrue(""values should contain all HashMap's elements"" + ""\nTest: "" + test + ""\nReal: "" + known,test.containsAll(known));
+}
+",AbstractMapTest::verifyValues_3_oe
+coll_left_1266_4,"public void verifyValues_4_oe() {
+        final List<V> known = new ArrayList<>(getConfirmed().values());
+
+        values = getMap().values();
+
+        final List<V> test = new ArrayList<>(values);
+
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(""values should contain all HashMap's elements"" + ""\nTest: "" + test + ""\nReal: "" + known,known.containsAll(test));
+}
+",AbstractMapTest::verifyValues_4_oe
+coll_left_1266_5,"public void verifyValues_5_oe() {
+        final List<V> known = new ArrayList<>(getConfirmed().values());
+
+        values = getMap().values();
+
+        final List<V> test = new ArrayList<>(values);
+
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // originally coded to use a HashBag, but now separate jar so...
+        for (final V v : known) {
+            final boolean removed = test.remove(v);
+            assertTrue(""Map's values should still equal HashMap's"", removed);
+}
+}
+",AbstractMapTest::verifyValues_5_oe
+coll_left_1266_6,"public void verifyValues_6_oe() {
+        final List<V> known = new ArrayList<>(getConfirmed().values());
+
+        values = getMap().values();
+
+        final List<V> test = new ArrayList<>(values);
+
+        final int size = getConfirmed().size();
+        final boolean empty = getConfirmed().isEmpty();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // originally coded to use a HashBag, but now separate jar so...
+        for (final V v : known) {
+            final boolean removed = test.remove(v);
+            // removed other assertion
+        }
+        assertTrue(""Map's values should still equal HashMap's"", test.isEmpty());
+}
+",AbstractMapTest::verifyValues_6_oe
+coll_left_1287_1,"@SuppressWarnings(""unchecked"")
+    public Map<K, V> buildRefMap_1_oe() {
+        final K key = (K) new Object();
+        final V value = (V) new Object();
+
+        keyReference = new WeakReference<>(key);
+        valueReference = new WeakReference<>(value);
+
+        final Map<K, V> testMap = new ReferenceMap<>(ReferenceStrength.WEAK, ReferenceStrength.HARD, true);
+        testMap.put(key, value);
+
+        assertEquals(""In map"", value, testMap.get(key));
+    }
+",ReferenceMapTest::buildRefMap_1_oe
+coll_left_1287_2,"@SuppressWarnings(""unchecked"")
+    public Map<K, V> buildRefMap_2_oe() {
+        final K key = (K) new Object();
+        final V value = (V) new Object();
+
+        keyReference = new WeakReference<>(key);
+        valueReference = new WeakReference<>(value);
+
+        final Map<K, V> testMap = new ReferenceMap<>(ReferenceStrength.WEAK, ReferenceStrength.HARD, true);
+        testMap.put(key, value);
+
+        // removed other assertion
+        assertNotNull(""Weak reference released early (1)"", keyReference.get());
+    }
+",ReferenceMapTest::buildRefMap_2_oe
+coll_left_1287_3,"@SuppressWarnings(""unchecked"")
+    public Map<K, V> buildRefMap_3_oe() {
+        final K key = (K) new Object();
+        final V value = (V) new Object();
+
+        keyReference = new WeakReference<>(key);
+        valueReference = new WeakReference<>(value);
+
+        final Map<K, V> testMap = new ReferenceMap<>(ReferenceStrength.WEAK, ReferenceStrength.HARD, true);
+        testMap.put(key, value);
+
+        // removed other assertion
+        // removed other assertion
+        assertNotNull(""Weak reference released early (2)"", valueReference.get());
+    }
+",ReferenceMapTest::buildRefMap_3_oe
+coll_left_1291_1,"@SuppressWarnings(""unused"")
+    private static void gc_1_oe() {
+        try {
+            // trigger GC
+            final byte[][] tooLarge = new byte[1000000000][1000000000];
+            fail(""you have too much RAM"");
+    }
+    }
+",ReferenceMapTest::gc_1_oe
+coll_left_1339_1,"@SuppressWarnings(""unchecked"")
+    private Map<K, V> buildRefMap_1_oe() {
+        final K key = (K) new Object();
+        final V value = (V) new Object();
+
+        keyReference = new WeakReference<>(key);
+        valueReference = new WeakReference<>(value);
+
+        final Map<K, V> testMap = new ReferenceIdentityMap<>(ReferenceStrength.WEAK, ReferenceStrength.HARD, true);
+        testMap.put(key, value);
+
+        assertEquals(""In map"", value, testMap.get(key));
+    }
+",ReferenceIdentityMapTest::buildRefMap_1_oe
+coll_left_1339_2,"@SuppressWarnings(""unchecked"")
+    private Map<K, V> buildRefMap_2_oe() {
+        final K key = (K) new Object();
+        final V value = (V) new Object();
+
+        keyReference = new WeakReference<>(key);
+        valueReference = new WeakReference<>(value);
+
+        final Map<K, V> testMap = new ReferenceIdentityMap<>(ReferenceStrength.WEAK, ReferenceStrength.HARD, true);
+        testMap.put(key, value);
+
+        // removed other assertion
+        assertNotNull(""Weak reference released early (1)"", keyReference.get());
+    }
+",ReferenceIdentityMapTest::buildRefMap_2_oe
+coll_left_1339_3,"@SuppressWarnings(""unchecked"")
+    private Map<K, V> buildRefMap_3_oe() {
+        final K key = (K) new Object();
+        final V value = (V) new Object();
+
+        keyReference = new WeakReference<>(key);
+        valueReference = new WeakReference<>(value);
+
+        final Map<K, V> testMap = new ReferenceIdentityMap<>(ReferenceStrength.WEAK, ReferenceStrength.HARD, true);
+        testMap.put(key, value);
+
+        // removed other assertion
+        // removed other assertion
+        assertNotNull(""Weak reference released early (2)"", valueReference.get());
+    }
+",ReferenceIdentityMapTest::buildRefMap_3_oe
+coll_left_1341_1,"@SuppressWarnings(""unused"")
+    private static void gc_1_oe() {
+        try {
+            // trigger GC
+            final byte[][] tooLarge = new byte[1000000000][1000000000];
+            fail(""you have too much RAM"");
+    }
+    }
+",ReferenceIdentityMapTest::gc_1_oe
+coll_left_1354_1,"private void validateExpiration_1_oe(final Map<String, String> map, final long timeout) {
+        map.put(""a"", ""b"");
+
+        assertNotNull(map.get(""a""));
+}
+",PassiveExpiringMapTest::validateExpiration_1_oe
+coll_left_1354_2,"private void validateExpiration_2_oe(final Map<String, String> map, final long timeout) {
+        map.put(""a"", ""b"");
+
+        // removed other assertion
+
+        try {
+            Thread.sleep(2 * timeout);
+        } catch (final InterruptedException e) {
+            fail();
+}
+}
+",PassiveExpiringMapTest::validateExpiration_2_oe
+coll_left_1354_3,"private void validateExpiration_3_oe(final Map<String, String> map, final long timeout) {
+        map.put(""a"", ""b"");
+
+        // removed other assertion
+
+        try {
+            Thread.sleep(2 * timeout);
+        } catch (final InterruptedException e) {
+            // removed other assertion
+        }
+
+        assertNull(map.get(""a""));
+}
+",PassiveExpiringMapTest::validateExpiration_3_oe

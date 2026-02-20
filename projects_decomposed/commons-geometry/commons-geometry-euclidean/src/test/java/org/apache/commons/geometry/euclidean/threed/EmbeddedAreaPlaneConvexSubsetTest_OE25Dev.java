@@ -58,33 +58,6 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), ps.toSubspace(Vector3D.of(-5, 1, 2)), TEST_EPS);
         EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, -2, 4), ps.toSpace(Vector2D.of(-2, 4)), TEST_EPS);
     }
-    @Test
-    void testToTriangles_infinite() {
-        // arrange
-        final Pattern pattern = Pattern.compile("^Cannot convert infinite plane subset to triangles: .*");
-
-        // act/assert
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1, ConvexArea.full()).toTriangles();
-        }, IllegalStateException.class, pattern);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            final ConvexArea area = ConvexArea.fromBounds(Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION));
-            final EmbeddedAreaPlaneConvexSubset halfSpace = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1, area);
-
-            halfSpace.toTriangles();
-        }, IllegalStateException.class, pattern);
-
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            final ConvexArea area = ConvexArea.fromBounds(
-                    Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION),
-                    Lines.fromPointAndAngle(Vector2D.ZERO, 0.5 * Math.PI, TEST_PRECISION));
-
-            final EmbeddedAreaPlaneConvexSubset halfSpaceWithVertices = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1, area);
-
-            halfSpaceWithVertices.toTriangles();
-        }, IllegalStateException.class, pattern);
-    }
 
     @Test
     void testClassify() {
@@ -1086,6 +1059,39 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         Assertions.assertTrue(minus instanceof SimpleTriangle3D);
+    }
+
+@Test
+    void testToTriangles_infinite_1_oe() {
+        // arrange
+        final Pattern pattern = Pattern.compile("^Cannot convert infinite plane subset to triangles: .*");
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> { new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1, ConvexArea.full()).toTriangles(); }, IllegalStateException.class, pattern);
+    }
+
+@Test
+    void testToTriangles_infinite_2_oe() {
+        // arrange
+        final Pattern pattern = Pattern.compile("^Cannot convert infinite plane subset to triangles: .*");
+
+        // act/assert
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { final ConvexArea area = ConvexArea.fromBounds(Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)); final EmbeddedAreaPlaneConvexSubset halfSpace = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1, area); halfSpace.toTriangles(); }, IllegalStateException.class, pattern);
+    }
+
+@Test
+    void testToTriangles_infinite_3_oe() {
+        // arrange
+        final Pattern pattern = Pattern.compile("^Cannot convert infinite plane subset to triangles: .*");
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> { final ConvexArea area = ConvexArea.fromBounds( Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION), Lines.fromPointAndAngle(Vector2D.ZERO, 0.5 * Math.PI, TEST_PRECISION)); final EmbeddedAreaPlaneConvexSubset halfSpaceWithVertices = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1, area); halfSpaceWithVertices.toTriangles(); }, IllegalStateException.class, pattern);
     }
 
 }
