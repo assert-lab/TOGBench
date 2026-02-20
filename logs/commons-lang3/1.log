@@ -5,7 +5,6 @@
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-lang3 ---
-[INFO] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target
 [INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-lang3 ---
 [INFO] 
@@ -29,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-lang3 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3
-[INFO] Storing buildNumber: 3205504c15924548e27a9939e60e263ddbfc7698 at timestamp: 1771584551583
+[INFO] Storing buildNumber: b79b4df5c8c4781d014094794185e977542df462 at timestamp: 1771587406749
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -66,23 +65,25 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/DiffBuilderTest.java: Recompile with -Xlint:removal for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest.java: Some input files use unchecked or unsafe operations.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-lang3 ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrBuilderTest.java:1841: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrBuilderTest.java:1891: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.6:prepare-agent (prepare-agent) @ commons-lang3 ---
-[INFO] Skipping JaCoCo execution because property jacoco.skip is set.
-[INFO] 
-[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ commons-lang3 ---
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev_lang_left_1457_2.java:[1071,25] cannot find symbol
+  symbol:   variable e
+  location: class org.apache.commons.lang3.FunctionsTest_OE25Dev_lang_left_1457_2
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  41.684 s
-[INFO] Finished at: 2026-02-20T04:49:48-06:00
+[INFO] Total time:  39.114 s
+[INFO] Finished at: 2026-02-20T05:37:21-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M5:test (default-test) on project commons-lang3: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-lang3: Compilation failure
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest_OE25Dev_lang_left_1457_2.java:[1071,25] cannot find symbol
+[ERROR]   symbol:   variable e
+[ERROR]   location: class org.apache.commons.lang3.FunctionsTest_OE25Dev_lang_left_1457_2
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

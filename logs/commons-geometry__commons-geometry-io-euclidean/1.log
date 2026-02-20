@@ -36,7 +36,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-io-euclidean ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean
-[INFO] Storing buildNumber: 3205504c15924548e27a9939e60e263ddbfc7698 at timestamp: 1771584550918
+[INFO] Storing buildNumber: b79b4df5c8c4781d014094794185e977542df462 at timestamp: 1771587407004
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -76,8 +76,8 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.969 s
-[INFO] Finished at: 2026-02-20T04:49:18-06:00
+[INFO] Total time:  12.934 s
+[INFO] Finished at: 2026-02-20T05:36:55-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-io-euclidean: Compilation failure: Compilation failure: 
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/stl/TextStlFacetDefinitionReaderTest_OE25Dev.java:[472,26] not a statement

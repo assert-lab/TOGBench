@@ -1,0 +1,111 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[151,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,java.lang.Object[])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[160,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,long[])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[169,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,int[])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[178,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,short[])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[187,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,byte[])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[196,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,char[])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[205,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,double[])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[214,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,float[])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[223,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,boolean[])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[234,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,float[][])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[244,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,long[][])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[253,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,int[][])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[262,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,short[][])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[271,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,byte[][])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[280,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,char[][])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[289,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,double[][])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[299,9] cannot find symbol
+  symbol:   method assertReflectionArray(java.lang.String,boolean[][])
+  location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-lang3: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[151,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,java.lang.Object[])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[160,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,long[])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[169,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,int[])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[178,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,short[])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[187,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,byte[])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[196,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,char[])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[205,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,double[])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[214,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,float[])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[223,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,boolean[])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[234,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,float[][])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[244,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,long[][])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[253,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,int[][])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[262,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,short[][])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[271,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,byte[][])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[280,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,char[][])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[289,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,double[][])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/ToStringBuilderTest_OE25Dev_lang_left_2099_1.java:[299,9] cannot find symbol
+[ERROR]   symbol:   method assertReflectionArray(java.lang.String,boolean[][])
+[ERROR]   location: class org.apache.commons.lang3.builder.ToStringBuilderTest_OE25Dev_lang_left_2099_1
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

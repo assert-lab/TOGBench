@@ -22,7 +22,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-dbutils ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils
-[INFO] Storing buildNumber: 3205504c15924548e27a9939e60e263ddbfc7698 at timestamp: 1771584584251
+[INFO] Storing buildNumber: b79b4df5c8c4781d014094794185e977542df462 at timestamp: 1771587440227
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -67,63 +67,63 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.dbutils.OutParameterTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.539 s - in org.apache.commons.dbutils.OutParameterTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.453 s - in org.apache.commons.dbutils.OutParameterTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetTest_OE25Dev
-[INFO] Tests run: 286, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.393 s - in org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetTest_OE25Dev
+[INFO] Tests run: 286, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.431 s - in org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.GenerousBeanProcessorTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.144 s - in org.apache.commons.dbutils.GenerousBeanProcessorTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.205 s - in org.apache.commons.dbutils.GenerousBeanProcessorTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.BeanListHandlerTest_OE25Dev
-[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 s - in org.apache.commons.dbutils.handlers.BeanListHandlerTest_OE25Dev
+[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 s - in org.apache.commons.dbutils.handlers.BeanListHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.KeyedHandlerTest_OE25Dev
-[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.dbutils.handlers.KeyedHandlerTest_OE25Dev
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.dbutils.handlers.KeyedHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.MapListHandlerTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.dbutils.handlers.MapListHandlerTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.dbutils.handlers.MapListHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.BeanMapHandlerTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in org.apache.commons.dbutils.handlers.BeanMapHandlerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.apache.commons.dbutils.handlers.BeanMapHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.ArrayListHandlerTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.dbutils.handlers.ArrayListHandlerTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.dbutils.handlers.ArrayListHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.MapHandlerTest_OE25Dev
 [INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.MapHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.properties.PropertyHandlerTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.properties.PropertyHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandlerTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandlerTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.properties.DatePropertyHandlerTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.dbutils.handlers.properties.DatePropertyHandlerTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.dbutils.handlers.properties.DatePropertyHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.ArrayHandlerTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.dbutils.handlers.ArrayHandlerTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.dbutils.handlers.ArrayHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s - in org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.BeanHandlerTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.dbutils.handlers.BeanHandlerTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.apache.commons.dbutils.handlers.BeanHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.ColumnListHandlerTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.dbutils.handlers.ColumnListHandlerTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.ColumnListHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.handlers.ScalarHandlerTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.dbutils.handlers.ScalarHandlerTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.dbutils.handlers.ScalarHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.ProxyFactoryTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.103 s - in org.apache.commons.dbutils.ProxyFactoryTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 s - in org.apache.commons.dbutils.ProxyFactoryTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.ResultSetIteratorTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.dbutils.ResultSetIteratorTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.dbutils.ResultSetIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.DbUtilsTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.dbutils.DbUtilsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.dbutils.DbUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.BaseTestCase_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.BaseTestCase_OE25Dev
 [INFO] Running org.apache.commons.dbutils.BeanProcessorTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.dbutils.BeanProcessorTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.BeanProcessorTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.QueryLoaderTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.QueryLoaderTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.dbutils.QueryLoaderTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.BaseResultSetHandlerTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.dbutils.BaseResultSetHandlerTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.BaseResultSetHandlerTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.StatementConfigurationTest_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.dbutils.StatementConfigurationTest_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.dbutils.StatementConfigurationTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.ServiceLoaderTest_OE25Dev
 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.ServiceLoaderTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.272 s - in org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.355 s - in org.apache.commons.dbutils.BasicRowProcessorTest_OE25Dev
 [INFO] Running org.apache.commons.dbutils.QueryRunnerTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.332 s - in org.apache.commons.dbutils.QueryRunnerTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.359 s - in org.apache.commons.dbutils.QueryRunnerTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -132,6 +132,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  19.450 s
-[INFO] Finished at: 2026-02-20T04:50:00-06:00
+[INFO] Total time:  20.569 s
+[INFO] Finished at: 2026-02-20T05:37:36-06:00
 [INFO] ------------------------------------------------------------------------

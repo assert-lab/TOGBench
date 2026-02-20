@@ -1,0 +1,111 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[62,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[70,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[112,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[113,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[151,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[154,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[162,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[170,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[178,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[179,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[187,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[195,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[203,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[211,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[219,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[220,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[230,9] cannot find symbol
+  symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+  location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-lang3: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[62,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[70,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[112,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[113,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[151,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[154,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[162,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[170,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[178,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[179,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[187,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[195,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[203,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[211,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[219,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[220,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrSubstitutorTest_OE25Dev_lang_left_1953_21.java:[230,9] cannot find symbol
+[ERROR]   symbol:   method doTestReplace(java.lang.String,java.lang.String,boolean)
+[ERROR]   location: class org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev_lang_left_1953_21
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

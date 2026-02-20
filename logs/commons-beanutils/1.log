@@ -27,7 +27,7 @@ main:
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils
 [WARNING] Cannot get the revision information from the scm repository, proceeding with revision of ?????? : 
 Exception while executing SCM command.
-[INFO] Storing buildNumber: ?????? at timestamp: 1771584621389
+[INFO] Storing buildNumber: ?????? at timestamp: 1771587476951
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils' && 'svn' '--non-interactive' 'info'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils
 [WARNING] Cannot get the branch information from the scm repository, proceeding with UNKNOWN_BRANCH : 
@@ -75,165 +75,165 @@ Exception while executing SCM command.
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.beanutils.BeanUtils2TestCase_OE25Dev
-[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.31 s - in org.apache.commons.beanutils.BeanUtils2TestCase_OE25Dev
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.34 s - in org.apache.commons.beanutils.BeanUtils2TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanPropertyValueChangeClosureTestCase_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.beanutils.BeanPropertyValueChangeClosureTestCase_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.beanutils.BeanPropertyValueChangeClosureTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.SuppressPropertiesBeanIntrospectorTestCase_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.SuppressPropertiesBeanIntrospectorTestCase_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.beanutils.SuppressPropertiesBeanIntrospectorTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.FluentPropertyBeanIntrospectorTestCase_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.beanutils.FluentPropertyBeanIntrospectorTestCase_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 s - in org.apache.commons.beanutils.FluentPropertyBeanIntrospectorTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.IndexedPropertyTestCase_OE25Dev
-[WARNING] Tests run: 43, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.119 s - in org.apache.commons.beanutils.IndexedPropertyTestCase_OE25Dev
+[WARNING] Tests run: 43, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.161 s - in org.apache.commons.beanutils.IndexedPropertyTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.LazyDynaClassTestCase_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.beanutils.LazyDynaClassTestCase_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.LazyDynaClassTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
-[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.105 s - in org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.131 s - in org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev
-[INFO] Tests run: 95, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev
+[INFO] Tests run: 95, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in org.apache.commons.beanutils.LazyDynaBeanTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.LazyDynaMapTestCase_OE25Dev
-[INFO] Tests run: 99, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in org.apache.commons.beanutils.LazyDynaMapTestCase_OE25Dev
+[INFO] Tests run: 99, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.beanutils.LazyDynaMapTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.WrapDynaBeanTestCase_OE25Dev
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 s - in org.apache.commons.beanutils.WrapDynaBeanTestCase_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.134 s - in org.apache.commons.beanutils.WrapDynaBeanTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira61TestCase_OE25Dev
-[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.apache.commons.beanutils.bugs.Jira61TestCase_OE25Dev
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira61TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira465TestCase_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.beanutils.bugs.Jira465TestCase_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.beanutils.bugs.Jira465TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira520TestCase_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira520TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira157TestCase_OE25Dev
 [INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.apache.commons.beanutils.bugs.Jira157TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira422bTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira422bTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.beanutils.bugs.Jira422bTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira18TestCase_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.bugs.Jira18TestCase_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.beanutils.bugs.Jira18TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira422TestCase_OE25Dev
 [WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.002 s - in org.apache.commons.beanutils.bugs.Jira422TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira454TestCase_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira454TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira87TestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira87TestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.beanutils.bugs.Jira87TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira381TestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira381TestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.beanutils.bugs.Jira381TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira345TestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.beanutils.bugs.Jira345TestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira345TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira492TestCase_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.beanutils.bugs.Jira492TestCase_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.beanutils.bugs.Jira492TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira368TestCase_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira368TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira456TestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira456TestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira456TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira298TestCase_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.beanutils.bugs.Jira298TestCase_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.beanutils.bugs.Jira298TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira347TestCase_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.729 s - in org.apache.commons.beanutils.bugs.Jira347TestCase_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 33.679 s - in org.apache.commons.beanutils.bugs.Jira347TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira349TestCase_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.bugs.Jira349TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira493TestCase_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira493TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira339TestCase_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira339TestCase_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira339TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira359TestCase_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.bugs.Jira359TestCase_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.beanutils.bugs.Jira359TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira369TestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira369TestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira369TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.bugs.Jira273TestCase_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.beanutils.bugs.Jira273TestCase_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.beanutils.bugs.Jira273TestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.DynaPropertyUtilsTestCase_OE25Dev
-[INFO] Tests run: 172, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.beanutils.DynaPropertyUtilsTestCase_OE25Dev
+[INFO] Tests run: 172, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.apache.commons.beanutils.DynaPropertyUtilsTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanPredicateTestCase_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.BeanPredicateTestCase_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.BeanPredicateTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.ConstructorUtilsTestCase_OE25Dev
-[INFO] Tests run: 57, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.ConstructorUtilsTestCase_OE25Dev
+[INFO] Tests run: 57, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.beanutils.ConstructorUtilsTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
-[INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
+[INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.beanutils.BasicDynaBeanTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev
-[INFO] Tests run: 46, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev
+[INFO] Tests run: 46, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 s - in org.apache.commons.beanutils.DynaRowSetTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.ByteConverterTestCase_OE25Dev
 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.ByteConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.CharacterConverterTestCase_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.CharacterConverterTestCase_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.CharacterConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.StringArrayConverterTestCase_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.beanutils.converters.StringArrayConverterTestCase_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.StringArrayConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.ClassConverterTestCase_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.ClassConverterTestCase_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.ClassConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.BooleanConverterTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.BooleanConverterTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.converters.BooleanConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.FileConverterTestCase_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.FileConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.BigDecimalConverterTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.BigDecimalConverterTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.BigDecimalConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.StringConverterTestCase_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.StringConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev
-[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.beanutils.converters.ArrayConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.ClassReloaderTestCase_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.beanutils.converters.ClassReloaderTestCase_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.beanutils.converters.ClassReloaderTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.DoubleConverterTestCase_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.DoubleConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.IntegerConverterTestCase_OE25Dev
 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.IntegerConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.FloatConverterTestCase_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.FloatConverterTestCase_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.FloatConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.SqlDateConverterTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.SqlDateConverterTestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.SqlDateConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.ShortConverterTestCase_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.ShortConverterTestCase_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.beanutils.converters.ShortConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.URLConverterTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.105 s - in org.apache.commons.beanutils.converters.URLConverterTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in org.apache.commons.beanutils.converters.URLConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.BooleanArrayConverterTestCase_OE25Dev
-[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.beanutils.converters.BooleanArrayConverterTestCase_OE25Dev
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.beanutils.converters.BooleanArrayConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.LongConverterTestCase_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.LongConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.converters.BigIntegerConverterTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.converters.BigIntegerConverterTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.beanutils.converters.BigIntegerConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev
-[INFO] Tests run: 139, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev
+[INFO] Tests run: 139, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in org.apache.commons.beanutils.ConvertUtilsTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.DefaultIntrospectionContextTestCase_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.DefaultIntrospectionContextTestCase_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.DefaultIntrospectionContextTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.MappedPropertyTestCase_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.beanutils.MappedPropertyTestCase_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.MappedPropertyTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.beanutils.LazyDynaListTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanToPropertyValueTransformerTestCase_OE25Dev
 [INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.BeanToPropertyValueTransformerTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.expression.DefaultResolverTestCase_OE25Dev
-[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.beanutils.expression.DefaultResolverTestCase_OE25Dev
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.expression.DefaultResolverTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.DynaPropertyTestCase_OE25Dev
 [INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.DynaPropertyTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.locale.LocaleBeanUtilsTestCase_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.beanutils.locale.LocaleBeanUtilsTestCase_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.beanutils.locale.LocaleBeanUtilsTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.locale.converters.FloatLocaleConverterTestCase_OE25Dev
 [INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.locale.converters.FloatLocaleConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.locale.converters.IntegerLocaleConverterTestCase_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.locale.converters.IntegerLocaleConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.locale.converters.DateLocaleConverterTestCase_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.beanutils.locale.converters.DateLocaleConverterTestCase_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.beanutils.locale.converters.DateLocaleConverterTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev
-[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.beanutils.locale.LocaleConvertUtilsTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanComparatorTestCase_OE25Dev
 [INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.BeanComparatorTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.DynaResultSetTestCase_OE25Dev
-[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.beanutils.DynaResultSetTestCase_OE25Dev
+[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.beanutils.DynaResultSetTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.DynaBeanUtilsTestCase_OE25Dev
-[INFO] Tests run: 157, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in org.apache.commons.beanutils.DynaBeanUtilsTestCase_OE25Dev
+[INFO] Tests run: 157, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.apache.commons.beanutils.DynaBeanUtilsTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanIntrospectionDataTestCase_OE25Dev
 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.BeanIntrospectionDataTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanPropertyValueEqualsPredicateTestCase_OE25Dev
-[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.BeanPropertyValueEqualsPredicateTestCase_OE25Dev
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.BeanPropertyValueEqualsPredicateTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev
-[INFO] Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev
+[INFO] Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.beanutils.MethodUtilsTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev
-[INFO] Tests run: 313, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.208 s - in org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev
+[INFO] Tests run: 313, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.18 s - in org.apache.commons.beanutils.PropertyUtilsTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev
-[INFO] Tests run: 49, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev
+[INFO] Tests run: 49, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanMapTestCase_OE25Dev
-[INFO] Tests run: 128, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s - in org.apache.commons.beanutils.BeanMapTestCase_OE25Dev
+[INFO] Tests run: 128, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s - in org.apache.commons.beanutils.BeanMapTestCase_OE25Dev
 [INFO] Running org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev
-[INFO] Tests run: 228, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s - in org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev
+[INFO] Tests run: 228, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s - in org.apache.commons.beanutils.BeanUtilsTestCase_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -242,6 +242,6 @@ Exception while executing SCM command.
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  56.026 s
-[INFO] Finished at: 2026-02-20T04:51:14-06:00
+[INFO] Total time:  53.151 s
+[INFO] Finished at: 2026-02-20T05:38:46-06:00
 [INFO] ------------------------------------------------------------------------

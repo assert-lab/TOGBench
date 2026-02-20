@@ -72,9 +72,6 @@ public static void assertNegativeInfinity_1_oe(final double value) { final Strin
 public static <T extends Throwable> void assertThrowsWithMessage_1_oe(final Executable executable, final Class<T> exceptionType, final String message) { Assertions.assertEquals(message, Assertions.assertThrows(exceptionType, executable).getMessage());
 }
 
-public static <T extends Throwable> void assertThrowsWithMessage_1_oe(final Executable executable, final Class<T> exceptionType, final Pattern pattern) { final String message = Assertions.assertThrows(exceptionType, executable).getMessage();
-}
-
 public static void assertContains_1_oe(final String substr, final String actual) { final String msg = "Expected string to contain [" + substr + "] but was [" + actual + "]";
 }
 

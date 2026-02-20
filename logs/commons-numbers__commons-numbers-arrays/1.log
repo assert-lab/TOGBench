@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-arrays ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-arrays' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-arrays
-[INFO] Storing buildNumber: 3205504c15924548e27a9939e60e263ddbfc7698 at timestamp: 1771584637351
+[INFO] Storing buildNumber: b79b4df5c8c4781d014094794185e977542df462 at timestamp: 1771587485964
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -68,9 +68,9 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.arrays.SortInPlaceTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s - in org.apache.commons.numbers.arrays.SortInPlaceTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s - in org.apache.commons.numbers.arrays.SortInPlaceTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.arrays.MultidimensionalCounterTest_OE25Dev
-[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 s - in org.apache.commons.numbers.arrays.MultidimensionalCounterTest_OE25Dev
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.apache.commons.numbers.arrays.MultidimensionalCounterTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -79,6 +79,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  9.809 s
-[INFO] Finished at: 2026-02-20T04:50:43-06:00
+[INFO] Total time:  11.341 s
+[INFO] Finished at: 2026-02-20T05:38:13-06:00
 [INFO] ------------------------------------------------------------------------

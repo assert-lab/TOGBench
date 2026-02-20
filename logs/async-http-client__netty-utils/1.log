@@ -28,8 +28,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  6.484 s
-[INFO] Finished at: 2026-02-20T04:49:13-06:00
+[INFO] Total time:  6.602 s
+[INFO] Finished at: 2026-02-20T05:36:48-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-netty-utils: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
 [ERROR] 

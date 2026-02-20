@@ -139,6 +139,15 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
   /**
    * Create request with malformed URL
    */
+  @Test
+  public void malformedStringUrlCause() {
+    try {
+      delete("\\m/");
+      fail("Exception not thrown");
+    } catch (HttpRequestException e) {
+      assertNotNull(e.getCause());
+    }
+  }
 
   /**
    * Set request buffer size to negative value
@@ -153,348 +162,1317 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
    *
    * @throws Exception
    */
+  @Test
+  public void getEmpty() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(url);
+    assertNotNull(request.getConnection());
+    assertEquals(30000,request.readTimeout(30000).getConnection().getReadTimeout());
+    assertEquals(50000,request.connectTimeout(50000).getConnection().getConnectTimeout());
+    assertEquals(2500, request.bufferSize(2500).bufferSize());
+    assertFalse(request.ignoreCloseExceptions(false).ignoreCloseExceptions());
+    assertFalse(request.useCaches(false).getConnection().getUseCaches());
+    int code = request.code();
+    assertTrue(request.ok());
+    assertFalse(request.created());
+    assertFalse(request.badRequest());
+    assertFalse(request.serverError());
+    assertFalse(request.notFound());
+    assertFalse(request.notModified());
+    assertEquals("GET", method.get());
+    assertEquals("OK", request.message());
+    assertEquals(HTTP_OK, code);
+    assertEquals("", request.body());
+    assertNotNull(request.toString());
+    assertFalse(request.toString().length() == 0);
+    assertEquals(request, request.disconnect());
+    assertTrue(request.isBodyEmpty());
+    assertEquals(request.url().toString(), url);
+    assertEquals("GET", request.method());
+  }
 
   /**
    * Make a GET request with an empty body response
    *
    * @throws Exception
    */
+  @Test
+  public void getUrlEmpty() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(new URL(url));
+    assertNotNull(request.getConnection());
+    int code = request.code();
+    assertTrue(request.ok());
+    assertFalse(request.created());
+    assertFalse(request.noContent());
+    assertFalse(request.badRequest());
+    assertFalse(request.serverError());
+    assertFalse(request.notFound());
+    assertEquals("GET", method.get());
+    assertEquals("OK", request.message());
+    assertEquals(HTTP_OK, code);
+    assertEquals("", request.body());
+  }
 
   /**
    * Make a GET request with an empty body response
    *
    * @throws Exception
    */
+  @Test
+  public void getNoContent() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_NO_CONTENT);
+      }
+    };
+    HttpRequest request = get(new URL(url));
+    assertNotNull(request.getConnection());
+    int code = request.code();
+    assertFalse(request.ok());
+    assertFalse(request.created());
+    assertTrue(request.noContent());
+    assertFalse(request.badRequest());
+    assertFalse(request.serverError());
+    assertFalse(request.notFound());
+    assertEquals("GET", method.get());
+    assertEquals("No Content", request.message());
+    assertEquals(HTTP_NO_CONTENT, code);
+    assertEquals("", request.body());
+  }
 
   /**
    * Make a GET request with a URL that needs encoding
    *
    * @throws Exception
    */
+  @Test
+  public void getUrlEncodedWithSpace() throws Exception {
+    String unencoded = "/a resource";
+    final AtomicReference<String> path = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        path.set(request.getPathInfo());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(encode(url + unencoded));
+    assertTrue(request.ok());
+    assertEquals(unencoded, path.get());
+  }
 
   /**
    * Make a GET request with a URL that needs encoding
    *
    * @throws Exception
    */
+  @Test
+  public void getUrlEncodedWithUnicode() throws Exception {
+    String unencoded = "/\u00DF";
+    final AtomicReference<String> path = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        path.set(request.getPathInfo());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(encode(url + unencoded));
+    assertTrue(request.ok());
+    assertEquals(unencoded, path.get());
+  }
 
   /**
    * Make a GET request with a URL that needs encoding
    *
    * @throws Exception
    */
+  @Test
+  public void getUrlEncodedWithPercent() throws Exception {
+    String unencoded = "/%";
+    final AtomicReference<String> path = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        path.set(request.getPathInfo());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(encode(url + unencoded));
+    assertTrue(request.ok());
+  }
 
   /**
    * Make a DELETE request with an empty body response
    *
    * @throws Exception
    */
+  @Test
+  public void deleteEmpty() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = delete(url);
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals("DELETE", method.get());
+    assertEquals("", request.body());
+    assertEquals("DELETE", request.method());
+  }
 
   /**
    * Make a DELETE request with an empty body response
    *
    * @throws Exception
    */
+  @Test
+  public void deleteUrlEmpty() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = delete(new URL(url));
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals("DELETE", method.get());
+    assertEquals("", request.body());
+  }
 
   /**
    * Make an OPTIONS request with an empty body response
    *
    * @throws Exception
    */
+  @Test
+  public void optionsEmpty() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = options(url);
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals("OPTIONS", method.get());
+    assertEquals("", request.body());
+  }
 
   /**
    * Make an OPTIONS request with an empty body response
    *
    * @throws Exception
    */
+  @Test
+  public void optionsUrlEmpty() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = options(new URL(url));
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals("OPTIONS", method.get());
+    assertEquals("", request.body());
+  }
 
   /**
    * Make a HEAD request with an empty body response
    *
    * @throws Exception
    */
+  @Test
+  public void headEmpty() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = head(url);
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals("HEAD", method.get());
+    assertEquals("", request.body());
+  }
 
   /**
    * Make a HEAD request with an empty body response
    *
    * @throws Exception
    */
+  @Test
+  public void headUrlEmpty() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = head(new URL(url));
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals("HEAD", method.get());
+    assertEquals("", request.body());
+  }
 
   /**
    * Make a PUT request with an empty body response
    *
    * @throws Exception
    */
+  @Test
+  public void putEmpty() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = put(url);
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals("PUT", method.get());
+    assertEquals("", request.body());
+  }
 
   /**
    * Make a PUT request with an empty body response
    *
    * @throws Exception
    */
+  @Test
+  public void putUrlEmpty() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = put(new URL(url));
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals("PUT", method.get());
+    assertEquals("", request.body());
+  }
 
   /**
    * Make a PUT request with an empty body response
    *
    * @throws Exception
    */
+  @Test
+  public void traceEmpty() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = trace(url);
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals("TRACE", method.get());
+    assertEquals("", request.body());
+  }
 
   /**
    * Make a TRACE request with an empty body response
    *
    * @throws Exception
    */
+  @Test
+  public void traceUrlEmpty() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = trace(new URL(url));
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals("TRACE", method.get());
+    assertEquals("", request.body());
+  }
 
   /**
    * Make a POST request with an empty request body
    *
    * @throws Exception
    */
+  @Test
+  public void postEmpty() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_CREATED);
+      }
+    };
+    HttpRequest request = post(url);
+    int code = request.code();
+    assertEquals("POST", method.get());
+    assertFalse(request.ok());
+    assertTrue(request.created());
+    assertEquals(HTTP_CREATED, code);
+  }
 
   /**
    * Make a POST request with an empty request body
    *
    * @throws Exception
    */
+  @Test
+  public void postUrlEmpty() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_CREATED);
+      }
+    };
+    HttpRequest request = post(new URL(url));
+    int code = request.code();
+    assertEquals("POST", method.get());
+    assertFalse(request.ok());
+    assertTrue(request.created());
+    assertEquals(HTTP_CREATED, code);
+  }
 
   /**
    * Make a POST request with a non-empty request body
    *
    * @throws Exception
    */
+  @Test
+  public void postNonEmptyString() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    int code = post(url).send("hello").code();
+    assertEquals(HTTP_OK, code);
+    assertEquals("hello", body.get());
+  }
 
   /**
    * Make a POST request with a non-empty request body
    *
    * @throws Exception
    */
+  @Test
+  public void postNonEmptyFile() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    File file = File.createTempFile("post", ".txt");
+    new FileWriter(file).append("hello").close();
+    int code = post(url).send(file).code();
+    assertEquals(HTTP_OK, code);
+    assertEquals("hello", body.get());
+  }
 
   /**
    * Make a POST request with multiple files in the body
    *
    * @throws Exception
    */
+  @Test
+  public void postMultipleFiles() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    File file1 = File.createTempFile("post", ".txt");
+    new FileWriter(file1).append("hello").close();
+
+    File file2 = File.createTempFile("post", ".txt");
+    new FileWriter(file2).append(" world").close();
+
+    int code = post(url).send(file1).send(file2).code();
+    assertEquals(HTTP_OK, code);
+    assertEquals("hello world", body.get());
+  }
 
   /**
    * Make a POST request with a non-empty request body
    *
    * @throws Exception
    */
+  @Test
+  public void postNonEmptyReader() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    File file = File.createTempFile("post", ".txt");
+    new FileWriter(file).append("hello").close();
+    int code = post(url).send(new FileReader(file)).code();
+    assertEquals(HTTP_OK, code);
+    assertEquals("hello", body.get());
+  }
 
   /**
    * Make a POST request with a non-empty request body
    *
    * @throws Exception
    */
+  @Test
+  public void postNonEmptyByteArray() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    byte[] bytes = "hello".getBytes(CHARSET_UTF8);
+    int code = post(url).contentLength(Integer.toString(bytes.length))
+        .send(bytes).code();
+    assertEquals(HTTP_OK, code);
+    assertEquals("hello", body.get());
+  }
 
   /**
    * Make a post with an explicit set of the content length
    *
    * @throws Exception
    */
+  @Test
+  public void postWithLength() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    final AtomicReference<Integer> length = new AtomicReference<Integer>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        length.set(request.getContentLength());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    String data = "hello";
+    int sent = data.getBytes().length;
+    int code = post(url).contentLength(sent).send(data).code();
+    assertEquals(HTTP_OK, code);
+    assertEquals(sent, length.get().intValue());
+    assertEquals(data, body.get());
+  }
 
   /**
    * Make a post of form data
    *
    * @throws Exception
    */
+  @Test
+  public void postForm() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    final AtomicReference<String> contentType = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        contentType.set(request.getContentType());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    Map<String, String> data = new LinkedHashMap<String, String>();
+    data.put("name", "user");
+    data.put("number", "100");
+    int code = post(url).form(data).form("zip", "12345").code();
+    assertEquals(HTTP_OK, code);
+    assertEquals("name=user&number=100&zip=12345", body.get());
+    assertEquals("application/x-www-form-urlencoded;charset=UTF-8",contentType.get());
+  }
 
   /**
    * Make a post of form data
    *
    * @throws Exception
    */
+  @Test
+  public void postFormWithNoCharset() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    final AtomicReference<String> contentType = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        contentType.set(request.getContentType());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    Map<String, String> data = new LinkedHashMap<String, String>();
+    data.put("name", "user");
+    data.put("number", "100");
+    int code = post(url).form(data, null).form("zip", "12345").code();
+    assertEquals(HTTP_OK, code);
+    assertEquals("name=user&number=100&zip=12345", body.get());
+    assertEquals("application/x-www-form-urlencoded", contentType.get());
+  }
 
   /**
    * Make a post with an empty form data map
    *
    * @throws Exception
    */
+  @Test
+  public void postEmptyForm() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    int code = post(url).form(new HashMap<String, String>()).code();
+    assertEquals(HTTP_OK, code);
+    assertEquals("", body.get());
+  }
 
   /**
    * Make a post in chunked mode
    *
    * @throws Exception
    */
+  @Test
+  public void chunkPost() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    final AtomicReference<String> encoding = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+        encoding.set(request.getHeader("Transfer-Encoding"));
+      }
+    };
+    String data = "hello";
+    int code = post(url).chunk(2).send(data).code();
+    assertEquals(HTTP_OK, code);
+    assertEquals(data, body.get());
+    assertEquals("chunked", encoding.get());
+  }
 
   /**
    * Make a GET request for a non-empty response body
    *
    * @throws Exception
    */
+  @Test
+  public void getNonEmptyString() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        write("hello");
+      }
+    };
+    HttpRequest request = get(url);
+    assertEquals(HTTP_OK, request.code());
+    assertEquals("hello", request.body());
+    assertEquals("hello".getBytes().length, request.contentLength());
+    assertFalse(request.isBodyEmpty());
+  }
 
   /**
    * Make a GET request with a response that includes a charset parameter
    *
    * @throws Exception
    */
+  @Test
+  public void getWithResponseCharset() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setContentType("text/html; charset=UTF-8");
+      }
+    };
+    HttpRequest request = get(url);
+    assertEquals(HTTP_OK, request.code());
+    assertEquals(CHARSET_UTF8, request.charset());
+  }
 
   /**
    * Make a GET request with a response that includes a charset parameter
    *
    * @throws Exception
    */
+  @Test
+  public void getWithResponseCharsetAsSecondParam() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setContentType("text/html; param1=val1; charset=UTF-8");
+      }
+    };
+    HttpRequest request = get(url);
+    assertEquals(HTTP_OK, request.code());
+    assertEquals(CHARSET_UTF8, request.charset());
+  }
 
   /**
    * Make a GET request with basic authentication specified
    *
    * @throws Exception
    */
+  @Test
+  public void basicAuthentication() throws Exception {
+    final AtomicReference<String> user = new AtomicReference<String>();
+    final AtomicReference<String> password = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        String auth = request.getHeader("Authorization");
+        auth = auth.substring(auth.indexOf(' ') + 1);
+        try {
+          auth = B64Code.decode(auth, CHARSET_UTF8);
+        } catch (UnsupportedEncodingException e) {
+          throw new RuntimeException(e);
+        }
+        int colon = auth.indexOf(':');
+        user.set(auth.substring(0, colon));
+        password.set(auth.substring(colon + 1));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertTrue(get(url).basic("user", "p4ssw0rd").ok());
+    assertEquals("user", user.get());
+    assertEquals("p4ssw0rd", password.get());
+  }
 
   /**
    * Make a GET request with basic proxy authentication specified
    *
    * @throws Exception
    */
+  @Test
+  public void basicProxyAuthentication() throws Exception {
+    final AtomicBoolean finalHostReached = new AtomicBoolean(false);
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        finalHostReached.set(true);
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertTrue(get(url).useProxy("localhost", proxyPort).proxyBasic("user", "p4ssw0rd").ok());
+    assertEquals("user", proxyUser.get());
+    assertEquals("p4ssw0rd", proxyPassword.get());
+    assertEquals(true, finalHostReached.get());
+    assertEquals(1, proxyHitCount.get());
+  }
 
   /**
    * Make a GET and get response as a input stream reader
    *
    * @throws Exception
    */
+  @Test
+  public void getReader() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        write("hello");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    BufferedReader reader = new BufferedReader(request.reader());
+    assertEquals("hello", reader.readLine());
+    reader.close();
+  }
 
   /**
    * Make a POST and send request using a writer
    *
    * @throws Exception
    */
+  @Test
+  public void sendWithWriter() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    HttpRequest request = post(url);
+    request.writer().append("hello").close();
+    assertTrue(request.ok());
+    assertEquals("hello", body.get());
+  }
 
   /**
    * Make a GET and get response as a buffered reader
    *
    * @throws Exception
    */
+  @Test
+  public void getBufferedReader() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        write("hello");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    BufferedReader reader = request.bufferedReader();
+    assertEquals("hello", reader.readLine());
+    reader.close();
+  }
 
   /**
    * Make a GET and get response as a input stream reader
    *
    * @throws Exception
    */
+  @Test
+  public void getReaderWithCharset() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        write("hello");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    BufferedReader reader = new BufferedReader(request.reader(CHARSET_UTF8));
+    assertEquals("hello", reader.readLine());
+    reader.close();
+  }
 
   /**
    * Make a GET and get response body as byte array
    *
    * @throws Exception
    */
+  @Test
+  public void getBytes() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        write("hello");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertTrue(Arrays.equals("hello".getBytes(), request.bytes()));
+  }
 
   /**
    * Make a GET request that returns an error string
    *
    * @throws Exception
    */
+  @Test
+  public void getError() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+        write("error");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.notFound());
+    assertEquals("error", request.body());
+  }
 
   /**
    * Make a GET request that returns an empty error string
    *
    * @throws Exception
    */
+  @Test
+  public void noError() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertEquals("", request.body());
+  }
 
   /**
    * Verify 'Server' header
    *
    * @throws Exception
    */
+  @Test
+  public void serverHeader() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("Server", "aserver");
+      }
+    };
+    assertEquals("aserver", get(url).server());
+  }
 
   /**
    * Verify 'Expires' header
    *
    * @throws Exception
    */
+  @Test
+  public void expiresHeader() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setDateHeader("Expires", 1234000);
+      }
+    };
+    assertEquals(1234000, get(url).expires());
+  }
 
   /**
    * Verify 'Last-Modified' header
    *
    * @throws Exception
    */
+  @Test
+  public void lastModifiedHeader() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setDateHeader("Last-Modified", 555000);
+      }
+    };
+    assertEquals(555000, get(url).lastModified());
+  }
 
   /**
    * Verify 'Date' header
    *
    * @throws Exception
    */
+  @Test
+  public void dateHeader() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setDateHeader("Date", 66000);
+      }
+    };
+    assertEquals(66000, get(url).date());
+  }
 
   /**
    * Verify 'ETag' header
    *
    * @throws Exception
    */
+  @Test
+  public void eTagHeader() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("ETag", "abcd");
+      }
+    };
+    assertEquals("abcd", get(url).eTag());
+  }
 
   /**
    * Verify 'Location' header
    *
    * @throws Exception
    */
+  @Test
+  public void locationHeader() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("Location", "http://nowhere");
+      }
+    };
+    assertEquals("http://nowhere", get(url).location());
+  }
 
   /**
    * Verify 'Content-Encoding' header
    *
    * @throws Exception
    */
+  @Test
+  public void contentEncodingHeader() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("Content-Encoding", "gzip");
+      }
+    };
+    assertEquals("gzip", get(url).contentEncoding());
+  }
 
   /**
    * Verify 'Content-Type' header
    *
    * @throws Exception
    */
+  @Test
+  public void contentTypeHeader() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("Content-Type", "text/html");
+      }
+    };
+    assertEquals("text/html", get(url).contentType());
+  }
 
   /**
    * Verify 'Content-Type' header
    *
    * @throws Exception
    */
+  @Test
+  public void requestContentType() throws Exception {
+    final AtomicReference<String> contentType = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        contentType.set(request.getContentType());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertTrue(post(url).contentType("text/html", "UTF-8").ok());
+    assertEquals("text/html; charset=UTF-8", contentType.get());
+  }
 
   /**
    * Verify 'Content-Type' header
    *
    * @throws Exception
    */
+  @Test
+  public void requestContentTypeNullCharset() throws Exception {
+    final AtomicReference<String> contentType = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        contentType.set(request.getContentType());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertTrue(post(url).contentType("text/html", null).ok());
+    assertEquals("text/html", contentType.get());
+  }
 
   /**
    * Verify 'Content-Type' header
    *
    * @throws Exception
    */
+  @Test
+  public void requestContentTypeEmptyCharset() throws Exception {
+    final AtomicReference<String> contentType = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        contentType.set(request.getContentType());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertTrue(post(url).contentType("text/html", "").ok());
+    assertEquals("text/html", contentType.get());
+  }
 
   /**
    * Verify 'Cache-Control' header
    *
    * @throws Exception
    */
+  @Test
+  public void cacheControlHeader() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("Cache-Control", "no-cache");
+      }
+    };
+    assertEquals("no-cache", get(url).cacheControl());
+  }
 
   /**
    * Verify setting headers
    *
    * @throws Exception
    */
+  @Test
+  public void headers() throws Exception {
+    final AtomicReference<String> h1 = new AtomicReference<String>();
+    final AtomicReference<String> h2 = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        h1.set(request.getHeader("h1"));
+        h2.set(request.getHeader("h2"));
+      }
+    };
+    Map<String, String> headers = new HashMap<String, String>();
+    headers.put("h1", "v1");
+    headers.put("h2", "v2");
+    assertTrue(get(url).headers(headers).ok());
+    assertEquals("v1", h1.get());
+    assertEquals("v2", h2.get());
+  }
 
   /**
    * Verify setting headers
    *
    * @throws Exception
    */
+  @Test
+  public void emptyHeaders() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertTrue(get(url).headers(Collections.<String, String> emptyMap()).ok());
+  }
 
   /**
    * Verify getting all headers
    *
    * @throws Exception
    */
+  @Test
+  public void getAllHeaders() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("a", "a");
+        response.setHeader("b", "b");
+        response.addHeader("a", "another");
+      }
+    };
+    Map<String, List<String>> headers = get(url).headers();
+    assertEquals(headers.size(), 5);
+    assertEquals(headers.get("a").size(), 2);
+    assertTrue(headers.get("b").get(0).equals("b"));
+  }
 
   /**
    * Verify setting number header
    *
    * @throws Exception
    */
+  @Test
+  public void numberHeader() throws Exception {
+    final AtomicReference<String> h1 = new AtomicReference<String>();
+    final AtomicReference<String> h2 = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        h1.set(request.getHeader("h1"));
+        h2.set(request.getHeader("h2"));
+      }
+    };
+    assertTrue(get(url).header("h1", 5).header("h2", (Number) null).ok());
+    assertEquals("5", h1.get());
+    assertEquals("", h2.get());
+  }
 
   /**
    * Verify 'User-Agent' request header
    *
    * @throws Exception
    */
+  @Test
+  public void userAgentHeader() throws Exception {
+    final AtomicReference<String> header = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        header.set(request.getHeader("User-Agent"));
+      }
+    };
+    assertTrue(get(url).userAgent("browser 1.0").ok());
+    assertEquals("browser 1.0", header.get());
+  }
 
   /**
    * Verify 'Accept' request header
    *
    * @throws Exception
    */
+  @Test
+  public void acceptHeader() throws Exception {
+    final AtomicReference<String> header = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        header.set(request.getHeader("Accept"));
+      }
+    };
+    assertTrue(get(url).accept("application/json").ok());
+    assertEquals("application/json", header.get());
+  }
 
   /**
    * Verify 'Accept' request header when calling
@@ -502,93 +1480,333 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
    *
    * @throws Exception
    */
+  @Test
+  public void acceptJson() throws Exception {
+    final AtomicReference<String> header = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        header.set(request.getHeader("Accept"));
+      }
+    };
+    assertTrue(get(url).acceptJson().ok());
+    assertEquals("application/json", header.get());
+  }
 
   /**
    * Verify 'If-None-Match' request header
    *
    * @throws Exception
    */
+  @Test
+  public void ifNoneMatchHeader() throws Exception {
+    final AtomicReference<String> header = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        header.set(request.getHeader("If-None-Match"));
+      }
+    };
+    assertTrue(get(url).ifNoneMatch("eid").ok());
+    assertEquals("eid", header.get());
+  }
 
   /**
    * Verify 'Accept-Charset' request header
    *
    * @throws Exception
    */
+  @Test
+  public void acceptCharsetHeader() throws Exception {
+    final AtomicReference<String> header = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        header.set(request.getHeader("Accept-Charset"));
+      }
+    };
+    assertTrue(get(url).acceptCharset(CHARSET_UTF8).ok());
+    assertEquals(CHARSET_UTF8, header.get());
+  }
 
   /**
    * Verify 'Accept-Encoding' request header
    *
    * @throws Exception
    */
+  @Test
+  public void acceptEncodingHeader() throws Exception {
+    final AtomicReference<String> header = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        header.set(request.getHeader("Accept-Encoding"));
+      }
+    };
+    assertTrue(get(url).acceptEncoding("compress").ok());
+    assertEquals("compress", header.get());
+  }
 
   /**
    * Verify 'If-Modified-Since' request header
    *
    * @throws Exception
    */
+  @Test
+  public void ifModifiedSinceHeader() throws Exception {
+    final AtomicLong header = new AtomicLong();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        header.set(request.getDateHeader("If-Modified-Since"));
+      }
+    };
+    assertTrue(get(url).ifModifiedSince(5000).ok());
+    assertEquals(5000, header.get());
+  }
 
   /**
    * Verify 'Referer' header
    *
    * @throws Exception
    */
+  @Test
+  public void refererHeader() throws Exception {
+    final AtomicReference<String> referer = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        referer.set(request.getHeader("Referer"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertTrue(post(url).referer("http://heroku.com").ok());
+    assertEquals("http://heroku.com", referer.get());
+  }
 
   /**
    * Verify multipart with file, stream, number, and string parameters
    *
    * @throws Exception
    */
+  @Test
+  public void postMultipart() throws Exception {
+    final StringBuilder body = new StringBuilder();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        char[] buffer = new char[8192];
+        int read;
+        try {
+          while ((read = request.getReader().read(buffer)) != -1)
+            body.append(buffer, 0, read);
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    File file = File.createTempFile("body", ".txt");
+    File file2 = File.createTempFile("body", ".txt");
+    new FileWriter(file).append("content1").close();
+    new FileWriter(file2).append("content4").close();
+    HttpRequest request = post(url);
+    request.part("description", "content2");
+    request.part("size", file.length());
+    request.part("body", file.getName(), file);
+    request.part("file", file2);
+    request.part("stream", new ByteArrayInputStream("content3".getBytes()));
+    assertTrue(request.ok());
+    assertTrue(body.toString().contains("content1\r\n"));
+    assertTrue(body.toString().contains("content2\r\n"));
+    assertTrue(body.toString().contains("content3\r\n"));
+    assertTrue(body.toString().contains("content4\r\n"));
+    assertTrue(body.toString().contains(Long.toString(file.length()) + "\r\n"));
+  }
 
   /**
    * Verify multipart with content type part header
    *
    * @throws Exception
    */
+  @Test
+  public void postMultipartWithContentType() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        body.set(new String(read()));
+      }
+    };
+    HttpRequest request = post(url);
+    request.part("body", null, "application/json", "contents");
+    assertTrue(request.ok());
+    assertTrue(body.toString().contains("Content-Type: application/json"));
+    assertTrue(body.toString().contains("contents\r\n"));
+  }
 
   /**
    * Verify response in {@link Appendable}
    *
    * @throws Exception
    */
+  @Test
+  public void receiveAppendable() throws Exception {
+    final StringBuilder body = new StringBuilder();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print("content");
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    assertTrue(post(url).receive(body).ok());
+    assertEquals("content", body.toString());
+  }
 
   /**
    * Verify response in {@link Writer}
    *
    * @throws Exception
    */
+  @Test
+  public void receiveWriter() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print("content");
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    StringWriter writer = new StringWriter();
+    assertTrue(post(url).receive(writer).ok());
+    assertEquals("content", writer.toString());
+  }
 
   /**
    * Verify response via a {@link PrintStream}
    *
    * @throws Exception
    */
+  @Test
+  public void receivePrintStream() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print("content");
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    ByteArrayOutputStream output = new ByteArrayOutputStream();
+    PrintStream stream = new PrintStream(output, true, CHARSET_UTF8);
+    assertTrue(post(url).receive(stream).ok());
+    stream.close();
+    assertEquals("content", output.toString(CHARSET_UTF8));
+  }
 
   /**
    * Verify response in {@link File}
    *
    * @throws Exception
    */
+  @Test
+  public void receiveFile() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print("content");
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    File output = File.createTempFile("output", ".txt");
+    assertTrue(post(url).receive(output).ok());
+    StringBuilder buffer = new StringBuilder();
+    BufferedReader reader = new BufferedReader(new FileReader(output));
+    int read;
+    while ((read = reader.read()) != -1)
+      buffer.append((char) read);
+    reader.close();
+    assertEquals("content", buffer.toString());
+  }
 
   /**
    * Verify certificate and host helpers on HTTPS connection
    *
    * @throws Exception
    */
+  @Test
+  public void httpsTrust() throws Exception {
+    assertNotNull(get("https://localhost").trustAllCerts().trustAllHosts());
+  }
 
   /**
    * Verify certificate and host helpers ignore non-HTTPS connection
    *
    * @throws Exception
    */
+  @Test
+  public void httpTrust() throws Exception {
+    assertNotNull(get("http://localhost").trustAllCerts().trustAllHosts());
+  }
 
 
   /**
    * Verify single hostname verifier is created across all calls
    */
+  @Test
+  public void singleVerifier() {
+    HttpRequest request1 = get("https://localhost").trustAllHosts();
+    HttpRequest request2 = get("https://localhost").trustAllHosts();
+    assertNotNull(((HttpsURLConnection)request1.getConnection()).getHostnameVerifier());
+    assertNotNull(((HttpsURLConnection)request2.getConnection()).getHostnameVerifier());
+    assertEquals(((HttpsURLConnection)request1.getConnection()).getHostnameVerifier(),((HttpsURLConnection)request2.getConnection()).getHostnameVerifier());
+  }
 
   /**
    * Verify single SSL socket factory is created across all calls
    */
+  @Test
+  public void singleSslSocketFactory() {
+    HttpRequest request1 = get("https://localhost").trustAllCerts();
+    HttpRequest request2 = get("https://localhost").trustAllCerts();
+    assertNotNull(((HttpsURLConnection)request1.getConnection()).getSSLSocketFactory());
+    assertNotNull(((HttpsURLConnection)request2.getConnection()).getSSLSocketFactory());
+    assertEquals(((HttpsURLConnection)request1.getConnection()).getSSLSocketFactory(),((HttpsURLConnection)request2.getConnection()).getSSLSocketFactory());
+  }
 
   /**
    * Send a stream that throws an exception when read from
@@ -601,24 +1819,105 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
    *
    * @throws Exception
    */
+  @Test
+  public void sendErrorCloseStream() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print("content");
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    final IOException closeCause = new IOException();
+    InputStream stream = new InputStream() {
+
+      public int read() throws IOException {
+        return -1;
+      }
+
+      public void close() throws IOException {
+        throw closeCause;
+      }
+    };
+    try {
+      post(url).ignoreCloseExceptions(false).send(stream);
+      fail("Exception not thrown");
+    } catch (HttpRequestException e) {
+      assertEquals(closeCause, e.getCause());
+    }
+  }
 
   /**
    * Make a GET request and get the code using an {@link AtomicInteger}
    *
    * @throws Exception
    */
+  @Test
+  public void getToOutputCode() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+      }
+    };
+    AtomicInteger code = new AtomicInteger(0);
+    get(url).code(code);
+    assertEquals(HTTP_OK, code.get());
+  }
 
   /**
    * Make a GET request and get the body using an {@link AtomicReference}
    *
    * @throws Exception
    */
+  @Test
+  public void getToOutputBody() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print("hello world");
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    AtomicReference<String> body = new AtomicReference<String>(null);
+    get(url).body(body);
+    assertEquals("hello world", body.get());
+  }
 
   /**
    * Make a GET request and get the body using an {@link AtomicReference}
    *
    * @throws Exception
    */
+  @Test
+  public void getToOutputBodyWithCharset() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print("hello world");
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    AtomicReference<String> body = new AtomicReference<String>(null);
+    get(url).body(body, CHARSET_UTF8);
+    assertEquals("hello world", body.get());
+  }
 
 
   /**
@@ -626,144 +1925,553 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
    *
    * @throws Exception
    */
+  @Test
+  public void getGzipped() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        if (!"gzip".equals(request.getHeader("Accept-Encoding")))
+          return;
+
+        response.setHeader("Content-Encoding", "gzip");
+        GZIPOutputStream output;
+        try {
+          output = new GZIPOutputStream(response.getOutputStream());
+        } catch (IOException e) {
+          throw new RuntimeException(e);
+        }
+        try {
+          output.write("hello compressed".getBytes(CHARSET_UTF8));
+        } catch (IOException e) {
+          throw new RuntimeException(e);
+        } finally {
+          try {
+            output.close();
+          } catch (IOException ignored) {
+            // Ignored
+          }
+        }
+      }
+    };
+    HttpRequest request = get(url).acceptGzipEncoding().uncompress(true);
+    assertTrue(request.ok());
+    assertEquals("hello compressed", request.body(CHARSET_UTF8));
+  }
 
   /**
    * Make a GET request that should be compressed but isn't
    *
    * @throws Exception
    */
+  @Test
+  public void getNonGzippedWithUncompressEnabled() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        if (!"gzip".equals(request.getHeader("Accept-Encoding")))
+          return;
+
+        write("hello not compressed");
+      }
+    };
+    HttpRequest request = get(url).acceptGzipEncoding().uncompress(true);
+    assertTrue(request.ok());
+    assertEquals("hello not compressed", request.body(CHARSET_UTF8));
+  }
 
   /**
    * Get header with multiple response values
    *
    * @throws Exception
    */
+  @Test
+  public void getHeaders() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.addHeader("a", "1");
+        response.addHeader("a", "2");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    String[] values = request.headers("a");
+    assertNotNull(values);
+    assertEquals(2, values.length);
+    assertTrue(Arrays.asList(values).contains("1"));
+    assertTrue(Arrays.asList(values).contains("2"));
+  }
 
   /**
    * Get header values when not set in response
    *
    * @throws Exception
    */
+  @Test
+  public void getEmptyHeaders() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    String[] values = request.headers("a");
+    assertNotNull(values);
+    assertEquals(0, values.length);
+  }
 
   /**
    * Get header parameter value
    *
    * @throws Exception
    */
+  @Test
+  public void getSingleParameter() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("a", "b;c=d");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertEquals("d", request.parameter("a", "c"));
+  }
 
   /**
    * Get header parameter value
    *
    * @throws Exception
    */
+  @Test
+  public void getMultipleParameters() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("a", "b;c=d;e=f");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertEquals("d", request.parameter("a", "c"));
+    assertEquals("f", request.parameter("a", "e"));
+  }
 
   /**
    * Get header parameter value
    *
    * @throws Exception
    */
+  @Test
+  public void getSingleParameterQuoted() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("a", "b;c=\"d\"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertEquals("d", request.parameter("a", "c"));
+  }
 
   /**
    * Get header parameter value
    *
    * @throws Exception
    */
+  @Test
+  public void getMultipleParametersQuoted() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("a", "b;c=\"d\";e=\"f\"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertEquals("d", request.parameter("a", "c"));
+    assertEquals("f", request.parameter("a", "e"));
+  }
 
   /**
    * Get header parameter value
    *
    * @throws Exception
    */
+  @Test
+  public void getMissingParameter() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("a", "b;c=d");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertNull(request.parameter("a", "e"));
+  }
 
   /**
    * Get header parameter value
    *
    * @throws Exception
    */
+  @Test
+  public void getParameterFromMissingHeader() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("a", "b;c=d");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertNull(request.parameter("b", "c"));
+    assertTrue(request.parameters("b").isEmpty());
+  }
 
   /**
    * Get header parameter value
    *
    * @throws Exception
    */
+  @Test
+  public void getEmptyParameter() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("a", "b;c=");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertNull(request.parameter("a", "c"));
+    assertTrue(request.parameters("a").isEmpty());
+  }
 
   /**
    * Get header parameter value
    *
    * @throws Exception
    */
+  @Test
+  public void getEmptyParameters() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("a", "b;");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertNull(request.parameter("a", "c"));
+    assertTrue(request.parameters("a").isEmpty());
+  }
 
   /**
    * Get header parameter values
    *
    * @throws Exception
    */
+  @Test
+  public void getParameters() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("a", "value;b=c;d=e");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    Map<String, String> params = request.parameters("a");
+    assertNotNull(params);
+    assertEquals(2, params.size());
+    assertEquals("c", params.get("b"));
+    assertEquals("e", params.get("d"));
+  }
 
   /**
    * Get header parameter values
    *
    * @throws Exception
    */
+  @Test
+  public void getQuotedParameters() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("a", "value;b=\"c\";d=\"e\"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    Map<String, String> params = request.parameters("a");
+    assertNotNull(params);
+    assertEquals(2, params.size());
+    assertEquals("c", params.get("b"));
+    assertEquals("e", params.get("d"));
+  }
 
   /**
    * Get header parameter values
    *
    * @throws Exception
    */
+  @Test
+  public void getMixQuotedParameters() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("a", "value; b=c; d=\"e\"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    Map<String, String> params = request.parameters("a");
+    assertNotNull(params);
+    assertEquals(2, params.size());
+    assertEquals("c", params.get("b"));
+    assertEquals("e", params.get("d"));
+  }
 
   /**
    * Verify getting date header with default value
    *
    * @throws Exception
    */
+  @Test
+  public void missingDateHeader() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertEquals(1234L, get(url).dateHeader("missing", 1234L));
+  }
 
   /**
    * Verify getting date header with default value
    *
    * @throws Exception
    */
+  @Test
+  public void malformedDateHeader() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("malformed", "not a date");
+      }
+    };
+    assertEquals(1234L, get(url).dateHeader("malformed", 1234L));
+  }
 
   /**
    * Verify getting int header with default value
    *
    * @throws Exception
    */
+  @Test
+  public void missingIntHeader() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertEquals(4321, get(url).intHeader("missing", 4321));
+  }
 
   /**
    * Verify getting int header with default value
    *
    * @throws Exception
    */
+  @Test
+  public void malformedIntHeader() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader("malformed", "not an integer");
+      }
+    };
+    assertEquals(4321, get(url).intHeader("malformed", 4321));
+  }
 
   /**
    * Verify sending form data as a sequence of {@link Entry} objects
    *
    * @throws Exception
    */
+  @Test
+  public void postFormAsEntries() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    Map<String, String> data = new LinkedHashMap<String, String>();
+    data.put("name", "user");
+    data.put("number", "100");
+    HttpRequest request = post(url);
+    for (Entry<String, String> entry : data.entrySet())
+      request.form(entry);
+    int code = request.code();
+    assertEquals(HTTP_OK, code);
+    assertEquals("name=user&number=100", body.get());
+  }
 
   /**
    * Verify sending form data where entry value is null
    *
    * @throws Exception
    */
+  @Test
+  public void postFormEntryWithNullValue() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    Map<String, String> data = new LinkedHashMap<String, String>();
+    data.put("name", null);
+    HttpRequest request = post(url);
+    for (Entry<String, String> entry : data.entrySet())
+      request.form(entry);
+    int code = request.code();
+    assertEquals(HTTP_OK, code);
+    assertEquals("name=", body.get());
+  }
 
   /**
    * Verify POST with query parameters
    *
    * @throws Exception
    */
+  @Test
+  public void postWithMappedQueryParams() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put("name", "user");
+    inputParams.put("number", "100");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = post(url, inputParams, false);
+    assertTrue(request.ok());
+    assertEquals("POST", method.get());
+    assertEquals("user", outputParams.get("name"));
+    assertEquals("100", outputParams.get("number"));
+  }
 
   /**
    * Verify POST with query parameters
    *
    * @throws Exception
    */
+  @Test
+  public void postWithVaragsQueryParams() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = post(url, false, "name", "user", "number", "100");
+    assertTrue(request.ok());
+    assertEquals("POST", method.get());
+    assertEquals("user", outputParams.get("name"));
+    assertEquals("100", outputParams.get("number"));
+  }
 
   /**
    * Verify POST with escaped query parameters
    *
    * @throws Exception
    */
+  @Test
+  public void postWithEscapedMappedQueryParams() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put("name", "us er");
+    inputParams.put("number", "100");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = post(url, inputParams, true);
+    assertTrue(request.ok());
+    assertEquals("POST", method.get());
+    assertEquals("us er", outputParams.get("name"));
+    assertEquals("100", outputParams.get("number"));
+  }
 
 
   /**
@@ -771,54 +2479,245 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
    *
    * @throws Exception
    */
+  @Test
+  public void getWithMappedQueryParams() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put("name", "user");
+    inputParams.put("number", "100");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(url, inputParams, false);
+    assertTrue(request.ok());
+    assertEquals("GET", method.get());
+    assertEquals("user", outputParams.get("name"));
+    assertEquals("100", outputParams.get("number"));
+  }
 
   /**
    * Verify GET with query parameters
    *
    * @throws Exception
    */
+  @Test
+  public void getWithVarargsQueryParams() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(url, false, "name", "user", "number", "100");
+    assertTrue(request.ok());
+    assertEquals("GET", method.get());
+    assertEquals("user", outputParams.get("name"));
+    assertEquals("100", outputParams.get("number"));
+  }
 
   /**
    * Verify GET with escaped query parameters
    *
    * @throws Exception
    */
+  @Test
+  public void getWithEscapedMappedQueryParams() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put("name", "us er");
+    inputParams.put("number", "100");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(url, inputParams, true);
+    assertTrue(request.ok());
+    assertEquals("GET", method.get());
+    assertEquals("us er", outputParams.get("name"));
+    assertEquals("100", outputParams.get("number"));
+  }
 
   /**
    * Verify GET with escaped query parameters
    *
    * @throws Exception
    */
+  @Test
+  public void getWithEscapedVarargsQueryParams() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(url, true, "name", "us er", "number", "100");
+    assertTrue(request.ok());
+    assertEquals("GET", method.get());
+    assertEquals("us er", outputParams.get("name"));
+    assertEquals("100", outputParams.get("number"));
+  }
 
   /**
    * Verify DELETE with query parameters
    *
    * @throws Exception
    */
+  @Test
+  public void deleteWithMappedQueryParams() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put("name", "user");
+    inputParams.put("number", "100");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = delete(url, inputParams, false);
+    assertTrue(request.ok());
+    assertEquals("DELETE", method.get());
+    assertEquals("user", outputParams.get("name"));
+    assertEquals("100", outputParams.get("number"));
+  }
 
   /**
    * Verify DELETE with query parameters
    *
    * @throws Exception
    */
+  @Test
+  public void deleteWithVarargsQueryParams() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = delete(url, false, "name", "user", "number", "100");
+    assertTrue(request.ok());
+    assertEquals("DELETE", method.get());
+    assertEquals("user", outputParams.get("name"));
+    assertEquals("100", outputParams.get("number"));
+  }
 
   /**
    * Verify DELETE with escaped query parameters
    *
    * @throws Exception
    */
+  @Test
+  public void deleteWithEscapedMappedQueryParams() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put("name", "us er");
+    inputParams.put("number", "100");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = delete(url, inputParams, true);
+    assertTrue(request.ok());
+    assertEquals("DELETE", method.get());
+  }
 
   /**
    * Verify DELETE with escaped query parameters
    *
    * @throws Exception
    */
+  @Test
+  public void deleteWithEscapedVarargsQueryParams() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = delete(url, true, "name", "us er", "number", "100");
+    assertTrue(request.ok());
+    assertEquals("DELETE", method.get());
+  }
 
   /**
    * Verify PUT with query parameters
    *
    * @throws Exception
    */
+  @Test
+  public void putWithMappedQueryParams() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put("name", "user");
+    inputParams.put("number", "100");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = put(url, inputParams, false);
+    assertTrue(request.ok());
+    assertEquals("PUT", method.get());
+    assertEquals("user", outputParams.get("name"));
+    assertEquals("100", outputParams.get("number"));
+  }
 
 
   /**
@@ -826,102 +2725,261 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
    *
    * @throws Exception
    */
+  @Test
+  public void putWithEscapedMappedQueryParams() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put("name", "us er");
+    inputParams.put("number", "100");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = put(url, inputParams, true);
+    assertTrue(request.ok());
+    assertEquals("PUT", method.get());
+    assertEquals("100", outputParams.get("number"));
+  }
 
   /**
    * Verify PUT with escaped query parameters
    *
    * @throws Exception
    */
+  @Test
+  public void putWithEscapedVarargsQueryParams() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = put(url, true, "name", "us er", "number", "100");
+    assertTrue(request.ok());
+    assertEquals("PUT", method.get());
+    assertEquals("us er", outputParams.get("name"));
+    assertEquals("100", outputParams.get("number"));
+  }
 
   /**
    * Verify HEAD with query parameters
    *
    * @throws Exception
    */
+  @Test
+  public void headWithVaragsQueryParams() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = head(url, false, "name", "user", "number", "100");
+    assertTrue(request.ok());
+    assertEquals("HEAD", method.get());
+    assertEquals("user", outputParams.get("name"));
+    assertEquals("100", outputParams.get("number"));
+  }
 
   /**
    * Verify HEAD with escaped query parameters
    *
    * @throws Exception
    */
+  @Test
+  public void headWithEscapedMappedQueryParams() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put("name", "us er");
+    inputParams.put("number", "100");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = head(url, inputParams, true);
+    assertTrue(request.ok());
+    assertEquals("HEAD", method.get());
+  }
 
   /**
    * Verify HEAD with escaped query parameters
    *
    * @throws Exception
    */
+  @Test
+  public void headWithEscapedVarargsQueryParams() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put("name", request.getParameter("name"));
+        outputParams.put("number", request.getParameter("number"));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = head(url, true, "name", "us er", "number", "100");
+    assertTrue(request.ok());
+    assertEquals("HEAD", method.get());
+    assertEquals("us er", outputParams.get("name"));
+    assertEquals("100", outputParams.get("number"));
+  }
 
   /**
    * Append with base URL with no path
    *
    * @throws Exception
    */
+  @Test
+  public void appendMappedQueryParamsWithNoPath() throws Exception {
+    assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com",Collections.singletonMap("a","b")));
+  }
 
   /**
    * Append with base URL with no path
    *
    * @throws Exception
    */
+  @Test
+  public void appendVarargsQueryParmasWithNoPath() throws Exception {
+    assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com","a","b"));
+  }
 
   /**
    * Append with base URL with path
    *
    * @throws Exception
    */
+  @Test
+  public void appendMappedQueryParamsWithPath() throws Exception {
+    assertEquals("http://test.com/segment1?a=b",HttpRequest.append("http://test.com/segment1",Collections.singletonMap("a","b")));
+    assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com/",Collections.singletonMap("a","b")));
+  }
 
   /**
    * Append with base URL with path
    *
    * @throws Exception
    */
+  @Test
+  public void appendVarargsQueryParamsWithPath() throws Exception {
+    assertEquals("http://test.com/segment1?a=b",HttpRequest.append("http://test.com/segment1","a","b"));
+    assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com/","a","b"));
+  }
 
   /**
    * Append multiple params
    *
    * @throws Exception
    */
+  @Test
+  public void appendMultipleMappedQueryParams() throws Exception {
+    Map<String, Object> params = new LinkedHashMap<String, Object>();
+    params.put("a", "b");
+    params.put("c", "d");
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1",params));
+  }
 
   /**
    * Append multiple params
    *
    * @throws Exception
    */
+  @Test
+  public void appendMultipleVarargsQueryParams() throws Exception {
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1","a","b","c","d"));
+  }
 
   /**
    * Append null params
    *
    * @throws Exception
    */
+  @Test
+  public void appendNullMappedQueryParams() throws Exception {
+    assertEquals("http://test.com/1",HttpRequest.append("http://test.com/1",(Map<?,?>)null));
+  }
 
   /**
    * Append null params
    *
    * @throws Exception
    */
+  @Test
+  public void appendNullVaragsQueryParams() throws Exception {
+    assertEquals("http://test.com/1",HttpRequest.append("http://test.com/1",(Object[])null));
+  }
 
   /**
    * Append empty params
    *
    * @throws Exception
    */
+  @Test
+  public void appendEmptyMappedQueryParams() throws Exception {
+    assertEquals("http://test.com/1",HttpRequest.append("http://test.com/1",Collections.<String,String> emptyMap()));
+  }
 
   /**
    * Append empty params
    *
    * @throws Exception
    */
+  @Test
+  public void appendEmptyVarargsQueryParams() throws Exception {
+    assertEquals("http://test.com/1",HttpRequest.append("http://test.com/1",new Object[0]));
+  }
 
   /**
    * Append params with null values
    *
    * @throws Exception
    */
+  @Test
+  public void appendWithNullMappedQueryParamValues() throws Exception {
+    Map<String, Object> params = new LinkedHashMap<String, Object>();
+    params.put("a", null);
+    params.put("b", null);
+    assertEquals("http://test.com/1?a=&b=",HttpRequest.append("http://test.com/1",params));
+  }
 
   /**
    * Append params with null values
    *
    * @throws Exception
    */
+  @Test
+  public void appendWithNullVaragsQueryParamValues() throws Exception {
+    assertEquals("http://test.com/1?a=&b=",HttpRequest.append("http://test.com/1","a",null,"b",null));
+  }
 
   /**
    * Try to append with wrong number of arguments
@@ -934,48 +2992,154 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
   /**
    * Append with base URL already containing a '?'
    */
+  @Test
+  public void appendMappedQueryParamsWithExistingQueryStart() {
+    assertEquals("http://test.com/1?a=b",HttpRequest.append("http://test.com/1?",Collections.singletonMap("a","b")));
+  }
 
   /**
    * Append with base URL already containing a '?'
    */
+  @Test
+  public void appendVarargsQueryParamsWithExistingQueryStart() {
+    assertEquals("http://test.com/1?a=b",HttpRequest.append("http://test.com/1?","a","b"));
+  }
 
   /**
    * Append with base URL already containing a '?'
    */
+  @Test
+  public void appendMappedQueryParamsWithExistingParams() {
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b",Collections.singletonMap("c","d")));
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b&",Collections.singletonMap("c","d")));
+
+  }
 
   /**
    * Append with base URL already containing a '?'
    */
+  @Test
+  public void appendWithVarargsQueryParamsWithExistingParams() {
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b","c","d"));
+    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b&","c","d"));
+  }
 
   /**
    * Append array parameter
    *
    * @throws Exception
    */
+  @Test
+  public void appendArrayQueryParams() throws Exception {
+    assertEquals(
+        "http://test.com/?foo[]=bar&foo[]=baz",
+        HttpRequest.append("http://test.com",
+            Collections.singletonMap("foo", new String[] { "bar", "baz" })));
+    assertEquals(
+        "http://test.com/?a[]=1&a[]=2",
+        HttpRequest.append("http://test.com",
+            Collections.singletonMap("a", new int[] { 1, 2 })));
+    assertEquals(
+        "http://test.com/?a[]=1",
+        HttpRequest.append("http://test.com",
+            Collections.singletonMap("a", new int[] { 1 })));
+    assertEquals(
+        "http://test.com/?",
+        HttpRequest.append("http://test.com",
+            Collections.singletonMap("a", new int[] { })));
+    assertEquals(
+        "http://test.com/?foo[]=bar&foo[]=baz&a[]=1&a[]=2",
+        HttpRequest.append("http://test.com",
+            "foo", new String[] { "bar", "baz" },
+            "a", new int[] { 1, 2 }));
+  }
 
   /**
    * Append list parameter
    *
    * @throws Exception
    */
+  @Test
+  public void appendListQueryParams() throws Exception {
+    assertEquals(
+        "http://test.com/?foo[]=bar&foo[]=baz",
+        HttpRequest.append("http://test.com",
+            Collections.singletonMap("foo", Arrays.asList(new String[] { "bar", "baz" }))));
+    assertEquals(
+        "http://test.com/?a[]=1&a[]=2",
+        HttpRequest.append("http://test.com",
+            Collections.singletonMap("a", Arrays.asList(new Integer[] { 1, 2 }))));
+    assertEquals(
+        "http://test.com/?a[]=1",
+        HttpRequest.append("http://test.com",
+            Collections.singletonMap("a", Arrays.asList(new Integer[] { 1 }))));
+    assertEquals(
+        "http://test.com/?",
+        HttpRequest.append("http://test.com",
+            Collections.singletonMap("a", Arrays.asList(new Integer[] { }))));
+    assertEquals(
+        "http://test.com/?foo[]=bar&foo[]=baz&a[]=1&a[]=2",
+        HttpRequest.append("http://test.com",
+            "foo", Arrays.asList(new String[] { "bar", "baz" }),
+            "a", Arrays.asList(new Integer[] { 1, 2 })));
+  }
 
   /**
    * Get a 500
    *
    * @throws Exception
    */
+  @Test
+  public void serverErrorCode() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_INTERNAL_ERROR);
+      }
+    };
+    HttpRequest request = get(url);
+    assertNotNull(request);
+    assertTrue(request.serverError());
+  }
 
   /**
    * Get a 400
    *
    * @throws Exception
    */
+  @Test
+  public void badRequestCode() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_BAD_REQUEST);
+      }
+    };
+    HttpRequest request = get(url);
+    assertNotNull(request);
+    assertTrue(request.badRequest());
+  }
 
   /**
    * Get a 304
    *
    * @throws Exception
    */
+  @Test
+  public void notModifiedCode() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_NOT_MODIFIED);
+      }
+    };
+    HttpRequest request = get(url);
+    assertNotNull(request);
+    assertTrue(request.notModified());
+  }
 
   /**
    * Verify data is sent when receiving response without first calling
@@ -983,6 +3147,27 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
    *
    * @throws Exception
    */
+  @Test
+  public void sendReceiveWithoutCode() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        try {
+          response.getWriter().write("world");
+        } catch (IOException ignored) {
+          // Ignored
+        }
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    HttpRequest request = post(url).ignoreCloseExceptions(false);
+    assertEquals("world", request.send("hello").body());
+    assertEquals("hello", body.get());
+  }
 
   /**
    * Verify data is send when receiving response headers without first calling
@@ -990,6 +3175,26 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
    *
    * @throws Exception
    */
+  @Test
+  public void sendHeadersWithoutCode() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setHeader("h1", "v1");
+        response.setHeader("h2", "v2");
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    HttpRequest request = post(url).ignoreCloseExceptions(false);
+    Map<String, List<String>> headers = request.send("hello").headers();
+    assertEquals("v1", headers.get("h1").get(0));
+    assertEquals("v2", headers.get("h2").get(0));
+    assertEquals("hello", body.get());
+  }
 
   /**
    * Verify data is send when receiving response date header without first
@@ -997,6 +3202,23 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
    *
    * @throws Exception
    */
+  @Test
+  public void sendDateHeaderWithoutCode() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setDateHeader("Date", 1000);
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    HttpRequest request = post(url).ignoreCloseExceptions(false);
+    assertEquals(1000, request.send("hello").date());
+    assertEquals("hello", body.get());
+  }
 
   /**
    * Verify data is send when receiving response integer header without first
@@ -1004,32 +3226,126 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
    *
    * @throws Exception
    */
+  @Test
+  public void sendIntHeaderWithoutCode() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setIntHeader("Width", 9876);
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    HttpRequest request = post(url).ignoreCloseExceptions(false);
+    assertEquals(9876, request.send("hello").intHeader("Width"));
+    assertEquals("hello", body.get());
+  }
 
   /**
    * Verify custom connection factory
    */
+  @Test
+  public void customConnectionFactory() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    ConnectionFactory factory = new ConnectionFactory() {
+
+      public HttpURLConnection create(URL otherUrl) throws IOException {
+        return (HttpURLConnection) new URL(url).openConnection();
+      }
+
+      public HttpURLConnection create(URL url, Proxy proxy) throws IOException {
+        throw new IOException();
+      }
+    };
+
+    HttpRequest.setConnectionFactory(factory);
+    int code = get("http://not/a/real/url").code();
+    assertEquals(200, code);
+  }
 
   /**
    * Verify setting a null connection factory restores to the default one
    */
+  @Test
+  public void nullConnectionFactory() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    HttpRequest.setConnectionFactory(null);
+    int code = get(url).code();
+    assertEquals(200, code);
+  }
 
   /**
    * Verify reading response body for empty 200
    *
    * @throws Exception
    */
+  @Test
+  public void streamOfEmptyOkResponse() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(200);
+      }
+    };
+    assertEquals("", get(url).body());
+  }
 
   /**
    * Verify reading response body for empty 400
    *
    * @throws Exception
    */
+  @Test
+  public void bodyOfEmptyErrorResponse() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_BAD_REQUEST);
+      }
+    };
+    assertEquals("", get(url).body());
+  }
 
   /**
    * Verify reading response body for non-empty 400
    *
    * @throws Exception
    */
+  @Test
+  public void bodyOfNonEmptyErrorResponse() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_BAD_REQUEST);
+        try {
+          response.getWriter().write("error");
+        } catch (IOException ignored) {
+          // Ignored
+        }
+      }
+    };
+    assertEquals("error", get(url).body());
+  }
 
   /**
    * Verify progress callback when sending a file
@@ -1155,5106 +3471,8 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
    *
    * @throws Exception
    */
-
   @Test
-  public void malformedStringUrlCause_2_oe() {
-    try {
-      delete("\\m/");
-      // removed other assertion
-    } catch (HttpRequestException e) {
-      assertNotNull(e.getCause());
-  }
-  }
-
-  @Test
-  public void getEmpty_1_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    assertNotNull(request.getConnection());
-  }
-
-  @Test
-  public void getEmpty_2_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertEquals(30000,request.readTimeout(30000).getConnection().getReadTimeout());
-  }
-
-  @Test
-  public void getEmpty_3_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    assertEquals(50000,request.connectTimeout(50000).getConnection().getConnectTimeout());
-  }
-
-  @Test
-  public void getEmpty_4_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals(2500, request.bufferSize(2500).bufferSize());
-  }
-
-  @Test
-  public void getEmpty_5_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.ignoreCloseExceptions(false).ignoreCloseExceptions());
-  }
-
-  @Test
-  public void getEmpty_6_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.useCaches(false).getConnection().getUseCaches());
-  }
-
-  @Test
-  public void getEmpty_7_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    int code = request.code();
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getEmpty_8_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    assertFalse(request.created());
-  }
-
-  @Test
-  public void getEmpty_9_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.badRequest());
-  }
-
-  @Test
-  public void getEmpty_10_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.serverError());
-  }
-
-  @Test
-  public void getEmpty_11_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.notFound());
-  }
-
-  @Test
-  public void getEmpty_12_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.notModified());
-  }
-
-  @Test
-  public void getEmpty_13_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("GET", method.get());
-  }
-
-  @Test
-  public void getEmpty_14_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("OK", request.message());
-  }
-
-  @Test
-  public void getEmpty_15_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals(HTTP_OK, code);
-  }
-
-  @Test
-  public void getEmpty_16_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("", request.body());
-  }
-
-  @Test
-  public void getEmpty_17_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertNotNull(request.toString());
-  }
-
-  @Test
-  public void getEmpty_18_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.toString().length() == 0);
-  }
-
-  @Test
-  public void getEmpty_19_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals(request, request.disconnect());
-  }
-
-  @Test
-  public void getEmpty_20_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertTrue(request.isBodyEmpty());
-  }
-
-  @Test
-  public void getEmpty_21_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals(request.url().toString(), url);
-  }
-
-  @Test
-  public void getEmpty_22_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("GET", request.method());
-  }
-
-  @Test
-  public void getUrlEmpty_1_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    assertNotNull(request.getConnection());
-  }
-
-  @Test
-  public void getUrlEmpty_2_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getUrlEmpty_3_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    assertFalse(request.created());
-  }
-
-  @Test
-  public void getUrlEmpty_4_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.noContent());
-  }
-
-  @Test
-  public void getUrlEmpty_5_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.badRequest());
-  }
-
-  @Test
-  public void getUrlEmpty_6_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.serverError());
-  }
-
-  @Test
-  public void getUrlEmpty_7_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.notFound());
-  }
-
-  @Test
-  public void getUrlEmpty_8_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("GET", method.get());
-  }
-
-  @Test
-  public void getUrlEmpty_9_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("OK", request.message());
-  }
-
-  @Test
-  public void getUrlEmpty_10_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals(HTTP_OK, code);
-  }
-
-  @Test
-  public void getUrlEmpty_11_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("", request.body());
-  }
-
-  @Test
-  public void getNoContent_1_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_NO_CONTENT);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    assertNotNull(request.getConnection());
-  }
-
-  @Test
-  public void getNoContent_2_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_NO_CONTENT);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    assertFalse(request.ok());
-  }
-
-  @Test
-  public void getNoContent_3_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_NO_CONTENT);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    assertFalse(request.created());
-  }
-
-  @Test
-  public void getNoContent_4_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_NO_CONTENT);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    assertTrue(request.noContent());
-  }
-
-  @Test
-  public void getNoContent_5_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_NO_CONTENT);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.badRequest());
-  }
-
-  @Test
-  public void getNoContent_6_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_NO_CONTENT);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.serverError());
-  }
-
-  @Test
-  public void getNoContent_7_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_NO_CONTENT);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.notFound());
-  }
-
-  @Test
-  public void getNoContent_8_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_NO_CONTENT);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("GET", method.get());
-  }
-
-  @Test
-  public void getNoContent_9_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_NO_CONTENT);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("No Content", request.message());
-  }
-
-  @Test
-  public void getNoContent_10_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_NO_CONTENT);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals(HTTP_NO_CONTENT, code);
-  }
-
-  @Test
-  public void getNoContent_11_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_NO_CONTENT);
-      }
-    };
-    HttpRequest request = get(new URL(url));
-    // removed other assertion
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("", request.body());
-  }
-
-  @Test
-  public void getUrlEncodedWithSpace_1_oe() throws Exception {
-    String unencoded = "/a resource";
-    final AtomicReference<String> path = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        path.set(request.getPathInfo());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(encode(url + unencoded));
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getUrlEncodedWithUnicode_1_oe() throws Exception {
-    String unencoded = "/\u00DF";
-    final AtomicReference<String> path = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        path.set(request.getPathInfo());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(encode(url + unencoded));
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getUrlEncodedWithPercent_1_oe() throws Exception {
-    String unencoded = "/%";
-    final AtomicReference<String> path = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        path.set(request.getPathInfo());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(encode(url + unencoded));
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void deleteEmpty_1_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = delete(url);
-    assertNotNull(request.getConnection());
-  }
-
-  @Test
-  public void deleteEmpty_2_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = delete(url);
-    // removed other assertion
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void deleteEmpty_3_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = delete(url);
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.notFound());
-  }
-
-  @Test
-  public void deleteEmpty_5_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = delete(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("", request.body());
-  }
-
-  @Test
-  public void deleteEmpty_6_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = delete(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("DELETE", request.method());
-  }
-
-  @Test
-  public void deleteUrlEmpty_1_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = delete(new URL(url));
-    assertNotNull(request.getConnection());
-  }
-
-  @Test
-  public void deleteUrlEmpty_2_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = delete(new URL(url));
-    // removed other assertion
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void deleteUrlEmpty_3_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = delete(new URL(url));
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.notFound());
-  }
-
-  @Test
-  public void deleteUrlEmpty_5_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = delete(new URL(url));
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("", request.body());
-  }
-
-  @Test
-  public void optionsEmpty_1_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = options(url);
-    assertNotNull(request.getConnection());
-  }
-
-  @Test
-  public void optionsEmpty_2_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = options(url);
-    // removed other assertion
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void optionsEmpty_3_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = options(url);
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.notFound());
-  }
-
-  @Test
-  public void optionsEmpty_5_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = options(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("", request.body());
-  }
-
-  @Test
-  public void optionsUrlEmpty_1_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = options(new URL(url));
-    assertNotNull(request.getConnection());
-  }
-
-  @Test
-  public void optionsUrlEmpty_2_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = options(new URL(url));
-    // removed other assertion
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void optionsUrlEmpty_3_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = options(new URL(url));
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.notFound());
-  }
-
-  @Test
-  public void optionsUrlEmpty_5_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = options(new URL(url));
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("", request.body());
-  }
-
-  @Test
-  public void headEmpty_1_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = head(url);
-    assertNotNull(request.getConnection());
-  }
-
-  @Test
-  public void headEmpty_2_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = head(url);
-    // removed other assertion
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void headEmpty_3_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = head(url);
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.notFound());
-  }
-
-  @Test
-  public void headEmpty_5_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = head(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("", request.body());
-  }
-
-  @Test
-  public void headUrlEmpty_1_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = head(new URL(url));
-    assertNotNull(request.getConnection());
-  }
-
-  @Test
-  public void headUrlEmpty_2_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = head(new URL(url));
-    // removed other assertion
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void headUrlEmpty_3_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = head(new URL(url));
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.notFound());
-  }
-
-  @Test
-  public void headUrlEmpty_5_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = head(new URL(url));
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("", request.body());
-  }
-
-  @Test
-  public void putEmpty_1_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = put(url);
-    assertNotNull(request.getConnection());
-  }
-
-  @Test
-  public void putEmpty_2_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = put(url);
-    // removed other assertion
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void putEmpty_3_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = put(url);
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.notFound());
-  }
-
-  @Test
-  public void putEmpty_5_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = put(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("", request.body());
-  }
-
-  @Test
-  public void putUrlEmpty_1_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = put(new URL(url));
-    assertNotNull(request.getConnection());
-  }
-
-  @Test
-  public void putUrlEmpty_2_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = put(new URL(url));
-    // removed other assertion
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void putUrlEmpty_3_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = put(new URL(url));
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.notFound());
-  }
-
-  @Test
-  public void putUrlEmpty_5_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = put(new URL(url));
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("", request.body());
-  }
-
-  @Test
-  public void traceEmpty_1_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = trace(url);
-    assertNotNull(request.getConnection());
-  }
-
-  @Test
-  public void traceEmpty_2_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = trace(url);
-    // removed other assertion
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void traceEmpty_3_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = trace(url);
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.notFound());
-  }
-
-  @Test
-  public void traceEmpty_5_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = trace(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("", request.body());
-  }
-
-  @Test
-  public void traceUrlEmpty_1_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = trace(new URL(url));
-    assertNotNull(request.getConnection());
-  }
-
-  @Test
-  public void traceUrlEmpty_2_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = trace(new URL(url));
-    // removed other assertion
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void traceUrlEmpty_3_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = trace(new URL(url));
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.notFound());
-  }
-
-  @Test
-  public void traceUrlEmpty_5_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = trace(new URL(url));
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("", request.body());
-  }
-
-  @Test
-  public void postEmpty_1_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_CREATED);
-      }
-    };
-    HttpRequest request = post(url);
-    int code = request.code();
-    assertEquals("POST", method.get());
-  }
-
-  @Test
-  public void postEmpty_2_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_CREATED);
-      }
-    };
-    HttpRequest request = post(url);
-    int code = request.code();
-    // removed other assertion
-    assertFalse(request.ok());
-  }
-
-  @Test
-  public void postEmpty_3_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_CREATED);
-      }
-    };
-    HttpRequest request = post(url);
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    assertTrue(request.created());
-  }
-
-  @Test
-  public void postEmpty_4_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_CREATED);
-      }
-    };
-    HttpRequest request = post(url);
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals(HTTP_CREATED, code);
-  }
-
-  @Test
-  public void postUrlEmpty_1_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_CREATED);
-      }
-    };
-    HttpRequest request = post(new URL(url));
-    int code = request.code();
-    assertEquals("POST", method.get());
-  }
-
-  @Test
-  public void postUrlEmpty_2_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_CREATED);
-      }
-    };
-    HttpRequest request = post(new URL(url));
-    int code = request.code();
-    // removed other assertion
-    assertFalse(request.ok());
-  }
-
-  @Test
-  public void postUrlEmpty_3_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_CREATED);
-      }
-    };
-    HttpRequest request = post(new URL(url));
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    assertTrue(request.created());
-  }
-
-  @Test
-  public void postUrlEmpty_4_oe() throws Exception {
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        response.setStatus(HTTP_CREATED);
-      }
-    };
-    HttpRequest request = post(new URL(url));
-    int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals(HTTP_CREATED, code);
-  }
-
-  @Test
-  public void postNonEmptyString_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    int code = post(url).send("hello").code();
-    assertEquals(HTTP_OK, code);
-  }
-
-  @Test
-  public void postNonEmptyString_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    int code = post(url).send("hello").code();
-    // removed other assertion
-    assertEquals("hello", body.get());
-  }
-
-  @Test
-  public void postNonEmptyFile_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    File file = File.createTempFile("post", ".txt");
-    new FileWriter(file).append("hello").close();
-    int code = post(url).send(file).code();
-    assertEquals(HTTP_OK, code);
-  }
-
-  @Test
-  public void postNonEmptyFile_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    File file = File.createTempFile("post", ".txt");
-    new FileWriter(file).append("hello").close();
-    int code = post(url).send(file).code();
-    // removed other assertion
-    assertEquals("hello", body.get());
-  }
-
-  @Test
-  public void postMultipleFiles_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-
-    File file1 = File.createTempFile("post", ".txt");
-    new FileWriter(file1).append("hello").close();
-
-    File file2 = File.createTempFile("post", ".txt");
-    new FileWriter(file2).append(" world").close();
-
-    int code = post(url).send(file1).send(file2).code();
-    assertEquals(HTTP_OK, code);
-  }
-
-  @Test
-  public void postMultipleFiles_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-
-    File file1 = File.createTempFile("post", ".txt");
-    new FileWriter(file1).append("hello").close();
-
-    File file2 = File.createTempFile("post", ".txt");
-    new FileWriter(file2).append(" world").close();
-
-    int code = post(url).send(file1).send(file2).code();
-    // removed other assertion
-    assertEquals("hello world", body.get());
-  }
-
-  @Test
-  public void postNonEmptyReader_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    File file = File.createTempFile("post", ".txt");
-    new FileWriter(file).append("hello").close();
-    int code = post(url).send(new FileReader(file)).code();
-    assertEquals(HTTP_OK, code);
-  }
-
-  @Test
-  public void postNonEmptyReader_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    File file = File.createTempFile("post", ".txt");
-    new FileWriter(file).append("hello").close();
-    int code = post(url).send(new FileReader(file)).code();
-    // removed other assertion
-    assertEquals("hello", body.get());
-  }
-
-  @Test
-  public void postNonEmptyByteArray_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    byte[] bytes = "hello".getBytes(CHARSET_UTF8);
-    int code = post(url).contentLength(Integer.toString(bytes.length))
-        .send(bytes).code();
-    assertEquals(HTTP_OK, code);
-  }
-
-  @Test
-  public void postNonEmptyByteArray_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    byte[] bytes = "hello".getBytes(CHARSET_UTF8);
-    int code = post(url).contentLength(Integer.toString(bytes.length))
-        .send(bytes).code();
-    // removed other assertion
-    assertEquals("hello", body.get());
-  }
-
-  @Test
-  public void postWithLength_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    final AtomicReference<Integer> length = new AtomicReference<Integer>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        length.set(request.getContentLength());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    String data = "hello";
-    int sent = data.getBytes().length;
-    int code = post(url).contentLength(sent).send(data).code();
-    assertEquals(HTTP_OK, code);
-  }
-
-  @Test
-  public void postWithLength_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    final AtomicReference<Integer> length = new AtomicReference<Integer>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        length.set(request.getContentLength());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    String data = "hello";
-    int sent = data.getBytes().length;
-    int code = post(url).contentLength(sent).send(data).code();
-    // removed other assertion
-    assertEquals(sent, length.get().intValue());
-  }
-
-  @Test
-  public void postWithLength_3_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    final AtomicReference<Integer> length = new AtomicReference<Integer>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        length.set(request.getContentLength());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    String data = "hello";
-    int sent = data.getBytes().length;
-    int code = post(url).contentLength(sent).send(data).code();
-    // removed other assertion
-    // removed other assertion
-    assertEquals(data, body.get());
-  }
-
-  @Test
-  public void postForm_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    final AtomicReference<String> contentType = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        contentType.set(request.getContentType());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    Map<String, String> data = new LinkedHashMap<String, String>();
-    data.put("name", "user");
-    data.put("number", "100");
-    int code = post(url).form(data).form("zip", "12345").code();
-    assertEquals(HTTP_OK, code);
-  }
-
-  @Test
-  public void postForm_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    final AtomicReference<String> contentType = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        contentType.set(request.getContentType());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    Map<String, String> data = new LinkedHashMap<String, String>();
-    data.put("name", "user");
-    data.put("number", "100");
-    int code = post(url).form(data).form("zip", "12345").code();
-    // removed other assertion
-    assertEquals("name=user&number=100&zip=12345", body.get());
-  }
-
-  @Test
-  public void postFormWithNoCharset_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    final AtomicReference<String> contentType = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        contentType.set(request.getContentType());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    Map<String, String> data = new LinkedHashMap<String, String>();
-    data.put("name", "user");
-    data.put("number", "100");
-    int code = post(url).form(data, null).form("zip", "12345").code();
-    assertEquals(HTTP_OK, code);
-  }
-
-  @Test
-  public void postFormWithNoCharset_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    final AtomicReference<String> contentType = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        contentType.set(request.getContentType());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    Map<String, String> data = new LinkedHashMap<String, String>();
-    data.put("name", "user");
-    data.put("number", "100");
-    int code = post(url).form(data, null).form("zip", "12345").code();
-    // removed other assertion
-    assertEquals("name=user&number=100&zip=12345", body.get());
-  }
-
-  @Test
-  public void postFormWithNoCharset_3_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    final AtomicReference<String> contentType = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        contentType.set(request.getContentType());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    Map<String, String> data = new LinkedHashMap<String, String>();
-    data.put("name", "user");
-    data.put("number", "100");
-    int code = post(url).form(data, null).form("zip", "12345").code();
-    // removed other assertion
-    // removed other assertion
-    assertEquals("application/x-www-form-urlencoded", contentType.get());
-  }
-
-  @Test
-  public void postEmptyForm_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    int code = post(url).form(new HashMap<String, String>()).code();
-    assertEquals(HTTP_OK, code);
-  }
-
-  @Test
-  public void postEmptyForm_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    int code = post(url).form(new HashMap<String, String>()).code();
-    // removed other assertion
-    assertEquals("", body.get());
-  }
-
-  @Test
-  public void chunkPost_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    final AtomicReference<String> encoding = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-        encoding.set(request.getHeader("Transfer-Encoding"));
-      }
-    };
-    String data = "hello";
-    int code = post(url).chunk(2).send(data).code();
-    assertEquals(HTTP_OK, code);
-  }
-
-  @Test
-  public void chunkPost_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    final AtomicReference<String> encoding = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-        encoding.set(request.getHeader("Transfer-Encoding"));
-      }
-    };
-    String data = "hello";
-    int code = post(url).chunk(2).send(data).code();
-    // removed other assertion
-    assertEquals(data, body.get());
-  }
-
-  @Test
-  public void chunkPost_3_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    final AtomicReference<String> encoding = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-        encoding.set(request.getHeader("Transfer-Encoding"));
-      }
-    };
-    String data = "hello";
-    int code = post(url).chunk(2).send(data).code();
-    // removed other assertion
-    // removed other assertion
-    assertEquals("chunked", encoding.get());
-  }
-
-  @Test
-  public void getNonEmptyString_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        write("hello");
-      }
-    };
-    HttpRequest request = get(url);
-    assertEquals(HTTP_OK, request.code());
-  }
-
-  @Test
-  public void getNonEmptyString_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        write("hello");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertEquals("hello", request.body());
-  }
-
-  @Test
-  public void getNonEmptyString_3_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        write("hello");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    assertEquals("hello".getBytes().length, request.contentLength());
-  }
-
-  @Test
-  public void getNonEmptyString_4_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        write("hello");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertFalse(request.isBodyEmpty());
-  }
-
-  @Test
-  public void getWithResponseCharset_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setContentType("text/html; charset=UTF-8");
-      }
-    };
-    HttpRequest request = get(url);
-    assertEquals(HTTP_OK, request.code());
-  }
-
-  @Test
-  public void getWithResponseCharset_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setContentType("text/html; charset=UTF-8");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertEquals(CHARSET_UTF8, request.charset());
-  }
-
-  @Test
-  public void getWithResponseCharsetAsSecondParam_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setContentType("text/html; param1=val1; charset=UTF-8");
-      }
-    };
-    HttpRequest request = get(url);
-    assertEquals(HTTP_OK, request.code());
-  }
-
-  @Test
-  public void getWithResponseCharsetAsSecondParam_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setContentType("text/html; param1=val1; charset=UTF-8");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertEquals(CHARSET_UTF8, request.charset());
-  }
-
-  @Test
-  public void basicAuthentication_1_oe() throws Exception {
-    final AtomicReference<String> user = new AtomicReference<String>();
-    final AtomicReference<String> password = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        String auth = request.getHeader("Authorization");
-        auth = auth.substring(auth.indexOf(' ') + 1);
-        try {
-          auth = B64Code.decode(auth, CHARSET_UTF8);
-        } catch (UnsupportedEncodingException e) {
-          throw new RuntimeException(e);
-        }
-        int colon = auth.indexOf(':');
-        user.set(auth.substring(0, colon));
-        password.set(auth.substring(colon + 1));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    assertTrue(get(url).basic("user", "p4ssw0rd").ok());
-  }
-
-  @Test
-  public void basicProxyAuthentication_1_oe() throws Exception {
-    final AtomicBoolean finalHostReached = new AtomicBoolean(false);
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        finalHostReached.set(true);
-        response.setStatus(HTTP_OK);
-      }
-    };
-    assertTrue(get(url).useProxy("localhost", proxyPort).proxyBasic("user", "p4ssw0rd").ok());
-  }
-
-  @Test
-  public void basicProxyAuthentication_2_oe() throws Exception {
-    final AtomicBoolean finalHostReached = new AtomicBoolean(false);
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        finalHostReached.set(true);
-        response.setStatus(HTTP_OK);
-      }
-    };
-    // removed other assertion
-    assertEquals("user", proxyUser.get());
-  }
-
-  @Test
-  public void basicProxyAuthentication_3_oe() throws Exception {
-    final AtomicBoolean finalHostReached = new AtomicBoolean(false);
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        finalHostReached.set(true);
-        response.setStatus(HTTP_OK);
-      }
-    };
-    // removed other assertion
-    // removed other assertion
-    assertEquals("p4ssw0rd", proxyPassword.get());
-  }
-
-  @Test
-  public void getReader_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        write("hello");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getReader_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        write("hello");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    BufferedReader reader = new BufferedReader(request.reader());
-    assertEquals("hello", reader.readLine());
-  }
-
-  @Test
-  public void sendWithWriter_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-
-    HttpRequest request = post(url);
-    request.writer().append("hello").close();
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getBufferedReader_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        write("hello");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getBufferedReader_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        write("hello");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    BufferedReader reader = request.bufferedReader();
-    assertEquals("hello", reader.readLine());
-  }
-
-  @Test
-  public void getReaderWithCharset_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        write("hello");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getReaderWithCharset_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        write("hello");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    BufferedReader reader = new BufferedReader(request.reader(CHARSET_UTF8));
-    assertEquals("hello", reader.readLine());
-  }
-
-  @Test
-  public void getBytes_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        write("hello");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getBytes_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        write("hello");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertTrue(Arrays.equals("hello".getBytes(), request.bytes()));
-  }
-
-  @Test
-  public void getError_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-        write("error");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.notFound());
-  }
-
-  @Test
-  public void getError_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-        write("error");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertEquals("error", request.body());
-  }
-
-  @Test
-  public void noError_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void noError_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertEquals("", request.body());
-  }
-
-  @Test
-  public void serverHeader_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("Server", "aserver");
-      }
-    };
-    assertEquals("aserver", get(url).server());
-  }
-
-  @Test
-  public void expiresHeader_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setDateHeader("Expires", 1234000);
-      }
-    };
-    assertEquals(1234000, get(url).expires());
-  }
-
-  @Test
-  public void lastModifiedHeader_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setDateHeader("Last-Modified", 555000);
-      }
-    };
-    assertEquals(555000, get(url).lastModified());
-  }
-
-  @Test
-  public void dateHeader_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setDateHeader("Date", 66000);
-      }
-    };
-    assertEquals(66000, get(url).date());
-  }
-
-  @Test
-  public void eTagHeader_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("ETag", "abcd");
-      }
-    };
-    assertEquals("abcd", get(url).eTag());
-  }
-
-  @Test
-  public void locationHeader_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("Location", "http://nowhere");
-      }
-    };
-    assertEquals("http://nowhere", get(url).location());
-  }
-
-  @Test
-  public void contentEncodingHeader_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("Content-Encoding", "gzip");
-      }
-    };
-    assertEquals("gzip", get(url).contentEncoding());
-  }
-
-  @Test
-  public void contentTypeHeader_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("Content-Type", "text/html");
-      }
-    };
-    assertEquals("text/html", get(url).contentType());
-  }
-
-  @Test
-  public void requestContentType_1_oe() throws Exception {
-    final AtomicReference<String> contentType = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        contentType.set(request.getContentType());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    assertTrue(post(url).contentType("text/html", "UTF-8").ok());
-  }
-
-  @Test
-  public void requestContentTypeNullCharset_1_oe() throws Exception {
-    final AtomicReference<String> contentType = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        contentType.set(request.getContentType());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    assertTrue(post(url).contentType("text/html", null).ok());
-  }
-
-  @Test
-  public void requestContentTypeEmptyCharset_1_oe() throws Exception {
-    final AtomicReference<String> contentType = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        contentType.set(request.getContentType());
-        response.setStatus(HTTP_OK);
-      }
-    };
-    assertTrue(post(url).contentType("text/html", "").ok());
-  }
-
-  @Test
-  public void cacheControlHeader_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("Cache-Control", "no-cache");
-      }
-    };
-    assertEquals("no-cache", get(url).cacheControl());
-  }
-
-  @Test
-  public void headers_1_oe() throws Exception {
-    final AtomicReference<String> h1 = new AtomicReference<String>();
-    final AtomicReference<String> h2 = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        h1.set(request.getHeader("h1"));
-        h2.set(request.getHeader("h2"));
-      }
-    };
-    Map<String, String> headers = new HashMap<String, String>();
-    headers.put("h1", "v1");
-    headers.put("h2", "v2");
-    assertTrue(get(url).headers(headers).ok());
-  }
-
-  @Test
-  public void emptyHeaders_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-      }
-    };
-    assertTrue(get(url).headers(Collections.<String, String> emptyMap()).ok());
-  }
-
-  @Test
-  public void getAllHeaders_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "a");
-        response.setHeader("b", "b");
-        response.addHeader("a", "another");
-      }
-    };
-    Map<String, List<String>> headers = get(url).headers();
-    assertEquals(headers.size(), 5);
-  }
-
-  @Test
-  public void getAllHeaders_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "a");
-        response.setHeader("b", "b");
-        response.addHeader("a", "another");
-      }
-    };
-    Map<String, List<String>> headers = get(url).headers();
-    // removed other assertion
-    assertEquals(headers.get("a").size(), 2);
-  }
-
-  @Test
-  public void getAllHeaders_3_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "a");
-        response.setHeader("b", "b");
-        response.addHeader("a", "another");
-      }
-    };
-    Map<String, List<String>> headers = get(url).headers();
-    // removed other assertion
-    // removed other assertion
-    assertTrue(headers.get("b").get(0).equals("b"));
-  }
-
-  @Test
-  public void numberHeader_1_oe() throws Exception {
-    final AtomicReference<String> h1 = new AtomicReference<String>();
-    final AtomicReference<String> h2 = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        h1.set(request.getHeader("h1"));
-        h2.set(request.getHeader("h2"));
-      }
-    };
-    assertTrue(get(url).header("h1", 5).header("h2", (Number) null).ok());
-  }
-
-  @Test
-  public void userAgentHeader_1_oe() throws Exception {
-    final AtomicReference<String> header = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        header.set(request.getHeader("User-Agent"));
-      }
-    };
-    assertTrue(get(url).userAgent("browser 1.0").ok());
-  }
-
-  @Test
-  public void acceptHeader_1_oe() throws Exception {
-    final AtomicReference<String> header = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        header.set(request.getHeader("Accept"));
-      }
-    };
-    assertTrue(get(url).accept("application/json").ok());
-  }
-
-  @Test
-  public void acceptJson_1_oe() throws Exception {
-    final AtomicReference<String> header = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        header.set(request.getHeader("Accept"));
-      }
-    };
-    assertTrue(get(url).acceptJson().ok());
-  }
-
-  @Test
-  public void ifNoneMatchHeader_1_oe() throws Exception {
-    final AtomicReference<String> header = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        header.set(request.getHeader("If-None-Match"));
-      }
-    };
-    assertTrue(get(url).ifNoneMatch("eid").ok());
-  }
-
-  @Test
-  public void acceptCharsetHeader_1_oe() throws Exception {
-    final AtomicReference<String> header = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        header.set(request.getHeader("Accept-Charset"));
-      }
-    };
-    assertTrue(get(url).acceptCharset(CHARSET_UTF8).ok());
-  }
-
-  @Test
-  public void acceptEncodingHeader_1_oe() throws Exception {
-    final AtomicReference<String> header = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        header.set(request.getHeader("Accept-Encoding"));
-      }
-    };
-    assertTrue(get(url).acceptEncoding("compress").ok());
-  }
-
-  @Test
-  public void ifModifiedSinceHeader_1_oe() throws Exception {
-    final AtomicLong header = new AtomicLong();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        header.set(request.getDateHeader("If-Modified-Since"));
-      }
-    };
-    assertTrue(get(url).ifModifiedSince(5000).ok());
-  }
-
-  @Test
-  public void refererHeader_1_oe() throws Exception {
-    final AtomicReference<String> referer = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        referer.set(request.getHeader("Referer"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    assertTrue(post(url).referer("http://heroku.com").ok());
-  }
-
-  @Test
-  public void postMultipart_2_oe() throws Exception {
-    final StringBuilder body = new StringBuilder();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        char[] buffer = new char[8192];
-        int read;
-        try {
-          while ((read = request.getReader().read(buffer)) != -1)
-            body.append(buffer, 0, read);
-        } catch (IOException e) {
-          // removed other assertion
-        }
-      }
-    };
-    File file = File.createTempFile("body", ".txt");
-    File file2 = File.createTempFile("body", ".txt");
-    new FileWriter(file).append("content1").close();
-    new FileWriter(file2).append("content4").close();
-    HttpRequest request = post(url);
-    request.part("description", "content2");
-    request.part("size", file.length());
-    request.part("body", file.getName(), file);
-    request.part("file", file2);
-    request.part("stream", new ByteArrayInputStream("content3".getBytes()));
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void postMultipartWithContentType_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        body.set(new String(read()));
-      }
-    };
-    HttpRequest request = post(url);
-    request.part("body", null, "application/json", "contents");
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void receiveAppendable_2_oe() throws Exception {
-    final StringBuilder body = new StringBuilder();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("content");
-        } catch (IOException e) {
-          // removed other assertion
-        }
-      }
-    };
-    assertTrue(post(url).receive(body).ok());
-  }
-
-  @Test
-  public void receiveWriter_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("content");
-        } catch (IOException e) {
-          // removed other assertion
-        }
-      }
-    };
-    StringWriter writer = new StringWriter();
-    assertTrue(post(url).receive(writer).ok());
-  }
-
-  @Test
-  public void receivePrintStream_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("content");
-        } catch (IOException e) {
-          // removed other assertion
-        }
-      }
-    };
-    ByteArrayOutputStream output = new ByteArrayOutputStream();
-    PrintStream stream = new PrintStream(output, true, CHARSET_UTF8);
-    assertTrue(post(url).receive(stream).ok());
-  }
-
-  @Test
-  public void receiveFile_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("content");
-        } catch (IOException e) {
-          // removed other assertion
-        }
-      }
-    };
-    File output = File.createTempFile("output", ".txt");
-    assertTrue(post(url).receive(output).ok());
-  }
-
-  @Test
-  public void httpsTrust_1_oe() throws Exception {
-    assertNotNull(get("https://localhost").trustAllCerts().trustAllHosts());
-  }
-
-  @Test
-  public void httpTrust_1_oe() throws Exception {
-    assertNotNull(get("http://localhost").trustAllCerts().trustAllHosts());
-  }
-
-  @Test
-  public void singleVerifier_1_oe() {
-    HttpRequest request1 = get("https://localhost").trustAllHosts();
-    HttpRequest request2 = get("https://localhost").trustAllHosts();
-    assertNotNull(((HttpsURLConnection)request1.getConnection()).getHostnameVerifier());
-  }
-
-  @Test
-  public void singleVerifier_2_oe() {
-    HttpRequest request1 = get("https://localhost").trustAllHosts();
-    HttpRequest request2 = get("https://localhost").trustAllHosts();
-    // removed other assertion
-    assertNotNull(((HttpsURLConnection)request2.getConnection()).getHostnameVerifier());
-  }
-
-  @Test
-  public void singleVerifier_3_oe() {
-    HttpRequest request1 = get("https://localhost").trustAllHosts();
-    HttpRequest request2 = get("https://localhost").trustAllHosts();
-    // removed other assertion
-    // removed other assertion
-    assertEquals(((HttpsURLConnection)request1.getConnection()).getHostnameVerifier(),((HttpsURLConnection)request2.getConnection()).getHostnameVerifier());
-  }
-
-  @Test
-  public void singleSslSocketFactory_1_oe() {
-    HttpRequest request1 = get("https://localhost").trustAllCerts();
-    HttpRequest request2 = get("https://localhost").trustAllCerts();
-    assertNotNull(((HttpsURLConnection)request1.getConnection()).getSSLSocketFactory());
-  }
-
-  @Test
-  public void singleSslSocketFactory_2_oe() {
-    HttpRequest request1 = get("https://localhost").trustAllCerts();
-    HttpRequest request2 = get("https://localhost").trustAllCerts();
-    // removed other assertion
-    assertNotNull(((HttpsURLConnection)request2.getConnection()).getSSLSocketFactory());
-  }
-
-  @Test
-  public void singleSslSocketFactory_3_oe() {
-    HttpRequest request1 = get("https://localhost").trustAllCerts();
-    HttpRequest request2 = get("https://localhost").trustAllCerts();
-    // removed other assertion
-    // removed other assertion
-    assertEquals(((HttpsURLConnection)request1.getConnection()).getSSLSocketFactory(),((HttpsURLConnection)request2.getConnection()).getSSLSocketFactory());
-  }
-
-  @Test
-  public void sendErrorCloseStream_3_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("content");
-        } catch (IOException e) {
-          // removed other assertion
-        }
-      }
-    };
-    final IOException closeCause = new IOException();
-    InputStream stream = new InputStream() {
-
-      public int read() throws IOException {
-        return -1;
-      }
-
-      public void close() throws IOException {
-        throw closeCause;
-      }
-    };
-    try {
-      post(url).ignoreCloseExceptions(false).send(stream);
-      // removed other assertion
-    } catch (HttpRequestException e) {
-      assertEquals(closeCause, e.getCause());
-  }
-  }
-
-  @Test
-  public void getToOutputCode_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-      }
-    };
-    AtomicInteger code = new AtomicInteger(0);
-    get(url).code(code);
-    assertEquals(HTTP_OK, code.get());
-  }
-
-  @Test
-  public void getToOutputBody_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("hello world");
-        } catch (IOException e) {
-          // removed other assertion
-        }
-      }
-    };
-    AtomicReference<String> body = new AtomicReference<String>(null);
-    get(url).body(body);
-    assertEquals("hello world", body.get());
-  }
-
-  @Test
-  public void getToOutputBodyWithCharset_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        try {
-          response.getWriter().print("hello world");
-        } catch (IOException e) {
-          // removed other assertion
-        }
-      }
-    };
-    AtomicReference<String> body = new AtomicReference<String>(null);
-    get(url).body(body, CHARSET_UTF8);
-    assertEquals("hello world", body.get());
-  }
-
-  @Test
-  public void getGzipped_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        if (!"gzip".equals(request.getHeader("Accept-Encoding")))
-          return;
-
-        response.setHeader("Content-Encoding", "gzip");
-        GZIPOutputStream output;
-        try {
-          output = new GZIPOutputStream(response.getOutputStream());
-        } catch (IOException e) {
-          throw new RuntimeException(e);
-        }
-        try {
-          output.write("hello compressed".getBytes(CHARSET_UTF8));
-        } catch (IOException e) {
-          throw new RuntimeException(e);
-        } finally {
-          try {
-            output.close();
-          } catch (IOException ignored) {
-            // Ignored
-          }
-        }
-      }
-    };
-    HttpRequest request = get(url).acceptGzipEncoding().uncompress(true);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getGzipped_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        if (!"gzip".equals(request.getHeader("Accept-Encoding")))
-          return;
-
-        response.setHeader("Content-Encoding", "gzip");
-        GZIPOutputStream output;
-        try {
-          output = new GZIPOutputStream(response.getOutputStream());
-        } catch (IOException e) {
-          throw new RuntimeException(e);
-        }
-        try {
-          output.write("hello compressed".getBytes(CHARSET_UTF8));
-        } catch (IOException e) {
-          throw new RuntimeException(e);
-        } finally {
-          try {
-            output.close();
-          } catch (IOException ignored) {
-            // Ignored
-          }
-        }
-      }
-    };
-    HttpRequest request = get(url).acceptGzipEncoding().uncompress(true);
-    // removed other assertion
-    assertEquals("hello compressed", request.body(CHARSET_UTF8));
-  }
-
-  @Test
-  public void getNonGzippedWithUncompressEnabled_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        if (!"gzip".equals(request.getHeader("Accept-Encoding")))
-          return;
-
-        write("hello not compressed");
-      }
-    };
-    HttpRequest request = get(url).acceptGzipEncoding().uncompress(true);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getNonGzippedWithUncompressEnabled_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        if (!"gzip".equals(request.getHeader("Accept-Encoding")))
-          return;
-
-        write("hello not compressed");
-      }
-    };
-    HttpRequest request = get(url).acceptGzipEncoding().uncompress(true);
-    // removed other assertion
-    assertEquals("hello not compressed", request.body(CHARSET_UTF8));
-  }
-
-  @Test
-  public void getHeaders_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.addHeader("a", "1");
-        response.addHeader("a", "2");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getHeaders_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.addHeader("a", "1");
-        response.addHeader("a", "2");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    String[] values = request.headers("a");
-    assertNotNull(values);
-  }
-
-  @Test
-  public void getHeaders_3_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.addHeader("a", "1");
-        response.addHeader("a", "2");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    String[] values = request.headers("a");
-    // removed other assertion
-    assertEquals(2, values.length);
-  }
-
-  @Test
-  public void getHeaders_4_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.addHeader("a", "1");
-        response.addHeader("a", "2");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    String[] values = request.headers("a");
-    // removed other assertion
-    // removed other assertion
-    assertTrue(Arrays.asList(values).contains("1"));
-  }
-
-  @Test
-  public void getHeaders_5_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.addHeader("a", "1");
-        response.addHeader("a", "2");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    String[] values = request.headers("a");
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertTrue(Arrays.asList(values).contains("2"));
-  }
-
-  @Test
-  public void getEmptyHeaders_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getEmptyHeaders_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    String[] values = request.headers("a");
-    assertNotNull(values);
-  }
-
-  @Test
-  public void getEmptyHeaders_3_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    String[] values = request.headers("a");
-    // removed other assertion
-    assertEquals(0, values.length);
-  }
-
-  @Test
-  public void getSingleParameter_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=d");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getSingleParameter_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=d");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertEquals("d", request.parameter("a", "c"));
-  }
-
-  @Test
-  public void getMultipleParameters_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=d;e=f");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getMultipleParameters_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=d;e=f");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertEquals("d", request.parameter("a", "c"));
-  }
-
-  @Test
-  public void getMultipleParameters_3_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=d;e=f");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    assertEquals("f", request.parameter("a", "e"));
-  }
-
-  @Test
-  public void getSingleParameterQuoted_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=\"d\"");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getSingleParameterQuoted_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=\"d\"");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertEquals("d", request.parameter("a", "c"));
-  }
-
-  @Test
-  public void getMultipleParametersQuoted_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=\"d\";e=\"f\"");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getMultipleParametersQuoted_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=\"d\";e=\"f\"");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertEquals("d", request.parameter("a", "c"));
-  }
-
-  @Test
-  public void getMultipleParametersQuoted_3_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=\"d\";e=\"f\"");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    assertEquals("f", request.parameter("a", "e"));
-  }
-
-  @Test
-  public void getMissingParameter_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=d");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getMissingParameter_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=d");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertNull(request.parameter("a", "e"));
-  }
-
-  @Test
-  public void getParameterFromMissingHeader_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=d");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getParameterFromMissingHeader_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=d");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertNull(request.parameter("b", "c"));
-  }
-
-  @Test
-  public void getParameterFromMissingHeader_3_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=d");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    assertTrue(request.parameters("b").isEmpty());
-  }
-
-  @Test
-  public void getEmptyParameter_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getEmptyParameter_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertNull(request.parameter("a", "c"));
-  }
-
-  @Test
-  public void getEmptyParameter_3_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;c=");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    assertTrue(request.parameters("a").isEmpty());
-  }
-
-  @Test
-  public void getEmptyParameters_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getEmptyParameters_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertNull(request.parameter("a", "c"));
-  }
-
-  @Test
-  public void getEmptyParameters_3_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "b;");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    assertTrue(request.parameters("a").isEmpty());
-  }
-
-  @Test
-  public void getParameters_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "value;b=c;d=e");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getParameters_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "value;b=c;d=e");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    Map<String, String> params = request.parameters("a");
-    assertNotNull(params);
-  }
-
-  @Test
-  public void getParameters_3_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "value;b=c;d=e");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    Map<String, String> params = request.parameters("a");
-    // removed other assertion
-    assertEquals(2, params.size());
-  }
-
-  @Test
-  public void getParameters_4_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "value;b=c;d=e");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    Map<String, String> params = request.parameters("a");
-    // removed other assertion
-    // removed other assertion
-    assertEquals("c", params.get("b"));
-  }
-
-  @Test
-  public void getParameters_5_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "value;b=c;d=e");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    Map<String, String> params = request.parameters("a");
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("e", params.get("d"));
-  }
-
-  @Test
-  public void getQuotedParameters_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "value;b=\"c\";d=\"e\"");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getQuotedParameters_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "value;b=\"c\";d=\"e\"");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    Map<String, String> params = request.parameters("a");
-    assertNotNull(params);
-  }
-
-  @Test
-  public void getQuotedParameters_3_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "value;b=\"c\";d=\"e\"");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    Map<String, String> params = request.parameters("a");
-    // removed other assertion
-    assertEquals(2, params.size());
-  }
-
-  @Test
-  public void getQuotedParameters_4_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "value;b=\"c\";d=\"e\"");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    Map<String, String> params = request.parameters("a");
-    // removed other assertion
-    // removed other assertion
-    assertEquals("c", params.get("b"));
-  }
-
-  @Test
-  public void getQuotedParameters_5_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "value;b=\"c\";d=\"e\"");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    Map<String, String> params = request.parameters("a");
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("e", params.get("d"));
-  }
-
-  @Test
-  public void getMixQuotedParameters_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "value; b=c; d=\"e\"");
-      }
-    };
-    HttpRequest request = get(url);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getMixQuotedParameters_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "value; b=c; d=\"e\"");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    Map<String, String> params = request.parameters("a");
-    assertNotNull(params);
-  }
-
-  @Test
-  public void getMixQuotedParameters_3_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "value; b=c; d=\"e\"");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    Map<String, String> params = request.parameters("a");
-    // removed other assertion
-    assertEquals(2, params.size());
-  }
-
-  @Test
-  public void getMixQuotedParameters_4_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "value; b=c; d=\"e\"");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    Map<String, String> params = request.parameters("a");
-    // removed other assertion
-    // removed other assertion
-    assertEquals("c", params.get("b"));
-  }
-
-  @Test
-  public void getMixQuotedParameters_5_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("a", "value; b=c; d=\"e\"");
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    Map<String, String> params = request.parameters("a");
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals("e", params.get("d"));
-  }
-
-  @Test
-  public void missingDateHeader_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-      }
-    };
-    assertEquals(1234L, get(url).dateHeader("missing", 1234L));
-  }
-
-  @Test
-  public void malformedDateHeader_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("malformed", "not a date");
-      }
-    };
-    assertEquals(1234L, get(url).dateHeader("malformed", 1234L));
-  }
-
-  @Test
-  public void missingIntHeader_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-      }
-    };
-    assertEquals(4321, get(url).intHeader("missing", 4321));
-  }
-
-  @Test
-  public void malformedIntHeader_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-        response.setHeader("malformed", "not an integer");
-      }
-    };
-    assertEquals(4321, get(url).intHeader("malformed", 4321));
-  }
-
-  @Test
-  public void postFormAsEntries_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    Map<String, String> data = new LinkedHashMap<String, String>();
-    data.put("name", "user");
-    data.put("number", "100");
-    HttpRequest request = post(url);
-    for (Entry<String, String> entry : data.entrySet())
-      request.form(entry);
-    int code = request.code();
-    assertEquals(HTTP_OK, code);
-  }
-
-  @Test
-  public void postFormAsEntries_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    Map<String, String> data = new LinkedHashMap<String, String>();
-    data.put("name", "user");
-    data.put("number", "100");
-    HttpRequest request = post(url);
-    for (Entry<String, String> entry : data.entrySet())
-      request.form(entry);
-    int code = request.code();
-    // removed other assertion
-    assertEquals("name=user&number=100", body.get());
-  }
-
-  @Test
-  public void postFormEntryWithNullValue_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    Map<String, String> data = new LinkedHashMap<String, String>();
-    data.put("name", null);
-    HttpRequest request = post(url);
-    for (Entry<String, String> entry : data.entrySet())
-      request.form(entry);
-    int code = request.code();
-    assertEquals(HTTP_OK, code);
-  }
-
-  @Test
-  public void postFormEntryWithNullValue_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    Map<String, String> data = new LinkedHashMap<String, String>();
-    data.put("name", null);
-    HttpRequest request = post(url);
-    for (Entry<String, String> entry : data.entrySet())
-      request.form(entry);
-    int code = request.code();
-    // removed other assertion
-    assertEquals("name=", body.get());
-  }
-
-  @Test
-  public void postWithMappedQueryParams_1_oe() throws Exception {
-    Map<String, String> inputParams = new HashMap<String, String>();
-    inputParams.put("name", "user");
-    inputParams.put("number", "100");
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = post(url, inputParams, false);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void postWithVaragsQueryParams_1_oe() throws Exception {
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = post(url, false, "name", "user", "number", "100");
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void postWithEscapedMappedQueryParams_1_oe() throws Exception {
-    Map<String, String> inputParams = new HashMap<String, String>();
-    inputParams.put("name", "us er");
-    inputParams.put("number", "100");
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = post(url, inputParams, true);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getWithMappedQueryParams_1_oe() throws Exception {
-    Map<String, String> inputParams = new HashMap<String, String>();
-    inputParams.put("name", "user");
-    inputParams.put("number", "100");
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url, inputParams, false);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getWithVarargsQueryParams_1_oe() throws Exception {
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url, false, "name", "user", "number", "100");
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getWithEscapedMappedQueryParams_1_oe() throws Exception {
-    Map<String, String> inputParams = new HashMap<String, String>();
-    inputParams.put("name", "us er");
-    inputParams.put("number", "100");
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url, inputParams, true);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void getWithEscapedVarargsQueryParams_1_oe() throws Exception {
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = get(url, true, "name", "us er", "number", "100");
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void deleteWithMappedQueryParams_1_oe() throws Exception {
-    Map<String, String> inputParams = new HashMap<String, String>();
-    inputParams.put("name", "user");
-    inputParams.put("number", "100");
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = delete(url, inputParams, false);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void deleteWithVarargsQueryParams_1_oe() throws Exception {
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = delete(url, false, "name", "user", "number", "100");
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void deleteWithEscapedMappedQueryParams_1_oe() throws Exception {
-    Map<String, String> inputParams = new HashMap<String, String>();
-    inputParams.put("name", "us er");
-    inputParams.put("number", "100");
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = delete(url, inputParams, true);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void deleteWithEscapedVarargsQueryParams_1_oe() throws Exception {
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = delete(url, true, "name", "us er", "number", "100");
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void putWithMappedQueryParams_1_oe() throws Exception {
-    Map<String, String> inputParams = new HashMap<String, String>();
-    inputParams.put("name", "user");
-    inputParams.put("number", "100");
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = put(url, inputParams, false);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void putWithEscapedMappedQueryParams_1_oe() throws Exception {
-    Map<String, String> inputParams = new HashMap<String, String>();
-    inputParams.put("name", "us er");
-    inputParams.put("number", "100");
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = put(url, inputParams, true);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void putWithEscapedVarargsQueryParams_1_oe() throws Exception {
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = put(url, true, "name", "us er", "number", "100");
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void headWithVaragsQueryParams_1_oe() throws Exception {
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = head(url, false, "name", "user", "number", "100");
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void headWithEscapedMappedQueryParams_1_oe() throws Exception {
-    Map<String, String> inputParams = new HashMap<String, String>();
-    inputParams.put("name", "us er");
-    inputParams.put("number", "100");
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = head(url, inputParams, true);
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void headWithEscapedVarargsQueryParams_1_oe() throws Exception {
-    final Map<String, String> outputParams = new HashMap<String, String>();
-    final AtomicReference<String> method = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        method.set(request.getMethod());
-        outputParams.put("name", request.getParameter("name"));
-        outputParams.put("number", request.getParameter("number"));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    HttpRequest request = head(url, true, "name", "us er", "number", "100");
-    assertTrue(request.ok());
-  }
-
-  @Test
-  public void appendMappedQueryParamsWithNoPath_1_oe() throws Exception {
-    assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com",Collections.singletonMap("a","b")));
-  }
-
-  @Test
-  public void appendVarargsQueryParmasWithNoPath_1_oe() throws Exception {
-    assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com","a","b"));
-  }
-
-  @Test
-  public void appendMappedQueryParamsWithPath_1_oe() throws Exception {
-    assertEquals("http://test.com/segment1?a=b",HttpRequest.append("http://test.com/segment1",Collections.singletonMap("a","b")));
-  }
-
-  @Test
-  public void appendMappedQueryParamsWithPath_2_oe() throws Exception {
-    // removed other assertion
-    assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com/",Collections.singletonMap("a","b")));
-  }
-
-  @Test
-  public void appendVarargsQueryParamsWithPath_1_oe() throws Exception {
-    assertEquals("http://test.com/segment1?a=b",HttpRequest.append("http://test.com/segment1","a","b"));
-  }
-
-  @Test
-  public void appendVarargsQueryParamsWithPath_2_oe() throws Exception {
-    // removed other assertion
-    assertEquals("http://test.com/?a=b",HttpRequest.append("http://test.com/","a","b"));
-  }
-
-  @Test
-  public void appendMultipleMappedQueryParams_1_oe() throws Exception {
-    Map<String, Object> params = new LinkedHashMap<String, Object>();
-    params.put("a", "b");
-    params.put("c", "d");
-    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1",params));
-  }
-
-  @Test
-  public void appendMultipleVarargsQueryParams_1_oe() throws Exception {
-    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1","a","b","c","d"));
-  }
-
-  @Test
-  public void appendNullMappedQueryParams_1_oe() throws Exception {
-    assertEquals("http://test.com/1",HttpRequest.append("http://test.com/1",(Map<?,?>)null));
-  }
-
-  @Test
-  public void appendNullVaragsQueryParams_1_oe() throws Exception {
-    assertEquals("http://test.com/1",HttpRequest.append("http://test.com/1",(Object[])null));
-  }
-
-  @Test
-  public void appendEmptyMappedQueryParams_1_oe() throws Exception {
-    assertEquals("http://test.com/1",HttpRequest.append("http://test.com/1",Collections.<String,String> emptyMap()));
-  }
-
-  @Test
-  public void appendEmptyVarargsQueryParams_1_oe() throws Exception {
-    assertEquals("http://test.com/1",HttpRequest.append("http://test.com/1",new Object[0]));
-  }
-
-  @Test
-  public void appendWithNullMappedQueryParamValues_1_oe() throws Exception {
-    Map<String, Object> params = new LinkedHashMap<String, Object>();
-    params.put("a", null);
-    params.put("b", null);
-    assertEquals("http://test.com/1?a=&b=",HttpRequest.append("http://test.com/1",params));
-  }
-
-  @Test
-  public void appendWithNullVaragsQueryParamValues_1_oe() throws Exception {
-    assertEquals("http://test.com/1?a=&b=",HttpRequest.append("http://test.com/1","a",null,"b",null));
-  }
-
-  @Test
-  public void appendMappedQueryParamsWithExistingQueryStart_1_oe() {
-    assertEquals("http://test.com/1?a=b",HttpRequest.append("http://test.com/1?",Collections.singletonMap("a","b")));
-  }
-
-  @Test
-  public void appendVarargsQueryParamsWithExistingQueryStart_1_oe() {
-    assertEquals("http://test.com/1?a=b",HttpRequest.append("http://test.com/1?","a","b"));
-  }
-
-  @Test
-  public void appendMappedQueryParamsWithExistingParams_1_oe() {
-    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b",Collections.singletonMap("c","d")));
-  }
-
-  @Test
-  public void appendMappedQueryParamsWithExistingParams_2_oe() {
-    // removed other assertion
-    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b&",Collections.singletonMap("c","d")));
-  }
-
-  @Test
-  public void appendWithVarargsQueryParamsWithExistingParams_1_oe() {
-    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b","c","d"));
-  }
-
-  @Test
-  public void appendWithVarargsQueryParamsWithExistingParams_2_oe() {
-    // removed other assertion
-    assertEquals("http://test.com/1?a=b&c=d",HttpRequest.append("http://test.com/1?a=b&","c","d"));
-  }
-
-  @Test
-  public void appendArrayQueryParams_1_oe() throws Exception {
-    assertEquals( "http://test.com/?foo[]=bar&foo[]=baz", HttpRequest.append("http://test.com", Collections.singletonMap("foo", new String[] { "bar", "baz" })));
-  }
-
-  @Test
-  public void appendArrayQueryParams_2_oe() throws Exception {
-    // removed other assertion
-    assertEquals( "http://test.com/?a[]=1&a[]=2", HttpRequest.append("http://test.com", Collections.singletonMap("a", new int[] { 1, 2 })));
-  }
-
-  @Test
-  public void appendArrayQueryParams_3_oe() throws Exception {
-    // removed other assertion
-    // removed other assertion
-    assertEquals( "http://test.com/?a[]=1", HttpRequest.append("http://test.com", Collections.singletonMap("a", new int[] { 1 })));
-  }
-
-  @Test
-  public void appendArrayQueryParams_4_oe() throws Exception {
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals( "http://test.com/?", HttpRequest.append("http://test.com", Collections.singletonMap("a", new int[] { })));
-  }
-
-  @Test
-  public void appendArrayQueryParams_5_oe() throws Exception {
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals( "http://test.com/?foo[]=bar&foo[]=baz&a[]=1&a[]=2", HttpRequest.append("http://test.com", "foo", new String[] { "bar", "baz" }, "a", new int[] { 1, 2 }));
-  }
-
-  @Test
-  public void appendListQueryParams_1_oe() throws Exception {
-    assertEquals( "http://test.com/?foo[]=bar&foo[]=baz", HttpRequest.append("http://test.com", Collections.singletonMap("foo", Arrays.asList(new String[] { "bar", "baz" }))));
-  }
-
-  @Test
-  public void appendListQueryParams_2_oe() throws Exception {
-    // removed other assertion
-    assertEquals( "http://test.com/?a[]=1&a[]=2", HttpRequest.append("http://test.com", Collections.singletonMap("a", Arrays.asList(new Integer[] { 1, 2 }))));
-  }
-
-  @Test
-  public void appendListQueryParams_3_oe() throws Exception {
-    // removed other assertion
-    // removed other assertion
-    assertEquals( "http://test.com/?a[]=1", HttpRequest.append("http://test.com", Collections.singletonMap("a", Arrays.asList(new Integer[] { 1 }))));
-  }
-
-  @Test
-  public void appendListQueryParams_4_oe() throws Exception {
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals( "http://test.com/?", HttpRequest.append("http://test.com", Collections.singletonMap("a", Arrays.asList(new Integer[] { }))));
-  }
-
-  @Test
-  public void appendListQueryParams_5_oe() throws Exception {
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    assertEquals( "http://test.com/?foo[]=bar&foo[]=baz&a[]=1&a[]=2", HttpRequest.append("http://test.com", "foo", Arrays.asList(new String[] { "bar", "baz" }), "a", Arrays.asList(new Integer[] { 1, 2 })));
-  }
-
-  @Test
-  public void serverErrorCode_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_INTERNAL_ERROR);
-      }
-    };
-    HttpRequest request = get(url);
-    assertNotNull(request);
-  }
-
-  @Test
-  public void serverErrorCode_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_INTERNAL_ERROR);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertTrue(request.serverError());
-  }
-
-  @Test
-  public void badRequestCode_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_BAD_REQUEST);
-      }
-    };
-    HttpRequest request = get(url);
-    assertNotNull(request);
-  }
-
-  @Test
-  public void badRequestCode_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_BAD_REQUEST);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertTrue(request.badRequest());
-  }
-
-  @Test
-  public void notModifiedCode_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_NOT_MODIFIED);
-      }
-    };
-    HttpRequest request = get(url);
-    assertNotNull(request);
-  }
-
-  @Test
-  public void notModifiedCode_2_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_NOT_MODIFIED);
-      }
-    };
-    HttpRequest request = get(url);
-    // removed other assertion
-    assertTrue(request.notModified());
-  }
-
-  @Test
-  public void sendReceiveWithoutCode_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        try {
-          response.getWriter().write("world");
-        } catch (IOException ignored) {
-          // Ignored
-        }
-        response.setStatus(HTTP_OK);
-      }
-    };
-
-    HttpRequest request = post(url).ignoreCloseExceptions(false);
-    assertEquals("world", request.send("hello").body());
-  }
-
-  @Test
-  public void sendHeadersWithoutCode_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setHeader("h1", "v1");
-        response.setHeader("h2", "v2");
-        response.setStatus(HTTP_OK);
-      }
-    };
-
-    HttpRequest request = post(url).ignoreCloseExceptions(false);
-    Map<String, List<String>> headers = request.send("hello").headers();
-    assertEquals("v1", headers.get("h1").get(0));
-  }
-
-  @Test
-  public void sendHeadersWithoutCode_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setHeader("h1", "v1");
-        response.setHeader("h2", "v2");
-        response.setStatus(HTTP_OK);
-      }
-    };
-
-    HttpRequest request = post(url).ignoreCloseExceptions(false);
-    Map<String, List<String>> headers = request.send("hello").headers();
-    // removed other assertion
-    assertEquals("v2", headers.get("h2").get(0));
-  }
-
-  @Test
-  public void sendHeadersWithoutCode_3_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setHeader("h1", "v1");
-        response.setHeader("h2", "v2");
-        response.setStatus(HTTP_OK);
-      }
-    };
-
-    HttpRequest request = post(url).ignoreCloseExceptions(false);
-    Map<String, List<String>> headers = request.send("hello").headers();
-    // removed other assertion
-    // removed other assertion
-    assertEquals("hello", body.get());
-  }
-
-  @Test
-  public void sendDateHeaderWithoutCode_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setDateHeader("Date", 1000);
-        response.setStatus(HTTP_OK);
-      }
-    };
-
-    HttpRequest request = post(url).ignoreCloseExceptions(false);
-    assertEquals(1000, request.send("hello").date());
-  }
-
-  @Test
-  public void sendIntHeaderWithoutCode_1_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setIntHeader("Width", 9876);
-        response.setStatus(HTTP_OK);
-      }
-    };
-
-    HttpRequest request = post(url).ignoreCloseExceptions(false);
-    assertEquals(9876, request.send("hello").intHeader("Width"));
-  }
-
-  @Test
-  public void customConnectionFactory_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-      }
-    };
-
-    ConnectionFactory factory = new ConnectionFactory() {
-
-      public HttpURLConnection create(URL otherUrl) throws IOException {
-        return (HttpURLConnection) new URL(url).openConnection();
-      }
-
-      public HttpURLConnection create(URL url, Proxy proxy) throws IOException {
-        throw new IOException();
-      }
-    };
-
-    HttpRequest.setConnectionFactory(factory);
-    int code = get("http://not/a/real/url").code();
-    assertEquals(200, code);
-  }
-
-  @Test
-  public void nullConnectionFactory_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_OK);
-      }
-    };
-
-    HttpRequest.setConnectionFactory(null);
-    int code = get(url).code();
-    assertEquals(200, code);
-  }
-
-  @Test
-  public void streamOfEmptyOkResponse_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(200);
-      }
-    };
-    assertEquals("", get(url).body());
-  }
-
-  @Test
-  public void bodyOfEmptyErrorResponse_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_BAD_REQUEST);
-      }
-    };
-    assertEquals("", get(url).body());
-  }
-
-  @Test
-  public void bodyOfNonEmptyErrorResponse_1_oe() throws Exception {
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        response.setStatus(HTTP_BAD_REQUEST);
-        try {
-          response.getWriter().write("error");
-        } catch (IOException ignored) {
-          // Ignored
-        }
-      }
-    };
-    assertEquals("error", get(url).body());
-  }
-
-  @Test
-  public void nullUploadProgress_1_oe() throws Exception {
+  public void nullUploadProgress() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
 
@@ -6268,23 +3486,6 @@ public class HttpRequestTest_OE25Dev extends ServerTestCase {
     new FileWriter(file).append("hello").close();
     int code = post(url).progress(null).send(file).code();
     assertEquals(HTTP_OK, code);
-  }
-
-  @Test
-  public void nullUploadProgress_2_oe() throws Exception {
-    final AtomicReference<String> body = new AtomicReference<String>();
-    handler = new RequestHandler() {
-
-      @Override
-      public void handle(Request request, HttpServletResponse response) {
-        body.set(new String(read()));
-        response.setStatus(HTTP_OK);
-      }
-    };
-    File file = File.createTempFile("post", ".txt");
-    new FileWriter(file).append("hello").close();
-    int code = post(url).progress(null).send(file).code();
-    // removed other assertion
     assertEquals("hello", body.get());
   }
 

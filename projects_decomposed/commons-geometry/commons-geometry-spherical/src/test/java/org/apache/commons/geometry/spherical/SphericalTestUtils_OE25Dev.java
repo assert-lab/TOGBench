@@ -64,9 +64,6 @@ public final class SphericalTestUtils_OE25Dev {
 public static void assertPointsEqual_1_oe(final Point1S expected, final Point1S actual, final double tolerance) { final String msg = "Expected point to equal " + expected + " but was " + actual + ";";
 }
 
-public static void assertPointsEqual_1_oe(final Point2S expected, final Point2S actual, final double tolerance) { final String msg = "Expected point to equal " + expected + " but was " + actual + ";";
-}
-
 public static void assertPointsEq_1_oe(final Point2S expected, final Point2S actual, final double tolerance) { final String msg = "Expected point to be equivalent to " + expected + " but was " + actual + ";";
 }
 

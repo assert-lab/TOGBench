@@ -11,7 +11,7 @@ python3 - << 'PY'
 from pathlib import Path
 import csv
 
-dataset = Path("dataset")
+dataset = Path("dataset_final")
 meta_path = dataset / "meta.csv"
 inputs_path = dataset / "inputs.csv"
 

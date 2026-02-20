@@ -1,0 +1,25 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrTokenizerTest_OE25Dev_lang_left_1903_3.java:[513,13] cannot find symbol
+  symbol: method testEmpty(org.apache.commons.lang3.text.StrTokenizer)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrTokenizerTest_OE25Dev_lang_left_1903_3.java:[514,13] cannot find symbol
+  symbol: method testEmpty(org.apache.commons.lang3.text.StrTokenizer)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrTokenizerTest_OE25Dev_lang_left_1903_3.java:[754,13] cannot find symbol
+  symbol: method testEmpty(org.apache.commons.lang3.text.StrTokenizer)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrTokenizerTest_OE25Dev_lang_left_1903_3.java:[755,13] cannot find symbol
+  symbol: method testEmpty(org.apache.commons.lang3.text.StrTokenizer)
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-lang3: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrTokenizerTest_OE25Dev_lang_left_1903_3.java:[513,13] cannot find symbol
+[ERROR]   symbol: method testEmpty(org.apache.commons.lang3.text.StrTokenizer)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrTokenizerTest_OE25Dev_lang_left_1903_3.java:[514,13] cannot find symbol
+[ERROR]   symbol: method testEmpty(org.apache.commons.lang3.text.StrTokenizer)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrTokenizerTest_OE25Dev_lang_left_1903_3.java:[754,13] cannot find symbol
+[ERROR]   symbol: method testEmpty(org.apache.commons.lang3.text.StrTokenizer)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrTokenizerTest_OE25Dev_lang_left_1903_3.java:[755,13] cannot find symbol
+[ERROR]   symbol: method testEmpty(org.apache.commons.lang3.text.StrTokenizer)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

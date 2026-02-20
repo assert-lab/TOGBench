@@ -36,7 +36,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-complex ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex
-[INFO] Storing buildNumber: 3205504c15924548e27a9939e60e263ddbfc7698 at timestamp: 1771584626620
+[INFO] Storing buildNumber: b79b4df5c8c4781d014094794185e977542df462 at timestamp: 1771587483243
 [WARNING] Cannot get the branch information from the git repository: 
 Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 
@@ -76,13 +76,13 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.complex.ComplexTest_OE25Dev
-[INFO] Tests run: 551, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.634 s - in org.apache.commons.numbers.complex.ComplexTest_OE25Dev
+[INFO] Tests run: 551, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.668 s - in org.apache.commons.numbers.complex.ComplexTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.complex.CStandardTest_OE25Dev
-[INFO] Tests run: 209, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.191 s - in org.apache.commons.numbers.complex.CStandardTest_OE25Dev
+[INFO] Tests run: 209, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.141 s - in org.apache.commons.numbers.complex.CStandardTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.complex.CReferenceTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s - in org.apache.commons.numbers.complex.CReferenceTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 s - in org.apache.commons.numbers.complex.CReferenceTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
-[INFO] Tests run: 168, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.382 s - in org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
+[INFO] Tests run: 168, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.471 s - in org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -91,6 +91,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  17.089 s
-[INFO] Finished at: 2026-02-20T04:50:40-06:00
+[INFO] Total time:  16.920 s
+[INFO] Finished at: 2026-02-20T05:38:16-06:00
 [INFO] ------------------------------------------------------------------------

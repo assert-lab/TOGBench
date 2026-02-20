@@ -5,7 +5,7 @@ python3 - << 'PY'
 from pathlib import Path
 import csv
 
-dataset = Path("dataset")
+dataset = Path("dataset_final")
 meta_path = dataset / "meta.csv"
 inputs_path = dataset / "inputs.csv"
 
@@ -134,6 +134,10 @@ fail_list = [
 "CharacterReaderTest.unconsume_17_oe",
 "CharacterReaderTest.unconsume_18_oe",
 "ParseTest.testBaidu_6_oe",
+
+"SessionIT.multiThreadWithoutNewRequestBlowsUp_2_oe",
+
+
 "ConnectTest.throwsExceptionOn404*",
 
 

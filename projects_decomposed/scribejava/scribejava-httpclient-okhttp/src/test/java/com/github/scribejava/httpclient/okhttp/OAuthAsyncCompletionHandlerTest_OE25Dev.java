@@ -68,6 +68,26 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
         future = new OkHttpFuture<>(call);
     }
 
+    @Test
+    public void shouldReleaseLatchOnSuccess() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url("http://localhost/").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message("ok")
+                .body(ResponseBody.create(new byte[0], MediaType.get("text/plain")))
+                .build();
+        handler.onResponse(call, response);
+        assertNotNull(callback.getResponse());
+        assertNull(callback.getThrowable());
+        // verify latch is released
+        assertEquals("All good", future.get());
+    }
+
     private static class AllGoodResponseConverter implements OAuthRequest.ResponseConverter<String> {
 
         @Override
@@ -93,61 +113,6 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
             response.close();
             throw new OAuthException("bad oauth");
         }
-    }
-
-    @Test
-    public void shouldReleaseLatchOnSuccess_1_oe() throws Exception {
-        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
-        call.enqueue(handler);
-
-        final Request request = new Request.Builder().url("http://localhost/").build();
-        final okhttp3.Response response = new okhttp3.Response.Builder()
-                .request(request)
-                .protocol(Protocol.HTTP_1_1)
-                .code(200)
-                .message("ok")
-                .body(ResponseBody.create(new byte[0], MediaType.get("text/plain")))
-                .build();
-        handler.onResponse(call, response);
-        assertNotNull(callback.getResponse());
-    }
-
-    @Test
-    public void shouldReleaseLatchOnSuccess_2_oe() throws Exception {
-        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
-        call.enqueue(handler);
-
-        final Request request = new Request.Builder().url("http://localhost/").build();
-        final okhttp3.Response response = new okhttp3.Response.Builder()
-                .request(request)
-                .protocol(Protocol.HTTP_1_1)
-                .code(200)
-                .message("ok")
-                .body(ResponseBody.create(new byte[0], MediaType.get("text/plain")))
-                .build();
-        handler.onResponse(call, response);
-        // removed other assertion
-        assertNull(callback.getThrowable());
-    }
-
-    @Test
-    public void shouldReleaseLatchOnSuccess_3_oe() throws Exception {
-        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
-        call.enqueue(handler);
-
-        final Request request = new Request.Builder().url("http://localhost/").build();
-        final okhttp3.Response response = new okhttp3.Response.Builder()
-                .request(request)
-                .protocol(Protocol.HTTP_1_1)
-                .code(200)
-                .message("ok")
-                .body(ResponseBody.create(new byte[0], MediaType.get("text/plain")))
-                .build();
-        handler.onResponse(call, response);
-        // removed other assertion
-        // removed other assertion
-        // verify latch is released
-        assertEquals("All good", future.get());
     }
 
     @Test
@@ -227,60 +192,6 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
     fail("ExecutionException");
 } catch (ExecutionException e) {
 }
-    }
-
-    @Test
-    public void shouldReportOAuthException_1_oe() {
-        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER, future);
-        call.enqueue(handler);
-
-        final Request request = new Request.Builder().url("http://localhost/").build();
-        final okhttp3.Response response = new okhttp3.Response.Builder()
-                .request(request)
-                .protocol(Protocol.HTTP_1_1)
-                .code(200)
-                .message("ok")
-                .body(ResponseBody.create(new byte[0], MediaType.get("text/plain")))
-                .build();
-        handler.onResponse(call, response);
-        assertNull(callback.getResponse());
-    }
-
-    @Test
-    public void shouldReportOAuthException_2_oe() {
-        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER, future);
-        call.enqueue(handler);
-
-        final Request request = new Request.Builder().url("http://localhost/").build();
-        final okhttp3.Response response = new okhttp3.Response.Builder()
-                .request(request)
-                .protocol(Protocol.HTTP_1_1)
-                .code(200)
-                .message("ok")
-                .body(ResponseBody.create(new byte[0], MediaType.get("text/plain")))
-                .build();
-        handler.onResponse(call, response);
-        // removed other assertion
-        assertNotNull(callback.getThrowable());
-    }
-
-    @Test
-    public void shouldReportOAuthException_3_oe() {
-        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER, future);
-        call.enqueue(handler);
-
-        final Request request = new Request.Builder().url("http://localhost/").build();
-        final okhttp3.Response response = new okhttp3.Response.Builder()
-                .request(request)
-                .protocol(Protocol.HTTP_1_1)
-                .code(200)
-                .message("ok")
-                .body(ResponseBody.create(new byte[0], MediaType.get("text/plain")))
-                .build();
-        handler.onResponse(call, response);
-        // removed other assertion
-        // removed other assertion
-        assertTrue(callback.getThrowable() instanceof OAuthException);
     }
 
     @Test

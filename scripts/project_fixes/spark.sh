@@ -6,8 +6,8 @@ from pathlib import Path
 import csv
 
 dataset = Path("dataset_final")
-meta_path = dataset / "meta_final.csv"
-inputs_path = dataset / "inputs_final.csv"
+meta_path = dataset / "meta.csv"
+inputs_path = dataset / "inputs.csv"
 
 fail_list = [
 "StaticFilesFromArchiveTest.*",
@@ -16,6 +16,7 @@ fail_list = [
 "SessionTest.*",
 "ResponseTest.*",
 "WebSocketServletContextHandlerFactoryTest.*",
+"ServletTest.*",
 ]
 
 patterns = []

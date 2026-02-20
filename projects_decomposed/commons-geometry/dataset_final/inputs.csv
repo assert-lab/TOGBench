@@ -142287,9 +142287,6 @@ geom_left_382_1,"@Test
 geom_left_399_1,"public static void assertPointsEqual_1_oe(final Point1S expected, final Point1S actual, final double tolerance) { final String msg = ""Expected point to equal "" + expected + "" but was "" + actual + "";"";
 }
 ",SphericalTestUtils::assertPointsEqual_1_oe
-geom_left_400_1,"public static void assertPointsEqual_1_oe(final Point2S expected, final Point2S actual, final double tolerance) { final String msg = ""Expected point to equal "" + expected + "" but was "" + actual + "";"";
-}
-",SphericalTestUtils::assertPointsEqual_1_oe
 geom_left_401_1,"public static void assertPointsEq_1_oe(final Point2S expected, final Point2S actual, final double tolerance) { final String msg = ""Expected point to be equivalent to "" + expected + "" but was "" + actual + "";"";
 }
 ",SphericalTestUtils::assertPointsEq_1_oe
@@ -142947,9 +142944,6 @@ geom_left_774_1,"public static void assertNegativeInfinity_1_oe(final double val
 }
 ",GeometryTestUtils::assertNegativeInfinity_1_oe
 geom_left_775_1,"public static <T extends Throwable> void assertThrowsWithMessage_1_oe(final Executable executable, final Class<T> exceptionType, final String message) { Assertions.assertEquals(message, Assertions.assertThrows(exceptionType, executable).getMessage());
-}
-",GeometryTestUtils::assertThrowsWithMessage_1_oe
-geom_left_776_1,"public static <T extends Throwable> void assertThrowsWithMessage_1_oe(final Executable executable, final Class<T> exceptionType, final Pattern pattern) { final String message = Assertions.assertThrows(exceptionType, executable).getMessage();
 }
 ",GeometryTestUtils::assertThrowsWithMessage_1_oe
 geom_left_777_1,"public static void assertContains_1_oe(final String substr, final String actual) { final String msg = ""Expected string to contain ["" + substr + ""] but was ["" + actual + ""]"";
@@ -146494,12 +146488,6 @@ geom_left_1046_1,"public static <P extends Point<P>, N extends BSPTree.Node<P, N
 geom_left_1048_1,"public static void assertCoordinatesEqual_1_oe(final Vector1D expected, final Vector1D actual, final double tolerance) { final String msg = ""Expected coordinates to equal "" + expected + "" but was "" + actual + "";"";
 }
 ",EuclideanTestUtils::assertCoordinatesEqual_1_oe
-geom_left_1049_1,"public static void assertCoordinatesEqual_1_oe(final Vector2D expected, final Vector2D actual, final double tolerance) { final String msg = ""Expected coordinates to equal "" + expected + "" but was "" + actual + "";"";
-}
-",EuclideanTestUtils::assertCoordinatesEqual_1_oe
-geom_left_1050_1,"public static void assertCoordinatesEqual_1_oe(final Vector3D expected, final Vector3D actual, final double tolerance) { final String msg = ""Expected coordinates to equal "" + expected + "" but was "" + actual + "";"";
-}
-",EuclideanTestUtils::assertCoordinatesEqual_1_oe
 geom_left_1051_1,"public static void assertPositiveInfinity_1_oe(final double value) { final String msg = ""Expected value to be positive infinity but was "" + value;
 }
 ",EuclideanTestUtils::assertPositiveInfinity_1_oe
@@ -146510,26 +146498,6 @@ geom_left_1053_1,"public static void assertNegativeInfinity_1_oe(final double va
 }
 ",EuclideanTestUtils::assertNegativeInfinity_1_oe
 geom_left_1054_1,"public static void assertRegionLocation_1_oe(final Region<Vector1D> region, final RegionLocation loc, final Vector1D... pts) { for (final Vector1D pt : pts) { Assertions.assertEquals(loc, region.classify(pt), ""Unexpected region location for point "" + pt);
-}
-}
-",EuclideanTestUtils::assertRegionLocation_1_oe
-geom_left_1055_1,"public static void assertRegionLocation_1_oe(final Region<Vector2D> region, final RegionLocation loc, final Vector2D... pts) { for (final Vector2D pt : pts) { Assertions.assertEquals(loc, region.classify(pt), ""Unexpected region location for point "" + pt);
-}
-}
-",EuclideanTestUtils::assertRegionLocation_1_oe
-geom_left_1056_1,"public static void assertRegionLocation_1_oe(final Region<Vector3D> region, final RegionLocation loc, final Vector3D... pts) { for (final Vector3D pt : pts) { Assertions.assertEquals(loc, region.classify(pt), ""Unexpected region location for point "" + pt);
-}
-}
-",EuclideanTestUtils::assertRegionLocation_1_oe
-geom_left_1057_1,"public static void assertRegionLocation_1_oe(final HyperplaneSubset<Vector1D> sub, final RegionLocation loc, final Vector1D... pts) { for (final Vector1D pt : pts) { Assertions.assertEquals(loc, sub.classify(pt), ""Unexpected region location for point "" + pt);
-}
-}
-",EuclideanTestUtils::assertRegionLocation_1_oe
-geom_left_1058_1,"public static void assertRegionLocation_1_oe(final HyperplaneSubset<Vector2D> sub, final RegionLocation loc, final Vector2D... pts) { for (final Vector2D pt : pts) { Assertions.assertEquals(loc, sub.classify(pt), ""Unexpected region location for point "" + pt);
-}
-}
-",EuclideanTestUtils::assertRegionLocation_1_oe
-geom_left_1059_1,"public static void assertRegionLocation_1_oe(final HyperplaneSubset<Vector3D> sub, final RegionLocation loc, final Vector3D... pts) { for (final Vector3D pt : pts) { Assertions.assertEquals(loc, sub.classify(pt), ""Unexpected region location for point "" + pt);
 }
 }
 ",EuclideanTestUtils::assertRegionLocation_1_oe

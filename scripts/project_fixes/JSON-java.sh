@@ -24,6 +24,8 @@ fail_list = [
 "JSONObjectTest.testSingletonEnumBean_8_oe",
 "JSONObjectTest.testSingletonBean_8_oe",
 "JSONObjectTest.testSingletonEnumBean_8_oe",
+"JSONObjectTest.testSingletonBean_7_oe",
+"JSONObjectTest.testSingletonEnumBean_7_oe",
 ]
 
 pairs = set()

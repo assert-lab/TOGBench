@@ -225,12 +225,6 @@ public final class EuclideanTestUtils_OE25Dev {
 public static void assertCoordinatesEqual_1_oe(final Vector1D expected, final Vector1D actual, final double tolerance) { final String msg = "Expected coordinates to equal " + expected + " but was " + actual + ";";
 }
 
-public static void assertCoordinatesEqual_1_oe(final Vector2D expected, final Vector2D actual, final double tolerance) { final String msg = "Expected coordinates to equal " + expected + " but was " + actual + ";";
-}
-
-public static void assertCoordinatesEqual_1_oe(final Vector3D expected, final Vector3D actual, final double tolerance) { final String msg = "Expected coordinates to equal " + expected + " but was " + actual + ";";
-}
-
 public static void assertPositiveInfinity_1_oe(final double value) { final String msg = "Expected value to be positive infinity but was " + value;
 }
 
@@ -241,26 +235,6 @@ public static void assertNegativeInfinity_1_oe(final double value) { final Strin
 }
 
 public static void assertRegionLocation_1_oe(final Region<Vector1D> region, final RegionLocation loc, final Vector1D... pts) { for (final Vector1D pt : pts) { Assertions.assertEquals(loc, region.classify(pt), "Unexpected region location for point " + pt);
-}
-}
-
-public static void assertRegionLocation_1_oe(final Region<Vector2D> region, final RegionLocation loc, final Vector2D... pts) { for (final Vector2D pt : pts) { Assertions.assertEquals(loc, region.classify(pt), "Unexpected region location for point " + pt);
-}
-}
-
-public static void assertRegionLocation_1_oe(final Region<Vector3D> region, final RegionLocation loc, final Vector3D... pts) { for (final Vector3D pt : pts) { Assertions.assertEquals(loc, region.classify(pt), "Unexpected region location for point " + pt);
-}
-}
-
-public static void assertRegionLocation_1_oe(final HyperplaneSubset<Vector1D> sub, final RegionLocation loc, final Vector1D... pts) { for (final Vector1D pt : pts) { Assertions.assertEquals(loc, sub.classify(pt), "Unexpected region location for point " + pt);
-}
-}
-
-public static void assertRegionLocation_1_oe(final HyperplaneSubset<Vector2D> sub, final RegionLocation loc, final Vector2D... pts) { for (final Vector2D pt : pts) { Assertions.assertEquals(loc, sub.classify(pt), "Unexpected region location for point " + pt);
-}
-}
-
-public static void assertRegionLocation_1_oe(final HyperplaneSubset<Vector3D> sub, final RegionLocation loc, final Vector3D... pts) { for (final Vector3D pt : pts) { Assertions.assertEquals(loc, sub.classify(pt), "Unexpected region location for point " + pt);
 }
 }
 

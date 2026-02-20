@@ -5,9 +5,9 @@ python3 - << 'PY'
 from pathlib import Path
 import csv
 
-dataset = Path("dataset_checked_ids")
-meta_path = dataset / "meta_dedup.csv"
-inputs_path = dataset / "inputs_dedup.csv"
+dataset = Path("dataset_final")
+meta_path = dataset / "meta.csv"
+inputs_path = dataset / "inputs.csv"
 
 fail_list = [
 

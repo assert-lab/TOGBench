@@ -6,8 +6,8 @@ from pathlib import Path
 import csv
 
 dataset = Path("dataset_final")
-meta_path = dataset / "meta_final.csv"
-inputs_path = dataset / "inputs_final.csv"
+meta_path = dataset / "meta.csv"
+inputs_path = dataset / "inputs.csv"
 
 fail_list = [
 "SystemPropertyUnitTest.test1SystemPropertyInValueDelimiter_1_oe",
@@ -193,7 +193,24 @@ fail_list = [
 "HSQLDiskCacheUnitTest.testBasicPutRemove_2_oe",
 "MySQLDiskCacheHsqlBackedUnitTest.testPutGetMatchingWithHSQL_1_oe",
 "HSQLDiskCacheUnitTest.testBasicPutRemove_3_oe",
-
+"CacheTest.getPut_1_oe",
+"CacheTest.getPut_2_oe",
+"CacheTest.getPut_3_oe",
+"CacheTest.getPut_4_oe",
+"CacheTest.listeners_1_oe",
+"CacheTest.listeners_2_oe",
+"CacheTest.listeners_3_oe",
+"CacheTest.listeners_4_oe",
+"CacheTest.listeners_5_oe",
+"CacheTest.listeners_6_oe",
+"CacheTest.loader_1_oe",
+"ExpiryListenerTest.listener_1_oe",
+"ExpiryListenerTest.listener_2_oe",
+"ImmediateExpiryTest.immediate_2_oe",
+"NotSerializableTest.run_1_oe",
+"NotSerializableTest.run_2_oe",
+"NotSerializableTest.run_3_oe",
+"NotSerializableTest.run_4_oe",
 
 "UDPDiscoverySenderUnitTest.*",
 

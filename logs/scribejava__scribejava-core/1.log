@@ -35,72 +35,56 @@
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ scribejava-core ---
 [INFO] Changes detected - recompiling the module!
 [INFO] Compiling 44 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/target/test-classes
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenExtractorTest_OE25Dev.java:[175,17] method shouldExtractTokenFromOAuthStandardResponse_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenExtractorTest_OE25Dev.java:[186,17] method shouldExtractTokenFromResponseWithExpiresParam_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenExtractorTest_OE25Dev.java:[197,17] method shouldExtractTokenFromResponseWithExpiresParam_2_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenExtractorTest_OE25Dev.java:[209,17] method shouldExtractTokenFromResponseWithExpiresAndRefreshParam_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenExtractorTest_OE25Dev.java:[220,17] method shouldExtractTokenFromResponseWithExpiresAndRefreshParam_2_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenExtractorTest_OE25Dev.java:[232,17] method shouldExtractTokenFromResponseWithExpiresAndRefreshParam_3_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenExtractorTest_OE25Dev.java:[245,17] method shouldExtractTokenFromResponseWithExpiresAndRefreshParam_4_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenExtractorTest_OE25Dev.java:[259,17] method shouldExtractTokenFromResponseWithManyParameters_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[246,17] method shouldParseResponse_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[257,17] method shouldParseScopeFromResponse_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[269,17] method shouldParseScopeFromResponse_2_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[282,17] method shouldParseScopeFromResponse_3_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[304,17] method shouldParseScopeFromResponse_4_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[327,17] method shouldParseScopeFromResponse_5_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[360,17] method shouldParseScopeFromResponse_6_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[394,17] method shouldParseScopeFromResponse_7_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[440,17] method testEscapedJsonInResponse_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth1AccessTokenExtractorTest_OE25Dev.java:[163,17] method shouldExtractTokenFromOAuthStandardResponse_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth1AccessTokenExtractorTest_OE25Dev.java:[173,17] method shouldExtractTokenFromOAuthStandardResponse_2_oe() is already defined in class com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth1AccessTokenExtractorTest_OE25Dev.java:[184,17] method shouldExtractTokenFromInvertedOAuthStandardResponse_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth1AccessTokenExtractorTest_OE25Dev.java:[194,17] method shouldExtractTokenFromInvertedOAuthStandardResponse_2_oe() is already defined in class com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth1AccessTokenExtractorTest_OE25Dev.java:[205,17] method shouldExtractTokenFromResponseWithCallbackConfirmed_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth1AccessTokenExtractorTest_OE25Dev.java:[216,17] method shouldExtractTokenFromResponseWithCallbackConfirmed_2_oe() is already defined in class com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth1AccessTokenExtractorTest_OE25Dev.java:[228,17] method shouldExtractTokenWithEmptySecret_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth1AccessTokenExtractorTest_OE25Dev.java:[238,17] method shouldExtractTokenWithEmptySecret_2_oe() is already defined in class com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[INFO] 25 errors 
-[INFO] -------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ scribejava-core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.github.scribejava.core.utils.OAuthEncoderTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.122 s - in com.github.scribejava.core.utils.OAuthEncoderTest_OE25Dev
+[INFO] Running com.github.scribejava.core.utils.StreamUtilsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.utils.StreamUtilsTest_OE25Dev
+[INFO] Running com.github.scribejava.core.pkce.PKCECodeChallengeMethodTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in com.github.scribejava.core.pkce.PKCECodeChallengeMethodTest_OE25Dev
+[INFO] Running com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
+[INFO] Running com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev
+[INFO] Running com.github.scribejava.core.extractors.BaseStringExtractorTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in com.github.scribejava.core.extractors.BaseStringExtractorTest_OE25Dev
+[INFO] Running com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.262 s - in com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
+[INFO] Running com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
+[INFO] Running com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
+[INFO] Running com.github.scribejava.core.oauth.OAuth20ServiceTest_OE25Dev
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in com.github.scribejava.core.oauth.OAuth20ServiceTest_OE25Dev
+[INFO] Running com.github.scribejava.core.model.TokenTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.model.TokenTest_OE25Dev
+[INFO] Running com.github.scribejava.core.model.ParameterListTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.model.ParameterListTest_OE25Dev
+[INFO] Running com.github.scribejava.core.model.OAuthRequestTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.model.OAuthRequestTest_OE25Dev
+[INFO] Running com.github.scribejava.core.model.RequestTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in com.github.scribejava.core.model.RequestTest_OE25Dev
+[INFO] Running com.github.scribejava.core.base64.Base64Test_OE25Dev
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 s - in com.github.scribejava.core.base64.Base64Test_OE25Dev
+[INFO] Running com.github.scribejava.core.services.RSASha1SignatureServiceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in com.github.scribejava.core.services.RSASha1SignatureServiceTest_OE25Dev
+[INFO] Running com.github.scribejava.core.services.HMACSha1SignatureServiceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 s - in com.github.scribejava.core.services.HMACSha1SignatureServiceTest_OE25Dev
+[INFO] Running com.github.scribejava.core.services.TimestampServiceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.services.TimestampServiceTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 190, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.441 s
-[INFO] Finished at: 2026-02-20T04:50:51-06:00
+[INFO] Total time:  11.142 s
+[INFO] Finished at: 2026-02-20T05:38:27-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project scribejava-core: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenExtractorTest_OE25Dev.java:[175,17] method shouldExtractTokenFromOAuthStandardResponse_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenExtractorTest_OE25Dev.java:[186,17] method shouldExtractTokenFromResponseWithExpiresParam_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenExtractorTest_OE25Dev.java:[197,17] method shouldExtractTokenFromResponseWithExpiresParam_2_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenExtractorTest_OE25Dev.java:[209,17] method shouldExtractTokenFromResponseWithExpiresAndRefreshParam_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenExtractorTest_OE25Dev.java:[220,17] method shouldExtractTokenFromResponseWithExpiresAndRefreshParam_2_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenExtractorTest_OE25Dev.java:[232,17] method shouldExtractTokenFromResponseWithExpiresAndRefreshParam_3_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenExtractorTest_OE25Dev.java:[245,17] method shouldExtractTokenFromResponseWithExpiresAndRefreshParam_4_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenExtractorTest_OE25Dev.java:[259,17] method shouldExtractTokenFromResponseWithManyParameters_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[246,17] method shouldParseResponse_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[257,17] method shouldParseScopeFromResponse_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[269,17] method shouldParseScopeFromResponse_2_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[282,17] method shouldParseScopeFromResponse_3_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[304,17] method shouldParseScopeFromResponse_4_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[327,17] method shouldParseScopeFromResponse_5_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[360,17] method shouldParseScopeFromResponse_6_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[394,17] method shouldParseScopeFromResponse_7_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth2AccessTokenJsonExtractorTest_OE25Dev.java:[440,17] method testEscapedJsonInResponse_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth1AccessTokenExtractorTest_OE25Dev.java:[163,17] method shouldExtractTokenFromOAuthStandardResponse_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth1AccessTokenExtractorTest_OE25Dev.java:[173,17] method shouldExtractTokenFromOAuthStandardResponse_2_oe() is already defined in class com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth1AccessTokenExtractorTest_OE25Dev.java:[184,17] method shouldExtractTokenFromInvertedOAuthStandardResponse_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth1AccessTokenExtractorTest_OE25Dev.java:[194,17] method shouldExtractTokenFromInvertedOAuthStandardResponse_2_oe() is already defined in class com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth1AccessTokenExtractorTest_OE25Dev.java:[205,17] method shouldExtractTokenFromResponseWithCallbackConfirmed_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth1AccessTokenExtractorTest_OE25Dev.java:[216,17] method shouldExtractTokenFromResponseWithCallbackConfirmed_2_oe() is already defined in class com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth1AccessTokenExtractorTest_OE25Dev.java:[228,17] method shouldExtractTokenWithEmptySecret_1_oe() is already defined in class com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/extractors/OAuth1AccessTokenExtractorTest_OE25Dev.java:[238,17] method shouldExtractTokenWithEmptySecret_2_oe() is already defined in class com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

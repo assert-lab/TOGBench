@@ -115,7 +115,7 @@ find projects_decomposed -type f -name "*_OE25Dev*.java" -delete
 # ./scripts/project_fixes/commons-numbers.sh
 ./scripts/project_fixes/commons-pool2.sh
 ./scripts/project_fixes/joda-time.sh
-# ./scripts/project_fixes/jsoup.sh
+./scripts/project_fixes/jsoup.sh
 ./scripts/project_fixes/JSON-java.sh
 ./scripts/project_fixes/commons-net.sh
 # ./scripts/project_fixes/http-request.sh
@@ -127,7 +127,7 @@ find projects_decomposed -type f -name "*_OE25Dev*.java" -delete
 ./scripts/project_fixes/spark.sh
 # ./scripts/project_fixes/springside4.sh
 
-
+python3 scripts/dedup_dataset_final.py
 # first run to keep all logs - error and running
 # python3 scripts/3_rebuild_tests.py
 python3 scripts/3_rebuild_decomposed.py
